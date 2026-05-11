@@ -192,6 +192,55 @@ Output: `submissions/10_expanded_multitask.csv`
 
 ---
 
+### 11 — Stacked Meta-Learner Ensemble
+Trains a RidgeCV meta-learner on OOF predictions from LGBM_base, LGBM_aug (+null feature +upsampling), and kNN (k=20 Tanimoto). Stacking lets the meta-learner learn which model to trust per region of chemical space.
+
+| Component | OOF RAE |
+|---|---|
+| LGBM_base | ~0.575 |
+| LGBM_aug | 0.5582 |
+| kNN (k=20) | 0.740 (CV underestimate) |
+| RidgeCV meta-learner | — (nested scaffold CV) |
+
+Final blend: meta-learner + Chemprop via inverse-RAE weights. Saves OOF arrays for use in nb 12.
+
+Output: `submissions/11_stacked_ensemble.csv`
+
+---
+
+### 12 — Per-Compound Adaptive Blending
+Global blend weights ignore test-set heterogeneity. This notebook assigns per-compound weights via a sigmoid function of top-1 Tanimoto similarity to training:
+
+| Similarity range | Strategy |
+|---|---|
+| sim > 0.6 (close analogs) | upweight kNN |
+| 0.4–0.6 (medium) | LGBM dominant |
+| sim < 0.4 (scaffold hops) | upweight Chemprop |
+
+Loads saved predictions from notebooks 05, 09, 10, 11. Optionally modulates by test difficulty score from nb 01.
+
+Output: `submissions/12_adaptive_blend.csv`
+
+---
+
+### 13 — ChemBERTa-2 Pretrained Embeddings
+Frozen CLS-token embeddings (768-dim) from `seyonec/ChemBERTa-zinc-base-v1` (pretrained on 77M ZINC SMILES), concatenated with Morgan FP (2,048-dim) as LGBM features. No fine-tuning — avoids overfitting on 3,781 training examples.
+
+Embeddings are cached to `data/processed/chemberta_{train,test}_emb.npy`.
+
+Output: `submissions/13_chemberta.csv`
+
+---
+
+### 14 — MolFormer-XL Pretrained Embeddings
+Same frozen-embedding strategy as nb 13, but using `ibm/MolFormer-XL-both-10pct` — a linear-attention transformer pretrained on 1.1 billion ZINC + PubChem SMILES (~14× larger pretraining corpus than ChemBERTa). Directly comparable to nb 13.
+
+Embeddings are cached to `data/processed/molformer_{train,test}_emb.npy`.
+
+Output: `submissions/14_molformer.csv`
+
+---
+
 ## Key Numbers
 
 | Fact | Value |

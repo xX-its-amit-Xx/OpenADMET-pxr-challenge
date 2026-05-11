@@ -1,6 +1,6 @@
-# Notebook 11 — Brainstorm
+# Notebooks 11–14 — Design Decisions & Paths Forward
 
-Ideas for the next modelling step. Captured 2026-05-10 after notebooks 01–10.
+Ideas captured 2026-05-10 after notebooks 01–10. All three paths have been implemented as notebooks 11–14.
 
 ---
 
@@ -17,80 +17,68 @@ Phase 1 closes **2026-05-25** (15 days). Phase 2 starts with ~250 new labels fro
 
 ---
 
-## Path A — Stacked meta-learner *(recommended for nb 11)*
+## Path A — Stacked meta-learner → **Notebook 11**
 
-**What**: Collect OOF predictions from every model (LGBM_aug, LGBM_pipeline, Chemprop-08, Chemprop-10, kNN, MMP delta) as a feature matrix. Train a shallow meta-learner — ridge regression or a small LGBM — on those OOF columns to predict true pEC50.
+**What**: Collect OOF predictions from every model (LGBM_base, LGBM_aug, kNN) as a feature matrix. Train a RidgeCV meta-learner on those OOF columns to predict true pEC50. Optionally include LGBM_pipeline (nb 09) if its OOF array is available.
 
-**Why**: Each model has different blind spots. LGBM is good globally; kNN is good for close analogs (test has many); Chemprop captures scaffold-level patterns. A meta-learner can learn which model to trust per region of chemical space. Classical stacking consistently beats any single model or fixed-weight blend in competition settings.
+**Why**: Each model has different blind spots. LGBM is good globally; kNN is good for close analogs; Chemprop captures scaffold-level patterns. A meta-learner can learn which model to trust per region of chemical space. Classical stacking consistently beats fixed-weight blends.
 
-**Implementation sketch**:
-```python
-# shape: (n_train, n_models)
-oof_matrix = np.column_stack([oof_lgbm, oof_lgbm_pipe, oof_chemprop08,
-                               oof_chemprop10, oof_knn, oof_mmp_delta])
-meta = RidgeCV(alphas=np.logspace(-3, 3, 50))
-meta.fit(oof_matrix, y_train)
-# test: average model test preds then stack
-test_matrix = np.column_stack([lgbm_te, lgbm_pipe_te, cp08_te, cp10_te, knn_te, mmp_te])
-final = meta.predict(test_matrix)
-```
+**Implementation**: `RidgeCV(alphas=np.logspace(-3, 3, 100))` trained on OOF matrix; honest estimate via nested scaffold CV. Final Chemprop blend via inverse-RAE weighting.
 
-**Risk**: Meta-training set is small (3,781 rows after SE filter). Use strong regularisation and nested scaffold CV to validate.
+**Risk**: Small meta-training set (3,781–4,139 rows). Strong regularisation (RidgeCV) mitigates this.
 
-**Effort**: 1–2 days.
+**Status**: Implemented in `notebooks/11_stacked_ensemble.ipynb`.
 
 ---
 
-## Path B — Per-compound adaptive blending via similarity
+## Path B — Per-compound adaptive blending → **Notebook 12**
 
-**What**: Instead of a global blend weight (50% Chemprop / 50% LGBM), compute a per-test-compound blend weight from top-1 Tanimoto similarity to training. When sim > 0.6 → upweight kNN and MMP. When sim < 0.4 (scaffold hop) → trust Chemprop more. Secondary signal: test difficulty score from notebook 01.
+**What**: Instead of a global blend weight, compute per-test-compound weights from top-1 Tanimoto similarity. When sim > 0.6 → upweight kNN. When sim < 0.4 (scaffold hop) → upweight Chemprop. LGBM gets the remainder, clipped to [0.15, 0.65].
 
-**Why**: The test set is deliberately heterogeneous. 330/513 compounds have a close training neighbor (sim > 0.5); ~183 don't. A global weight treats them identically. The test difficulty parquet already has all the signals needed.
+**Why**: The test set is deliberately heterogeneous. 330/513 compounds have sim > 0.5; ~183 don't. A global weight treats them identically. Sigmoid transitions are smooth and differentiable.
 
-**Implementation sketch**:
-```python
-sim = top1_tanimoto  # shape (513,)
-# Sigmoid transition centred at 0.5
-w_knn = 0.4 / (1 + np.exp(-10 * (sim - 0.5)))   # 0 → 0, 1 → 0.4
-w_cp  = 0.5 * (1 - sim / sim.max())               # lower sim → more Chemprop
-final = w_knn * knn_te + w_cp * cp_te + (1 - w_knn - w_cp) * lgbm_te
-```
+**Implementation**: sigmoid weights, re-normalised to sum to 1 per compound. Optionally modulated by test difficulty score from nb 01.
 
-**Risk**: Transition hyperparameters (centre, steepness) can only be tuned on training CV, which may not transfer to test. Risk of overtuning.
+**Risk**: Transition hyperparameters (centre=0.55, slope=12) can only be tuned on training CV, which may not transfer. Bug in original walrus-operator expression fixed before running.
 
-**Effort**: 1 day. Can be combined with Path A (use similarity as a meta-feature).
+**Status**: Implemented in `notebooks/12_adaptive_blend.ipynb`.
 
 ---
 
-## Path C — Pretrained molecular foundation model embeddings
+## Path C — Pretrained molecular transformer embeddings → **Notebooks 13 & 14**
 
-**What**: Replace Morgan + RDKit features with embeddings from a pretrained transformer. Options:
-- **ChemBERTa-2** (seyonec/ChemBERTa-zinc-base-v1, 77M params) — SMILES-level BERT, easy via `transformers`
-- **GROVER** (self-supervised on 10M drug-like molecules, graph-level) — stronger for scaffold generalisation
-- **MolBERT** — pre-trained on 1.6B SMILES
+**What**: Replace Morgan + RDKit features with embeddings from pretrained transformers. Two models compared:
 
-Fine-tune only the top layer or last 2 layers; freeze backbone. Or use frozen embeddings as LGBM features.
+| Notebook | Model | Pretraining corpus | Embedding dim |
+|---|---|---|---|
+| 13 | ChemBERTa-2 (`seyonec/ChemBERTa-zinc-base-v1`) | 77M ZINC SMILES | 768 |
+| 14 | MolFormer-XL (`ibm/MolFormer-XL-both-10pct`) | 1.1B ZINC + PubChem SMILES | 768 |
 
-**Why**: These models have seen orders of magnitude more chemical space than our 3,781 training compounds. The pretrained representations may encode structural nuance (H-bond geometry, ring strain, matched-pair relationships) that ECFP4 and RDKit descriptors miss.
+Both use frozen CLS-token embeddings (no fine-tuning) concatenated with Morgan FP as LGBM features. Fine-tuning on 3,781 examples would likely overfit on CPU.
 
-**Risk**: Pretrained on generic drug-like diversity, not nuclear receptor binding. Fine-tuning on 3,781 examples risks overfitting. CPU-only makes fine-tuning slow (~hours per epoch for ChemBERTa). High-variance option: could move the needle by 0.05+ or do nothing.
+**Why**: These models have seen orders of magnitude more chemical space than our training set. The pretrained representations may encode structural nuance that ECFP4 and RDKit descriptors miss.
 
-**Effort**: 3–5 days.
+**Risk**: Pretrained on generic drug-like diversity, not nuclear receptor binding. High-variance option — could move the needle by 0.05+ or do nothing.
 
-**Best for**: Phase 2 (after Analog Set 1 unblinding), when there are more labelled examples to fine-tune on and the model can be validated against newly revealed labels.
+**Status**: Implemented in `notebooks/13_chemberta.ipynb` and `notebooks/14_molformer.ipynb`.
 
 ---
 
-## Other ideas (lower priority)
+## Next paths forward (after notebooks 11–14 results)
 
-### Rank ensemble
-Convert each model's predictions to percentile ranks, average, convert back. More robust to systematic per-model biases (e.g. Chemprop overestimates high-activity compounds). Half a day.
+These are candidate directions for notebooks 15+, to be evaluated once results from 11–14 are available.
 
-### Multi-cut MMP
-Notebook 04 used single-cut fragmentation. Adding double-cut (two R-groups) would expand transform coverage from 66% to ~80% of test compounds. Moderate effort.
+### D — Grand ensemble of all OOF predictions
+Pool OOF arrays from notebooks 07, 09, 11, 13, 14 (+ Chemprop) into a single RidgeCV or ElasticNet meta-learner. If pretrained embeddings help even marginally, combining them with structural models may give further gains. ~0.5 day.
 
-### Bayesian / MC-Dropout uncertainty
-Use MC Dropout on Chemprop to get per-compound predictive uncertainty. Use uncertainty as a weight: high uncertainty → trust kNN more. Aligns with adaptive blending (Path B) and is a natural extension of the existing Chemprop model.
+### E — Phase 2 fast-refit pipeline
+Design a single script that takes ~250 newly unblinded labels from Analog Set 1 (2026-05-26), appends to training data, reruns the best pipeline end-to-end within 2–3 hours, and produces a new submission. Freeze hyperparameters — only refit. Critical for Phase 2 competitiveness.
 
-### Phase 2 fast-refit pipeline
-Design a script that takes the 250 newly unblinded labels on 2026-05-26, retrains all models within 2–3 hours, and produces an updated submission. Key: keep all hyperparameters frozen, only refit with new data appended.
+### F — MolFormer / ChemBERTa fine-tuning with LoRA
+After Phase 2 data arrives (~250 new labels → ~4,000 total), fine-tune the last 2 transformer layers using LoRA (low-rank adapters) to reduce parameters. Scaffold holdout on the Phase 2 set for validation. High compute cost on CPU; worth running overnight or switching to GPU index.
+
+### G — Matched molecular pair delta-learning with transformer features
+Use MMP deltas (|ΔpEC50|) from notebook 04 as a secondary supervision signal. Transformer embeddings of the core scaffold and the two R-groups could be combined with the MMP delta label to train a specialised cliff-predictor head. Combine with base model via blending.
+
+### H — Rank ensemble for systematic bias correction
+Convert all models' predictions to percentile ranks, average, convert back. More robust to per-model systematic biases (Chemprop over-predicts high-activity compounds). Half a day; easy win if bias diagnostics show skew.
