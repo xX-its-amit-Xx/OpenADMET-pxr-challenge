@@ -1,26 +1,224 @@
-# OpenADMET PXR Challenge
+# OpenADMET PXR Blind Challenge — Activity Track
 
-Submission repository for the [OpenADMET PXR Blind Challenge](https://openadmet.org) — activity prediction track (pEC50 regression on 513 test compounds).
+**Team:** Amit Shenoy (Northeastern University)
+**Track:** Activity prediction — pEC50 regression on 513 PXR analogs
+**Primary metric:** RAE (Relative Absolute Error); lower is better; mean predictor = ~1.0
 
-**Primary metric**: RAE (Relative Absolute Error). RAE < 1.0 beats the mean predictor; lower is better.
+Submission for the [OpenADMET PXR Blind Challenge](https://huggingface.co/spaces/openadmet/pxr-challenge). Full details and data: [`openadmet/pxr-challenge-train-test`](https://huggingface.co/datasets/openadmet/pxr-challenge-train-test).
 
 ---
 
-## Environment
+## Method Overview
 
-```bash
-# activate
-source .venv/bin/activate      # Unix
-.venv\Scripts\activate         # Windows
+A **stacked ensemble of 9 diverse molecular representation models**, meta-learned with scaffold-aware nested cross-validation to prevent analog leakage. The final prediction blends the ElasticNet stack with a separately-trained Chemprop multitask GNN.
 
-# install / sync deps
-uv sync
+### Key Design Choices
 
-# register Jupyter kernel (once)
-python -m ipykernel install --user --name pxr-challenge --display-name "pxr-challenge"
-```
+- **Scaffold CV throughout**: `scaffold_kfold_indices` keeps all analogs of a scaffold in the same fold — prevents the ~0.1 RAE optimism from random splits on this analog-expansion test set
+- **Diverse inductive biases**: Morgan fingerprints, 3D conformer geometry (Uni-Mol), graph topology (GROVER), and SMILES-sequence pretraining (ChemBERTa) cover structurally different signal types
+- **ElasticNet stacking**: L1 automatically zeros redundant models; L2 handles collinearity
+- **Honest nested CV**: meta-learner is always fit on inner folds, never sees the outer validation fold
 
-Python 3.11–3.12. PyTorch is CPU-only by default (see `pyproject.toml`). Switch to GPU by changing the torch index URL to `https://download.pytorch.org/whl/cu124`.
+---
+
+## Results
+
+**Best submission:** `submissions/25_grand_v5.csv`
+
+| Model | OOF RAE |
+|---|---|
+| Mean predictor baseline | ~1.0 |
+| LGBM baseline (Morgan + RDKit) | 0.5600 |
+| LGBM tuned (Optuna) | 0.5394 |
+| Chemprop multitask GNN | 0.5170 |
+| **Grand Ensemble v5 (nested CV)** | **0.5356** |
+
+---
+
+## Ensemble Architecture
+
+### Base Models
+
+| # | Model | Features / Architecture | OOF RAE |
+|---|---|---|---|
+| 02 | LGBM baseline | Morgan (2048) + RDKit (217), combined 2265-dim | 0.5600 |
+| 03 | Chemprop multitask | GNN, dual head: PXR + counter-assay | 0.5170 |
+| 05 | Tanimoto k-NN | ECFP4, k=5, similarity-weighted | 0.7341 |
+| 13 | ChemBERTa-MLM | `ChemBERTa-zinc-base-v1`, 768-dim CLS token | 0.6782 |
+| 14 | ChemBERTa-MTR | `ChemBERTa-PubChem-base-v1`, 768-dim CLS token | 0.5993 |
+| 16 | LGBM tuned | Morgan + RDKit, Optuna TPE 60-trial search | 0.5394 |
+| 19 | Uni-Mol | 3D conformer-aware transformer, 512-dim; pretrained on 209M molecules | 0.7008 |
+| 20 | BERT-SMILES | `unikei/bert-base-smiles`, 768-dim CLS token | 0.7150 |
+| 22 | GROVER-base | Graph transformer atom FP 1600-dim; pretrained on 10M molecules | 0.6355 |
+| 22b | GROVER-large | Graph transformer atom FP 2400-dim | 0.6295 |
+
+### Ensemble Progression
+
+| Version | Notebook | New model added | Nested CV RAE |
+|---|---|---|---|
+| Grand v2 | nb18 | lgbm_tuned (Optuna) replaces lgbm_aug | 0.5363 |
+| Grand v3 | nb23 | Uni-Mol (3D geometry) | 0.5360 |
+| Grand v4 | nb24 | GROVER-base (graph topology) | 0.5358 |
+| **Grand v5** | **nb25** | **GROVER-large** | **0.5356** |
+
+### Final Submission Weights (Grand v5, full-data ElasticNetCV, α=0.00329, l1=0.50)
+
+| Model | Weight |
+|---|---|
+| LGBM tuned | 74.7% |
+| k-NN | 15.6% |
+| Uni-Mol | 9.1% |
+| ChemBERTa-MLM | 6.3% |
+| GROVER-large | 5.9% |
+| GROVER-base | 3.4% |
+| ChemBERTa-MTR | 2.9% |
+| LGBM base | 0% *(zeroed by L1)* |
+| BERT-SMILES | 0% *(zeroed by L1)* |
+
+The Grand v5 stack is blended with the standalone Chemprop multitask model (nb08) at 50.9% / 49.1% inverse-RAE weighting for the final submission.
+
+---
+
+## Notebook Progression
+
+Run in numbered order. Each notebook saves OOF arrays to `data/processed/` and predictions to `submissions/`.
+
+### 01 — EDA
+Question-driven exploratory analysis anchored to modeling decisions. Key findings:
+- pEC50 range: 1.61–7.55; median noise floor (SE) 0.24 log-units
+- Hit rate (pEC50 ≥ 6): 1.6%; test/train InChIKey overlap: 0 (no leakage)
+- Test top-1 Tanimoto to train: median 0.52 — test is close analogs, not scaffold hops
+- 10 activity cliff pairs in train (Tanimoto ≥ 0.7, |ΔpEC50| ≥ 1.0)
+
+Outputs: `compounds.parquet`, `cliffs_train.parquet`, `test_difficulty.parquet`
+
+### 02 — LGBM Baseline
+LightGBM on combined Morgan FP + RDKit descriptor features (2,265-dim). Combined features beat Morgan-only (0.658) and RDKit-only (0.594). **Scaffold 5-fold CV RAE: 0.575.**
+
+Output: `submissions/02_lgbm_baseline.csv`
+
+### 03 — Chemprop Multitask GNN
+Chemprop 2.x MPNN, dual heads: PXR pEC50 + counter-assay pEC50 (NaN-masked loss on null head). Architecture: BondMessagePassing (depth=3, d_h=300) + MeanAgg + FFN (2 layers, dropout=0.1). **Single-fold holdout RAE: 0.517.**
+
+Output: `submissions/03_chemprop_multitask.csv`
+
+### 04 — Matched Molecular Pair Cliff Corrector
+rdMMPA single-cut → 1,516 transforms; 377 are activity cliffs. Adaptive blend weight = min(0.60, 0.60 × n_analogs / 5). Coverage: 340/513 test compounds.
+
+Output: `submissions/04_mmp_corrected.csv`
+
+### 05 — Tanimoto k-NN
+Similarity-weighted k=5 NN on ECFP4. **OOF RAE: 0.734** (CV underestimates; test compounds have real neighbors). Used in ensemble for its complementary signal in high-similarity regions.
+
+Output: `submissions/05_knn_blend.csv`
+
+### 06 — Counter-Assay as Input Feature
+pEC50_null used as LGBM input feature; imputed for the 36% without real null values. Δ RAE = −0.004 over baseline.
+
+Output: `submissions/06_counter_lgbm.csv`
+
+### 07 — OOF Grid-Search Ensemble
+OOF-based grid search for optimal kNN blend weight (5%); combined with Chemprop at 52% inverse-RAE weight.
+
+Outputs: `submissions/07_final_ensemble.csv`, `submissions/07b_chemprop_weighted.csv`
+
+### 08 — Chemprop Proper 5-Fold CV
+Proper scaffold 5-fold CV for Chemprop (nb03 reported an easy single fold). **OOF RAE: 0.574.** This is the Chemprop component used in all downstream blends.
+
+Output: `submissions/08_chemprop_cv_blend.csv`
+
+### 09 — Robust Data Preprocessing Pipeline
+Label outlier removal (SE > 0.5; drops 358 compounds), RDKit descriptor winsorising, near-zero-variance / high-correlation feature removal, active upsampling, pseudo-inactive augmentation from single-conc screen.
+
+Output: `submissions/09_lgbm_pipeline.csv`
+
+### 10 — External Data + Expanded Multitask Chemprop
+ChEMBL + PubChem bioactivity for PXR and related nuclear receptors (CAR, VDR, FXR, PPARγ). 11-task Chemprop.
+
+Output: `submissions/10_expanded_multitask.csv`
+
+### 11 — Stacked Meta-Learner Ensemble
+RidgeCV meta-learner on OOF predictions from LGBM_base, LGBM_aug, and k-NN. Saves OOF arrays for downstream stacking.
+
+Output: `submissions/11_stacked_ensemble.csv`
+
+### 12 — Per-Compound Adaptive Blending
+Per-compound blend weights via sigmoid of top-1 Tanimoto similarity: kNN upweighted for close analogs, Chemprop for scaffold hops.
+
+Output: `submissions/12_adaptive_blend.csv`
+
+### 13 — ChemBERTa-MLM Embeddings
+Frozen CLS-token embeddings (768-dim) from `seyonec/ChemBERTa-zinc-base-v1` + LGBM. **OOF RAE: 0.6782.** Embeddings cached to `data/processed/chemberta_{train,test}_emb.npy`.
+
+Output: `submissions/13_chemberta.csv`
+
+### 14 — ChemBERTa-MTR Embeddings
+Same frozen-embedding strategy using `seyonec/ChemBERTa-PubChem-base-v1` (multitask regression pretraining). **OOF RAE: 0.5993.** Embeddings cached to `data/processed/chemberta_mtr_{train,test}_emb.npy`.
+
+Output: `submissions/14_chemberta_mtr.csv`
+
+### 15 — Grand Ensemble v1
+First ElasticNet stack: lgbm_aug + knn + chemberta_mlm + chemberta_mtr + chemprop. **Nested CV RAE: 0.5473.**
+
+Output: `submissions/15_grand_ensemble.csv`
+
+### 16 — LGBM Optuna Tuning
+Bayesian hyperparameter search (TPE sampler, 60 trials) over n_estimators, num_leaves, learning_rate, subsample, reg_alpha/lambda, min_child_samples. **OOF RAE: 0.5394** (vs 0.5600 baseline).
+
+Output: `data/processed/oof_lgbm_tuned.npy`
+
+### 17 — Rank Ensemble Variants
+Rank-averaging over 5–7 model predictions:
+- 17a Trio: grand_15 + chemprop_08 + chemberta_13
+- 17b Quintet: + chemberta_mtr_14 + meta_11
+- 17c Septet: all 7 models
+
+Outputs: `submissions/17a_rank_trio.csv`, `17b_rank_quintet.csv`, `17c_rank_septet.csv`
+
+### 18 — Grand Ensemble v2
+Swaps lgbm_aug for lgbm_tuned (Optuna) in 5-model ElasticNet. **Nested CV RAE: 0.5363** (+0.011 over grand_v1). Weights: lgbm_tuned 79.6%, knn 18%, chemberta_mlm 8.3%, chemberta_mtr 7.4%.
+
+Output: `submissions/18_grand_v2.csv`
+
+### 19 — Uni-Mol 3D Embeddings
+3D conformer-aware transformer (`unimol_tools.UniMolRepr`), 512-dim CLS. **OOF RAE: 0.7008**; Spearman vs lgbm_tuned = 0.68 (genuinely diverse signal from 3D geometry). Embeddings cached to `data/processed/unimol_{train,test}_emb.npy`.
+
+Output: `submissions/19_unimol.csv`
+
+### 20 — BERT-SMILES Embeddings
+`unikei/bert-base-smiles` (BERT pretrained on 1.37M ChEMBL SMILES), 768-dim CLS + LGBM. **OOF RAE: 0.7150.** Zeroed by ElasticNet in all ensembles — insufficient diversity over lgbm_tuned.
+
+Output: `submissions/20_bert_smiles.csv`
+
+### 21 — SELFormer Embeddings
+`HUBioDataLab/SELFormer` (RoBERTa on SELFIES strings), 768-dim CLS + LGBM. **OOF RAE: 0.7691.** Excluded from ensembles — marginally worse than BERT-SMILES.
+
+Output: `submissions/21_selformer.csv`
+
+### 22 — GROVER-Base Fingerprints
+Graph transformer (tencent-ailab/grover) pretrained on 10M molecules. Atom-level fingerprint, 1600-dim. **OOF RAE: 0.6355**; Spearman vs lgbm_tuned = 0.82. Graph-based inductive bias distinct from SMILES-sequence models. Embeddings cached to `data/processed/grover_{train,test}_emb.npy`.
+
+Output: `submissions/22_grover.csv`
+
+### 22b — GROVER-Large Fingerprints
+GROVER-large variant (428MB weights), 2400-dim atom fingerprint. **OOF RAE: 0.6295** (better than base). Spearman(base, large) = 0.903 — not identical, both contribute to ensemble. Embeddings cached to `data/processed/grover_large_{train,test}_emb.npy`.
+
+Output: `submissions/22b_grover_large.csv`
+
+### 23 — Grand Ensemble v3
+7-model ElasticNet (v2 + Uni-Mol + BERT-SMILES). **Nested CV RAE: 0.5360**. Uni-Mol gets ~10% weight; BERT-SMILES zeroed.
+
+Output: `submissions/23_grand_v3.csv`
+
+### 24 — Grand Ensemble v4
+8-model ElasticNet (v3 + GROVER-base). **Nested CV RAE: 0.5358**. GROVER-base gets 7.1% weight.
+
+Output: `submissions/24_grand_v4.csv`
+
+### 25 — Grand Ensemble v5 *(primary submission)*
+9-model ElasticNet (v4 + GROVER-large). **Nested CV RAE: 0.5356.** Both GROVER models retained; lgbm_base and BERT-SMILES zeroed. Blended 49.1/50.9% with Chemprop-08.
+
+Output: `submissions/25_grand_v5.csv`
 
 ---
 
@@ -38,235 +236,40 @@ git clone https://github.com/OpenADMET/PXR-Challenge-Tutorial.git tutorial
 | `pxr-challenge_TRAIN.csv` | 4,139 | CRC dose-response: pEC50, Emax, uncertainties |
 | `pxr-challenge_TEST_BLINDED.csv` | 513 | Test set — SMILES only |
 | `pxr-challenge_counter-assay_TRAIN.csv` | 2,859 | PXR-null counter-screen |
-| `pxr-challenge_single_concentration_TRAIN.csv` | 21,003 | Single-point screen: log2FC, FDR |
+| `pxr-challenge_single_concentration_TRAIN.csv` | 21,003 | Single-point screen |
 | `pxr-challenge_structure_TEST_BLINDED.csv` | 184 | Structure track |
 
 ---
 
-## Notebook Progression
+## Environment
 
-Run in numbered order. Each notebook saves to `submissions/` and passes results forward.
+```bash
+# Activate
+.venv/Scripts/activate        # Windows
+source .venv/bin/activate     # Unix
 
-### 01 — EDA
-Question-driven exploratory analysis anchored to modeling decisions.
+# Install / sync deps
+uv sync
 
-Key outputs: `data/processed/compounds.parquet`, `cliffs_train.parquet`, `test_difficulty.parquet`
+# Jupyter kernel (once)
+python -m ipykernel install --user --name pxr-challenge --display-name "pxr-challenge"
+```
 
-Key numbers:
-- Training pEC50 range: 1.61–7.55; mean 4.32; noise floor (median SE) 0.24
-- Hit rate (pEC50 ≥ 6): 1.6%
-- Test top-1 Tanimoto to train: median 0.52 — test compounds are close analogs
-- Train/test InChIKey overlap: 0 (no leakage)
-- Activity cliff pairs in train: 10 (Tanimoto ≥ 0.7, |ΔpEC50| ≥ 1.0)
-
----
-
-### 02 — LGBM Baseline
-LightGBM on combined Morgan FP + RDKit descriptor features.
-
-| Feature set | Scaffold 5-fold CV RAE |
-|---|---|
-| Morgan only | 0.658 |
-| RDKit desc only | 0.594 |
-| Combined (2,265 feat.) | **0.575** |
-
-Output: `submissions/02_lgbm_baseline.csv`
+Python 3.11–3.12. PyTorch CPU-only by default (see `pyproject.toml`). Switch to GPU: change torch index URL to `https://download.pytorch.org/whl/cu124`.
 
 ---
-
-### 03 — Chemprop Multitask GNN
-Chemprop MPNN with two output heads: PXR pEC50 + counter-assay pEC50 (NaN-masked loss). Architecture: BondMessagePassing (depth=3, d_h=300) + MeanAgg + FFN (2 layers, dropout=0.1).
-
-| Model | Holdout RAE |
-|---|---|
-| Chemprop multitask (scaffold fold-0) | 0.517 |
-| 50/50 ensemble with LGBM | — |
-
-Note: 0.517 came from fold 0 only — see notebook 08 for proper 5-fold CV.
-
-Outputs: `submissions/03_chemprop_multitask.csv`, `submissions/03_ensemble_lgbm_chemprop.csv`
-
----
-
-### 04 — Matched Molecular Pair Cliff Corrector
-rdMMPA single-cut fragmentation → 1,516 transform pairs; 377 are activity cliffs (|ΔpEC50| > 1.0). Adaptive blend weight = min(0.60, 0.60 × n_analogs / 5).
-
-- Test coverage: 340/513 compounds have training analogs (66.3%)
-- Blend improves cliff predictions without hurting global performance
-
-Output: `submissions/04_mmp_corrected.csv`
-
----
-
-### 05 — Tanimoto k-NN
-Similarity-weighted k=20 nearest neighbours on ECFP4 (Tanimoto = Jaccard on bit vectors).
-
-| k | Scaffold CV RAE |
-|---|---|
-| 20 | 0.740 (underestimate — CV forces scaffold gaps; test set has real neighbors) |
-
-Test top-1 similarity: mean 0.532, median 0.523. 330/513 compounds have sim > 0.5.
-
-Output: `submissions/05_knn_blend.csv` (40% kNN + 60% base ensemble)
-
----
-
-### 06 — Counter-Assay as Input Feature
-pEC50_null used as a LGBM input feature (not just a training target). Imputed via a null-predictor LGBM for the 36% of training compounds without a real null value.
-
-| Model | OOF RAE |
-|---|---|
-| LGBM baseline | 0.5675 |
-| LGBM + null feature | **0.5637** (Δ = −0.0038) |
-
-Output: `submissions/06_counter_lgbm.csv`
-
----
-
-### 07 — OOF Grid-Search Ensemble
-Out-of-fold predictions for LGBM_aug and kNN; grid-search blend weight; then blend with Chemprop.
-
-| Component | OOF RAE |
-|---|---|
-| LGBM_aug | 0.5582 |
-| kNN | 0.7330 |
-| Optimal kNN weight | 0.05 |
-
-Chemprop blend weight fixed at 35% (subsequently corrected in 07b to 52% via inverse-RAE).
-
-Outputs: `submissions/07_final_ensemble.csv`, `submissions/07b_chemprop_weighted.csv`
-
----
-
-### 08 — Chemprop Proper 5-Fold CV
-Notebook 03 reported a single-fold RAE of 0.517 (fold 0, seed=0 — optimistically easy fold). This notebook runs proper 5-fold scaffold CV with per-fold scaling to avoid data leakage.
-
-| Fold | RAE |
-|---|---|
-| 0 | 0.493 |
-| 1 | 0.622 |
-| 2 | 0.582 |
-| 3 | 0.574 |
-| 4 | 0.621 |
-| **OOF global** | **0.574** |
-
-Chemprop and LGBM_aug are essentially tied at ~0.56–0.57. Inverse-RAE weights: 49% Chemprop / 51% LGBM_aug.
-
-Output: `submissions/08_chemprop_cv_blend.csv`
-
----
-
-### 09 — Robust Data Preprocessing Pipeline
-Systematic feature and label cleaning before LGBM training.
-
-| Step | Details |
-|---|---|
-| Label outlier removal | Drop SE > 0.5 → removes 358/4,139 compounds (8.6%) |
-| Feature outlier clipping | Winsorise RDKit descriptors at Q1/Q3 ± 5×IQR |
-| Feature selection | Remove near-zero-variance + >0.95-correlated descriptor pairs |
-| Active upsampling | Random oversample actives/moderates to ~10% of training size |
-| Pseudo-inactive augmentation | Single-conc high-confidence inactives (|log2FC| < 0.5, FDR > 0.3) assigned N(4.30, 0.24) pEC50 labels |
-
-Saved artefacts: `data/processed/train_clean.parquet`, `data/processed/feature_selector.pkl`
-
-Output: `submissions/09_lgbm_pipeline.csv`
-
----
-
-### 10 — External Data + Expanded Multitask Chemprop
-Pulls bioactivity data from ChEMBL and PubChem for PXR and related nuclear receptors; trains an 11-task Chemprop model.
-
-| Task | Source | # compounds |
-|---|---|---|
-| pec50_pxr | Challenge train (cleaned) | 3,781 |
-| pec50_null | Counter assay | 2,649 |
-| log2fc_sp | Single-conc screen | 21,003 |
-| chembl_pxr | ChEMBL CHEMBL3401 | ~3,000 |
-| chembl_car | ChEMBL CHEMBL3509594 | ~500 |
-| chembl_vdr | ChEMBL CHEMBL1977 | ~2,000 |
-| chembl_fxr | ChEMBL CHEMBL2047 | ~2,000 |
-| chembl_pparg | ChEMBL CHEMBL235 | ~10,000 |
-| logP / MW / TPSA | RDKit (all compounds) | all |
-
-Output: `submissions/10_expanded_multitask.csv`
-
----
-
-### 11 — Stacked Meta-Learner Ensemble
-Trains a RidgeCV meta-learner on OOF predictions from LGBM_base, LGBM_aug (+null feature +upsampling), and kNN (k=20 Tanimoto). Stacking lets the meta-learner learn which model to trust per region of chemical space.
-
-| Component | OOF RAE |
-|---|---|
-| LGBM_base | ~0.575 |
-| LGBM_aug | 0.5582 |
-| kNN (k=20) | 0.740 (CV underestimate) |
-| RidgeCV meta-learner | — (nested scaffold CV) |
-
-Final blend: meta-learner + Chemprop via inverse-RAE weights. Saves OOF arrays for use in nb 12.
-
-Output: `submissions/11_stacked_ensemble.csv`
-
----
-
-### 12 — Per-Compound Adaptive Blending
-Global blend weights ignore test-set heterogeneity. This notebook assigns per-compound weights via a sigmoid function of top-1 Tanimoto similarity to training:
-
-| Similarity range | Strategy |
-|---|---|
-| sim > 0.6 (close analogs) | upweight kNN |
-| 0.4–0.6 (medium) | LGBM dominant |
-| sim < 0.4 (scaffold hops) | upweight Chemprop |
-
-Loads saved predictions from notebooks 05, 09, 10, 11. Optionally modulates by test difficulty score from nb 01.
-
-Output: `submissions/12_adaptive_blend.csv`
-
----
-
-### 13 — ChemBERTa-2 Pretrained Embeddings
-Frozen CLS-token embeddings (768-dim) from `seyonec/ChemBERTa-zinc-base-v1` (pretrained on 77M ZINC SMILES), concatenated with Morgan FP (2,048-dim) as LGBM features. No fine-tuning — avoids overfitting on 3,781 training examples.
-
-Embeddings are cached to `data/processed/chemberta_{train,test}_emb.npy`.
-
-Output: `submissions/13_chemberta.csv`
-
----
-
-### 14 — MolFormer-XL Pretrained Embeddings
-Same frozen-embedding strategy as nb 13, but using `ibm/MolFormer-XL-both-10pct` — a linear-attention transformer pretrained on 1.1 billion ZINC + PubChem SMILES (~14× larger pretraining corpus than ChemBERTa). Directly comparable to nb 13.
-
-Embeddings are cached to `data/processed/molformer_{train,test}_emb.npy`.
-
-Output: `submissions/14_molformer.csv`
-
----
-
-## Key Numbers
-
-| Fact | Value |
-|---|---|
-| Training compounds (raw) | 4,139 |
-| Training compounds (SE-filtered) | 3,781 |
-| Test compounds | 513 |
-| Assay noise floor (median SE) | 0.24 log-units |
-| Hit rate in training (pEC50 ≥ 6) | 1.6% |
-| Test top-1 Tanimoto to train (median) | 0.52 |
-| Activity cliff pairs | 10 |
-| Counter-assay overlap with train | 2,649 / 4,139 |
-| Mean predictor RAE | ~1.0 |
-| Best single-model OOF RAE | ~0.558 (LGBM_aug) |
 
 ## Source Library (`src/pxr/`)
 
-| Module | Purpose |
+| Module | Key functions |
 |---|---|
-| `data.py` | Loaders: `load_train`, `load_test`, `load_counter`, `load_single_conc` |
-| `chem.py` | `standardize`, `morgan_fp_batch`, `to_inchikey`, `bemis_murcko` |
-| `eval.py` | `rae`, `compute_metrics`, `scaffold_kfold_indices`, `cv_score` |
-| `featurize.py` | `rdkit_desc`, `morgan`, `combined`, `impute`, `FeatureSelector` |
-| `preprocess.py` | `remove_label_outliers`, `clip_feature_outliers`, `FeatureSelector`, `upsample_by_category`, `pseudo_inactive_augment` |
-| `external.py` | `fetch_chembl_target`, `fetch_all_nr_targets`, `fetch_pubchem_aid`, `standardize_external` |
+| `data.py` | `load_train`, `load_test`, `load_counter`, `load_single_conc` |
+| `chem.py` | `standardize`, `morgan_fp_batch`, `bemis_murcko`, `compute_physchem` |
+| `eval.py` | `rae`, `compute_metrics`, `scaffold_kfold_indices` |
+| `featurize.py` | `rdkit_desc`, `morgan`, `combined`, `impute` |
 | `paths.py` | Centralised path constants |
+
+---
 
 ## Phase Timeline
 
