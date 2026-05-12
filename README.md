@@ -41,14 +41,12 @@ A **stacked ensemble of 9 diverse molecular representation models**, meta-learne
 
 | # | Model | Features / Architecture | OOF RAE |
 |---|---|---|---|
-| 02 | LGBM baseline | Morgan (2048) + RDKit (217), combined 2265-dim | 0.5600 |
-| 03 | Chemprop multitask | GNN, dual head: PXR + counter-assay | 0.5170 |
-| 05 | Tanimoto k-NN | ECFP4, k=5, similarity-weighted | 0.7341 |
 | 13 | ChemBERTa-MLM | `ChemBERTa-zinc-base-v1`, 768-dim CLS token | 0.6782 |
 | 14 | ChemBERTa-MTR | `ChemBERTa-PubChem-base-v1`, 768-dim CLS token | 0.5993 |
-| 16 | LGBM tuned | Morgan + RDKit, Optuna TPE 60-trial search | 0.5394 |
-| 19 | Uni-Mol | 3D conformer-aware transformer, 512-dim; pretrained on 209M molecules | 0.7008 |
+| 16 | LGBM tuned | Morgan + RDKit, Optuna TPE 60-trial search | 0.5491 |
+| 19 | Uni-Mol | 3D conformer-aware transformer, 512-dim | 0.7008 |
 | 20 | BERT-SMILES | `unikei/bert-base-smiles`, 768-dim CLS token | 0.7150 |
+| 21 | SELFormer | `HUBioDataLab/SELFormer`, SELFIES RoBERTa, 768-dim CLS | 0.7691 |
 | 22 | GROVER-base | Graph transformer atom FP 1600-dim; pretrained on 10M molecules | 0.6355 |
 | 22b | GROVER-large | Graph transformer atom FP 2400-dim | 0.6295 |
 
@@ -57,9 +55,9 @@ A **stacked ensemble of 9 diverse molecular representation models**, meta-learne
 | Version | Notebook | New model added | Nested CV RAE |
 |---|---|---|---|
 | Grand v2 | nb18 | lgbm_tuned (Optuna) replaces lgbm_aug | 0.5363 |
-| Grand v3 | nb23 | Uni-Mol (3D geometry) | 0.5360 |
-| Grand v4 | nb24 | GROVER-base (graph topology) | 0.5358 |
-| **Grand v5** | **nb25** | **GROVER-large** | **0.5356** |
+| Grand v3 | nb23 | v2 + Uni-Mol | 0.5360 |
+| Grand v4 | nb24 | v3 + GROVER-base | 0.5358 |
+| **Grand v5** | **nb25** | **v4 + GROVER-large** | **0.5356** |
 
 ### Final Submission Weights (Grand v5, full-data ElasticNetCV, α=0.00329, l1=0.50)
 
