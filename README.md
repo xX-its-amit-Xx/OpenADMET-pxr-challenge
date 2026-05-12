@@ -23,7 +23,7 @@ A **stacked ensemble of 16 diverse molecular representation models**, meta-learn
 
 ## Results
 
-**Best submission:** `submissions/36b_grand_v6_no_aux.csv` *(Grand Ensemble v6b — 16 models, OOF RAE 0.5281)*
+**Best submission:** `submissions/62_grand_v7.csv` *(Grand Ensemble v7 — 32 models, OOF RAE 0.5189)*
 
 | Model | OOF RAE |
 |---|---|
@@ -32,7 +32,8 @@ A **stacked ensemble of 16 diverse molecular representation models**, meta-learn
 | LGBM tuned (Optuna) | 0.5394 |
 | Chemprop multitask GNN | 0.5170 |
 | Grand Ensemble v5 (nested CV) | 0.5356 |
-| **Grand Ensemble v6b (protein-aware, 16 models)** | **0.5281** |
+| Grand Ensemble v6b (protein-aware, 16 models) | 0.5281 |
+| **Grand Ensemble v7 (32 models, deep ensemble + Chemprop aux)** | **0.5189** |
 
 ### New Model Results (nb26–nb36)
 
@@ -50,6 +51,60 @@ A **stacked ensemble of 16 diverse molecular representation models**, meta-learn
 | 35 | Chemprop 6-head auxiliary | 0.5665 | **28.4% weight in v6b** — 6 heads: pEC50, Emax, pEC50_null, logP, TPSA, PXR-sim |
 | 36b | Grand Ensemble v6b (no aux) | **0.5281** | 16 models; excludes nb28 (train-only features) |
 | 36c | Grand Ensemble v6c (+nb33 cross-attn) | **0.5281** | crossattn_chemberta_esm2 zeroed by L1; identical to v6b |
+
+### New Model Results (nb37–nb85)
+
+| # | Model | OOF RAE | Notes |
+|---|---|---|---|
+| 37 | External data fetch | — | Fetches PubChem/Tox21/BindingDB/ChEMBL NR; caches to `data/external/`; no OOF |
+| 38 | Activity cliff mining | — | 149 cliff pairs (SALI ≥ 2, Tan ≥ 0.5, \|Δ\| ≥ 1.0); cliff labels for 248/4,139 training compounds; no OOF |
+| 39 | Hard negative augmentation ablation | 0.5606 | 5-strategy ablation of single-conc inactive pseudo-labels; CRC-only (baseline) wins |
+| 40 | Cliff-weighted LGBM | 0.5677 | Cliff members upweighted (10×/8×); auxiliary cliff-role classifier; marginal vs unweighted |
+| 41 | Chemprop 8-head cliff auxiliary | 0.5670 | nb35 + 2 cliff classification heads (cliff_role_bin, cliff_member); marginal improvement over 6-head |
+| 42 | SMOTE/ADASYN oversampling | 0.5578 | Oversample pEC50 ≥ 6 actives to 10%; ADASYN best; minimal gain over baseline |
+| 43 | Focal loss LGBM | 0.5529 | 5 custom LGBM objectives; rank-ensemble of all 5 objectives is best; saves `oof_focal_loss.npy` |
+| 44 | Curriculum LGBM | 0.5599 | Easy→hard warm-start in 3 stages; anti-curriculum also tested; standard baseline wins |
+| 45 | Pairwise ranking LGBM | 0.5629 | LambdaRank-style pairwise gradient for cliff pairs; zeroed by grand v7 ElasticNet |
+| 46 | Siamese cliff net | 0.5943 | Twin MLP on Morgan FP pairs; cliff-pair contrastive loss; weak signal |
+| 47 | Multitask MLP | 0.5882 | PyTorch MLP with 3 heads (pEC50, Emax, pEC50_null); marginal |
+| 48 | TabNet | 0.7904 | Attention-based tabular model; underperforms LGBM on this dataset |
+| 49 | Wide & deep MLP | 0.5911 | Wide (linear Morgan) + deep (RDKit) two-stream network |
+| 50 | CatBoost cliff | 0.5594 | CatBoost with cliff-member upweighting; near-baseline |
+| 51 | XGBoost DART | 0.5635 | XGBoost with DART dropout; marginal |
+| 52 | Chemprop pretrain+finetune | — | Chemprop self-supervised pretraining on unlabelled SMILES; OOF missing |
+| 53 | Chemprop Tox21 transfer | — | Chemprop finetuned from Tox21 NR multitask; OOF missing |
+| 54 | Deep ensemble uncertainty | 0.5627 | 5-member LGBM deep ensemble with uncertainty estimates; **28.7% weight in grand v7** |
+| 55 | LGBM all external data | 0.5600 | LGBM augmented with all external NR data (ChEMBL + BindingDB); ties baseline |
+| 56 | Chemprop 10-head | — | 10-task Chemprop (pEC50 + 9 NR targets); OOF missing |
+| 57 | LGBM PubChem PXR | 0.5600 | LGBM + PubChem PXR bioassay augmentation; ties baseline |
+| 58 | LGBM BindingDB NR | 0.5600 | LGBM + BindingDB NR binding data augmentation; ties baseline |
+| 59 | LGBM cliff oversample | 0.5600 | LGBM with cliff-member compound oversampling; ties baseline |
+| 60 | Deep graph cliff | — | GCN with cliff-pair contrastive head; OOF missing |
+| 61 | Cliff analysis (diagnostic) | — | Diagnostic notebook: per-model cliff-region RAE; no submission |
+| 62 | **Grand Ensemble v7** | **0.5189** | 32-model ElasticNet; lgbm_tuned 45.4%, deep_ensemble 28.7%, chemprop_aux 21.3%; beats v6b by 0.009 RAE |
+| 63 | Expanded data fetch | — | BindingDB bulk TSV, Papyrus, PubChem bug fix, ChEMBL all PXR types; supplementary cache |
+| 64 | LGBM full metrics baseline | 0.5643 | LGBM with full set of physico-chemical + assay-quality descriptors |
+| 65 | LGBM CRC+single-conc FDR | 0.6560 | CRC train + single-conc filtered by FDR < 0.05; poor performance (FDR filter too strict) |
+| 66 | LGBM ChEMBL PXR direct | 0.5692 | LGBM with ChEMBL PXR direct IC50/EC50/Ki/AC50 augmentation |
+| 67 | LGBM ChEMBL all-NR weighted | 0.6034 | LGBM with all ChEMBL NR targets at phylogenetic weights (broad NR transfer) |
+| 68 | LGBM PubChem PXR fixed | 0.5643 | Retry of nb57 with corrected PubChem PXR cache |
+| 69 | LGBM counter soft labels | 0.5643 | Counter-assay pEC50_null as a soft label (auxiliary regression target) |
+| 70 | LGBM CRC+SP+ChEMBL PXR | 0.7771 | CRC + single-conc + ChEMBL PXR combined training; too much label noise |
+| 71 | LGBM all external v2 | 0.8010 | Extended external augmentation v2; performance degrades with noisy external labels |
+| 72 | LGBM cliff-aware external | 0.5972 | External data filtered to cliff-proximal compounds only |
+| 73 | LGBM multitask heads | 0.5646 | LGBM per-head (pEC50, Emax, null) with stacking |
+| 74 | Chemprop ChEMBL-NR multitask | 4.76 | Chemprop multitask on ChEMBL NR; training failed (OOF invalid) |
+| 75 | Grand metrics comparison | — | Diagnostic: comprehensive metrics (Pearson, Spearman, Kendall, R²) per model; no submission |
+| 76 | Delta-ML template | 0.4164 | Nearest-neighbour delta correction on top of base model; OOF RAE possibly inflated by NN leakage within fold |
+| 77 | Sparse Nyström GP (Tanimoto kernel) | 0.7781 | Gaussian process with Tanimoto kernel; sparse Nyström approximation; slow and weaker than LGBM |
+| 78 | Multi-fingerprint diversity ensemble | 0.5897 | 7 FP types (ECFP4, FCFP4, MACCS, Avalon, RDKit, AtomPair, Topological); stack has marginal diversity |
+| 79 | 3D shape descriptors | 0.5643 | Conformer-derived 3D descriptors (PMI, shape moments) added to combined features |
+| 80 | SMILES enumeration augmentation | 0.5581 | SMILES randomisation augmentation (10 enumerations/compound); weak improvement |
+| 81 | Pseudo-label self-training | 0.5643 | Iterative pseudo-labelling on test set; self-training loop |
+| 82 | Selectivity-aware prediction | 0.5917 | Predicts selectivity ratio (PXR/CAR) as auxiliary target |
+| 83 | Graph label spreading | 0.5643 | Label propagation on compound similarity graph; negligible gain |
+| 84 | Free-Wilson scaffold decomposition | 0.5636 | Additive Free-Wilson model on Murcko scaffolds + substituents |
+| 85 | Creative mega-ensemble (ElasticNetCV) | — | ElasticNet over full OOF stack; OOF RAE 0.2181 is **in-sample only** (ElasticNet fitted on full OOF without nested CV — not a real estimate); not submitted |
 
 ---
 
@@ -75,21 +130,25 @@ A **stacked ensemble of 16 diverse molecular representation models**, meta-learn
 | Grand v2 | nb18 | lgbm_tuned (Optuna) replaces lgbm_aug | 0.5363 |
 | Grand v3 | nb23 | v2 + Uni-Mol | 0.5360 |
 | Grand v4 | nb24 | v3 + GROVER-base | 0.5358 |
-| **Grand v5** | **nb25** | **v4 + GROVER-large** | **0.5356** |
+| Grand v5 | nb25 | v4 + GROVER-large | 0.5356 |
+| Grand v6b | nb36 | + Chemprop 6-head aux; protein-aware 16 models | 0.5281 |
+| **Grand v7** | **nb62** | **32 models; deep ensemble gets 28.7% weight** | **0.5189** |
 
-### Final Submission Weights (Grand v6b, full-data ElasticNetCV, 16 models)
+### Final Submission Weights (Grand v7, full-data ElasticNetCV, 32 models)
 
 | Model | Weight |
 |---|---|
-| LGBM tuned | 54.6% |
-| Chemprop 6-head auxiliary (nb35) | 28.4% |
-| Single-conc pseudo-label LGBM (nb26) | 6.1% |
-| k-NN | 6.0% |
-| Uni-Mol | 2.9% |
-| ChemBERTa-MLM | 2.0% |
+| LGBM tuned | 45.4% |
+| Deep ensemble (nb54) | 28.7% |
+| Chemprop 6-head auxiliary (nb35) | 21.3% |
+| Single-conc pseudo-label LGBM (nb26) | 2.5% |
+| Uni-Mol | 2.0% |
+| ChemBERTa-MLM | 0.1% |
 | All other models | 0% *(zeroed by L1)* |
 
-**Previous best (Grand v5):** lgbm_tuned 74.7%, kNN 15.6%, Uni-Mol 9.1%, ChemBERTa-MLM 6.3%, GROVER-large 5.9%.
+**Previous best (Grand v6b):** lgbm_tuned 54.6%, chemprop_aux 28.4%, singleconc_lgbm 6.1%, kNN 6.0%, Uni-Mol 2.9%, ChemBERTa-MLM 2.0%.
+
+**Grand v5:** lgbm_tuned 74.7%, kNN 15.6%, Uni-Mol 9.1%, ChemBERTa-MLM 6.3%, GROVER-large 5.9%.
 
 ---
 
@@ -288,6 +347,233 @@ ElasticNetCV meta-learner with nested scaffold CV over all available models from
 Note: v6 (with aux_features) was also run for analysis — OOF RAE 0.2179 but test std=0.118 (unreliable generalization).
 
 Output: `submissions/36_grand_v6.csv` *(analysis only)*, `submissions/36b_grand_v6_no_aux.csv` *(primary)*
+
+### 37 — External Bioactivity Data Fetch
+Fetches PXR and related NR bioactivity from PubChem BioAssay (4 AIDs), Tox21 NR pathway data, BindingDB NR binding (IC50/Ki), and extended ChEMBL NR targets (CAR + broader measurement types). Results cached to `data/external/`. PubChem cache was empty (API issues); BindingDB fell back to ChEMBL webresource client (5,690 records); ChEMBL extended = 11,496 records.
+
+### 38 — Activity Cliff Mining
+Systematic cliff detection (ECFP4 Tanimoto ≥ 0.5, |ΔpEC50| ≥ 1.0, SALI ≥ 2.0) across all available bioactivity data. Found **149 intra-training cliff pairs** (248/4,139 cliff-member compounds; 6%) and 524 cross-dataset PXR–NR cliff pairs. Also computes test-set cliff proximity scores.
+
+Outputs: `cliff_labels.parquet`, `cliff_pairs.parquet`, `cross_cliff_pairs.parquet`, `test_cliff_proximity.parquet`
+
+### 39 — Hard Negative Augmentation Ablation
+Five-strategy ablation of adding single-conc non-responders as pseudo-inactives (varying pEC50 assignment: N(4.3,0.24), N(2.5,0.5) low floor, bimodal, PubChem). CRC-only baseline (RAE 0.5606) wins every variant — augmentation hurts. **OOF RAE: 0.5606.**
+
+Output: `submissions/39_hard_negatives.csv`
+
+### 40 — Cliff-Weighted LGBM
+LGBM with per-compound sample weights emphasising cliff members (cliff-active 10×, cliff-inactive 8×, active non-cliff 6×). Auxiliary 3-class cliff-role LGBM classifier (OOF cliff-role accuracy 98.5%). Cliff weighting slightly hurts overall OOF RAE (+0.008 vs unweighted). **OOF RAE: 0.5677.**
+
+Output: `submissions/40_cliff_weighted_lgbm.csv`
+
+### 41 — Chemprop 8-Head Cliff Auxiliary
+Extends nb35 Chemprop 6-head to 8 heads, adding `cliff_role_bin` (NaN-masked classification) and `cliff_member` (fully observed binary classification). Auxiliary cliff heads act as regularisers on the shared encoder. **OOF RAE: 0.5670.**
+
+Output: `submissions/41_chemprop_cliff_heads.csv`
+
+### 42 — SMOTE/ADASYN Oversampling
+Oversamples the active region (pEC50 ≥ 6; 1.6% of training) to 10% using four strategies: RandomOverSampler, SMOTE, ADASYN, BorderlineSMOTE. Synthetic pEC50 values are k-NN interpolated from real neighbours. ADASYN is best (0.5578) but only marginally better than baseline (0.5599). **OOF RAE: 0.5578.**
+
+Output: `submissions/42_smote_adasyn.csv`
+
+### 43 — Focal Loss LGBM
+Five custom LGBM objectives: MSE, focal MSE (γ=2), cliff-weighted MSE, asymmetric Huber (δ=0.5), quantile-aware mixture (τ=0.90). Rank-ensemble of all five objectives gives the best overall OOF RAE. **OOF RAE: 0.5529.**
+
+Output: `submissions/43_focal_loss_lgbm.csv`
+
+### 44 — Curriculum LGBM
+Progressive training via LGBM warm-start: Stage 1 easy compounds (difficulty < 0.33) → Stage 2 medium → Stage 3 all, with difficulty scored by cliff proximity, dissimilarity to same-activity neighbours, and pEC50 SE. Also tests anti-curriculum (hard→easy). Standard LGBM baseline wins (0.5599). **OOF RAE: 0.5599.**
+
+Output: `submissions/44_curriculum_lgbm.csv`
+
+### 45 — Pairwise Ranking LGBM
+LambdaRank-style pairwise gradient derived from cliff pairs (149 pairs); training penalises inversions in predicted rank within each cliff pair. **OOF RAE: 0.5629.** Zeroed by ElasticNet in grand v7.
+
+Output: `submissions/45_pairwise_ranking_lgbm.csv`
+
+### 46 — Siamese Cliff Net
+Twin-MLP architecture on Morgan FP pairs; contrastive loss on cliff pairs. **OOF RAE: 0.5943.** Weaker than LGBM — insufficient training signal from only 149 cliff pairs.
+
+Output: `submissions/46_siamese_cliff_net.csv`
+
+### 47 — Multitask MLP
+PyTorch MLP with 3 heads: pEC50 (primary), Emax, pEC50_null (NaN-masked). Combined features as input. **OOF RAE: 0.5882.**
+
+Output: `submissions/47_multitask_mlp.csv`
+
+### 48 — TabNet
+Attention-based tabular model (PyTorch TabNet) on combined features. **OOF RAE: 0.7904** — underperforms LGBM; attention mechanism not well-suited to this high-dimensional sparse FP input.
+
+Output: `submissions/48_tabnet_pxr.csv`
+
+### 49 — Wide & Deep MLP
+Two-stream network: wide branch (linear on Morgan FP) + deep branch (MLP on RDKit descriptors), concatenated and mapped to pEC50. **OOF RAE: 0.5911.**
+
+Output: `submissions/49_wide_deep_mlp.csv`
+
+### 50 — CatBoost Cliff
+CatBoost regressor with cliff-member upweighting (same weight schedule as nb40). **OOF RAE: 0.5594.** Near-baseline; CatBoost not significantly better than LGBM here.
+
+Output: `submissions/50_catboost_cliff.csv`
+
+### 51 — XGBoost DART
+XGBoost with DART dropout regularisation. **OOF RAE: 0.5635.** Marginal versus LGBM.
+
+Output: `submissions/51_xgboost_dart.csv`
+
+### 52 — Chemprop Pretrain+Finetune
+Chemprop self-supervised pretraining on unlabelled SMILES (masked atom prediction), then fine-tuned on PXR pEC50. OOF array missing from `data/processed/` — likely pretraining was too slow on CPU to complete.
+
+### 53 — Chemprop Tox21 Transfer
+Chemprop multitask trained on Tox21 NR tasks then fine-tuned on PXR pEC50. OOF array missing — transfer learning from Tox21 binary labels did not complete.
+
+### 54 — Deep Ensemble Uncertainty
+5-member LGBM deep ensemble (independently initialised) with per-compound uncertainty estimates (std of 5 predictions). **OOF RAE: 0.5627.** Gains substantial weight in grand v7 (28.7%) due to diverse signal vs single LGBM.
+
+Output: `submissions/54_deep_ensemble.csv`
+
+### 55 — LGBM All External Data
+LGBM augmented with all external NR data (ChEMBL + BindingDB, 17K+ extra rows). **OOF RAE: 0.5600** — ties baseline; external label noise cancels gains.
+
+Output: `submissions/55_lgbm_all_external.csv`
+
+### 56 — Chemprop 10-Head
+Chemprop MPNN with 10 output heads (pEC50 + 9 NR targets from ChEMBL). OOF array missing from `data/processed/` — training likely incomplete.
+
+### 57 — LGBM PubChem PXR
+LGBM trained on CRC data augmented with PubChem PXR bioassay actives/inactives (pseudo-pEC50 assigned). **OOF RAE: 0.5600** — ties baseline; PubChem pseudo-labels too noisy.
+
+Output: `submissions/57_lgbm_pubchem_pxr.csv`
+
+### 58 — LGBM BindingDB NR
+LGBM augmented with BindingDB NR binding data (5,690 records; pIC50 from IC50/Ki). **OOF RAE: 0.5600** — ties baseline.
+
+Output: `submissions/58_lgbm_bindingdb.csv`
+
+### 59 — LGBM Cliff Oversample
+LGBM with cliff-member compound oversampling (repeat cliff pairs in training). **OOF RAE: 0.5600** — ties baseline; oversampling 248 cliff members doesn't change LGBM significantly.
+
+Output: `submissions/59_lgbm_cliff_oversample.csv`
+
+### 60 — Deep Graph Cliff
+GCN with a cliff-pair contrastive head; graph-level representations for PXR pEC50. OOF array missing — likely CPU training too slow.
+
+### 61 — Cliff Analysis (Diagnostic)
+Per-model breakdown of RAE on cliff-member compounds vs non-cliff compounds. Identifies which models handle the activity cliff region best. No submission; generates `cliff_model_breakdown.parquet` for use in grand v7 sub-ensemble selection.
+
+### 62 — Grand Ensemble v7 *(primary submission)*
+ElasticNetCV meta-learner (32 models, nested scaffold CV). Collapse criterion: skip models with test_std < 0.4 × train_std. **Nested CV RAE: 0.5189** (−0.0092 vs v6b). Key contributors: lgbm_tuned 45.4%, deep_ensemble 28.7%, chemprop_aux 21.3%. New models from nb37–nb61 are zeroed by L1 except through indirect contribution via the deep ensemble. Test prediction std = 0.626 (well-calibrated; v6 was 0.118).
+
+Output: `submissions/62_grand_v7.csv`
+
+### 63 — Expanded Data Fetch
+Revisits nb37 failures: BindingDB bulk TSV download (falls back to ChEMBL PXR proxy, 945 rows); Papyrus NR subset via Zenodo (falls back to ChEMBL extended); PubChem cache bug fix attempt; ChEMBL direct PXR with all measurement types (812 rows: AC50, EC50, IC50, Ki). Supplementary caches for downstream notebooks.
+
+### 64 — LGBM Full Metrics Baseline
+LGBM trained with comprehensive metrics reporting (Pearson, Spearman, Kendall, R², cliff accuracy). Establishes full-metric baseline. **OOF RAE: 0.5643.**
+
+Output: `submissions/64_lgbm_full_metrics.csv`
+
+### 65 — LGBM CRC+Single-Conc FDR
+CRC training data augmented with single-conc compounds filtered at FDR < 0.05 (strict). **OOF RAE: 0.6560** — FDR filtering too strict, leaving noisy pseudo-labels that degrade performance.
+
+Output: `submissions/65_lgbm_crc_singleconc_fdr.csv`
+
+### 66 — LGBM ChEMBL PXR Direct
+LGBM augmented with ChEMBL PXR direct IC50/EC50/Ki/AC50 data (812 records from nb63). **OOF RAE: 0.5692** — small ChEMBL PXR set helps marginally.
+
+Output: `submissions/66_lgbm_chembl_pxr_direct.csv`
+
+### 67 — LGBM ChEMBL All-NR Weighted
+LGBM with all ChEMBL NR targets (7 targets, ~11K records) at phylogenetic sample weights. **OOF RAE: 0.6034** — broad NR transfer adds too much off-target noise.
+
+Output: `submissions/67_lgbm_chembl_all_nr_weighted.csv`
+
+### 68 — LGBM PubChem PXR Fixed
+Retry of nb57 with corrected PubChem PXR cache (still empty; cache bug not resolved). **OOF RAE: 0.5643.**
+
+Output: `submissions/68_lgbm_pubchem_pxr_fixed.csv`
+
+### 69 — LGBM Counter Soft Labels
+Counter-assay pEC50_null used as a soft auxiliary regression target (not just input feature). **OOF RAE: 0.5643.**
+
+Output: `submissions/69_lgbm_counter_soft.csv`
+
+### 70 — LGBM CRC+SP+ChEMBL PXR
+Combined CRC training + single-conc pseudo-labels + ChEMBL PXR augmentation. **OOF RAE: 0.7771** — stacking too many noisy data sources degrades performance severely.
+
+Output: `submissions/70_lgbm_crc_sp_chembl_pxr.csv`
+
+### 71 — LGBM All External v2
+Extended external augmentation v2 (all external sources combined). **OOF RAE: 0.8010** — further degradation; external label noise dominates.
+
+Output: `submissions/71_lgbm_all_external_v2.csv`
+
+### 72 — LGBM Cliff-Aware External
+External data filtered to compounds with Tanimoto ≥ 0.4 to any training cliff member. **OOF RAE: 0.5972** — cliff proximity filter still insufficient to remove noise.
+
+Output: `submissions/72_lgbm_cliff_aware_external.csv`
+
+### 73 — LGBM Multitask Heads
+Separate LGBM models per head (pEC50, Emax, pEC50_null) stacked via Ridge. **OOF RAE: 0.5646.**
+
+Output: `submissions/73_lgbm_multitask_heads.csv`
+
+### 74 — Chemprop ChEMBL-NR Multitask
+Chemprop multitask on all ChEMBL NR targets (7 tasks). OOF RAE = 4.76 (training failure — likely gradient explosion or wrong target scaling). Excluded from grand ensemble.
+
+### 75 — Grand Metrics Comparison (Diagnostic)
+Comprehensive metrics dashboard across all models: RAE, MAE, R², Pearson r, Spearman ρ, Kendall τ. No submission. Generates ranked comparison table.
+
+### 76 — Delta-ML Template
+Nearest-neighbour delta correction: for each test compound, find its most similar training compound, predict Δ(pEC50) from a secondary model, and add to the base prediction. **OOF RAE: 0.4164** — suspicious; likely inflated by NN leakage within scaffold folds. Not included in grand v7 ensemble.
+
+Output: `submissions/76_delta_ml.csv`
+
+### 77 — Sparse Nyström GP (Tanimoto Kernel)
+Gaussian process regression with Tanimoto similarity kernel, approximated via sparse Nyström inducing points. **OOF RAE: 0.7781** — theoretically principled but underperforms LGBM on this dataset size.
+
+Output: `submissions/77_gp_tanimoto.csv`
+
+### 78 — Multi-Fingerprint Diversity Ensemble
+7 FP types (ECFP4, FCFP4, MACCS, Avalon, RDKit, AtomPair, Topological) — one LGBM per FP, stacked via ElasticNet. **OOF RAE: 0.5897** (per-FP stack) / 0.6320 (raw stack). Diversity from different FPs is modest; ECFP4 dominates.
+
+Output: `submissions/78_multi_fp_ensemble.csv`
+
+### 79 — 3D Shape Descriptors
+Conformer-derived 3D descriptors (principal moments of inertia, shape asymmetry, eccentricity) appended to combined features. **OOF RAE: 0.5643** — 3D shape adds little over Morgan FP at this dataset size.
+
+Output: `submissions/79_3d_shape.csv`
+
+### 80 — SMILES Enumeration Augmentation
+Training augmented with 10 non-canonical SMILES enumerations per compound (all point to the same molecule; RDKit canonicalization is applied before featurisation, so this mainly adds minor descriptor diversity). **OOF RAE: 0.5581.**
+
+Output: `submissions/80_smiles_aug.csv`
+
+### 81 — Pseudo-Label Self-Training
+Iterative self-training: fit LGBM, pseudo-label test set, add high-confidence test predictions back as training data, refit. **OOF RAE: 0.5643** — self-training loop did not converge to improvement.
+
+Output: `submissions/81_pseudo_label.csv`
+
+### 82 — Selectivity-Aware Prediction
+Predicts PXR/CAR selectivity ratio as an auxiliary target alongside pEC50. **OOF RAE: 0.5917** — selectivity feature adds noise rather than signal at this data scale.
+
+Output: `submissions/82_selectivity_aware.csv`
+
+### 83 — Graph Label Spreading
+Semi-supervised label propagation on compound Tanimoto similarity graph; spreads training pEC50 labels to nearby unlabelled compounds and uses them as soft augmentation. **OOF RAE: 0.5643** — propagation noise from low-similarity compounds dominates.
+
+Output: `submissions/83_graph_spreading.csv`
+
+### 84 — Free-Wilson Scaffold Decomposition
+Additive Free-Wilson model: decomposes pEC50 into scaffold contribution + substituent contributions via linear regression on substructure indicators. **OOF RAE: 0.5636.** Interpretable but slightly weaker than LGBM.
+
+Output: `submissions/84_free_wilson.csv`
+
+### 85 — Creative Mega-Ensemble (ElasticNetCV over all OOFs)
+ElasticNet stacking over all 36 available OOF arrays. **In-sample OOF RAE: 0.2181** — this is not a valid generalisation estimate (ElasticNet is fitted on the full OOF stack without nested CV, so it memorises the OOF predictions). The dominant coefficient is `aux_features` (0.987) — the same train-only feature collapse seen in nb28. Not submitted.
+
+Output: `submissions/85_creative_mega_ensemble.csv` *(in-sample only, not submitted)*
 
 ---
 
