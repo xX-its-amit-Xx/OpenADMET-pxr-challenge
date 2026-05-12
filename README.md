@@ -75,8 +75,7 @@ A **stacked ensemble of 16 diverse molecular representation models**, meta-learn
 | Grand v2 | nb18 | lgbm_tuned (Optuna) replaces lgbm_aug | 0.5363 |
 | Grand v3 | nb23 | v2 + Uni-Mol | 0.5360 |
 | Grand v4 | nb24 | v3 + GROVER-base | 0.5358 |
-| Grand v5 | nb25 | v4 + GROVER-large | 0.5356 |
-| **Grand v6b** | **nb36** | **+nb26–nb35 (Chemprop 6-head 28.4%, single-conc 6.1%, kNN 6.0%)** | **0.5281** |
+| **Grand v5** | **nb25** | **v4 + GROVER-large** | **0.5356** |
 
 ### Final Submission Weights (Grand v6b, full-data ElasticNetCV, 16 models)
 
@@ -301,6 +300,8 @@ git clone https://huggingface.co/datasets/openadmet/pxr-challenge-train-test dat
 git clone https://github.com/OpenADMET/PXR-Challenge-Tutorial.git tutorial
 ```
 
+### Raw Files
+
 | File | Rows | Description |
 |---|---|---|
 | `pxr-challenge_TRAIN.csv` | 4,139 | CRC dose-response: pEC50, Emax, uncertainties |
@@ -308,6 +309,61 @@ git clone https://github.com/OpenADMET/PXR-Challenge-Tutorial.git tutorial
 | `pxr-challenge_counter-assay_TRAIN.csv` | 2,859 | PXR-null counter-screen |
 | `pxr-challenge_single_concentration_TRAIN.csv` | 21,003 | Single-point screen |
 | `pxr-challenge_structure_TEST_BLINDED.csv` | 184 | Structure track |
+
+### Schema Details
+
+**TRAIN / counter-assay** share the same schema: `name`, `smiles`, `batch`, `pec50`, `pec50_se`, `pec50_lo/hi`, `emax`, `emax_se`, `emax_lo/hi`, `emax_rel`, `emax_rel_se`, `emax_rel_lo/hi`, `split`, `source`, `ocnt_id`. All renamed to snake_case by `src/pxr/data.py`.
+
+**single_concentration**: `name`, `smiles`, `ocnt_id`, `log2_fc_estimate`, `fdr_bh`, `n_replicates`, `concentration_M`. Note the log2FC readout is a raw fold-change — must be calibrated against CRC data before use as a pseudo-label (see nb26).
+
+**TEST_BLINDED**: only `name` and `smiles` — no labels, no Emax, no pEC50_SE. Any feature that requires CRC measurement fields (emax, pec50_se, pec50_lo/hi) must be mean-imputed at inference, which destroys their signal.
+
+### Data Preparation by Notebook
+
+All notebooks share a common base pipeline:
+
+1. Load via `src/pxr/data.py` loaders (snake_case columns)
+2. Compute Bemis-Murcko scaffolds with `chem.bemis_murcko`
+3. Build scaffold 5-fold splits with `eval.scaffold_kfold_indices(seed=42)` — all analogs of a scaffold go to the same fold
+4. Featurize with `featurize.combined` → Morgan ECFP4 (2048-bit, radius=2) concatenated with ~217 RDKit 2D descriptors = **2,265 features**
+5. Impute NaN descriptor values with column medians via `featurize.impute`
+
+Notebook-specific deviations from this base:
+
+| Notebook | Training rows | Feature dim | Key deviation(s) |
+|---|---|---|---|
+| **02** baseline | 4,139 | 2,265 | None — pure base pipeline |
+| **03** Chemprop multitask | 4,139 (+2,858 counter null) | SMILES→MPNN graph | NaN-masked dual head: pEC50 + pEC50_null; counter-assay joined by InChIKey |
+| **06** counter feature | 4,139 | 2,266 | pEC50_null added as 1 extra input feature; imputed for ~36% without CRC null data |
+| **09** robust pipeline | 3,781 → 8,183 | 985 (selected) | SE filter (drop pec50_se > 0.5, removes 358 rows); IQR-clip descriptors (5× IQR); remove low-variance / high-corr features; upsample actives to 10%; add 4,402 pseudo-inactives from single-conc (pEC50 ≈ 4.3, weight=1.0) |
+| **26** single-conc pseudo-labels | 4,139 + 7,309 pseudo | 2,265 | Calibrate log2FC → pEC50 via HuberRegressor on 5,722-compound overlap (slope=0.496, intercept=4.357, r=0.52); keep only FDR<0.1 or \|log2FC\|>1; exclude CRC-train compounds; weight pseudo-labels at 0.25 |
+| **27** NR-weighted | 4,139 + 11,496 ChEMBL | 2,265 | ChEMBL NR bioactivity (PPARγ, FXR, RXRα, LXRα, VDR, PPARα) with phylogenetic sample weights: PXR=1.0, VDR=0.5, FXR=0.3, LXRα=RXRα=0.25, PPARγ=PPARα=0.15; quality-filter pEC50 ∈ [3, 10] |
+| **28** auxiliary features | 4,139 | 2,277 | Adds 12 extra features on top of combined(2265): Tanimoto to 6 PXR reference ligands (rifampicin, SR12813, hyperforin, T0901317, taxol, clotrimazole); LOO k-NN pEC50 (k=3, exclude self); null-predictor pEC50 (LGBM trained on counter-assay); emax, emax_rel, emax_se, pec50_se from CRC — **test set mean-imputes the 4 CRC fields → predictions collapse; excluded from ensemble** |
+| **30** Morgan+ESM-2 multi-NR | 4,139 × 7 NR rows | 2,585 | Morgan+RDKit (2265) + ESM-2 protein embedding (320-dim) concatenated; one (compound, protein) row per NR target; trained with phylogenetic weights |
+| **31** ChemBERTa+ESM-2 multi-NR | 4,139 × 7 | 1,088 | ChemBERTa-77M-MTR CLS (768-dim) + ESM-2 (320-dim); otherwise same as nb30 |
+| **32** Morgan+ProtBERT multi-NR | 4,139 × 7 | 3,289 | Morgan+RDKit (2265) + ProtBERT global embedding (1024-dim) |
+| **33** cross-attn ChemBERTa×ESM-2 | 4,139 | L_c × 768 → scalar | Per-token ChemBERTa embeddings (variable L_c × 768) attend as Query over 294 ESM-2 residue embeddings as K/V; projection + multi-head cross-attn + mean-pool + FFN |
+| **34** cross-attn GROVER×ESM-2 | 4,139 | 2400 → 1 token Q | GROVER-large global fingerprint (2400-dim) projected to single token Query, cross-attending to 294 ESM-2 residue K/V |
+| **35** Chemprop 6-head auxiliary | 4,139 | SMILES→MPNN graph | 6-task target matrix: pEC50 (primary), Emax, pEC50_null (NaN-masked, 64% coverage), logP, TPSA, max-PXR-ligand-Tanimoto; each fold z-scores targets from fold-train stats and un-scales pEC50 at inference |
+| **36** grand ensemble | varies per model | OOF vectors | Loads all cached `data/processed/oof_*.npy` arrays; stacks into meta-feature matrix; ElasticNetCV meta-learner with nested scaffold 5-fold CV; excludes nb28 OOF (train-only features) |
+
+### Feature Dimensionality Reference
+
+| Feature set | Dim | Notes |
+|---|---|---|
+| Morgan ECFP4 | 2,048 | radius=2, bit vector |
+| RDKit 2D descriptors | 217 | via `useful_rdkit_utils.RDKitDescriptors` |
+| Combined | 2,265 | Morgan ‖ RDKit; baseline for all LGBM notebooks |
+| ChemBERTa-zinc CLS | 768 | frozen from `seyonec/ChemBERTa-zinc-base-v1` |
+| ChemBERTa-MTR CLS | 768 | frozen from `seyonec/ChemBERTa-PubChem-base-v1` |
+| ChemBERTa-77M-MTR CLS | 384 | frozen from `deepchem/ChemBERTa-77M-MTR` (hidden=384) |
+| BERT-SMILES CLS | 768 | `unikei/bert-base-smiles` |
+| SELFormer CLS | 768 | `HUBioDataLab/SELFormer`, SELFIES input |
+| GROVER-base atom FP | 1,600 | graph-level fingerprint |
+| GROVER-large atom FP | 2,400 | graph-level fingerprint |
+| Uni-Mol 3D CLS | 512 | 3D conformer-aware transformer |
+| ESM-2 8M protein | 320 | mean-pooled over residues; `facebook/esm2_t6_8M_UR50D` |
+| ProtBERT protein | 1,024 | mean-pooled; `Rostlab/prot_bert` |
 
 ---
 
