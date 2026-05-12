@@ -37,6 +37,11 @@ dependencies = [
     "torch-geometric>=2.7.0",
     "gdown>=6.0.0",
     "selfies>=2.2.0",
+    "catboost>=1.2.10",
+    "xgboost>=3.2.0",
+    "pytorch-tabnet>=4.1.0",
+    "kaggle>=1.6",
+    "psutil>=5.9",
 ]
 
 [build-system]

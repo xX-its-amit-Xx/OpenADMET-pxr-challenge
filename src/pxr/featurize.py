@@ -20,17 +20,26 @@ from .chem import morgan_fp_batch
 _DESC_CALC = uru.RDKitDescriptors()
 
 
+_D_RDKIT: int | None = None  # cached descriptor dimension
+
+
 def rdkit_desc(smiles: list[str | None]) -> np.ndarray:
     """Compute ~200 RDKit 2D descriptors.  Returns (N, D) float32."""
+    global _D_RDKIT
+    if _D_RDKIT is None:
+        _D_RDKIT = len(_DESC_CALC.calc_smiles("C"))
+
+    if len(smiles) == 0:
+        return np.empty((0, _D_RDKIT), dtype=np.float32)
+
     rows = []
     for smi in smiles:
         try:
-            rows.append(_DESC_CALC.calc_smiles(smi) if smi else [np.nan] * len(rows[0]) if rows else None)
+            rows.append(_DESC_CALC.calc_smiles(smi) if smi else None)
         except Exception:
             rows.append(None)
 
-    # On first pass we may not know D yet — back-fill Nones
-    d = next((len(r) for r in rows if r is not None), 0)
+    d = next((len(r) for r in rows if r is not None), _D_RDKIT)
     out = np.array([r if r is not None else [np.nan] * d for r in rows], dtype=np.float32)
     return out
 
@@ -57,4 +66,4 @@ def impute(X: np.ndarray) -> np.ndarray:
 
 def feature_names_rdkit() -> list[str]:
     """Return the descriptor names in the same order as rdkit_desc()."""
-    return [name for name, _ in uru.RDKitDescriptors().desc_list]
+    return list(uru.RDKitDescriptors().desc_names)
