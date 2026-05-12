@@ -1,0 +1,122 @@
+[NbConvertApp] Converting notebook d:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\notebooks\26_singleconc_lgbm.ipynb to notebook
+D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "d:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Scripts\jupyter-nbconvert.EXE\__main__.py", line 10, in <module>
+  File "D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\jupyter_core\application.py", line 284, in launch_instance
+    super().launch_instance(argv=argv, **kwargs)
+  File "D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\traitlets\config\application.py", line 1082, in launch_instance
+    app.start()
+  File "D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\nbconvert\nbconvertapp.py", line 420, in start
+    self.convert_notebooks()
+  File "D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\nbconvert\nbconvertapp.py", line 597, in convert_notebooks
+    self.convert_single_notebook(notebook_filename)
+  File "D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\nbconvert\nbconvertapp.py", line 563, in convert_single_notebook
+    output, resources = self.export_single_notebook(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\nbconvert\nbconvertapp.py", line 487, in export_single_notebook
+    output, resources = self.exporter.from_filename(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\nbconvert\exporters\exporter.py", line 201, in from_filename
+    return self.from_file(f, resources=resources, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\nbconvert\exporters\exporter.py", line 220, in from_file
+    return self.from_notebook_node(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\nbconvert\exporters\notebook.py", line 36, in from_notebook_node
+    nb_copy, resources = super().from_notebook_node(nb, resources, **kw)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\nbconvert\exporters\exporter.py", line 154, in from_notebook_node
+    nb_copy, resources = self._preprocess(nb_copy, resources)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\nbconvert\exporters\exporter.py", line 353, in _preprocess
+    nbc, resc = preprocessor(nbc, resc)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\nbconvert\preprocessors\base.py", line 48, in __call__
+    return self.preprocess(nb, resources)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\nbconvert\preprocessors\execute.py", line 103, in preprocess
+    self.preprocess_cell(cell, resources, index)
+  File "D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\nbconvert\preprocessors\execute.py", line 124, in preprocess_cell
+    cell = self.execute_cell(cell, index, store_history=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\jupyter_core\utils\__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\ashenoy00000\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# \u2500\u2500 6. Scaffold 5-fold CV on CRC train (pseudo-labels as extra training) \u2500\u2500\u2500\u2500\u2500\u2500
+# Sample weights: CRC=1.0, pseudo-label=0.25 (lower quality)
+SC_WEIGHT = 0.25
+
+LGBM_PARAMS = dict(
+    n_estimators=1200, num_leaves=64, learning_rate=0.04,
+    subsample=0.8, colsample_bytree=0.8,
+    reg_alpha=0.1, reg_lambda=0.2,
+    min_child_samples=10, n_jobs=4, verbose=-1
+)
+
+scaffolds = train['smiles'].map(bemis_murcko).tolist()
+splits    = scaffold_kfold_indices(scaffolds, n_splits=N_FOLDS, seed=SEED)
+
+oof = np.full(len(y_tr), np.nan)
+fold_metrics = []
+
+for fold_i, (tr_idx, va_idx) in enumerate(splits):
+    # Combine CRC fold train with all pseudo-labels
+    X_fold = np.vstack([X_tr[tr_idx], X_sc])
+    y_fold = np.concatenate([y_tr[tr_idx], y_sc])
+    w_fold = np.concatenate([
+        np.ones(len(tr_idx)),
+        np.full(len(y_sc), SC_WEIGHT)
+    ])
+    
+    m = lgb.LGBMRegressor(**LGBM_PARAMS)
+    m.fit(X_fold, y_fold, sample_weight=w_fold)
+    oof[va_idx] = m.predict(X_tr[va_idx])
+    fold_rae = rae_fn(y_tr[va_idx], oof[va_idx])
+    met = compute_metrics(y_tr[va_idx], oof[va_idx])
+    fold_metrics.append(met)
+    print(f'  Fold {fold_i+1}: RAE={fold_rae:.4f}  Spearman={met["Spearman"]:.4f}')
+
+oof_rae = rae_fn(y_tr, oof)
+cv_df   = pd.DataFrame(fold_metrics)
+print(f'\nOOF RAE (global): {oof_rae:.4f}')
+print(f'Mean fold RAE: {cv_df["RAE"].mean():.4f} +/- {cv_df["RAE"].std():.4f}')
+print(f'\n== Comparison ==')
+print(f'  LGBM_base (no pseudo-labels): ~0.575')
+print(f'  LGBM_tuned (no pseudo-labels): 0.5394')
+print(f'  Single-conc augmented (this):  {oof_rae:.4f}')
+
+np.save(DATA_PROCESSED / 'oof_singleconc.npy', oof)
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mValueError[39m                                Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[6][39m[32m, line 20[39m
+[32m     16[39m fold_metrics = []
+[32m     17[39m 
+[32m     18[39m [38;5;28;01mfor[39;00m fold_i, (tr_idx, va_idx) [38;5;28;01min[39;00m enumerate(splits):
+[32m     19[39m     [38;5;66;03m# Combine CRC fold train with all pseudo-labels[39;00m
+[32m---> [39m[32m20[39m     X_fold = np.vstack([X_tr[tr_idx], X_sc])
+[32m     21[39m     y_fold = np.concatenate([y_tr[tr_idx], y_sc])
+[32m     22[39m     w_fold = np.concatenate([
+[32m     23[39m         np.ones(len(tr_idx)),
+
+[36mFile [39m[32m~\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\numpy\_core\shape_base.py:291[39m, in [36mvstack[39m[34m(tup, dtype, casting)[39m
+[32m    289[39m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28misinstance[39m(arrs, [38;5;28mtuple[39m):
+[32m    290[39m     arrs = (arrs,)
+[32m--> [39m[32m291[39m [38;5;28;01mreturn[39;00m [30;43m_nx[39;49m[30;43m.[39;49m[30;43mconcatenate[39;49m[30;43m([39;49m[30;43marrs[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m0[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mdtype[39;49m[30;43m=[39;49m[30;43mdtype[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mcasting[39;49m[30;43m=[39;49m[30;43mcasting[39;49m[30;43m)[39;49m
+
+[31mValueError[39m: all the input array dimensions except for the concatenation axis must match exactly, but along dimension 1, the array at index 0 has size 2265 and the array at index 1 has size 2048
+

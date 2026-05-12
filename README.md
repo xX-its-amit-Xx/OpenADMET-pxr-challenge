@@ -10,7 +10,7 @@ Submission for the [OpenADMET PXR Blind Challenge](https://huggingface.co/spaces
 
 ## Method Overview
 
-A **stacked ensemble of 9 diverse molecular representation models**, meta-learned with scaffold-aware nested cross-validation to prevent analog leakage. The final prediction blends the ElasticNet stack with a separately-trained Chemprop multitask GNN.
+A **stacked ensemble of 16 diverse molecular representation models**, meta-learned with scaffold-aware nested cross-validation to prevent analog leakage. New models include a 6-head Chemprop auxiliary multitask GNN, multi-NR transfer LGBM with ESM-2/ProtBERT protein embeddings, and cross-attention compound×protein fusion architectures.
 
 ### Key Design Choices
 
@@ -23,7 +23,7 @@ A **stacked ensemble of 9 diverse molecular representation models**, meta-learne
 
 ## Results
 
-**Best submission:** `submissions/25_grand_v5.csv`
+**Best submission:** `submissions/36b_grand_v6_no_aux.csv` *(Grand Ensemble v6b — 16 models, OOF RAE 0.5281)*
 
 | Model | OOF RAE |
 |---|---|
@@ -31,7 +31,25 @@ A **stacked ensemble of 9 diverse molecular representation models**, meta-learne
 | LGBM baseline (Morgan + RDKit) | 0.5600 |
 | LGBM tuned (Optuna) | 0.5394 |
 | Chemprop multitask GNN | 0.5170 |
-| **Grand Ensemble v5 (nested CV)** | **0.5356** |
+| Grand Ensemble v5 (nested CV) | 0.5356 |
+| **Grand Ensemble v6b (protein-aware, 16 models)** | **0.5281** |
+
+### New Model Results (nb26–nb36)
+
+| # | Model | OOF RAE | Notes |
+|---|---|---|---|
+| 26 | Single-conc pseudo-labels LGBM | 0.6003 | Pseudo-labels hurt (noisy; log2FC→pEC50 r=0.52) |
+| 27 | NR-weighted LGBM | 0.5964 | Phylogenetic NR transfer marginal |
+| 28 | Auxiliary features LGBM | 0.2179 | PXR lig sim + LOO k-NN + Emax/SE — **train-only features; excluded from v6b ensemble** (test preds collapse to std=0.106) |
+| 29 | Protein embeddings (ESM-2 + ProtBERT) | — | No OOF; embedding extraction only |
+| 30 | Morgan + ESM-2 multi-NR | 0.5763 | Marginal gain; zeroed by ElasticNet in v6b |
+| 31 | ChemBERTa-77M-MTR + ESM-2 multi-NR | 0.6186 | Zeroed by ElasticNet |
+| 32 | Morgan + ProtBERT multi-NR | 0.5749 | Zeroed by ElasticNet |
+| 33 | Cross-attn ChemBERTa-77M tokens × ESM-2 residues | 0.6147 | d_chem=384; zeroed in v6c ensemble |
+| 34 | Cross-attn GROVER-large global × ESM-2 residues | 0.6139 | Zeroed by ElasticNet in v6b |
+| 35 | Chemprop 6-head auxiliary | 0.5665 | **28.4% weight in v6b** — 6 heads: pEC50, Emax, pEC50_null, logP, TPSA, PXR-sim |
+| 36b | Grand Ensemble v6b (no aux) | **0.5281** | 16 models; excludes nb28 (train-only features) |
+| 36c | Grand Ensemble v6c (+nb33 cross-attn) | **0.5281** | crossattn_chemberta_esm2 zeroed by L1; identical to v6b |
 
 ---
 
@@ -57,23 +75,22 @@ A **stacked ensemble of 9 diverse molecular representation models**, meta-learne
 | Grand v2 | nb18 | lgbm_tuned (Optuna) replaces lgbm_aug | 0.5363 |
 | Grand v3 | nb23 | v2 + Uni-Mol | 0.5360 |
 | Grand v4 | nb24 | v3 + GROVER-base | 0.5358 |
-| **Grand v5** | **nb25** | **v4 + GROVER-large** | **0.5356** |
+| Grand v5 | nb25 | v4 + GROVER-large | 0.5356 |
+| **Grand v6b** | **nb36** | **+nb26–nb35 (Chemprop 6-head 28.4%, single-conc 6.1%, kNN 6.0%)** | **0.5281** |
 
-### Final Submission Weights (Grand v5, full-data ElasticNetCV, α=0.00329, l1=0.50)
+### Final Submission Weights (Grand v6b, full-data ElasticNetCV, 16 models)
 
 | Model | Weight |
 |---|---|
-| LGBM tuned | 74.7% |
-| k-NN | 15.6% |
-| Uni-Mol | 9.1% |
-| ChemBERTa-MLM | 6.3% |
-| GROVER-large | 5.9% |
-| GROVER-base | 3.4% |
-| ChemBERTa-MTR | 2.9% |
-| LGBM base | 0% *(zeroed by L1)* |
-| BERT-SMILES | 0% *(zeroed by L1)* |
+| LGBM tuned | 54.6% |
+| Chemprop 6-head auxiliary (nb35) | 28.4% |
+| Single-conc pseudo-label LGBM (nb26) | 6.1% |
+| k-NN | 6.0% |
+| Uni-Mol | 2.9% |
+| ChemBERTa-MLM | 2.0% |
+| All other models | 0% *(zeroed by L1)* |
 
-The Grand v5 stack is blended with the standalone Chemprop multitask model (nb08) at 50.9% / 49.1% inverse-RAE weighting for the final submission.
+**Previous best (Grand v5):** lgbm_tuned 74.7%, kNN 15.6%, Uni-Mol 9.1%, ChemBERTa-MLM 6.3%, GROVER-large 5.9%.
 
 ---
 
@@ -217,6 +234,61 @@ Output: `submissions/24_grand_v4.csv`
 9-model ElasticNet (v4 + GROVER-large). **Nested CV RAE: 0.5356.** Both GROVER models retained; lgbm_base and BERT-SMILES zeroed. Blended 49.1/50.9% with Chemprop-08.
 
 Output: `submissions/25_grand_v5.csv`
+
+### 26 — Single-Concentration Pseudo-Labels LGBM
+Calibrates 21K single-conc log2FC readouts to pseudo-pEC50 via HuberRegressor on ~300 overlapping compounds. Filters to high-confidence (FDR < 0.1 or |log2FC| > 1). Pseudo-labels added at sample_weight=0.25 to augment LGBM training.
+
+Output: `submissions/26_singleconc_lgbm.csv`
+
+### 27 — Nuclear Receptor Weighted LGBM
+PXR CRC train + ChEMBL NR bioactivity (PPARγ, FXR, RXRα, LXRα, VDR, PPARα) with phylogenetic sample weights. NR1I subfamily (PXR, VDR) highest; distal NRs downweighted. Tests whether cross-target NR knowledge transfers.
+
+Output: `submissions/27_nr_weighted_lgbm.csv`
+
+### 28 — Auxiliary Feature Engineering LGBM
+Augments Morgan+RDKit features with: Emax/pEC50_SE/CI-width from CRC measurements, predicted pEC50_null (null-predictor LGBM), Tanimoto similarity to 6 known PXR ligands (rifampicin, SR12813, hyperforin, T0901317, taxol, clotrimazole), and k-NN pEC50 (k=3).
+
+Output: `submissions/28_auxiliary_features_lgbm.csv`
+
+### 29 — Protein Embeddings: ESM-2 + ProtBERT
+Extracts global protein embeddings for PXR and 6 NR targets from UniProt. ESM-2 (8M, 320-dim) and ProtBERT (1024-dim). Cached to `data/processed/nr_esm2_embeddings.npy` + `nr_protbert_embeddings.npy`. Used as protein features in notebooks 30–32.
+
+### 30 — Multi-NR LGBM: Morgan + ESM-2
+Concatenates Morgan+RDKit (2265) + ESM-2 protein embedding (320) = 2585 features per (compound, target) pair. Trains across all 7 NR targets with phylogenetic weights.
+
+Output: `submissions/30_morgan_esm2_multinr.csv`
+
+### 31 — Multi-NR LGBM: ChemBERTa-MTR + ESM-2
+ChemBERTa-MTR CLS (768) + ESM-2 (320) = 1088 features. Multi-NR training tests whether sequence-model compound representations transfer across nuclear receptor targets.
+
+Output: `submissions/31_chemberta_esm2_multinr.csv`
+
+### 32 — Multi-NR LGBM: Morgan + ProtBERT
+Morgan+RDKit (2265) + ProtBERT global embedding (1024) = 3289 features. Larger protein model vs. ESM-2 — tests whether deeper protein representation improves multi-NR transfer.
+
+Output: `submissions/32_protbert_multinr.csv`
+
+### 33 — Cross-Attention: ChemBERTa Tokens × ESM-2 Residues
+Full sequence-level cross-attention: per-token ChemBERTa embeddings (L_c × 768) as Query attend to per-residue ESM-2 embeddings (294 × 320) as Key/Value. The compound learns which protein residues modulate its activity. Architecture: project → multi-head cross-attn → mean-pool (real tokens) → FFN → pEC50. Scaffold 5-fold CV.
+
+Output: `submissions/33_crossattn_chemberta_esm2.csv`
+
+### 34 — Cross-Attention: GROVER-large × ESM-2 Residues
+Graph-based cross-attention: GROVER-large global embedding (2400-dim) projected to single-token Query, cross-attends to 294 protein residues as K/V. Learns "which residues does this molecule's graph fingerprint activate?" Complements nb33's SMILES-sequence bias with graph-topology inductive bias.
+
+Output: `submissions/34_crossattn_grover_esm2.csv`
+
+### 35 — Chemprop 6-Head Auxiliary Learning
+Chemprop MPNN with 6 output heads: pEC50 (primary), Emax, pEC50_null, logP, TPSA, max-PXR-ligand-similarity. Auxiliary regression tasks regularize the shared molecular encoder toward physically meaningful properties, potentially improving PXR generalization.
+
+Output: `submissions/35_chemprop_auxiliary.csv`
+
+### 36 — Grand Ensemble v6b *(protein-aware, 16 models)*
+ElasticNetCV meta-learner with nested scaffold CV over all available models from nb01–nb35. Dynamically loads any OOF arrays that exist — L1 automatically zeros redundant models. **Excludes nb28 auxiliary features** (emax/pec50_se are train-only; mean-imputing for test collapses predictions to std=0.106). v6b **OOF RAE: 0.5281** (−0.0075 vs v5). Key contributors: lgbm_tuned 54.6%, chemprop_aux 28.4%, single-conc 6.1%, kNN 6.0%. Multi-NR protein-aware models zeroed by ElasticNet (not yet complementary enough).
+
+Note: v6 (with aux_features) was also run for analysis — OOF RAE 0.2179 but test std=0.118 (unreliable generalization).
+
+Output: `submissions/36_grand_v6.csv` *(analysis only)*, `submissions/36b_grand_v6_no_aux.csv` *(primary)*
 
 ---
 

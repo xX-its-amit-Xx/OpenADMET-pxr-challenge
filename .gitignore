@@ -1,0 +1,54 @@
+# External clones (re-clone via scripts/setup.sh — see README)
+/tutorial/
+/data/raw/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# Envs
+.venv/
+venv/
+env/
+.env
+.python-version
+
+# Notebooks
+*.nbconvert.ipynb
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Build / artifacts
+build/
+dist/
+wheels/
+*.log
+
+# Local data caches (kept out of git unless explicitly added)
+/data/processed/cache/
+/data/external/cache/
+
+# Large binary arrays — embeddings, OOF predictions, processed features
+/data/processed/*.npy
+/data/processed/*.npz
+/data/processed/*.pt
+/data/processed/*.pkl
+
+# Model checkpoints and cloned model repos (large, regenerable)
+/notebooks/checkpoints/
+/checkpoints/
+
+# Submission archives — too big / regenerable
+/submissions/*.zip

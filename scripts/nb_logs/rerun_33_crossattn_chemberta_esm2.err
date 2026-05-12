@@ -1,0 +1,156 @@
+[NbConvertApp] Converting notebook d:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\notebooks\33_crossattn_chemberta_esm2.ipynb to notebook
+D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "d:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Scripts\jupyter-nbconvert.EXE\__main__.py", line 10, in <module>
+  File "D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\jupyter_core\application.py", line 284, in launch_instance
+    super().launch_instance(argv=argv, **kwargs)
+  File "D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\traitlets\config\application.py", line 1082, in launch_instance
+    app.start()
+  File "D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\nbconvert\nbconvertapp.py", line 420, in start
+    self.convert_notebooks()
+  File "D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\nbconvert\nbconvertapp.py", line 597, in convert_notebooks
+    self.convert_single_notebook(notebook_filename)
+  File "D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\nbconvert\nbconvertapp.py", line 563, in convert_single_notebook
+    output, resources = self.export_single_notebook(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\nbconvert\nbconvertapp.py", line 487, in export_single_notebook
+    output, resources = self.exporter.from_filename(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\nbconvert\exporters\exporter.py", line 201, in from_filename
+    return self.from_file(f, resources=resources, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\nbconvert\exporters\exporter.py", line 220, in from_file
+    return self.from_notebook_node(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\nbconvert\exporters\notebook.py", line 36, in from_notebook_node
+    nb_copy, resources = super().from_notebook_node(nb, resources, **kw)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\nbconvert\exporters\exporter.py", line 154, in from_notebook_node
+    nb_copy, resources = self._preprocess(nb_copy, resources)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\nbconvert\exporters\exporter.py", line 353, in _preprocess
+    nbc, resc = preprocessor(nbc, resc)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\nbconvert\preprocessors\base.py", line 48, in __call__
+    return self.preprocess(nb, resources)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\nbconvert\preprocessors\execute.py", line 103, in preprocess
+    self.preprocess_cell(cell, resources, index)
+  File "D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\nbconvert\preprocessors\execute.py", line 124, in preprocess_cell
+    cell = self.execute_cell(cell, index, store_history=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\jupyter_core\utils\__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Users\ashenoy00000\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# \u2500\u2500 7. Scaffold 5-fold CV \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+y_tr      = train['pec50'].values
+scaffolds = train['smiles'].map(bemis_murcko).tolist()
+splits    = scaffold_kfold_indices(scaffolds, n_splits=N_FOLDS, seed=SEED)
+pxr_res   = pxr_residues.to(DEVICE)
+
+oof = np.full(len(y_tr), np.nan)
+fold_raes = []
+
+for fold_i, (tr_idx, va_idx) in enumerate(splits):
+    val_preds, _ = train_one_fold(
+        embs_tr[tr_idx], masks_tr[tr_idx], y_tr[tr_idx],
+        embs_tr[va_idx], masks_tr[va_idx], y_tr[va_idx],
+        pxr_res
+    )
+    oof[va_idx] = val_preds
+    fold_rae = rae_fn(y_tr[va_idx], val_preds)
+    fold_raes.append(fold_rae)
+    print(f'  Fold {fold_i+1}: RAE={fold_rae:.4f}')
+
+oof_rae = rae_fn(y_tr, oof)
+print(f'\nOOF RAE: {oof_rae:.4f}  (fold mean: {np.mean(fold_raes):.4f} ± {np.std(fold_raes):.4f})')
+print(f'ChemBERTa-MTR LGBM (no attn): 0.5993')
+print(f'Cross-attention (this):        {oof_rae:.4f}')
+
+np.save(DATA_PROCESSED / 'oof_crossattn_chemberta_esm2.npy', oof)
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mRuntimeError[39m                              Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[7][39m[32m, line 11[39m
+[32m      7[39m oof = np.full(len(y_tr), np.nan)
+[32m      8[39m fold_raes = []
+[32m      9[39m 
+[32m     10[39m [38;5;28;01mfor[39;00m fold_i, (tr_idx, va_idx) [38;5;28;01min[39;00m enumerate(splits):
+[32m---> [39m[32m11[39m     val_preds, _ = train_one_fold(
+[32m     12[39m         embs_tr[tr_idx], masks_tr[tr_idx], y_tr[tr_idx],
+[32m     13[39m         embs_tr[va_idx], masks_tr[va_idx], y_tr[va_idx],
+[32m     14[39m         pxr_res
+
+[36mCell[39m[36m [39m[32mIn[6][39m[32m, line 18[39m, in [36mtrain_one_fold[39m[34m(embs_tr, masks_tr, y_tr, embs_va, masks_va, y_va, pxr_res, epochs, patience, lr, bs)[39m
+[32m     14[39m         model.train()
+[32m     15[39m         [38;5;28;01mfor[39;00m emb_b, mask_b, y_b [38;5;28;01min[39;00m dl_tr:
+[32m     16[39m             emb_b, mask_b, y_b = emb_b.to(DEVICE), mask_b.to(DEVICE), y_b.to(DEVICE)
+[32m     17[39m             opt.zero_grad()
+[32m---> [39m[32m18[39m             pred = model(emb_b, mask_b, pxr_res)
+[32m     19[39m             loss = criterion(pred, y_b)
+[32m     20[39m             loss.backward(); opt.step()
+[32m     21[39m         sched.step()
+
+[36mFile [39m[32m~\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\torch\nn\modules\module.py:1779[39m, in [36mModule._wrapped_call_impl[39m[34m(self, *args, **kwargs)[39m
+[32m   1777[39m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m._compiled_call_impl(*args, **kwargs)  [38;5;66;03m# type: ignore[misc][39;00m
+[32m   1778[39m [38;5;28;01melse[39;00m:
+[32m-> [39m[32m1779[39m     [38;5;28;01mreturn[39;00m [30;43mself[39;49m[30;43m.[39;49m[30;43m_call_impl[39;49m[30;43m([39;49m[30;43m*[39;49m[30;43margs[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m)[39;49m
+
+[36mFile [39m[32m~\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\torch\nn\modules\module.py:1790[39m, in [36mModule._call_impl[39m[34m(self, *args, **kwargs)[39m
+[32m   1785[39m [38;5;66;03m# If we don't have any hooks, we want to skip the rest of the logic in[39;00m
+[32m   1786[39m [38;5;66;03m# this function, and just call forward.[39;00m
+[32m   1787[39m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m ([38;5;28mself[39m._backward_hooks [38;5;129;01mor[39;00m [38;5;28mself[39m._backward_pre_hooks [38;5;129;01mor[39;00m [38;5;28mself[39m._forward_hooks [38;5;129;01mor[39;00m [38;5;28mself[39m._forward_pre_hooks
+[32m   1788[39m         [38;5;129;01mor[39;00m _global_backward_pre_hooks [38;5;129;01mor[39;00m _global_backward_hooks
+[32m   1789[39m         [38;5;129;01mor[39;00m _global_forward_hooks [38;5;129;01mor[39;00m _global_forward_pre_hooks):
+[32m-> [39m[32m1790[39m     [38;5;28;01mreturn[39;00m [30;43mforward_call[39;49m[30;43m([39;49m[30;43m*[39;49m[30;43margs[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m)[39;49m
+[32m   1792[39m result = [38;5;28;01mNone[39;00m
+[32m   1793[39m called_always_called_hooks = [38;5;28mset[39m()
+
+[36mCell[39m[36m [39m[32mIn[5][39m[32m, line 19[39m, in [36mCompProtCrossAttn.forward[39m[34m(self, compound_tokens, attn_mask, protein_residues)[39m
+[32m     15[39m         [38;5;66;03m# compound_tokens: (B, L_c, d_c)[39;00m
+[32m     16[39m         [38;5;66;03m# attn_mask: (B, L_c) — 1=real, 0=pad[39;00m
+[32m     17[39m         [38;5;66;03m# protein_residues: (L_p, d_p)[39;00m
+[32m     18[39m         B = compound_tokens.shape[[32m0[39m]
+[32m---> [39m[32m19[39m         q  = self.q_proj(compound_tokens)          [38;5;66;03m# (B, L_c, d_model)[39;00m
+[32m     20[39m         kv = self.kv_proj(protein_residues)         [38;5;66;03m# (L_p, d_model)[39;00m
+[32m     21[39m         kv = kv.unsqueeze([32m0[39m).expand(B, -[32m1[39m, -[32m1[39m)     [38;5;66;03m# (B, L_p, d_model)[39;00m
+[32m     22[39m         out, _ = self.cross(q, kv, kv)             [38;5;66;03m# (B, L_c, d_model)[39;00m
+
+[36mFile [39m[32m~\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\torch\nn\modules\module.py:1779[39m, in [36mModule._wrapped_call_impl[39m[34m(self, *args, **kwargs)[39m
+[32m   1777[39m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m._compiled_call_impl(*args, **kwargs)  [38;5;66;03m# type: ignore[misc][39;00m
+[32m   1778[39m [38;5;28;01melse[39;00m:
+[32m-> [39m[32m1779[39m     [38;5;28;01mreturn[39;00m [30;43mself[39;49m[30;43m.[39;49m[30;43m_call_impl[39;49m[30;43m([39;49m[30;43m*[39;49m[30;43margs[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m)[39;49m
+
+[36mFile [39m[32m~\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\torch\nn\modules\module.py:1790[39m, in [36mModule._call_impl[39m[34m(self, *args, **kwargs)[39m
+[32m   1785[39m [38;5;66;03m# If we don't have any hooks, we want to skip the rest of the logic in[39;00m
+[32m   1786[39m [38;5;66;03m# this function, and just call forward.[39;00m
+[32m   1787[39m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m ([38;5;28mself[39m._backward_hooks [38;5;129;01mor[39;00m [38;5;28mself[39m._backward_pre_hooks [38;5;129;01mor[39;00m [38;5;28mself[39m._forward_hooks [38;5;129;01mor[39;00m [38;5;28mself[39m._forward_pre_hooks
+[32m   1788[39m         [38;5;129;01mor[39;00m _global_backward_pre_hooks [38;5;129;01mor[39;00m _global_backward_hooks
+[32m   1789[39m         [38;5;129;01mor[39;00m _global_forward_hooks [38;5;129;01mor[39;00m _global_forward_pre_hooks):
+[32m-> [39m[32m1790[39m     [38;5;28;01mreturn[39;00m [30;43mforward_call[39;49m[30;43m([39;49m[30;43m*[39;49m[30;43margs[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m)[39;49m
+[32m   1792[39m result = [38;5;28;01mNone[39;00m
+[32m   1793[39m called_always_called_hooks = [38;5;28mset[39m()
+
+[36mFile [39m[32m~\.windsurf\OpenADMET-pxr-challenge\.venv\Lib\site-packages\torch\nn\modules\linear.py:134[39m, in [36mLinear.forward[39m[34m(self, input)[39m
+[32m    130[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mforward[39m([38;5;28mself[39m, [38;5;28minput[39m: Tensor) -> Tensor:
+[32m    131[39m [38;5;250m    [39m[33;03m"""[39;00m
+[32m    132[39m [33;03m    Runs the forward pass.[39;00m
+[32m    133[39m [33;03m    """[39;00m
+[32m--> [39m[32m134[39m     [38;5;28;01mreturn[39;00m [30;43mF[39;49m[30;43m.[39;49m[30;43mlinear[39;49m[30;43m([39;49m[30;43minput[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mself[39;49m[30;43m.[39;49m[30;43mweight[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mself[39;49m[30;43m.[39;49m[30;43mbias[39;49m[30;43m)[39;49m
+
+[31mRuntimeError[39m: mat1 and mat2 shapes cannot be multiplied (4096x384 and 768x128)
+

@@ -33,6 +33,10 @@ dependencies = [
     "sentencepiece>=0.2",
     "accelerate>=0.30",
     "optuna>=4.8.0",
+    "unimol-tools>=0.1.5",
+    "torch-geometric>=2.7.0",
+    "gdown>=6.0.0",
+    "selfies>=2.2.0",
 ]
 
 [build-system]
