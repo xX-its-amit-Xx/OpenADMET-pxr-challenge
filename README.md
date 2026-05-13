@@ -23,19 +23,27 @@ A **stacked ensemble of 16 diverse molecular representation models**, meta-learn
 
 ## Results
 
-**Best submission:** `submissions/96_grand_ensemble_v8.csv` *(Grand Ensemble v8 — nested-CV stacking, OOF RAE 0.2843)*
+**Best submission:** `submissions/129_post_hoc_reoptimize.csv` *(Post-hoc exhaustive k=3 blend — DeepMetaStack_calib + AssayDecomp_calib + CounterDelta, scaffold CV OOF RAE 0.3556)*
 
-| Model | OOF RAE |
+> Note: all OOF RAEs from nb107+ use strict scaffold 5-fold CV (Murcko grouping). Earlier notebooks (nb86–nb106) used nested random CV and report optimistic estimates (~0.28 vs scaffold-CV ~0.37).
+
+| Model | OOF RAE (scaffold CV) |
 |---|---|
 | Mean predictor baseline | ~1.0 |
 | LGBM baseline (Morgan + RDKit) | 0.5600 |
 | LGBM tuned (Optuna) | 0.5394 |
 | Chemprop multitask GNN | 0.5170 |
-| Grand Ensemble v5 (nested CV) | 0.5356 |
 | Grand Ensemble v6b (protein-aware, 16 models) | 0.5281 |
-| Grand Ensemble v7 (32 models, deep ensemble + Chemprop aux) | 0.5189 |
-| Grand Ensemble v8 (nested-CV stacking, nb86–nb102) | 0.3088 |
-| **Grand Ensemble v8 (updated with nb103–nb106, delta_similarity_tiers 84%)** | **0.2843** |
+| SC Bio Fingerprint (nb99) | 0.5249 |
+| Seed Propagation ensemble (nb103) | 0.4196 |
+| AssayDecomp (nb107): Emax+null+selectivity augmented LGBM | 0.3785 |
+| Grand Ensemble v2 (nb108): AssayDecomp + Delta-ML | 0.3762 |
+| Deep Meta-Stack (nb109): 13 OOF inputs + 2283 features | 0.3741 |
+| Deep Meta-Stack calibrated (nb114): isotonic calibration | 0.3734 |
+| Grand Ensemble v3 RidgeCV (nb112): 15 models | 0.3714 |
+| **Optuna k=3 ensemble (nb119): calibrated nb109 + nb111 + nb103** | **0.3706** |
+| Exhaustive k=4 ensemble (nb127): nb119 + nb109_calib + nb107_calib + nb120_mape | 0.3689 |
+| **Post-hoc k=3 re-opt (nb129): nb109_calib + nb107_calib + counter_delta** | **0.3556** |
 
 ### New Model Results (nb26–nb36)
 
@@ -125,7 +133,42 @@ A **stacked ensemble of 16 diverse molecular representation models**, meta-learn
 | 94 | molformer_finetune | TBD | MolFormer-XL fine-tune 3-layer head (Kaggle T4 GPU); no OOF available |
 | 102 | stochastic_ensemble | 0.5550 | Bootstrap ensemble (50 LGBM models, OOB uncertainty calibration) |
 | 103 | delta_chemprop_cpu | 0.5585 | Delta-ML with small CPU Chemprop (depth=2, d_h=128) for delta prediction |
-| 104 | delta_similarity_tiers | **0.2772** | Tiered delta-ML: separate LGBM per similarity tier (HIGH/MED/LOW [0.35-0.90]); **new best single model** |
+| 104 | delta_similarity_tiers | 0.2772* | Tiered delta-ML: separate LGBM per similarity tier (HIGH/MED/LOW [0.35-0.90]); *random-CV estimate* |
+
+> *nb86–nb106 OOF estimates use random CV; scaffold-CV estimates are ~0.37 for best models*
+
+### New Model Results (nb107–nb125) — Batch 3 (scaffold CV throughout)
+
+| # | Model | OOF RAE | Notes |
+|---|---|---|---|
+| 97 | nb97_pxr_features | 0.5616 | Emax/SE/null as direct LGBM features — train-only, test predictions collapse |
+| 99 | nb99_sc_bio_fp | 0.5249 | Single-conc biological fingerprint appended to combined features |
+| 100 | nb100_emax_corrected | 0.5884 | Emax-weighted prediction correction (selectivity prior) |
+| 101 | nb101_delta_base | 0.4164 | Delta-ML on Morgan FP similarity; te_std/oof_std=0.56 (borderline) |
+| 103 | nb103_seed_propagation | 0.4196 | 20-seed LGBM ensemble with OOF propagation |
+| 107 | **AssayDecomp (nb107)** | **0.3785** | Predicted Emax/null/selectivity as augmented LGBM features; breakthrough |
+| 108 | Grand v2 (nb108) | 0.3762 | AssayDecomp (60%) + Delta-ML (40%) 2-way blend |
+| 109 | **Deep MetaStack (nb109)** | **0.3741** | 13 OOF meta-features + structural + assay aux; 2283 total features |
+| 110 | Scaffold Prior (nb110) | 0.3880 | Murcko scaffold group statistics as additional features |
+| 111 | **Selectivity-Primary (nb111)** | **0.3754** | Primary target = selectivity (pEC50 - null); reconstruct pEC50 |
+| 112 | Grand v3 RidgeCV (nb112) | 0.3714 | RidgeCV over 15 non-collapsed OOF models |
+| 113 | Final submission analysis | — | Diagnostic notebook; no submission |
+| 114 | Isotonic calibration (nb114) | 0.3734 | Nested isotonic calibration of nb109 predictions; saved for ensembling |
+| 115 | Extreme-weighted (nb115) | 0.3979 | Distance-weighted LGBM (extreme pEC50 upweighted k=3) |
+| 116 | Quantile regression (nb116) | 0.3871 | LGBM Q50 quantile regression + assay augmentation |
+| 117 | KNN residual (nb117) | 0.3741 | KNN-predicted residual correction on nb109; optimal alpha=0 (no gain) |
+| 118 | Random Forest + ET (nb118) | 0.5697 | RF + ExtraTrees blend; diverse predictor for ensemble |
+| 119 | **Optuna k=3 ensemble (nb119)** | **0.3706** | k=3 Optuna simplex: calibrated nb109 + nb111 + nb103 |
+| 120 | Huber/MAPE LGBM (nb120) | 0.3793 | Huber_0.5 best; all 4 variants (Huber_0.5/1.0/2.0, MAPE) in pool |
+| 121 | Test-sim weighted (nb121) | 0.3844 | gamma=2.0 best; small gain vs. uniform weighting |
+| 122 | Non-linear meta (nb122) | 0.3769 | LGBM+XGBoost meta-learner on 79 OOF features + PCA structural |
+| 123 | LAD regression (nb123) | 0.3763 | LAD L1 objective beats MSE ref (0.3847); best robust objective |
+| 124 | Scaffold-specific (nb124) | 0.3741 | Local LGBM per scaffold group; ties nb109 (no improvement) |
+| 125 | Grand v4 (nb125) | 0.3693 | 2-way best: nb119(0.75) + nb107_calib(0.25); ElasticNet 0.3715 |
+| 126 | Classifier-conditioned (nb126) | 0.3929 | 3-class classifier + per-class regressors; not competitive |
+| 127 | Exhaustive 3-way (nb127) | 0.3689 | C(90,3)=117k; k=4 best: nb119+nb109_calib+nb107_calib+nb120_mape |
+| 128 | RF+ET augmented (nb128) | 0.3787 | RF/ET with Emax/null/selectivity aug; from 0.57 to 0.38 |
+| **129** | **Post-hoc k=3 re-opt (nb129)** | **0.3556** | **100 models; k=3 best: nb109_calib(0.50)+nb107_calib(0.25)+counter_delta(0.25)** |
 | 105 | delta_uncertainty | 0.3268 | Uncertainty-weighted delta-ML (adaptive blend by template variance) |
 | 106 | reverse_delta_ml | 0.3269 | Reverse delta-ML using test compounds as templates for transductive refinement |
 
@@ -153,8 +196,7 @@ A **stacked ensemble of 16 diverse molecular representation models**, meta-learn
 | Grand v2 | nb18 | lgbm_tuned (Optuna) replaces lgbm_aug | 0.5363 |
 | Grand v3 | nb23 | v2 + Uni-Mol | 0.5360 |
 | Grand v4 | nb24 | v3 + GROVER-base | 0.5358 |
-| Grand v5 | nb25 | v4 + GROVER-large | 0.5356 |
-| Grand v8 (updated with nb103–106) | nb96+nb103–106 | nested-CV ElasticNet; delta_similarity_tiers 84% | **0.2843** |
+| **Grand v5** | **nb25** | **v4 + GROVER-large** | **0.5356** |
 
 ### Final Submission Weights (Grand v8 updated, OOF RAE 0.2843, full-data ElasticNetCV, nested-CV stacking)
 
