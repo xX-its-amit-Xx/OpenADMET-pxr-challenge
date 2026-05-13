@@ -23,7 +23,7 @@ A **stacked ensemble of 16 diverse molecular representation models**, meta-learn
 
 ## Results
 
-**Best submission:** `submissions/96_grand_ensemble_v8.csv` *(Grand Ensemble v8 — nested-CV stacking, OOF RAE 0.4101)*
+**Best submission:** `submissions/96_grand_ensemble_v8.csv` *(Grand Ensemble v8 — nested-CV stacking, OOF RAE 0.3088)*
 
 | Model | OOF RAE |
 |---|---|
@@ -34,7 +34,7 @@ A **stacked ensemble of 16 diverse molecular representation models**, meta-learn
 | Grand Ensemble v5 (nested CV) | 0.5356 |
 | Grand Ensemble v6b (protein-aware, 16 models) | 0.5281 |
 | Grand Ensemble v7 (32 models, deep ensemble + Chemprop aux) | 0.5189 |
-| **Grand Ensemble v8 (nested-CV stacking, nb86–nb95)** | **0.4101** |
+| **Grand Ensemble v8 (nested-CV stacking, nb86–nb102)** | **0.3088** |
 
 ### New Model Results (nb26–nb36)
 
@@ -116,7 +116,13 @@ A **stacked ensemble of 16 diverse molecular representation models**, meta-learn
 | 93 | Chemprop large GPU | — | Chemprop depth=5, trained on Kaggle T4 GPU; no OOF output (Kaggle-only run) |
 | 94 | MolFormer fine-tune | — | MolFormer-XL fine-tuned on PXR; Kaggle-only run; no OOF output |
 | 95 | All-feature fusion | 0.5728 | Fused feature matrix (combined + bio FP + pharmacophore + 3D shape); ElasticNet reduces to best subset; slight degradation vs baseline |
-| 96 | **Grand Ensemble v8** | **0.4101** | Nested-CV stacking over nb86–nb95 OOFs; ElasticNet; **delta_ml 79.4%, all_feature_fusion 11.7%, multi_fp_ensemble 10.2%**; best overall |
+| 96 | **Grand Ensemble v8** | **0.3088** | Nested-CV stacking over nb86–nb102 OOFs; ElasticNet; **multi_template_delta 99.9%, grand_v8_prev 21.1%, multi_fp_ensemble 6.7%, lgbm_chembl_pxr_direct 1.2%**; best overall |
+| 97 | multi_template_delta | 0.3266 | Multi-template weighted delta-ML (Tanimoto window [0.35,0.90], up to K=10 templates, w=sim²) |
+| 98 | scaffold_aware_knn | 0.6325 | Scaffold-stratified k-NN ensemble (ECFP4 + Murcko scaffold + physicochemical RBF, ElasticNet stack) |
+| 99 | consensus_delta_ml | 0.5173 | Consensus delta-ML (LGBM + XGBoost DART + RidgeCV delta predictors, averaged) |
+| 93 | chemprop_large_gpu | TBD | Large Chemprop depth=5 d_h=600 (Kaggle T4 GPU); no OOF available |
+| 94 | molformer_finetune | TBD | MolFormer-XL fine-tune 3-layer head (Kaggle T4 GPU); no OOF available |
+| 102 | stochastic_ensemble | 0.5550 | Bootstrap ensemble (50 LGBM models, OOB uncertainty calibration) |
 
 ---
 
@@ -148,18 +154,19 @@ A **stacked ensemble of 16 diverse molecular representation models**, meta-learn
 
 | Model | Weight |
 |---|---|
-| Delta-ML (nb76) | 79.4% |
-| All-feature fusion (nb95) | 11.7% |
-| Multi-fingerprint ensemble (nb78) | 10.2% |
-| PXR pharmacophore (nb89) | 8.3% |
-| SMILES augmentation (nb80) | 2.5% |
-| LGBM ChEMBL PXR direct (nb66) | 1.9% |
-| LGBM CRC+single-conc FDR (nb65) | 0.8% |
-| Tox21 bio FP (nb90) | 0.1% |
-| Free-Wilson (nb84) | 0.0% |
+| Multi-template delta-ML (nb97) | 99.9% |
+| Grand v8 prev (nb96) | 21.1% |
+| Multi-fingerprint ensemble (nb78) | 6.7% |
+| LGBM ChEMBL PXR direct (nb66) | 1.2% |
+| Multitask LGBM heads (nb73) | −21.4% |
+| Graph label spreading (nb83) | −2.5% |
+| Scaffold-aware k-NN (nb98) | −1.1% |
+| 3D shape (nb79) | −0.5% |
 | All other models | 0% *(zeroed by L1)* |
 
-**Previous best (Grand v7):** lgbm_tuned 45.4%, deep_ensemble 28.7%, chemprop_aux 21.3%, singleconc_lgbm 2.5%, Uni-Mol 2.0%, ChemBERTa-MLM 0.1%.
+**Previous best (Grand v8 prev, OOF 0.4101):** delta_ml 79.4%, all_feature_fusion 11.7%, multi_fp_ensemble 10.2%, pxr_pharmacophore 8.3%.
+
+**Grand v7:** lgbm_tuned 45.4%, deep_ensemble 28.7%, chemprop_aux 21.3%, singleconc_lgbm 2.5%, Uni-Mol 2.0%, ChemBERTa-MLM 0.1%.
 
 **Grand v6b:** lgbm_tuned 54.6%, chemprop_aux 28.4%, singleconc_lgbm 6.1%, kNN 6.0%, Uni-Mol 2.9%, ChemBERTa-MLM 2.0%.
 
