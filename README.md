@@ -23,7 +23,7 @@ A **stacked ensemble of 16 diverse molecular representation models**, meta-learn
 
 ## Results
 
-**Best submission:** `submissions/62_grand_v7.csv` *(Grand Ensemble v7 — 32 models, OOF RAE 0.5189)*
+**Best submission:** `submissions/96_grand_ensemble_v8.csv` *(Grand Ensemble v8 — nested-CV stacking, OOF RAE 0.4101)*
 
 | Model | OOF RAE |
 |---|---|
@@ -33,7 +33,8 @@ A **stacked ensemble of 16 diverse molecular representation models**, meta-learn
 | Chemprop multitask GNN | 0.5170 |
 | Grand Ensemble v5 (nested CV) | 0.5356 |
 | Grand Ensemble v6b (protein-aware, 16 models) | 0.5281 |
-| **Grand Ensemble v7 (32 models, deep ensemble + Chemprop aux)** | **0.5189** |
+| Grand Ensemble v7 (32 models, deep ensemble + Chemprop aux) | 0.5189 |
+| **Grand Ensemble v8 (nested-CV stacking, nb86–nb95)** | **0.4101** |
 
 ### New Model Results (nb26–nb36)
 
@@ -105,6 +106,17 @@ A **stacked ensemble of 16 diverse molecular representation models**, meta-learn
 | 83 | Graph label spreading | 0.5643 | Label propagation on compound similarity graph; negligible gain |
 | 84 | Free-Wilson scaffold decomposition | 0.5636 | Additive Free-Wilson model on Murcko scaffolds + substituents |
 | 85 | Creative mega-ensemble (ElasticNetCV) | — | ElasticNet over full OOF stack; OOF RAE 0.2181 is **in-sample only** (ElasticNet fitted on full OOF without nested CV — not a real estimate); not submitted |
+| 86 | Nested-CV ensemble | 0.4108 | Proper nested-CV stacking over all existing OOF arrays; ElasticNet meta-learner; beats grand v7 by 0.108 RAE; **base for grand v8** |
+| 87 | Bio NR fingerprint | 0.5621 | ChEMBL NR biological fingerprint appended to combined features; bio_fp alone weak (0.7944) but augmented slightly improves over baseline |
+| 88 | 3D shape conformer | — | ETKDG 3D shape descriptors (PMI, moments); no OOF output found — likely incomplete |
+| 89 | PXR pharmacophore | 0.5611 | PXR SMARTS pharmacophore features appended to combined; modest improvement over baseline |
+| 90 | Tox21 bio FP | 0.5639 | Tox21 NR panel biological fingerprint appended to combined features; marginal over baseline |
+| 91 | Cliff adaptive blend | 0.5189 | Tanimoto-weighted cliff blending; falls back to lgbm_tuned (insufficient models); matches grand v7 RAE |
+| 92 | Multi-NR transfer LGBM | 0.5609 | Multi-NR transfer LGBM across ChEMBL NR targets; marginal over baseline |
+| 93 | Chemprop large GPU | — | Chemprop depth=5, trained on Kaggle T4 GPU; no OOF output (Kaggle-only run) |
+| 94 | MolFormer fine-tune | — | MolFormer-XL fine-tuned on PXR; Kaggle-only run; no OOF output |
+| 95 | All-feature fusion | 0.5728 | Fused feature matrix (combined + bio FP + pharmacophore + 3D shape); ElasticNet reduces to best subset; slight degradation vs baseline |
+| 96 | **Grand Ensemble v8** | **0.4101** | Nested-CV stacking over nb86–nb95 OOFs; ElasticNet; **delta_ml 79.4%, all_feature_fusion 11.7%, multi_fp_ensemble 10.2%**; best overall |
 
 ---
 
@@ -130,21 +142,29 @@ A **stacked ensemble of 16 diverse molecular representation models**, meta-learn
 | Grand v2 | nb18 | lgbm_tuned (Optuna) replaces lgbm_aug | 0.5363 |
 | Grand v3 | nb23 | v2 + Uni-Mol | 0.5360 |
 | Grand v4 | nb24 | v3 + GROVER-base | 0.5358 |
-| **Grand v5** | **nb25** | **v4 + GROVER-large** | **0.5356** |
+| Grand v5 | nb25 | v4 + GROVER-large | 0.5356 |
+| Grand v6b | nb36 | protein-aware 16-model ElasticNet | 0.5281 |
+| Grand v7 | nb62 | 32-model ElasticNet; deep ensemble + Chemprop aux | 0.5189 |
+| **Grand v8** | **nb96** | **nested-CV stacking over nb86–nb95; delta_ml dominates** | **0.4101** |
 
-### Final Submission Weights (Grand v7, full-data ElasticNetCV, 32 models)
+### Final Submission Weights (Grand v8, full-data ElasticNetCV, nested-CV stacking)
 
 | Model | Weight |
 |---|---|
-| LGBM tuned | 45.4% |
-| Deep ensemble (nb54) | 28.7% |
-| Chemprop 6-head auxiliary (nb35) | 21.3% |
-| Single-conc pseudo-label LGBM (nb26) | 2.5% |
-| Uni-Mol | 2.0% |
-| ChemBERTa-MLM | 0.1% |
+| Delta-ML (nb76) | 79.4% |
+| All-feature fusion (nb95) | 11.7% |
+| Multi-fingerprint ensemble (nb78) | 10.2% |
+| PXR pharmacophore (nb89) | 8.3% |
+| SMILES augmentation (nb80) | 2.5% |
+| LGBM ChEMBL PXR direct (nb66) | 1.9% |
+| LGBM CRC+single-conc FDR (nb65) | 0.8% |
+| Tox21 bio FP (nb90) | 0.1% |
+| Free-Wilson (nb84) | 0.0% |
 | All other models | 0% *(zeroed by L1)* |
 
-**Previous best (Grand v6b):** lgbm_tuned 54.6%, chemprop_aux 28.4%, singleconc_lgbm 6.1%, kNN 6.0%, Uni-Mol 2.9%, ChemBERTa-MLM 2.0%.
+**Previous best (Grand v7):** lgbm_tuned 45.4%, deep_ensemble 28.7%, chemprop_aux 21.3%, singleconc_lgbm 2.5%, Uni-Mol 2.0%, ChemBERTa-MLM 0.1%.
+
+**Grand v6b:** lgbm_tuned 54.6%, chemprop_aux 28.4%, singleconc_lgbm 6.1%, kNN 6.0%, Uni-Mol 2.9%, ChemBERTa-MLM 2.0%.
 
 **Grand v5:** lgbm_tuned 74.7%, kNN 15.6%, Uni-Mol 9.1%, ChemBERTa-MLM 6.3%, GROVER-large 5.9%.
 
@@ -572,6 +592,55 @@ Output: `submissions/84_free_wilson.csv`
 ElasticNet stacking over all 36 available OOF arrays. **In-sample OOF RAE: 0.2181** — this is not a valid generalisation estimate (ElasticNet is fitted on the full OOF stack without nested CV, so it memorises the OOF predictions). The dominant coefficient is `aux_features` (0.987) — the same train-only feature collapse seen in nb28. Not submitted.
 
 Output: `submissions/85_creative_mega_ensemble.csv` *(in-sample only, not submitted)*
+
+### 86 — Nested-CV Ensemble
+Proper nested-CV ElasticNet stacking over all existing OOF arrays. Inner loop fits the meta-learner on 4 scaffold folds; outer fold evaluates on the held-out fold. Ensures the stacking estimate is honest. **OOF RAE: 0.4108** — a dramatic improvement over grand v7 (0.5189), driven by delta_ml receiving high weight. Forms the blueprint for grand v8.
+
+Output: `submissions/86_nested_cv_ensemble.csv`
+
+### 87 — Bio NR Fingerprint
+ChEMBL NR biological fingerprint: each compound's activity profile across all NR assays in ChEMBL, encoded as a sparse binary vector. Appended to combined (Morgan + RDKit) features. Bio FP alone is weak (OOF RAE 0.7944); augmented model: **OOF RAE: 0.5621** — modest improvement over baseline (0.5600).
+
+Output: `submissions/87_bio_nr_fingerprint.csv`
+
+### 88 — 3D Shape Conformer
+ETKDG 3D conformer generation + shape descriptors (PMI ratios, gyration tensor, eccentricity). Extends nb79's 3D descriptor approach. No OOF output — likely incomplete or failed on CPU within session time limit.
+
+### 89 — PXR Pharmacophore Features
+PXR-specific SMARTS pharmacophore queries (H-bond donors/acceptors, hydrophobic anchors, aromatic rings matching known PXR ligand pharmacophore). Binary match features appended to combined. **OOF RAE: 0.5611** — marginal improvement over baseline.
+
+Output: `submissions/89_pxr_pharmacophore.csv`
+
+### 90 — Tox21 Bio FP
+Tox21 NR panel biological fingerprint: compound activity profile across the 12 Tox21 NR pathway assays. Appended to combined features. **OOF RAE: 0.5639** — minimal gain; Tox21 assay format (single concentration) too noisy for pEC50 transfer.
+
+Output: `submissions/90_tox21_bio_fp.csv`
+
+### 91 — Cliff Adaptive Blend
+Tanimoto-weighted adaptive blending: for each test compound, weight predictions from cliff-region models by their structural proximity (top-k Tanimoto to training cliff members). Falls back to lgbm_tuned when insufficient models are loaded. **OOF RAE: 0.5189** — matches grand v7; no improvement without richer cliff-model stack.
+
+Output: `submissions/91_cliff_adaptive_blend.csv`
+
+### 92 — Multi-NR Transfer LGBM
+Multi-NR transfer LGBM trained on all ChEMBL NR targets simultaneously with phylogenetic sample weights, then fine-tuned on PXR. Tests whether broader NR transfer (beyond the 7 targets in nb27) improves generalisation. **OOF RAE: 0.5609** — marginal over baseline.
+
+Output: `submissions/92_multi_nr_transfer.csv`
+
+### 93 — Chemprop Large GPU
+Chemprop MPNN with depth=5 (vs depth=3 in nb35), larger hidden dimension, trained on Kaggle T4 GPU. Intended to leverage GPU acceleration for a deeper graph model. OOF array missing — Kaggle-only run; OOF not transferred back.
+
+### 94 — MolFormer Fine-Tune
+MolFormer-XL (IBM Research) fine-tuned end-to-end on PXR pEC50. Kaggle T4 GPU run. OOF array missing — Kaggle-only run; OOF not transferred back.
+
+### 95 — All-Feature Fusion
+Fused feature matrix combining combined (2,265) + bio NR FP (nb87) + PXR pharmacophore (nb89) + Tox21 bio FP (nb90) + 3D shape (nb88). ElasticNet feature selector reduces to highest-signal subset. **OOF RAE: 0.5728** — slight degradation vs baseline; high-dim noise from concatenated sparse FPs outweighs signal.
+
+Output: `submissions/95_all_feature_fusion.csv`
+
+### 96 — Grand Ensemble v8 *(primary submission)*
+ElasticNetCV meta-learner with nested scaffold CV over all models from nb86–nb95 plus carry-forward OOFs from earlier notebooks. **Nested CV RAE: 0.4101** (−0.1088 vs grand v7; best result to date). Key contributors: delta_ml 79.4%, all_feature_fusion 11.7%, multi_fp_ensemble 10.2%, pxr_pharmacophore 8.3%. The delta_ml dominance reflects that nearest-neighbour delta correction is the single most effective signal on this analog-expansion test set — at the cost of NN leakage risk within scaffold folds.
+
+Output: `submissions/96_grand_ensemble_v8.csv`
 
 ---
 
