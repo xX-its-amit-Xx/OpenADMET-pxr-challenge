@@ -158,17 +158,25 @@ if _Path(_ds_src + '/pxr').is_dir():
     os.environ['PXR_DATA_ROOT'] = f'/kaggle/input/{ds}'
     print(f'pxr loaded from dataset: {{_ds_src}}')
 
-# 2) Install rdkit (needed for Morgan FP / scaffold)
+# 2) Ensure rdkit is available
 try:
     from rdkit import Chem as _Chem
-    print(f'rdkit available')
+    from rdkit.Chem import AllChem as _AllChem
+    from rdkit.Chem.Scaffolds import MurckoScaffold as _MS
+    _RDKIT_OK = True
+    print('rdkit available')
 except ImportError:
-    print('Installing rdkit...')
-    subprocess.run([sys.executable,'-m','pip','install','rdkit-pypi','-q'], check=False)
-    from rdkit import Chem as _Chem
-
-from rdkit.Chem import AllChem as _AllChem
-from rdkit.Chem.Scaffolds import MurckoScaffold as _MS
+    print('rdkit not found — installing...')
+    subprocess.run([sys.executable,'-m','pip','install','rdkit','-q'], check=False)
+    try:
+        from rdkit import Chem as _Chem
+        from rdkit.Chem import AllChem as _AllChem
+        from rdkit.Chem.Scaffolds import MurckoScaffold as _MS
+        _RDKIT_OK = True
+        print('rdkit installed OK')
+    except ImportError:
+        _RDKIT_OK = False
+        print('WARNING: rdkit unavailable — scaffold/Morgan shims will be stubs')
 
 # 3) Download raw data from HuggingFace if pxr not available
 _HF_BASE = 'https://huggingface.co/datasets/openadmet/pxr-challenge-train-test/resolve/main'
@@ -222,21 +230,26 @@ _pxr_eval.rae = rae
 _pxr_eval.scaffold_kfold_indices = scaffold_kfold_indices
 
 _pxr_chem = types.ModuleType('pxr.chem')
-def bemis_murcko(smi):
-    try:
-        mol = _Chem.MolFromSmiles(str(smi))
-        return _MS.GetScaffoldForMol(mol) if mol else smi
-    except: return smi
-def morgan_fp_batch(smiles, radius=2, n_bits=2048):
-    fps = []
-    for s in smiles:
-        mol = _Chem.MolFromSmiles(str(s))
-        if mol:
-            fp = _AllChem.GetMorganFingerprintAsBitVect(mol, radius, nBits=n_bits)
-            fps.append(list(fp))
-        else:
-            fps.append([0]*n_bits)
-    return _np.array(fps, dtype=_np.float32)
+if _RDKIT_OK:
+    def bemis_murcko(smi):
+        try:
+            mol = _Chem.MolFromSmiles(str(smi))
+            return _MS.GetScaffoldForMol(mol) if mol else smi
+        except: return smi
+    def morgan_fp_batch(smiles, radius=2, n_bits=2048):
+        fps = []
+        for s in smiles:
+            mol = _Chem.MolFromSmiles(str(s))
+            if mol:
+                fp = _AllChem.GetMorganFingerprintAsBitVect(mol, radius, nBits=n_bits)
+                fps.append(list(fp))
+            else:
+                fps.append([0]*n_bits)
+        return _np.array(fps, dtype=_np.float32)
+else:
+    def bemis_murcko(smi): return str(smi)[:20]  # stub
+    def morgan_fp_batch(smiles, radius=2, n_bits=2048):
+        return _np.zeros((len(smiles), n_bits), dtype=_np.float32)
 _pxr_chem.bemis_murcko = bemis_murcko
 _pxr_chem.morgan_fp_batch = morgan_fp_batch
 
