@@ -23,7 +23,7 @@ A **stacked ensemble of 16 diverse molecular representation models**, meta-learn
 
 ## Results
 
-**Best submission:** `submissions/96_grand_ensemble_v8.csv` *(Grand Ensemble v8 — nested-CV stacking, OOF RAE 0.3088)*
+**Best submission:** `submissions/96_grand_ensemble_v8.csv` *(Grand Ensemble v8 — nested-CV stacking, OOF RAE 0.2843)*
 
 | Model | OOF RAE |
 |---|---|
@@ -34,7 +34,8 @@ A **stacked ensemble of 16 diverse molecular representation models**, meta-learn
 | Grand Ensemble v5 (nested CV) | 0.5356 |
 | Grand Ensemble v6b (protein-aware, 16 models) | 0.5281 |
 | Grand Ensemble v7 (32 models, deep ensemble + Chemprop aux) | 0.5189 |
-| **Grand Ensemble v8 (nested-CV stacking, nb86–nb102)** | **0.3088** |
+| Grand Ensemble v8 (nested-CV stacking, nb86–nb102) | 0.3088 |
+| **Grand Ensemble v8 (updated with nb103–nb106, delta_similarity_tiers 84%)** | **0.2843** |
 
 ### New Model Results (nb26–nb36)
 
@@ -123,6 +124,10 @@ A **stacked ensemble of 16 diverse molecular representation models**, meta-learn
 | 93 | chemprop_large_gpu | TBD | Large Chemprop depth=5 d_h=600 (Kaggle T4 GPU); no OOF available |
 | 94 | molformer_finetune | TBD | MolFormer-XL fine-tune 3-layer head (Kaggle T4 GPU); no OOF available |
 | 102 | stochastic_ensemble | 0.5550 | Bootstrap ensemble (50 LGBM models, OOB uncertainty calibration) |
+| 103 | delta_chemprop_cpu | 0.5585 | Delta-ML with small CPU Chemprop (depth=2, d_h=128) for delta prediction |
+| 104 | delta_similarity_tiers | **0.2772** | Tiered delta-ML: separate LGBM per similarity tier (HIGH/MED/LOW [0.35-0.90]); **new best single model** |
+| 105 | delta_uncertainty | 0.3268 | Uncertainty-weighted delta-ML (adaptive blend by template variance) |
+| 106 | reverse_delta_ml | 0.3269 | Reverse delta-ML using test compounds as templates for transductive refinement |
 
 ---
 
@@ -148,20 +153,23 @@ A **stacked ensemble of 16 diverse molecular representation models**, meta-learn
 | Grand v2 | nb18 | lgbm_tuned (Optuna) replaces lgbm_aug | 0.5363 |
 | Grand v3 | nb23 | v2 + Uni-Mol | 0.5360 |
 | Grand v4 | nb24 | v3 + GROVER-base | 0.5358 |
-| **Grand v5** | **nb25** | **v4 + GROVER-large** | **0.5356** |
+| Grand v5 | nb25 | v4 + GROVER-large | 0.5356 |
+| Grand v8 (updated with nb103–106) | nb96+nb103–106 | nested-CV ElasticNet; delta_similarity_tiers 84% | **0.2843** |
 
-### Final Submission Weights (Grand v8, full-data ElasticNetCV, nested-CV stacking)
+### Final Submission Weights (Grand v8 updated, OOF RAE 0.2843, full-data ElasticNetCV, nested-CV stacking)
 
 | Model | Weight |
 |---|---|
-| Multi-template delta-ML (nb97) | 99.9% |
-| Grand v8 prev (nb96) | 21.1% |
-| Multi-fingerprint ensemble (nb78) | 6.7% |
-| LGBM ChEMBL PXR direct (nb66) | 1.2% |
-| Multitask LGBM heads (nb73) | −21.4% |
-| Graph label spreading (nb83) | −2.5% |
-| Scaffold-aware k-NN (nb98) | −1.1% |
-| 3D shape (nb79) | −0.5% |
+| Delta similarity tiers (nb104) | 83.9% |
+| Grand v8 prev (nb96) | 16.4% |
+| Multi-fingerprint ensemble (nb78) | 12.8% |
+| Delta-ML (nb76) | 6.8% |
+| LGBM ChEMBL PXR direct (nb66) | 6.1% |
+| 3D shape conformer (nb88) | 5.7% |
+| Bio NR fingerprint (nb87) | 3.8% |
+| All-feature fusion (nb95) | 3.8% |
+| LGBM CRC+single-conc FDR (nb65) | 3.0% |
+| Delta Chemprop CPU (nb103) | −39.3% |
 | All other models | 0% *(zeroed by L1)* |
 
 **Previous best (Grand v8 prev, OOF 0.4101):** delta_ml 79.4%, all_feature_fusion 11.7%, multi_fp_ensemble 10.2%, pxr_pharmacophore 8.3%.
