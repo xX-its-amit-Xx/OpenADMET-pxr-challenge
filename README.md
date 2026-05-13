@@ -142,10 +142,7 @@ A **stacked ensemble of 16 diverse molecular representation models**, meta-learn
 | Grand v2 | nb18 | lgbm_tuned (Optuna) replaces lgbm_aug | 0.5363 |
 | Grand v3 | nb23 | v2 + Uni-Mol | 0.5360 |
 | Grand v4 | nb24 | v3 + GROVER-base | 0.5358 |
-| Grand v5 | nb25 | v4 + GROVER-large | 0.5356 |
-| Grand v6b | nb36 | protein-aware 16-model ElasticNet | 0.5281 |
-| Grand v7 | nb62 | 32-model ElasticNet; deep ensemble + Chemprop aux | 0.5189 |
-| **Grand v8** | **nb96** | **nested-CV stacking over nb86–nb95; delta_ml dominates** | **0.4101** |
+| **Grand v5** | **nb25** | **v4 + GROVER-large** | **0.5356** |
 
 ### Final Submission Weights (Grand v8, full-data ElasticNetCV, nested-CV stacking)
 
