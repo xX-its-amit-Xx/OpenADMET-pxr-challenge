@@ -138,17 +138,91 @@ def _patch_notebook(nb_path: Path, dst: Path) -> None:
         "language": "python",
         "name": "python3",
     }
+    ds = DATASET_SLUG
+    setup_src = f"""\
+# === Kaggle environment setup ===
+import sys, os
+DATA = '/kaggle/input/{ds}'
+os.environ['PXR_DATA_ROOT'] = DATA
+
+# Try src/pxr from dataset
+_src = DATA + '/src'
+if os.path.isdir(_src + '/pxr'):
+    sys.path.insert(0, _src)
+    print(f'pxr path: {{_src}}')
+else:
+    print(f'WARNING: pxr not found at {{_src}}, available: {{os.listdir(DATA) if os.path.isdir(DATA) else "dataset missing"}}')
+
+# Self-contained fallbacks for pxr.paths constants
+from pathlib import Path as _Path
+DATA_PROCESSED = _Path(DATA) / 'processed'
+SUBMISSIONS    = _Path('/kaggle/working/submissions')
+SUBMISSIONS.mkdir(exist_ok=True)
+
+# Minimal pxr shims if import fails
+try:
+    import pxr  # noqa: F401
+    print(f'pxr imported OK from {{pxr.__file__}}')
+except ImportError:
+    print('pxr import failed — injecting shims')
+    import types, numpy as _np, pandas as _pd
+    from rdkit import Chem as _Chem
+    from rdkit.Chem.Scaffolds import MurckoScaffold as _MS
+
+    def _load_csv(fname):
+        p = _Path(DATA) / fname
+        if p.exists():
+            return _pd.read_parquet(p) if str(p).endswith('.parquet') else _pd.read_csv(p)
+        raise FileNotFoundError(p)
+
+    _pxr_data = types.ModuleType('pxr.data')
+    def load_train():  return _load_csv('pxr_train_full.parquet')
+    def load_test():   return _load_csv('pxr_test.parquet')
+    def load_counter():return _load_csv('pxr_counter.parquet')
+    _pxr_data.load_train  = load_train
+    _pxr_data.load_test   = load_test
+    _pxr_data.load_counter= load_counter
+
+    _pxr_eval = types.ModuleType('pxr.eval')
+    def rae(yt, yp):
+        yt, yp = _np.asarray(yt, float), _np.asarray(yp, float)
+        return float(_np.mean(_np.abs(yt-yp)) / _np.mean(_np.abs(yt-yt.mean())))
+    def scaffold_kfold_indices(scaffolds, n_splits=5, seed=42):
+        from collections import defaultdict
+        import random
+        rng = random.Random(seed)
+        s2idx = defaultdict(list)
+        for i, s in enumerate(scaffolds):
+            s2idx[s].append(i)
+        buckets = sorted(s2idx.values(), key=len, reverse=True)
+        folds = [[] for _ in range(n_splits)]
+        sizes = [0]*n_splits
+        for b in buckets:
+            f = min(range(n_splits), key=lambda k: sizes[k])
+            folds[f].extend(b); sizes[f]+=len(b)
+        all_idx = list(range(len(scaffolds)))
+        return [(sorted(set(all_idx)-set(folds[k])), folds[k]) for k in range(n_splits)]
+    _pxr_eval.rae = rae
+    _pxr_eval.scaffold_kfold_indices = scaffold_kfold_indices
+
+    _pxr_chem = types.ModuleType('pxr.chem')
+    def bemis_murcko(smi):
+        try:
+            mol = _Chem.MolFromSmiles(smi)
+            return _MS.GetScaffoldForMol(mol) if mol else smi
+        except: return smi
+    _pxr_chem.bemis_murcko = bemis_murcko
+
+    _pxr = types.ModuleType('pxr')
+    sys.modules.update({{'pxr':_pxr,'pxr.data':_pxr_data,'pxr.eval':_pxr_eval,'pxr.chem':_pxr_chem}})
+    print('Shims injected: pxr.data, pxr.eval, pxr.chem')
+"""
     setup_cell = {
         "cell_type": "code",
         "execution_count": None,
         "metadata": {},
         "outputs": [],
-        "source": [
-            "# Kaggle: wire up src/pxr from dataset\n",
-            "import sys, os\n",
-            f"sys.path.insert(0, f'/kaggle/input/{DATASET_SLUG}/src')\n",
-            "os.environ.setdefault('PXR_DATA_ROOT', f'/kaggle/input/{DATASET_SLUG}')\n",
-        ],
+        "source": setup_src,
     }
     nb["cells"] = [setup_cell] + nb["cells"]
     dst.write_text(json.dumps(nb, indent=1), encoding="utf-8")
