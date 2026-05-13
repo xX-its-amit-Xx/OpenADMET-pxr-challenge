@@ -149,10 +149,6 @@ A **stacked ensemble of 16 diverse molecular representation models**, meta-learn
 | Grand v3 | nb23 | v2 + Uni-Mol | 0.5360 |
 | Grand v4 | nb24 | v3 + GROVER-base | 0.5358 |
 | **Grand v5** | **nb25** | **v4 + GROVER-large** | **0.5356** |
-| Grand v6b | nb36 | protein-aware, 16 models | 0.5281 |
-| Grand v7 | nb62 | 32 models, deep ensemble + Chemprop aux | 0.5189 |
-| Grand v8 (prev) | nb96 | nested-CV stacking nb86–nb95 | 0.4101 |
-| **Grand v8** | **nb96+** | **+ nb97–nb102 OOFs** | **0.3088** |
 
 ### Final Submission Weights (Grand v8, full-data ElasticNetCV, nested-CV stacking)
 
