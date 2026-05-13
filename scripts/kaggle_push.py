@@ -140,82 +140,114 @@ def _patch_notebook(nb_path: Path, dst: Path) -> None:
     }
     ds = DATASET_SLUG
     setup_src = f"""\
-# === Kaggle environment setup ===
-import sys, os
-DATA = '/kaggle/input/{ds}'
-os.environ['PXR_DATA_ROOT'] = DATA
-
-# Try src/pxr from dataset
-_src = DATA + '/src'
-if os.path.isdir(_src + '/pxr'):
-    sys.path.insert(0, _src)
-    print(f'pxr path: {{_src}}')
-else:
-    print(f'WARNING: pxr not found at {{_src}}, available: {{os.listdir(DATA) if os.path.isdir(DATA) else "dataset missing"}}')
-
-# Self-contained fallbacks for pxr.paths constants
+# === Kaggle self-contained setup (no external dataset dependency) ===
+import sys, os, subprocess, types
+import numpy as _np, pandas as _pd
 from pathlib import Path as _Path
-DATA_PROCESSED = _Path(DATA) / 'processed'
-SUBMISSIONS    = _Path('/kaggle/working/submissions')
+
+WORK = _Path('/kaggle/working')
+SUBMISSIONS = WORK / 'submissions'
 SUBMISSIONS.mkdir(exist_ok=True)
+DATA_PROCESSED = WORK / 'processed'
+DATA_PROCESSED.mkdir(exist_ok=True)
 
-# Minimal pxr shims if import fails
+# 1) Try dataset path if mounted
+_ds_src = f'/kaggle/input/{ds}/src'
+if _Path(_ds_src + '/pxr').is_dir():
+    sys.path.insert(0, _ds_src)
+    os.environ['PXR_DATA_ROOT'] = f'/kaggle/input/{ds}'
+    print(f'pxr loaded from dataset: {{_ds_src}}')
+
+# 2) Install rdkit (needed for Morgan FP / scaffold)
 try:
-    import pxr  # noqa: F401
-    print(f'pxr imported OK from {{pxr.__file__}}')
-except ImportError:
-    print('pxr import failed — injecting shims')
-    import types, numpy as _np, pandas as _pd
     from rdkit import Chem as _Chem
-    from rdkit.Chem.Scaffolds import MurckoScaffold as _MS
+    print(f'rdkit available')
+except ImportError:
+    print('Installing rdkit...')
+    subprocess.run([sys.executable,'-m','pip','install','rdkit-pypi','-q'], check=False)
+    from rdkit import Chem as _Chem
 
-    def _load_csv(fname):
-        p = _Path(DATA) / fname
-        if p.exists():
-            return _pd.read_parquet(p) if str(p).endswith('.parquet') else _pd.read_csv(p)
-        raise FileNotFoundError(p)
+from rdkit.Chem import AllChem as _AllChem
+from rdkit.Chem.Scaffolds import MurckoScaffold as _MS
 
-    _pxr_data = types.ModuleType('pxr.data')
-    def load_train():  return _load_csv('pxr_train_full.parquet')
-    def load_test():   return _load_csv('pxr_test.parquet')
-    def load_counter():return _load_csv('pxr_counter.parquet')
-    _pxr_data.load_train  = load_train
-    _pxr_data.load_test   = load_test
-    _pxr_data.load_counter= load_counter
+# 3) Download raw data from HuggingFace if pxr not available
+_HF_BASE = 'https://huggingface.co/datasets/openadmet/pxr-challenge-train-test/resolve/main'
+_DATA_DIR = WORK / 'rawdata'
+_DATA_DIR.mkdir(exist_ok=True)
 
-    _pxr_eval = types.ModuleType('pxr.eval')
-    def rae(yt, yp):
-        yt, yp = _np.asarray(yt, float), _np.asarray(yp, float)
-        return float(_np.mean(_np.abs(yt-yp)) / _np.mean(_np.abs(yt-yt.mean())))
-    def scaffold_kfold_indices(scaffolds, n_splits=5, seed=42):
-        from collections import defaultdict
-        import random
-        rng = random.Random(seed)
-        s2idx = defaultdict(list)
-        for i, s in enumerate(scaffolds):
-            s2idx[s].append(i)
-        buckets = sorted(s2idx.values(), key=len, reverse=True)
-        folds = [[] for _ in range(n_splits)]
-        sizes = [0]*n_splits
-        for b in buckets:
-            f = min(range(n_splits), key=lambda k: sizes[k])
-            folds[f].extend(b); sizes[f]+=len(b)
-        all_idx = list(range(len(scaffolds)))
-        return [(sorted(set(all_idx)-set(folds[k])), folds[k]) for k in range(n_splits)]
-    _pxr_eval.rae = rae
-    _pxr_eval.scaffold_kfold_indices = scaffold_kfold_indices
+def _fetch(fname):
+    p = _DATA_DIR / fname
+    if not p.exists():
+        import urllib.request
+        url = f'{{_HF_BASE}}/{{fname}}'
+        print(f'Downloading {{fname}}...')
+        urllib.request.urlretrieve(url, p)
+    return p
 
-    _pxr_chem = types.ModuleType('pxr.chem')
-    def bemis_murcko(smi):
-        try:
-            mol = _Chem.MolFromSmiles(smi)
-            return _MS.GetScaffoldForMol(mol) if mol else smi
-        except: return smi
-    _pxr_chem.bemis_murcko = bemis_murcko
+# 4) Inject pxr shims (always safe to do; local pxr will override if imported later)
+_pxr_data = types.ModuleType('pxr.data')
+def load_train():
+    p = _fetch('pxr-challenge_TRAIN.csv')
+    df = _pd.read_csv(p)
+    return df.rename(columns={{'Molecule Name':'name','SMILES':'smiles','pEC50':'pec50',
+        'pEC50_std.error (-log10(molarity))':'pec50_se','Emax_estimate (log2FC vs. baseline)':'emax'}})
+def load_test():
+    p = _fetch('pxr-challenge_TEST_BLINDED.csv')
+    df = _pd.read_csv(p)
+    return df.rename(columns={{'Molecule Name':'name','SMILES':'smiles'}})
+def load_counter():
+    p = _fetch('pxr-challenge_counter-assay_TRAIN.csv')
+    df = _pd.read_csv(p)
+    return df.rename(columns={{'Molecule Name':'name','SMILES':'smiles','pEC50':'pec50'}})
+_pxr_data.load_train   = load_train
+_pxr_data.load_test    = load_test
+_pxr_data.load_counter = load_counter
 
-    _pxr = types.ModuleType('pxr')
-    sys.modules.update({{'pxr':_pxr,'pxr.data':_pxr_data,'pxr.eval':_pxr_eval,'pxr.chem':_pxr_chem}})
-    print('Shims injected: pxr.data, pxr.eval, pxr.chem')
+_pxr_eval = types.ModuleType('pxr.eval')
+def rae(yt, yp):
+    yt, yp = _np.asarray(yt, float), _np.asarray(yp, float)
+    return float(_np.mean(_np.abs(yt-yp)) / _np.mean(_np.abs(yt-yt.mean())))
+def scaffold_kfold_indices(scaffolds, n_splits=5, seed=42):
+    from collections import defaultdict
+    s2idx = defaultdict(list)
+    for i, s in enumerate(scaffolds): s2idx[s].append(i)
+    buckets = sorted(s2idx.values(), key=len, reverse=True)
+    folds = [[] for _ in range(n_splits)]; sizes = [0]*n_splits
+    for b in buckets:
+        f = min(range(n_splits), key=lambda k: sizes[k])
+        folds[f].extend(b); sizes[f] += len(b)
+    all_idx = list(range(len(scaffolds)))
+    return [(sorted(set(all_idx)-set(folds[k])), folds[k]) for k in range(n_splits)]
+_pxr_eval.rae = rae
+_pxr_eval.scaffold_kfold_indices = scaffold_kfold_indices
+
+_pxr_chem = types.ModuleType('pxr.chem')
+def bemis_murcko(smi):
+    try:
+        mol = _Chem.MolFromSmiles(str(smi))
+        return _MS.GetScaffoldForMol(mol) if mol else smi
+    except: return smi
+def morgan_fp_batch(smiles, radius=2, n_bits=2048):
+    fps = []
+    for s in smiles:
+        mol = _Chem.MolFromSmiles(str(s))
+        if mol:
+            fp = _AllChem.GetMorganFingerprintAsBitVect(mol, radius, nBits=n_bits)
+            fps.append(list(fp))
+        else:
+            fps.append([0]*n_bits)
+    return _np.array(fps, dtype=_np.float32)
+_pxr_chem.bemis_murcko = bemis_murcko
+_pxr_chem.morgan_fp_batch = morgan_fp_batch
+
+_pxr_paths = types.ModuleType('pxr.paths')
+_pxr_paths.DATA_PROCESSED = DATA_PROCESSED
+_pxr_paths.SUBMISSIONS    = SUBMISSIONS
+
+_pxr = types.ModuleType('pxr')
+sys.modules.update({{'pxr':_pxr,'pxr.data':_pxr_data,'pxr.eval':_pxr_eval,
+                    'pxr.chem':_pxr_chem,'pxr.paths':_pxr_paths}})
+print('Shims ready. Data will download from HuggingFace on first load_train()/load_test() call.')
 """
     setup_cell = {
         "cell_type": "code",
