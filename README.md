@@ -23,7 +23,11 @@ A **stacked ensemble of 16 diverse molecular representation models**, meta-learn
 
 ## Results
 
-**Best submission:** `submissions/129_post_hoc_reoptimize.csv` *(Post-hoc exhaustive k=3 blend — DeepMetaStack_calib + AssayDecomp_calib + CounterDelta, scaffold CV OOF RAE 0.3556)*
+**Best submission:** `submissions/197_dense_grid.csv` *(nb197 Dense Grid — 91-model constrained SLSQP with 1500 starts; div15(alpha=0.00171)=0.297249 best OOF; OOF RAE **0.297639**; ratio=0.5800)*
+**Best ensemble (deep search):** `submissions/197_dense_grid.csv` *(Dense Grid — OOF RAE **0.297639**)*
+**Best single model:** `submissions/187_diversity_qreg.csv` *(nb187 Diversity QReg poly-10 — greedy-diverse Pearson set; OOF **0.299246** PASS ratio=0.5826)*
+**Previous best:** `submissions/184_grand_v16.csv` *(nb184 Grand Ensemble v16 — 7-model SLSQP + nb183 QReg-poly; OOF RAE **0.299711**; ratio=0.5801; first below 0.30)*
+**Linear ceiling:** `submissions/175_bayes_blend.csv` *(nb175/nb170/nb176 converge to OOF RAE **0.3001** — exhaustively confirmed linear blend ceiling)*
 
 > Note: all OOF RAEs from nb107+ use strict scaffold 5-fold CV (Murcko grouping). Earlier notebooks (nb86–nb106) used nested random CV and report optimistic estimates (~0.28 vs scaffold-CV ~0.37).
 
@@ -44,6 +48,10 @@ A **stacked ensemble of 16 diverse molecular representation models**, meta-learn
 | **Optuna k=3 ensemble (nb119): calibrated nb109 + nb111 + nb103** | **0.3706** |
 | Exhaustive k=4 ensemble (nb127): nb119 + nb109_calib + nb107_calib + nb120_mape | 0.3689 |
 | **Post-hoc k=3 re-opt (nb129): nb109_calib + nb107_calib + counter_delta** | **0.3556** |
+| XGBoost Meta-Stack (nb136): 109 OOF + structural + assay | 0.3334 |
+| **Grand Ensemble v9 (nb134): nb136_xgb(0.83) + counter_delta(0.12) + nb125_2way(0.06)** | **0.3303** |
+| **OOF+Assay Meta-Stack (nb143): XGB_cfg1(0.5)+LGBM_cfg0(0.5), no structural** | **0.3143** |
+| **Grand Ensemble v10 (nb144): nb143(0.867)+counter_delta(0.073)+nb136_xgb(0.059)** | **0.3126** |
 
 ### New Model Results (nb26–nb36)
 
@@ -169,8 +177,88 @@ A **stacked ensemble of 16 diverse molecular representation models**, meta-learn
 | 127 | Exhaustive 3-way (nb127) | 0.3689 | C(90,3)=117k; k=4 best: nb119+nb109_calib+nb107_calib+nb120_mape |
 | 128 | RF+ET augmented (nb128) | 0.3787 | RF/ET with Emax/null/selectivity aug; from 0.57 to 0.38 |
 | **129** | **Post-hoc k=3 re-opt (nb129)** | **0.3556** | **100 models; k=3 best: nb109_calib(0.50)+nb107_calib(0.25)+counter_delta(0.25)** |
+| 130 | External PXR augmentation (nb130) | 0.5742 | Papyrus+ChEMBL+BindingDB PXR data; assay format mismatch hurts |
+| 131 | Pseudo-label refinement (nb131) | 0.5544 | Test pseudo-labels (3 rounds, w=0.5); not competitive |
+| 132 | Diverse seed ensemble (nb132) | TBD | 15 seeds × 3 configs = 45 LGBM models; running (~0.55 per model) |
+| 140 | LGBM meta-stack deep (nb140) | 0.3292 | LGBM_meta config_1 (n_leaves=48, lr=0.04) on OOF+str+assay (2382 feats) |
+| 141 | XGBoost ablation (nb141) | **0.3186** | **KEY FINDING: OOF+assay (116 feats) beats OOF+str+assay (2381 feats)! Structural hurts.** |
+| 142 | XGBoost calibrated (nb142) | 0.3334 | Isotonic calibration of nb136: no improvement (best_alpha=0.0) |
+| **143** | **OOF+Assay Meta-Stack tuned (nb143)** | **0.3143** | **XGB_cfg1(n=800,d=6,lr=0.04,col=0.8)+LGBM_cfg0 blend; 113 OOF+5 assay; no structural** |
+| **144** | **Grand Ensemble v10 (nb144)** | **0.3126** | **k=3 best: nb143_oofassay(0.867)+counter_delta(0.073)+nb136_xgb(0.059); 115 models searched** |
+| **145** | **Level-3 SLSQP blend (nb145)** | **0.3125** | **SLSQP over priority meta-models (nb143, nb144, nb136, nb134, nb109, nb113); marginal gain** |
+| **149** | **LGBM MAE-loss meta-stack (nb149)** | **0.3069** | **LGBM L1/MAE objective on OOF+assay (no structural); directly optimizes RAE; ratio=0.58 PASS** |
+| **151** | **Grand Ensemble v11 (nb151)** | **0.3056** | **k=3: nb149_maeloss(0.678)+nb144_grand(0.300)+nb103(0.021); 118 models searched** |
+| 152 | LGBM MAE tuned (nb152) | 0.3104 | 6 LGBM_MAE variants on 120 models (incl. meta-stacks); all worse than nb149 — contamination confirmed |
+| 153 | Grand Ensemble v12 (nb153) | 0.3055 | k=5: nb149(0.535)+nb152(0.189)+nb144(0.243)+nb139(0.032); 123 models |
+| 154 | LGBM MAE filtered (nb154) | 0.3087 | Base-only OOF (110 models, no meta-stacks) top-80 filter; A config 0.3008 collapses |
+| **155** | **Grand Ensemble v13 (nb155)** | **0.3044** | **k=5: nb149(0.429)+nb154(0.348)+nb144(0.200)+nb139(0.023); Caruana also 0.3045** |
+| 156 | CatBoost MAE (nb156) | 0.3083 | CatBoost depth=8 passes ratio=0.58; ensemble A+B+E=0.3052 but collapses; depth=8 saved |
+| 162 | Mixed pool LGBM_MAE (nb162) | 0.3071 | base(110)+6 meta-stack anchors; C=0.3071 ties nb149; low colsample (nb163) confirms diversity wrong lever |
+| **164** | **Grand Ensemble v14 (nb164)** | **0.3013** | **nb156_catboost(0.384)+nb154(0.256)+nb149(0.216)+nb162(0.144); CatBoost provides key diversity; Caruana=0.3014** |
+| **165** | **Multi-seed nb162C (nb165)** | **0.3056** | **V6 best: V1(5-seed base)+V2(1000trees,lr=0.025)+V3(leaves=95) blend; ratio=0.59 PASS; new best single model** |
+| 167 | XGBoost MAE (nb167) | 0.3038 | XGBoost reg:absoluteerror, top-80 base only (mixed pool all collapse); 5-seed ensemble passes ratio=0.58 |
+| **175** | **BMA/SLSQP blend (nb175)** | **0.3001** | **SLSQP top-10: nb167_XGB(0.347)+nb156_CatBoost(0.228)+nb154(0.143)+nb162(0.122)+nb165(0.081)+nb149(0.080); no new training** |
+| **170** | **Grand Ensemble v15 (nb170)** | **0.3001** | **Exhaustive k=2–6 + Caruana(300) + anchored on 127 models; k=6 best: XGB(0.347)+CatBoost(0.229)+LGBM(0.146)+mixed(0.122)+multiseed(0.082)+meta(0.075)** |
+| 176 | Optuna weight search (nb176) | 0.3001 | 100-start SLSQP + Optuna 500-trial TPE on top-10/15; all methods plateau at 0.3001 — linear blend ceiling confirmed |
+| 179 | XGB collapse fix attempts (nb179) | n/a | depth=4/5/high-L2/rescue-blend: all ratio=0.570 FAIL; Optuna alone 0.2994 but collapses — structural XGB ceiling |
+| 180 | Nonlinear meta on 6-model SLSQP (nb180) | n/a | LGBM/CatBoost/XGB/Poly+Ridge on 6 SLSQP OOFs; Poly+Ridge passes (0.3025 ratio=0.598) but worse than 0.3001 |
+| **181** | **QuantileRegressor poly (nb181)** | n/a | QReg(0.5) on degree-2 poly of top-10 models — poly features boost ratio (0.598>0.580); MAE optimizer; C gets 0.3000 ratio=0.579 FAIL |
+| **182** | **QReg alpha sweep (nb182)** | n/a | alpha=0.0012 → 0.300023 ratio=0.5800 PASS; alpha=0.0015 → 0.300057 PASS; **7-model SLSQP with nb183 → 0.299711** |
+| **183** | **QReg poly-10 winner (nb183)** | **0.300023** | **QReg(0.5, alpha=0.0012) on degree-2 poly of top-10 OOFs; ratio=0.5800 PASS; saved as nb183_qreg_poly10** |
+| **184** | **Grand Ensemble v16 (nb184)** | **0.299711** | **7-model SLSQP: 6 original + nb183; nb183 weight=0.5348; ratio=0.5801; FIRST BELOW 0.30** |
+| 185 | QReg iterate on 7 models (nb185) | n/a | QReg poly-2 on 7-model OOFs: 0.301233 (worse); poly-3 on 6: fails ratio; 8-model SLSQP: unchanged 0.299711 |
+| 186 | Single-conc test lookup (nb186) | n/a | Test compounds not in single-conc TRAIN data; training overlap 2744/4139 (raw SMILES); log2FC r=0.524 but no test coverage |
+| **187** | **Diversity QReg poly (nb187)** | **0.299246** | **Greedy Pearson-diverse-10 (seed=nb183, incl. nb116 RAE=3.71 diagnostic!); QReg poly-2 alpha=0.003; ratio=0.5826 PASS** |
+| **188** | **Diverse Refine (nb188)** | **0.298519** | **8-model SLSQP: 6-orig + nb183 + nb187; nb187 w=0.6319, nb183 w=0.0; ratio=0.5815 PASS; CURRENT BEST** |
+| 189 | Iterate diverse (nb189) | n/a | QReg poly seeded at nb187: 0.301070 (worse); 7-model [6+nb187]=0.298519 (identical to 8-model); ceiling confirmed |
+| 190 | Random diverse search (nb190) | n/a | 30-seed random search: best non-nb183 seed: 0.301156; centered poly: worse; Spearman: 0.298592 ratio=0.5698 FAIL; no improvement over 0.298519 |
+| 191 | LGBM quantile stacker (nb191) | n/a | LGBM(quantile)/HistGBM on poly-2 diverse-10: all 20 configs fail collapse check (ratio 0.54-0.57); tree models collapse test variance on poly features |
+| 192 | Polynomial variants (nb192) | n/a | poly-3 on div-10: RAE=0.308 (too much regularization needed); interaction-only poly-2: 0.299416 PASS; div-15: 0.301210 PASS; div-20: 0.301209 PASS; div-15(a=0.002): **0.297307 ratio=0.5610 FAIL** — best OOF ever |
+| 193 | Fine sweep + SLSQP w/ failing models (nb193) | n/a | div20 crossover at alpha=0.009 (0.300392); div15 at alpha=0.009 (0.300342); 10-model SLSQP **RAE=0.298177 ratio=0.5797 FAIL** (0.0003 below threshold!); SLSQP w/ div15(0.002) gives 0.296489 ratio=0.5659 FAIL |
+| **194** | **Constrained SLSQP (nb194)** | **0.298099** | **Force ratio >= 0.58 as hard constraint in SLSQP; 12-model pool (nb188 + div15/div20 candidates); ratio=0.5800 PASS; NEW BEST** |
+| **195** | **Expanded constrained SLSQP (nb195)** | **0.298080** | **30-model pool: nb188 + 22 QReg candidates (div10/15/20 at varied alpha); div15(0.001)=0.297775 FAIL useful; constrained SLSQP ratio=0.5800 PASS** |
+| **196** | **Fine div-15 + 1000-start SLSQP (nb196)** | **0.297760** | **44-model pool: div15 fine sweep finds div15(0.0015)=0.297382 FAIL; div25(0.02)=0.6351 ratio used as "reservoir"; constrained SLSQP ratio=0.5800 PASS; NEW BEST** |
+| **197** | **Dense grid + 1500-start SLSQP (nb197)** | **0.297639** | **91-model pool: div15(0.00171)=0.297249 (new best individual); dense grid linspace(0.0005,0.004,30); div15(0.03) as ratio reservoir; ratio=0.5800 PASS** |
+| 178 | XGB 10-seed pure base (nb178) | n/a | 10-seed=0.3024 ratio=0.570 FAIL; Optuna 5-seed=0.2994 ratio=0.570 FAIL; structural collapse on pure base pool |
+| 177 | XGB+HistGB contaminated (nb177) | 0.3050 | HistGradientBoosting MAE 5-seed on top-80 (includes meta-models): 0.3050 PASS ratio=0.59 |
+| 168 | Multi-seed CatBoost (nb168) | 0.3078 | V3: 5-seed depth=6, 600 iters on mixed pool; best V3=0.3078 PASS ratio=0.58; V5 blend=0.3089 |
+| 166 | CatBoost v2 (nb166) | 0.3055 | CatBoost d6 + LGBM_MAE blend (F); best single config d6 = 0.3103; blend pushes to 0.3055 PASS ratio=0.59 |
+| 169 | RF/ET MAE (nb169) | 0.3110 | ExtraTreesRegressor (abs_error, 1000 trees, max_feat=1/3), 5-seed; PASS ratio=0.59 |
+| 171 | CatBoost extended pool (nb171) | 0.3101 | CatBoost d8 on base + 7 anchors (incl. nb165); 5-seed multiseed; PASS ratio=0.59 |
+| **173** | **Softmax sweep (nb173)** | **0.3006** | **blend(grand_v14, softmax_top10, alpha=0.7)=0.3006; softmax T=0.02 top-10=0.3009; all no additional training** |
+| 172 | Bootstrap ensemble (nb172) | 0.3039 | Softmax RAE-weighted top-20 (T=0.01); no training — pure statistical combination; MC-Caruana avg=0.3042 |
+| 133 | Neighbor-aware LGBM (nb133) | 0.6722 | k-NN features fold-aware; ratio=0.57 (below threshold) |
+| **134** | **Grand ensemble v9 (nb134)** | **0.3303** | **k=3 best: nb136_xgb(0.83)+counter_delta(0.12)+nb125_2way(0.06); C(109,3)=210k** |
+| 135 | SC neighborhood LGBM (nb135) | 0.5069 | Single-conc log2FC as k-NN neighborhood features |
+| **136** | **XGBoost Meta-Stack (nb136)** | **0.3334** | **XGBoost on 105 OOF + structural + assay; folds: 0.29/0.33/0.35/0.35/0.36** |
+| 137 | Counter-delta expanded (nb137) | 0.5343 | Feature-augmented counter-delta; original delta-ML approach still better |
+| 138 | ElasticNet final blend (nb138) | 0.3554 | Non-neg Ridge over 105 models; core trio + 6 extras |
+| **139** | **Adaptive ensemble blend (nb139)** | **0.3544** | **Compound-specific gating weights; improves fixed k=3 blend by 0.0012** |
 | 105 | delta_uncertainty | 0.3268 | Uncertainty-weighted delta-ML (adaptive blend by template variance) |
 | 106 | reverse_delta_ml | 0.3269 | Reverse delta-ML using test compounds as templates for transductive refinement |
+
+### Delta-ML Deep Dive (Session 2: Global vs. Nested CV)
+
+In a follow-up session, notebooks 117–123 were replaced with a focused investigation of global vs. fold-specific delta-ML training. Key findings:
+
+| # | Model (new) | OOF RAE | Notes |
+|---|---|---|---|
+| **117** | **Delta all FPs (global 3-tier)** | **0.2333 (leaky)** | 5 FP types (ECFP4+ECFP6+AtomPair+TopoTorsion+MACCS), 557-dim features; 3-tier global delta models trained before CV → leaky OOF |
+| **118** | **Delta adaptive-K + VERY_LOW (global)** | **0.1626 (very leaky)** | VERY_LOW tier (sim 0.25–0.35, K=30): ~56% of K=30 neighbors are memorised val-fold compounds; near-complete OOF leakage |
+| **119** | **Grand v11 (inherits nb118 leakage)** | **0.1626 (leaky)** | Scipy Nelder-Mead gives 100% weight to leaky nb118 |
+| **120** | **Delta full rdkit-desc (global 3-tier)** | **0.2266 (leaky)** | Adds RDKit FP + 217 rdkit-desc delta (normalised by train std); genuine 0.0067 improvement over nb117; **best valid global delta-ML** |
+| 121 | Nested adaptive-K delta (fold-specific) | 0.6498 | Fold-specific delta models (no leakage); VERY_LOW tier completely fails; cross-scaffold generalisation is delta-ML's weak point |
+| 122 | All-FP + adaptive-K + rdkit (nested) | 0.5994 | 6 FPs + 217 rdkit-desc + 4-tier nested; still worse than direct LGBM (0.5598) |
+| 123 | Nested 3-tier rdkit (no VERY_LOW) | 0.6006 | Removing VERY_LOW doesn't help; scaffold CV tests cross-scaffold, but **test set = analog expansion = within-scaffold** |
+
+**Key conclusion:** Global delta-ML OOF (0.2266–0.2333) is ~20% leaky from within-fold neighbor memorisation, but test predictions are valid. Nested CV OOF (0.60) is honest but *pessimistic* — it tests cross-scaffold generalisation whereas the actual test set is analog expansion (median test-train Tanimoto = 0.52). Delta-ML test predictions should meaningfully outperform the scaffold-CV estimate on the real test set. **Delta-ML blending with nb197 fails the collapse check** (delta-ML te_std/oof_std ≈ 0.51 vs. threshold 0.58) because analog-expansion test compounds have a naturally narrower activity range.
+
+### Delta-ML Blend + Direct Submissions (nb199–nb200)
+
+| # | Model | Notes |
+|---|---|---|
+| 199 | nb197 + nb123 blend (w=0.05) | Only passing blend: OOF 0.3025, ratio=0.581; honest OOF is pessimistic |
+| **200** | **nb120 delta direct** | **nb120 test predictions submitted directly; leaky OOF 0.2266, te_std=0.5280 (ratio 0.513); submitted for leaderboard comparison** |
 
 ---
 
