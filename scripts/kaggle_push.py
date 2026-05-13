@@ -106,7 +106,7 @@ def push_data() -> None:
         }
         (tmp / "dataset-metadata.json").write_text(json.dumps(meta, indent=2))
 
-        print(f"[data] {n_pq} parquets · {n_csv} CSVs · src/pxr → {DATASET_REF}")
+        print(f"[data] {n_pq} parquets · {n_csv} CSVs · src/pxr -> {DATASET_REF}")
 
         if _dataset_exists():
             _run(["datasets", "version", "-p", str(tmp), "-m", "auto-sync from kaggle_push.py"])
@@ -130,8 +130,14 @@ def _find_notebook(nb_num: int) -> Path:
 
 
 def _patch_notebook(nb_path: Path, dst: Path) -> None:
-    """Inject a setup cell so Kaggle kernels can find src/pxr."""
+    """Inject a setup cell so Kaggle kernels can find src/pxr, and fix kernelspec."""
     nb = json.loads(nb_path.read_text(encoding="utf-8"))
+    # Kaggle only has 'python3', not our local 'pxr-challenge' kernel
+    nb.setdefault("metadata", {})["kernelspec"] = {
+        "display_name": "Python 3",
+        "language": "python",
+        "name": "python3",
+    }
     setup_cell = {
         "cell_type": "code",
         "execution_count": None,
@@ -152,7 +158,7 @@ def push_notebook(nb_num: int, poll: bool, pull: bool) -> None:
     _check_cpu("nb")
 
     nb_path     = _find_notebook(nb_num)
-    kernel_slug = f"pxr-nb{nb_num:02d}"
+    kernel_slug = f"pxr-challenge-nb{nb_num:02d}"
 
     with tempfile.TemporaryDirectory() as tmpdir:
         tmp = Path(tmpdir)
@@ -175,7 +181,7 @@ def push_notebook(nb_num: int, poll: bool, pull: bool) -> None:
         }
         (tmp / "kernel-metadata.json").write_text(json.dumps(meta, indent=2))
 
-        print(f"[nb] Pushing {nb_path.name} → {USERNAME}/{kernel_slug} (GPU T4)")
+        print(f"[nb] Pushing {nb_path.name} -> {USERNAME}/{kernel_slug} (GPU T4)")
         _run(["kernels", "push", "-p", str(tmp)])
         print(f"[nb] Kernel live: https://www.kaggle.com/code/{USERNAME}/{kernel_slug}")
 
@@ -213,7 +219,7 @@ def _pull_outputs(kernel_slug: str, nb_num: int) -> None:
     out_dir = SUBMISSIONS / f"kaggle_nb{nb_num:02d}"
     out_dir.mkdir(exist_ok=True)
     _run(["kernels", "output", f"{USERNAME}/{kernel_slug}", "-p", str(out_dir)])
-    print(f"[pull] Outputs → {out_dir.relative_to(ROOT)}")
+    print(f"[pull] Outputs -> {out_dir.relative_to(ROOT)}")
 
 
 # ---------------------------------------------------------------------------
