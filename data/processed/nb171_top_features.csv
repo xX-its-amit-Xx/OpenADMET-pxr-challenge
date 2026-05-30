@@ -1,0 +1,51 @@
+rank,feat_idx,feat_name,feat_type,mean_abs_shap,interpretation
+1,2103,PEOE_VSA4,rdkit_desc,0.25049984996552893,PEOE_VSA4
+2,2088,Chi4v,rdkit_desc,0.08325153481741315,Chi4v
+3,2094,LabuteASA,rdkit_desc,0.05577959389591641,LabuteASA
+4,2095,PEOE_VSA1,rdkit_desc,0.04749675092379926,PEOE_VSA1
+5,2104,PEOE_VSA5,rdkit_desc,0.045980305586129075,PEOE_VSA5
+6,2150,VSA_EState7,rdkit_desc,0.04493635601507825,VSA_EState7
+7,2168,NumHeteroatoms,rdkit_desc,0.0392472099454895,NumHeteroatoms
+8,2051,MinEStateIndex,rdkit_desc,0.03643627874873976,MinEStateIndex
+9,2057,NumValenceElectrons,rdkit_desc,0.03255588847452748,NumValenceElectrons
+10,2061,MaxAbsPartialCharge,rdkit_desc,0.031974054510071584,MaxAbsPartialCharge
+11,2139,EState_VSA6,rdkit_desc,0.02794146191477458,EState_VSA6
+12,694,morgan_694,morgan_bit,0.026218342874074117,[#6]-[#7](:[#6]):[#7]:[#6](:[#6])-[#6]; [#7]:[#6](:[#8]:[#7]:[#6])=[#8]
+13,2066,BCUT2D_MWHI,rdkit_desc,0.02362940851316014,BCUT2D_MWHI
+14,2163,NumAromaticRings,rdkit_desc,0.023015344131407694,NumAromaticRings
+15,2129,SlogP_VSA8,rdkit_desc,0.02116620298794425,SlogP_VSA8
+16,2049,MaxEStateIndex,rdkit_desc,0.020793498720645374,MaxEStateIndex
+17,1088,morgan_1088,morgan_bit,0.020067513352793245,[#6]:[#6]:[#6]; [#6]:[#6]:[#6]
+18,2169,NumHeterocycles,rdkit_desc,0.019879926659091635,NumHeterocycles
+19,959,morgan_959,morgan_bit,0.01884504470589791,[#8]-[#6](-[#6])-[#6]-[#6]-[#7]; [#8]-[#6](-[#6]-[#6]-[#7])-[#6]
+20,2101,PEOE_VSA2,rdkit_desc,0.01793564092280327,PEOE_VSA2
+21,2171,NumSaturatedCarbocycles,rdkit_desc,0.01768522948831899,NumSaturatedCarbocycles
+22,2135,EState_VSA2,rdkit_desc,0.01670984532345473,EState_VSA2
+23,2243,fr_oxime,rdkit_desc,0.015222877366282462,fr_oxime
+24,2055,HeavyAtomMolWt,rdkit_desc,0.015209215857717754,HeavyAtomMolWt
+25,1028,morgan_1028,morgan_bit,0.014958125617729178,[#6]-[#6]-[#6]; [#6]-[#6]-[#6]
+26,2062,MinAbsPartialCharge,rdkit_desc,0.014862106427661129,MinAbsPartialCharge
+27,2160,NumAmideBonds,rdkit_desc,0.014567150661177808,NumAmideBonds
+28,2050,MinAbsEStateIndex,rdkit_desc,0.013782999375616223,MinAbsEStateIndex
+29,1791,morgan_1791,morgan_bit,0.013080298409441868,[#16]-[#6]-[#6](=[#8])-[#7](-[#6])-[#6]; [#6]-[#7](-[#6])-[#6]
+30,2187,fr_Ar_OH,rdkit_desc,0.011900703691491576,fr_Ar_OH
+31,2058,NumRadicalElectrons,rdkit_desc,0.011281780543831358,NumRadicalElectrons
+32,2097,PEOE_VSA11,rdkit_desc,0.011124907962537331,PEOE_VSA11
+33,2264,fr_urea,rdkit_desc,0.010953754231785977,fr_urea
+34,2067,BCUT2D_MWLOW,rdkit_desc,0.010801024480809501,BCUT2D_MWLOW
+35,2065,FpDensityMorgan3,rdkit_desc,0.010761294712282035,FpDensityMorgan3
+36,2091,Kappa1,rdkit_desc,0.010594558497833851,Kappa1
+37,2079,Chi0v,rdkit_desc,0.010591206155955636,Chi0v
+38,2090,Ipc,rdkit_desc,0.010433634945215643,Ipc
+39,2054,MolWt,rdkit_desc,0.01039119969106793,MolWt
+40,2130,SlogP_VSA9,rdkit_desc,0.010044272684689172,SlogP_VSA9
+41,2059,MaxPartialCharge,rdkit_desc,0.0096296675630308,MaxPartialCharge
+42,2098,PEOE_VSA12,rdkit_desc,0.009180429601637308,PEOE_VSA12
+43,2151,VSA_EState8,rdkit_desc,0.008903760037894835,VSA_EState8
+44,2085,Chi3n,rdkit_desc,0.00829669715489659,Chi3n
+45,2069,BCUT2D_CHGLO,rdkit_desc,0.008160674726250119,BCUT2D_CHGLO
+46,2141,EState_VSA8,rdkit_desc,0.008124216014602581,EState_VSA8
+47,1039,morgan_1039,morgan_bit,0.00808164337534466,[#6]:[#6]:[#6]:[#6]:[#6]; [#6]:[#6]:[#6]:[#6]:[#6]
+48,2089,HallKierAlpha,rdkit_desc,0.008003198153671773,HallKierAlpha
+49,2064,FpDensityMorgan2,rdkit_desc,0.007934218441327866,FpDensityMorgan2
+50,2070,BCUT2D_LOGPHI,rdkit_desc,0.007361545617903172,BCUT2D_LOGPHI

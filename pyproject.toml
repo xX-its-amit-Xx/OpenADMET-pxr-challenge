@@ -42,6 +42,8 @@ dependencies = [
     "pytorch-tabnet>=4.1.0",
     "kaggle>=1.6",
     "psutil>=5.9",
+    "gradio-client>=2.5.0",
+    "shap>=0.51.0",
 ]
 
 [build-system]

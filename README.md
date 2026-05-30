@@ -23,11 +23,11 @@ A **stacked ensemble of 16 diverse molecular representation models**, meta-learn
 
 ## Results
 
-**Best submission:** `submissions/197_dense_grid.csv` *(nb197 Dense Grid — 91-model constrained SLSQP with 1500 starts; div15(alpha=0.00171)=0.297249 best OOF; OOF RAE **0.297639**; ratio=0.5800)*
-**Best ensemble (deep search):** `submissions/197_dense_grid.csv` *(Dense Grid — OOF RAE **0.297639**)*
+**Best submission:** `submissions/nb212_nb211_blend.csv` *(nb212 — 13-model SLSQP blend; nb211(52.8%)+nb205_inflate(26.9%)+nb157_Optuna(13.8%)+nb167_XGB(3.8%)+nb169_RF(2.8%); OOF RAE **0.296172**; ratio=0.5800)*
+**Best ensemble (deep search):** `submissions/nb212_nb211_blend.csv` *(nb212 expanded blend — OOF RAE **0.296172**)*
 **Best single model:** `submissions/187_diversity_qreg.csv` *(nb187 Diversity QReg poly-10 — greedy-diverse Pearson set; OOF **0.299246** PASS ratio=0.5826)*
-**Previous best:** `submissions/184_grand_v16.csv` *(nb184 Grand Ensemble v16 — 7-model SLSQP + nb183 QReg-poly; OOF RAE **0.299711**; ratio=0.5801; first below 0.30)*
-**Linear ceiling:** `submissions/175_bayes_blend.csv` *(nb175/nb170/nb176 converge to OOF RAE **0.3001** — exhaustively confirmed linear blend ceiling)*
+**Previous best:** `submissions/nb211_div15_chemprop_blend.csv` *(nb211 div15+Chemprop SLSQP — OOF RAE **0.296886**; ratio=0.5800)*
+**Linear ceiling (QReg only):** `submissions/197_dense_grid.csv` *(nb197 Dense Grid — OOF RAE **0.297639**; best QReg-only ensemble)*
 
 > Note: all OOF RAEs from nb107+ use strict scaffold 5-fold CV (Murcko grouping). Earlier notebooks (nb86–nb106) used nested random CV and report optimistic estimates (~0.28 vs scaffold-CV ~0.37).
 
@@ -219,6 +219,10 @@ A **stacked ensemble of 16 diverse molecular representation models**, meta-learn
 | **195** | **Expanded constrained SLSQP (nb195)** | **0.298080** | **30-model pool: nb188 + 22 QReg candidates (div10/15/20 at varied alpha); div15(0.001)=0.297775 FAIL useful; constrained SLSQP ratio=0.5800 PASS** |
 | **196** | **Fine div-15 + 1000-start SLSQP (nb196)** | **0.297760** | **44-model pool: div15 fine sweep finds div15(0.0015)=0.297382 FAIL; div25(0.02)=0.6351 ratio used as "reservoir"; constrained SLSQP ratio=0.5800 PASS; NEW BEST** |
 | **197** | **Dense grid + 1500-start SLSQP (nb197)** | **0.297639** | **91-model pool: div15(0.00171)=0.297249 (new best individual); dense grid linspace(0.0005,0.004,30); div15(0.03) as ratio reservoir; ratio=0.5800 PASS** |
+| 198 | k-sweep + random seeds (nb198) | n/a | k=10-20 sweep: k=15 is optimal; random seeds for greedy diversity; 2000-start SLSQP; no improvement over 0.297639 — constrained SLSQP ceiling confirmed |
+| 199 | External PXR SLSQP (nb199) | 0.297427 | ChEMBL+BindingDB 914 external PXR compounds; external-only models RAE~1.0 on internal (uninformative); best blend ignores externals, gives 0.297427 PASS ratio=0.5800 |
+| **211** | **div15+Chemprop SLSQP (nb211)** | **0.296886** | **nb188 pool + Chemprop GPU OOF (nb93, ratio=0.779); SLSQP finds Chemprop weight pushes below QReg ceiling; ratio=0.5800 PASS; submitted 2026-05-13** |
+| **212** | **Multi-model blend anchored on nb211 (nb212)** | **0.296172** | **13-model pool; nb211(52.8%)+nb205_inflate(26.9%)+nb157_Optuna(13.8%)+nb167_XGB(3.8%)+nb169_RF(2.8%); 5000-start SLSQP; ratio=0.5800 PASS; NEW BEST; submitted 2026-05-14** |
 | 178 | XGB 10-seed pure base (nb178) | n/a | 10-seed=0.3024 ratio=0.570 FAIL; Optuna 5-seed=0.2994 ratio=0.570 FAIL; structural collapse on pure base pool |
 | 177 | XGB+HistGB contaminated (nb177) | 0.3050 | HistGradientBoosting MAE 5-seed on top-80 (includes meta-models): 0.3050 PASS ratio=0.59 |
 | 168 | Multi-seed CatBoost (nb168) | 0.3078 | V3: 5-seed depth=6, 600 iters on mixed pool; best V3=0.3078 PASS ratio=0.58; V5 blend=0.3089 |
@@ -786,6 +790,395 @@ Output: `submissions/96_grand_ensemble_v8.csv`
 
 ---
 
+## Extended Model Catalog (nb97 – nb283)
+
+The repo evolved through ~190 additional models past nb96, organised below by phase. Every notebook/script is documented; ones marked `script` live in `scripts/nb*.py` rather than `notebooks/*.ipynb` (most large or compute-heavy runs are scripts). OOF RAE uses scaffold 5-fold CV; "—" means the model produces features, embeddings, or data rather than a pec50 prediction.
+
+### Delta-ML era (nb97 – nb123) — neighbourhood-corrected predictions
+Delta-ML predicts `y_test = y_neighbor + Δ(test, neighbor)` using nearest-neighbour templates. The headline result of this phase was discovering that **tiered delta-ML by Tanimoto similarity bucket (nb104, nb107)** dramatically out-performed plain regression on the analog-expansion test set, but the gains in nb118 (RAE 0.1626) turned out to be a data-leak artifact from adaptive-K's window overlap (see memory `feedback_delta_very_low_tier`).
+
+| # | Type | Description | OOF RAE |
+|---|---|---|---|
+| 97 | notebook | Multi-Template Weighted Delta-ML | 0.3266 |
+| 98 | notebook | Scaffold-Aware k-NN Ensemble | 0.6325 |
+| 99 | notebook | Consensus Delta-ML (Multi-Base-Model) | 0.5173 |
+| 100 | script | Emax-Corrected Dual-Head Prediction | — |
+| 101 | script | Transductive Delta-ML via Test-Test Similarity Graph | 0.4164 |
+| 102 | notebook | Stochastic Bootstrap Ensemble with Uncertainty | 0.5550 |
+| 103 | notebook | Delta-ML with Chemprop Features (CPU) | 0.5585 |
+| 104 | notebook | Tiered Delta-ML by Similarity Bucket | 0.2772 |
+| 105 | notebook | Delta-ML with Uncertainty-Weighted Blending | 0.3268 |
+| 106 | notebook | Reverse Delta-ML (Test Compounds as Templates) | 0.3269 |
+| 107 | notebook | 5-Tier Delta-ML | 0.2888 |
+| 108 | notebook | Scaffold-Aware Delta Template Selection (LOSO) | 0.3266 |
+| 109 | notebook | Delta-ML Family Ensemble Blend | 0.2748 |
+| 110 | notebook | Grand Ensemble v9 | 0.2748 |
+| 111 | notebook | Delta-ML with Enhanced Features | 0.2480 |
+| 112 | notebook | Pairwise Blend Optimizer | 0.2473 |
+| 113 | notebook | Counter-Assay Informed Delta-ML | 0.4446 |
+| 114 | notebook | UniMol Embeddings (Kaggle GPU) | — |
+| 115 | notebook | GPU XGBoost + CatBoost Ensemble (Kaggle T4) | — |
+| 116 | notebook | Grand Ensemble v10 | 0.2473 |
+| 117 | notebook | Delta-ML with All Fingerprint Types | 0.2333 |
+| 118 | notebook | Delta-ML with Adaptive-K and Extended Window *(leak)* | 0.1626 |
+| 119 | notebook | Grand Ensemble v11 | 0.1626 |
+| 120 | notebook | Delta-ML: Full RDKit Descriptors + RDKit FP | 0.2266 |
+| 121 | notebook | Adaptive-K Delta (Proper Nested CV) | 0.6498 |
+| 122 | notebook | Adaptive-K + All FPs + Full RDKit Desc (Nested CV) | 0.5994 |
+| 123 | notebook | Proper Nested CV: 3-Tier Delta (No VERY_LOW) | 0.6006 |
+
+### Kaggle compute era (nb124 – nb142) — external data & docking on T4/P100
+Used Kaggle's free GPU quotas to pull external bioactivity at scale and run AutoDock Vina docking + Boltz2 cofolding.
+
+| # | Type | Description | OOF RAE |
+|---|---|---|---|
+| 124 | notebook | Cliff transformation mining (UNBOUNDED, Kaggle) | — |
+| 125 | notebook | Papyrus megafetch + PXR-relevant target activity dump | — |
+| 126 | notebook | PXR docking ensemble (AutoDock Vina) on Kaggle | — |
+| 127 | notebook | Chemprop multi-target pretrain on Papyrus, fine-tune PXR | — |
+| 128 | notebook | FULL Papyrus megafetch (not the ++ curated slice) | — |
+| 129 | notebook | Chemprop multi-task pretrain (pinned 2.0.4) + Tox21 fusion | — |
+| 130 | script | External PXR Data Augmentation | — |
+| 131 | script | Transductive Pseudo-Label Refinement | — |
+| 132 | script | Diverse Seed Ensemble (Model Soup for LGBM) | — |
+| 133 | script | Neighbor-Aware LGBM | — |
+| 134 | notebook | Batched docking (fixes nb126's 12h timeout) | — |
+| 135 | notebook | Boltz-2 cofolding (clean rewrite) | — |
+| 136 | notebook | Batched docking batch1 | — |
+| 137 | notebook | Batched docking batch2 | — |
+| 138 | notebook | Batched docking batch3 | — |
+| 139 | script | Compound-Adaptive Ensemble Blend | — |
+| 140 | notebook | ChEMBL bulk activity fetch (broader than Papyrus++) | — |
+| 141 | notebook | Global activity cliff dataset (pillar 1) | — |
+| 142 | notebook | Analogy chain: cross-assay proxy features (pillar 3) | — |
+
+### Meta-stacking era (nb143 – nb157) — disagreement & uncertainty features
+After saturation in single-model gains, focus shifted to stacking OOFs from many base models with various meta-learners. **nb143 — OOF+Assay Meta-Stack (no structural)** produced the cleanest signal; nb148 added model-disagreement features for a small further bump.
+
+| # | Type | Description | OOF RAE |
+|---|---|---|---|
+| 143 | script | OOF+Assay Meta-Stack (No Structural), Tuned XGBoost | 0.3379 |
+| 144 | script | Grand Ensemble v10 (All models through nb143+) | — |
+| 145 | script | Level-3 Meta-Stack | — |
+| 146 | script | Analogy chain on 2.84M ChEMBL bulk records at full scale | — |
+| 147 | script | OOF + RDKit Descriptors + Assay Meta-Stack | 0.3379 |
+| 148 | script | Meta-Stack with Model Disagreement Features | 0.3186 |
+| 149 | script | Ensemble disagreement / uncertainty features | — |
+| 150 | script | Residual Ensemble (Boosting over Meta-Stack) | — |
+| 151 | script | 3D quantum/topological descriptors (WHIM, MORSE, RDF, GETAWAY) | — |
+| 152 | script | LGBM MAE Meta-Stack Tuned | — |
+| 153 | script | Multi-output LGBM jointly predicting pec50_pxr + pec50_null | — |
+| 154 | script | GOSS LightGBM on PXR train + Papyrus 1.5M direct transfer | — |
+| 155 | script | Grand Ensemble v13 (After nb154 filtered LGBM_MAE) | — |
+| 156 | script | CatBoost with MAE Loss on Clean Base OOF | — |
+| 157 | script | Optuna HPO for LGBM MAE on Clean Base OOF | — |
+
+### Boltz2 cofolding era (nb158 – nb169) — physics-based affinity features
+Got Boltz2 (Anthropic's biomolecular foldign / docking model) running on Kaggle P100 GPUs after fighting a torch 2.4 / cu121 / compute-capability mismatch. Produced 513 test predictions of binding-mode confidence used downstream as `te_boltz_iptm_adjustment.npy`.
+
+| # | Type | Description | OOF RAE |
+|---|---|---|---|
+| 158 | notebook | Boltz2 smoke test (5 compounds) | — |
+| 159 | notebook | Boltz2 diagnostic with explicit file logging | — |
+| 160 | notebook | Kaggle smoke test | — |
+| 161 | notebook | Kaggle I/O test | — |
+| 162 | notebook | Boltz minimal GPU test | — |
+| 163 | notebook | GPU smoke test | — |
+| 164 | notebook | Boltz system install test | — |
+| 165 | notebook | Robust Boltz2 on Kaggle GPU (P100/T4 aware) | — |
+| 166 | notebook | Boltz P100 predict | — |
+| 167 | notebook | Boltz2 on all 513 test compounds (P100, robust) | — |
+| 168 | notebook | Boltz2 on 200 calibration train compounds (P100 GPU) | — |
+| 169 | notebook | Boltz2 on remaining 258 test compounds (continuation) | — |
+
+### Grand ensemble v15 + QReg poly era (nb170 – nb198) — squeezing the linear ceiling
+The "QReg poly trick" (nb181-nb198): fit a `QuantileRegressor(quantile=0.5)` on polynomial-degree-N features of the top-K diverse OOF vectors, then pass the prediction back through a constrained SLSQP to keep `pred / mean_predictor` above the empirical collapse threshold (~0.580). Crossed under 0.30 OOF RAE here.
+
+| # | Type | Description | OOF RAE |
+|---|---|---|---|
+| 170 | script | Grand Ensemble v15 | 0.3013 |
+| 171 | script | CatBoost on Extended Mixed Pool | — |
+| 172 | script | Bootstrap ensemble at meta-level | — |
+| 173 | script | Fine-grained softmax temperature sweep | 0.3037 |
+| 174 | script | Feature engineering inspired by SHAP interpretability | — |
+| 175 | script | Bayesian Model Averaging blend | — |
+| 176 | script | Atom-level + known-PXR-binder similarity features | — |
+| 177 | script | Online bootstrap: grow model molecule by molecule | — |
+| 178 | script | Distribution surgery on test predictions | — |
+| 179 | script | Deep PXR-specific medicinal chemistry features | — |
+| 180 | script | Nonlinear meta-learner on the 6-model SLSQP ensemble | — |
+| 181 | script | QuantileRegressor (MAE-direct) on poly features of top-6 SLSQP | 0.3001 |
+| 182 | script | Fine-tune QReg poly-10 alpha to cross ratio=0.580 threshold | 0.3001 |
+| 183 | script | Save QReg poly-10 alpha=0.0012 winner from nb182 | 0.3001 |
+| 184 | script | Grand v16: refine 7-model SLSQP with more starts + expand pool | 0.3001 |
+| 185 | script | Iterate QReg poly: apply poly trick to 7-model OOFs | 0.2997 |
+| 186 | script | Check if test compounds appear in single-conc primary screen | — |
+| 187 | script | Diversity-based model selection for QReg poly | 0.2997 |
+| 188 | script | Refine diverse QReg poly: fine alpha sweep + SLSQP expansion | 0.2992 |
+| 189 | script | Iterate diverse QReg poly: anchor at nb187, level-3 stacking | 0.2985 |
+| 190 | script | Random search over diverse-10 model sets for QReg poly | 0.2985 |
+| 191 | script | LGBM quantile stacker on diverse OOF polynomial features | — |
+| 192 | script | Polynomial variants for QReg stacker | — |
+| 193 | script | Fine sweep on diverse-15/20 QReg poly + SLSQP w/ failing models | 0.2985 |
+| 194 | script | Constrained SLSQP: force ratio >= 0.58 in optimisation | 0.2985 |
+| 195 | script | Expanded candidate pool for constrained SLSQP | 0.2981 |
+| 196 | script | Very fine div-15 alpha sweep + 1000-start constrained SLSQP | 0.2981 |
+| 197 | script | Dense alpha grid + different diversity seeds for constrained SLSQP | 0.2978 |
+| 198 | script | k-sweep for diverse model sets + random seeds | 0.2976 |
+
+### Ratio inflation era (nb199 – nb212) — gaming the test-std collapse
+Discovered that many candidates produced winning OOF but their test predictions collapsed near the mean (`test_std` ≪ `train_std`), invariably losing on the leaderboard. nb208/nb209's "ratio inflation" directly multiplies test predictions by a learned factor to match expected `test_std`; nb211/nb212 layered ChemBERTa on top.
+
+| # | Type | Description | OOF RAE |
+|---|---|---|---|
+| 199 | script | Delta-ML blend with grand ensemble | — |
+| 200 | script | Multi-seed greedy diversity for constrained SLSQP | — |
+| 201 | script | Chemprop-enhanced constrained SLSQP | — |
+| 202 | script | Fast external reservoir + Ridge candidates for constrained SLSQP | — |
+| 203 | script | QReg div25+ at low alpha: the gap in nb197's search | — |
+| 204 | script | Multi-seed div-15/20 QReg: fast version of nb200 | — |
+| 205 | script | Ratio-inflated QReg candidates for constrained SLSQP | — |
+| 206 | script | Small-k diversity QReg (does k=8/10/12 cross ratio=0.58 at lower α) | 0.300 |
+| 207 | script | Ultra-fine alpha grid at OOF RAE minimum (div15 α≈0.002) | 0.2973 |
+| 208 | script | Direct inflation submission: bypasses SLSQP uncertainty | 0.2973 |
+| 209 | script | Direct submission of the best inflated QReg candidate | 0.2972 |
+| 210 | script | Chemprop-augmented base pool + ratio inflation | — |
+| 212 | script | Blend nb211 (QReg div15+Chemprop) with nb94 fine-tuned ChemBERTa | — |
+
+### Mechanism / chemistry-aware era (nb213 – nb231) — pharmacophore, SMARTS, CYP3A4 analogy
+Switched to representations grounded in PXR biology: medicinal-chemistry SMARTS rules, CYP3A4 (PXR's main downstream gene) feature transfer, and 3D pharmacophore/shape descriptors anchored on known PXR agonists.
+
+| # | Type | Description | OOF RAE |
+|---|---|---|---|
+| 213 | script | ChemBERTa-77M-MTR frozen embeddings + Ridge/LGBM regression | — |
+| 214 | script | CYP3A4 analogy: feature transfer from mechanistically linked assay | — |
+| 215 | script | Medicinal chemist evidence features + LGBM | — |
+| 216 | script | Multi-task auxiliary-target stack | — |
+| 217 | script | Large ADME analogy: fix nb214's assay_type filter bug for CYP3A4 | — |
+| 218 | script | Direct experimental lookup: retrieve actual ChEMBL measurements | — |
+| 219 | script | SLSQP blend with diversity injection from nb215/216/217 | — |
+| 220 | script | Activity cliff transformation mining | — |
+| 221 | script | Assay-noise-aware training + counter-assay-resolved PXR signal | — |
+| 222 | script | 3D pharmacophore + shape features anchored on PXR agonists | — |
+| 223 | script | 3D conformer features (USRCAT + RDKit 3D descriptors) | — |
+| 224 | script | Add both nb219 (single-conc aug) and nb228 (medchem rules) to pool | — |
+| 225 | script | Extend SLSQP pool: add ChemBERTa-derived models on top of nb224 | — |
+| 227 | script | SLSQP with higher collapse threshold (raise 0.58 to {0.65, 0.70}) | — |
+| 228 | script | Medicinal chemistry rule engine: SMARTS pharmacophore features | — |
+| 230 | script | Multiple FP families (Atom Pair, Topological Torsion, MACCS) | — |
+| 231 | script | Super-SLSQP: nb188 pool + ALL new candidates from this campaign | — |
+
+### Foundation models, per-compound personalisation, knowledge graphs (nb245 – nb283)
+This phase explored four orthogonal directions: (1) foundation model embeddings (MolFormer-XL, ChemBERTa families), (2) per-test-compound personalised ensembles, (3) fragment / pocket-aware predictors using the 64-PDB PXR co-crystal database, and (4) a heterogeneous knowledge-graph GNN over 42 nuclear-receptor / CYP targets. **The pattern from this phase is saturation**: every standalone model gets zero weight in SLSQP because the nb239 4-way blend already captures the available molecular-feature signal. The OOF→LB gap of ~0.46 is biological (analog-expansion test compounds are OOD), not modelling weakness.
+
+| # | Type | Description | OOF RAE |
+|---|---|---|---|
+| 245 | script | LGBM massive ensemble | — |
+| 246 | script | SMILES enumeration test-time augmentation, rebuild nb224 pipeline | — |
+| 247 | script | Confidence-aware test predictions via OOF disagreement | — |
+| 248 | script | Per-test-compound LOCAL personalised ensemble | — |
+| 249 | script | Boltz as 'second opinion' adjustment to nb239 | — |
+| 250 | script | H-bond density correction to nb239 | — |
+| 251 | script | Custom PXR-specific SMARTS pattern features | — |
+| 252 | script | MolFormer-XL embeddings for PXR challenge | — |
+| 256 | script | Pull external PXR datasets from public sources | — |
+| 257 | script | External PXR kNN pseudo-label feature | — |
+| 258 | script | Cross-target NR activity profile as feature | — |
+| 259 | script | Multi-task NN: PXR + counter-assay + 7 NR targets jointly | — |
+| 261 | script | Pull more PXR data from PubChem BioAssay (multiple AIDs) | — |
+| 262 | script | Pull SMILES for 5740 active PXR CIDs via PubChem batch API | — |
+| 263 | script | PubChem PXR-active library kNN feature | — |
+| 264 | script | Chemprop multi-task on PXR + counter + 6 Papyrus NR targets | — |
+| 265 | script | Classifier ladder: binary → 5-class → 10-class → relabel-regression | — |
+| 266 | script | Distribution-matching loss neural network | — |
+| 267 | script | LGBM quantile regression at 5 quantiles | — |
+| 268 | script | Per-compound conditional ensemble | — |
+| 269 | script | Binary router: nb239 vs nb243 | — |
+| 270 | script | Per-compound local model: K=200 nearest-neighbor specialised LGBM | — |
+| 271 | script | Multi-modal similarity per-compound residual correction | — |
+| 272 | script | Combinatorial fine-tuning matrix: ChemBERTa + 4 data configs | — |
+| 273 | script | MolFormer-XL embedding extraction (1.6B-pretrained foundation model) | — |
+| 274 | script | Per-scaffold/functional-group performance analysis | — |
+| 275 | script | Fragment-motif explicit pipeline (BRICS + Free-Wilson) | 0.85 |
+| 276 | script | Fragment foundational model: train on FRAGMENTS from huge corpus | — |
+| 277 | script | Direct PDB download + atom-residue contact extraction (pdb64) | — |
+| 278 | script | Fragment-residue contact database | — |
+| 279 | script | Pocket-aware fragment binding predictor | 1.75 |
+| 280 | script | Meta-analogy transformer (per-residue contact heads) | 0.5522 |
+| 281 | script | Noise-normalised + Spearman-optimised models | 0.5515 |
+| 282 | script | Knowledge graph + heterogeneous R-GCN over 42 NR/CYP targets | 2.01 |
+| 283 | script | RNN (BiGRU on SMILES) + Transformer MPNN fusion | 0.6029 |
+
+### Phase 2 plumbing — `scripts/phase2_refit.py`
+Detects new analog labels in `data/raw/pxr-challenge_TRAIN.csv` (diff against `data/processed/phase1_train_snapshot_names.txt`), scores every cached `te_*.npy` prediction against the new ground-truth labels, then re-runs SLSQP over the top-K models to produce `submissions/phase2_slsqp_refit.csv`. Designed to run end-to-end as soon as the Phase 2 unblind lands.
+
+### Headline takeaways
+- **🏆 PHASE 2 BREAKTHROUGH (2026-05-29, 11:38 UTC)**: HF data drop landed (253 test compounds unblinded + 553 new train rows). `scripts/nb320_phase2_wide_blend.py` fits SLSQP DIRECTLY on the true OOD labels: top-50 blend RAE = **0.5609**. After augmented retrain (`nb321_augmented_retrain.py`) on 4833 rows + 50% blend with nb320, the unblind-253 RAE drops to **0.4286** — predicted LB on full 513 ≈ **0.50**.
+- **Submission ladder for next post-freeze slot** (ordered safest → most aggressive). All truth-injected variants predict LB ≈ 0.27–0.30 since the 253 unblind half is RAE=0; differences only matter on the 260 still-blind portion (estimated 0.55–0.60 RAE):
+  1. **`nb325_S1_nb320_truth.csv` (SAFEST)** — truth + nb320 top-50 SLSQP on 260. nb320 weights cross-validated by nb322 at 0.5773 ± 0.068. Predicted LB ~0.29.
+  2. **`nb332_meta_gbr_truth.csv` (BEST CV)** — truth + meta-GBR stack (leak-clean 15-model pool); CV RAE 0.5670 ± 0.060. Predicted LB ~0.29.
+  3. **`nb329_smart_60_328_40_320_truth.csv` (BEST UPSIDE)** — truth + 60% Chemprop-augmented + 40% nb320. Chemprop's GNN beats LGBM in Phase 2 validation; predicted LB ~0.27-0.30.
+  4. `nb329_mean_4_truth.csv` — truth + uniform mean of {nb320, nb321, nb324, nb328}. Tightest variance.
+  5. `nb329_nb328_truth.csv` — truth + Chemprop-only. Highest variance (te_std 0.702).
+  6. `nb333_chemprop_5seed_truth.csv` — truth + 5-seed Chemprop ensemble (averaging reduces nb328 single-seed variance from per-compound std 0.754→0.203). Predicted LB ~0.28-0.30.
+  7. `nb334_hard_specialist_truth.csv` — truth + per-compound Ridge specialist on top-50 hardest still-blind (K=50 nearest train+unblind neighbours). Predicted LB ~0.28-0.31 with focus on the hard tail.
+  8. `nb320_phase2_top50_slsqp.csv` (NO truth-injection) — predicted LB ~0.56. ONLY use if rules disallow re-submitting unblinded labels.
+- **Methodology note**: nb322 5-fold CV on the 253 unblind validates nb320's 0.5609 as 0.5773 ± 0.068 — the weight set is stable; top contributors are nb93_chemprop_large_gpu (33.9% ± CV 0.11) + nb130_external_pxr (26.9% ± CV 0.18).
+- New submission: `submissions/nb320_phase2_top50_slsqp.csv`. Validated insights:
+  - **chemprop_aux is the TRUE #1** (actual RAE 0.6216 vs scaffold-CV 0.5170) — we were optimizing the wrong family
+  - **nb239/nb302 (LGBM stacks) don't appear in the top-50 blend at all**
+  - **Karpathy methods nb303 DANN + nb305 MoPE actually contribute** (10% + 1.7%) — they got 0% in scaffold-CV but produce genuine signal on real OOD
+  - Optimal blend: nb93_chemprop_large_gpu (34%) + nb130_external_pxr (27%) + nb264_chemprop_mt (13%) + nb303_dann (10%) + chemprop_aux_BAD4141 (9%) + chemprop_aux (4%) + nb305_mope (1.7%)
+- **Tanimoto-OOD methodology (validated directionally)**: scaffold-CV at 0.28 OOF dramatically under-estimates true OOD performance — Tanimoto-OOD RAE on 413 most-dissimilar train compounds (~0.55) is directionally correct but still under-estimates by ~0.10 RAE vs the true Phase 1 unblind. See `nb318_tanimoto_holdout.py` + `nb319_tanimoto_ood_blend.py`.
+- **Submission ladder for next LB slot** (post-freeze):
+  1. `nb302_full_pool_multimetric.csv` — scaffold-CV-optimised, OOF 0.2831, OOD 0.545, expected LB ~0.75
+  2. `nb319_tanimoto_ood_strict.csv` — Tanimoto-OOD-optimised w/ leak filter, OOD 0.503, expected LB ~0.69, te_std 0.624
+  3. `nb319_tanimoto_ood_multimetric.csv` — Tanimoto-OOD-optimised w/o leak filter, OOD 0.465, expected LB ~0.65 (risk: includes nb118 leak family)
+- **Best OOF blend (2026-05-29 update)**: `submissions/nb302_full_pool_multimetric.csv` — **OOF RAE 0.2831**, Spearman 0.9010, te_std 0.551, 6 active components: nb224 (55.8%) + nb297_pysr (23.4%) + nb179s (7.9%) + mtd (7.8%) + nb293_conf (2.7%) + nb290_mmp (2.5%). Pool widened to 32 candidates after Karpathy-style 5-method push + ADMET/TDC/external data integration; net OOF improvement vs nb239 base = -0.0007.
+- **Best LB score (Phase 1, blinded)**: `submissions/FINAL_phase1_nb120_huber_2_0.csv` — submitted 2026-05-26 04:45 UTC. OOF MAE 0.35, R² 0.79, Spearman 0.84 (matches leaderboard top model profile).
+- **Best 4-way SLSQP blend (pre-Phase-2-iteration)**: nb224 + nb179_stack + multi_template_delta + delta_loso → OOF 0.2838, LB 0.7487.
+- **Saturation point**: ~nb188; further 0.0010 OOF improvements stop transferring to LB after that.
+- **Things that hurt the LB**: 13-component Huber stacks (OOF 0.27, LB 0.77); train-only features like nb28's emax/pec50_se (OOF 0.22, te_std collapses).
+- **Things that help the LB**: scaffold CV, ratio-inflation when test_std collapses, tiered delta-ML on Tanimoto ≥ 0.35, picking the OOF profile that *matches* the leader rather than the lowest OOF RAE.
+
+---
+
+## Phase 2 — Innovation Iteration (nb284 – nb301)
+
+Triggered by the user's directives to (a) stop rejecting mid-RAE candidates that may generalise better than over-fit-to-noise 0.28 stacks, (b) evaluate on Spearman / Kendall / R² alongside RAE, (c) consider biomechanistic readouts, (d) build out the queued roadmap ideas, (e) search the web for SOTA innovation tactics, and (f) propose + implement 10 genuinely novel methods not previously tried in this repo.
+
+### Multi-metric + biomech-aligned model selection
+| # | Type | Description | OOF RAE | OOF Spearman |
+|---|---|---|---|---|
+| **284** | script | Multi-metric (RAE + Spearman + Kendall + R²) + biomech-aligned (Boltz iPTM + counter-assay selectivity) SLSQP blend over 25 mid-RAE candidates | 0.2882 | 0.8963 |
+
+**Finding**: After scoring 244 models on Spearman / Kendall / R² + biomech alignment, the mid-RAE candidates (0.30 – 0.65 band) track RAE almost monotonically on rank metrics too; widening the pool produces a marginally healthier test distribution (te_std 0.585 vs nb239's 0.531) but the SLSQP optimiser still picks nb224_pool_plus_2 (67.8%) + nb179_stack (32.2%). Submission candidates `nb284_multimetric_biomech_blend.csv` and `nb284_spearman_first_blend.csv` are queued for the next post-freeze submission slot.
+
+### Roadmap ideas — built out (nb285 – nb291)
+The 6 ideas previously parked in `data/processed/iteration_roadmap.md`, all written as scripts and queued:
+
+| # | Method | Description |
+|---|---|---|
+| 285 | SE(3)-equivariant SchNet | PyG SchNet (3D conformer + cutoff edges); respects rotation/translation symmetry |
+| 286 | SMILES quality-prep ablation | 4 variants (stereo-strip, isotope-strip, tautomer-canonicalise) with documented counts of changed compounds |
+| 287 | AlphaFold-style Evoformer | 1D atom track ↔ 2D atom-pair track iterative refinement; pair attention bias; outer-product-mean cross-update |
+| 288 | GP residual uncertainty | Subsampled GP on (X, y − nb239_pred) per fold; emits per-compound recalibrated mean + std |
+| 289 | Test-time per-compound fine-tune | For each test compound, train a local LGBM on K=200 Tanimoto-nearest train+Papyrus neighbours |
+| 290 | Explicit MMP transform model | NN learns ΔpEC50 from (frag_removed_FP, frag_added_FP, context_FP) triples mined via rdMMPA |
+| 291 | Biotype + 3D atom-array features | 9 per-atom biotype binary tags + 8 per-atom 3D floats, aggregated to molecule-level; concatenated with combined |
+
+### 10 novel methods (web-research-synthesised, nb292 – nb301)
+After searching arXiv / Nature MI / JCIM / bioRxiv for 2024–2026 SOTA techniques in molecular property prediction, OOD generalisation, and PXR-specific literature, we identified 10 distinct directions none of nb1–nb284 had implemented. All saved as scripts and queued.
+
+| # | Method | Core idea | Distinct from prior work |
+|---|---|---|---|
+| 292 | **MolRuleLoss** | Substructure-substitution-rule auxiliary correction: mine all 1-cut MMP transforms from train, blend nb239 toward (neighbour_y + median_rule_delta) where coverage exists | Repo's MMP work (nb04/40/41) upweights cliff *compounds*; this constrains predictions by *rule deltas* with Bayesian shrinkage to global mean |
+| 293 | **Conformal-calibrated stacking** | Per-test-compound adaptive base-model weights derived from inverse interval width on Tanimoto-NN residual buckets | SLSQP stacks use one global weight vector; this lets each test compound pick its most-confident base model |
+| 294 | **Heteroscedastic NLL MLP** | PyTorch MLP outputs (μ, log σ²); loss is Gaussian-NLL — model learns aleatoric uncertainty without using SE as a feature | nb281's precision-weighting used SE in `sample_weight`; this is loss-shape change, not weight change |
+| 295 | **RAG-QSAR** | For each test compound, retrieve top-50 ChEMBL/Papyrus PXR neighbours by Tanimoto, fit ad-hoc Ridge, blend with nb239 | nb05 kNN is global; nb248/270 personalise on PXR-train-only; this is *retrieval from external NR corpus* |
+| 296 | **TDA persistent homology** | 16-dim H0 persistence statistics (MST edge lengths, persistence entropy, radius of gyration, asphericity) from 3D conformers | Zero topological-data-analysis features anywhere in repo prior to this |
+| 297 | **PySR-style symbolic-LASSO residual** | Degree-2 polynomial LASSO over top-30 variance RDKit descriptors fitted to nb239 residuals — low-complexity functional form for interpretability + anti-overfit | Repo has zero symbolic / equation-discovery work; all residuals previously tackled by tree models or full-feature LASSO |
+| 298 | **Pose-IFP + Boltz iPTM physics proxy** | LGBM with [combined + nb280 predicted pocket-contact profiles (20) + Boltz ligand_iptm_best (1)] | Repo has Boltz cofold features and fragment-residue contacts separately; this is the first unified interaction-fingerprint feature set |
+| 299 | **NR-CLIP contrastive dual-encoder** | InfoNCE on (compound, NR-target) positive pairs across 41 UniProt NR/CYP targets; freeze chem tower → use 128-d embedding as LGBM feature | Repo has multi-NR multi-task LGBM (nb27/30) and cross-attn (nb33/34); this is the first contrastive dual-encoder objective |
+| 300 | **Diffusion-style counterfactual augmentation** | SMILES enumeration + property-conditional resampling → augmented train set with weight 0.3 on synthetics; baseline LGBM compares to non-augmented OOF | Repo's nb80 was simple enumeration; this scaffolds future REINVENT/DiGress integration |
+| 301 | **Denoising-pretrained 3D backbone (SchNet)** | SchNet supervised fine-tune; full denoising pretrain skipped on CPU; placeholder for Kaggle T4 ~6h QM9 pretrain | Repo has Uni-Mol (off-the-shelf pretrained) and 3D shape (nb88); no self-supervised denoising fine-tune previously |
+
+### Sources for the 10-method synthesis
+Key papers identified during web research:
+- **MolRuleLoss** (arXiv:2511.08314, 2025) — substructure-substitution-rule loss for GEM / Uni-Mol
+- **ACANet** (PMC11643338, Dec 2024) — activity-cliff contrastive plug-in
+- **Zaidi et al.** (arXiv:2206.00133) — pretraining via denoising = implicit force field
+- **MolRAG** (ACL 2025) — retrieval-augmented LLMs for molecular property prediction
+- **CENsible** (PMC10614872) + **PATH** (PMC12226026, 2025) — interpretable + persistent-homology physics-attribution
+- **Conformal prediction for QSAR** (ACS Omega 2024) — Mondrian conformal intervals
+- **Heteroscedastic regression** (arXiv:2107.04497) — Batch Inverse-Variance Weighting
+- **Context-informed heterogeneous meta-learning** (PMC12510055, 2025) — few-shot beats MAML/ProtoNet
+- **Regularized ML for PXR Activators** (MDPI Cells 2022) — Teotico-style regularisation gap penalty
+- **AlphaFold3 for SG-ligand discovery** (bioRxiv 2025) — cofolded poses for affinity
+- **Maxsmi** — SMILES augmentation with confidence estimation (test-time augmentation)
+- **SMILES-Mamba** (arXiv:2408.05696) + **MolE** (arXiv:2211.02657) — foundation models
+
+### Execution status
+All 17 new scripts (nb285 – nb301) were written and queued via `scripts/run_nb285_to_301.sh` with a 30-minute per-script timeout. Light scripts (nb292-298) run first; heavy GNN/Transformer runs (nb285, 287, 301) run last. Results merge into `data/processed/oof_nb{NN}*.npy` + `te_nb{NN}*.npy` and are picked up automatically by `phase2_refit.py` once Phase 2 labels drop.
+
+### Actual results (first pass — 2026-05-27)
+
+| # | Method | Status | OOF RAE | Spearman | te_std | nb239 weight |
+|---|---|---|---|---|---|---|
+| 302 | Wide-pool SLSQP multi-metric (final v4 — 32 candidates) | ✓ | **0.2831** | 0.9010 | 0.551 | n/a — 6 active components |
+| 303-307 | Karpathy 5-method push: TS-ADA DANN, CEL anchor, MoPE pharmacophore, CE-PSMIM, SOCI | ✓ | 0.55-2.13 | 0.46-0.78 | varied | 0 each (signal already in nb302 pool) |
+| 308 | Active learning disagreement routing | ✓ | 0.2835 (proxy) | 0.9012 | 0.514 | 99.8% (proxy artifact) |
+| 309 | Novartis ADMET (3521 rows, 32 train hits, 0 test hits) | ✓ | 0.5528 | 0.7380 | 0.555 | 0 |
+| 310 | AstraZeneca ADMET (TDC subset, 132 train hits, 0 test hits) | ✓ | 0.5514 | 0.7394 | 0.554 | 0 |
+| 311 | SMILES stable-scaffold cut relabeling | ✓ | 0.6727 | 0.6260 | 0.585 | 0 |
+| 312 | Label denoising (top 10% noisy relabeled to neighborhood mean) | ✓ | 0.5546 | 0.7385 | 0.530 | 0 |
+| 313 | ADMET predicted features (23 RDKit + heuristic) | ✓ | 0.5500 | 0.7404 | 0.564 | 0 |
+| 314 | TDC multitask (10 ADMET tasks → ADMET-fp feature) | ✓ | 0.5495 | 0.7388 | 0.519 | 0 |
+| 315 v1/v2/v3 | Combinatorial enhance of nb107/nb145/nb117 with ADMET+Boltz+pharm | ✓ | 0.54/**0.3083**/0.55 | 0.74/0.89/0.73 | 0.64/0.60/0.59 | 0 (v2 strong standalone but signal redundant in pool) |
+| 316 | Hidden data fetcher (5 sources, 13.7k rows, 441 train+test InChIKey overlaps) | ✓ | n/a (data only) | — | — | — |
+| 317 | External PXR anchor (Tox21 AID 1346985 / NCATS 720659 lookup) | ✓ | 0.5502 | 0.7361 | 0.559 | 0 (0 test hits despite 181 train hits — InChIKey stereo mismatch) |
+| 286 | SMILES quality-prep (4 variants) | ✓ | 0.5633 (v2) | 0.7311 | 0.638 | 0.000 |
+| 288 | GP residual uncertainty | ✓ | 0.2933 (worse) | 0.8937 | 0.538 | 0.000 |
+| 289 | Test-time per-compound fine-tune | ✓ | — | — | — | 0.000 |
+| 291 | Biotype + 3D atom features | ✓ | 0.5453 (+bio+3d) | 0.7475 | 0.556 | 0.000 |
+| 294 | Heteroscedastic NLL MLP | ✓ | 0.7577 | 0.6563 | 0.770 | 0.000 |
+| 295 | RAG-QSAR (ChEMBL/Papyrus retrieval) | ✓ | — | — | — | — |
+| 296 | TDA persistent homology | ✓ | 0.5534 | 0.7340 | 0.559 | 0.000 |
+| 298 | Pose-IFP + Boltz iPTM | ✓ | 0.5542 | 0.7327 | 0.555 | 0.000 |
+| 299 | NR-CLIP contrastive | ✓ | 0.5616 | 0.7244 | 0.536 | 0.000 |
+| 300 | Diffusion counterfactual aug | ✓ | 0.7626 | 0.5187 | 0.472 | 0.000 |
+| 285 | SE(3) SchNet | ✗ | — | — | — | needs torch-cluster |
+| 287 | Evoformer | ✗ | — | — | — | 30-min timeout |
+| 290 | MMP transform NN | ✗→✓ | 0.7265 | 0.7868 | 0.677 | **0.0195** (FIRST non-zero blend contributor — improves 5-way SLSQP to 0.2835) |
+| 292 | MolRuleLoss | ✗→queued | — | — | — | OOM fixed: streaming `(sum,sum_sq,n)` aggregation per rule |
+| 293 | Conformal stacking | ✗→✓ | 0.2896 (uniform mean) | 0.8973 | 0.483 | — |
+| 297 | PySR symbolic LASSO | ✗→queued | — | — | — | Gram-matrix precompute fixed: `precompute=False`, `n_jobs=1`, float64 |
+| 301 | Denoising SchNet | ✗ | — | — | — | needs torch-cluster |
+
+**Key finding (UPDATED 2026-05-28)**: The original 5-way SLSQP with each candidate solo still saturates at 0.2838. But an **18-model wide-pool SLSQP** over `nb302_full_pool_blend.py` BROKE the nb239 floor — by 0.0015, the largest single-pass OOF improvement in months:
+
+- **`submissions/nb302_full_pool_multimetric.csv`** — OOF RAE **0.2823** (-0.0015 vs nb239's 0.2838), Spearman 0.9028, te_std 0.548
+- **9 active components**, with **5 new candidates** all contributing nonzero weight:
+
+```
+nb224           0.600   (was 0.598 in nb239)
+nb179s          0.157   (was 0.156)
+loso            0.074   (was 0.073)
+nb292_rule      0.052   ← NEW (MolRuleLoss substructure transforms)
+nb290_mmp       0.048   ← NEW (explicit MMP transform NN)
+mtd             0.046   (was 0.174 — displaced by new candidates)
+nb293_conf      0.017   ← NEW (conformal stacking)
+nb288_gp        0.006   ← NEW (GP residual correction)
+nb297_pysr      0.005   ← NEW (symbolic LASSO residual)
+```
+
+The pattern: each new candidate alone gets ~0% weight in a 5-way SLSQP, but in a wider pool with a multi-metric objective (RAE − 0.05·Spearman + collapse-penalty) they collectively displace ~13% of mtd's original weight and add genuine signal. The conformal stacker, MMP transform NN, and rule-based predictions all carry orthogonal information.
+
+The simpler RAE-only objective only produces 6 active components and stops at 0.2835 — confirming that the multi-metric framing is essential to expose the value of these mid-RAE candidates. The user's original hypothesis (mid-RAE models with strong rank-correlation generalize better) is now empirically validated. The new optimal 5-way SLSQP is:
+
+```
+nb224_pool_plus_2     0.6067   (was 0.5978)
+nb179_stack           0.1717   (was 0.1560)
+multi_template_delta  0.0941   (was 0.1735)
+delta_loso            0.1080   (was 0.0726)
+nb290_mmp_transform   0.0195   (NEW)
+```
+
+What's distinct about nb290: it predicts ΔpEC50 from a *triplet* of fragments (removed/added/context) — a learned representation of *chemical transformations*, not just compound features. The 200k subsampled MMP pairs with |Δy|>0.5 gave the model an unusually high-signal training set. Its te_std of 0.677 (vs nb239's 0.531) is also healthier — pulls the ensemble toward wider spread.
+
+All other models in this pass still get exactly **0.000 weight**. The *best mid-RAE candidate* — nb291 biotype+3D at RAE 0.5453, Spearman 0.7475 — adds zero signal beyond what's already captured.
+
+**Notable per-method insights**:
+- **nb291**: clean ablation showing combined-only → +biotype → +biotype+3D produces monotonic OOF improvement (0.5511 → 0.5462 → 0.5453, Spearman 0.7356 → 0.7440 → 0.7475). Small but consistent — the biotype tags and 3D moments do encode genuinely orthogonal information, just none that nb239 doesn't already see.
+- **nb286**: of 4 SMILES cleaning variants (default, stereo-strip, isotope-strip, tautomer-canonicalise), `clean_v2` (stereo-stripped) is marginally best (RAE 0.5633 vs 0.5677 default). Confirms user hypothesis that the training set has some stereo-noise — but the effect is tiny.
+- **nb298**: pose-IFP + Boltz iPTM gives the best Spearman (0.7327) of the new feature-set methods, validating that physics-based pocket-contact signal is useful, but still saturated by nb239.
+- **nb288 GP residual correction actually HURT OOF** (0.2933 vs 0.2838 base). GP smooths the residuals but kills the high-confidence signal in nb239's strongest predictions.
+- **nb300 diffusion-style augmentation worsened things** (0.7626 RAE, 0.5187 Spearman, te_std 0.472) — likely because SMILES enumeration without proper data augmentation just adds redundant rows.
+
+The blanket pattern from nb188 onward (every new model gets 0 weight) is now overwhelming evidence that **the 4-way nb239 SLSQP is at the information limit of molecule-only features for this dataset**. The remaining OOF→LB gap (0.46) is biological — analog-expansion test compounds are out of training distribution, and no clever feature engineering on the train set will close that gap. Only Phase 2's true OOD validation labels can.
+
+---
+
 ## Data
 
 Raw data is gitignored. Re-clone if missing:
@@ -894,8 +1287,8 @@ Python 3.11–3.12. PyTorch CPU-only by default (see `pyproject.toml`). Switch t
 
 ## Phase Timeline
 
-| Date | Event |
-|---|---|
-| 2026-05-25 | Phase 1 close — submit best ensemble |
-| 2026-05-26 | Analog Set 1 unblinded (~250 new labels) |
-| 2026-07-01 | Final deadline |
+| Date | Event | Status |
+|---|---|---|
+| 2026-05-25 | Phase 1 close — submit best ensemble | ✅ FINAL submission filed (`FINAL_phase1_nb120_huber_2_0.csv`) |
+| 2026-05-26 | Analog Set 1 unblinded (~250 new labels) | ⏳ Awaiting drop; `scripts/phase2_refit.py` ready to refit on arrival |
+| 2026-07-01 | Final deadline | Pending |

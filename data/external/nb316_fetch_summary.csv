@@ -1,0 +1,6 @@
+source,status,rows,unique_compounds,overlap_with_train_test,path,value_col,active
+openadmet_octant_cyp,ok,1340,1340,16,D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\data\external\openadmet_octant_cyp\cyp3a4_inhibition.parquet,,
+openadmet_expansionrx,ok,5326,5326,0,D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\data\external\openadmet_expansionrx\admet_panel.parquet,,
+pubchem_aid_1346985_tox21_pxr,ok,2392,2392,159,D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\data\external\pubchem_aid_1346985_tox21_pxr\aid_1346985.parquet,Activity Value [uM],229.0
+pubchem_aid_1346984_tox21_cyp3a4,ok,2392,2392,159,D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\data\external\pubchem_aid_1346984_tox21_cyp3a4\aid_1346984.parquet,Activity Value [uM],172.0
+pubchem_aid_720659_ncats_pxr,ok,2284,2284,107,D:\Users\ashenoy00000\.windsurf\OpenADMET-pxr-challenge\data\external\pubchem_aid_720659_ncats_pxr\aid_720659.parquet,Activity Value [uM],264.0

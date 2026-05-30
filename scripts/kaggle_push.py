@@ -14,6 +14,7 @@ Requirements:
 
 import argparse
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -33,7 +34,7 @@ USERNAME     = "knowledgegraphlover"
 DATASET_SLUG = "pxr-challenge-data"
 DATASET_REF  = f"{USERNAME}/{DATASET_SLUG}"
 
-CPU_THRESHOLD  = 70   # % — abort if above after grace period
+CPU_THRESHOLD  = int(os.environ.get("KAGGLE_CPU_THRESHOLD", "70"))   # % — abort if above after grace period
 POLL_INTERVAL  = 60   # seconds between kernel status checks
 
 
@@ -99,6 +100,14 @@ def push_data() -> None:
         src_tmp = tmp / "src"
         shutil.copytree(SRC_DIR, src_tmp)
 
+        # ChemBERTa model directory — Kaggle auto-extracts dirs zipped by --dir-mode zip
+        # Uploads chemberta_mtr/ → accessible at .../pxr-challenge-data/chemberta_mtr/ on Kaggle
+        model_dir = ROOT / "data" / "external" / "chemberta_mtr"
+        if model_dir.is_dir() and any(model_dir.iterdir()):
+            shutil.copytree(model_dir, tmp / "chemberta_mtr")
+            model_mb = sum(f.stat().st_size for f in model_dir.rglob("*") if f.is_file()) // (1024 * 1024)
+            print(f"[data] chemberta_mtr/ directory ({model_mb}MB)")
+
         meta = {
             "title":    "PXR Challenge Data",
             "id":       DATASET_REF,
@@ -109,10 +118,11 @@ def push_data() -> None:
         print(f"[data] {n_pq} parquets · {n_csv} CSVs · src/pxr -> {DATASET_REF}")
 
         if _dataset_exists():
-            _run(["datasets", "version", "-p", str(tmp), "-m", "auto-sync from kaggle_push.py"])
+            _run(["datasets", "version", "-p", str(tmp), "-m", "auto-sync from kaggle_push.py",
+                  "--dir-mode", "zip"])
             print(f"[data] Dataset version updated: {DATASET_REF}")
         else:
-            _run(["datasets", "create", "-p", str(tmp)])
+            _run(["datasets", "create", "-p", str(tmp), "--dir-mode", "zip"])
             print(f"[data] Dataset created: {DATASET_REF}")
 
 
@@ -152,10 +162,12 @@ DATA_PROCESSED = WORK / 'processed'
 DATA_PROCESSED.mkdir(exist_ok=True)
 
 # 1) Try dataset path if mounted
-_ds_src = f'/kaggle/input/{ds}/src'
+# Kaggle mounts at /kaggle/input/datasets/USERNAME/SLUG
+_ds_base = f'/kaggle/input/datasets/{USERNAME}/{ds}'
+_ds_src = _ds_base + '/src'
 if _Path(_ds_src + '/pxr').is_dir():
     sys.path.insert(0, _ds_src)
-    os.environ['PXR_DATA_ROOT'] = f'/kaggle/input/{ds}'
+    os.environ['PXR_DATA_ROOT'] = _ds_base
     print(f'pxr loaded from dataset: {{_ds_src}}')
 
 # 2) Ensure rdkit is available
@@ -285,6 +297,7 @@ def push_notebook(nb_num: int, poll: bool, pull: bool) -> None:
         patched = tmp / nb_path.name
         _patch_notebook(nb_path, patched)
 
+        accel = os.environ.get("KAGGLE_ACCEL", "gpu").lower()
         meta = {
             "id":               f"{USERNAME}/{kernel_slug}",
             "title":            f"PXR Challenge nb{nb_num:02d}",
@@ -292,7 +305,8 @@ def push_notebook(nb_num: int, poll: bool, pull: bool) -> None:
             "language":         "python",
             "kernel_type":      "notebook",
             "is_private":       True,
-            "enable_gpu":       True,
+            "enable_gpu":       (accel == "gpu"),
+            "enable_tpu":       (accel == "tpu"),
             "enable_internet":  True,
             "dataset_sources":  [DATASET_REF],
             "competition_sources": [],
@@ -300,7 +314,7 @@ def push_notebook(nb_num: int, poll: bool, pull: bool) -> None:
         }
         (tmp / "kernel-metadata.json").write_text(json.dumps(meta, indent=2))
 
-        print(f"[nb] Pushing {nb_path.name} -> {USERNAME}/{kernel_slug} (GPU T4)")
+        print(f"[nb] Pushing {nb_path.name} -> {USERNAME}/{kernel_slug} ({accel.upper()})")
         _run(["kernels", "push", "-p", str(tmp)])
         print(f"[nb] Kernel live: https://www.kaggle.com/code/{USERNAME}/{kernel_slug}")
 

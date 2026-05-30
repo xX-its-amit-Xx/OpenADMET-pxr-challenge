@@ -46,9 +46,58 @@ wheels/
 /data/processed/*.pt
 /data/processed/*.pkl
 
+# Large derived datasets — regenerable from raw + scripts
+/data/processed/*.parquet
+/data/processed/boltz_*
+/data/processed/oof_*
+/data/processed/te_*
+/data/processed/X_*
+# Keep small / authoritative artifacts
+!/data/processed/leaderboard_log.csv
+!/data/processed/submission_log.csv
+!/data/processed/iteration_roadmap.md
+!/data/processed/phase1_train_snapshot_names.txt
+
+# External bulk databases (re-fetchable; many hundreds of MB)
+/data/external/papyrus_*
+/data/external/chembl_bulk_*
+/data/external/chembl_pxr_*
+/data/external/chembl_nr_extended.parquet
+/data/external/chembl_cyp*
+/data/external/bindingdb_*
+/data/external/pubchem_*
+/data/external/docking_*
+/data/external/pdb64_structures/
+/data/external/dargason_cofolding/
+/data/external/chemberta_*
+/data/external/activity_cliffs_global.parquet
+
+# Transient lock / fingerprint files
+/.claude/scheduled_tasks.lock
+/.readme_fingerprint
+
+# Per-run task output (Claude Code's temp artifacts mirror)
+/tasks/
+
 # Model checkpoints and cloned model repos (large, regenerable)
 /notebooks/checkpoints/
 /checkpoints/
+**/checkpoints/
+**/lightning_logs/
+**/*.ckpt
+**/*.pt.tar
+
+# Chemprop / fold-fit artifacts (regenerable from scripts)
+/data/processed/chemprop_fold_*/
+/submissions/kaggle_nb*/
+/data/kaggle_outputs/
+/scripts/nb_logs/
+/outputs/
 
 # Submission archives — too big / regenerable
 /submissions/*.zip
+/submissions/*.parquet
+
+# Kaggle credentials — never commit
+kaggle.json
+.kaggle/
