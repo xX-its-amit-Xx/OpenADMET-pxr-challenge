@@ -1,0 +1,27 @@
+{
+  "name": "structure_baseline_v1",
+  "path": "submissions/structure_baseline_v1.zip",
+  "source": "tutorial/outputs/pxr_structure_submission.zip",
+  "generator": "Boltz-2 protein-ligand co-folding (tutorial baseline)",
+  "sha256": "b6a60a8ff8255cfb75a0830a4c36254e31d47bb0ea33b38381c8783878dead16",
+  "size_bytes": 8065899,
+  "n_files": 184,
+  "expected_n_files": 184,
+  "validation": {
+    "valid": true,
+    "n_errors": 0,
+    "all_ids_match": true,
+    "all_LIG_residues_present": true,
+    "all_ligand_connectivity_matches_SMILES": true,
+    "validator": "tutorial/validation/structure_validation.py",
+    "validated_on": "2026-06-01"
+  },
+  "expected_lddt_pli_band": {
+    "low": 0.4,
+    "high": 0.6,
+    "rationale": "Boltz-2 typical performance on novel/unseen ligands; lower bound for low train-test similarity, upper bound for analog-like cases. Median expected ~0.50."
+  },
+  "staged_only": true,
+  "submitted_to_gradio": false,
+  "notes": "First structure-track submission ready. Tutorial-derived Boltz-2 outputs validated locally (184/184 PDBs, all LIG residues OK, all connectivities match expected SMILES). No repaired zip existed, so used tutorial output directly. Awaiting user authorization to submit."
+}
