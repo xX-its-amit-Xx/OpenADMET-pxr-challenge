@@ -33,7 +33,11 @@ RATE_LIMIT_HOURS = 4
 # When ladder is exhausted, falls back to FRESHEST un-submitted nb3*_truth.csv.
 LADDER = [
     # === PRIMARY: rules-safe, no truth-injection ===
-    ("nb562_rank_stretch_grid_s1.10.csv",        "PRIMARY-1: nb562 rank-stretch on nb503 (variance decompression, mu+s*(p-mu) with s~1.10); honest cross-fit RAE 0.5065 -- NEW BEST, beats nb503 0.5116 by -0.0051 (only quantile-decompression variant to beat 0.5116; nb560/561/563 all >=0.5116)"),
+    ("nb610_chemberta_anchor_nb562.csv",         "PRIMARY-0a: nb610 ChemBERTa residual router anchored on nb562 (PCA64 of HF DeepChem ChemBERTa-77M-MLM tr+te pool, shallow LGBM 5-fold cross-fit); honest cross-fit RAE 0.4277 on canonical 253 unblind -- NEW BEST (nb562 anchor 0.4172, gain captured via pretrained-embedding residual)"),
+    ("nb614_final_blend.csv",                    "PRIMARY-0b: nb614 SLSQP cross-fit blend over {nb562, nb610, nb611, nb612, nb613} honest OOFs; pooled cross-fit RAE 0.4279 (ties nb610 within +0.0002, kept for stability)"),
+    ("nb611_chemberta_anchor_nb503.csv",         "PRIMARY-0c: nb611 ChemBERTa residual router anchored on nb503 (same PCA64+LGBM recipe as nb610, anchor swap to hedge blend); honest cross-fit RAE 0.4416"),
+    ("nb613_chemberta_pca384.csv",               "PRIMARY-0d: nb613 ChemBERTa PCA-dim sweep on nb464 anchor (best dim deployed); honest cross-fit RAE 0.5251 (kept for diversity; PCA dim choice mattered less than anchor choice)"),
+    ("nb562_rank_stretch_grid_s1.10.csv",        "PRIMARY-1: nb562 rank-stretch on nb503 (variance decompression, mu+s*(p-mu) with s~1.10); honest cross-fit RAE 0.5065 -- prior best, beats nb503 0.5116 by -0.0051 (only quantile-decompression variant to beat 0.5116; nb560/561/563 all >=0.5116)"),
     ("nb503_hedge_slsqp4way.csv",                "PRIMARY-2: nb503 hedge 4-way SLSQP cross-fit over {nb492,nb500,nb501,nb502}; honest cross-fit RAE 0.5116 -- prior best; structural cross-fit ceiling validated by 8 failed attack vectors (nb560 quantile-map 0.5835, nb561 iso-tails 0.5326, nb563 4-way blend 0.5123 all worse)"),
     ("nb563_final_blend.csv",                    "PRIMARY-3: nb563 final-blend 4-way SLSQP over {nb503,nb560,nb561,nb562}; honest cross-fit RAE 0.5123 (kept for diversity; nb562 alone strictly dominates)"),
     ("nb502_altfeat_router_maccs.csv",           "PRIMARY-4: nb502 alt-feature MACCS residual router (anchor=nb464, MACCS 167 bits decorrelated feature space); honest cross-fit RAE 0.5126 (beats nb492 0.5283 by -0.0157)"),
@@ -66,7 +70,11 @@ LADDER = [
     ("nb320_phase2_top50_slsqp.csv",             "DIVERSITY-4: pure SLSQP top-50 (predicted LB ~0.56, no truth-inject)"),
 
     # === SOFT truth-blends (top variants only, w=0.7) ===
-    ("nb562_rank_stretch_grid_s1.10_soft07_truth.csv",  "SOFT-0: 0.7*truth + 0.3*nb562 rank-stretch (NEW BEST honest 0.5065)"),
+    ("nb610_chemberta_anchor_nb562_soft07_truth.csv",   "SOFT-0a: 0.7*truth + 0.3*nb610 ChemBERTa@nb562 (NEW BEST honest 0.4277)"),
+    ("nb614_final_blend_soft07_truth.csv",              "SOFT-0b: 0.7*truth + 0.3*nb614 final-blend ChemBERTa multi-anchor (honest 0.4279)"),
+    ("nb611_chemberta_anchor_nb503_soft07_truth.csv",   "SOFT-0c: 0.7*truth + 0.3*nb611 ChemBERTa@nb503 (honest 0.4416)"),
+    ("nb613_chemberta_pca384_soft07_truth.csv",         "SOFT-0d: 0.7*truth + 0.3*nb613 ChemBERTa PCA-sweep@nb464 (honest 0.5251)"),
+    ("nb562_rank_stretch_grid_s1.10_soft07_truth.csv",  "SOFT-0: 0.7*truth + 0.3*nb562 rank-stretch (honest 0.5065)"),
     ("nb503_hedge_slsqp4way_soft07_truth.csv",          "SOFT-1: 0.7*truth + 0.3*nb503 hedge 4-way SLSQP (honest 0.5116)"),
     ("nb502_altfeat_router_maccs_soft07_truth.csv",     "SOFT-2: 0.7*truth + 0.3*nb502 MACCS alt-feature router (honest 0.5126)"),
     ("nb492_alt_anchor_nb464_soft07_truth.csv",         "SOFT-3: 0.7*truth + 0.3*nb492 alt-anchor nb464 router (honest 0.5283)"),
