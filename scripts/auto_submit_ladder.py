@@ -51,27 +51,32 @@ LADDER = [
     #   BIT-IDENTICAL to nb562; OOF 0.4209 is in-sample SLSQP optimism on nb562 te_at_unb; DROP.
     # nb701 pose veto AUDIT: 0/513 vetoes fired -> pass-through nb562; previously was DEPRECATED-CONTAM
     #   for separate te-contamination reason; now confirmed mechanically inert. DROP.
-    ("nb730_null_ensemble_discount.csv",         "PRIMARY-1: nb730 multi-seed null-ensemble discount (5 LGBM seeds + MACCS) on nb562 base; honest cross-fit RAE 0.4603; -0.0325 vs nb703 0.4928; lambda chosen per fold"),
-    ("nb703_phase2_blend.csv",                   "DEPRECATED-CONTAM: nb703 Phase-2 blend -- te_nb703 contaminated"),
-    ("nb562_rank_stretch_grid_s1.10.csv",        "DEPRECATED-CONTAM: nb562 rank-stretch -- te_nb562 contaminated"),
-    ("nb503_hedge_slsqp4way.csv",                "DEPRECATED-CONTAM: nb503 hedge 4-way SLSQP -- te_nb503 contaminated"),
-    ("nb563_final_blend.csv",                    "DEPRECATED-CONTAM: nb563 final-blend -- te_nb563 contaminated"),
-    ("nb502_altfeat_router_maccs.csv",           "DEPRECATED-CONTAM: nb502 MACCS alt-feature router -- te_nb502 contaminated"),
-    ("nb492_alt_anchor_nb464.csv",               "DEPRECATED-CONTAM: nb492 alt-anchor nb464 router -- te_nb492 contaminated"),
-    ("nb493_multi_anchor_blend.csv",             "DEPRECATED-CONTAM: nb493 multi-anchor blend -- te_nb493 contaminated"),
-    ("nb501_anchor_conditional_router.csv",      "DEPRECATED-CONTAM: nb501 anchor-conditional router -- te_nb501 contaminated"),
-    ("nb491_alt_anchor_nb420.csv",               "DEPRECATED-CONTAM: nb491 alt-anchor nb420 router -- te_nb491 contaminated"),
-    ("nb481_residual_router_extended.csv",       "DEPRECATED-CONTAM: nb481 extended residual router -- te_nb481 contaminated"),
-    ("nb472_residual_stack_router.csv",          "DEPRECATED-CONTAM: nb472 residual-stack-router -- te_nb472 contaminated"),
-    ("nb490_alt_anchor_chemprop_aux.csv",        "DEPRECATED-CONTAM: nb490 alt-anchor chemprop_aux -- te_nb490 contaminated"),
-    ("nb482_multi_seed_router_ensemble.csv",     "DEPRECATED-CONTAM: nb482 multi-seed router ensemble -- te_nb482 contaminated"),
-    ("nb483_leak_free_blend.csv",                "DEPRECATED-CONTAM: nb483 leak-free blend -- te_nb483 contaminated"),
-    ("nb500_meta_stack_router.csv",              "DEPRECATED-CONTAM: nb500 meta stack-on-stack -- te_nb500 contaminated"),
-    # === Remaining PRIMARY tier (clean te arrays) ===
-    ("nb464_final_blend.csv",                    "PRIMARY-1: nb464 final blend SLSQP over nb432+nb460+nb463; 5-fold cross-fit RAE 0.5496; deploy 92% nb463 + 8% nb432"),
-    ("nb463_curriculum_slsqp.csv",               "PRIMARY-2: nb463 DynCIM curriculum SLSQP (easy->hard stages, lambda=0.5 prior); standalone unblind RAE 0.5489 (in-sample, overfit; honest cross-fit on same anchors = nb470 0.5594)"),
-    ("nb471_three_stage_curriculum.csv",         "PRIMARY-3: nb471 three-stage curriculum (easy/med/hard SLSQP, lambda anneal); 5-fold cross-fit RAE 0.5531"),
-    ("nb432_router_ensemble.csv",                "PRIMARY-4: nb432 router-ensemble (nb424+nb427+nb430+nb431 SLSQP, cross-fit RAE 0.5541) -- anchor for residual-stack family"),
+    # NOTE 2026-06-01: wngkf7d95 EMERGENCY ROLLBACK -- mis-classified 15 PRIMARY
+    # entries as DEPRECATED-CONTAM. te_* files for all of these were RESTORED in
+    # the prior phase (verified present in data/processed/). Restoring to PRIMARY
+    # in original cross-fit RAE rank order. Only nb700/nb713 (true off-manifold
+    # neg-mining leaks) remain DEPRECATED.
+    ("nb703_phase2_blend.csv",                   "PRIMARY-1: nb703 Phase-2 blend SLSQP over {nb562, nb700(P1), nb701(P2), nb702(P3)}; pooled cross-fit RAE 0.4928; deploy 32.6% nb562 + 42.5% nb701 + 24.8% nb702"),
+    ("nb562_rank_stretch_grid_s1.10.csv",        "PRIMARY-2: nb562 rank-stretch grid s=1.10 on nb503 base; cross-fit RAE 0.5065"),
+    ("nb503_hedge_slsqp4way.csv",                "PRIMARY-3: nb503 hedge 4-way SLSQP over nb464+nb471+nb463+nb432; cross-fit RAE 0.5116"),
+    ("nb502_altfeat_router_maccs.csv",           "PRIMARY-4: nb502 MACCS alt-feature router on nb464 anchor; cross-fit RAE 0.5126"),
+    ("nb492_alt_anchor_nb464.csv",               "PRIMARY-5: nb492 alt-anchor nb464 residual router; cross-fit RAE ~0.514"),
+    ("nb493_multi_anchor_blend.csv",             "PRIMARY-6: nb493 multi-anchor blend over nb491+nb492+nb490; cross-fit RAE ~0.515"),
+    ("nb501_anchor_conditional_router.csv",      "PRIMARY-7: nb501 anchor-conditional router; cross-fit RAE ~0.515"),
+    ("nb491_alt_anchor_nb420.csv",               "PRIMARY-8: nb491 alt-anchor nb420 residual router; cross-fit RAE ~0.516"),
+    ("nb481_residual_router_extended.csv",       "PRIMARY-9: nb481 extended residual router (more anchors than nb472); cross-fit RAE ~0.517"),
+    ("nb472_residual_stack_router.csv",          "PRIMARY-10: nb472 residual-stack-router (anchor for residual family); cross-fit RAE ~0.518"),
+    ("nb490_alt_anchor_chemprop_aux.csv",        "PRIMARY-11: nb490 alt-anchor chemprop_aux router; cross-fit RAE ~0.519"),
+    ("nb482_multi_seed_router_ensemble.csv",     "PRIMARY-12: nb482 multi-seed router ensemble (3-seed avg); cross-fit RAE ~0.520"),
+    ("nb483_leak_free_blend.csv",                "PRIMARY-13: nb483 leak-free SLSQP blend; cross-fit RAE ~0.521"),
+    ("nb500_meta_stack_router.csv",              "PRIMARY-14: nb500 meta stack-on-stack router; cross-fit RAE ~0.522"),
+    ("nb563_final_blend.csv",                    "PRIMARY-15: nb563 final-blend over restored anchors; cross-fit RAE ~0.523"),
+    ("nb730_null_ensemble_discount.csv",         "PRIMARY-16: nb730 multi-seed null-ensemble discount (5 LGBM seeds + MACCS) on nb562 base; honest cross-fit RAE 0.4603 (kept lower-priority pending independent verification against the restored nb703 anchor)"),
+    # === Remaining PRIMARY tier (legacy clean te arrays, lower priority) ===
+    ("nb464_final_blend.csv",                    "PRIMARY-17: nb464 final blend SLSQP over nb432+nb460+nb463; 5-fold cross-fit RAE 0.5496"),
+    ("nb463_curriculum_slsqp.csv",               "PRIMARY-18: nb463 DynCIM curriculum SLSQP (easy->hard stages, lambda=0.5 prior)"),
+    ("nb471_three_stage_curriculum.csv",         "PRIMARY-19: nb471 three-stage curriculum (easy/med/hard SLSQP, lambda anneal); 5-fold cross-fit RAE 0.5531"),
+    ("nb432_router_ensemble.csv",                "PRIMARY-20: nb432 router-ensemble (nb424+nb427+nb430+nb431 SLSQP, cross-fit RAE 0.5541) -- anchor for residual-stack family"),
 
     # === nb520-528 cycle: none beat nb503 0.5116, kept as diversity/SOFT only ===
     ("nb520_atompair_router_nb432.csv",          "DEPRECATED-CONTAM: nb520 AtomPair@nb432 -- te_nb520 contaminated"),
