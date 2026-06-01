@@ -1,0 +1,56 @@
+{
+  "detector_spec": {
+    "rule": "novel scaffold (scaf_train_freq==0) & nn_sim_train<0.6 & best_pred>4.0",
+    "gate_size": 147,
+    "dead_in_gate": 16,
+    "active_in_gate": 22,
+    "mid_in_gate": 109,
+    "best_model": "oof_nb390_pcs_iso",
+    "baseline_rae": 0.5825,
+    "prize_perfect_detector_rae": 0.471,
+    "prize_gain": -0.1115,
+    "distinguishing_features": {
+      "logp_dead_mean": 2.24,
+      "logp_active_in_gate_mean": 3.12,
+      "mw_dead_mean": 330.1,
+      "fsp3_dead_mean": 0.42774539796335714,
+      "tpsa_dead_mean": 73.373125
+    }
+  },
+  "residuals_by_sim": {
+    "0.0_0.4": {
+      "mean_abs_resid": 1.043,
+      "n": 7
+    },
+    "0.4_0.5": {
+      "mean_abs_resid": 0.465,
+      "n": 94
+    },
+    "0.5_0.6": {
+      "mean_abs_resid": 0.498,
+      "n": 111
+    },
+    "0.6_0.7": {
+      "mean_abs_resid": 0.279,
+      "n": 36
+    },
+    "0.7_1.0": {
+      "mean_abs_resid": 0.261,
+      "n": 5
+    }
+  },
+  "retro_test_gains_cross_fit": {
+    "baseline_best_single": 0.5825,
+    "P1_OOD_gate_shrink": 0.5742,
+    "P2_rank_stretch": 0.5909,
+    "P5_shrink_then_stretch": 0.5742,
+    "P4_proxy_perfect_detector": 0.471
+  },
+  "per_prescription_gain": {
+    "P1": -0.0083,
+    "P2": 0.0084,
+    "P3": "risk-control only (no RAE win)",
+    "P4_proxy_perfect": -0.1115,
+    "P5": -0.0083
+  }
+}
