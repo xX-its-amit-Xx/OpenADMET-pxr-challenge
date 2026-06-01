@@ -1014,6 +1014,7 @@ Detects new analog labels in `data/raw/pxr-challenge_TRAIN.csv` (diff against `d
 
 ### Headline takeaways
 
+- **2026-06-01 CRON LANDSCAPE (deduplicated, user-authorized)**: Three live crons govern deployment - activity-track `83570bdf` (every 4h at :23, fires `scripts/auto_submit_ladder.py submit`; queue nb562 -> nb503 -> nb563 -> nb502 -> ...), structure-track `2699b648` (every 4h at :47, fires `scripts/auto_submit_structure_ladder.py submit`; v4 DONE, queue v1 -> v3 -> v2), and LB-score logger `f4f166e1` (hourly at :17, appends to `data/processed/leaderboard_log.csv`). User authorized auto-submission 2026-06-01 - crons fire ladder entries without per-fire confirmation; 4h rate-limit enforced in-script. Memory note `feedback_cron_landscape.md`.
 - **2026-06-01 DUAL-TRACK AUTO-SUBMIT LIVE**:
   - **Structure track v4 submitted 2026-06-01 16:43:06 UTC** (`structure_baseline_v4.zip`, sha256 `499028786e...`); LB score = **pending** (Gradio reports "predictions are being processed and will appear on the leaderboard within 2 hours"); hourly LB logger will capture the score once it lands.
   - **Structure auto-submit cron `21c1f49d`** set up to fire the next ladder entry every 4h (v4 -> v1 -> v3 -> v2) via `scripts/auto_submit_structure_ladder.py`.
