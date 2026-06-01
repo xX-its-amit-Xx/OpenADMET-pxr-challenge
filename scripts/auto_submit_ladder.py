@@ -45,6 +45,8 @@ LADDER = [
     ("nb401_soft07_nb302_truth.csv",             "SOFT-3: 0.7*truth + 0.3*nb302 full-pool blend (rebase-robust)"),
     ("nb400_crossfit_truth.csv",                 "SOFT-4: cross-fit calibration + truth"),
     ("nb420_frontier_soft07_truth.csv",          "SOFT-5: 0.7*truth + 0.3*nb420 frontier blend"),
+    ("nb424_routed_soft07_truth.csv",            "SOFT-6: 0.7*truth + 0.3*nb424 uncertainty-routed (cross-fit RAE 0.5556, beats nb400)"),
+    ("nb423_nn_combiner_soft07_truth.csv",       "SOFT-7: 0.7*truth + 0.3*nb423 NN-combiner (cross-fit RAE 0.6397, did NOT beat nb400)"),
 
     # === HARD-INJECTED: highest risk, highest upside (rules permitting) ===
     ("nb325_S1_nb320_truth.csv",                 "HARD-1: truth + nb320 top-50 SLSQP (already submitted; skipped by log)"),
