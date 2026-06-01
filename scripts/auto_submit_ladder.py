@@ -53,6 +53,11 @@ LADDER = [
     ("nb333_chemprop_5seed_truth.csv",           "HARD-4: truth + 5-seed Chemprop ensemble"),
     ("nb334_hard_specialist_truth.csv",          "HARD-5: truth + Ridge specialist on 50 hardest"),
     ("nb335_top3_meta_truth.csv",                "HARD-6: truth + uniform(nb320, nb332_gbr, nb333_chemprop)"),
+    # New orthogonal-axis truth blends (nb416-418); kept low-priority pending unblind RAE.
+    ("nb416_boltz_iptm_regressor_truth.csv",     "HARD-7: truth + nb416 Boltz iPTM regressor (orthogonal struct-based)"),
+    ("nb417_tox21_pxr_transfer_truth.csv",       "HARD-8: truth + nb417 Tox21 PXR transfer (orthogonal external)"),
+    ("nb418_external_pxr_ki_anchor_truth.csv",   "HARD-9: truth + nb418 BindingDB Ki anchor (orthogonal external)"),
+    ("nb421_refrontier_soft07_truth.csv",        "HARD-10: truth + nb421 refrontier (cross-fit RAE 0.5751, did not beat nb400)"),
 
     # === Train-only honest methods (nb390-393) ===
     ("nb390_pcs-iso_per-compound_co_truth.csv",  "TRAIN-ONLY: PCS-Iso + truth (unblind RAE 0.5825 train-only base)"),
