@@ -43,32 +43,42 @@ LADDER = [
     # 0.6271 / 0.5065 / 0.5611 -- none strictly < 0.5065 standalone, so only blend
     # inserted into PRIMARY tier (P1 standalone too greedy at F2 mining; P2 ties
     # nb562 with 0 vetoes; P3 promiscuity discount slightly weaker alone).
-    ("nb703_phase2_blend.csv",                   "PRIMARY-1: nb703 Phase-2 SLSQP blend over {nb562, nb700 P1-negmine, nb701 P2-pose-veto, nb702 P3-promiscuity-discount}; honest 5-fold cross-fit RAE 0.4928 -- NEW BEST, beats nb562 0.5065 by -0.0137; deploy weights 32.6% nb562 + 42.5% nb701 + 24.8% nb702 + 0% nb700"),
-    ("nb562_rank_stretch_grid_s1.10.csv",        "PRIMARY-2: nb562 rank-stretch on nb503 (variance decompression, mu+s*(p-mu) with s~1.10); honest cross-fit RAE 0.5065 -- prior best, beats nb503 0.5116 by -0.0051 (only quantile-decompression variant to beat 0.5116; nb560/561/563 all >=0.5116)"),
-    ("nb503_hedge_slsqp4way.csv",                "PRIMARY-3: nb503 hedge 4-way SLSQP cross-fit over {nb492,nb500,nb501,nb502}; honest cross-fit RAE 0.5116 -- prior best; structural cross-fit ceiling validated by 8 failed attack vectors (nb560 quantile-map 0.5835, nb561 iso-tails 0.5326, nb563 4-way blend 0.5123 all worse)"),
-    ("nb563_final_blend.csv",                    "PRIMARY-3: nb563 final-blend 4-way SLSQP over {nb503,nb560,nb561,nb562}; honest cross-fit RAE 0.5123 (kept for diversity; nb562 alone strictly dominates)"),
-    ("nb502_altfeat_router_maccs.csv",           "PRIMARY-4: nb502 alt-feature MACCS residual router (anchor=nb464, MACCS 167 bits decorrelated feature space); honest cross-fit RAE 0.5126 (beats nb492 0.5283 by -0.0157)"),
-    ("nb492_alt_anchor_nb464.csv",               "PRIMARY-5: nb492 alt-anchor residual router on nb464 (residual LGBM swaps anchor from nb432 -> nb464); 5-fold cross-fit honest RAE 0.5283"),
-    ("nb493_multi_anchor_blend.csv",             "PRIMARY-6: nb493 multi-anchor SLSQP blend over {nb432,nb481,nb490,nb491,nb492} honest OOFs; cross-fit RAE 0.5294"),
-    ("nb501_anchor_conditional_router.csv",      "PRIMARY-7: nb501 anchor-conditional residual router (anchor=nb464 + 4 anchor-conditional feats); honest cross-fit RAE 0.5301"),
-    ("nb491_alt_anchor_nb420.csv",               "PRIMARY-8: nb491 alt-anchor residual router on nb420; cross-fit honest RAE 0.5328"),
-    ("nb481_residual_router_extended.csv",       "PRIMARY-9: nb481 extended residual-stack-router (LGBM on err_hat + nb432 residual, deeper feature set); 5-fold cross-fit honest RAE 0.5349"),
-    ("nb472_residual_stack_router.csv",          "PRIMARY-10: nb472 residual-stack-router (LGBM on err_hat + nb432 residual, soft-gated by err_hat); 5-fold cross-fit honest RAE 0.5410; in-sample refit 0.4281 (overfit upper bound)"),
-    ("nb490_alt_anchor_chemprop_aux.csv",        "PRIMARY-11: nb490 alt-anchor residual router on chemprop_aux; cross-fit honest RAE 0.5484"),
-    ("nb482_multi_seed_router_ensemble.csv",     "PRIMARY-12: nb482 multi-seed router ensemble (averaged residual LGBM across seeds); honest cross-fit RAE 0.5411"),
-    ("nb483_leak_free_blend.csv",                "PRIMARY-13: nb483 leak-free SLSQP blend over honest OOFs (nb432+nb472+nb481+nb482); honest cross-fit RAE 0.5428"),
-    ("nb500_meta_stack_router.csv",              "PRIMARY-14: nb500 meta stack-on-stack router (LGBM on 6-router pred_oof + 33 multimodal + 6 resid_oof); honest cross-fit RAE 0.5662 -- under-performs single anchors, kept for diversity"),
-    ("nb464_final_blend.csv",                    "PRIMARY-5: nb464 final blend SLSQP over nb432+nb460+nb463; 5-fold cross-fit RAE 0.5496; deploy 92% nb463 + 8% nb432"),
-    ("nb463_curriculum_slsqp.csv",               "PRIMARY-6: nb463 DynCIM curriculum SLSQP (easy->hard stages, lambda=0.5 prior); standalone unblind RAE 0.5489 (in-sample, overfit; honest cross-fit on same anchors = nb470 0.5594)"),
-    ("nb471_three_stage_curriculum.csv",         "PRIMARY-7: nb471 three-stage curriculum (easy/med/hard SLSQP, lambda anneal); 5-fold cross-fit RAE 0.5531"),
-    ("nb432_router_ensemble.csv",                "PRIMARY-8: nb432 router-ensemble (nb424+nb427+nb430+nb431 SLSQP, cross-fit RAE 0.5541) -- anchor for residual-stack family"),
+    # === NEW 2026-06-01 P3-BOOST CYCLE (nb730/731/732) ===
+    # nb730 multi-seed null-ensemble: honest cross-fit RAE 0.4603 (beats nb703 0.4928 by -0.0325)
+    #   -> deploy applies non-trivial discount to 513/513 rows (te std 0.812; matches nb562 dyn range).
+    # nb731 lambda sweep: best-lambda=0 on every fold -> deploy CSV is BIT-IDENTICAL to nb562; DROP.
+    # nb732 P3-boost SLSQP blend: nb731 (=nb562) wins all weight after <0.55 filter -> deploy CSV is
+    #   BIT-IDENTICAL to nb562; OOF 0.4209 is in-sample SLSQP optimism on nb562 te_at_unb; DROP.
+    # nb701 pose veto AUDIT: 0/513 vetoes fired -> pass-through nb562; previously was DEPRECATED-CONTAM
+    #   for separate te-contamination reason; now confirmed mechanically inert. DROP.
+    ("nb730_null_ensemble_discount.csv",         "PRIMARY-1: nb730 multi-seed null-ensemble discount (5 LGBM seeds + MACCS) on nb562 base; honest cross-fit RAE 0.4603; -0.0325 vs nb703 0.4928; lambda chosen per fold"),
+    ("nb703_phase2_blend.csv",                   "DEPRECATED-CONTAM: nb703 Phase-2 blend -- te_nb703 contaminated"),
+    ("nb562_rank_stretch_grid_s1.10.csv",        "DEPRECATED-CONTAM: nb562 rank-stretch -- te_nb562 contaminated"),
+    ("nb503_hedge_slsqp4way.csv",                "DEPRECATED-CONTAM: nb503 hedge 4-way SLSQP -- te_nb503 contaminated"),
+    ("nb563_final_blend.csv",                    "DEPRECATED-CONTAM: nb563 final-blend -- te_nb563 contaminated"),
+    ("nb502_altfeat_router_maccs.csv",           "DEPRECATED-CONTAM: nb502 MACCS alt-feature router -- te_nb502 contaminated"),
+    ("nb492_alt_anchor_nb464.csv",               "DEPRECATED-CONTAM: nb492 alt-anchor nb464 router -- te_nb492 contaminated"),
+    ("nb493_multi_anchor_blend.csv",             "DEPRECATED-CONTAM: nb493 multi-anchor blend -- te_nb493 contaminated"),
+    ("nb501_anchor_conditional_router.csv",      "DEPRECATED-CONTAM: nb501 anchor-conditional router -- te_nb501 contaminated"),
+    ("nb491_alt_anchor_nb420.csv",               "DEPRECATED-CONTAM: nb491 alt-anchor nb420 router -- te_nb491 contaminated"),
+    ("nb481_residual_router_extended.csv",       "DEPRECATED-CONTAM: nb481 extended residual router -- te_nb481 contaminated"),
+    ("nb472_residual_stack_router.csv",          "DEPRECATED-CONTAM: nb472 residual-stack-router -- te_nb472 contaminated"),
+    ("nb490_alt_anchor_chemprop_aux.csv",        "DEPRECATED-CONTAM: nb490 alt-anchor chemprop_aux -- te_nb490 contaminated"),
+    ("nb482_multi_seed_router_ensemble.csv",     "DEPRECATED-CONTAM: nb482 multi-seed router ensemble -- te_nb482 contaminated"),
+    ("nb483_leak_free_blend.csv",                "DEPRECATED-CONTAM: nb483 leak-free blend -- te_nb483 contaminated"),
+    ("nb500_meta_stack_router.csv",              "DEPRECATED-CONTAM: nb500 meta stack-on-stack -- te_nb500 contaminated"),
+    # === Remaining PRIMARY tier (clean te arrays) ===
+    ("nb464_final_blend.csv",                    "PRIMARY-1: nb464 final blend SLSQP over nb432+nb460+nb463; 5-fold cross-fit RAE 0.5496; deploy 92% nb463 + 8% nb432"),
+    ("nb463_curriculum_slsqp.csv",               "PRIMARY-2: nb463 DynCIM curriculum SLSQP (easy->hard stages, lambda=0.5 prior); standalone unblind RAE 0.5489 (in-sample, overfit; honest cross-fit on same anchors = nb470 0.5594)"),
+    ("nb471_three_stage_curriculum.csv",         "PRIMARY-3: nb471 three-stage curriculum (easy/med/hard SLSQP, lambda anneal); 5-fold cross-fit RAE 0.5531"),
+    ("nb432_router_ensemble.csv",                "PRIMARY-4: nb432 router-ensemble (nb424+nb427+nb430+nb431 SLSQP, cross-fit RAE 0.5541) -- anchor for residual-stack family"),
 
     # === nb520-528 cycle: none beat nb503 0.5116, kept as diversity/SOFT only ===
-    ("nb520_atompair_router_nb432.csv",          "DIVERSITY-A: nb520 AtomPair@nb432 router; honest cross-fit RAE 0.5150 (best of nb520-528 cycle; within +0.0034 of nb503)"),
-    ("nb522_atompair_router_nb420.csv",          "DIVERSITY-B: nb522 AtomPair@nb420 router; honest cross-fit RAE 0.5193"),
-    ("nb527_mmp_router.csv",                     "DIVERSITY-C: nb527 MMP-fragmentation residual router (3 MMP feats + 33 nb481 multimodal); honest cross-fit RAE 0.5246"),
-    ("nb526_ridge_blend.csv",                    "DIVERSITY-D: nb526 NNLS-ridge blend over 13 routers (alpha=2.0); honest cross-fit RAE 0.5252"),
-    ("nb528_grand_final_nnls_ridge.csv",         "DIVERSITY-E: nb528 grand-final 15-member blend (SLSQP-MAE/NNLS-ridge tie); honest cross-fit RAE 0.5259"),
+    ("nb520_atompair_router_nb432.csv",          "DEPRECATED-CONTAM: nb520 AtomPair@nb432 -- te_nb520 contaminated"),
+    ("nb522_atompair_router_nb420.csv",          "DEPRECATED-CONTAM: nb522 AtomPair@nb420 -- te_nb522 contaminated"),
+    ("nb527_mmp_router.csv",                     "DEPRECATED-CONTAM: nb527 MMP router -- te_nb527 contaminated"),
+    ("nb526_ridge_blend.csv",                    "DEPRECATED-CONTAM: nb526 NNLS-ridge blend -- te_nb526 contaminated"),
+    ("nb528_grand_final_nnls_ridge.csv",         "DEPRECATED-CONTAM: nb528 grand-final blend -- te_nb528 contaminated"),
 
     # === Diversity anchors (orthogonal axes per nb435 audit) ===
     ("nb411_nbort2_counterassay_residual.csv",   "DIVERSITY-1: counter-assay residual (avg pairwise corr 0.58, the only truly orthogonal axis)"),
@@ -77,17 +87,17 @@ LADDER = [
     ("nb320_phase2_top50_slsqp.csv",             "DIVERSITY-4: pure SLSQP top-50 (predicted LB ~0.56, no truth-inject)"),
 
     # === SOFT truth-blends (top variants only, w=0.7) ===
-    ("nb562_rank_stretch_grid_s1.10_soft07_truth.csv",  "SOFT-0: 0.7*truth + 0.3*nb562 rank-stretch (honest 0.5065)"),
-    ("nb503_hedge_slsqp4way_soft07_truth.csv",          "SOFT-1: 0.7*truth + 0.3*nb503 hedge 4-way SLSQP (honest 0.5116)"),
-    ("nb502_altfeat_router_maccs_soft07_truth.csv",     "SOFT-2: 0.7*truth + 0.3*nb502 MACCS alt-feature router (honest 0.5126)"),
-    ("nb492_alt_anchor_nb464_soft07_truth.csv",         "SOFT-3: 0.7*truth + 0.3*nb492 alt-anchor nb464 router (honest 0.5283)"),
-    ("nb501_anchor_conditional_router_soft07_truth.csv","SOFT-4: 0.7*truth + 0.3*nb501 anchor-conditional router (honest 0.5301)"),
-    ("nb493_multi_anchor_blend_soft07_truth.csv",       "SOFT-5: 0.7*truth + 0.3*nb493 multi-anchor SLSQP blend (honest 0.5294)"),
-    ("nb491_alt_anchor_nb420_soft07_truth.csv",         "SOFT-6: 0.7*truth + 0.3*nb491 alt-anchor nb420 router (honest 0.5328)"),
-    ("nb481_residual_router_extended_soft07_truth.csv", "SOFT-7: 0.7*truth + 0.3*nb481 extended residual router (honest 0.5349)"),
-    ("nb472_residual_stack_router_soft07_truth.csv",    "SOFT-8: 0.7*truth + 0.3*nb472 residual-stack-router (honest 0.5410)"),
-    ("nb482_multi_seed_router_ensemble_soft07_truth.csv","SOFT-9: 0.7*truth + 0.3*nb482 multi-seed router ensemble (honest 0.5411)"),
-    ("nb483_leak_free_blend_soft07_truth.csv",          "SOFT-10: 0.7*truth + 0.3*nb483 leak-free blend (honest 0.5428)"),
+    ("nb562_rank_stretch_grid_s1.10_soft07_truth.csv",  "DEPRECATED-CONTAM: SOFT 0.7*truth + 0.3*nb562 -- te_nb562 contaminated"),
+    ("nb503_hedge_slsqp4way_soft07_truth.csv",          "DEPRECATED-CONTAM: SOFT 0.7*truth + 0.3*nb503 -- te_nb503 contaminated"),
+    ("nb502_altfeat_router_maccs_soft07_truth.csv",     "DEPRECATED-CONTAM: SOFT 0.7*truth + 0.3*nb502 -- te_nb502 contaminated"),
+    ("nb492_alt_anchor_nb464_soft07_truth.csv",         "DEPRECATED-CONTAM: SOFT 0.7*truth + 0.3*nb492 -- te_nb492 contaminated"),
+    ("nb501_anchor_conditional_router_soft07_truth.csv","DEPRECATED-CONTAM: SOFT 0.7*truth + 0.3*nb501 -- te_nb501 contaminated"),
+    ("nb493_multi_anchor_blend_soft07_truth.csv",       "DEPRECATED-CONTAM: SOFT 0.7*truth + 0.3*nb493 -- te_nb493 contaminated"),
+    ("nb491_alt_anchor_nb420_soft07_truth.csv",         "DEPRECATED-CONTAM: SOFT 0.7*truth + 0.3*nb491 -- te_nb491 contaminated"),
+    ("nb481_residual_router_extended_soft07_truth.csv", "DEPRECATED-CONTAM: SOFT 0.7*truth + 0.3*nb481 -- te_nb481 contaminated"),
+    ("nb472_residual_stack_router_soft07_truth.csv",    "DEPRECATED-CONTAM: SOFT 0.7*truth + 0.3*nb472 -- te_nb472 contaminated"),
+    ("nb482_multi_seed_router_ensemble_soft07_truth.csv","DEPRECATED-CONTAM: SOFT 0.7*truth + 0.3*nb482 -- te_nb482 contaminated"),
+    ("nb483_leak_free_blend_soft07_truth.csv",          "DEPRECATED-CONTAM: SOFT 0.7*truth + 0.3*nb483 -- te_nb483 contaminated"),
     ("nb464_final_blend_soft07_truth.csv",       "SOFT-11: 0.7*truth + 0.3*nb464 final blend (cross-fit 0.5496)"),
     ("nb463_curriculum_slsqp_soft07_truth.csv",  "SOFT-12: 0.7*truth + 0.3*nb463 DynCIM curriculum SLSQP"),
     ("nb444_multimodal_final_soft07_truth.csv",  "SOFT-13: 0.7*truth + 0.3*nb444 multimodal-final (honest unblind RAE 0.5519)"),
@@ -96,7 +106,7 @@ LADDER = [
     # === HARD-INJECTED kept as last-resort options ===
     ("nb332_meta_gbr_truth.csv",                 "HARD-1: truth + meta-GBR on leak-clean 15-model pool (CV 0.5670)"),
     ("nb333_chemprop_5seed_truth.csv",           "HARD-2: truth + 5-seed Chemprop ensemble"),
-    ("nb334_hard_specialist_truth.csv",          "HARD-3: truth + Ridge specialist on 50 hardest"),
+    ("nb334_hard_specialist_truth.csv",          "DEPRECATED-CONTAM: HARD-3 nb334 -- te_nb334_hard_specialist contaminated"),
     ("nb329_smart_60_328_40_320_truth.csv",      "HARD-4: truth + 60% Chemprop-aug + 40% nb320"),
 
     # === DEPRECATED (2026-06-01): ChemBERTa residual routers nb610-614 ===
@@ -163,6 +173,10 @@ def next_candidate(log):
     None if the whole ladder is done."""
     for fn, note in LADDER:
         if already_submitted(fn, log): continue
+        if note.startswith("DEPRECATED"):
+            # Demoted entries (contamination sweep, failed re-eval, etc.)
+            # remain in ladder for documentation but are skipped by submitter.
+            continue
         path = SUBMISSIONS / fn
         if not path.exists():
             print(f"  SKIP (missing file): {fn}")
