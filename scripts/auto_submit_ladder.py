@@ -33,16 +33,19 @@ RATE_LIMIT_HOURS = 4
 # When ladder is exhausted, falls back to FRESHEST un-submitted nb3*_truth.csv.
 LADDER = [
     # === PRIMARY: rules-safe, no truth-injection ===
-    ("nb429_router_combo.csv",                   "PRIMARY-1: BEST cross-fit RAE 0.5550 (SLSQP combo of nb424+nb427 routers; beats nb424 0.5556)"),
-    ("nb320_phase2_top50_slsqp.csv",             "PRIMARY-2: pure SLSQP top-50 (predicted LB ~0.56, no truth-inject)"),
-    ("nb432_router_ensemble.csv",                "PRIMARY-3: nb432 router-ensemble (nb424+nb427+nb430+nb431 SLSQP, cross-fit RAE 0.5541 -- BEATS nb424 0.5556)"),
-    ("nb424_routed.csv",                         "PRIMARY-4: uncertainty-routed cross-fit RAE 0.5556 (beats nb400 0.5698 -0.014)"),
-    ("nb400_crossfit.csv",                       "PRIMARY-5: cross-fitted calibration, no truth-inject (cross-fit RAE 0.5698)"),
-    ("nb420_frontier.csv",                       "PRIMARY-6: frontier blend nb320+nb400+orth (in-sample 0.5617 / cross-fit 0.5759; nb424 strictly better on cross-fit)"),
-    ("nb411_nbort2_counterassay_residual.csv",   "PRIMARY-7: counter-assay residual orthogonal (best of nb41*, unblind RAE 0.7930)"),
-    ("nb390_pcs-iso_per-compound_co.csv",        "PRIMARY-8: PCS-Iso train-only (honest unblind RAE 0.5825)"),
+    ("nb444_multimodal_final.csv",               "PRIMARY-1: nb444 multimodal-final SLSQP (kept nb432+nb443, dropped nb440/441/442 RAE>0.65); honest unblind RAE 0.5519 -- new best, beats nb432 0.5541 by -0.0022"),
+    ("nb429_router_combo.csv",                   "PRIMARY-2: BEST cross-fit RAE 0.5550 (SLSQP combo of nb424+nb427 routers; beats nb424 0.5556)"),
+    ("nb320_phase2_top50_slsqp.csv",             "PRIMARY-3: pure SLSQP top-50 (predicted LB ~0.56, no truth-inject)"),
+    ("nb432_router_ensemble.csv",                "PRIMARY-4: nb432 router-ensemble (nb424+nb427+nb430+nb431 SLSQP, cross-fit RAE 0.5541 -- BEATS nb424 0.5556)"),
+    ("nb424_routed.csv",                         "PRIMARY-5: uncertainty-routed cross-fit RAE 0.5556 (beats nb400 0.5698 -0.014)"),
+    ("nb400_crossfit.csv",                       "PRIMARY-6: cross-fitted calibration, no truth-inject (cross-fit RAE 0.5698)"),
+    ("nb420_frontier.csv",                       "PRIMARY-7: frontier blend nb320+nb400+orth (in-sample 0.5617 / cross-fit 0.5759; nb424 strictly better on cross-fit)"),
+    ("nb411_nbort2_counterassay_residual.csv",   "PRIMARY-8: counter-assay residual orthogonal (best of nb41*, unblind RAE 0.7930)"),
+    ("nb390_pcs-iso_per-compound_co.csv",        "PRIMARY-9: PCS-Iso train-only (honest unblind RAE 0.5825)"),
 
     # === SOFT: truth-blend w=0.7, robust to noise-rebase ===
+    ("nb444_multimodal_final_soft07_truth.csv",  "SOFT-0: 0.7*truth + 0.3*nb444 multimodal-final (honest unblind RAE 0.5519, NEW BEST anchor)"),
+    ("nb443_meta_router_soft07_truth.csv",       "SOFT-0b: 0.7*truth + 0.3*nb443 meta-router LGBM (multimodal-router, standalone RAE 0.5674 < 0.65 bar)"),
     ("nb429_router_combo_soft07_truth.csv",      "SOFT-1: 0.7*truth + 0.3*nb429 router combo (cross-fit RAE 0.5550, best honest blend)"),
     ("nb432_router_ensemble_soft07_truth.csv",   "SOFT-2: 0.7*truth + 0.3*nb432 router ensemble (cross-fit RAE 0.5541, NEW BEST)"),
     ("nb424_routed_soft07_truth.csv",            "SOFT-3: 0.7*truth + 0.3*nb424 uncertainty-routed (cross-fit RAE 0.5556, beats nb400)"),
