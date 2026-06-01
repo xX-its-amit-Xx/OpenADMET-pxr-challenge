@@ -1014,6 +1014,16 @@ Detects new analog labels in `data/raw/pxr-challenge_TRAIN.csv` (diff against `d
 
 ### Headline takeaways
 
+- **2026-06-01 PHASE-2 P4-PRECISION — TARGETED GATE CLASSIFIER ON 16 F2_dead vs 22 F2_gate_active LOSES AT 1.2813; BULK NEGATIVE MINING (nb700, 0.6271) ALSO HURT**: Acting on user's pm06 observation that the prize is **precision, not recall** on the greasy-novel-inactive failure mode, the gate `(scaf_freq==0 AND nn_sim<0.6 AND pred>4.0)` (nb720) surfaces 147 unblind rows of which only 16 are true F2_dead (truth<3.5) and 22 are F2_gate_active (truth>=5.0). A precision classifier (nb721 LGBM, F2_dead vs F2_gate_active) drives a targeted shrink (nb722) and SLSQP blend (nb723):
+
+  | Approach | Direct unblind RAE (n=253) | Gate? | Verdict |
+  |---|---|---|---|
+  | **nb700 — bulk off-manifold negative mining** | **0.6271** | no — re-anchors all low-sim test rows | **HURTS** vs nb562 0.5065 (+0.1206 RAE); F2-only RAE 3.08 — the prior over-shrinks rows where the base was already right |
+  | **nb722 — targeted shrink via nb721 precision classifier on the 147-row gate cohort** | **1.2813** | yes — classifier gates which rows get shrunk | **LOSES decisively** (+0.78 RAE vs nb562); the 16-row F2_dead training signal is too thin to learn a reliable classifier; mispredictions on the 22-active sub-cohort drag pooled RAE |
+  | **nb723 — SLSQP blend over {nb562, nb722, P1..P4 survivors}** | 0.1341 (cross-fit) | n/a | **CONTAMINATED** — cross-fit OOF corr-with-truth 0.994 traces to a soft-injected te_*.npy survivor in the pool inheriting truth at w=0.7; NOT a real generalization signal, will NOT be promoted (per unblind-overfit memory) |
+
+  **Architectural lesson — when the prize is a specific small cohort, build a TARGETED classifier, not a bulk retraining shift. But also: 16 positive labels is below the floor at which an LGBM gate classifier can learn a reliable decision boundary on a noisy assay.** Both directions failed for orthogonal reasons: nb700's bulk shift is too coarse (it bleeds shrinkage into rows the base model already nailed), and nb722's targeted classifier is data-starved (16 F2_dead is too few to fit a stable >0.5 precision LGBM on a heterogeneous chemical manifold). The honest implication is that the F2 cohort needs either (a) much more F2-positive label volume from Phase-2 unblinds before a precision classifier can deliver, or (b) a *rule-based* gate (e.g. logP>5 AND TPSA<60 AND counter_assay_null_hat>4.5) calibrated on the 38 labeled gate rows rather than a learned classifier. **No ladder change** — nb703 remains PRIMARY-1 (cross-fit 0.4928), nb562 PRIMARY-2 (0.5065). nb700/nb722/nb723 NOT inserted. Memory note `feedback_phase2_precision_classifier.md`.
+
 - **2026-06-01 PHASE-2 P4 — LOSS-LEVEL DECOMPRESSION FAILS; POST-HOC RANK-STRETCH (nb562) REMAINS UNBEATEN AT 0.5065**: Three orthogonal loss-shape prescriptions were implemented to test whether baking the F2 over-prediction bias into the training objective (rather than fixing it post-hoc via nb562's quantile stretch) could break the 0.5065 ceiling. **All three FAIL the <0.55 filter on the 253-row Phase-1 unblind**:
 
   | Prescription | Direct unblind RAE (n=253) | te std | What it tries | Verdict |
