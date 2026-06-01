@@ -32,51 +32,76 @@ RATE_LIMIT_HOURS = 4
 # Hand-curated priority ladder (safest first → aggressive last).
 # When ladder is exhausted, falls back to FRESHEST un-submitted nb3*_truth.csv.
 LADDER = [
-    # === PRIMARY: rules-safe, no truth-injection ===
-    # NOTE 2026-06-01: nb610/611/612/613/614 DEMOTED -- honest re-eval showed they did NOT
-    # truly beat nb562 (0.5065). Their original 0.42xx scores were inflated by an eval
-    # artifact (likely train/unblind contamination in the ChemBERTa PCA pool or anchor leak).
-    # Restoring nb562 as PRIMARY-1. ChemBERTa variants moved to DEPRECATED-tier below.
-    # NOTE 2026-06-01: nb703 PHASE-2 BLEND inserted as PRIMARY-1 -- pooled cross-fit
-    # RAE 0.4928 over {nb562, nb700(P1), nb701(P2), nb702(P3)}; SLSQP deploy weights
-    # 32.6% nb562 + 42.5% nb701 + 24.8% nb702 + 0% nb700. P1/P2 individual scores
-    # 0.6271 / 0.5065 / 0.5611 -- none strictly < 0.5065 standalone, so only blend
-    # inserted into PRIMARY tier (P1 standalone too greedy at F2 mining; P2 ties
-    # nb562 with 0 vetoes; P3 promiscuity discount slightly weaker alone).
-    # === NEW 2026-06-01 P3-BOOST CYCLE (nb730/731/732) ===
-    # nb730 multi-seed null-ensemble: honest cross-fit RAE 0.4603 (beats nb703 0.4928 by -0.0325)
-    #   -> deploy applies non-trivial discount to 513/513 rows (te std 0.812; matches nb562 dyn range).
-    # nb731 lambda sweep: best-lambda=0 on every fold -> deploy CSV is BIT-IDENTICAL to nb562; DROP.
-    # nb732 P3-boost SLSQP blend: nb731 (=nb562) wins all weight after <0.55 filter -> deploy CSV is
-    #   BIT-IDENTICAL to nb562; OOF 0.4209 is in-sample SLSQP optimism on nb562 te_at_unb; DROP.
-    # nb701 pose veto AUDIT: 0/513 vetoes fired -> pass-through nb562; previously was DEPRECATED-CONTAM
-    #   for separate te-contamination reason; now confirmed mechanically inert. DROP.
-    # NOTE 2026-06-01: wngkf7d95 EMERGENCY ROLLBACK -- mis-classified 15 PRIMARY
-    # entries as DEPRECATED-CONTAM. te_* files for all of these were RESTORED in
-    # the prior phase (verified present in data/processed/). Restoring to PRIMARY
-    # in original cross-fit RAE rank order. Only nb700/nb713 (true off-manifold
-    # neg-mining leaks) remain DEPRECATED.
-    ("nb703_phase2_blend.csv",                   "PRIMARY-1: nb703 Phase-2 blend SLSQP over {nb562, nb700(P1), nb701(P2), nb702(P3)}; pooled cross-fit RAE 0.4928; deploy 32.6% nb562 + 42.5% nb701 + 24.8% nb702"),
-    ("nb562_rank_stretch_grid_s1.10.csv",        "PRIMARY-2: nb562 rank-stretch grid s=1.10 on nb503 base; cross-fit RAE 0.5065"),
-    ("nb503_hedge_slsqp4way.csv",                "PRIMARY-3: nb503 hedge 4-way SLSQP over nb464+nb471+nb463+nb432; cross-fit RAE 0.5116"),
-    ("nb502_altfeat_router_maccs.csv",           "PRIMARY-4: nb502 MACCS alt-feature router on nb464 anchor; cross-fit RAE 0.5126"),
-    ("nb492_alt_anchor_nb464.csv",               "PRIMARY-5: nb492 alt-anchor nb464 residual router; cross-fit RAE ~0.514"),
-    ("nb493_multi_anchor_blend.csv",             "PRIMARY-6: nb493 multi-anchor blend over nb491+nb492+nb490; cross-fit RAE ~0.515"),
-    ("nb501_anchor_conditional_router.csv",      "PRIMARY-7: nb501 anchor-conditional router; cross-fit RAE ~0.515"),
-    ("nb491_alt_anchor_nb420.csv",               "PRIMARY-8: nb491 alt-anchor nb420 residual router; cross-fit RAE ~0.516"),
-    ("nb481_residual_router_extended.csv",       "PRIMARY-9: nb481 extended residual router (more anchors than nb472); cross-fit RAE ~0.517"),
-    ("nb472_residual_stack_router.csv",          "PRIMARY-10: nb472 residual-stack-router (anchor for residual family); cross-fit RAE ~0.518"),
-    ("nb490_alt_anchor_chemprop_aux.csv",        "PRIMARY-11: nb490 alt-anchor chemprop_aux router; cross-fit RAE ~0.519"),
-    ("nb482_multi_seed_router_ensemble.csv",     "PRIMARY-12: nb482 multi-seed router ensemble (3-seed avg); cross-fit RAE ~0.520"),
-    ("nb483_leak_free_blend.csv",                "PRIMARY-13: nb483 leak-free SLSQP blend; cross-fit RAE ~0.521"),
-    ("nb500_meta_stack_router.csv",              "PRIMARY-14: nb500 meta stack-on-stack router; cross-fit RAE ~0.522"),
-    ("nb563_final_blend.csv",                    "PRIMARY-15: nb563 final-blend over restored anchors; cross-fit RAE ~0.523"),
-    ("nb730_null_ensemble_discount.csv",         "PRIMARY-16: nb730 multi-seed null-ensemble discount (5 LGBM seeds + MACCS) on nb562 base; honest cross-fit RAE 0.4603 (kept lower-priority pending independent verification against the restored nb703 anchor)"),
-    # === Remaining PRIMARY tier (legacy clean te arrays, lower priority) ===
-    ("nb464_final_blend.csv",                    "PRIMARY-17: nb464 final blend SLSQP over nb432+nb460+nb463; 5-fold cross-fit RAE 0.5496"),
-    ("nb463_curriculum_slsqp.csv",               "PRIMARY-18: nb463 DynCIM curriculum SLSQP (easy->hard stages, lambda=0.5 prior)"),
-    ("nb471_three_stage_curriculum.csv",         "PRIMARY-19: nb471 three-stage curriculum (easy/med/hard SLSQP, lambda anneal); 5-fold cross-fit RAE 0.5531"),
-    ("nb432_router_ensemble.csv",                "PRIMARY-20: nb432 router-ensemble (nb424+nb427+nb430+nb431 SLSQP, cross-fit RAE 0.5541) -- anchor for residual-stack family"),
+    # === URGENT REORDER 2026-06-01: HONEST PREDICTED-LB ORDER ===
+    # Prior nb700-series + nb503/nb562/nb472-family entries were all trained-on-unblind
+    # (cross-fit on the 253 unblinded labels). Predicted LB = max(in_RAE * 1.5, ~0.55) per
+    # feedback_unblind_overfit_risk -- they will likely score 0.8-1.0 on the blind LB,
+    # which would HURT rank vs current best 0.7655. Demoting all of them to
+    # DEPRECATED-CROSSFIT-OVERFIT below.
+    #
+    # New PRIMARY tier ordered by HONEST predicted LB ascending:
+    #   PRE-unblind models:   predicted LB ~= in_RAE + 0.003
+    #   POST-unblind models:  predicted LB ~= in_RAE * 1.5 (floor at ~0.55)
+    # chemprop_aux is the true #1 from the 2026-05-29 unblind validation (RAE 0.6216);
+    # at predicted LB 0.6246 it would crush the current best 0.7655.
+    ("chemprop_aux.csv",                         "PRIMARY-1: chemprop multi-task w/ aux heads; honest unblind RAE 0.6216; predicted LB 0.6246 (would crush current best 0.7655)"),
+    ("grand_v6b_calib.csv",                      "PRIMARY-2: grand_v6b calibrated ensemble; in_RAE 0.6409; predicted LB 0.6439"),
+    ("nb306_cepsmim.csv",                        "PRIMARY-3: nb306 ceps-MIM; in_RAE 0.6486; predicted LB 0.6516"),
+    ("nb305_mope.csv",                           "PRIMARY-4: nb305 MoPE; in_RAE 0.6601; predicted LB 0.6631"),
+    ("95_all_feature_fusion.csv",                "PRIMARY-5: mm-audit #5 all-feature-fusion (PRE-unblind); in_RAE 0.6625; predicted LB 0.6655"),
+    ("54_deep_ensemble_uncertainty.csv",         "PRIMARY-6: mm-audit deep-ensemble-uncertainty (PRE-unblind); in_RAE 0.6657; predicted LB 0.6687"),
+    ("27_nr_weighted_lgbm.csv",                  "PRIMARY-7: mm-audit NR-weighted LGBM (PRE-unblind); in_RAE 0.6729; predicted LB 0.6759"),
+    ("82_selectivity_aware.csv",                 "PRIMARY-8: mm-audit selectivity-aware (PRE-unblind); in_RAE 0.6730; predicted LB 0.6760"),
+    ("67_lgbm_chembl_all_nr_weighted.csv",       "PRIMARY-9: mm-audit ChEMBL-all-NR-weighted LGBM (PRE-unblind); in_RAE 0.6746; predicted LB 0.6776"),
+    ("nb303_dann.csv",                           "PRIMARY-10: nb303 Karpathy DANN; in_RAE 0.6931; predicted LB 0.6961"),
+    ("nb800_huber_1_5.csv",                      "PRIMARY-11: nb800 Huber alpha=1.5 (best alpha sweep variant, PRE-unblind); in_RAE 0.7378; predicted LB 0.7408"),
+    ("nb800_huber_ens4.csv",                     "PRIMARY-12: nb800 4-way Huber ensemble {0.3,0.7,1.5,3.0} (PRE-unblind); in_RAE 0.7441; predicted LB 0.7471"),
+    ("nb801_huber_assay_decomp_plus.csv",        "PRIMARY-13: nb801 Huber w/ expanded assay-decomp (6 new feats, PRE-unblind); in_RAE 0.7448; predicted LB 0.7478"),
+    ("nb120_huber_1_0.csv",                      "PRIMARY-14: nb120 Huber delta=1.0; in_RAE 0.7461; predicted LB 0.7491"),
+    ("nb120_huber_2_0.csv",                      "PRIMARY-15: nb120 Huber delta=2.0; in_RAE 0.7502; predicted LB 0.7532"),
+    ("nb120_huber_0_5.csv",                      "PRIMARY-16: nb120 Huber delta=0.5; in_RAE 0.7513; predicted LB 0.7543"),
+    ("nb273_molformer.csv",                      "PRIMARY-17: nb273 MoLFormer (already submitted but worth re-checking)"),
+
+    # === DEPRECATED-CROSSFIT-OVERFIT (2026-06-01) ===
+    # All entries below were ranked using in-sample / cross-fit RAE on the 253 unblinded
+    # labels (df>150 in iso+BMA+SLSQP setups). Per feedback_unblind_overfit_risk, gap to
+    # blind LB is +0.05-0.30 RAE; honest predicted LB band is 0.8-1.0, which would
+    # HARM rank vs current best 0.7655. Kept in ladder only so submitter does not
+    # silently re-discover them via fresh-file fallback.
+    ("nb703_phase2_blend.csv",                   "DEPRECATED-CROSSFIT-OVERFIT: nb703 Phase-2 SLSQP blend trained on unblind labels; predicted LB ~0.97; was PRIMARY-1"),
+    ("nb562_rank_stretch_grid_s1.10.csv",        "DEPRECATED-CROSSFIT-OVERFIT: nb562 rank-stretch grid trained on unblind labels"),
+    ("nb503_hedge_slsqp4way.csv",                "DEPRECATED-CROSSFIT-OVERFIT: nb503 hedge 4-way SLSQP trained on unblind labels"),
+    ("nb502_altfeat_router_maccs.csv",           "DEPRECATED-CROSSFIT-OVERFIT: nb502 MACCS alt-feature router trained on unblind labels"),
+    ("nb492_alt_anchor_nb464.csv",               "DEPRECATED-CROSSFIT-OVERFIT: nb492 alt-anchor nb464 trained on unblind labels"),
+    ("nb493_multi_anchor_blend.csv",             "DEPRECATED-CROSSFIT-OVERFIT: nb493 multi-anchor blend trained on unblind labels"),
+    ("nb501_anchor_conditional_router.csv",      "DEPRECATED-CROSSFIT-OVERFIT: nb501 anchor-conditional router trained on unblind labels"),
+    ("nb491_alt_anchor_nb420.csv",               "DEPRECATED-CROSSFIT-OVERFIT: nb491 alt-anchor nb420 trained on unblind labels"),
+    ("nb481_residual_router_extended.csv",       "DEPRECATED-CROSSFIT-OVERFIT: nb481 extended residual router trained on unblind labels"),
+    ("nb472_residual_stack_router.csv",          "DEPRECATED-CROSSFIT-OVERFIT: nb472 residual-stack-router trained on unblind labels"),
+    ("nb490_alt_anchor_chemprop_aux.csv",        "DEPRECATED-CROSSFIT-OVERFIT: nb490 alt-anchor chemprop_aux trained on unblind labels"),
+    ("nb482_multi_seed_router_ensemble.csv",     "DEPRECATED-CROSSFIT-OVERFIT: nb482 multi-seed router ensemble trained on unblind labels"),
+    ("nb483_leak_free_blend.csv",                "DEPRECATED-CROSSFIT-OVERFIT: nb483 'leak-free' SLSQP blend still trained on unblind labels"),
+    ("nb500_meta_stack_router.csv",              "DEPRECATED-CROSSFIT-OVERFIT: nb500 meta stack-on-stack router trained on unblind labels"),
+    ("nb563_final_blend.csv",                    "DEPRECATED-CROSSFIT-OVERFIT: nb563 final-blend trained on unblind labels"),
+    ("nb730_null_ensemble_discount.csv",         "DEPRECATED-CROSSFIT-OVERFIT: nb730 multi-seed null-ensemble trained on unblind labels"),
+    ("nb710_p3_boost.csv",                       "DEPRECATED-CROSSFIT-OVERFIT: nb710-732 P3 boost variants trained on unblind labels"),
+    ("nb711_p3_boost.csv",                       "DEPRECATED-CROSSFIT-OVERFIT: nb710-732 P3 boost variants trained on unblind labels"),
+    ("nb712_p3_boost.csv",                       "DEPRECATED-CROSSFIT-OVERFIT: nb710-732 P3 boost variants trained on unblind labels"),
+    ("nb713_p3_boost.csv",                       "DEPRECATED-CROSSFIT-OVERFIT: nb710-732 P3 boost variants trained on unblind labels"),
+    ("nb714_p3_boost.csv",                       "DEPRECATED-CROSSFIT-OVERFIT: nb710-732 P3 boost variants trained on unblind labels"),
+    ("nb715_p3_boost.csv",                       "DEPRECATED-CROSSFIT-OVERFIT: nb710-732 P3 boost variants trained on unblind labels"),
+    ("nb720_p3_boost.csv",                       "DEPRECATED-CROSSFIT-OVERFIT: nb710-732 P3 boost variants trained on unblind labels"),
+    ("nb721_p3_boost.csv",                       "DEPRECATED-CROSSFIT-OVERFIT: nb710-732 P3 boost variants trained on unblind labels"),
+    ("nb722_p3_boost.csv",                       "DEPRECATED-CROSSFIT-OVERFIT: nb710-732 P3 boost variants trained on unblind labels"),
+    ("nb725_p3_boost.csv",                       "DEPRECATED-CROSSFIT-OVERFIT: nb710-732 P3 boost variants trained on unblind labels"),
+    ("nb731_p3_boost.csv",                       "DEPRECATED-CROSSFIT-OVERFIT: nb710-732 P3 boost variants trained on unblind labels"),
+    ("nb732_p3_boost.csv",                       "DEPRECATED-CROSSFIT-OVERFIT: nb710-732 P3 boost variants trained on unblind labels"),
+
+    # === Legacy clean te arrays (PRE-unblind training; lower priority but not deprecated) ===
+    ("nb464_final_blend.csv",                    "LEGACY-1: nb464 final blend SLSQP over nb432+nb460+nb463; 5-fold cross-fit RAE 0.5496"),
+    ("nb463_curriculum_slsqp.csv",               "LEGACY-2: nb463 DynCIM curriculum SLSQP (easy->hard stages, lambda=0.5 prior)"),
+    ("nb471_three_stage_curriculum.csv",         "LEGACY-3: nb471 three-stage curriculum (easy/med/hard SLSQP, lambda anneal); 5-fold cross-fit RAE 0.5531"),
+    ("nb432_router_ensemble.csv",                "LEGACY-4: nb432 router-ensemble (nb424+nb427+nb430+nb431 SLSQP, cross-fit RAE 0.5541) -- anchor for residual-stack family"),
 
     # === nb520-528 cycle: none beat nb503 0.5116, kept as diversity/SOFT only ===
     ("nb520_atompair_router_nb432.csv",          "DEPRECATED-CONTAM: nb520 AtomPair@nb432 -- te_nb520 contaminated"),
