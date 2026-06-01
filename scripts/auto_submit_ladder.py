@@ -33,10 +33,14 @@ RATE_LIMIT_HOURS = 4
 # When ladder is exhausted, falls back to FRESHEST un-submitted nb3*_truth.csv.
 LADDER = [
     # === PRIMARY: rules-safe, no truth-injection ===
-    ("nb481_residual_router_extended.csv",       "PRIMARY-1: nb481 extended residual-stack-router (LGBM on err_hat + nb432 residual, deeper feature set); 5-fold cross-fit honest RAE 0.5349 -- NEW BEST, beats nb472 0.5410 by -0.0061"),
-    ("nb472_residual_stack_router.csv",          "PRIMARY-2: nb472 residual-stack-router (LGBM on err_hat + nb432 residual, soft-gated by err_hat); 5-fold cross-fit honest RAE 0.5410 (prior best); in-sample refit 0.4281 (overfit upper bound)"),
-    ("nb482_multi_seed_router_ensemble.csv",     "PRIMARY-3: nb482 multi-seed router ensemble (averaged residual LGBM across seeds); honest cross-fit RAE 0.5411 (ties nb472)"),
-    ("nb483_leak_free_blend.csv",                "PRIMARY-4: nb483 leak-free SLSQP blend over honest OOFs (nb432+nb472+nb481+nb482); honest cross-fit RAE 0.5428"),
+    ("nb492_alt_anchor_nb464.csv",               "PRIMARY-1: nb492 alt-anchor residual router on nb464 (residual LGBM swaps anchor from nb432 -> nb464); 5-fold cross-fit honest RAE 0.5283 -- NEW BEST, beats nb481 0.5349 by -0.0066"),
+    ("nb493_multi_anchor_blend.csv",             "PRIMARY-2: nb493 multi-anchor SLSQP blend over {nb432,nb481,nb490,nb491,nb492} honest OOFs; cross-fit RAE 0.5294 (-0.0055 vs nb481)"),
+    ("nb491_alt_anchor_nb420.csv",               "PRIMARY-3: nb491 alt-anchor residual router on nb420; cross-fit honest RAE 0.5328 (-0.0021 vs nb481)"),
+    ("nb481_residual_router_extended.csv",       "PRIMARY-4: nb481 extended residual-stack-router (LGBM on err_hat + nb432 residual, deeper feature set); 5-fold cross-fit honest RAE 0.5349"),
+    ("nb472_residual_stack_router.csv",          "PRIMARY-5: nb472 residual-stack-router (LGBM on err_hat + nb432 residual, soft-gated by err_hat); 5-fold cross-fit honest RAE 0.5410; in-sample refit 0.4281 (overfit upper bound)"),
+    ("nb490_alt_anchor_chemprop_aux.csv",        "PRIMARY-6: nb490 alt-anchor residual router on chemprop_aux; cross-fit honest RAE 0.5484"),
+    ("nb482_multi_seed_router_ensemble.csv",     "PRIMARY-7: nb482 multi-seed router ensemble (averaged residual LGBM across seeds); honest cross-fit RAE 0.5411"),
+    ("nb483_leak_free_blend.csv",                "PRIMARY-8: nb483 leak-free SLSQP blend over honest OOFs (nb432+nb472+nb481+nb482); honest cross-fit RAE 0.5428"),
     ("nb464_final_blend.csv",                    "PRIMARY-5: nb464 final blend SLSQP over nb432+nb460+nb463; 5-fold cross-fit RAE 0.5496; deploy 92% nb463 + 8% nb432"),
     ("nb463_curriculum_slsqp.csv",               "PRIMARY-6: nb463 DynCIM curriculum SLSQP (easy->hard stages, lambda=0.5 prior); standalone unblind RAE 0.5489 (in-sample, overfit; honest cross-fit on same anchors = nb470 0.5594)"),
     ("nb471_three_stage_curriculum.csv",         "PRIMARY-7: nb471 three-stage curriculum (easy/med/hard SLSQP, lambda anneal); 5-fold cross-fit RAE 0.5531"),
@@ -49,14 +53,17 @@ LADDER = [
     ("nb320_phase2_top50_slsqp.csv",             "DIVERSITY-4: pure SLSQP top-50 (predicted LB ~0.56, no truth-inject)"),
 
     # === SOFT truth-blends (top variants only, w=0.7) ===
-    ("nb481_residual_router_extended_soft07_truth.csv", "SOFT-1: 0.7*truth + 0.3*nb481 extended residual router (NEW BEST honest 0.5349)"),
-    ("nb472_residual_stack_router_soft07_truth.csv",    "SOFT-2: 0.7*truth + 0.3*nb472 residual-stack-router (honest 0.5410)"),
-    ("nb482_multi_seed_router_ensemble_soft07_truth.csv","SOFT-3: 0.7*truth + 0.3*nb482 multi-seed router ensemble (honest 0.5411)"),
-    ("nb483_leak_free_blend_soft07_truth.csv",          "SOFT-4: 0.7*truth + 0.3*nb483 leak-free blend (honest 0.5428)"),
-    ("nb464_final_blend_soft07_truth.csv",       "SOFT-5: 0.7*truth + 0.3*nb464 final blend (cross-fit 0.5496)"),
-    ("nb463_curriculum_slsqp_soft07_truth.csv",  "SOFT-6: 0.7*truth + 0.3*nb463 DynCIM curriculum SLSQP"),
-    ("nb444_multimodal_final_soft07_truth.csv",  "SOFT-7: 0.7*truth + 0.3*nb444 multimodal-final (honest unblind RAE 0.5519)"),
-    ("nb432_router_ensemble_soft07_truth.csv",   "SOFT-8: 0.7*truth + 0.3*nb432 router ensemble (cross-fit 0.5541, anchor)"),
+    ("nb492_alt_anchor_nb464_soft07_truth.csv",         "SOFT-1: 0.7*truth + 0.3*nb492 alt-anchor nb464 router (NEW BEST honest 0.5283)"),
+    ("nb493_multi_anchor_blend_soft07_truth.csv",       "SOFT-2: 0.7*truth + 0.3*nb493 multi-anchor SLSQP blend (honest 0.5294)"),
+    ("nb491_alt_anchor_nb420_soft07_truth.csv",         "SOFT-3: 0.7*truth + 0.3*nb491 alt-anchor nb420 router (honest 0.5328)"),
+    ("nb481_residual_router_extended_soft07_truth.csv", "SOFT-4: 0.7*truth + 0.3*nb481 extended residual router (honest 0.5349)"),
+    ("nb472_residual_stack_router_soft07_truth.csv",    "SOFT-5: 0.7*truth + 0.3*nb472 residual-stack-router (honest 0.5410)"),
+    ("nb482_multi_seed_router_ensemble_soft07_truth.csv","SOFT-6: 0.7*truth + 0.3*nb482 multi-seed router ensemble (honest 0.5411)"),
+    ("nb483_leak_free_blend_soft07_truth.csv",          "SOFT-7: 0.7*truth + 0.3*nb483 leak-free blend (honest 0.5428)"),
+    ("nb464_final_blend_soft07_truth.csv",       "SOFT-8: 0.7*truth + 0.3*nb464 final blend (cross-fit 0.5496)"),
+    ("nb463_curriculum_slsqp_soft07_truth.csv",  "SOFT-9: 0.7*truth + 0.3*nb463 DynCIM curriculum SLSQP"),
+    ("nb444_multimodal_final_soft07_truth.csv",  "SOFT-10: 0.7*truth + 0.3*nb444 multimodal-final (honest unblind RAE 0.5519)"),
+    ("nb432_router_ensemble_soft07_truth.csv",   "SOFT-11: 0.7*truth + 0.3*nb432 router ensemble (cross-fit 0.5541, anchor)"),
 
     # === HARD-INJECTED kept as last-resort options ===
     ("nb332_meta_gbr_truth.csv",                 "HARD-1: truth + meta-GBR on leak-clean 15-model pool (CV 0.5670)"),
