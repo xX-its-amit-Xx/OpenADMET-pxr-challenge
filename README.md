@@ -1014,6 +1014,7 @@ Detects new analog labels in `data/raw/pxr-challenge_TRAIN.csv` (diff against `d
 
 ### Headline takeaways
 
+- **2026-06-01 DISK STATE**: D: drive low; large intermediates kept gitignored; submissions/ + scripts/ + memory/ preserved.
 - **2026-06-01 STRUCTURE TRACK — v3 STAGED (per-ligand template redock), v1 + v2 + v3 ALL AWAITING USER AUTHORIZATION**:
   - **v1 = `submissions/structure_baseline_v1.zip`** — 184 Boltz-2 cofolded PDBs, mean ligand pLDDT **0.84**, flat layout `<id>-1.pdb`, 36.3 MB uncompressed / 7.7 MB zipped, 184/184 IDs match `pxr-challenge_structure_TEST_BLINDED.csv`, LIG residue present in every file, ligand connectivity matches expected SMILES via RDKit `AssignBondOrdersFromTemplate`, 0 validator errors. Zero-shot Boltz-2 single-seed pose; expected LDDT-PLI band 0.4–0.6. **Safest fallback**.
   - **v2 = `submissions/structure_baseline_v2.zip`** — 184 PDBs total (**170 original Boltz-2 + 14 re-docked low-confidence cases into a single global template, 8R81**); the 14 swapped poses are timestamped 2026-06-01 08:45 in the archive; remaining 170 retain the 2026-05-08 14:06–14:07 Boltz-2 cofold timestamps. Same flat layout `<id>-1.pdb`, 34.4 MB uncompressed / 7.7 MB zipped, validated against the structure-track ID list with 0 missing / 0 extra and full LIG-residue + connectivity pass.
