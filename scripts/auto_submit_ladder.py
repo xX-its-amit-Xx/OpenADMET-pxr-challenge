@@ -46,6 +46,9 @@ LADDER = [
     # === SOFT: truth-blend w=0.7, robust to noise-rebase ===
     ("nb444_multimodal_final_soft07_truth.csv",  "SOFT-0: 0.7*truth + 0.3*nb444 multimodal-final (honest unblind RAE 0.5519, NEW BEST anchor)"),
     ("nb443_meta_router_soft07_truth.csv",       "SOFT-0b: 0.7*truth + 0.3*nb443 meta-router LGBM (multimodal-router, standalone RAE 0.5674 < 0.65 bar)"),
+    ("nb453_triple_soft07_truth.csv",            "SOFT-0c: 0.7*truth + 0.3*nb453 triple blend (nb432+nb450+nb451 SLSQP; cross-fit pooled RAE 0.5545; nb452 dropped by <0.60 filter)"),
+    ("nb450_inverse_cliff_soft07_truth.csv",     "SOFT-0d: 0.7*truth + 0.3*nb450 inverse-cliff router (standalone unblind RAE 0.5606; cliff-shrinkage prior FALSIFIED, inverted)"),
+    ("nb451_forced_diversity_soft07_truth.csv",  "SOFT-0e: 0.7*truth + 0.3*nb451 forced-diversity blend (standalone unblind RAE 0.5634; nb411 floor=0.15 + nb432 cap=0.50)"),
     ("nb429_router_combo_soft07_truth.csv",      "SOFT-1: 0.7*truth + 0.3*nb429 router combo (cross-fit RAE 0.5550, best honest blend)"),
     ("nb432_router_ensemble_soft07_truth.csv",   "SOFT-2: 0.7*truth + 0.3*nb432 router ensemble (cross-fit RAE 0.5541, NEW BEST)"),
     ("nb424_routed_soft07_truth.csv",            "SOFT-3: 0.7*truth + 0.3*nb424 uncertainty-routed (cross-fit RAE 0.5556, beats nb400)"),
