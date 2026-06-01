@@ -1014,6 +1014,17 @@ Detects new analog labels in `data/raw/pxr-challenge_TRAIN.csv` (diff against `d
 
 ### Headline takeaways
 
+- **2026-06-01 PHASE-2 P4 — LOSS-LEVEL DECOMPRESSION FAILS; POST-HOC RANK-STRETCH (nb562) REMAINS UNBEATEN AT 0.5065**: Three orthogonal loss-shape prescriptions were implemented to test whether baking the F2 over-prediction bias into the training objective (rather than fixing it post-hoc via nb562's quantile stretch) could break the 0.5065 ceiling. **All three FAIL the <0.55 filter on the 253-row Phase-1 unblind**:
+
+  | Prescription | Direct unblind RAE (n=253) | te std | What it tries | Verdict |
+  |---|---|---|---|---|
+  | **nb710 — Pinball LGBM (q50+q70)** | 0.7559 | 0.556 | LGBM with quantile loss α∈{0.5, 0.3}; α<0.5 penalises over-prediction asymmetrically | **FAILS** (worse than mean predictor on this slice); over-shrinks at α=0.3 → te std collapses to 0.556 (vs nb562 0.812). q50 alone 0.7315, q70 alone 0.7946 |
+  | **nb711 — Tail-weight LGBM** | 0.7020 | 0.639 | Sample weights ∝ exp(|y − ȳ|) up-weight tail labels during MSE training | **FAILS** (+0.20 RAE vs nb562); tail-weighting raises te std to 0.639 but rank order degrades — directly hurts both shape and ordering |
+  | **nb712 — Quantile-match LGBM (PCHIP CDF spline)** | 0.7510 | 0.858 | Standard LGBM, then PCHIP-spline its predicted CDF onto the train-label CDF to match marginal shape | **FAILS** (+0.33 RAE vs nb562); the post-hoc CDF match achieves the right te std (0.858) but distorts conditional rank — the standalone LGBM under nb712 is much weaker than nb562's nb503 anchor |
+  | **nb713 — P4 SLSQP blend (filter RAE<0.55)** | **0.4172** (same as nb562) | 0.812 | SLSQP over {nb562, nb710, nb711, nb712} after <0.55 filter | **DEGENERATE**: only nb562 survives the filter, so blend = nb562 verbatim (in-sample 0.4172; cross-fit 0.5065 unchanged) |
+
+  **Verdict — loss-level decompression does NOT beat post-hoc rank-stretch.** nb562's grid-search rank stretch (`mu + s·(p − mu)`, s≈1.10) **decisively dominates all three loss-objective variants by 0.20–0.33 RAE on the canonical unblind**. The interpretation: the F2 over-prediction bias is a *marginal-shape* problem (preds too compressed around the mean), and a *post-hoc* monotonic transform that preserves rank order while stretching variance is strictly better than a *training-time* loss reshape that perturbs both shape AND rank simultaneously. **No ladder change** — nb703 remains PRIMARY-1 (0.4928 cross-fit), nb562 PRIMARY-2 (0.5065). nb710/711/712/713 are NOT promoted; the closest (nb713) only ties nb562 because it degenerates to it. Memory note `feedback_phase2_p4.md`.
+
 - **2026-06-01 PHASE-2 PRESCRIPTIONS (P1 + P2 + P3) — nb703 PHASE-2 BLEND breaks the 0.5065 ceiling at honest cross-fit RAE 0.4928 (Δ −0.0137)**: Following the user's pm06 post-mortem framing — the dominant residual category on the 253-row unblind is the **F2 failure mode (greasy-novel-inactive miscalled active)** carrying a **−0.11 RAE prize** if cleanly resolved — three orthogonal Phase-2 prescriptions were implemented and grand-blended via SLSQP cross-fit. **Per-prescription honest cross-fit RAE on canonical phase-1 unblind (n=253)**:
 
   | Prescription | OOF RAE | F2-only RAE | What it tries | Verdict |
