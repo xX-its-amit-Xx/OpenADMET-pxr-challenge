@@ -1013,16 +1013,17 @@ This phase explored four orthogonal directions: (1) foundation model embeddings 
 Detects new analog labels in `data/raw/pxr-challenge_TRAIN.csv` (diff against `data/processed/phase1_train_snapshot_names.txt`), scores every cached `te_*.npy` prediction against the new ground-truth labels, then re-runs SLSQP over the top-K models to produce `submissions/phase2_slsqp_refit.csv`. Designed to run end-to-end as soon as the Phase 2 unblind lands.
 
 ### Headline takeaways
-- **🏆 PHASE 2 BREAKTHROUGH (2026-05-29, 11:38 UTC)**: HF data drop landed (253 test compounds unblinded + 553 new train rows). `scripts/nb320_phase2_wide_blend.py` fits SLSQP DIRECTLY on the true OOD labels: top-50 blend RAE = **0.5609**. After augmented retrain (`nb321_augmented_retrain.py`) on 4833 rows + 50% blend with nb320, the unblind-253 RAE drops to **0.4286** — predicted LB on full 513 ≈ **0.50**.
-- **Submission ladder for next post-freeze slot** (ordered safest → most aggressive). All truth-injected variants predict LB ≈ 0.27–0.30 since the 253 unblind half is RAE=0; differences only matter on the 260 still-blind portion (estimated 0.55–0.60 RAE):
-  1. **`nb325_S1_nb320_truth.csv` (SAFEST)** — truth + nb320 top-50 SLSQP on 260. nb320 weights cross-validated by nb322 at 0.5773 ± 0.068. Predicted LB ~0.29.
-  2. **`nb332_meta_gbr_truth.csv` (BEST CV)** — truth + meta-GBR stack (leak-clean 15-model pool); CV RAE 0.5670 ± 0.060. Predicted LB ~0.29.
-  3. **`nb329_smart_60_328_40_320_truth.csv` (BEST UPSIDE)** — truth + 60% Chemprop-augmented + 40% nb320. Chemprop's GNN beats LGBM in Phase 2 validation; predicted LB ~0.27-0.30.
-  4. `nb329_mean_4_truth.csv` — truth + uniform mean of {nb320, nb321, nb324, nb328}. Tightest variance.
-  5. `nb329_nb328_truth.csv` — truth + Chemprop-only. Highest variance (te_std 0.702).
-  6. `nb333_chemprop_5seed_truth.csv` — truth + 5-seed Chemprop ensemble (averaging reduces nb328 single-seed variance from per-compound std 0.754→0.203). Predicted LB ~0.28-0.30.
-  7. `nb334_hard_specialist_truth.csv` — truth + per-compound Ridge specialist on top-50 hardest still-blind (K=50 nearest train+unblind neighbours). Predicted LB ~0.28-0.31 with focus on the hard tail.
-  8. `nb320_phase2_top50_slsqp.csv` (NO truth-injection) — predicted LB ~0.56. ONLY use if rules disallow re-submitting unblinded labels.
+- **⚠️ HONEST RE-ASSESSMENT (2026-05-31, post-adversarial)**: Three sceptic agents reviewed the Phase 2 pipeline and the prior 0.27–0.30 LB claims do not survive scrutiny. The in-sample isotonic + BMA + SLSQP fits on the 253 unblind have effective df > 150 against ≈253 labels (sceptic 2): the 0.518 in-sample numbers are overfit by ≈0.05 RAE vs honest cross-fit. Truth-injection carries a noise-rebase risk AND may be disallowed by the challenge rules (sceptic 3). **Honest expected LB band: 0.55–0.65**, not 0.27–0.30.
+- **PRIMARY recommended submission (rules-safe, no truth injection)**: **`submissions/nb320_phase2_top50_slsqp.csv`** — top-50 SLSQP weights fit on the 253 unblinded labels but applied as a pure-prediction CSV for all 513. Predicted LB ≈ **0.56**.
+- **Best train-only honest method**: **nb390 PCS-Iso** — isotonic-calibrated, cross-fit on the unblind; unblind-253 RAE **0.5825**. Use as the floor reference; any submission that beats 0.58 on cross-fit should be preferred over in-sample 0.518 claims.
+- **Cross-fitted recommendation**: **nb400** — predicted LB **0.57**. Honest cross-fit, no in-sample SLSQP leakage, no truth replacement.
+- **Soft-inject fallback (if rules allow partial truth)**: **nb401 variants at w=0.7** — soft-blend unblind truth at weight 0.7 (do NOT hard-replace). Avoids the noise-rebase collapse mode and degrades gracefully if a subset of "unblind" labels were retracted or re-noised.
+- **Re-ordered submission ladder** (safest → most aggressive; previous in-sample-tuned ladder removed):
+  1. **`nb320_phase2_top50_slsqp.csv`** — pure predictions, predicted LB ~0.56. Use first.
+  2. **nb400 cross-fitted blend** — predicted LB ~0.57. Use when truth-injection is unsafe.
+  3. **nb390 PCS-Iso** — train-only honest cross-fit, predicted LB ~0.58–0.60. Reference floor.
+  4. **nb401 soft-inject @ w=0.7** — only if rules explicitly permit reusing unblinded labels; degrades gracefully under noise-rebase.
+  5. Prior truth-hard-replace submissions (nb325/nb329/nb332/nb333/nb334) — **DEPRECATED** as primary picks; in-sample 0.518 claims do not transfer to LB.
 - **Methodology note**: nb322 5-fold CV on the 253 unblind validates nb320's 0.5609 as 0.5773 ± 0.068 — the weight set is stable; top contributors are nb93_chemprop_large_gpu (33.9% ± CV 0.11) + nb130_external_pxr (26.9% ± CV 0.18).
 - New submission: `submissions/nb320_phase2_top50_slsqp.csv`. Validated insights:
   - **chemprop_aux is the TRUE #1** (actual RAE 0.6216 vs scaffold-CV 0.5170) — we were optimizing the wrong family
@@ -1176,6 +1177,45 @@ All other models in this pass still get exactly **0.000 weight**. The *best mid-
 - **nb300 diffusion-style augmentation worsened things** (0.7626 RAE, 0.5187 Spearman, te_std 0.472) — likely because SMILES enumeration without proper data augmentation just adds redundant rows.
 
 The blanket pattern from nb188 onward (every new model gets 0 weight) is now overwhelming evidence that **the 4-way nb239 SLSQP is at the information limit of molecule-only features for this dataset**. The remaining OOF→LB gap (0.46) is biological — analog-expansion test compounds are out of training distribution, and no clever feature engineering on the train set will close that gap. Only Phase 2's true OOD validation labels can.
+
+---
+
+## Adversarial verification + train-only methods (nb390-393)
+
+After Phase-1 unblind, four notebooks (nb358, nb346, nb380, etc.) reported unblind RAE ≈ 0.518 by fitting per-predictor isotonic / per-compound weights on the **same 253 unblind labels** they then scored against. A sceptic pass surfaced three independent reasons to distrust that number, and a follow-up suite of strictly train-only methods (nb390–nb393) was scored honestly on the held-out unblind half.
+
+### Sceptic findings — why 0.518 is in-sample optimism
+
+The 0.518 is residual error, not held-out error. Three signals confirm overfit risk:
+
+1. **Scaffold disjointness.** Only 1 of 191 still-blind scaffolds appears in the 253 unblind set, so per-predictor isotonic learned on unblind chemotypes does not transfer.
+2. **Chemspace shift.** MW KS p=4e-3 (+13 Da), logP KS p=2e-2 (+0.26); the 253 unblind is hit-enriched (3.95% pEC50≥6) vs train 1.62% — non-random sampling of test_513.
+3. **Variance collapse.** Calibrated preds on still-blind have std 0.67 while true unblind labels have std 1.03 — calibrated outputs are squeezed toward the mean and will mispredict the actives that drive RAE.
+
+Range extrapolation is **not** the main risk (0/260 preds outside unblind [min,max]; only 11% outside [p5,p95]). The danger is **shape overfit of the isotonic curve** to 253 labels whose hit-rate and chemotype differ from the 260 still-blind. Honest Phase-2 holdouts (chemprop_aux 0.62, grand_v6b 0.64) and a Tanimoto-OOD baseline (0.55–0.58) bracket realistic still-blind RAE at **~0.58–0.65**, well above 0.518. Use the honest K-fold estimate (~0.57), not the in-sample 0.518, when choosing a submission — the in-sample number is over-fit by roughly 0.05 RAE.
+
+### Truth-injection risk (MEDIUM-HIGH)
+
+Truth-anchored CSVs paste the published `phase_1_unblinded` labels for the 253 known compounds. Three concrete risks:
+
+1. **Rules silence, not permission.** Neither the HF Space README, the Ghost blog, nor the visible Space code (`app.py`, `config.py`, `submission_store.py`) explicitly authorises re-submitting published unblind labels as predictions. The 2026-05-27 dataset CHANGELOG says Phase-1 labels were released "so you can incorporate them into your training pipeline and refine predictions for Analog Set 2" — wording that implies **training** data, not direct passthrough. Organisers could treat truth-injection as a Kaggle-style violation; reputational / DQ risk is non-zero on a public OpenADMET benchmark.
+2. **Noise-realisation rebase.** The scorer (`backend/lambda_handler.py`) loads ground truth from a private S3 path. The published `pxr-challenge_TEST_PHASE_1_UNBLINDED.csv` carries per-compound `pEC50_std.error` median ~0.10–0.30 log-units. If the LB scorer uses a different replicate, a re-fit dose-response, or the bootstrap-mean across replicates rather than the published point estimate, perfect injection yields per-compound |error| ≈ SE (~0.1–0.3). With median |y-mean| ≈ 0.7 on PXR, that injects RAE ≈ 0.15–0.40 on the 253-compound half alone — wiping out most of the assumed gain.
+3. **Revision drift.** The dataset CHANGELOG already shows label edits (2026-04-09 "dropping some compounds, fixing minor confidence interval issues"). If the LB ground-truth snapshot was frozen at a different revision than the unblind CSV we inject from, perfect injection systematically diverges.
+
+**Empirical check available.** `data/processed/leaderboard_log.csv` is currently sparse for truth-injected variants. Before trusting any truth-injected candidate, submit one and read back the LB RAE on the 253-known half — if it is not within rounding of 0.000, rebase is happening.
+
+### Per-method honest unblind RAE (nb390-393)
+
+All four were trained *strictly* on labels available pre-unblind and scored on the held-out 253-compound Phase-1 unblind half.
+
+| # | Method | Honest unblind RAE | Notes |
+|---|---|---|---|
+| **390** | **PCS-Iso: Per-Compound Covariate-Shift Isotonic Correction via Local Neighbourhood Calibration** | **0.5825** | Best train-only method. Fits isotonic per-compound on local Tanimoto neighbourhood — generalises because the calibrator is local, not global to 253 labels. |
+| 391 | TARS: Tanimoto-Anchored Reweighted Stacking | 0.7454 | Reweights stack components by anchor-Tanimoto distance; overfits weight curve. |
+| 392 | MMD-Match Ensemble Weight Search | 0.7092 | Optimises weights to match train→test MMD; weak signal vs MMD noise. |
+| 393 | CTA: Counterfactual Twin Anchoring | 0.7713 | Twin-anchored counterfactual blending — high-variance on small still-blind. |
+
+**Best train-only method: nb390 (PCS-Iso)** — honest unblind RAE **0.5825**, **expected still-blind LB RAE ≈ 0.58–0.62** (consistent with the Tanimoto-OOD 0.55–0.58 bracket and chemprop_aux 0.62 ceiling). This is the only train-only candidate that clears the OOD baseline and is now the **safest fallback** in `scripts/auto_submit_ladder.py` if rules forbid truth-injection.
 
 ---
 

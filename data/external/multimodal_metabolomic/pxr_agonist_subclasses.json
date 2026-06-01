@@ -1,0 +1,719 @@
+{
+  "page" : 0,
+  "numElements" : 3,
+  "totalPages" : 1,
+  "totalElements" : 3,
+  "elements" : [ {
+    "appearsIn" : [ "bao", "chebi", "go", "slm" ],
+    "curie" : "CHEBI:76990",
+    "definedBy" : [ "chebi" ],
+    "definition" : [ "Any compound produced by a fungus that happens to have estrogenic activity." ],
+    "definitionProperty" : "http://purl.obolibrary.org/obo/IAO_0000115",
+    "directAncestor" : [ "http://purl.obolibrary.org/obo/CHEBI_24432", "http://purl.obolibrary.org/obo/CHEBI_24621", "http://purl.obolibrary.org/obo/CHEBI_33280", "http://purl.obolibrary.org/obo/CHEBI_48705", "http://purl.obolibrary.org/obo/CHEBI_50112", "http://purl.obolibrary.org/obo/CHEBI_50114", "http://purl.obolibrary.org/obo/CHEBI_50906", "http://purl.obolibrary.org/obo/CHEBI_52210" ],
+    "directParent" : [ "http://purl.obolibrary.org/obo/CHEBI_50114" ],
+    "hasDirectChildren" : false,
+    "hasDirectParents" : true,
+    "hasHierarchicalChildren" : false,
+    "hasHierarchicalParents" : true,
+    "hierarchicalAncestor" : [ "http://purl.obolibrary.org/obo/CHEBI_24432", "http://purl.obolibrary.org/obo/CHEBI_24621", "http://purl.obolibrary.org/obo/CHEBI_33280", "http://purl.obolibrary.org/obo/CHEBI_48705", "http://purl.obolibrary.org/obo/CHEBI_50112", "http://purl.obolibrary.org/obo/CHEBI_50114", "http://purl.obolibrary.org/obo/CHEBI_50906", "http://purl.obolibrary.org/obo/CHEBI_52210" ],
+    "hierarchicalParent" : [ "http://purl.obolibrary.org/obo/CHEBI_50114" ],
+    "hierarchicalProperty" : "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "imported" : false,
+    "iri" : "http://purl.obolibrary.org/obo/CHEBI_76990",
+    "isDefiningOntology" : true,
+    "isObsolete" : false,
+    "isPreferredRoot" : false,
+    "label" : [ "mycoestrogen" ],
+    "linkedEntities" : {
+      "CHEBI:76990" : {
+        "iri" : "http://purl.obolibrary.org/obo/CHEBI_76990",
+        "definedBy" : [ "chebi" ],
+        "numAppearsIn" : 4.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "mycoestrogen" ],
+        "curie" : "CHEBI:76990",
+        "type" : [ "class", "entity" ],
+        "url" : "http://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:76990",
+        "source" : "https://raw.githubusercontent.com/geneontology/go-site/master/metadata/db-xrefs.yaml"
+      },
+      "http://purl.obolibrary.org/obo/CHEBI_24432" : {
+        "definedBy" : [ "chebi" ],
+        "numAppearsIn" : 58.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "biological role" ],
+        "curie" : "CHEBI:24432",
+        "type" : [ "class", "entity" ]
+      },
+      "http://purl.obolibrary.org/obo/CHEBI_24621" : {
+        "definedBy" : [ "chebi" ],
+        "numAppearsIn" : 40.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "hormone" ],
+        "curie" : "CHEBI:24621",
+        "type" : [ "class", "entity" ]
+      },
+      "http://purl.obolibrary.org/obo/CHEBI_33280" : {
+        "definedBy" : [ "chebi" ],
+        "numAppearsIn" : 39.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "molecular messenger" ],
+        "curie" : "CHEBI:33280",
+        "type" : [ "class", "entity" ]
+      },
+      "http://purl.obolibrary.org/obo/CHEBI_48705" : {
+        "definedBy" : [ "chebi" ],
+        "numAppearsIn" : 38.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "agonist" ],
+        "curie" : "CHEBI:48705",
+        "type" : [ "class", "entity" ]
+      },
+      "http://purl.obolibrary.org/obo/CHEBI_50112" : {
+        "definedBy" : [ "chebi" ],
+        "numAppearsIn" : 24.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "sex hormone" ],
+        "curie" : "CHEBI:50112",
+        "type" : [ "class", "entity" ]
+      },
+      "http://purl.obolibrary.org/obo/CHEBI_50114" : {
+        "definedBy" : [ "chebi" ],
+        "numAppearsIn" : 21.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "estrogen" ],
+        "curie" : "CHEBI:50114",
+        "type" : [ "class", "entity" ]
+      },
+      "http://purl.obolibrary.org/obo/CHEBI_50906" : {
+        "definedBy" : [ "chebi" ],
+        "numAppearsIn" : 51.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "role" ],
+        "curie" : "CHEBI:50906",
+        "type" : [ "class", "entity" ]
+      },
+      "http://purl.obolibrary.org/obo/CHEBI_52210" : {
+        "definedBy" : [ "chebi" ],
+        "numAppearsIn" : 44.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "pharmacological role" ],
+        "curie" : "CHEBI:52210",
+        "type" : [ "class", "entity" ]
+      },
+      "http://purl.obolibrary.org/obo/IAO_0000115" : {
+        "definedBy" : [ "iao" ],
+        "numAppearsIn" : 230.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "definition" ],
+        "curie" : "IAO:0000115",
+        "type" : [ "annotationProperty", "entity", "property" ]
+      },
+      "http://purl.obolibrary.org/obo/chebi/3_STAR" : {
+        "numAppearsIn" : 12.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "3_STAR" ],
+        "curie" : "3_STAR",
+        "type" : [ "annotationProperty", "entity", "property" ]
+      },
+      "http://www.geneontology.org/formats/oboInOwl#hasDbXref" : {
+        "definedBy" : [ "oio" ],
+        "numAppearsIn" : 213.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "database_cross_reference", "has_dbxref" ],
+        "curie" : "OIO:hasDbXref",
+        "type" : [ "annotationProperty", "entity", "property" ]
+      },
+      "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace" : {
+        "definedBy" : [ "oio" ],
+        "numAppearsIn" : 174.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "has_obo_namespace" ],
+        "curie" : "OIO:hasOBONamespace",
+        "type" : [ "annotationProperty", "entity", "property" ]
+      },
+      "http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym" : {
+        "definedBy" : [ "oio" ],
+        "numAppearsIn" : 198.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "has_related_synonym" ],
+        "curie" : "OIO:hasRelatedSynonym",
+        "type" : [ "annotationProperty", "entity", "property" ]
+      },
+      "http://www.geneontology.org/formats/oboInOwl#id" : {
+        "definedBy" : [ "oio" ],
+        "numAppearsIn" : 182.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "id" ],
+        "curie" : "OIO:id",
+        "type" : [ "annotationProperty", "entity", "property" ]
+      },
+      "http://www.geneontology.org/formats/oboInOwl#inSubset" : {
+        "definedBy" : [ "oio" ],
+        "numAppearsIn" : 133.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "in_subset" ],
+        "curie" : "OIO:inSubset",
+        "type" : [ "annotationProperty", "entity", "property" ]
+      },
+      "http://www.geneontology.org/formats/oboInOwl#source" : {
+        "numAppearsIn" : 57.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "source" ],
+        "curie" : "source",
+        "type" : [ "annotationProperty", "entity", "property" ]
+      },
+      "http://www.w3.org/2000/01/rdf-schema#label" : {
+        "definedBy" : [ "rdfs" ],
+        "numAppearsIn" : 200.0,
+        "hasLocalDefinition" : false,
+        "label" : [ "label" ],
+        "curie" : "RDFS:label",
+        "type" : [ "entity", "property" ]
+      },
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf" : {
+        "definedBy" : [ "rdfs" ],
+        "numAppearsIn" : 8.0,
+        "hasLocalDefinition" : false,
+        "label" : [ "subClassOf" ],
+        "curie" : "RDFS:subClassOf",
+        "type" : [ "entity", "property" ]
+      },
+      "pubmed:17291736" : {
+        "url" : "https://pubmed.ncbi.nlm.nih.gov/17291736/",
+        "source" : "https://raw.githubusercontent.com/biopragmatics/bioregistry/main/exports/registry/registry.json",
+        "curie" : "pubmed:17291736"
+      },
+      "pubmed:21392782" : {
+        "url" : "https://pubmed.ncbi.nlm.nih.gov/21392782/",
+        "source" : "https://raw.githubusercontent.com/biopragmatics/bioregistry/main/exports/registry/registry.json",
+        "curie" : "pubmed:21392782"
+      }
+    },
+    "linksTo" : [ "http://purl.obolibrary.org/obo/CHEBI_24432", "http://purl.obolibrary.org/obo/CHEBI_24621", "http://purl.obolibrary.org/obo/CHEBI_33280", "http://purl.obolibrary.org/obo/CHEBI_48705", "http://purl.obolibrary.org/obo/CHEBI_50112", "http://purl.obolibrary.org/obo/CHEBI_50114", "http://purl.obolibrary.org/obo/CHEBI_50906", "http://purl.obolibrary.org/obo/CHEBI_52210", "http://purl.obolibrary.org/obo/CHEBI_76990", "http://purl.obolibrary.org/obo/IAO_0000115", "http://purl.obolibrary.org/obo/chebi/3_STAR", "http://www.geneontology.org/formats/oboInOwl#hasDbXref", "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace", "http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym", "http://www.geneontology.org/formats/oboInOwl#id", "http://www.geneontology.org/formats/oboInOwl#inSubset", "http://www.geneontology.org/formats/oboInOwl#source", "http://www.w3.org/2000/01/rdf-schema#label", "http://www.w3.org/2000/01/rdf-schema#subClassOf" ],
+    "numDescendants" : 0.0,
+    "numHierarchicalDescendants" : 0.0,
+    "ontologyId" : "chebi",
+    "ontologyIri" : "http://purl.obolibrary.org/obo/chebi.owl",
+    "ontologyPreferredPrefix" : "CHEBI",
+    "searchableAnnotationValues" : [ false ],
+    "shortForm" : "CHEBI_76990",
+    "synonym" : [ {
+      "type" : [ "reification" ],
+      "value" : "mycoestrogens",
+      "axioms" : [ {
+        "http://www.geneontology.org/formats/oboInOwl#hasDbXref" : "chebi"
+      } ]
+    } ],
+    "synonymProperty" : "http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym",
+    "type" : [ "class", "entity" ],
+    "http://purl.obolibrary.org/obo/IAO_0000115" : "Any compound produced by a fungus that happens to have estrogenic activity.",
+    "http://www.geneontology.org/formats/oboInOwl#hasDbXref" : [ {
+      "type" : [ "reification" ],
+      "value" : "pubmed:17291736",
+      "axioms" : [ {
+        "http://www.geneontology.org/formats/oboInOwl#source" : "pubmed"
+      } ]
+    }, {
+      "type" : [ "reification" ],
+      "value" : "pubmed:21392782",
+      "axioms" : [ {
+        "http://www.geneontology.org/formats/oboInOwl#source" : "pubmed"
+      } ]
+    }, {
+      "type" : [ "reification" ],
+      "value" : "wikipedia.en:Mycoestrogen",
+      "axioms" : [ {
+        "http://www.geneontology.org/formats/oboInOwl#source" : "wikipedia.en"
+      } ]
+    } ],
+    "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace" : "chebi_ontology",
+    "http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym" : [ {
+      "type" : [ "reification" ],
+      "value" : "mycoestrogens",
+      "axioms" : [ {
+        "http://www.geneontology.org/formats/oboInOwl#hasDbXref" : "chebi"
+      } ]
+    } ],
+    "http://www.geneontology.org/formats/oboInOwl#id" : "CHEBI:76990",
+    "http://www.geneontology.org/formats/oboInOwl#inSubset" : "http://purl.obolibrary.org/obo/chebi/3_STAR",
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : "http://www.w3.org/2002/07/owl#Class",
+    "http://www.w3.org/2000/01/rdf-schema#label" : "mycoestrogen",
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf" : "http://purl.obolibrary.org/obo/CHEBI_50114"
+  }, {
+    "appearsIn" : [ "bao", "chebi", "cido", "disdriv", "doid", "dron", "ecto", "go", "mco", "slm" ],
+    "curie" : "CHEBI:76989",
+    "definedBy" : [ "chebi" ],
+    "definition" : [ "Any compound produced by a plant that happens to have estrogenic activity." ],
+    "definitionProperty" : "http://purl.obolibrary.org/obo/IAO_0000115",
+    "directAncestor" : [ "http://purl.obolibrary.org/obo/CHEBI_24432", "http://purl.obolibrary.org/obo/CHEBI_24621", "http://purl.obolibrary.org/obo/CHEBI_33280", "http://purl.obolibrary.org/obo/CHEBI_48705", "http://purl.obolibrary.org/obo/CHEBI_50112", "http://purl.obolibrary.org/obo/CHEBI_50114", "http://purl.obolibrary.org/obo/CHEBI_50906", "http://purl.obolibrary.org/obo/CHEBI_52210" ],
+    "directParent" : [ "http://purl.obolibrary.org/obo/CHEBI_50114" ],
+    "hasDirectChildren" : false,
+    "hasDirectParents" : true,
+    "hasHierarchicalChildren" : false,
+    "hasHierarchicalParents" : true,
+    "hierarchicalAncestor" : [ "http://purl.obolibrary.org/obo/CHEBI_24432", "http://purl.obolibrary.org/obo/CHEBI_24621", "http://purl.obolibrary.org/obo/CHEBI_33280", "http://purl.obolibrary.org/obo/CHEBI_48705", "http://purl.obolibrary.org/obo/CHEBI_50112", "http://purl.obolibrary.org/obo/CHEBI_50114", "http://purl.obolibrary.org/obo/CHEBI_50906", "http://purl.obolibrary.org/obo/CHEBI_52210" ],
+    "hierarchicalParent" : [ "http://purl.obolibrary.org/obo/CHEBI_50114" ],
+    "hierarchicalProperty" : "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "imported" : false,
+    "iri" : "http://purl.obolibrary.org/obo/CHEBI_76989",
+    "isDefiningOntology" : true,
+    "isObsolete" : false,
+    "isPreferredRoot" : false,
+    "label" : [ "phytoestrogen" ],
+    "linkedEntities" : {
+      "CHEBI:76989" : {
+        "iri" : "http://purl.obolibrary.org/obo/CHEBI_76989",
+        "definedBy" : [ "chebi" ],
+        "numAppearsIn" : 10.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "phytoestrogen" ],
+        "curie" : "CHEBI:76989",
+        "type" : [ "class", "entity" ],
+        "url" : "http://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:76989",
+        "source" : "https://raw.githubusercontent.com/geneontology/go-site/master/metadata/db-xrefs.yaml"
+      },
+      "http://purl.obolibrary.org/obo/CHEBI_24432" : {
+        "definedBy" : [ "chebi" ],
+        "numAppearsIn" : 58.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "biological role" ],
+        "curie" : "CHEBI:24432",
+        "type" : [ "class", "entity" ]
+      },
+      "http://purl.obolibrary.org/obo/CHEBI_24621" : {
+        "definedBy" : [ "chebi" ],
+        "numAppearsIn" : 40.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "hormone" ],
+        "curie" : "CHEBI:24621",
+        "type" : [ "class", "entity" ]
+      },
+      "http://purl.obolibrary.org/obo/CHEBI_33280" : {
+        "definedBy" : [ "chebi" ],
+        "numAppearsIn" : 39.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "molecular messenger" ],
+        "curie" : "CHEBI:33280",
+        "type" : [ "class", "entity" ]
+      },
+      "http://purl.obolibrary.org/obo/CHEBI_48705" : {
+        "definedBy" : [ "chebi" ],
+        "numAppearsIn" : 38.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "agonist" ],
+        "curie" : "CHEBI:48705",
+        "type" : [ "class", "entity" ]
+      },
+      "http://purl.obolibrary.org/obo/CHEBI_50112" : {
+        "definedBy" : [ "chebi" ],
+        "numAppearsIn" : 24.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "sex hormone" ],
+        "curie" : "CHEBI:50112",
+        "type" : [ "class", "entity" ]
+      },
+      "http://purl.obolibrary.org/obo/CHEBI_50114" : {
+        "definedBy" : [ "chebi" ],
+        "numAppearsIn" : 21.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "estrogen" ],
+        "curie" : "CHEBI:50114",
+        "type" : [ "class", "entity" ]
+      },
+      "http://purl.obolibrary.org/obo/CHEBI_50906" : {
+        "definedBy" : [ "chebi" ],
+        "numAppearsIn" : 51.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "role" ],
+        "curie" : "CHEBI:50906",
+        "type" : [ "class", "entity" ]
+      },
+      "http://purl.obolibrary.org/obo/CHEBI_52210" : {
+        "definedBy" : [ "chebi" ],
+        "numAppearsIn" : 44.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "pharmacological role" ],
+        "curie" : "CHEBI:52210",
+        "type" : [ "class", "entity" ]
+      },
+      "http://purl.obolibrary.org/obo/IAO_0000115" : {
+        "definedBy" : [ "iao" ],
+        "numAppearsIn" : 230.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "definition" ],
+        "curie" : "IAO:0000115",
+        "type" : [ "annotationProperty", "entity", "property" ]
+      },
+      "http://purl.obolibrary.org/obo/chebi/3_STAR" : {
+        "numAppearsIn" : 12.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "3_STAR" ],
+        "curie" : "3_STAR",
+        "type" : [ "annotationProperty", "entity", "property" ]
+      },
+      "http://www.geneontology.org/formats/oboInOwl#hasDbXref" : {
+        "definedBy" : [ "oio" ],
+        "numAppearsIn" : 213.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "database_cross_reference", "has_dbxref" ],
+        "curie" : "OIO:hasDbXref",
+        "type" : [ "annotationProperty", "entity", "property" ]
+      },
+      "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace" : {
+        "definedBy" : [ "oio" ],
+        "numAppearsIn" : 174.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "has_obo_namespace" ],
+        "curie" : "OIO:hasOBONamespace",
+        "type" : [ "annotationProperty", "entity", "property" ]
+      },
+      "http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym" : {
+        "definedBy" : [ "oio" ],
+        "numAppearsIn" : 198.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "has_related_synonym" ],
+        "curie" : "OIO:hasRelatedSynonym",
+        "type" : [ "annotationProperty", "entity", "property" ]
+      },
+      "http://www.geneontology.org/formats/oboInOwl#id" : {
+        "definedBy" : [ "oio" ],
+        "numAppearsIn" : 182.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "id" ],
+        "curie" : "OIO:id",
+        "type" : [ "annotationProperty", "entity", "property" ]
+      },
+      "http://www.geneontology.org/formats/oboInOwl#inSubset" : {
+        "definedBy" : [ "oio" ],
+        "numAppearsIn" : 133.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "in_subset" ],
+        "curie" : "OIO:inSubset",
+        "type" : [ "annotationProperty", "entity", "property" ]
+      },
+      "http://www.geneontology.org/formats/oboInOwl#source" : {
+        "numAppearsIn" : 57.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "source" ],
+        "curie" : "source",
+        "type" : [ "annotationProperty", "entity", "property" ]
+      },
+      "http://www.w3.org/2000/01/rdf-schema#label" : {
+        "definedBy" : [ "rdfs" ],
+        "numAppearsIn" : 200.0,
+        "hasLocalDefinition" : false,
+        "label" : [ "label" ],
+        "curie" : "RDFS:label",
+        "type" : [ "entity", "property" ]
+      },
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf" : {
+        "definedBy" : [ "rdfs" ],
+        "numAppearsIn" : 8.0,
+        "hasLocalDefinition" : false,
+        "label" : [ "subClassOf" ],
+        "curie" : "RDFS:subClassOf",
+        "type" : [ "entity", "property" ]
+      }
+    },
+    "linksTo" : [ "http://purl.obolibrary.org/obo/CHEBI_24432", "http://purl.obolibrary.org/obo/CHEBI_24621", "http://purl.obolibrary.org/obo/CHEBI_33280", "http://purl.obolibrary.org/obo/CHEBI_48705", "http://purl.obolibrary.org/obo/CHEBI_50112", "http://purl.obolibrary.org/obo/CHEBI_50114", "http://purl.obolibrary.org/obo/CHEBI_50906", "http://purl.obolibrary.org/obo/CHEBI_52210", "http://purl.obolibrary.org/obo/CHEBI_76989", "http://purl.obolibrary.org/obo/IAO_0000115", "http://purl.obolibrary.org/obo/chebi/3_STAR", "http://www.geneontology.org/formats/oboInOwl#hasDbXref", "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace", "http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym", "http://www.geneontology.org/formats/oboInOwl#id", "http://www.geneontology.org/formats/oboInOwl#inSubset", "http://www.geneontology.org/formats/oboInOwl#source", "http://www.w3.org/2000/01/rdf-schema#label", "http://www.w3.org/2000/01/rdf-schema#subClassOf" ],
+    "numDescendants" : 0.0,
+    "numHierarchicalDescendants" : 0.0,
+    "ontologyId" : "chebi",
+    "ontologyIri" : "http://purl.obolibrary.org/obo/chebi.owl",
+    "ontologyPreferredPrefix" : "CHEBI",
+    "searchableAnnotationValues" : [ false ],
+    "shortForm" : "CHEBI_76989",
+    "synonym" : [ {
+      "type" : [ "reification" ],
+      "value" : "phytoestrogens",
+      "axioms" : [ {
+        "http://www.geneontology.org/formats/oboInOwl#hasDbXref" : "chebi"
+      } ]
+    } ],
+    "synonymProperty" : "http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym",
+    "type" : [ "class", "entity" ],
+    "http://purl.obolibrary.org/obo/IAO_0000115" : "Any compound produced by a plant that happens to have estrogenic activity.",
+    "http://www.geneontology.org/formats/oboInOwl#hasDbXref" : {
+      "type" : [ "reification" ],
+      "value" : "wikipedia.en:Phytoestrogen",
+      "axioms" : [ {
+        "http://www.geneontology.org/formats/oboInOwl#source" : "wikipedia.en"
+      } ]
+    },
+    "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace" : "chebi_ontology",
+    "http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym" : [ {
+      "type" : [ "reification" ],
+      "value" : "phytoestrogens",
+      "axioms" : [ {
+        "http://www.geneontology.org/formats/oboInOwl#hasDbXref" : "chebi"
+      } ]
+    } ],
+    "http://www.geneontology.org/formats/oboInOwl#id" : "CHEBI:76989",
+    "http://www.geneontology.org/formats/oboInOwl#inSubset" : "http://purl.obolibrary.org/obo/chebi/3_STAR",
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : "http://www.w3.org/2002/07/owl#Class",
+    "http://www.w3.org/2000/01/rdf-schema#label" : "phytoestrogen",
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf" : "http://purl.obolibrary.org/obo/CHEBI_50114"
+  }, {
+    "appearsIn" : [ "bao", "chebi", "dron", "ecto", "enm", "go", "slm", "upheno", "wbphenotype" ],
+    "curie" : "CHEBI:76988",
+    "definedBy" : [ "chebi" ],
+    "definition" : [ "A synthetic or semi-synthetic compound that has oestrogenic activity." ],
+    "definitionProperty" : "http://purl.obolibrary.org/obo/IAO_0000115",
+    "directAncestor" : [ "http://purl.obolibrary.org/obo/CHEBI_138015", "http://purl.obolibrary.org/obo/CHEBI_23888", "http://purl.obolibrary.org/obo/CHEBI_24432", "http://purl.obolibrary.org/obo/CHEBI_24621", "http://purl.obolibrary.org/obo/CHEBI_33232", "http://purl.obolibrary.org/obo/CHEBI_33280", "http://purl.obolibrary.org/obo/CHEBI_48705", "http://purl.obolibrary.org/obo/CHEBI_50112", "http://purl.obolibrary.org/obo/CHEBI_50114", "http://purl.obolibrary.org/obo/CHEBI_50906", "http://purl.obolibrary.org/obo/CHEBI_51061", "http://purl.obolibrary.org/obo/CHEBI_52210", "http://purl.obolibrary.org/obo/CHEBI_52217", "http://purl.obolibrary.org/obo/CHEBI_90710" ],
+    "directParent" : [ "http://purl.obolibrary.org/obo/CHEBI_138015", "http://purl.obolibrary.org/obo/CHEBI_50114" ],
+    "hasDirectChildren" : false,
+    "hasDirectParents" : true,
+    "hasHierarchicalChildren" : false,
+    "hasHierarchicalParents" : true,
+    "hierarchicalAncestor" : [ "http://purl.obolibrary.org/obo/CHEBI_138015", "http://purl.obolibrary.org/obo/CHEBI_23888", "http://purl.obolibrary.org/obo/CHEBI_24432", "http://purl.obolibrary.org/obo/CHEBI_24621", "http://purl.obolibrary.org/obo/CHEBI_33232", "http://purl.obolibrary.org/obo/CHEBI_33280", "http://purl.obolibrary.org/obo/CHEBI_48705", "http://purl.obolibrary.org/obo/CHEBI_50112", "http://purl.obolibrary.org/obo/CHEBI_50114", "http://purl.obolibrary.org/obo/CHEBI_50906", "http://purl.obolibrary.org/obo/CHEBI_51061", "http://purl.obolibrary.org/obo/CHEBI_52210", "http://purl.obolibrary.org/obo/CHEBI_52217", "http://purl.obolibrary.org/obo/CHEBI_90710" ],
+    "hierarchicalParent" : [ "http://purl.obolibrary.org/obo/CHEBI_138015", "http://purl.obolibrary.org/obo/CHEBI_50114" ],
+    "hierarchicalProperty" : "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "imported" : false,
+    "iri" : "http://purl.obolibrary.org/obo/CHEBI_76988",
+    "isDefiningOntology" : true,
+    "isObsolete" : false,
+    "isPreferredRoot" : false,
+    "label" : [ "xenoestrogen" ],
+    "linkedEntities" : {
+      "CHEBI:76988" : {
+        "iri" : "http://purl.obolibrary.org/obo/CHEBI_76988",
+        "definedBy" : [ "chebi" ],
+        "numAppearsIn" : 9.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "xenoestrogen" ],
+        "curie" : "CHEBI:76988",
+        "type" : [ "class", "entity" ],
+        "url" : "http://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:76988",
+        "source" : "https://raw.githubusercontent.com/geneontology/go-site/master/metadata/db-xrefs.yaml"
+      },
+      "http://purl.obolibrary.org/obo/CHEBI_138015" : {
+        "definedBy" : [ "chebi" ],
+        "numAppearsIn" : 21.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "endocrine disruptor" ],
+        "curie" : "CHEBI:138015",
+        "type" : [ "class", "entity" ]
+      },
+      "http://purl.obolibrary.org/obo/CHEBI_23888" : {
+        "definedBy" : [ "chebi" ],
+        "numAppearsIn" : 51.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "drug" ],
+        "curie" : "CHEBI:23888",
+        "type" : [ "class", "entity" ]
+      },
+      "http://purl.obolibrary.org/obo/CHEBI_24432" : {
+        "definedBy" : [ "chebi" ],
+        "numAppearsIn" : 58.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "biological role" ],
+        "curie" : "CHEBI:24432",
+        "type" : [ "class", "entity" ]
+      },
+      "http://purl.obolibrary.org/obo/CHEBI_24621" : {
+        "definedBy" : [ "chebi" ],
+        "numAppearsIn" : 40.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "hormone" ],
+        "curie" : "CHEBI:24621",
+        "type" : [ "class", "entity" ]
+      },
+      "http://purl.obolibrary.org/obo/CHEBI_33232" : {
+        "definedBy" : [ "chebi" ],
+        "numAppearsIn" : 51.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "application" ],
+        "curie" : "CHEBI:33232",
+        "type" : [ "class", "entity" ]
+      },
+      "http://purl.obolibrary.org/obo/CHEBI_33280" : {
+        "definedBy" : [ "chebi" ],
+        "numAppearsIn" : 39.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "molecular messenger" ],
+        "curie" : "CHEBI:33280",
+        "type" : [ "class", "entity" ]
+      },
+      "http://purl.obolibrary.org/obo/CHEBI_48705" : {
+        "definedBy" : [ "chebi" ],
+        "numAppearsIn" : 38.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "agonist" ],
+        "curie" : "CHEBI:48705",
+        "type" : [ "class", "entity" ]
+      },
+      "http://purl.obolibrary.org/obo/CHEBI_50112" : {
+        "definedBy" : [ "chebi" ],
+        "numAppearsIn" : 24.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "sex hormone" ],
+        "curie" : "CHEBI:50112",
+        "type" : [ "class", "entity" ]
+      },
+      "http://purl.obolibrary.org/obo/CHEBI_50114" : {
+        "definedBy" : [ "chebi" ],
+        "numAppearsIn" : 21.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "estrogen" ],
+        "curie" : "CHEBI:50114",
+        "type" : [ "class", "entity" ]
+      },
+      "http://purl.obolibrary.org/obo/CHEBI_50906" : {
+        "definedBy" : [ "chebi" ],
+        "numAppearsIn" : 51.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "role" ],
+        "curie" : "CHEBI:50906",
+        "type" : [ "class", "entity" ]
+      },
+      "http://purl.obolibrary.org/obo/CHEBI_51061" : {
+        "definedBy" : [ "chebi" ],
+        "numAppearsIn" : 25.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "hormone receptor modulator" ],
+        "curie" : "CHEBI:51061",
+        "type" : [ "class", "entity" ]
+      },
+      "http://purl.obolibrary.org/obo/CHEBI_52210" : {
+        "definedBy" : [ "chebi" ],
+        "numAppearsIn" : 44.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "pharmacological role" ],
+        "curie" : "CHEBI:52210",
+        "type" : [ "class", "entity" ]
+      },
+      "http://purl.obolibrary.org/obo/CHEBI_52217" : {
+        "definedBy" : [ "chebi" ],
+        "numAppearsIn" : 47.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "pharmaceutical" ],
+        "curie" : "CHEBI:52217",
+        "type" : [ "class", "entity" ]
+      },
+      "http://purl.obolibrary.org/obo/CHEBI_90710" : {
+        "definedBy" : [ "chebi" ],
+        "numAppearsIn" : 25.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "receptor modulator" ],
+        "curie" : "CHEBI:90710",
+        "type" : [ "class", "entity" ]
+      },
+      "http://purl.obolibrary.org/obo/IAO_0000115" : {
+        "definedBy" : [ "iao" ],
+        "numAppearsIn" : 230.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "definition" ],
+        "curie" : "IAO:0000115",
+        "type" : [ "annotationProperty", "entity", "property" ]
+      },
+      "http://purl.obolibrary.org/obo/chebi/3_STAR" : {
+        "numAppearsIn" : 12.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "3_STAR" ],
+        "curie" : "3_STAR",
+        "type" : [ "annotationProperty", "entity", "property" ]
+      },
+      "http://www.geneontology.org/formats/oboInOwl#hasDbXref" : {
+        "definedBy" : [ "oio" ],
+        "numAppearsIn" : 213.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "database_cross_reference", "has_dbxref" ],
+        "curie" : "OIO:hasDbXref",
+        "type" : [ "annotationProperty", "entity", "property" ]
+      },
+      "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace" : {
+        "definedBy" : [ "oio" ],
+        "numAppearsIn" : 174.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "has_obo_namespace" ],
+        "curie" : "OIO:hasOBONamespace",
+        "type" : [ "annotationProperty", "entity", "property" ]
+      },
+      "http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym" : {
+        "definedBy" : [ "oio" ],
+        "numAppearsIn" : 198.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "has_related_synonym" ],
+        "curie" : "OIO:hasRelatedSynonym",
+        "type" : [ "annotationProperty", "entity", "property" ]
+      },
+      "http://www.geneontology.org/formats/oboInOwl#id" : {
+        "definedBy" : [ "oio" ],
+        "numAppearsIn" : 182.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "id" ],
+        "curie" : "OIO:id",
+        "type" : [ "annotationProperty", "entity", "property" ]
+      },
+      "http://www.geneontology.org/formats/oboInOwl#inSubset" : {
+        "definedBy" : [ "oio" ],
+        "numAppearsIn" : 133.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "in_subset" ],
+        "curie" : "OIO:inSubset",
+        "type" : [ "annotationProperty", "entity", "property" ]
+      },
+      "http://www.geneontology.org/formats/oboInOwl#source" : {
+        "numAppearsIn" : 57.0,
+        "hasLocalDefinition" : true,
+        "label" : [ "source" ],
+        "curie" : "source",
+        "type" : [ "annotationProperty", "entity", "property" ]
+      },
+      "http://www.w3.org/2000/01/rdf-schema#label" : {
+        "definedBy" : [ "rdfs" ],
+        "numAppearsIn" : 200.0,
+        "hasLocalDefinition" : false,
+        "label" : [ "label" ],
+        "curie" : "RDFS:label",
+        "type" : [ "entity", "property" ]
+      },
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf" : {
+        "definedBy" : [ "rdfs" ],
+        "numAppearsIn" : 8.0,
+        "hasLocalDefinition" : false,
+        "label" : [ "subClassOf" ],
+        "curie" : "RDFS:subClassOf",
+        "type" : [ "entity", "property" ]
+      }
+    },
+    "linksTo" : [ "http://purl.obolibrary.org/obo/CHEBI_138015", "http://purl.obolibrary.org/obo/CHEBI_23888", "http://purl.obolibrary.org/obo/CHEBI_24432", "http://purl.obolibrary.org/obo/CHEBI_24621", "http://purl.obolibrary.org/obo/CHEBI_33232", "http://purl.obolibrary.org/obo/CHEBI_33280", "http://purl.obolibrary.org/obo/CHEBI_48705", "http://purl.obolibrary.org/obo/CHEBI_50112", "http://purl.obolibrary.org/obo/CHEBI_50114", "http://purl.obolibrary.org/obo/CHEBI_50906", "http://purl.obolibrary.org/obo/CHEBI_51061", "http://purl.obolibrary.org/obo/CHEBI_52210", "http://purl.obolibrary.org/obo/CHEBI_52217", "http://purl.obolibrary.org/obo/CHEBI_76988", "http://purl.obolibrary.org/obo/CHEBI_90710", "http://purl.obolibrary.org/obo/IAO_0000115", "http://purl.obolibrary.org/obo/chebi/3_STAR", "http://www.geneontology.org/formats/oboInOwl#hasDbXref", "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace", "http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym", "http://www.geneontology.org/formats/oboInOwl#id", "http://www.geneontology.org/formats/oboInOwl#inSubset", "http://www.geneontology.org/formats/oboInOwl#source", "http://www.w3.org/2000/01/rdf-schema#label", "http://www.w3.org/2000/01/rdf-schema#subClassOf" ],
+    "numDescendants" : 0.0,
+    "numHierarchicalDescendants" : 0.0,
+    "ontologyId" : "chebi",
+    "ontologyIri" : "http://purl.obolibrary.org/obo/chebi.owl",
+    "ontologyPreferredPrefix" : "CHEBI",
+    "searchableAnnotationValues" : [ false ],
+    "shortForm" : "CHEBI_76988",
+    "synonym" : [ {
+      "type" : [ "reification" ],
+      "value" : "xenoestrogens",
+      "axioms" : [ {
+        "http://www.geneontology.org/formats/oboInOwl#hasDbXref" : "chebi"
+      } ]
+    } ],
+    "synonymProperty" : "http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym",
+    "type" : [ "class", "entity" ],
+    "http://purl.obolibrary.org/obo/IAO_0000115" : "A synthetic or semi-synthetic compound that has oestrogenic activity.",
+    "http://www.geneontology.org/formats/oboInOwl#hasDbXref" : {
+      "type" : [ "reification" ],
+      "value" : "wikipedia.en:Xenoestrogen",
+      "axioms" : [ {
+        "http://www.geneontology.org/formats/oboInOwl#source" : "wikipedia.en"
+      } ]
+    },
+    "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace" : "chebi_ontology",
+    "http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym" : [ {
+      "type" : [ "reification" ],
+      "value" : "xenoestrogens",
+      "axioms" : [ {
+        "http://www.geneontology.org/formats/oboInOwl#hasDbXref" : "chebi"
+      } ]
+    } ],
+    "http://www.geneontology.org/formats/oboInOwl#id" : "CHEBI:76988",
+    "http://www.geneontology.org/formats/oboInOwl#inSubset" : "http://purl.obolibrary.org/obo/chebi/3_STAR",
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : "http://www.w3.org/2002/07/owl#Class",
+    "http://www.w3.org/2000/01/rdf-schema#label" : "xenoestrogen",
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ "http://purl.obolibrary.org/obo/CHEBI_138015", "http://purl.obolibrary.org/obo/CHEBI_50114" ]
+  } ]
+}

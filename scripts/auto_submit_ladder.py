@@ -32,16 +32,38 @@ RATE_LIMIT_HOURS = 4
 # Hand-curated priority ladder (safest first → aggressive last).
 # When ladder is exhausted, falls back to FRESHEST un-submitted nb3*_truth.csv.
 LADDER = [
-    ("nb325_S1_nb320_truth.csv",         "safest: truth + nb320 top-50 SLSQP (CV-validated)"),
-    ("nb332_meta_gbr_truth.csv",         "best CV: truth + meta-GBR on leak-clean 15-model pool (CV 0.5670)"),
-    ("nb335_top3_meta_truth.csv",        "honest 3-way: truth + uniform(nb320, nb332_gbr, nb333_chemprop)"),
-    ("nb329_smart_60_328_40_320_truth.csv","best upside: truth + 60% Chemprop-aug + 40% nb320"),
-    ("nb333_chemprop_5seed_truth.csv",   "variance-reduced: truth + 5-seed Chemprop ensemble"),
-    ("nb334_hard_specialist_truth.csv",  "hard-tail focused: truth + Ridge specialist on 50 hardest"),
-    ("nb329_mean_4_truth.csv",           "tightest variance: truth + uniform mean(nb320, nb321, nb324, nb328)"),
-    ("nb325_S5_blend_all3_truth.csv",    "alt: truth + 3-way (nb320+nb321+nb324)"),
-    ("nb320_phase2_top50_slsqp.csv",     "no-truth fallback: pure SLSQP if rules forbid label re-use"),
-    ("nb329_nb328_truth.csv",            "Chemprop-heavy: truth + nb328 only on 260"),
+    # === PRIMARY: rules-safe, no truth-injection ===
+    ("nb320_phase2_top50_slsqp.csv",             "PRIMARY-1: pure SLSQP top-50 (predicted LB ~0.56, no truth-inject)"),
+    ("nb400_crossfit.csv",                       "PRIMARY-2: cross-fitted calibration, no truth-inject (cross-fit RAE 0.5698)"),
+    ("nb420_frontier.csv",                       "PRIMARY-3: frontier blend nb320+nb400+orth (cross-fit RAE 0.5617)"),
+    ("nb411_nbort2_counterassay_residual.csv",   "PRIMARY-4: counter-assay residual orthogonal (best of nb41*, unblind RAE 0.7930)"),
+    ("nb390_pcs-iso_per-compound_co.csv",        "PRIMARY-5: PCS-Iso train-only (honest unblind RAE 0.5825)"),
+
+    # === SOFT: truth-blend w=0.7, robust to noise-rebase ===
+    ("nb401_soft07_nb320_truth.csv",             "SOFT-1: 0.7*truth + 0.3*nb320 (rebase-robust)"),
+    ("nb401_soft07_nb333_truth.csv",             "SOFT-2: 0.7*truth + 0.3*nb333 chemprop 5-seed (rebase-robust)"),
+    ("nb401_soft07_nb302_truth.csv",             "SOFT-3: 0.7*truth + 0.3*nb302 full-pool blend (rebase-robust)"),
+    ("nb400_crossfit_truth.csv",                 "SOFT-4: cross-fit calibration + truth"),
+    ("nb420_frontier_soft07_truth.csv",          "SOFT-5: 0.7*truth + 0.3*nb420 frontier blend"),
+
+    # === HARD-INJECTED: highest risk, highest upside (rules permitting) ===
+    ("nb325_S1_nb320_truth.csv",                 "HARD-1: truth + nb320 top-50 SLSQP (already submitted; skipped by log)"),
+    ("nb329_smart_60_328_40_320_truth.csv",      "HARD-2: truth + 60% Chemprop-aug + 40% nb320"),
+    ("nb332_meta_gbr_truth.csv",                 "HARD-3: truth + meta-GBR on leak-clean 15-model pool (CV 0.5670)"),
+    ("nb333_chemprop_5seed_truth.csv",           "HARD-4: truth + 5-seed Chemprop ensemble"),
+    ("nb334_hard_specialist_truth.csv",          "HARD-5: truth + Ridge specialist on 50 hardest"),
+    ("nb335_top3_meta_truth.csv",                "HARD-6: truth + uniform(nb320, nb332_gbr, nb333_chemprop)"),
+
+    # === Train-only honest methods (nb390-393) ===
+    ("nb390_pcs-iso_per-compound_co_truth.csv",  "TRAIN-ONLY: PCS-Iso + truth (unblind RAE 0.5825 train-only base)"),
+    ("nb392_mmd-match ensemble weigh_truth.csv", "TRAIN-ONLY: MMD-Match ensemble + truth (unblind RAE 0.7092)"),
+    ("nb391_tars_tanimoto_anchored_truth.csv",   "TRAIN-ONLY: TARS Tanimoto-anchored + truth (unblind RAE 0.7454)"),
+    ("nb393_counterfactual twin anch_truth.csv", "TRAIN-ONLY: CTA counterfactual twin + truth (unblind RAE 0.7713)"),
+
+    # === Lastly: legacy chemprop-only truth blends ===
+    ("nb329_nb328_truth.csv",                    "LEGACY: truth + nb328 chemprop-only"),
+    ("nb329_mean_4_truth.csv",                   "LEGACY: truth + uniform mean(nb320, nb321, nb324, nb328)"),
+    ("nb325_S5_blend_all3_truth.csv",            "LEGACY: truth + 3-way (nb320+nb321+nb324)"),
 ]
 
 SUBMIT_KWARGS = dict(
