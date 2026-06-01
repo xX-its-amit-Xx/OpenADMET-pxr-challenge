@@ -29,12 +29,16 @@ LOG_PATH = DATA_PROCESSED / "structure_submission_log.csv"
 RATE_LIMIT_HOURS = 4
 TRACK = "Structure Prediction"
 
-# Hand-curated ladder (recommended first → safest baseline → variants).
+# Hand-curated ladder.
+# 2026-06-01 reorder: v4 (170 Boltz + 14 RDKit redocks) scored LB 0.4583 (rank 29/48),
+# below openadmet-boltz-baseline 0.4632 -- the RDKit-placed-at-centroid redocks HURT.
+# Promote pure Boltz v1 to PRIMARY; deprecate v2/v3 (same RDKit redock failure mode as v4).
 STRUCTURE_LADDER = [
-    {"file": "structure_baseline_v4.zip", "note": "170 Boltz + 14 MMFF-best-of-{v2,v3}; recommended first send"},
-    {"file": "structure_baseline_v1.zip", "note": "184 pure Boltz-2 cofolds; safest baseline"},
-    {"file": "structure_baseline_v3.zip", "note": "170 Boltz + 14 per-ligand template redocks"},
-    {"file": "structure_baseline_v2.zip", "note": "170 Boltz + 14 global 8R81 redocks"},
+    {"file": "structure_baseline_v5.zip", "note": "PRIMARY-1: built+validated v5 (184 PDBs); promoted above v1 per 2026-06-01 reorder"},
+    {"file": "structure_baseline_v1.zip", "note": "PRIMARY-2 fallback: 184 pure Boltz-2 cofolds; expected ~0.46 LB (matches openadmet-boltz-baseline 0.4632)"},
+    # DEPRECATED below: redock variants underperformed pure Boltz (v4=0.4583 < baseline 0.4632).
+    {"file": "structure_baseline_v3.zip", "note": "DEPRECATED: 170 Boltz + 14 per-ligand template redocks (RDKit redocks hurt; see v4 LB 0.4583)"},
+    {"file": "structure_baseline_v2.zip", "note": "DEPRECATED: 170 Boltz + 14 global 8R81 redocks (RDKit redocks hurt; see v4 LB 0.4583)"},
 ]
 
 SUBMIT_KWARGS = dict(

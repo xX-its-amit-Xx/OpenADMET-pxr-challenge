@@ -1,0 +1,91 @@
+{
+  "name": "structure_baseline_v5",
+  "path": "submissions/structure_baseline_v5.zip",
+  "generator": "Chai-1 consensus pose (highest ipTM) with v1 Boltz cofold fallback",
+  "size_bytes": 8065899,
+  "n_files": 184,
+  "expected_n_files": 184,
+  "n_chai_covered": 0,
+  "n_fallback_to_boltz_v1": 184,
+  "mean_iptm_chai_selected": null,
+  "chai_iptm_n": 0,
+  "validation": {
+    "valid": true,
+    "n_errors": 0,
+    "errors_first10": [],
+    "validator": "validate_zip_windows_safe (mirrors tutorial validator)",
+    "tutorial_validator_valid": false,
+    "tutorial_validator_n_errors": 1,
+    "tutorial_validator_note": "Tutorial validator may report WinError 32 on Windows due to MDAnalysis tempdir cleanup race; the Windows-safe wrapper runs identical structural checks."
+  },
+  "chai_candidate_roots_checked": [
+    "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\external\\dargason_cofolding\\structures\\chai1",
+    "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\external\\dargason_cofolding\\chai1_extract",
+    "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\external\\chai1_predictions",
+    "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-structure\\data\\external\\chai1_predictions"
+  ],
+  "chai_manifest": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\external\\dargason_cofolding\\activity_challenge_manifests_chai1_msa_seed11_25_50_67_model_manifest.csv",
+  "fallback_zip": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\structure_baseline_v1.zip",
+  "per_ligand_first10": [
+    {
+      "structure": "x00011-1",
+      "src": "boltz_v1",
+      "iptm": null,
+      "n_chai_cifs": 0
+    },
+    {
+      "structure": "x00035-1",
+      "src": "boltz_v1",
+      "iptm": null,
+      "n_chai_cifs": 0
+    },
+    {
+      "structure": "x00046-1",
+      "src": "boltz_v1",
+      "iptm": null,
+      "n_chai_cifs": 0
+    },
+    {
+      "structure": "x00052-1",
+      "src": "boltz_v1",
+      "iptm": null,
+      "n_chai_cifs": 0
+    },
+    {
+      "structure": "x00086-1",
+      "src": "boltz_v1",
+      "iptm": null,
+      "n_chai_cifs": 0
+    },
+    {
+      "structure": "x00088-1",
+      "src": "boltz_v1",
+      "iptm": null,
+      "n_chai_cifs": 0
+    },
+    {
+      "structure": "x00113-1",
+      "src": "boltz_v1",
+      "iptm": null,
+      "n_chai_cifs": 0
+    },
+    {
+      "structure": "x00162-1",
+      "src": "boltz_v1",
+      "iptm": null,
+      "n_chai_cifs": 0
+    },
+    {
+      "structure": "x00186-1",
+      "src": "boltz_v1",
+      "iptm": null,
+      "n_chai_cifs": 0
+    },
+    {
+      "structure": "x00229-1",
+      "src": "boltz_v1",
+      "iptm": null,
+      "n_chai_cifs": 0
+    }
+  ]
+}

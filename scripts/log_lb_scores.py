@@ -27,8 +27,8 @@ SPACE_URL = "https://openadmet-pxr-challenge.hf.space"
 USER_HANDLE = "xX-its-amit-Xx"
 TRACKS = ("activity", "structure")
 TRACK_API = {
-    "activity": "/get_leaderboard",
-    "structure": "/get_structure_leaderboard",
+    "activity": "/load_activity_leaderboard",
+    "structure": "/load_structure_leaderboard",
 }
 NEW_COLS = ["timestamp_utc", "track", "user_rank", "lb_score", "n_submissions_visible"]
 
@@ -62,12 +62,9 @@ def fetch_leaderboard(track: str) -> list[list]:
     api = TRACK_API[track]
     try:
         result = client.predict(api_name=api)
-    except Exception:
-        # Some Gradio versions expose the leaderboard via /predict with no name
-        try:
-            result = client.predict(api_name="/predict")
-        except Exception:
-            return []
+    except Exception as e:
+        print(f"[{track}] endpoint {api} failed: {e}")
+        return []
     return _rows_from_payload(result)
 
 
