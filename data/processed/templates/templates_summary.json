@@ -1,0 +1,770 @@
+[
+  {
+    "pdb_id": "1m13",
+    "het_code": "HYF",
+    "centroid": [
+      10.395,
+      76.096,
+      -1.226
+    ],
+    "n_ligand_heavy_atoms": 39,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\1m13_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\1m13_centroid.json"
+  },
+  {
+    "pdb_id": "1nrl",
+    "het_code": "SRL",
+    "centroid": [
+      11.641,
+      32.212,
+      24.137
+    ],
+    "n_ligand_heavy_atoms": 33,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\1nrl_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\1nrl_centroid.json"
+  },
+  {
+    "pdb_id": "1skx",
+    "het_code": "RFP",
+    "centroid": [
+      11.914,
+      76.627,
+      -1.705
+    ],
+    "n_ligand_heavy_atoms": 51,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\1skx_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\1skx_centroid.json"
+  },
+  {
+    "pdb_id": "2o9i",
+    "het_code": "444",
+    "centroid": [
+      11.948,
+      33.349,
+      23.51
+    ],
+    "n_ligand_heavy_atoms": 31,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\2o9i_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\2o9i_centroid.json"
+  },
+  {
+    "pdb_id": "2qnv",
+    "het_code": "CDZ",
+    "centroid": [
+      12.035,
+      15.196,
+      22.117
+    ],
+    "n_ligand_heavy_atoms": 29,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\2qnv_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\2qnv_centroid.json"
+  },
+  {
+    "pdb_id": "3hvl",
+    "het_code": "SRL",
+    "centroid": [
+      11.844,
+      32.411,
+      23.801
+    ],
+    "n_ligand_heavy_atoms": 33,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\3hvl_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\3hvl_centroid.json"
+  },
+  {
+    "pdb_id": "3r8d",
+    "het_code": "PNU",
+    "centroid": [
+      -15.783,
+      -8.998,
+      -23.326
+    ],
+    "n_ligand_heavy_atoms": 20,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\3r8d_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\3r8d_centroid.json"
+  },
+  {
+    "pdb_id": "4ny9",
+    "het_code": "2Q4",
+    "centroid": [
+      15.729,
+      -10.899,
+      2.206
+    ],
+    "n_ligand_heavy_atoms": 30,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\4ny9_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\4ny9_centroid.json"
+  },
+  {
+    "pdb_id": "4s0t",
+    "het_code": "40U",
+    "centroid": [
+      -40.355,
+      -40.21,
+      1.61
+    ],
+    "n_ligand_heavy_atoms": 29,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\4s0t_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\4s0t_centroid.json"
+  },
+  {
+    "pdb_id": "4x1f",
+    "het_code": "3WF",
+    "centroid": [
+      11.254,
+      79.148,
+      0.334
+    ],
+    "n_ligand_heavy_atoms": 22,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\4x1f_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\4x1f_centroid.json"
+  },
+  {
+    "pdb_id": "4x1g",
+    "het_code": "3WF",
+    "centroid": [
+      11.479,
+      79.249,
+      0.192
+    ],
+    "n_ligand_heavy_atoms": 22,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\4x1g_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\4x1g_centroid.json"
+  },
+  {
+    "pdb_id": "4xhd",
+    "het_code": "40U",
+    "centroid": [
+      -10.754,
+      15.413,
+      -2.214
+    ],
+    "n_ligand_heavy_atoms": 29,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\4xhd_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\4xhd_centroid.json"
+  },
+  {
+    "pdb_id": "5a86",
+    "het_code": "D7E",
+    "centroid": [
+      28.028,
+      10.995,
+      25.847
+    ],
+    "n_ligand_heavy_atoms": 28,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\5a86_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\5a86_centroid.json"
+  },
+  {
+    "pdb_id": "5x0r",
+    "het_code": "4WH",
+    "centroid": [
+      32.217,
+      13.927,
+      24.079
+    ],
+    "n_ligand_heavy_atoms": 30,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\5x0r_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\5x0r_centroid.json"
+  },
+  {
+    "pdb_id": "6bns",
+    "het_code": "XGH",
+    "centroid": [
+      28.79,
+      -35.593,
+      -31.474
+    ],
+    "n_ligand_heavy_atoms": 39,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\6bns_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\6bns_centroid.json"
+  },
+  {
+    "pdb_id": "6dup",
+    "het_code": "HCJ",
+    "centroid": [
+      12.259,
+      31.788,
+      24.541
+    ],
+    "n_ligand_heavy_atoms": 28,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\6dup_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\6dup_centroid.json"
+  },
+  {
+    "pdb_id": "6hj2",
+    "het_code": "P06",
+    "centroid": [
+      9.485,
+      76.29,
+      -0.816
+    ],
+    "n_ligand_heavy_atoms": 35,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\6hj2_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\6hj2_centroid.json"
+  },
+  {
+    "pdb_id": "6hty",
+    "het_code": "GRH",
+    "centroid": [
+      52.169,
+      36.859,
+      13.476
+    ],
+    "n_ligand_heavy_atoms": 29,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\6hty_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\6hty_centroid.json"
+  },
+  {
+    "pdb_id": "6nx1",
+    "het_code": "L7D",
+    "centroid": [
+      30.331,
+      -32.813,
+      -29.477
+    ],
+    "n_ligand_heavy_atoms": 62,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\6nx1_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\6nx1_centroid.json"
+  },
+  {
+    "pdb_id": "6p2b",
+    "het_code": "NQD",
+    "centroid": [
+      12.398,
+      32.873,
+      23.967
+    ],
+    "n_ligand_heavy_atoms": 31,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\6p2b_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\6p2b_centroid.json"
+  },
+  {
+    "pdb_id": "6s41",
+    "het_code": "KUB",
+    "centroid": [
+      29.812,
+      12.268,
+      23.982
+    ],
+    "n_ligand_heavy_atoms": 28,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\6s41_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\6s41_centroid.json"
+  },
+  {
+    "pdb_id": "6tfi",
+    "het_code": "N6H",
+    "centroid": [
+      52.287,
+      37.679,
+      15.421
+    ],
+    "n_ligand_heavy_atoms": 30,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\6tfi_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\6tfi_centroid.json"
+  },
+  {
+    "pdb_id": "6xp9",
+    "het_code": "QCG",
+    "centroid": [
+      -27.317,
+      9.217,
+      -24.547
+    ],
+    "n_ligand_heavy_atoms": 37,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\6xp9_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\6xp9_centroid.json"
+  },
+  {
+    "pdb_id": "7ax9",
+    "het_code": "S6H",
+    "centroid": [
+      10.194,
+      73.395,
+      -2.75
+    ],
+    "n_ligand_heavy_atoms": 18,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\7ax9_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\7ax9_centroid.json"
+  },
+  {
+    "pdb_id": "7axa",
+    "het_code": "CL6",
+    "centroid": [
+      11.327,
+      73.51,
+      -2.533
+    ],
+    "n_ligand_heavy_atoms": 50,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\7axa_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\7axa_centroid.json"
+  },
+  {
+    "pdb_id": "7axb",
+    "het_code": "S68",
+    "centroid": [
+      10.246,
+      73.689,
+      -3.201
+    ],
+    "n_ligand_heavy_atoms": 19,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\7axb_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\7axb_centroid.json"
+  },
+  {
+    "pdb_id": "7axc",
+    "het_code": "27H",
+    "centroid": [
+      11.877,
+      73.791,
+      -1.982
+    ],
+    "n_ligand_heavy_atoms": 26,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\7axc_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\7axc_centroid.json"
+  },
+  {
+    "pdb_id": "7axd",
+    "het_code": "S6W",
+    "centroid": [
+      8.352,
+      74.748,
+      -2.218
+    ],
+    "n_ligand_heavy_atoms": 26,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\7axd_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\7axd_centroid.json"
+  },
+  {
+    "pdb_id": "7axe",
+    "het_code": "S6Z",
+    "centroid": [
+      8.228,
+      75.762,
+      -1.759
+    ],
+    "n_ligand_heavy_atoms": 22,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\7axe_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\7axe_centroid.json"
+  },
+  {
+    "pdb_id": "7axf",
+    "het_code": "S6T",
+    "centroid": [
+      9.882,
+      74.42,
+      -2.34
+    ],
+    "n_ligand_heavy_atoms": 21,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\7axf_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\7axf_centroid.json"
+  },
+  {
+    "pdb_id": "7axg",
+    "het_code": "TBY",
+    "centroid": [
+      12.699,
+      75.844,
+      -3.642
+    ],
+    "n_ligand_heavy_atoms": 13,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\7axg_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\7axg_centroid.json"
+  },
+  {
+    "pdb_id": "7axh",
+    "het_code": "27J",
+    "centroid": [
+      11.511,
+      73.87,
+      -4.727
+    ],
+    "n_ligand_heavy_atoms": 23,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\7axh_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\7axh_centroid.json"
+  },
+  {
+    "pdb_id": "7axi",
+    "het_code": "EST",
+    "centroid": [
+      10.952,
+      79.564,
+      0.579
+    ],
+    "n_ligand_heavy_atoms": 20,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\7axi_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\7axi_centroid.json"
+  },
+  {
+    "pdb_id": "7axj",
+    "het_code": "CL6",
+    "centroid": [
+      11.962,
+      73.648,
+      -2.526
+    ],
+    "n_ligand_heavy_atoms": 25,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\7axj_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\7axj_centroid.json"
+  },
+  {
+    "pdb_id": "7axk",
+    "het_code": "EST",
+    "centroid": [
+      10.94,
+      79.624,
+      0.312
+    ],
+    "n_ligand_heavy_atoms": 20,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\7axk_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\7axk_centroid.json"
+  },
+  {
+    "pdb_id": "7axl",
+    "het_code": "EST",
+    "centroid": [
+      11.063,
+      78.974,
+      0.333
+    ],
+    "n_ligand_heavy_atoms": 20,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\7axl_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\7axl_centroid.json"
+  },
+  {
+    "pdb_id": "7n2a",
+    "het_code": "07F",
+    "centroid": [
+      -15.788,
+      -11.012,
+      -22.538
+    ],
+    "n_ligand_heavy_atoms": 31,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\7n2a_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\7n2a_centroid.json"
+  },
+  {
+    "pdb_id": "7rio",
+    "het_code": "5YX",
+    "centroid": [
+      -14.785,
+      -10.336,
+      -22.641
+    ],
+    "n_ligand_heavy_atoms": 40,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\7rio_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\7rio_centroid.json"
+  },
+  {
+    "pdb_id": "7riu",
+    "het_code": "5YU",
+    "centroid": [
+      -14.949,
+      -10.207,
+      -23.131
+    ],
+    "n_ligand_heavy_atoms": 32,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\7riu_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\7riu_centroid.json"
+  },
+  {
+    "pdb_id": "7riv",
+    "het_code": "P06",
+    "centroid": [
+      -15.184,
+      -9.323,
+      -21.991
+    ],
+    "n_ligand_heavy_atoms": 35,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\7riv_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\7riv_centroid.json"
+  },
+  {
+    "pdb_id": "7yfk",
+    "het_code": "G3L",
+    "centroid": [
+      -29.801,
+      11.601,
+      -23.924
+    ],
+    "n_ligand_heavy_atoms": 37,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\7yfk_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\7yfk_centroid.json"
+  },
+  {
+    "pdb_id": "8cct",
+    "het_code": "UAI",
+    "centroid": [
+      11.28,
+      -18.634,
+      -2.549
+    ],
+    "n_ligand_heavy_atoms": 19,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\8cct_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\8cct_centroid.json"
+  },
+  {
+    "pdb_id": "8cf9",
+    "het_code": "UK6",
+    "centroid": [
+      10.771,
+      16.238,
+      24.26
+    ],
+    "n_ligand_heavy_atoms": 22,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\8cf9_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\8cf9_centroid.json"
+  },
+  {
+    "pdb_id": "8ch8",
+    "het_code": "ULC",
+    "centroid": [
+      8.984,
+      -15.328,
+      -1.918
+    ],
+    "n_ligand_heavy_atoms": 23,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\8ch8_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\8ch8_centroid.json"
+  },
+  {
+    "pdb_id": "8e3n",
+    "het_code": "VA0",
+    "centroid": [
+      11.533,
+      -15.276,
+      -1.371
+    ],
+    "n_ligand_heavy_atoms": 50,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\8e3n_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\8e3n_centroid.json"
+  },
+  {
+    "pdb_id": "8eqz",
+    "het_code": "WQB",
+    "centroid": [
+      12.283,
+      33.274,
+      23.322
+    ],
+    "n_ligand_heavy_atoms": 32,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\8eqz_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\8eqz_centroid.json"
+  },
+  {
+    "pdb_id": "8f5y",
+    "het_code": "JQ1",
+    "centroid": [
+      -29.818,
+      10.958,
+      -21.04
+    ],
+    "n_ligand_heavy_atoms": 31,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\8f5y_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\8f5y_centroid.json"
+  },
+  {
+    "pdb_id": "8fpe",
+    "het_code": "Y5B",
+    "centroid": [
+      12.45,
+      75.153,
+      -1.362
+    ],
+    "n_ligand_heavy_atoms": 39,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\8fpe_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\8fpe_centroid.json"
+  },
+  {
+    "pdb_id": "8r00",
+    "het_code": "XFQ",
+    "centroid": [
+      9.756,
+      73.465,
+      -3.327
+    ],
+    "n_ligand_heavy_atoms": 17,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\8r00_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\8r00_centroid.json"
+  },
+  {
+    "pdb_id": "8r81",
+    "het_code": "Y8B",
+    "centroid": [
+      9.347,
+      75.555,
+      -1.019
+    ],
+    "n_ligand_heavy_atoms": 29,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\8r81_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\8r81_centroid.json"
+  },
+  {
+    "pdb_id": "8r82",
+    "het_code": "Y7Q",
+    "centroid": [
+      10.661,
+      75.632,
+      -1.408
+    ],
+    "n_ligand_heavy_atoms": 37,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\8r82_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\8r82_centroid.json"
+  },
+  {
+    "pdb_id": "8svo",
+    "het_code": "WSO",
+    "centroid": [
+      30.744,
+      12.703,
+      23.633
+    ],
+    "n_ligand_heavy_atoms": 34,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\8svo_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\8svo_centroid.json"
+  },
+  {
+    "pdb_id": "8svp",
+    "het_code": "WSX",
+    "centroid": [
+      11.186,
+      31.23,
+      24.004
+    ],
+    "n_ligand_heavy_atoms": 36,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\8svp_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\8svp_centroid.json"
+  },
+  {
+    "pdb_id": "8svq",
+    "het_code": "WSX",
+    "centroid": [
+      11.349,
+      31.922,
+      23.419
+    ],
+    "n_ligand_heavy_atoms": 36,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\8svq_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\8svq_centroid.json"
+  },
+  {
+    "pdb_id": "8svr",
+    "het_code": "WT1",
+    "centroid": [
+      51.19,
+      35.859,
+      12.532
+    ],
+    "n_ligand_heavy_atoms": 38,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\8svr_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\8svr_centroid.json"
+  },
+  {
+    "pdb_id": "8svs",
+    "het_code": "WU2",
+    "centroid": [
+      10.873,
+      31.463,
+      24.618
+    ],
+    "n_ligand_heavy_atoms": 37,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\8svs_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\8svs_centroid.json"
+  },
+  {
+    "pdb_id": "8svt",
+    "het_code": "WU6",
+    "centroid": [
+      -30.826,
+      12.101,
+      -23.042
+    ],
+    "n_ligand_heavy_atoms": 36,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\8svt_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\8svt_centroid.json"
+  },
+  {
+    "pdb_id": "8svx",
+    "het_code": "WU6",
+    "centroid": [
+      -30.677,
+      12.944,
+      -24.243
+    ],
+    "n_ligand_heavy_atoms": 36,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\8svx_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\8svx_centroid.json"
+  },
+  {
+    "pdb_id": "8szv",
+    "het_code": "X1D",
+    "centroid": [
+      9.105,
+      75.674,
+      -0.514
+    ],
+    "n_ligand_heavy_atoms": 40,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\8szv_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\8szv_centroid.json"
+  },
+  {
+    "pdb_id": "9beq",
+    "het_code": "AP1",
+    "centroid": [
+      11.373,
+      75.081,
+      -2.229
+    ],
+    "n_ligand_heavy_atoms": 50,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\9beq_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\9beq_centroid.json"
+  },
+  {
+    "pdb_id": "9fzg",
+    "het_code": "A1IHA",
+    "centroid": [
+      12.161,
+      76.386,
+      -1.587
+    ],
+    "n_ligand_heavy_atoms": 60,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\9fzg_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\9fzg_centroid.json"
+  },
+  {
+    "pdb_id": "9fzh",
+    "het_code": "A1IHB",
+    "centroid": [
+      11.412,
+      75.326,
+      -1.236
+    ],
+    "n_ligand_heavy_atoms": 50,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\9fzh_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\9fzh_centroid.json"
+  },
+  {
+    "pdb_id": "9fzi",
+    "het_code": "SRL",
+    "centroid": [
+      -30.867,
+      11.955,
+      -24.155
+    ],
+    "n_ligand_heavy_atoms": 33,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\9fzi_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\9fzi_centroid.json"
+  },
+  {
+    "pdb_id": "9fzj",
+    "het_code": "SRL",
+    "centroid": [
+      10.041,
+      75.889,
+      -1.086
+    ],
+    "n_ligand_heavy_atoms": 33,
+    "apo_pdb": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\9fzj_apo.pdb",
+    "centroid_json": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\templates\\9fzj_centroid.json"
+  }
+]

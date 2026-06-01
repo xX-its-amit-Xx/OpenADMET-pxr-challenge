@@ -1,0 +1,10 @@
+{
+  "pdb_id": "6s41",
+  "het_code": "KUB",
+  "centroid": [
+    29.812,
+    12.268,
+    23.982
+  ],
+  "n_ligand_heavy_atoms": 28
+}

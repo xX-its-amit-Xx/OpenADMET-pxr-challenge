@@ -1,0 +1,15 @@
+test_structure,top1_pdb,top1_het,top1_sim,top1_template_smiles
+x03406-1,8R81,Y8B,0.3125,Cc1cc(C)c(S(=O)(=O)Nc2ccc3c(c2)ncn3Cc2ccccc2)c(C)c1
+x02797-1,7RIO,5YX,0.1666666666666666,CC(C)(C)c1nc(-c2cccc(NS(=O)(=O)c3cc(F)ccc3F)c2F)c(-c2ccnc(CCS(C)(=O)=O)n2)s1
+x02865-1,6HTY,GRH,0.2027027027027027,CC(C(=O)Nc1ccc(Oc2cccc(Cl)c2)c(S(N)(=O)=O)c1)c1ccccc1
+x01334-1,6HTY,GRH,0.1875,CC(C(=O)Nc1ccc(Oc2cccc(Cl)c2)c(S(N)(=O)=O)c1)c1ccccc1
+x03325-1,5X0R,4WH,0.2205882352941176,COc1cc(OC)c(-n2nnc(S(=O)(=O)c3ccc(C(C)(C)C)cc3)c2C)cc1C
+x03026-1,6DUP,HCJ,0.189873417721519,O=c1ccn2c(n1)OC(COc1ccc(-c3cccc(C(F)(F)F)c3)cc1)C2
+x03462-1,8FPE,Y5B,0.1621621621621621,O=S(=O)(c1ccccc1)N(Cc1ccc(-c2ccccc2)cc1)c1ccc(C(O)(C(F)(F)F)C(F)(F)F)cc1
+x03145-1,9FZH,A1IHB,0.2156862745098039,Cc1cc(C)c(S(=O)(=O)Nc2ccc3c(c2)nc(CCCCCCCNC(=O)CC24CC5CC(CC(C5)C2)C4)n3Cc2ccccc2)c(C)c1
+x02872-1,7RIU,5YU,0.1951219512195122,CC(C)(C)c1nc(-c2cccc(NS(=O)(=O)c3ccsc3)c2F)c(-c2ccnc(N)n2)s1
+x02696-1,5X0R,4WH,0.2461538461538461,COc1cc(OC)c(-n2nnc(S(=O)(=O)c3ccc(C(C)(C)C)cc3)c2C)cc1C
+x00463-1,8R81,Y8B,0.1617647058823529,Cc1cc(C)c(S(=O)(=O)Nc2ccc3c(c2)ncn3Cc2ccccc2)c(C)c1
+x00046-1,3R8D,PNU,0.2142857142857142,CC(Sc1nc(N)cc(Cl)n1)c1cc2ccoc2cn1
+x03273-1,8R81,Y8B,0.3064516129032258,Cc1cc(C)c(S(=O)(=O)Nc2ccc3c(c2)ncn3Cc2ccccc2)c(C)c1
+x01131-1,6HTY,GRH,0.2280701754385964,CC(C(=O)Nc1ccc(Oc2cccc(Cl)c2)c(S(N)(=O)=O)c1)c1ccccc1

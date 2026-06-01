@@ -1,0 +1,14 @@
+{
+  "template_id": "8R81",
+  "ligand_code": "Y8B",
+  "chain": "A",
+  "centroid": [
+    9.347,
+    75.555,
+    -1.019
+  ],
+  "n_ligand_heavy_atoms": 29,
+  "n_protein_residues": 273,
+  "source_cif": "data/external/pdb64_structures/8r81.cif",
+  "apo_pdb": "data/processed/template_apo_receptor.pdb"
+}

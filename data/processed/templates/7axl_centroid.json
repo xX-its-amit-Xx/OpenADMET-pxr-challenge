@@ -1,0 +1,10 @@
+{
+  "pdb_id": "7axl",
+  "het_code": "EST",
+  "centroid": [
+    11.063,
+    78.974,
+    0.333
+  ],
+  "n_ligand_heavy_atoms": 20
+}
