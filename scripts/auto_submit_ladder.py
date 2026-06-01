@@ -50,6 +50,13 @@ LADDER = [
     ("nb471_three_stage_curriculum.csv",         "PRIMARY-7: nb471 three-stage curriculum (easy/med/hard SLSQP, lambda anneal); 5-fold cross-fit RAE 0.5531"),
     ("nb432_router_ensemble.csv",                "PRIMARY-8: nb432 router-ensemble (nb424+nb427+nb430+nb431 SLSQP, cross-fit RAE 0.5541) -- anchor for residual-stack family"),
 
+    # === nb520-528 cycle: none beat nb503 0.5116, kept as diversity/SOFT only ===
+    ("nb520_atompair_router_nb432.csv",          "DIVERSITY-A: nb520 AtomPair@nb432 router; honest cross-fit RAE 0.5150 (best of nb520-528 cycle; within +0.0034 of nb503)"),
+    ("nb522_atompair_router_nb420.csv",          "DIVERSITY-B: nb522 AtomPair@nb420 router; honest cross-fit RAE 0.5193"),
+    ("nb527_mmp_router.csv",                     "DIVERSITY-C: nb527 MMP-fragmentation residual router (3 MMP feats + 33 nb481 multimodal); honest cross-fit RAE 0.5246"),
+    ("nb526_ridge_blend.csv",                    "DIVERSITY-D: nb526 NNLS-ridge blend over 13 routers (alpha=2.0); honest cross-fit RAE 0.5252"),
+    ("nb528_grand_final_nnls_ridge.csv",         "DIVERSITY-E: nb528 grand-final 15-member blend (SLSQP-MAE/NNLS-ridge tie); honest cross-fit RAE 0.5259"),
+
     # === Diversity anchors (orthogonal axes per nb435 audit) ===
     ("nb411_nbort2_counterassay_residual.csv",   "DIVERSITY-1: counter-assay residual (avg pairwise corr 0.58, the only truly orthogonal axis)"),
     ("nb390_pcs-iso_per-compound_co.csv",        "DIVERSITY-2: PCS-Iso train-only (honest unblind RAE 0.5825)"),
