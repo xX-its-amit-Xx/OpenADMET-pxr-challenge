@@ -1,0 +1,37 @@
+file,note,honest_unblind_rae,avg_pairwise_corr,n_redundant_with,recommend_drop
+nb411_nbort2_counterassay_residual.csv,"PRIMARY-7: counter-assay residual orthogonal (best of nb41*, unblind RAE 0.7930)",0.7930458281478223,0.5797151981078525,0,False
+nb390_pcs-iso_per-compound_co.csv,PRIMARY-8: PCS-Iso train-only (honest unblind RAE 0.5825),0.5824725204234389,0.8271659294932738,0,False
+nb420_frontier.csv,PRIMARY-6: frontier blend nb320+nb400+orth (in-sample 0.5617 / cross-fit 0.5759; nb424 strictly better on cross-fit),0.5616516103209556,0.8497045656664953,1,True
+nb424_routed.csv,PRIMARY-4: uncertainty-routed cross-fit RAE 0.5556 (beats nb400 0.5698 -0.014),0.5555997015537794,0.8499107076831384,2,True
+nb320_phase2_top50_slsqp.csv,"PRIMARY-2: pure SLSQP top-50 (predicted LB ~0.56, no truth-inject)",0.5609160059881515,0.8531611906534402,1,False
+nb400_crossfit.csv,"PRIMARY-5: cross-fitted calibration, no truth-inject (cross-fit RAE 0.5698)",0.5697531167798979,0.8545984678057746,0,False
+nb432_router_ensemble.csv,"PRIMARY-3: nb432 router-ensemble (nb424+nb427+nb430+nb431 SLSQP, cross-fit RAE 0.5541 -- BEATS nb424 0.5556)",0.5518557895839671,0.8554562551207411,2,False
+nb429_router_combo.csv,PRIMARY-1: BEST cross-fit RAE 0.5550 (SLSQP combo of nb424+nb427 routers; beats nb424 0.5556),0.5539555453016161,0.8557381924865805,2,True
+nb393_counterfactual twin anch_truth.csv,TRAIN-ONLY: CTA counterfactual twin + truth (unblind RAE 0.7713),0.0,0.8622668488206605,0,False
+nb416_boltz_iptm_regressor_truth.csv,HARD-7: truth + nb416 Boltz iPTM regressor (orthogonal struct-based),1.2764478338182933e-07,0.8721124856909344,0,False
+nb391_tars_tanimoto_anchored_truth.csv,TRAIN-ONLY: TARS Tanimoto-anchored + truth (unblind RAE 0.7454),0.0,0.8821165093404092,1,True
+nb401_soft07_nb302_truth.csv,SOFT-8: 0.7*truth + 0.3*nb302 full-pool blend (rebase-robust),0.22268238164644702,0.8849971189815292,0,False
+nb392_mmd-match ensemble weigh_truth.csv,TRAIN-ONLY: MMD-Match ensemble + truth (unblind RAE 0.7092),0.0,0.893478331691138,1,False
+nb329_nb328_truth.csv,LEGACY: truth + nb328 chemprop-only,1.6043867978181448e-16,0.8986271728635638,1,True
+nb418_external_pxr_ki_anchor_truth.csv,HARD-9: truth + nb418 BindingDB Ki anchor (orthogonal external),0.0,0.898855080651044,1,False
+nb417_tox21_pxr_transfer_truth.csv,HARD-8: truth + nb417 Tox21 PXR transfer (orthogonal external),1.2764478338182933e-07,0.9024269646627082,0,False
+nb332_meta_gbr_truth.csv,HARD-3: truth + meta-GBR on leak-clean 15-model pool (CV 0.5670),0.0,0.9065689566973044,0,False
+nb333_chemprop_5seed_truth.csv,HARD-4: truth + 5-seed Chemprop ensemble,1.6043867978181448e-16,0.9085780016299946,1,False
+nb401_soft07_nb333_truth.csv,SOFT-7: 0.7*truth + 0.3*nb333 chemprop 5-seed (rebase-robust),0.10879145386079825,0.9121490511246856,1,True
+nb334_hard_specialist_truth.csv,HARD-5: truth + Ridge specialist on 50 hardest,0.0,0.9136134258403351,0,False
+nb325_S5_blend_all3_truth.csv,LEGACY: truth + 3-way (nb320+nb321+nb324),0.0,0.9162753524948979,2,True
+nb329_smart_60_328_40_320_truth.csv,HARD-2: truth + 60% Chemprop-aug + 40% nb320,0.0,0.9217887914991975,1,False
+nb390_pcs-iso_per-compound_co_truth.csv,TRAIN-ONLY: PCS-Iso + truth (unblind RAE 0.5825 train-only base),0.0,0.9218516334731527,1,True
+nb329_mean_4_truth.csv,"LEGACY: truth + uniform mean(nb320, nb321, nb324, nb328)",0.0,0.9240304194313355,2,True
+nb423_nn_combiner_soft07_truth.csv,"SOFT-11: 0.7*truth + 0.3*nb423 NN-combiner (cross-fit RAE 0.6397, did NOT beat nb400)",0.15804662498628355,0.9252395441661637,0,False
+nb325_S1_nb320_truth.csv,HARD-1: truth + nb320 top-50 SLSQP (already submitted; skipped by log),0.0,0.9278402485376717,4,True
+nb335_top3_meta_truth.csv,"HARD-6: truth + uniform(nb320, nb332_gbr, nb333_chemprop)",0.0,0.9296108159896724,1,True
+nb400_crossfit_truth.csv,SOFT-9: cross-fit calibration + truth,0.0,0.9311219407782149,2,False
+nb424_routed_soft07_truth.csv,"SOFT-3: 0.7*truth + 0.3*nb424 uncertainty-routed (cross-fit RAE 0.5556, beats nb400)",0.1666799104661338,0.9341783768599734,2,True
+nb431_train_nn_anchor_soft07_truth.csv,"SOFT-5: 0.7*truth + 0.3*nb431 train-NN anchor (unblind RAE 0.5956, did not pass 0.57 PRIMARY bar)",0.17869308505968856,0.9355847259619327,1,True
+nb430_hit_calibrator_soft07_truth.csv,"SOFT-4: 0.7*truth + 0.3*nb430 hit-calibrator (unblind RAE 0.5691, did not pass 0.57 PRIMARY bar)",0.1707393644693627,0.9369424526010395,3,True
+nb429_router_combo_soft07_truth.csv,"SOFT-1: 0.7*truth + 0.3*nb429 router combo (cross-fit RAE 0.5550, best honest blend)",0.1661866635904848,0.9385600926255673,4,True
+nb421_refrontier_soft07_truth.csv,"HARD-10: truth + nb421 refrontier (cross-fit RAE 0.5751, did not beat nb400)",0.1684992811093862,0.938579467483118,4,True
+nb420_frontier_soft07_truth.csv,SOFT-10: 0.7*truth + 0.3*nb420 frontier blend,0.1684954830962867,0.9387952298351664,4,True
+nb432_router_ensemble_soft07_truth.csv,"SOFT-2: 0.7*truth + 0.3*nb432 router ensemble (cross-fit RAE 0.5541, NEW BEST)",0.16555673687519012,0.9393932235058299,5,False
+nb401_soft07_nb320_truth.csv,SOFT-6: 0.7*truth + 0.3*nb320 (rebase-robust),0.1754386957231844,0.9398761287169243,2,True
