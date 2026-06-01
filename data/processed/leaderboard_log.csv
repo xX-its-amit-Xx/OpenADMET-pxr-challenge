@@ -1,6 +1,8 @@
-submitted_at,model_stem,local_oof_rae,local_ratio,leaderboard_rae,leaderboard_rank,note
-2026-05-13 18:10:00 UTC,nb197_dense_grid,0.297639,0.58,,,
-2026-05-13 22:11:35 UTC,nb211_div15_chemprop_blend,0.296886,0.58,,,
-2026-05-14 02:13:00 UTC,nb212_nb211_blend,0.296172,0.58,,,
-2026-05-14 06:14:00 UTC,nb214_div15_nb212_blend,0.296169,0.58,,,
-2026-05-14 12:39:05 UTC,nb221_singleconc_aux,0.454523,0.7384,,,fresh-queue
+submitted_at,model_stem,local_oof_rae,local_ratio,leaderboard_rae,leaderboard_rank,note,timestamp_utc,track,user_rank,lb_score,n_submissions_visible
+2026-05-13 18:10:00 UTC,nb197_dense_grid,0.297639,0.58,,,,,,,,
+2026-05-13 22:11:35 UTC,nb211_div15_chemprop_blend,0.296886,0.58,,,,,,,,
+2026-05-14 02:13:00 UTC,nb212_nb211_blend,0.296172,0.58,,,,,,,,
+2026-05-14 06:14:00 UTC,nb214_div15_nb212_blend,0.296169,0.58,,,,,,,,
+2026-05-14 12:39:05 UTC,nb221_singleconc_aux,0.454523,0.7384,,,fresh-queue,,,,,
+,,,,,,,2026-06-01 16:46:40 UTC,activity,,,0.0
+,,,,,,,2026-06-01 16:46:40 UTC,structure,,,0.0
