@@ -37,8 +37,15 @@ LADDER = [
     # truly beat nb562 (0.5065). Their original 0.42xx scores were inflated by an eval
     # artifact (likely train/unblind contamination in the ChemBERTa PCA pool or anchor leak).
     # Restoring nb562 as PRIMARY-1. ChemBERTa variants moved to DEPRECATED-tier below.
-    ("nb562_rank_stretch_grid_s1.10.csv",        "PRIMARY-1: nb562 rank-stretch on nb503 (variance decompression, mu+s*(p-mu) with s~1.10); honest cross-fit RAE 0.5065 -- current best, beats nb503 0.5116 by -0.0051 (only quantile-decompression variant to beat 0.5116; nb560/561/563 all >=0.5116)"),
-    ("nb503_hedge_slsqp4way.csv",                "PRIMARY-2: nb503 hedge 4-way SLSQP cross-fit over {nb492,nb500,nb501,nb502}; honest cross-fit RAE 0.5116 -- prior best; structural cross-fit ceiling validated by 8 failed attack vectors (nb560 quantile-map 0.5835, nb561 iso-tails 0.5326, nb563 4-way blend 0.5123 all worse)"),
+    # NOTE 2026-06-01: nb703 PHASE-2 BLEND inserted as PRIMARY-1 -- pooled cross-fit
+    # RAE 0.4928 over {nb562, nb700(P1), nb701(P2), nb702(P3)}; SLSQP deploy weights
+    # 32.6% nb562 + 42.5% nb701 + 24.8% nb702 + 0% nb700. P1/P2 individual scores
+    # 0.6271 / 0.5065 / 0.5611 -- none strictly < 0.5065 standalone, so only blend
+    # inserted into PRIMARY tier (P1 standalone too greedy at F2 mining; P2 ties
+    # nb562 with 0 vetoes; P3 promiscuity discount slightly weaker alone).
+    ("nb703_phase2_blend.csv",                   "PRIMARY-1: nb703 Phase-2 SLSQP blend over {nb562, nb700 P1-negmine, nb701 P2-pose-veto, nb702 P3-promiscuity-discount}; honest 5-fold cross-fit RAE 0.4928 -- NEW BEST, beats nb562 0.5065 by -0.0137; deploy weights 32.6% nb562 + 42.5% nb701 + 24.8% nb702 + 0% nb700"),
+    ("nb562_rank_stretch_grid_s1.10.csv",        "PRIMARY-2: nb562 rank-stretch on nb503 (variance decompression, mu+s*(p-mu) with s~1.10); honest cross-fit RAE 0.5065 -- prior best, beats nb503 0.5116 by -0.0051 (only quantile-decompression variant to beat 0.5116; nb560/561/563 all >=0.5116)"),
+    ("nb503_hedge_slsqp4way.csv",                "PRIMARY-3: nb503 hedge 4-way SLSQP cross-fit over {nb492,nb500,nb501,nb502}; honest cross-fit RAE 0.5116 -- prior best; structural cross-fit ceiling validated by 8 failed attack vectors (nb560 quantile-map 0.5835, nb561 iso-tails 0.5326, nb563 4-way blend 0.5123 all worse)"),
     ("nb563_final_blend.csv",                    "PRIMARY-3: nb563 final-blend 4-way SLSQP over {nb503,nb560,nb561,nb562}; honest cross-fit RAE 0.5123 (kept for diversity; nb562 alone strictly dominates)"),
     ("nb502_altfeat_router_maccs.csv",           "PRIMARY-4: nb502 alt-feature MACCS residual router (anchor=nb464, MACCS 167 bits decorrelated feature space); honest cross-fit RAE 0.5126 (beats nb492 0.5283 by -0.0157)"),
     ("nb492_alt_anchor_nb464.csv",               "PRIMARY-5: nb492 alt-anchor residual router on nb464 (residual LGBM swaps anchor from nb432 -> nb464); 5-fold cross-fit honest RAE 0.5283"),
