@@ -1,0 +1,46 @@
+{
+  "tag": "nb1101",
+  "alphas": [
+    0.1,
+    1.0,
+    10.0,
+    100.0,
+    1000.0
+  ],
+  "best_alpha": 1000.0,
+  "n_features": 3798,
+  "feature_split": {
+    "combined_morgan_rdkit": 2265,
+    "mordred": 1533
+  },
+  "oof_rae_random5f": 0.6240943290342256,
+  "in_rae_253": 0.6766235276679036,
+  "test_mean": 4.852047920227051,
+  "test_std": 0.6851271986961365,
+  "pearson_nb972": 0.8075344497686807,
+  "pearson_chemprop_aux": 0.7646284530710389,
+  "base_submission": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1101_linear_ridge.csv",
+  "bag_triggered_pearson_lt_thresh": true,
+  "bag_triggered_in_rae_lt_thresh": false,
+  "nb1014_bag": {
+    "ran": true,
+    "per_seed_pooled_rae": [
+      0.5989392764798646,
+      0.6008114459472134,
+      0.5896920689567312,
+      0.5923671345147846,
+      0.5934717139371164
+    ],
+    "mean_pooled_rae": 0.5950563279671421,
+    "std_pooled_rae": 0.004164533824958663,
+    "mean_w0_chemprop_aux": 0.7436673662980621,
+    "mean_w1_nb1101": 0.25633263370193793,
+    "mean_s": 1.194,
+    "deploy_mu_blend": 4.78713439504261,
+    "in_sample_rae_overfit_bound": 0.5900950580152579,
+    "submission": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1101_nb1014bag_chemprop_aux.csv",
+    "delta_vs_nb1014_ref": -0.004343672032857904,
+    "beats_nb1014": false
+  },
+  "wall_sec": 57.4
+}

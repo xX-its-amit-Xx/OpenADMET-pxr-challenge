@@ -1,0 +1,50 @@
+{
+  "tag": "nb1104",
+  "method": "tanimoto_knn_weighted_mean",
+  "k": 15,
+  "weight": "sim_squared",
+  "fp": "morgan_ecfp4_2048bit",
+  "n_train": 4139,
+  "n_test": 513,
+  "sim_matrix_shape": [
+    513,
+    4139
+  ],
+  "sim_mean": 0.1290382444858551,
+  "sim_max": 0.8064516186714172,
+  "top1_sim_mean": 0.532453179359436,
+  "top1_sim_median": 0.5230769515037537,
+  "top15_sim_mean": 0.3204406499862671,
+  "in_rae_253": 0.8182190445517316,
+  "test_mean": 4.919506072998047,
+  "test_std": 0.3502320349216461,
+  "pearson_nb972": 0.5318555547050019,
+  "pearson_chemprop_aux": 0.5378594063021079,
+  "pearson_nb1070": 0.5562759006975994,
+  "nb1070_in_rae_253": 0.5714565604380177,
+  "beats_nb1070": false,
+  "base_submission": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1104_knn_regressor.csv",
+  "bag_triggered_pearson_lt_thresh": true,
+  "bag_triggered_in_rae_lt_thresh": false,
+  "nb1014_bag": {
+    "ran": true,
+    "per_seed_pooled_rae": [
+      0.6129957025431231,
+      0.6128046229225931,
+      0.6118284488778171,
+      0.6109330311469859,
+      0.611083645884239
+    ],
+    "mean_pooled_rae": 0.6119290902749517,
+    "std_pooled_rae": 0.0008510297107279236,
+    "mean_w0_chemprop_aux": 0.9997117816335933,
+    "mean_w1_nb1104": 0.0002882183664066895,
+    "mean_s": 1.194,
+    "deploy_mu_blend": 4.796729106777709,
+    "in_sample_rae_overfit_bound": 0.6092365320096248,
+    "submission": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1104_nb1014bag_chemprop_aux.csv",
+    "delta_vs_nb1014_ref": 0.012529090274951638,
+    "beats_nb1014": false
+  },
+  "wall_sec": 1.26
+}

@@ -1,0 +1,55 @@
+{
+  "tag": "nb1103",
+  "params": {
+    "objective": "reg:pseudohubererror",
+    "huber_slope": 2.0,
+    "max_depth": 20,
+    "eta": 0.5,
+    "subsample": 0.5,
+    "colsample_bytree": 0.5,
+    "reg_lambda": 10.0,
+    "tree_method": "hist",
+    "nthread": 4,
+    "seed": 42
+  },
+  "num_rounds": 50,
+  "n_features": 2265,
+  "fold_scaffold_raes": [
+    0.6860913083816065,
+    0.7316718810529392,
+    0.7754430279347146,
+    0.7588634167840131,
+    0.7544867706526078
+  ],
+  "oof_rae_scaffold": 0.7359394574094684,
+  "in_rae_253": 0.9137871407748661,
+  "test_mean": 4.7329535484313965,
+  "test_std": 0.8536103367805481,
+  "te_oof_std_ratio": 0.8400397795280679,
+  "pearson_nb972": 0.7855595033456985,
+  "pearson_chemprop_aux": 0.678512880157149,
+  "base_submission": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1103_xgb_extreme.csv",
+  "bag_triggered_pearson_lt_thresh": true,
+  "bag_triggered_in_rae_lt_thresh": false,
+  "nb1014_bag": {
+    "ran": true,
+    "per_seed_pooled_rae": [
+      0.6151240549196821,
+      0.613366341978124,
+      0.6124057539589558,
+      0.611155247883366,
+      0.6119878938075681
+    ],
+    "mean_pooled_rae": 0.6128078585095392,
+    "std_pooled_rae": 0.0013595456343102785,
+    "mean_w0_chemprop_aux": 0.9943941698527122,
+    "mean_w1_nb1103": 0.005605830147287771,
+    "mean_s": 1.194,
+    "deploy_mu_blend": 4.795803142583585,
+    "in_sample_rae_overfit_bound": 0.609050656050176,
+    "submission": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1103_nb1014bag_chemprop_aux.csv",
+    "delta_vs_nb1014_ref": 0.013407858509539183,
+    "beats_nb1014": false
+  },
+  "wall_sec": 82.74
+}
