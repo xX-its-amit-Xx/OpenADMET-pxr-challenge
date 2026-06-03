@@ -1014,6 +1014,18 @@ Detects new analog labels in `data/raw/pxr-challenge_TRAIN.csv` (diff against `d
 
 ### Headline takeaways
 
+- **2026-06-03 CYCLE-2 — 5 distinct method-axes shipped (GP Tanimoto, AL ChEMBL proxy, MoE sparse, Contrastive SSL, Persistence Homology); nb914 Persistence Homology wins the cycle at in_RAE 0.7121**: Second diversity-driven cycle, broadening the PRE-unblind candidate pool with topological / kernel-based / routing axes orthogonal to CYCLE-1's neural/quantile family. Per-method honest in-sample RAE on the canonical 253-row unblind:
+
+  | # | Method | Notebook | in_RAE | Predicted LB | Verdict |
+  |---|---|---|---|---|---|
+  | 1 | **Persistence Homology** (topological descriptors over molecular graph filtrations) | nb914 | **0.7121** | ~0.72 | **CYCLE-2 WINNER**; topological invariants add a genuinely orthogonal residual axis; promoted CYCLE-2-1 |
+  | 2 | Active Learning ChEMBL proxy (query-by-committee on ChEMBL surrogate) | nb911 | 0.7263 | ~0.73 | Solid; ChEMBL-proxy AL query strategy adds calibrated label-efficiency signal; promoted CYCLE-2-2 |
+  | 3 | Gaussian Process w/ Tanimoto kernel | nb910 | 0.7275 | ~0.73 | Competitive; GP-Tanimoto gives well-calibrated kernel posterior but trails nb914 by 0.015; promoted CYCLE-2-3 |
+  | 4 | Mixture-of-Experts sparse routing | nb912 | 0.8421 | ~0.84 | Worst of cycle; sparse-routing failed to specialize meaningfully at n=4139; promoted CYCLE-2-4 for diversity only |
+  | 5 | Contrastive SSL | nb913 | N/A | n/a | **No CSV produced** — contrastive objective failed to converge in budget; deferred to cycle 3 |
+
+  **Lessons learned**: (a) **Persistence Homology delivers the cycle's best lift** — topological features (Betti numbers / persistence diagrams over Morgan-radius filtrations) capture a residual chemistry axis that fingerprint + descriptor stacks miss; the 0.7121 in_RAE places it above CYCLE-1's nb900 LLM but below nb901 NR-multitask. (b) **GP Tanimoto vs AL ChEMBL proxy is essentially a tie at the 0.726 band** — both give well-calibrated kernel/uncertainty signals but neither beats CYCLE-1's NR-multitask; useful for ensemble diversity, not standalone wins. (c) **MoE sparse routing needs much more data than 4139 to specialize** — sparse-expert routing collapses to a near-uniform gate at this scale; revisit if/when Phase-2 unblind expands the training pool. (d) **Contrastive SSL is the SECOND cycle of pretraining failure** (after CYCLE-1's nb904) — strongly suggests the contrastive/MIM-style objective needs an external pretraining checkpoint rather than from-scratch on 4139 CRC labels. (e) **No CYCLE-2 method beats CYCLE-1's nb901 (0.6765)** — diversity is now ahead of in_RAE; the next ladder gain has to come from a CYCLE-1 + CYCLE-2 blend, not a standalone CYCLE-2 winner. **Ladder change**: nb914 → CYCLE-2-1; nb911 → CYCLE-2-2; nb910 → CYCLE-2-3; nb912 → CYCLE-2-4; nb913 deferred. Cycle log at `C:/pxr_artifacts/cycle2_summary.json`.
+
 - **2026-06-03 CYCLE-1 — 5 distinct method-axes shipped (LLM, NR-multitask, SMILES-aug TTT, quantile conformal, SSL pretrain-FT); nb901 NR-multitask wins the cycle at in_RAE 0.6765**: First diversity-driven cycle since the 2026-06-01 LB-regime split; goal was to spawn five orthogonal method families and pick the in_RAE leaders to feed the PRE-unblind candidate pool. Per-method honest in-sample RAE on the canonical 253-row unblind:
 
   | # | Method | Notebook | in_RAE | Predicted LB | Verdict |

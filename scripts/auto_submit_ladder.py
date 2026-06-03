@@ -32,6 +32,17 @@ RATE_LIMIT_HOURS = 4
 # Hand-curated priority ladder (safest first → aggressive last).
 # When ladder is exhausted, falls back to FRESHEST un-submitted nb3*_truth.csv.
 LADDER = [
+    # === CYCLE-2 2026-06-03: 5 distinct method-axes (GP Tanimoto, AL ChEMBL proxy,
+    # MoE sparse, Contrastive SSL, Persistence Homology). Sorted ascending by in_RAE
+    # on canonical 253 unblind. nb913 Contrastive SSL was N/A (no submission produced);
+    # kept only in cycle log. All PRE-unblind -> predicted LB ~= in_RAE + 0.003.
+    # Placed below CYCLE-1 ladder (above PRIMARY tier) since none has been LB-validated.
+    ("nb914_persistence_homology.csv",           "CYCLE-2-1: nb914 Persistence Homology features (topological descriptors); in_RAE 0.7121; predicted LB ~0.72"),
+    ("nb911_al_chembl_proxy.csv",                "CYCLE-2-2: nb911 Active Learning ChEMBL proxy (query-by-committee on ChEMBL surrogate); in_RAE 0.7263; predicted LB ~0.73"),
+    ("nb910_gp_tanimoto.csv",                    "CYCLE-2-3: nb910 Gaussian Process w/ Tanimoto kernel; in_RAE 0.7275; predicted LB ~0.73"),
+    ("nb912_moe_sparse_routing.csv",             "CYCLE-2-4: nb912 Mixture-of-Experts sparse routing; in_RAE 0.8421; predicted LB ~0.84"),
+    # nb913 Contrastive SSL: N/A this cycle (no CSV produced); see C:/pxr_artifacts/cycle2_summary.json
+
     # === CYCLE-1 2026-06-03: 5 distinct method-axes (LLM, NR-multitask, SMILES-aug TTT,
     # quantile conformal, SSL pretrain-FT). Sorted ascending by in_RAE on canonical
     # 253 unblind. nb904 SSL was N/A (no submission produced); kept only in cycle log.
