@@ -1,0 +1,25 @@
+{
+  "oof_rae": 0.3801129655557607,
+  "in_rae": 0.7451228612866115,
+  "te_std": 0.6454620764807233,
+  "oof_std": 0.9844108937004881,
+  "ratio": 0.655683597785447,
+  "n_paired": 2647,
+  "n_imputed_train": 1492,
+  "n_imputed_test": 513,
+  "knn_k": 5,
+  "test_top1_sim_median": 0.52173912525177,
+  "train_missing_top1_sim_median": 0.3378378450870514,
+  "n_meta_kept": 7,
+  "meta_kept": [
+    "nb107_assay_decomp",
+    "nb109_deep_meta_stack",
+    "nb101_delta_base",
+    "nb99_sc_bio_fp",
+    "grand_v6b",
+    "lgbm_tuned",
+    "catboost"
+  ],
+  "beats_chemprop_aux_0_6216": false,
+  "wall_time_s": 132.41687631607056
+}

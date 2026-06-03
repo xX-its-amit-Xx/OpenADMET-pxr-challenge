@@ -1,0 +1,11 @@
+{
+  "oof_rae_crc": 0.6618865157937124,
+  "in_rae_253": 0.6978497183931641,
+  "te_std": 0.5618910387483947,
+  "oof_std": 0.684718099192743,
+  "te_oof_ratio": 0.8206166003364644,
+  "n_external_unique": 18654,
+  "n_crc": 4139,
+  "wall_seconds": 370.3,
+  "beats_chemprop_aux_0_6216": false
+}

@@ -1,0 +1,20 @@
+{
+  "oof_rae": 0.38292623818215454,
+  "in_rae": 0.7447662509258827,
+  "te_std": 0.6412641568387839,
+  "oof_std": 0.9836873957307892,
+  "ratio": 0.6518983160929734,
+  "n_new_features": 6,
+  "n_aug_cols": 18,
+  "n_meta_kept": 7,
+  "meta_kept": [
+    "nb107_assay_decomp",
+    "nb109_deep_meta_stack",
+    "nb101_delta_base",
+    "nb99_sc_bio_fp",
+    "grand_v6b",
+    "lgbm_tuned",
+    "catboost"
+  ],
+  "beats_chemprop_aux_0_6216": false
+}

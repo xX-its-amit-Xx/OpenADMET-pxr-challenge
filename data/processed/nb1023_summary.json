@@ -1,0 +1,41 @@
+{
+  "tag": "nb1023",
+  "params": {
+    "objective": "reg:pseudohubererror",
+    "huber_slope": 2.0,
+    "max_depth": 8,
+    "eta": 0.005,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "min_child_weight": 20,
+    "reg_lambda": 0.2,
+    "tree_method": "hist",
+    "nthread": 4,
+    "seed": 42
+  },
+  "n_estimators_cap": 2000,
+  "early_stopping_rounds": 200,
+  "fold_best_iters": [
+    2000,
+    1667,
+    2000,
+    2000,
+    1984
+  ],
+  "fold_raes": [
+    0.48206694508268644,
+    0.5703334115426804,
+    0.5810849865558195,
+    0.5567387363055852,
+    0.5940755708455352
+  ],
+  "mean_best_iter": 1930,
+  "oof_rae": 0.5519568934595281,
+  "in_rae_253": 0.7119598379245498,
+  "test_std": 0.5975832853907467,
+  "te_oof_std_ratio": 0.690018000060976,
+  "pearson_with_nb972_513": 0.9822563964875548,
+  "pearson_threshold": 0.95,
+  "blend_skipped_reason": "Pearson 0.9823 >= 0.95",
+  "wall_sec": 202.17
+}

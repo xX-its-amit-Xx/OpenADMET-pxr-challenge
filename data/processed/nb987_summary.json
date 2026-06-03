@@ -1,0 +1,102 @@
+{
+  "candidates": [
+    "chemprop_aux",
+    "nb901_nr_multitask",
+    "nb972_long_train",
+    "nb914_persistence_homology",
+    "nb960_pseudo_self_train",
+    "nb923_wl_graph_kernel",
+    "nb120_huber_1_0"
+  ],
+  "indiv_in_rae": {
+    "chemprop_aux": 0.6215728863514471,
+    "nb901_nr_multitask": 0.6765497465797135,
+    "nb972_long_train": 0.6897558359185051,
+    "nb914_persistence_homology": 0.7062430518106672,
+    "nb960_pseudo_self_train": 0.6951270420579556,
+    "nb923_wl_graph_kernel": 0.7052689783032147,
+    "nb120_huber_1_0": 0.7460841977755746
+  },
+  "uniform_in_rae": 0.6348886821180383,
+  "betas": [
+    1.0,
+    2.0,
+    5.0,
+    10.0,
+    20.0
+  ],
+  "sweep": {
+    "1.0": {
+      "rae": 0.633859466363492,
+      "weights": {
+        "chemprop_aux": 0.1531127031957295,
+        "nb901_nr_multitask": 0.14492225296682174,
+        "nb972_long_train": 0.14302097857857746,
+        "nb914_persistence_homology": 0.14068229301107296,
+        "nb960_pseudo_self_train": 0.14225484279887576,
+        "nb923_wl_graph_kernel": 0.14081939466836843,
+        "nb120_huber_1_0": 0.13518753478055404
+      }
+    },
+    "2.0": {
+      "rae": 0.6327851321461126,
+      "weights": {
+        "chemprop_aux": 0.1639008110037552,
+        "nb901_nr_multitask": 0.14683473658728055,
+        "nb972_long_train": 0.14300727952957099,
+        "nb914_persistence_homology": 0.13836859503964022,
+        "nb960_pseudo_self_train": 0.14147925838490186,
+        "nb923_wl_graph_kernel": 0.1386384201491757,
+        "nb120_huber_1_0": 0.12777089930567553
+      }
+    },
+    "5.0": {
+      "rae": 0.6295717178360882,
+      "weights": {
+        "chemprop_aux": 0.1995004055686109,
+        "nb901_nr_multitask": 0.1515524800766466,
+        "nb972_long_train": 0.1418686346630308,
+        "nb914_persistence_homology": 0.13064261195015767,
+        "nb960_pseudo_self_train": 0.13810931243914673,
+        "nb923_wl_graph_kernel": 0.1312804414576453,
+        "nb120_huber_1_0": 0.10704611384476194
+      }
+    },
+    "10.0": {
+      "rae": 0.6237384302950238,
+      "weights": {
+        "chemprop_aux": 0.2694125154392661,
+        "nb901_nr_multitask": 0.15547347174119688,
+        "nb972_long_train": 0.13623948059799024,
+        "nb914_persistence_homology": 0.115531366557687,
+        "nb960_pseudo_self_train": 0.12911482988387638,
+        "nb923_wl_graph_kernel": 0.11666222575053183,
+        "nb120_huber_1_0": 0.0775661100294515
+      }
+    },
+    "20.0": {
+      "rae": 0.6143983593330855,
+      "weights": {
+        "chemprop_aux": 0.44000156449379946,
+        "nb901_nr_multitask": 0.14653159606597635,
+        "nb972_long_train": 0.11251868438006939,
+        "nb914_persistence_homology": 0.08091303803088828,
+        "nb960_pseudo_self_train": 0.1010580564913607,
+        "nb923_wl_graph_kernel": 0.08250479753079962,
+        "nb120_huber_1_0": 0.03647226300710609
+      }
+    }
+  },
+  "best_beta": 20.0,
+  "best_in_rae": 0.6143983593330855,
+  "best_weights": {
+    "chemprop_aux": 0.44000156449379946,
+    "nb901_nr_multitask": 0.14653159606597635,
+    "nb972_long_train": 0.11251868438006939,
+    "nb914_persistence_homology": 0.08091303803088828,
+    "nb960_pseudo_self_train": 0.1010580564913607,
+    "nb923_wl_graph_kernel": 0.08250479753079962,
+    "nb120_huber_1_0": 0.03647226300710609
+  },
+  "wall_sec": 0.02
+}

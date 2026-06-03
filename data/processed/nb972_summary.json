@@ -1,0 +1,36 @@
+{
+  "params": {
+    "objective": "huber",
+    "alpha": 2.0,
+    "n_estimators": 10000,
+    "learning_rate": 0.005,
+    "num_leaves": 64,
+    "min_child_samples": 20,
+    "reg_lambda": 0.2,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "random_state": 42,
+    "n_jobs": 4
+  },
+  "early_stopping_rounds": 500,
+  "fold_best_iters": [
+    2650,
+    1635,
+    2994,
+    2472,
+    2532
+  ],
+  "fold_raes": [
+    0.4857963238178614,
+    0.5768242216885254,
+    0.5877642235628783,
+    0.5633589825678499,
+    0.5932112948901024
+  ],
+  "mean_best_iter": 2456,
+  "oof_rae": 0.556451747496649,
+  "in_rae_253": 0.6897558359185051,
+  "test_std": 0.6325074695155203,
+  "te_oof_std_ratio": 0.7252806876577118,
+  "wall_time_sec": 233.03243851661682
+}
