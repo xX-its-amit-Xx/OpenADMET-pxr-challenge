@@ -1,0 +1,64 @@
+{
+  "tag": "nb1114",
+  "anchor": "nb1014",
+  "seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "wide_quantile": 0.75,
+  "shrink_factor": 0.3,
+  "train_median": 4.65,
+  "in_rae_anchor_on_253": 0.5871182220477704,
+  "nb1070_bag_median_rae": 0.5771305166381785,
+  "shrunk_oof_rae": 0.5768502567904412,
+  "delta_vs_nb1070": -0.0002802598477372742,
+  "beats_nb1070": true,
+  "verdict": "GATED_SHRINK_TIES",
+  "n_wide_253": 64,
+  "n_narrow_253": 189,
+  "q75_std_253": 0.03310622436462972,
+  "row_std_min": 0.0,
+  "row_std_median": 0.015452202742879487,
+  "row_std_max": 0.17692276534998205,
+  "wide_rae_before": 0.7189428428706319,
+  "wide_rae_after": 0.7178045844115023,
+  "narrow_rae": 0.5429638900962289,
+  "n_wide_513": 129,
+  "q75_std_513": 0.00808059886306541,
+  "deploy_row_std_min": 1.3165252094069844e-05,
+  "deploy_row_std_median": 0.004336814708026471,
+  "deploy_row_std_max": 0.03367966672429297,
+  "in_rae_deploy_nb1070_equiv": 0.5714565735626477,
+  "in_rae_deploy_shrunk_on_253": 0.5754878943891982,
+  "deploy_te_mean": 4.828207492828369,
+  "deploy_te_std": 0.6561750173568726,
+  "anchor_te_mean": 4.831946712720696,
+  "anchor_te_std": 0.712020463399611,
+  "plain_submission": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1114_conformal_qr.csv",
+  "per_seed_records": [
+    {
+      "seed": 0,
+      "pooled_rae": 0.5823301067612162
+    },
+    {
+      "seed": 1,
+      "pooled_rae": 0.5797446896193795
+    },
+    {
+      "seed": 7,
+      "pooled_rae": 0.5852147535979683
+    },
+    {
+      "seed": 42,
+      "pooled_rae": 0.5779907221149416
+    },
+    {
+      "seed": 137,
+      "pooled_rae": 0.581965483863237
+    }
+  ],
+  "wall_sec": 0.07
+}

@@ -92,12 +92,20 @@ def main() -> dict:
     splits = scaffold_kfold_indices(scaffolds, N_FOLDS, SEED)
 
     # ---- features ----
-    print("[feat] computing combined Morgan(2048)+RDKit(217)=2265 ...")
+    cache_p = DATA_PROCESSED / "cache_combined_features.npz"
     t_c = time.time()
-    X_tr_c = impute(combined(tr["smiles"].tolist())).astype(np.float32)
-    X_te_c = impute(combined(te["smiles"].tolist())).astype(np.float32)
-    print(f"[feat] combined: X_tr={X_tr_c.shape}  X_te={X_te_c.shape}  "
-          f"({time.time()-t_c:.1f}s)")
+    if cache_p.exists():
+        z = np.load(cache_p)
+        X_tr_c = z["X_tr"].astype(np.float32)
+        X_te_c = z["X_te"].astype(np.float32)
+        print(f"[feat] combined (cache): X_tr={X_tr_c.shape}  X_te={X_te_c.shape}  "
+              f"({time.time()-t_c:.1f}s)")
+    else:
+        print("[feat] computing combined Morgan(2048)+RDKit(217)=2265 ...")
+        X_tr_c = impute(combined(tr["smiles"].tolist())).astype(np.float32)
+        X_te_c = impute(combined(te["smiles"].tolist())).astype(np.float32)
+        print(f"[feat] combined: X_tr={X_tr_c.shape}  X_te={X_te_c.shape}  "
+              f"({time.time()-t_c:.1f}s)")
 
     # ---- cached Mordred (nb1030 artifacts) ----
     mtr_p = MORDRED_DIR / "X_mordred_train.npy"

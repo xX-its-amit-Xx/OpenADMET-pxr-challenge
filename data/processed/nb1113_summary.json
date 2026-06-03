@@ -1,0 +1,42 @@
+{
+  "tag": "nb1113_meta_mlp",
+  "feature_cols": [
+    "chemprop_aux",
+    "nb972",
+    "ridge_nb1101",
+    "knn_nb1104",
+    "mordred_nb1030",
+    "logp",
+    "mw",
+    "tpsa"
+  ],
+  "n_features": 8,
+  "hidden": 16,
+  "dropout": 0.3,
+  "l2": 0.0001,
+  "lr": 0.001,
+  "max_epochs": 300,
+  "patience": 20,
+  "val_frac": 0.2,
+  "huber_delta": 1.0,
+  "n_folds": 5,
+  "seed": 0,
+  "n_unb": 253,
+  "per_fold_rae": [
+    2.240273667877673,
+    1.4215505543245626,
+    1.8972701479099239,
+    2.130711384991153,
+    2.2773518388626472
+  ],
+  "per_fold_mean": 1.9934315187931921,
+  "per_fold_std": 0.315176903705851,
+  "pooled_rae": 1.9624947588598431,
+  "chemprop_in_rae": 0.6215728789062577,
+  "nb972_in_rae": 0.6897558190451296,
+  "nb1070_reference": 0.5771,
+  "delta_vs_nb1070": 1.3853947588598432,
+  "beats_nb1070": false,
+  "verdict": "WORSE_THAN_NB1070",
+  "wall_sec": 2.79
+}
