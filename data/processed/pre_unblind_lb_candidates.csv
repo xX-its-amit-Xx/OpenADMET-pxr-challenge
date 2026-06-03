@@ -1,6 +1,11 @@
 file,nb_num,in_RAE,n_test
 te_nb900_llm_retry,900.0,0.0,513
+te_nb988_nb982_stretch,988.0,0.5863,513
+te_nb986_asymmetric_blend,986.0,0.6105,513
 te_nb982_best_blend,982.0,0.6107,513
+te_nb989_chemprop_aux_affine,989.0,0.6116,513
+te_nb987_exp_avg_ensemble,987.0,0.6144,513
+te_nb985_extended_blend,985.0,0.6188,513
 te_chemprop_aux_BAD4141,,0.6215728863514471,513
 te_chemprop_aux,,0.6215728863514471,513
 te_grand_v6b_calib,,0.6408770970494169,513
