@@ -1,0 +1,87 @@
+{
+  "tag": "nb1163",
+  "anchor": "nb1070",
+  "feature_source": "avalon512_cached_te_avalon512_npy",
+  "n_unb": 253,
+  "resid_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "resid_folds": 5,
+  "feature_dim": 512,
+  "lgbm_max_depth": 3,
+  "lgbm_num_leaves": 7,
+  "lgbm_n_estimators": 80,
+  "lgbm_learning_rate": 0.05,
+  "lgbm_min_child_samples": 20,
+  "rae_anchor_nb1070": 0.5771305166381785,
+  "residual_mean": -0.1019658057365929,
+  "residual_std": 0.6666145784833671,
+  "per_seed_rae": [
+    0.577751977968073,
+    0.6001105654339968,
+    0.5936467032591259,
+    0.5837025858518559,
+    0.5836923224611015
+  ],
+  "per_seed_records": [
+    {
+      "seed": 0,
+      "rae_corrected": 0.577751977968073,
+      "delta_vs_nb1070": 0.0006214613298944904,
+      "resid_oof_std": 0.24247328255731593,
+      "resid_oof_mean": -0.08508669555303867
+    },
+    {
+      "seed": 1,
+      "rae_corrected": 0.6001105654339968,
+      "delta_vs_nb1070": 0.022980048795818275,
+      "resid_oof_std": 0.25361293350616104,
+      "resid_oof_mean": -0.0702629660073445
+    },
+    {
+      "seed": 7,
+      "rae_corrected": 0.5936467032591259,
+      "delta_vs_nb1070": 0.01651618662094745,
+      "resid_oof_std": 0.23240201674325925,
+      "resid_oof_mean": -0.08322333993757573
+    },
+    {
+      "seed": 42,
+      "rae_corrected": 0.5837025858518559,
+      "delta_vs_nb1070": 0.006572069213677367,
+      "resid_oof_std": 0.24592751540155203,
+      "resid_oof_mean": -0.07460466916860294
+    },
+    {
+      "seed": 137,
+      "rae_corrected": 0.5836923224611015,
+      "delta_vs_nb1070": 0.006561805822922984,
+      "resid_oof_std": 0.24152525841799205,
+      "resid_oof_mean": -0.07109933441429793
+    }
+  ],
+  "rae_per_seed_mean": 0.5877808309948306,
+  "rae_per_seed_median": 0.5837025858518559,
+  "rae_per_seed_std": 0.008004457349130769,
+  "rae_per_seed_min": 0.577751977968073,
+  "rae_per_seed_max": 0.6001105654339968,
+  "rae_mean_bag": 0.5787704538567244,
+  "rae_median_bag": 0.5816559634686868,
+  "delta_mean_bag_vs_nb1070": 0.0016399372185459393,
+  "delta_median_bag_vs_nb1070": 0.004525446830508262,
+  "delta_mean_bag_vs_nb1130": 0.011470453856724405,
+  "delta_mean_bag_vs_nb1153": 0.014770453856724486,
+  "beats_nb1070": false,
+  "beats_nb1130": false,
+  "beats_nb1153": false,
+  "verdict": "AVALON_RESIDUAL_FLAT_NO_NEW_SIGNAL",
+  "nb1070_ref_pooled": 0.579,
+  "nb1130_mean_bag_ref": 0.5673,
+  "nb1143_anchor_ref": 0.5649,
+  "nb1153_mean_bag_ref": 0.564,
+  "wall_sec": 0.83
+}
