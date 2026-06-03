@@ -1,0 +1,37 @@
+{
+  "tag": "nb1014_cycle4_nb932",
+  "candidates": [
+    "chemprop_aux",
+    "nb972_long_train",
+    "nb932"
+  ],
+  "indiv_in_rae": {
+    "chemprop_aux": 0.6215728863514471,
+    "nb972_long_train": 0.6897558359185051,
+    "nb932": 0.6984892438383302
+  },
+  "per_seed_pooled_rae": [
+    0.5945436893672046,
+    0.5938309403421365,
+    0.59223262476089,
+    0.5992113236126596,
+    0.5873613655368064
+  ],
+  "mean_pooled_rae": 0.5934359887239393,
+  "std_pooled_rae": 0.0038232607095487286,
+  "nb1014_reference": 0.5994,
+  "delta_vs_nb1014": -0.005964011276060721,
+  "verdict": "BEATS_NB1014",
+  "mean_w": [
+    0.7319604613936237,
+    0.12017281381573597,
+    0.14786672479064036
+  ],
+  "mean_s": 1.256,
+  "deploy_mu_blend": 4.760720905681054,
+  "in_sample_rae": 0.5837147620599695,
+  "deploy_te_mean": 4.828537464141846,
+  "deploy_te_std": 0.7102491855621338,
+  "plain_submission": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1014_cycle4_nb932.csv",
+  "wall_sec": 0.06
+}
