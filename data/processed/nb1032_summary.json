@@ -1,0 +1,43 @@
+{
+  "tag": "nb1032",
+  "params": {
+    "objective": "huber",
+    "alpha": 2.0,
+    "n_estimators": 2000,
+    "learning_rate": 0.02,
+    "num_leaves": 64,
+    "min_child_samples": 20,
+    "reg_lambda": 0.2,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "random_state": 42,
+    "n_jobs": 4
+  },
+  "sp_weight": 0.2,
+  "crc_weight": 1.0,
+  "pec50_clip": [
+    2.0,
+    8.0
+  ],
+  "n_crc_rows": 4139,
+  "n_sp_rows": 16003,
+  "n_total_rows": 20142,
+  "sp_unique_smiles": 8477,
+  "crude_pec50_min": 3.450452160086762,
+  "crude_pec50_median": 4.114329252758178,
+  "crude_pec50_max": 6.089362521325933,
+  "crude_pec50_std": 0.16563636998331543,
+  "in_rae_253": 0.7552605623203348,
+  "te_mean_513": 4.678824942504061,
+  "te_std_513": 0.5080069131276913,
+  "pearson_with_nb972": 0.9082385265234637,
+  "pearson_with_chemprop_aux": 0.7115481128806499,
+  "bagged_3way_in_rae": 0.6484548857049474,
+  "bag_weights": "equal_3way",
+  "bag_submission": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1032_bag_chemprop_aux_nb972.csv",
+  "plain_submission": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1032_sp_only_training.csv",
+  "nb1014_ref": 0.5994,
+  "delta_vs_nb1014": 0.15586056232033474,
+  "verdict": "WORSE_THAN_NB1014",
+  "wall_sec": 241.43
+}

@@ -1,0 +1,146 @@
+{
+  "tag": "nb1031",
+  "shared_params": {
+    "n_estimators": 1500,
+    "learning_rate": 0.03,
+    "num_leaves": 64,
+    "min_child_samples": 20,
+    "reg_lambda": 0.2,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "random_state": 42,
+    "verbose": -1,
+    "n_jobs": 4
+  },
+  "objectives": [
+    "huber",
+    "regression_l1",
+    "quantile",
+    "poisson",
+    "regression"
+  ],
+  "pearson_threshold": 0.95,
+  "per_objective": [
+    {
+      "name": "huber",
+      "params_used": {
+        "objective": "huber",
+        "alpha": 2.0
+      },
+      "fold_raes": [
+        0.4937729149388634,
+        0.58389994628675,
+        0.5978170369494396,
+        0.5681797400836566,
+        0.5971651582353975
+      ],
+      "oof_rae": 0.5632313638577309,
+      "in_rae_253": 0.692438977619509,
+      "pearson_nb972": 0.9899063690624331,
+      "te_mean": 4.802893161773682,
+      "te_std": 0.6586467027664185,
+      "submission": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1031_huber.csv",
+      "wall_sec": 97.8
+    },
+    {
+      "name": "regression_l1",
+      "params_used": {
+        "objective": "regression_l1"
+      },
+      "fold_raes": [
+        0.48863823897601133,
+        0.559549519284399,
+        0.5955941326587886,
+        0.5474292137835131,
+        0.5940453637710956
+      ],
+      "oof_rae": 0.5522865315743917,
+      "in_rae_253": 0.7130240330856448,
+      "pearson_nb972": 0.9666939796981711,
+      "te_mean": 4.763843536376953,
+      "te_std": 0.5710453987121582,
+      "submission": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1031_regression_l1.csv",
+      "wall_sec": 106.41
+    },
+    {
+      "name": "quantile",
+      "params_used": {
+        "objective": "quantile",
+        "alpha": 0.5
+      },
+      "fold_raes": [
+        0.4906695920885027,
+        0.5533516048399166,
+        0.5967766113996135,
+        0.5498930423385694,
+        0.5960585667765267
+      ],
+      "oof_rae": 0.5526028919956562,
+      "in_rae_253": 0.7207772658207964,
+      "pearson_nb972": 0.9624537872673326,
+      "te_mean": 4.764693737030029,
+      "te_std": 0.5790899991989136,
+      "submission": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1031_quantile.csv",
+      "wall_sec": 106.37
+    },
+    {
+      "name": "poisson",
+      "params_used": {
+        "objective": "poisson"
+      },
+      "fold_raes": [
+        0.5007588775263483,
+        0.5889058679567963,
+        0.6005048667863487,
+        0.5783672536668446,
+        0.6061697414719233
+      ],
+      "oof_rae": 0.5699674040200328,
+      "in_rae_253": 0.6969202974496407,
+      "pearson_nb972": 0.9849670293636447,
+      "te_mean": 4.743526935577393,
+      "te_std": 0.6734161376953125,
+      "submission": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1031_poisson.csv",
+      "wall_sec": 96.62
+    },
+    {
+      "name": "regression",
+      "params_used": {
+        "objective": "regression"
+      },
+      "fold_raes": [
+        0.49207830218063775,
+        0.5824632603307227,
+        0.5891130250774468,
+        0.5701092831941086,
+        0.5997813449958133
+      ],
+      "oof_rae": 0.5617709701798212,
+      "in_rae_253": 0.6842894719019584,
+      "pearson_nb972": 0.9899637285060393,
+      "te_mean": 4.799488067626953,
+      "te_std": 0.6586407423019409,
+      "submission": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1031_regression.csv",
+      "wall_sec": 97.76
+    }
+  ],
+  "per_obj_in_rae_253": {
+    "huber": 0.692438977619509,
+    "regression_l1": 0.7130240330856448,
+    "quantile": 0.7207772658207964,
+    "poisson": 0.6969202974496407,
+    "regression": 0.6842894719019584
+  },
+  "per_obj_pearson_nb972": {
+    "huber": 0.9899063690624331,
+    "regression_l1": 0.9666939796981711,
+    "quantile": 0.9624537872673326,
+    "poisson": 0.9849670293636447,
+    "regression": 0.9899637285060393
+  },
+  "orthogonal_candidates": [],
+  "bag_results": [],
+  "best_bag": null,
+  "nb1014_ref_rae": 0.5994,
+  "wall_sec": 556.2
+}
