@@ -1,0 +1,71 @@
+{
+  "tag": "nb1030",
+  "cached_run": true,
+  "mordred_notes": {
+    "backend": "mordred",
+    "n_proc": 4,
+    "mordred_n_desc": 1613,
+    "valid_smiles": 4652,
+    "raw_shape": [
+      4652,
+      1613
+    ]
+  },
+  "n_features_kept": 1533,
+  "lgb_params": {
+    "objective": "huber",
+    "alpha": 2.0,
+    "n_estimators": 2000,
+    "learning_rate": 0.025,
+    "num_leaves": 128,
+    "min_child_samples": 20,
+    "reg_lambda": 0.2,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "random_state": 42,
+    "n_jobs": 4
+  },
+  "fold_best_iters": [
+    1997,
+    473,
+    447,
+    426,
+    232
+  ],
+  "fold_raes": [
+    0.49591373010452877,
+    0.5666655928209777,
+    0.6079762562198898,
+    0.5657058822234237,
+    0.6129443454124047
+  ],
+  "mean_best_iter": 715,
+  "oof_rae": 0.5648236977855738,
+  "in_rae_253": 0.7206506225144002,
+  "test_mean": 4.705912113189697,
+  "test_std": 0.6311404705047607,
+  "pearson_nb972": 0.927985550115685,
+  "pearson_chemprop_aux": 0.7871588471278931,
+  "base_submission": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1030_mordred_lgbm.csv",
+  "nb1014_bag": {
+    "ran": true,
+    "per_seed_pooled_rae": [
+      0.6012442497974528,
+      0.6045652631262143,
+      0.59964707028903,
+      0.6015815206139896,
+      0.6021288172165495
+    ],
+    "mean_pooled_rae": 0.6018333842086473,
+    "std_pooled_rae": 0.001596303621638749,
+    "mean_w0_chemprop_aux": 0.8233810161932211,
+    "mean_w1_nb1030": 0.17661898380677887,
+    "mean_s": 1.234,
+    "deploy_mu_blend": 4.759284334416732,
+    "in_sample_rae_overfit_bound": 0.5963598921572102,
+    "submission": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1030_nb1014bag_chemprop_aux.csv",
+    "delta_vs_nb1014_ref": 0.002433384208647249,
+    "beats_nb1014": false
+  },
+  "wall_sec": 494.27
+}

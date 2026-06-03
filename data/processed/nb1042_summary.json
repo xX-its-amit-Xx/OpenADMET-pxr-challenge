@@ -1,0 +1,24 @@
+{
+  "tag": "nb1042",
+  "feature_set": "avalon_512",
+  "lgbm": {
+    "objective": "huber",
+    "alpha": 2.0,
+    "n_estimators": 1500,
+    "num_leaves": 64,
+    "lr": 0.03
+  },
+  "oof_rae": 0.6850962747953251,
+  "in_rae_253": 0.7968371168903194,
+  "pearson_with_nb972": 0.565323047801532,
+  "pearson_threshold": 0.95,
+  "bag_done": true,
+  "bag_in_rae": 0.6659104360289015,
+  "nb1014_in_rae": 0.5871182220477704,
+  "beats_nb1014": false,
+  "deploy_te_mean": 4.9145652242929065,
+  "deploy_te_std": 0.5203647443530579,
+  "plain_submission": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1042_avalon_fp_lgbm.csv",
+  "bag_submission": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1042_avalon_bag_chemprop.csv",
+  "wall_sec": 15.19
+}
