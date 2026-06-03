@@ -32,6 +32,16 @@ RATE_LIMIT_HOURS = 4
 # Hand-curated priority ladder (safest first → aggressive last).
 # When ladder is exhausted, falls back to FRESHEST un-submitted nb3*_truth.csv.
 LADDER = [
+    # === CYCLE-1 2026-06-03: 5 distinct method-axes (LLM, NR-multitask, SMILES-aug TTT,
+    # quantile conformal, SSL pretrain-FT). Sorted ascending by in_RAE on canonical
+    # 253 unblind. nb904 SSL was N/A (no submission produced); kept only in cycle log.
+    # All are PRE-unblind regime -> predicted LB ~= in_RAE + 0.003 transfer.
+    ("nb901_nr_multitask.csv",                   "CYCLE-1-1: nb901 NR-multitask LGBM (multi-NR transfer w/ shared trunk); in_RAE 0.6765; predicted LB ~0.68"),
+    ("nb902_smiles_aug_ttt.csv",                 "CYCLE-1-2: nb902 SMILES-augmented test-time training (TTT); in_RAE 0.6998; predicted LB ~0.70"),
+    ("nb903_quantile_conformal.csv",             "CYCLE-1-3: nb903 quantile-regression conformal prediction (q10/q50/q90 calibrated); in_RAE 0.7240; predicted LB ~0.73"),
+    ("nb900_llm.csv",                            "CYCLE-1-4: nb900 LLM-based predictor (prompted, te_nb900.npy); in_RAE 0.8500; predicted LB ~0.85"),
+    # nb904 SSL pretrain-FT: N/A this cycle (no CSV produced); see C:/pxr_artifacts/cycle1_summary.json
+
     # === URGENT REORDER 2026-06-01: HONEST PREDICTED-LB ORDER ===
     # Prior nb700-series + nb503/nb562/nb472-family entries were all trained-on-unblind
     # (cross-fit on the 253 unblinded labels). Predicted LB = max(in_RAE * 1.5, ~0.55) per
