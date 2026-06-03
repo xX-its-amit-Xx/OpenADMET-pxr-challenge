@@ -1,0 +1,51 @@
+{
+  "tag": "nb1081",
+  "seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "n_folds": 5,
+  "feature_dim": 2266,
+  "per_seed_oof_rae": [
+    0.5850475670207529,
+    0.5851692848682923,
+    0.5835719774232369,
+    0.5836164714040033,
+    0.5831336490921089
+  ],
+  "bag_oof_rae_on_4139": 0.5792859791243443,
+  "in_rae_bag_on_253": 0.6777467374344873,
+  "in_rae_chemprop_aux_on_253": 0.6215728863514471,
+  "in_rae_nb972_on_253": 0.6897558359185051,
+  "pearson_bag_nb972_513": 0.8149896989120173,
+  "pearson_bag_chemprop_aux_513": 0.9057546925299215,
+  "pearson_bag_nb972_253": 0.8275424987001888,
+  "orthogonal_lt_0p95": true,
+  "te_bag_mean": 5.005889478526999,
+  "te_bag_std": 0.6544937136558929,
+  "new_blend_summary": {
+    "per_seed_rae": [
+      0.6126554190182882,
+      0.6117981989087713,
+      0.6113277189380137,
+      0.609804584902242,
+      0.6094401899769086
+    ],
+    "mean_rae": 0.6110052223488448,
+    "std_rae": 0.001212173380820892,
+    "mean_w0": 0.9681607814952174,
+    "mean_s": 1.194,
+    "deploy_in_rae_253": 0.6071616321554744,
+    "deploy_w0_chemprop_aux": 0.9681607814952174,
+    "deploy_s": 1.194,
+    "plain_submission": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1081_new_blend.csv"
+  },
+  "new_blend_mean_rae": 0.6110052223488448,
+  "nb1070_ref_rae": 0.578,
+  "beats_nb1070": false,
+  "plain_submission_bag": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1081_chemprop_ensemble.csv",
+  "wall_sec": 57.05
+}
