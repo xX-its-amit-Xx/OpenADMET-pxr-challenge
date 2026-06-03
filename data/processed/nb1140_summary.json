@@ -1,0 +1,83 @@
+{
+  "tag": "nb1140",
+  "anchor": "nb1070",
+  "deploy_companion_of": "nb1130",
+  "resid_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "n_seeds": 5,
+  "n_test": 513,
+  "n_unb": 253,
+  "lgbm_params_template": {
+    "objective": "huber",
+    "alpha": 1.0,
+    "learning_rate": 0.05,
+    "n_estimators": 80,
+    "max_depth": 3,
+    "num_leaves": 7,
+    "min_child_samples": 20,
+    "subsample": 0.9,
+    "subsample_freq": 1,
+    "colsample_bytree": 0.9,
+    "reg_lambda": 1.0,
+    "verbosity": -1,
+    "random_state": 0,
+    "n_jobs": 2
+  },
+  "feature_dim": 2265,
+  "rae_anchor_oof_253": 0.5771305166381785,
+  "rae_anchor_te_in_sample_253": 0.5714565604380177,
+  "in_rae_253": 0.373579755142981,
+  "delta_in_sample_vs_anchor_te": -0.19787680529503676,
+  "residual_target_mean": -0.1019658057365929,
+  "residual_target_std": 0.6666145784833671,
+  "mean_bagged_residual_513_mean": -0.10491649382318936,
+  "mean_bagged_residual_513_std": 0.2519700526383381,
+  "per_seed_records": [
+    {
+      "seed": 0,
+      "residual_pred_513_mean": -0.09980650142273771,
+      "residual_pred_513_std": 0.2526687338291151,
+      "in_rae_253_corr_on_oof_anchor": 0.38111136590770567,
+      "in_rae_253_te_anchor": 0.3756463725120653
+    },
+    {
+      "seed": 1,
+      "residual_pred_513_mean": -0.1043495904076733,
+      "residual_pred_513_std": 0.25903542416679787,
+      "in_rae_253_corr_on_oof_anchor": 0.376925068968023,
+      "in_rae_253_te_anchor": 0.37090694493759774
+    },
+    {
+      "seed": 7,
+      "residual_pred_513_mean": -0.10613783634114726,
+      "residual_pred_513_std": 0.25740629645343355,
+      "in_rae_253_corr_on_oof_anchor": 0.3840881899332197,
+      "in_rae_253_te_anchor": 0.3786432498222511
+    },
+    {
+      "seed": 42,
+      "residual_pred_513_mean": -0.10574594296815482,
+      "residual_pred_513_std": 0.25466537484913454,
+      "in_rae_253_corr_on_oof_anchor": 0.3772462923425765,
+      "in_rae_253_te_anchor": 0.37137213701795685
+    },
+    {
+      "seed": 137,
+      "residual_pred_513_mean": -0.10854259797623374,
+      "residual_pred_513_std": 0.25482018978264787,
+      "in_rae_253_corr_on_oof_anchor": 0.3874362625058851,
+      "in_rae_253_te_anchor": 0.3822567163999387
+    }
+  ],
+  "te_nb1140_mean": 4.721641662497037,
+  "te_nb1140_std": 0.7745943617312703,
+  "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb1140.npy",
+  "submission_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1140_deploy_nb1130.csv",
+  "wall_sec": 7.48,
+  "note": "DEPLOY artifact: 5 LGBM seeds each fit on ALL 253 unblind rows, deploy residuals mean-bagged on 513. in_RAE is in-sample and optimistic; LB-faithful number is nb1130 honest cross-fit RAE."
+}

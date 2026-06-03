@@ -1,0 +1,80 @@
+{
+  "tag": "nb1144",
+  "anchor": "nb1070",
+  "n_unb": 253,
+  "resid_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "resid_folds": 5,
+  "feature_dim": 2265,
+  "lgbm_max_depth": 4,
+  "lgbm_num_leaves": 12,
+  "lgbm_n_estimators": 120,
+  "lgbm_learning_rate": 0.04,
+  "lgbm_min_child_samples": 20,
+  "rae_anchor_nb1070": 0.5771305166381785,
+  "per_seed_rae": [
+    0.5905631663874121,
+    0.6052947127269285,
+    0.5838244459655245,
+    0.5746696300746333,
+    0.5791483545800851
+  ],
+  "per_seed_records": [
+    {
+      "seed": 0,
+      "rae_corrected": 0.5905631663874121,
+      "delta_vs_nb1070": 0.013432649749233638,
+      "resid_oof_std": 0.2846490051575794,
+      "resid_oof_mean": -0.11313225974127353
+    },
+    {
+      "seed": 1,
+      "rae_corrected": 0.6052947127269285,
+      "delta_vs_nb1070": 0.028164196088749982,
+      "resid_oof_std": 0.2991079846698842,
+      "resid_oof_mean": -0.08589204856471273
+    },
+    {
+      "seed": 7,
+      "rae_corrected": 0.5838244459655245,
+      "delta_vs_nb1070": 0.0066939293273460265,
+      "resid_oof_std": 0.271129619951375,
+      "resid_oof_mean": -0.08178208150551557
+    },
+    {
+      "seed": 42,
+      "rae_corrected": 0.5746696300746333,
+      "delta_vs_nb1070": -0.0024608865635451505,
+      "resid_oof_std": 0.3098681011129064,
+      "resid_oof_mean": -0.09689464902870253
+    },
+    {
+      "seed": 137,
+      "rae_corrected": 0.5791483545800851,
+      "delta_vs_nb1070": 0.002017837941906575,
+      "resid_oof_std": 0.27695338439194184,
+      "resid_oof_mean": -0.09061142300604307
+    }
+  ],
+  "rae_per_seed_mean": 0.5867000619469167,
+  "rae_per_seed_median": 0.5838244459655245,
+  "rae_per_seed_std": 0.010683757354125155,
+  "rae_per_seed_min": 0.5746696300746333,
+  "rae_per_seed_max": 0.6052947127269285,
+  "rae_mean_bag": 0.5710958870024841,
+  "rae_median_bag": 0.5756485483443808,
+  "delta_mean_bag_vs_nb1070": -0.006034629635694344,
+  "delta_median_bag_vs_nb1070": -0.001481968293797653,
+  "delta_mean_bag_vs_nb1130": 0.0006958870024841302,
+  "beats_nb1070": true,
+  "beats_nb1130": false,
+  "verdict": "DEPTH4_BEATS_ANCHOR_BUT_NOT_DEPTH3",
+  "nb1070_ref_pooled": 0.579,
+  "nb1130_mean_bag_ref": 0.5704,
+  "wall_sec": 3.64
+}

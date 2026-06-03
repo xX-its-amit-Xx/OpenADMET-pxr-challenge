@@ -1,0 +1,89 @@
+{
+  "tag": "nb1142",
+  "anchor": "combined_chemprop_aux_nb1070",
+  "anchor_weights": {
+    "chemprop_aux": 0.5,
+    "nb1070": 0.5
+  },
+  "chemprop_te_file": "te_chemprop_aux.npy",
+  "nb1070_oof_file": "nb1070_pred_oof.npy",
+  "n_unb": 253,
+  "resid_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "resid_folds": 5,
+  "feature_dim": 2265,
+  "rae_chemprop_aux_alone": 0.6215728863514471,
+  "rae_nb1070_alone": 0.5771305166381785,
+  "rae_combined_anchor": 0.5912820633235171,
+  "residual_std_chemprop_aux": 0.6999145683913596,
+  "residual_std_nb1070": 0.6666145784833671,
+  "residual_std_combined": 0.6762852484115619,
+  "per_seed_rae": [
+    0.583219786072198,
+    0.5913312323090434,
+    0.5751063824991417,
+    0.5728168605100367,
+    0.5763506362147625
+  ],
+  "per_seed_records": [
+    {
+      "seed": 0,
+      "rae_corrected": 0.583219786072198,
+      "delta_vs_anchor": -0.008062277251319028,
+      "resid_oof_std": 0.26666199972671883,
+      "resid_oof_mean": -0.11959121177816462
+    },
+    {
+      "seed": 1,
+      "rae_corrected": 0.5913312323090434,
+      "delta_vs_anchor": 4.9168985526315545e-05,
+      "resid_oof_std": 0.2657054542419607,
+      "resid_oof_mean": -0.10317605061132552
+    },
+    {
+      "seed": 7,
+      "rae_corrected": 0.5751063824991417,
+      "delta_vs_anchor": -0.01617568082437537,
+      "resid_oof_std": 0.2562630485838546,
+      "resid_oof_mean": -0.09691300527429954
+    },
+    {
+      "seed": 42,
+      "rae_corrected": 0.5728168605100367,
+      "delta_vs_anchor": -0.018465202813480408,
+      "resid_oof_std": 0.2804447977921384,
+      "resid_oof_mean": -0.09611379176812349
+    },
+    {
+      "seed": 137,
+      "rae_corrected": 0.5763506362147625,
+      "delta_vs_anchor": -0.014931427108754614,
+      "resid_oof_std": 0.2588210860958162,
+      "resid_oof_mean": -0.10196081823178844
+    }
+  ],
+  "rae_per_seed_mean": 0.5797649795210364,
+  "rae_per_seed_median": 0.5763506362147625,
+  "rae_per_seed_std": 0.006743152320369882,
+  "rae_per_seed_min": 0.5728168605100367,
+  "rae_per_seed_max": 0.5913312323090434,
+  "rae_mean_bag": 0.5667251273954877,
+  "rae_median_bag": 0.5696868980059522,
+  "delta_mean_bag_vs_anchor": -0.024556935928029322,
+  "delta_median_bag_vs_anchor": -0.02159516531756489,
+  "beats_anchor": true,
+  "nb1130_mean_bag_ref": 0.5673366822345808,
+  "beats_nb1130": false,
+  "nb1141_mean_bag_ref": 0.575251075716461,
+  "beats_nb1141": true,
+  "verdict": "COMBINED_BEATS_NB1141_TIES_OR_LOSES_NB1130",
+  "chemprop_aux_ref_rae": 0.6216,
+  "nb1070_ref_rae": 0.5771,
+  "nb1130_ref_mean_bag": 0.5673,
+  "wall_sec": 3.24
+}
