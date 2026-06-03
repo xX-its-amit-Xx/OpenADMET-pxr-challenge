@@ -1,0 +1,75 @@
+{
+  "tag": "nb1130",
+  "anchor": "nb1070",
+  "stretch_anchor": "nb1014",
+  "n_unb": 253,
+  "resid_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "resid_folds": 5,
+  "feature_dim": 2265,
+  "rae_anchor_nb1070": 0.5771305166381785,
+  "per_seed_rae": [
+    0.5825193439445955,
+    0.5930988664851015,
+    0.5778896245542459,
+    0.57043200163816,
+    0.5741690441646837
+  ],
+  "per_seed_records": [
+    {
+      "seed": 0,
+      "rae_corrected": 0.5825193439445955,
+      "delta_vs_nb1070": 0.005388827306416988,
+      "resid_oof_std": 0.24284861519604656,
+      "resid_oof_mean": -0.09885418197763145
+    },
+    {
+      "seed": 1,
+      "rae_corrected": 0.5930988664851015,
+      "delta_vs_nb1070": 0.01596834984692297,
+      "resid_oof_std": 0.25392413764443655,
+      "resid_oof_mean": -0.0927382305708239
+    },
+    {
+      "seed": 7,
+      "rae_corrected": 0.5778896245542459,
+      "delta_vs_nb1070": 0.0007591079160673697,
+      "resid_oof_std": 0.2398134765513399,
+      "resid_oof_mean": -0.07819748530393594
+    },
+    {
+      "seed": 42,
+      "rae_corrected": 0.57043200163816,
+      "delta_vs_nb1070": -0.006698515000018501,
+      "resid_oof_std": 0.2724140029768554,
+      "resid_oof_mean": -0.09144862385733765
+    },
+    {
+      "seed": 137,
+      "rae_corrected": 0.5741690441646837,
+      "delta_vs_nb1070": -0.002961472473494764,
+      "resid_oof_std": 0.2426354970741969,
+      "resid_oof_mean": -0.08568372428161047
+    }
+  ],
+  "rae_per_seed_mean": 0.5796217761573573,
+  "rae_per_seed_median": 0.5778896245542459,
+  "rae_per_seed_std": 0.007838526058610651,
+  "rae_per_seed_min": 0.57043200163816,
+  "rae_per_seed_max": 0.5930988664851015,
+  "rae_mean_bag": 0.5673366822345808,
+  "rae_median_bag": 0.5695862563900046,
+  "delta_mean_bag_vs_nb1070": -0.009793834403597712,
+  "delta_median_bag_vs_nb1070": -0.007544260248173895,
+  "beats_nb1070": true,
+  "nb1123_single_seed_holds_up": false,
+  "verdict": "BAG_WIN_BUT_NB1123_SINGLE_SEED_LUCKY",
+  "nb1070_ref_pooled": 0.579,
+  "nb1123_single_seed_ref": 0.5704,
+  "wall_sec": 3.22
+}
