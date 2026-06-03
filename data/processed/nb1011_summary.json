@@ -1,0 +1,85 @@
+{
+  "tag": "nb1011",
+  "anchor": "chemprop_aux",
+  "anchor_raw_in_rae_253": 0.6215728863514471,
+  "stretch_grid": [
+    1.0,
+    1.05,
+    1.1,
+    1.15,
+    1.2,
+    1.25,
+    1.3,
+    1.35,
+    1.4,
+    1.45,
+    1.5,
+    1.55,
+    1.6,
+    1.65,
+    1.7,
+    1.75,
+    1.8,
+    1.85,
+    1.9,
+    1.95,
+    2.0
+  ],
+  "n_folds": 5,
+  "seed": 42,
+  "fold_results": [
+    {
+      "fold": 0,
+      "s": 1.2,
+      "mu_tr": 4.781936127117542,
+      "train_rae": 0.5864264734764623,
+      "val_rae": 0.6957677558668148,
+      "n_va": 51
+    },
+    {
+      "fold": 1,
+      "s": 1.15,
+      "mu_tr": 4.801767209090125,
+      "train_rae": 0.6309046510815156,
+      "val_rae": 0.525575545779329,
+      "n_va": 51
+    },
+    {
+      "fold": 2,
+      "s": 1.2,
+      "mu_tr": 4.80764649963205,
+      "train_rae": 0.5937783707954791,
+      "val_rae": 0.6642681455698767,
+      "n_va": 51
+    },
+    {
+      "fold": 3,
+      "s": 1.15,
+      "mu_tr": 4.790524423429683,
+      "train_rae": 0.6198258134821367,
+      "val_rae": 0.5674370952869496,
+      "n_va": 50
+    },
+    {
+      "fold": 4,
+      "s": 1.2,
+      "mu_tr": 4.801667781741652,
+      "train_rae": 0.6141262821899766,
+      "val_rae": 0.5885114728135399,
+      "n_va": 50
+    }
+  ],
+  "pooled_cv_rae_253": 0.6109330311466906,
+  "chemprop_aux_raw_baseline": 0.6216,
+  "nb1001_crossfit_baseline": 0.5994,
+  "delta_vs_raw": -0.010666968853309422,
+  "delta_vs_nb1001": 0.011533031146690575,
+  "verdict": "STRETCH_HELPS_BLEND_HELPS_MORE",
+  "deploy_mu_anchor": 4.79670719811206,
+  "deploy_s": 1.2,
+  "in_sample_rae_overfit_bound": 0.6092448560366606,
+  "deploy_te_mean": 4.8381876945495605,
+  "deploy_te_std": 0.6998605132102966,
+  "plain_submission": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1011_crossfit_chempropaux_stretch_only.csv",
+  "wall_sec": 0.01
+}
