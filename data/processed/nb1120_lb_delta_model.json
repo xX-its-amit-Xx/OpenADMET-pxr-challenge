@@ -1,0 +1,79 @@
+{
+  "tag": "nb1120",
+  "anchor": "nb1070",
+  "n_paired_points": 7,
+  "paired_labels": [
+    "nb224_pool_plus_2",
+    "nb239_full_slsqp_v2",
+    "nb244_deep_greedy",
+    "nb243_greedy_huber",
+    "nb253_meanshift_003",
+    "nb254_meanshift_006",
+    "nb273_molformer_combined"
+  ],
+  "paired_in_rae": [
+    0.751,
+    0.7454,
+    0.7631,
+    0.7611,
+    0.743,
+    0.74,
+    0.7544
+  ],
+  "paired_lb_rae": [
+    0.7543,
+    0.7487,
+    0.7659,
+    0.7638,
+    0.7446,
+    0.743,
+    0.7581
+  ],
+  "paired_std_ratio": [
+    0.73,
+    0.74,
+    0.71,
+    0.71,
+    0.74,
+    0.74,
+    0.72
+  ],
+  "model_1f": {
+    "a": 1.013724807852691,
+    "b": -0.00739500566992129,
+    "rsq": 0.9946768461831159,
+    "mae": 0.0005233906725305675
+  },
+  "model_3f": {
+    "a": 1.0191907733030647,
+    "b": -0.014125259973508969,
+    "c": 0.0036093779542331478,
+    "rsq": 0.9946781906760269,
+    "mae": 0.0005227993409502466
+  },
+  "mean_delta_lb_minus_in_rae": 0.002914285714285742,
+  "std_delta_lb_minus_in_rae": 0.0006220440302022017,
+  "anchor_in_rae_on_253_in_sample": 0.5714565604380177,
+  "anchor_pred_std_513": 0.7215853031456049,
+  "anchor_pred_std_253": 0.7765091380163748,
+  "anchor_truth_std_253": 1.0320053675542649,
+  "anchor_std_ratio_253": 0.7524274218230211,
+  "lb_pred_1f": 0.571904686256268,
+  "lb_pred_3f": 0.5710137887169123,
+  "s_cal_raw": 1.3290318388146287,
+  "s_cal_applied": 1.3,
+  "fold_s_cal": [
+    1.263090214528357,
+    1.3,
+    1.3,
+    1.3,
+    1.3
+  ],
+  "rae_uncalibrated_in_sample": 0.5714565604380177,
+  "rae_calibrated_cross_fit_5fold": 0.6283696521010161,
+  "rae_calibrated_in_sample": 0.6262498349335954,
+  "delta_calibrated_vs_uncalibrated_oof": 0.056913091662998405,
+  "calibration_helps_oof": false,
+  "plain_submission": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1120_lb_delta_calib.csv",
+  "wall_sec": 0.03
+}
