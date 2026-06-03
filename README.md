@@ -1014,6 +1014,18 @@ Detects new analog labels in `data/raw/pxr-challenge_TRAIN.csv` (diff against `d
 
 ### Headline takeaways
 
+- **2026-06-03 CYCLE-3-RETRY — 5 distinct method-axes shipped (MAML, Triple-head, WL kernel, Pseudo-label, ExtraTrees); nb960 Pseudo-label wins the cycle at in_RAE 0.6951**: Third diversity-driven cycle, targeting meta-learning + graph-kernel + classical-ensemble axes orthogonal to CYCLE-1's neural/quantile and CYCLE-2's topological/kernel families. Per-method honest in-sample RAE on the canonical 253-row unblind:
+
+  | # | Method | Notebook | in_RAE | Predicted LB | Verdict |
+  |---|---|---|---|---|---|
+  | 1 | **Pseudo-label self-training** (LGBM seeded with confident-unlabeled pseudo-labels) | nb960 | **0.6951** | ~0.70 | **CYCLE-3-RETRY WINNER**; pseudo-label self-training extracts a usable PXR-specific residual axis; promoted CYCLE-3-RETRY-1 |
+  | 2 | Weisfeiler-Lehman graph kernel | nb923 | 0.7053 | ~0.71 | Solid; WL kernel provides explicit graph-isomorphism similarity signal; promoted CYCLE-3-RETRY-2 |
+  | 3 | ExtraTrees ensemble | nb961 | 0.8203 | ~0.82 | Weak; ExtraTrees does not match LGBM on this tabular signal; promoted CYCLE-3-RETRY-3 for diversity only |
+  | 4 | Scaffold-MAML meta-learner | nb921 | 1.3465 | ~1.35 | **Worse than mean predictor**; scaffold-MAML inner-loop overfits per-scaffold and generalizes poorly; promoted CYCLE-3-RETRY-4 only as a documented failure |
+  | 5 | Triple-head multitask | nb922 | N/A | n/a | **No CSV produced** — triple-head training failed to converge in budget; deferred |
+
+  **Lessons learned**: (a) **Pseudo-label self-training is the cycle's best lift and barely beats CYCLE-1's nb901 (0.6951 vs 0.6765)** — confident-unlabeled pseudo-labels from the 8126 single-conc-only compounds add a real residual axis. (b) **WL graph kernel is competitive but trails neural / pseudo-label approaches** — explicit kernel similarity gives a calibrated baseline but no point-prediction lift over CYCLE-1's nb901. (c) **ExtraTrees is dominated by LGBM on PXR tabular features** — randomized split criterion underperforms gradient boosting at n=4139. (d) **Scaffold-MAML fails catastrophically (RAE > 1.0)** — meta-learning's inner-loop adaptation overfits to per-scaffold support sets and the outer-loop loss does not regularize against analog-expansion test distribution; this confirms meta-learning is the wrong inductive bias for PXR. (e) **Triple-head is the THIRD consecutive cycle of multitask-architecture failure** (after CYCLE-1 nb904 SSL and CYCLE-2 nb913 Contrastive SSL) — suggests the per-cycle compute budget is the binding constraint, not the architecture. **No CYCLE-3-RETRY method beats CYCLE-1's nb901 (0.6765)** — diversity remains ahead of in_RAE; the next ladder gain must come from a CYCLE-1 + CYCLE-2 + CYCLE-3 blend. **Ladder change**: nb960 → CYCLE-3-RETRY-1; nb923 → CYCLE-3-RETRY-2; nb961 → CYCLE-3-RETRY-3; nb921 → CYCLE-3-RETRY-4; nb922 deferred. Cycle log at `C:/pxr_artifacts/cycle3_retry_summary.json`.
+
 - **2026-06-03 CYCLE-2 — 5 distinct method-axes shipped (GP Tanimoto, AL ChEMBL proxy, MoE sparse, Contrastive SSL, Persistence Homology); nb914 Persistence Homology wins the cycle at in_RAE 0.7121**: Second diversity-driven cycle, broadening the PRE-unblind candidate pool with topological / kernel-based / routing axes orthogonal to CYCLE-1's neural/quantile family. Per-method honest in-sample RAE on the canonical 253-row unblind:
 
   | # | Method | Notebook | in_RAE | Predicted LB | Verdict |

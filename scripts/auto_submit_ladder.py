@@ -32,6 +32,17 @@ RATE_LIMIT_HOURS = 4
 # Hand-curated priority ladder (safest first → aggressive last).
 # When ladder is exhausted, falls back to FRESHEST un-submitted nb3*_truth.csv.
 LADDER = [
+    # === CYCLE-3-RETRY 2026-06-03: 5 distinct method-axes (MAML, Triple-head, WL kernel,
+    # Pseudo-label, ExtraTrees). Sorted ascending by in_RAE on canonical 253 unblind.
+    # nb922 Triple-head was N/A (no submission produced); kept only in cycle log.
+    # All PRE-unblind -> predicted LB ~= in_RAE + 0.003.
+    # Placed above CYCLE-2 since freshest.
+    ("nb960_pseudo_self_train.csv",              "CYCLE-3-RETRY-1: nb960 Pseudo-label self-training; in_RAE 0.6951; predicted LB ~0.70"),
+    ("nb923_wl_graph_kernel.csv",                "CYCLE-3-RETRY-2: nb923 Weisfeiler-Lehman graph kernel; in_RAE 0.7053; predicted LB ~0.71"),
+    ("nb961_extra_trees.csv",                    "CYCLE-3-RETRY-3: nb961 ExtraTrees ensemble; in_RAE 0.8203; predicted LB ~0.82"),
+    ("nb921_scaffold_maml.csv",                  "CYCLE-3-RETRY-4: nb921 Scaffold-MAML meta-learner; in_RAE 1.3465; predicted LB ~1.35 (worse than mean predictor)"),
+    # nb922 Triple-head: N/A this cycle (no CSV produced); see C:/pxr_artifacts/cycle3_retry_summary.json
+
     # === CYCLE-2 2026-06-03: 5 distinct method-axes (GP Tanimoto, AL ChEMBL proxy,
     # MoE sparse, Contrastive SSL, Persistence Homology). Sorted ascending by in_RAE
     # on canonical 253 unblind. nb913 Contrastive SSL was N/A (no submission produced);
