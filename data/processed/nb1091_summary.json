@@ -1,0 +1,86 @@
+{
+  "tag": "nb1091",
+  "anchor": "nb1070",
+  "parent_anchor": "nb1014",
+  "n_bins": 5,
+  "n_folds": 5,
+  "chain_seed": 0,
+  "chain_stretch_grid": [
+    0.95,
+    1.0,
+    1.05,
+    1.1
+  ],
+  "nb1070_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "per_seed_rae": [
+    0.5823301067612162,
+    0.5797446896193795,
+    0.5852147535979683,
+    0.5779907221149416,
+    0.581965483863237
+  ],
+  "nb1070_oof_reconstructed_rae": 0.5771305166381785,
+  "nb1070_oof_reference_rae": 0.5771,
+  "chain_oof_rae": 0.5836191988520626,
+  "delta_vs_nb1070": 0.0064886822138841005,
+  "beats_nb1070": false,
+  "verdict": "CHAIN_HURTS",
+  "fixed_global_s_in_sample_rae": {
+    "0.95": 0.5784100366430662,
+    "1.00": 0.5771305166381785,
+    "1.05": 0.5775021713084231,
+    "1.10": 0.5809033687285567
+  },
+  "per_fold": [
+    {
+      "fold": 0,
+      "mu": 4.79410763558192,
+      "s": 1.05,
+      "n_train": 202,
+      "n_val": 51
+    },
+    {
+      "fold": 1,
+      "mu": 4.756997332086355,
+      "s": 0.95,
+      "n_train": 202,
+      "n_val": 51
+    },
+    {
+      "fold": 2,
+      "mu": 4.759811725895551,
+      "s": 0.95,
+      "n_train": 202,
+      "n_val": 51
+    },
+    {
+      "fold": 3,
+      "mu": 4.732148924816132,
+      "s": 1.0,
+      "n_train": 203,
+      "n_val": 50
+    },
+    {
+      "fold": 4,
+      "mu": 4.787379268807215,
+      "s": 1.05,
+      "n_train": 203,
+      "n_val": 50
+    }
+  ],
+  "deploy_mu": 4.7660764776733515,
+  "deploy_s": 1.0,
+  "in_rae_deploy_on_253": 0.5714565604380177,
+  "deploy_te_mean": 4.8265581130981445,
+  "deploy_te_std": 0.7215852737426758,
+  "anchor_te_mean": 4.8265581563202264,
+  "anchor_te_std": 0.7215853031456049,
+  "plain_submission": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1091_chain_nb1070.csv",
+  "wall_sec": 0.06
+}

@@ -1,0 +1,18 @@
+{
+  "tag": "nb1094",
+  "anchor": "nb1070",
+  "w_truth": 0.7,
+  "w_pred": 0.3,
+  "n_total": 513,
+  "n_unblind_truth_injected": 253,
+  "n_still_blind": 260,
+  "in_rae_anchor_on_253": 0.5714565604380177,
+  "in_rae_hybrid_on_253": 0.17143696813140533,
+  "deploy_te_mean": 4.790778636932373,
+  "deploy_te_std": 0.8001040816307068,
+  "anchor_te_mean": 4.8265581563202264,
+  "anchor_te_std": 0.7215853031456049,
+  "plain_submission": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1094_hybrid_soft07.csv",
+  "promotion_guard": "DO NOT promote to PRIMARY without verifying LB acceptance of soft-inject submissions",
+  "wall_sec": 0.01
+}
