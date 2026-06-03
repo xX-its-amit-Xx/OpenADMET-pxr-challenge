@@ -76,7 +76,13 @@ LADDER = [
     #   POST-unblind models:  predicted LB ~= in_RAE * 1.5 (floor at ~0.55)
     # chemprop_aux is the true #1 from the 2026-05-29 unblind validation (RAE 0.6216);
     # at predicted LB 0.6246 it would crush the current best 0.7655.
-    ("chemprop_aux.csv",                         "PRIMARY-1: chemprop multi-task w/ aux heads; honest unblind RAE 0.6216; predicted LB 0.6246 (would crush current best 0.7655)"),
+    # === CYCLE-5-FINALE 2026-06-03: nb1001 blend(chemprop_aux + nb972) + stretch s=1.25,
+    # honest 5-fold cross-fit RAE 0.5994 on 253 unblind (verdict REAL_WIN). First model in
+    # autonomous loop to beat chemprop_aux honest 0.6216 ceiling (-0.0222 RAE). nb988/nb1000
+    # in-sample stretch reached 0.5863 but nb1001 is the cross-fit-validated number we trust.
+    # Predicted LB ~= 0.5994 + 0.003 = ~0.602 (PRE-unblind regime, both anchors trained-on-4139).
+    ("nb1001_crossfit_chempropaux_nb972_stretch.csv", "PRIMARY-1: nb1001 cross-fit blend(chemprop_aux 0.76, nb972 0.24) + stretch s=1.25; honest 5-fold cross-fit RAE 0.5994; predicted LB ~0.602 (beats chemprop_aux 0.6246)"),
+    ("chemprop_aux.csv",                         "PRIMARY-2: chemprop multi-task w/ aux heads; honest unblind RAE 0.6216; predicted LB 0.6246 (former PRIMARY-1, now safety floor below nb1001)"),
     ("grand_v6b_calib.csv",                      "PRIMARY-2: grand_v6b calibrated ensemble; in_RAE 0.6409; predicted LB 0.6439"),
     ("nb306_cepsmim.csv",                        "PRIMARY-3: nb306 ceps-MIM; in_RAE 0.6486; predicted LB 0.6516"),
     ("nb305_mope.csv",                           "PRIMARY-4: nb305 MoPE; in_RAE 0.6601; predicted LB 0.6631"),

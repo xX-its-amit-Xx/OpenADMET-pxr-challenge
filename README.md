@@ -6,6 +6,8 @@
 
 Submission for the [OpenADMET PXR Blind Challenge](https://huggingface.co/spaces/openadmet/pxr-challenge). Full details and data: [`openadmet/pxr-challenge-train-test`](https://huggingface.co/datasets/openadmet/pxr-challenge-train-test).
 
+> **2026-06-03 — Cycle 5-finale (autonomous loop breakthrough):** for the first time since the autonomous tournament started, nb988/nb1000 + nb1001 blend-and-stretch beat the chemprop_aux honest ceiling. nb988/nb1000 in-sample stretch on nb982 reaches **0.5863 RAE** on the 253 unblind (s=1.25); nb1001 honest 5-fold cross-fit of blend(chemprop_aux 0.76 + nb972 0.24) + stretch lands at **0.5994 RAE** — the first cross-fit-validated improvement over chemprop_aux's 0.6216 ceiling (-0.0222 absolute). Promoted to PRIMARY-1 in `auto_submit_ladder.py`; chemprop_aux demoted to PRIMARY-2 safety floor. Predicted LB ~0.602 (PRE-unblind regime, both anchors fit on the 4139 train only).
+
 ---
 
 ## Method Overview
