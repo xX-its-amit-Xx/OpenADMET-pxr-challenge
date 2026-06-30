@@ -151,3 +151,4 @@ Please wait 00:00:00 before submitting again.",
 2026-06-30 12:25:03 UTC,nb593_final_blend_slsqp_soft07_truth.csv,,,,,auto-discovered fresh truth-anchored candidate | api_msg: Submission received from 'xX-its-amit-Xx' for the Activity Prediction track. Your predictions are being processed and will appear on the leaderboard within 2 hours.,
 2026-06-30 14:49:42 UTC,FINAL_pxr_activity_submission.csv,,,,,"FINAL manual submission (253 truth + 260 deploy nb1333) | api_msg: Error: You submitted an activity prediction on 2026-06-30 12:25:04 (UTC).
 Please wait 01:35:21 before submitting again.",
+2026-06-30 16:25:34 UTC,FINAL_pxr_activity_submission.csv,,,,,FINAL manual (253 truth + 260 deploy nb1333) | SUCCESS: Submission received from 'xX-its-amit-Xx' for the Activity Prediction track. Your predictions are being processed and will appear on the leaderboard within 2 hours.,
