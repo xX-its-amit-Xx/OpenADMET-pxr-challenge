@@ -1,0 +1,12 @@
+{
+  "unique": 27226,
+  "scaffolds": 15913,
+  "by_source": {
+    "ext_papyrus": 11130,
+    "single_conc": 7629,
+    "crc": 4485,
+    "ext_tox21": 2130,
+    "ext_ncats": 1852
+  },
+  "full_a100_h": 680.6
+}

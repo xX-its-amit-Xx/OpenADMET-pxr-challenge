@@ -1,0 +1,12 @@
+{
+  "feature": "emax_as_input",
+  "emax_column": "emax",
+  "n_with_emax": 4139,
+  "corr_emax_err": -0.0087,
+  "control_rae": 0.5501,
+  "treatment_rae": 0.5084,
+  "delta": -0.0417,
+  "neg_seeds": 3,
+  "deploy": false,
+  "deployed_best": 0.4231
+}

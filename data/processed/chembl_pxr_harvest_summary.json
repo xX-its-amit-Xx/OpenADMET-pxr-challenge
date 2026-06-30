@@ -1,0 +1,64 @@
+{
+  "inputs": {
+    "ec50_total": 1366,
+    "ec50_count": 1000,
+    "ac50_total": 1959,
+    "ac50_count": 1000,
+    "raw_records_combined": 2000
+  },
+  "filtering": {
+    "after_nonnull_smiles": 1993,
+    "after_drop_bad_validity": 1885,
+    "after_standardize_ok": 1885,
+    "bad_validity_set": [
+      "Outside typical range",
+      "Potential author error",
+      "Potential missing data",
+      "Potential transcription error"
+    ]
+  },
+  "metric1_harvest": {
+    "n_unique_compounds": 1602,
+    "n_with_scaffold": 1566,
+    "n_with_pchembl_value": 598
+  },
+  "metric2_pchembl_distribution": {
+    "min": 4.0,
+    "p25": 4.949999999999999,
+    "median": 5.43,
+    "p75": 6.0,
+    "max": 8.625,
+    "n_ge_5": 431
+  },
+  "metric3_new_scaffold_yield": {
+    "n_new_scaffold": 1194,
+    "pct_new_scaffold_of_with_scaffold": 76.25,
+    "pct_new_scaffold_of_all": 74.53,
+    "n_train_scaffolds": 3669
+  },
+  "metric4_test_scaffold_rescue": {
+    "n_compounds_match_test_scaffold": 32,
+    "n_compounds_match_test_scaffold_NOT_in_train": 3,
+    "n_test_scaffolds_total": 369,
+    "n_test_scaffolds_novel_to_train": 334,
+    "n_test_scaffolds_covered_by_chembl": 8,
+    "n_test_scaffolds_novel_AND_covered_by_chembl": 1,
+    "test_scaf_novel_covered_smiles": [
+      "O=S(=O)(Nc1ncccn1)c1ccccc1"
+    ]
+  },
+  "metric5_nn_proximity": {
+    "n_sampled": 300,
+    "median_max_sim": 0.22727272727272727,
+    "frac_max_sim_ge_0.4": 0.0033333333333333335,
+    "frac_max_sim_ge_0.6": 0.0,
+    "n_max_sim_eq_1.0": 0
+  },
+  "metric6_leakage": {
+    "n_harvest_compounds_inchikey14_in_TEST": 0,
+    "n_harvest_compounds_inchikey14_in_TRAIN": 113,
+    "n_distinct_inchikey14_overlap_test": 0,
+    "n_distinct_inchikey14_overlap_train": 113,
+    "test_overlap_inchikey14_sample": []
+  }
+}

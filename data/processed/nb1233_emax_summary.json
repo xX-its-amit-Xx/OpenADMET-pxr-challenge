@@ -1,0 +1,13 @@
+{
+  "oos_control_rae": 0.4237147585531685,
+  "oos_treatment_rae": 0.4242978759295195,
+  "oos_matched_delta": 0.0005831173763510555,
+  "gamma_star": -0.44999999999999996,
+  "insample_seed0_delta": -0.000558495466114084,
+  "insample_tuned_delta_mean": -0.0003601837279171849,
+  "corr_abserr_emaxrel_mean": 0.0027258289625790486,
+  "corr_signed_err_logemax_mean": -0.10982031700321655,
+  "emax_pred_oof_corr_mean": 0.4565426099609599,
+  "deployed_best": 0.4242,
+  "deploy": false
+}

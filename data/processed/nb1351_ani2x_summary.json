@@ -1,0 +1,30 @@
+{
+  "approach": "torchani_ani2x_energy_scalars_and_AEV_PCA_on_deployed_config",
+  "ctrl_rae": 0.423843191108,
+  "tA_rae": 0.426064225205722,
+  "tB_rae": 0.423798975045332,
+  "delta_scalars": 0.0022210340977220078,
+  "delta_aev": -4.421606266802325e-05,
+  "ctrl_raes": [
+    0.42565740285514175,
+    0.44347193722815337,
+    0.40240023324070484
+  ],
+  "tA_raes": [
+    0.4275789330542407,
+    0.44609982687341687,
+    0.4045139156895084
+  ],
+  "tB_raes": [
+    0.42281224751506585,
+    0.4476280319320694,
+    0.4009566456888606
+  ],
+  "n_neg_scalars": 0,
+  "n_neg_aev": 2,
+  "deployed_best": 0.4149,
+  "gate_pass_scalars": false,
+  "gate_pass_aev": false,
+  "ani_coverage_train": 3995,
+  "n_pca": 24
+}

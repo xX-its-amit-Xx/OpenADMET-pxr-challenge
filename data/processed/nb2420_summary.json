@@ -1,0 +1,46 @@
+{
+  "tag": "nb2420",
+  "method": "transductive_lgbm_test_unlabeled_aug",
+  "anchor": "chemprop_aux",
+  "anchor_in_rae": 0.6215728863514471,
+  "n_unb": 253,
+  "n_te": 513,
+  "k20_feature_dim": 20,
+  "resid_folds": 5,
+  "resid_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "trans_per_seed_rae": [
+    0.4905490799641286,
+    0.48756441590637223,
+    0.48077227786664734,
+    0.4869309434493025,
+    0.47210759396328095
+  ],
+  "trans_per_seed_mean_rae": 0.4835848622299463,
+  "trans_mean_bag_rae": 0.46239260487567374,
+  "ctrl_per_seed_rae": [
+    0.47896538726790694,
+    0.5040583029303959,
+    0.47364835106928843,
+    0.4873195547178822,
+    0.49118878865313365
+  ],
+  "ctrl_per_seed_mean_rae": 0.48703607692772144,
+  "ctrl_mean_bag_rae": 0.46301759293009936,
+  "delta_trans_vs_ctrl": -0.0006249880544256237,
+  "nb2240_ref_oof": 0.4601,
+  "delta_trans_vs_nb2240": 0.0022926048756737316,
+  "gate_margin": 0.003,
+  "gate_beat_nb2240": false,
+  "verdict_vs_nb2240": "FLAT_VS_NB2240",
+  "oof_transductive_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2420_oof_transductive.npy",
+  "oof_control_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2420_oof_control.npy",
+  "te_npy_path": null,
+  "submission_csv": null,
+  "wall_sec": 8.54
+}

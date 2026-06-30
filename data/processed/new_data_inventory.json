@@ -1,0 +1,337 @@
+{
+  "generated_at": "2026-06-08T02:19:37",
+  "elapsed_sec": 7.9,
+  "existing_anchors": {
+    "train_rows": 4139,
+    "train_unique_inchikeys": 4138,
+    "test_513_rows": 513,
+    "test_513_unique_inchikeys": 513,
+    "counter_rows": 2859
+  },
+  "new_sources": {
+    "semi_pure": {
+      "name": "semi_pure",
+      "n_rows": 96,
+      "columns": [
+        "smiles",
+        "ocnt_id",
+        "batch",
+        "ec50_um",
+        "pec50_raw",
+        "emax_norm",
+        "emax_raw",
+        "ec50_um_corr",
+        "pec50",
+        "pec50_se_drc",
+        "pec50_se",
+        "Semi-Pure pEC50 \u00b195% CI (log)",
+        "Corrected Semi-Pure pEC50 \u00b195% CI (log)",
+        "volatility",
+        "Semi-pure EvapT (\u00b0C)",
+        "Semi-Pure Theoretical Mass-on-Column (ng)",
+        "Semi-Pure Peak Area (pA*min)",
+        "Semi-Pure Actual Mass-on-Column (ng)",
+        "product_yield_pct",
+        "correction_factor",
+        "Semi-Pure CAD Peak Area CV (%)",
+        "Semi-Pure CAD Slope CV (%)",
+        "Semi-Pure CAD Yield SE (log10)"
+      ],
+      "n_columns": 23,
+      "n_smiles_parsed": 96,
+      "smiles_valid_rate": 1.0,
+      "n_unique_inchikeys": 96,
+      "n_inchikeys_resolved": 96,
+      "value_ranges": {
+        "pec50": {
+          "n": 94,
+          "min": 4.02069127526095,
+          "p25": 5.1486888474426955,
+          "median": 5.661562233793418,
+          "p75": 6.088078827051104,
+          "max": 6.966056556957012,
+          "mean": 5.615139601815492,
+          "std": 0.6485738049997217
+        },
+        "pec50_raw": {
+          "n": 95,
+          "min": 3.741322862824676,
+          "p25": 4.733262434006857,
+          "median": 5.24184537803261,
+          "p75": 5.731210150541096,
+          "max": 6.658206341213617,
+          "mean": 5.230142838940922,
+          "std": 0.6842205985598925
+        },
+        "pec50_se": {
+          "n": 94,
+          "min": 0.1407457650344809,
+          "p25": 0.1465666607852682,
+          "median": 0.15411979476385768,
+          "p75": 0.17980658213236345,
+          "max": 0.2630168190940672,
+          "mean": 0.16863567728919168,
+          "std": 0.030564924163335106
+        },
+        "emax_norm": {
+          "n": 95,
+          "min": 0.6265000000000001,
+          "p25": 0.7967500000000001,
+          "median": 0.964,
+          "p75": 1.11,
+          "max": 2.0,
+          "mean": 0.9873999999999998,
+          "std": 0.24535748560963216
+        },
+        "emax_raw": {
+          "n": 95,
+          "min": 356000.0,
+          "p25": 419750.0,
+          "median": 489000.0,
+          "p75": 542250.0,
+          "max": 870000.0,
+          "mean": 495542.1052631579,
+          "std": 93535.34043565743
+        }
+      },
+      "n_unique_scaffolds": 49,
+      "n_NOVEL_scaffolds_vs_train": 44,
+      "n_test_scaffolds_RESCUED": 5
+    },
+    "crudes": {
+      "name": "crudes",
+      "n_rows": 456,
+      "columns": [
+        "smiles",
+        "ocnt_id",
+        "batch",
+        "ec50_um",
+        "pec50_raw",
+        "emax_norm",
+        "emax_raw",
+        "ec50_um_corr",
+        "pec50",
+        "pec50_se_drc",
+        "pec50_se",
+        "Crude pEC50 \u00b195% CI (log)",
+        "Corrected Crude pEC50 \u00b195% CI (log)",
+        "volatility",
+        "CAD Yield/Volatility Note",
+        "Crude EvapT (\u00b0C)",
+        "Crude Theoretical Mass-on-Column (ng)",
+        "Crude Peak Area (pA*min)",
+        "Crude Actual Mass-on-Column (ng)",
+        "product_yield_pct",
+        "correction_factor",
+        "Crude CAD Peak Area CV (%)",
+        "Crude CAD Slope CV (%)",
+        "Crude CAD Yield SE (log10)"
+      ],
+      "n_columns": 24,
+      "n_smiles_parsed": 456,
+      "smiles_valid_rate": 1.0,
+      "n_unique_inchikeys": 456,
+      "n_inchikeys_resolved": 456,
+      "value_ranges": {
+        "pec50": {
+          "n": 347,
+          "min": 1.768699303411949,
+          "p25": 4.0472321244124485,
+          "median": 4.968792510220836,
+          "p75": 5.486485727204089,
+          "max": 6.860701099073328,
+          "mean": 4.6469630838428095,
+          "std": 1.2050075982435362
+        },
+        "pec50_raw": {
+          "n": 431,
+          "min": 1.6968039425795112,
+          "p25": 3.4743658405648077,
+          "median": 4.250263684430939,
+          "p75": 5.104025618235518,
+          "max": 6.137868620686963,
+          "mean": 4.117703921205439,
+          "std": 1.204185265501998
+        },
+        "pec50_se": {
+          "n": 347,
+          "min": 0.1411560626139612,
+          "p25": 0.16674744549149179,
+          "median": 0.226140737705015,
+          "p75": 0.31122785447444795,
+          "max": 0.6939875696604235,
+          "mean": 0.2649232429229755,
+          "std": 0.13148388857056723
+        },
+        "emax_norm": {
+          "n": 431,
+          "min": 0.468,
+          "p25": 0.68,
+          "median": 0.982,
+          "p75": 1.24,
+          "max": 1.77,
+          "mean": 0.9679443155452435,
+          "std": 0.30374202128892475
+        },
+        "emax_raw": {
+          "n": 431,
+          "min": 220000.0,
+          "p25": 337500.0,
+          "median": 434000.0,
+          "p75": 500000.0,
+          "max": 785000.0,
+          "mean": 426220.41763341066,
+          "std": 109886.36900807427
+        }
+      },
+      "n_unique_scaffolds": 393,
+      "n_NOVEL_scaffolds_vs_train": 386,
+      "n_test_scaffolds_RESCUED": 3
+    },
+    "phase1_unblinded": {
+      "name": "phase1_unblinded",
+      "n_rows": 253,
+      "columns": [
+        "name",
+        "smiles",
+        "batch",
+        "pec50",
+        "pec50_se",
+        "pec50_lo",
+        "pec50_hi",
+        "emax",
+        "emax_se",
+        "emax_lo",
+        "emax_hi",
+        "emax_rel",
+        "emax_rel_se",
+        "emax_rel_lo",
+        "emax_rel_hi",
+        "split",
+        "phase"
+      ],
+      "n_columns": 17,
+      "n_smiles_parsed": 253,
+      "smiles_valid_rate": 1.0,
+      "n_unique_inchikeys": 253,
+      "n_inchikeys_resolved": 253,
+      "value_ranges": {
+        "pec50": {
+          "n": 253,
+          "min": 1.745,
+          "p25": 4.215,
+          "median": 4.895,
+          "p75": 5.375,
+          "max": 6.72,
+          "mean": 4.664110671936759,
+          "std": 1.0340509698936695
+        },
+        "pec50_se": {
+          "n": 253,
+          "min": 0.043,
+          "p25": 0.07905,
+          "median": 0.13335,
+          "p75": 0.2425,
+          "max": 0.6145,
+          "mean": 0.1739798418972332,
+          "std": 0.1225733303709615
+        },
+        "emax": {
+          "n": 253,
+          "min": 1.33,
+          "p25": 1.935,
+          "median": 2.205,
+          "p75": 2.415,
+          "max": 4.35,
+          "mean": 2.206205533596838,
+          "std": 0.45695358258353164
+        },
+        "emax_rel": {
+          "n": 253,
+          "min": 0.3465,
+          "p25": 0.694,
+          "median": 0.8925000000000001,
+          "p75": 1.085,
+          "max": 4.4,
+          "mean": 0.9555079051383398,
+          "std": 0.48493438021227575
+        }
+      },
+      "n_unique_scaffolds": 180,
+      "n_NOVEL_scaffolds_vs_train": 162,
+      "n_test_scaffolds_RESCUED": 162
+    }
+  },
+  "set_differences": {
+    "semi_pure": {
+      "n_unique_compounds": 96,
+      "n_overlap_existing_train": 5,
+      "n_NOT_in_existing_train": 91,
+      "n_overlap_test_513_LEAKAGE": 1,
+      "n_usable_as_train_no_leakage": 95,
+      "n_novel_vs_train_and_test": 90
+    },
+    "crudes": {
+      "n_unique_compounds": 456,
+      "n_overlap_existing_train": 0,
+      "n_NOT_in_existing_train": 456,
+      "n_overlap_test_513_LEAKAGE": 0,
+      "n_usable_as_train_no_leakage": 456,
+      "n_novel_vs_train_and_test": 456
+    },
+    "phase1_unblinded": {
+      "n_unique_compounds": 253,
+      "n_overlap_existing_train": 0,
+      "n_NOT_in_existing_train": 253,
+      "n_overlap_test_513_LEAKAGE": 253,
+      "n_usable_as_train_no_leakage": 0,
+      "n_novel_vs_train_and_test": 0
+    }
+  },
+  "scaffold_shift": {
+    "existing_train_n_unique_scaffolds": 3676,
+    "test_513_n_unique_scaffolds": 370,
+    "test_scaffolds_missing_from_train_BEFORE": 335,
+    "novel_scaffolds_added_total": 585,
+    "test_scaffolds_missing_from_train_AFTER": 172,
+    "test_scaffolds_recovered": 163,
+    "per_source_rescued": {
+      "semi_pure": 5,
+      "crudes": 3,
+      "phase1_unblinded": 162
+    }
+  },
+  "tanimoto_shift": {
+    "test_513_top1_sim_median_OLD": 0.5230769515037537,
+    "test_513_top1_sim_median_AFTER": 0.5283018946647644,
+    "test_513_top1_sim_mean_OLD": 0.532453179359436,
+    "test_513_top1_sim_mean_AFTER": 0.5381748080253601,
+    "delta_median": 0.005224943161010742,
+    "n_test_with_sim_gain": 41,
+    "n_test_pushed_above_0.50_OLD": 355,
+    "n_test_pushed_above_0.50_AFTER": 365,
+    "n_test_pushed_above_0.35_OLD": 510,
+    "n_test_pushed_above_0.35_AFTER": 510
+  },
+  "lift_projection": {
+    "anchor_current_lb_chemprop_aux": 0.6246,
+    "anchor_honest_floor_nb562": 0.5065,
+    "phase1_truth_rows_for_validation": 253,
+    "phase1_test_scaffolds_rescued": 162,
+    "components": {
+      "aux_scaffold_lift": 0.008,
+      "crudes_aux_head_lift": 0.003,
+      "semi_pure_aux_head_lift": 0.001
+    },
+    "estimated_rae_reduction_blinded_half": 0.012,
+    "projected_lb_rae_after_full_use": 0.6126,
+    "caveats": [
+      "Phase-1 unblinded = 253/513 LEADERBOARD TRUTH. Use as HONEST validation, not train augmentation.",
+      "nb590 evidence: augmenting train w/ phase1 alone -> 0.5869 worse than nb562 0.5065 (OOD wall set by scaffold support, not label count).",
+      "Crude/semi-pure pEC50 noisier (median SE 0.23 vs 0.13); plug as auxiliary head, not primary target.",
+      "Crudes add 386 NOVEL scaffolds vs train but only 3 overlap with test-513 scaffolds -> limited bridge.",
+      "F2 (greasy-novel-inactive) RAE tail ~0.10 needs off-manifold neg-mining; aux compounds unlikely to cover unless promiscuity-routed.",
+      "Realistic 1-2 week ceiling: LB 0.60-0.62; floor 0.55 only with structural bridges + chemprop-aux 6-head."
+    ]
+  }
+}

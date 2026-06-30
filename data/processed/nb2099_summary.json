@@ -1,0 +1,14 @@
+{
+  "method": "nb2099_lb_poll_aware_ladder",
+  "last_activity_lb": 0.7655,
+  "last_activity_rank": 262.0,
+  "next_fire": "chemprop_aux.csv",
+  "decision_reason": "last LB 0.7655 > 0.70 -> fall back to SAFETY_FLOOR chemprop_aux",
+  "proposed_patch": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\scripts\\auto_submit_ladder.proposed.py",
+  "rule": {
+    "lb_<=_0.55": "AGGRESSIVE",
+    "lb_in_(0.55,0.70]": "LB_SAFE",
+    "lb_>_0.70_or_none": "SAFETY_FLOOR"
+  },
+  "live_ladder_unchanged": true
+}

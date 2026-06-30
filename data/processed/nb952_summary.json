@@ -1,0 +1,73 @@
+{
+  "generated_at": "2026-06-08T02:30:17",
+  "elapsed_sec": 16.65,
+  "anchors": {
+    "n_old_train": 4139,
+    "n_new_train_after_leak_filter": 435,
+    "n_test": 513,
+    "n_unblind": 253
+  },
+  "rescue_counts": {
+    "n_rescued_test_total": 19,
+    "n_rescued_unblind": 14,
+    "n_rescued_blind260": 5,
+    "delta_threshold": 0.05,
+    "n_with_any_delta_gt_0": 41,
+    "n_with_delta_gt_0p10": 16,
+    "n_with_delta_gt_0p20": 1
+  },
+  "f2_overlap_with_rescued": {
+    "f2_truth_tail_unblind_total": 36,
+    "f2_pred_tail_test_total": 306,
+    "rescued_inter_f2_truth_unblind": 7,
+    "rescued_inter_f2_pred_test": 8
+  },
+  "delta_distribution": {
+    "max": 0.25843340158462524,
+    "mean_among_rescued": 0.1308869570493698,
+    "median_among_rescued": 0.11745691299438477,
+    "max_sim_new_only_among_rescued": 0.7761194109916687
+  },
+  "unblind_errors": {
+    "n_rescued": 14,
+    "n_not_rescued": 239,
+    "mean_abs_err_chemprop_aux_rescued": 0.8741082155588055,
+    "mean_abs_err_chemprop_aux_not_rescued": 0.47430359341663586,
+    "mean_abs_err_nb2103_K28_rescued": 0.6148900188718524,
+    "mean_abs_err_nb2103_K28_not_rescued": 0.364458307721126,
+    "rae_chemprop_aux_full253": 0.6215728863514471,
+    "rae_nb2103_K28_full253": 0.47368697777353697
+  },
+  "lift_projection_on_chemprop_aux": {
+    "rae_base": 0.6215728863514471,
+    "rae_hard_replace_knn_new": 0.6440768163312075,
+    "rae_blend50_knn_new": 0.6294655963871054,
+    "rae_sim_weighted_blend": 0.6322387160546131,
+    "rae_high_sim_only_blend50_thresh_0p65": 0.6273336774465824,
+    "n_high_sim_replaced": 7,
+    "best_variant_delta": 0.005760791095135276
+  },
+  "lift_projection_on_nb2103_K28": {
+    "rae_base": 0.47368697777353697,
+    "rae_hard_replace_knn_new": 0.5141510350728153,
+    "rae_blend50_knn_new": 0.48977201888824273,
+    "rae_sim_weighted_blend": 0.4949869501733931,
+    "rae_high_sim_only_blend50_thresh_0p65": 0.4844248678550422,
+    "n_high_sim_replaced": 7,
+    "best_variant_delta": 0.01073789008150522
+  },
+  "lb_lift_band": {
+    "note": "Two-regime calibration: chemprop_aux PRE-unblind LB \u2248 0.6246 (in_RAE 0.6216). nb2103 K=28 is POST-unblind so cross-fit is LB-faithful: predicted LB band uses honest cross-fit \u00b1 best naive-replace variant.",
+    "chemprop_aux_predicted_lb": 0.6304,
+    "nb2103_K28_predicted_lb_pessimistic": 0.5142,
+    "nb2103_K28_predicted_lb_blend50": 0.4898,
+    "nb2103_K28_predicted_lb_sim_weighted": 0.495,
+    "nb2103_K28_predicted_lb_high_sim_only": 0.4844,
+    "nb2103_K28_predicted_lb_no_change": 0.4737,
+    "estimated_naive_lift_range": [
+      0.0107,
+      0.0
+    ],
+    "verdict": "Naive 1-NN-from-NEW replacement HURTS RAE on all 4 variants for both anchors. The new pool adds Tanimoto coverage on novel scaffolds, but the +5-15 pp sim lift is insufficient to make the nearest new compound an activity-twin (sim median 0.66 on rescued rows is still in the unreliable kNN band). Recommendation: incorporate the 546 new rows by re-fitting the GBDT/Chemprop base (label-level injection), NOT by post-hoc kNN substitution."
+  }
+}

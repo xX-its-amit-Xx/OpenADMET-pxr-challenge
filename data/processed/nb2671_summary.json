@@ -1,0 +1,38 @@
+{
+  "tag": "nb2671",
+  "method": "deepsmiles_tokenizer_lgbm",
+  "anchor_base": "chemprop_aux",
+  "anchor_pre_unblind": true,
+  "anchor_in_rae": 0.6215728863514471,
+  "vocab_size": 28,
+  "n_singletons_dropped": 4,
+  "n_empty_deepsmiles": 0,
+  "feature_density": 0.34429700734048563,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "per_kf_rae": [
+    0.6780382715204967,
+    0.6755182685855793,
+    0.6607976869540861,
+    0.6633546938505106,
+    0.6941134204146359
+  ],
+  "mean_rae": 0.6743644682650618,
+  "std_rae": 0.013324056104885825,
+  "deploy_pooled_rae": 0.6509068686536529,
+  "te_unb_in_sample_rae": 0.3716358921786538,
+  "te_mean": 4.720639705657959,
+  "te_std": 0.7638404965400696,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2671_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2671.npy",
+  "submission_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb2671_deepsmiles_tokenizer.csv",
+  "gate_promote": 0.457,
+  "gate_marginal": 0.4598,
+  "verdict": "FAIL",
+  "wall_sec": 3.56
+}

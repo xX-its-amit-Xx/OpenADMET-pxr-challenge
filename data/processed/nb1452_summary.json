@@ -1,0 +1,211 @@
+{
+  "tag": "nb1452",
+  "anchor": "nb1070",
+  "data_source": "MACCS-cache + Mordred-cached_nb1030 + AtomPair-cache + local_chembl_caches_union",
+  "model_family": "CatBoost",
+  "catboost_loss": "MAE",
+  "catboost_depth": 4,
+  "catboost_iterations": 200,
+  "catboost_learning_rate": 0.05,
+  "catboost_l2_leaf_reg": 5.0,
+  "n_unb": 253,
+  "outer_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "inner_base_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "per_outer_inner_seeds": [
+    [
+      0,
+      1,
+      7,
+      42,
+      137
+    ],
+    [
+      1000,
+      1001,
+      1007,
+      1042,
+      1137
+    ],
+    [
+      7000,
+      7001,
+      7007,
+      7042,
+      7137
+    ],
+    [
+      42000,
+      42001,
+      42007,
+      42042,
+      42137
+    ],
+    [
+      137000,
+      137001,
+      137007,
+      137042,
+      137137
+    ]
+  ],
+  "resid_folds": 5,
+  "feat_dim": 82,
+  "feat_meta_n_top_maccs": 20,
+  "feat_meta_n_top_mordred": 30,
+  "feat_meta_n_top_atompair": 30,
+  "feat_meta_feat_dim": 82,
+  "feat_meta_n_chembl_pool": 945,
+  "feat_meta_feat_breakdown": {
+    "maccs": 20,
+    "mordred": 30,
+    "atompair": 30,
+    "pred_chembl_pec50": 1,
+    "mean_sim": 1,
+    "total": 82
+  },
+  "rae_anchor_nb1070": 0.5771305166381785,
+  "residual_mean": -0.1019658057365929,
+  "residual_std": 0.6666145784833671,
+  "per_outer_records": [
+    {
+      "outer_seed": 0,
+      "inner_seeds": [
+        0,
+        1,
+        7,
+        42,
+        137
+      ],
+      "inner_per_seed_rae": [
+        0.5124766972582392,
+        0.5176824348910365,
+        0.5215977632968186,
+        0.5129438434923477,
+        0.5141433273575664
+      ],
+      "rae_mean_bag": 0.505063638272625,
+      "wall_sec": 11.29
+    },
+    {
+      "outer_seed": 1,
+      "inner_seeds": [
+        1000,
+        1001,
+        1007,
+        1042,
+        1137
+      ],
+      "inner_per_seed_rae": [
+        0.5293968465772085,
+        0.48942226347310436,
+        0.5216043761117177,
+        0.5031276192937496,
+        0.5432013069664258
+      ],
+      "rae_mean_bag": 0.5071814742815534,
+      "wall_sec": 11.36
+    },
+    {
+      "outer_seed": 7,
+      "inner_seeds": [
+        7000,
+        7001,
+        7007,
+        7042,
+        7137
+      ],
+      "inner_per_seed_rae": [
+        0.5244534463099064,
+        0.5023674425413298,
+        0.5151694986503365,
+        0.5116698859386363,
+        0.5207868727353738
+      ],
+      "rae_mean_bag": 0.5027775287721288,
+      "wall_sec": 11.44
+    },
+    {
+      "outer_seed": 42,
+      "inner_seeds": [
+        42000,
+        42001,
+        42007,
+        42042,
+        42137
+      ],
+      "inner_per_seed_rae": [
+        0.5259502761753853,
+        0.5021269773109447,
+        0.5144567759704463,
+        0.5191280219736246,
+        0.5097940375159645
+      ],
+      "rae_mean_bag": 0.5022020257389619,
+      "wall_sec": 11.42
+    },
+    {
+      "outer_seed": 137,
+      "inner_seeds": [
+        137000,
+        137001,
+        137007,
+        137042,
+        137137
+      ],
+      "inner_per_seed_rae": [
+        0.505742717074679,
+        0.505716674706466,
+        0.5264600610799822,
+        0.5152243891714255,
+        0.5094356584041682
+      ],
+      "rae_mean_bag": 0.5015483137291273,
+      "wall_sec": 11.41
+    }
+  ],
+  "per_outer_rae_nb1441": [
+    0.505063638272625,
+    0.5071814742815534,
+    0.5027775287721288,
+    0.5022020257389619,
+    0.5015483137291273
+  ],
+  "per_outer_mean": 0.5037545961588793,
+  "per_outer_std": 0.002082781921858751,
+  "per_outer_min": 0.5015483137291273,
+  "per_outer_max": 0.5071814742815534,
+  "per_outer_median": 0.5027775287721288,
+  "rae_bob_mean": 0.5022549504765499,
+  "rae_bob_median": 0.5040410007147831,
+  "nb1441_ref": 0.5051,
+  "nb1422_bob_mean_ref": 0.5022,
+  "nb1422_bob_median_ref": 0.5016,
+  "reproduce_margin": 0.003,
+  "delta_per_outer_mean_vs_nb1441": -0.0013454038411206959,
+  "delta_outer0_vs_nb1441": -3.6361727374978337e-05,
+  "delta_bob_mean_vs_nb1422_bob_mean": 5.49504765499087e-05,
+  "delta_bob_median_vs_nb1422_bob_median": 0.002441000714783037,
+  "outer0_reproduces": true,
+  "reproduces": true,
+  "beats_nb1422_bob_mean": false,
+  "beats_nb1422_bob_median": false,
+  "pearson_bobmean_vs_nb1422_bob_mean": 0.9929017954006643,
+  "pearson_bobmean_vs_nb1422_bob_median": 0.9927473033356821,
+  "pearson_bobmedian_vs_nb1422_bob_mean": 0.9927309657998832,
+  "pearson_bobmedian_vs_nb1422_bob_median": 0.9925713150007847,
+  "pearson_bobmean_vs_nb1441_mean_bag": 0.9988130711886518,
+  "verdict": "NB1441_REPRODUCES",
+  "wall_sec": 60.85
+}

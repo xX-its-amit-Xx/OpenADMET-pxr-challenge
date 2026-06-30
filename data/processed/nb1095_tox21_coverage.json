@@ -1,0 +1,10 @@
+{
+  "n_pxr_actives": 1724,
+  "n_new": 1633,
+  "test_median_cov_before": 0.5230769515037537,
+  "test_median_cov_after": 0.5230769515037537,
+  "blind30_before": 0.40343719720840454,
+  "blind30_tox21": 0.24599918723106384,
+  "n_test_improved_0p05": 0,
+  "n_test_improved_0p10": 0
+}

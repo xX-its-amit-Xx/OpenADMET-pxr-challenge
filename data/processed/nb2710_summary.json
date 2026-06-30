@@ -1,0 +1,330 @@
+{
+  "tag": "nb2710",
+  "method": "random_fourier_features_RBF_Tanimoto_like_Ridge_on_chemprop_aux",
+  "rationale": "Rahimi-Recht RFF approximates RBF kernel; on binary Morgan-FP input the RBF kernel is monotonic in Tanimoto at short ranges, so RFF+Ridge is a kernel-method approximation to KRR with a Tanimoto-like kernel.  New paradigm vs LGBM tree splits (cycle-134 exhausted).",
+  "anchor": "chemprop_aux",
+  "anchor_te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+  "anchor_pre_unblind": true,
+  "rae_anchor_chemprop_aux": 0.6215728863514471,
+  "chemprop_aux_ref": 0.6216,
+  "feature_source": "Morgan_FP_2048_on_standardized_SMILES",
+  "feat_dim_input": 2048,
+  "rff_n_components": 500,
+  "rff_gamma": 1.0,
+  "rff_random_state": 42,
+  "ridge_alpha": 1.0,
+  "n_unb": 253,
+  "n_test": 513,
+  "n_unique_scaffolds": 180,
+  "n_folds": 5,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "model_class": "sklearn.kernel_approximation.RBFSampler -> sklearn.linear_model.Ridge",
+  "fit_policy": "per-fold-on-train (RFF.fit_transform on train only)",
+  "residual_mean": -0.1325965261753001,
+  "residual_std": 0.6999145683913596,
+  "per_seed_rae": [
+    0.6504420804332856,
+    0.6597031839514933,
+    0.6656665234072326,
+    0.6703068198325977,
+    0.6693896911672294
+  ],
+  "per_seed_mean_rae": 0.6631016597583677,
+  "per_seed_std_rae": 0.007346383909507246,
+  "mean_bag_rae": 0.6572417637089711,
+  "median_bag_rae": 0.6588177475109679,
+  "mean_rae": 0.6572417637089711,
+  "delta_vs_anchor": 0.035668877357524,
+  "delta_vs_nb2240_K20_lgbm": 0.19424176370897112,
+  "nb2240_K20_lgbm_ref": 0.463,
+  "per_seed_fold_diagnostics": [
+    [
+      {
+        "fold": 0,
+        "n_tr": 202,
+        "n_va": 51,
+        "rff_dim": 500,
+        "ridge_intercept": -0.08042767643928528,
+        "ridge_coef_abs_mean": 0.16819174587726593,
+        "ridge_coef_abs_max": 0.7071434259414673
+      },
+      {
+        "fold": 1,
+        "n_tr": 202,
+        "n_va": 51,
+        "rff_dim": 500,
+        "ridge_intercept": -0.11581690609455109,
+        "ridge_coef_abs_mean": 0.15242502093315125,
+        "ridge_coef_abs_max": 0.552015483379364
+      },
+      {
+        "fold": 2,
+        "n_tr": 202,
+        "n_va": 51,
+        "rff_dim": 500,
+        "ridge_intercept": -0.13685689866542816,
+        "ridge_coef_abs_mean": 0.1699535995721817,
+        "ridge_coef_abs_max": 0.6714144349098206
+      },
+      {
+        "fold": 3,
+        "n_tr": 203,
+        "n_va": 50,
+        "rff_dim": 500,
+        "ridge_intercept": -0.11427393555641174,
+        "ridge_coef_abs_mean": 0.17880837619304657,
+        "ridge_coef_abs_max": 0.7814350724220276
+      },
+      {
+        "fold": 4,
+        "n_tr": 203,
+        "n_va": 50,
+        "rff_dim": 500,
+        "ridge_intercept": -0.09914708882570267,
+        "ridge_coef_abs_mean": 0.17069393396377563,
+        "ridge_coef_abs_max": 0.6918150782585144
+      }
+    ],
+    [
+      {
+        "fold": 0,
+        "n_tr": 202,
+        "n_va": 51,
+        "rff_dim": 500,
+        "ridge_intercept": -0.14000245928764343,
+        "ridge_coef_abs_mean": 0.17587517201900482,
+        "ridge_coef_abs_max": 0.8054198026657104
+      },
+      {
+        "fold": 1,
+        "n_tr": 202,
+        "n_va": 51,
+        "rff_dim": 500,
+        "ridge_intercept": -0.1430724859237671,
+        "ridge_coef_abs_mean": 0.16323168575763702,
+        "ridge_coef_abs_max": 0.6691431403160095
+      },
+      {
+        "fold": 2,
+        "n_tr": 202,
+        "n_va": 51,
+        "rff_dim": 500,
+        "ridge_intercept": -0.0872526466846466,
+        "ridge_coef_abs_mean": 0.16124676167964935,
+        "ridge_coef_abs_max": 0.6232664585113525
+      },
+      {
+        "fold": 3,
+        "n_tr": 203,
+        "n_va": 50,
+        "rff_dim": 500,
+        "ridge_intercept": -0.12302945554256439,
+        "ridge_coef_abs_mean": 0.168148472905159,
+        "ridge_coef_abs_max": 0.734947919845581
+      },
+      {
+        "fold": 4,
+        "n_tr": 203,
+        "n_va": 50,
+        "rff_dim": 500,
+        "ridge_intercept": -0.06811939179897308,
+        "ridge_coef_abs_mean": 0.1672441065311432,
+        "ridge_coef_abs_max": 0.5820806622505188
+      }
+    ],
+    [
+      {
+        "fold": 0,
+        "n_tr": 202,
+        "n_va": 51,
+        "rff_dim": 500,
+        "ridge_intercept": -0.11352748423814774,
+        "ridge_coef_abs_mean": 0.159788116812706,
+        "ridge_coef_abs_max": 0.9504430890083313
+      },
+      {
+        "fold": 1,
+        "n_tr": 202,
+        "n_va": 51,
+        "rff_dim": 500,
+        "ridge_intercept": -0.10753719508647919,
+        "ridge_coef_abs_mean": 0.1606253981590271,
+        "ridge_coef_abs_max": 0.6354460120201111
+      },
+      {
+        "fold": 2,
+        "n_tr": 202,
+        "n_va": 51,
+        "rff_dim": 500,
+        "ridge_intercept": -0.10037372261285782,
+        "ridge_coef_abs_mean": 0.17027415335178375,
+        "ridge_coef_abs_max": 0.6615034937858582
+      },
+      {
+        "fold": 3,
+        "n_tr": 203,
+        "n_va": 50,
+        "rff_dim": 500,
+        "ridge_intercept": -0.12519471347332,
+        "ridge_coef_abs_mean": 0.17798349261283875,
+        "ridge_coef_abs_max": 0.7739788293838501
+      },
+      {
+        "fold": 4,
+        "n_tr": 203,
+        "n_va": 50,
+        "rff_dim": 500,
+        "ridge_intercept": -0.11325430124998093,
+        "ridge_coef_abs_mean": 0.16831231117248535,
+        "ridge_coef_abs_max": 0.6252495050430298
+      }
+    ],
+    [
+      {
+        "fold": 0,
+        "n_tr": 202,
+        "n_va": 51,
+        "rff_dim": 500,
+        "ridge_intercept": -0.13468876481056213,
+        "ridge_coef_abs_mean": 0.17329715192317963,
+        "ridge_coef_abs_max": 0.8754554986953735
+      },
+      {
+        "fold": 1,
+        "n_tr": 202,
+        "n_va": 51,
+        "rff_dim": 500,
+        "ridge_intercept": -0.10098588466644287,
+        "ridge_coef_abs_mean": 0.16153433918952942,
+        "ridge_coef_abs_max": 0.6010163426399231
+      },
+      {
+        "fold": 2,
+        "n_tr": 202,
+        "n_va": 51,
+        "rff_dim": 500,
+        "ridge_intercept": -0.12987694144248962,
+        "ridge_coef_abs_mean": 0.1724453717470169,
+        "ridge_coef_abs_max": 0.7957250475883484
+      },
+      {
+        "fold": 3,
+        "n_tr": 203,
+        "n_va": 50,
+        "rff_dim": 500,
+        "ridge_intercept": -0.09661999344825745,
+        "ridge_coef_abs_mean": 0.16330020129680634,
+        "ridge_coef_abs_max": 0.6774112582206726
+      },
+      {
+        "fold": 4,
+        "n_tr": 203,
+        "n_va": 50,
+        "rff_dim": 500,
+        "ridge_intercept": -0.08714649081230164,
+        "ridge_coef_abs_mean": 0.163636714220047,
+        "ridge_coef_abs_max": 0.6471272706985474
+      }
+    ],
+    [
+      {
+        "fold": 0,
+        "n_tr": 202,
+        "n_va": 51,
+        "rff_dim": 500,
+        "ridge_intercept": -0.1407189816236496,
+        "ridge_coef_abs_mean": 0.17235217988491058,
+        "ridge_coef_abs_max": 0.7740229368209839
+      },
+      {
+        "fold": 1,
+        "n_tr": 202,
+        "n_va": 51,
+        "rff_dim": 500,
+        "ridge_intercept": -0.11407291144132614,
+        "ridge_coef_abs_mean": 0.16502141952514648,
+        "ridge_coef_abs_max": 0.6293841600418091
+      },
+      {
+        "fold": 2,
+        "n_tr": 202,
+        "n_va": 51,
+        "rff_dim": 500,
+        "ridge_intercept": -0.07738429307937622,
+        "ridge_coef_abs_mean": 0.17084583640098572,
+        "ridge_coef_abs_max": 0.5645930171012878
+      },
+      {
+        "fold": 3,
+        "n_tr": 203,
+        "n_va": 50,
+        "rff_dim": 500,
+        "ridge_intercept": -0.12095051258802414,
+        "ridge_coef_abs_mean": 0.16799229383468628,
+        "ridge_coef_abs_max": 0.7128524780273438
+      },
+      {
+        "fold": 4,
+        "n_tr": 203,
+        "n_va": 50,
+        "rff_dim": 500,
+        "ridge_intercept": -0.09980234503746033,
+        "ridge_coef_abs_mean": 0.15998101234436035,
+        "ridge_coef_abs_max": 0.776289701461792
+      }
+    ]
+  ],
+  "per_seed_deploy_diagnostics": [
+    {
+      "seed": 1001,
+      "rff_dim": 500,
+      "ridge_intercept": -0.10489154607057571,
+      "ridge_coef_abs_mean": 0.18462367355823517,
+      "ridge_coef_abs_max": 0.8210901021957397
+    },
+    {
+      "seed": 1002,
+      "rff_dim": 500,
+      "ridge_intercept": -0.10489154607057571,
+      "ridge_coef_abs_mean": 0.18462367355823517,
+      "ridge_coef_abs_max": 0.8210901021957397
+    },
+    {
+      "seed": 1003,
+      "rff_dim": 500,
+      "ridge_intercept": -0.10489154607057571,
+      "ridge_coef_abs_mean": 0.18462367355823517,
+      "ridge_coef_abs_max": 0.8210901021957397
+    },
+    {
+      "seed": 1004,
+      "rff_dim": 500,
+      "ridge_intercept": -0.10489154607057571,
+      "ridge_coef_abs_mean": 0.18462367355823517,
+      "ridge_coef_abs_max": 0.8210901021957397
+    },
+    {
+      "seed": 1005,
+      "rff_dim": 500,
+      "ridge_intercept": -0.10489154607057571,
+      "ridge_coef_abs_mean": 0.18462367355823517,
+      "ridge_coef_abs_max": 0.8210901021957397
+    }
+  ],
+  "te_unb_in_sample_rae": 0.3738423136283282,
+  "te_deploy_mean": 4.716769218444824,
+  "te_deploy_std": 0.6802427768707275,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2710_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2710.npy",
+  "submission_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb2710_random_fourier_features.csv",
+  "gate_promote_threshold": 0.457,
+  "gate_marginal_threshold": 0.4598,
+  "verdict": "FAIL",
+  "wall_sec": 1.43
+}

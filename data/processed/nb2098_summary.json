@@ -1,0 +1,50 @@
+{
+  "method": "nb2098_f2_cohort_stratified_validation",
+  "tier_sizes": {
+    "A_well_supported": 21,
+    "B_sparse": 35,
+    "C_novel_F2": 197
+  },
+  "per_tier_rae": {
+    "A_well_supported": {
+      "n": 21,
+      "nb1191": 0.2901,
+      "nb2060": 0.1617,
+      "nb1162": 0.4346,
+      "chemprop_aux": 0.7139,
+      "winner": "nb2060",
+      "winner_rae": 0.1617
+    },
+    "B_sparse": {
+      "n": 35,
+      "nb1191": 0.2563,
+      "nb2060": 0.1689,
+      "nb1162": 0.456,
+      "chemprop_aux": 0.8168,
+      "winner": "nb2060",
+      "winner_rae": 0.1689
+    },
+    "C_novel_F2": {
+      "n": 197,
+      "nb1191": 0.2724,
+      "nb2060": 0.1597,
+      "nb1162": 0.4427,
+      "chemprop_aux": 0.6212,
+      "winner": "nb2060",
+      "winner_rae": 0.1597
+    }
+  },
+  "overall": {
+    "n": 253,
+    "nb1191": 0.2631,
+    "nb2060": 0.1554,
+    "nb1162": 0.4289,
+    "chemprop_aux": 0.6216,
+    "winner": "nb2060"
+  },
+  "f2_prescription": {
+    "winner_on_novel_scaffold": "nb2060",
+    "winner_rae": 0.1597,
+    "note": "Use this candidate as F2 router specialist; blend with overall winner on well-supported"
+  }
+}

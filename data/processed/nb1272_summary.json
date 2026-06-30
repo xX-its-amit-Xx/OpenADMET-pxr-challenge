@@ -1,0 +1,108 @@
+{
+  "tag": "nb1272",
+  "anchor": "nb1070",
+  "data_source": "local_bindingdb_nr_data_cache",
+  "data_source_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\external\\bindingdb_nr_data.parquet",
+  "bindingdb_rest_probe": {
+    "probed": true,
+    "reachable": true,
+    "note": "BindingDB host is reachable but exposes no documented anonymous REST endpoint for UniProt-keyed bulk per-target ligand pull. We use the local cached pull (data/external/bindingdb_nr_data.parquet).",
+    "http_status": 200
+  },
+  "bindingdb_status": "bindingdb_local_cache_used",
+  "pxr_uniprot": "O75469",
+  "raw_cache_rows": 5690,
+  "pxr_rows_after_target_filter": 346,
+  "n_bindingdb_pool_pre_leak_guard": 208,
+  "n_bindingdb_pool_post_leak_guard": 208,
+  "test_inchikeys_in_pool_dropped": 0,
+  "pool_pec50_mean": 6.07610559463501,
+  "pool_pec50_std": 0.8347703814506531,
+  "pool_pec50_median": 5.909999847412109,
+  "knn_k": 5,
+  "top1_sim_p10": 0.17118553817272186,
+  "top1_sim_p50": 0.21212121844291687,
+  "top1_sim_p90": 0.2574891746044159,
+  "top1_sim_max": 0.3636363744735718,
+  "mean5_sim_p10": 0.158961683511734,
+  "mean5_sim_p50": 0.1933630257844925,
+  "mean5_sim_p90": 0.23801256716251373,
+  "n_zero_neighbor_rows": 0,
+  "n_unb": 253,
+  "resid_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "resid_folds": 5,
+  "feature_dim": 169,
+  "lgbm_max_depth": 3,
+  "lgbm_num_leaves": 7,
+  "lgbm_n_estimators": 80,
+  "lgbm_learning_rate": 0.05,
+  "lgbm_min_child_samples": 20,
+  "lgbm_huber_alpha": 1.0,
+  "rae_anchor_nb1070": 0.5771305166381785,
+  "residual_mean": -0.1019658057365929,
+  "residual_std": 0.6666145784833671,
+  "per_seed_rae": [
+    0.5735177676502857,
+    0.573786520154788,
+    0.5665757959968231,
+    0.5613040917263111,
+    0.5718251918524158
+  ],
+  "per_seed_records": [
+    {
+      "seed": 0,
+      "rae_corrected": 0.5735177676502857,
+      "delta_vs_nb1070": -0.0036127489878927666,
+      "resid_oof_std": 0.20801436872521753,
+      "resid_oof_mean": -0.07501180827453012
+    },
+    {
+      "seed": 1,
+      "rae_corrected": 0.573786520154788,
+      "delta_vs_nb1070": -0.0033439964833904545,
+      "resid_oof_std": 0.22736717818714222,
+      "resid_oof_mean": -0.0722283583051095
+    },
+    {
+      "seed": 7,
+      "rae_corrected": 0.5665757959968231,
+      "delta_vs_nb1070": -0.01055472064135543,
+      "resid_oof_std": 0.214104250901188,
+      "resid_oof_mean": -0.07761335486034966
+    },
+    {
+      "seed": 42,
+      "rae_corrected": 0.5613040917263111,
+      "delta_vs_nb1070": -0.015826424911867365,
+      "resid_oof_std": 0.21749287023929367,
+      "resid_oof_mean": -0.07383425703377236
+    },
+    {
+      "seed": 137,
+      "rae_corrected": 0.5718251918524158,
+      "delta_vs_nb1070": -0.005305324785762733,
+      "resid_oof_std": 0.22949010642155818,
+      "resid_oof_mean": -0.07599780517691228
+    }
+  ],
+  "rae_per_seed_mean": 0.5694018734761247,
+  "rae_per_seed_median": 0.5718251918524158,
+  "rae_per_seed_std": 0.004808304617827488,
+  "rae_mean_bag": 0.5581692113290324,
+  "rae_median_bag": 0.5574545181712801,
+  "delta_mean_bag_vs_nb1070": -0.01896130530914608,
+  "delta_mean_bag_vs_nb1242": 0.015069211329032384,
+  "beats_nb1070": true,
+  "beats_nb1242": false,
+  "verdict": "BINDINGDB_KNN_FEAT_HELPS_NB1070_BUT_NOT_NB1242",
+  "nb1070_ref_pooled": 0.5771,
+  "nb1242_ref": 0.5431,
+  "decision_margin": 0.003,
+  "wall_sec": 1.74
+}

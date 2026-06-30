@@ -1,0 +1,197 @@
+{
+  "snapshot_date": "2026-06-08",
+  "cycle": 179,
+  "total_methods": 1175,
+  "phase_2_deadline": "2026-07-01",
+  "days_remaining": 23,
+  "compounding_wins": [
+    {
+      "rank": 1,
+      "candidate": "chemprop_aux",
+      "pre_honest_rae": 0.6216,
+      "delta_from_prev": null,
+      "note": "First LB-faithful anchor (replaced cross-fit-overfit nb703/562/730)"
+    },
+    {
+      "rank": 2,
+      "candidate": "nb2103",
+      "pre_honest_rae": 0.5057,
+      "delta_from_prev": -0.1159,
+      "note": "SHAP-K fine grid; first sub-0.51 PRE-honest"
+    },
+    {
+      "rank": 3,
+      "candidate": "nb2095",
+      "pre_honest_rae": 0.472,
+      "delta_from_prev": -0.0337,
+      "note": "PRE pyramid stack; breaks 0.48"
+    },
+    {
+      "rank": 4,
+      "candidate": "nb2171",
+      "pre_honest_rae": 0.4682,
+      "delta_from_prev": -0.0038,
+      "note": "nb1162 anchor swap; tighter family weighting"
+    },
+    {
+      "rank": 5,
+      "candidate": "nb2240",
+      "pre_honest_rae": 0.4601,
+      "delta_from_prev": -0.0081,
+      "note": "nb2171 + K=20 RFE; current PRIMARY-1"
+    }
+  ],
+  "compounding_net_delta_rae": -0.1615,
+  "compounding_net_delta_pct": -26.0,
+  "primary_stack": [
+    {
+      "slot": "PRIMARY-1",
+      "candidate": "nb2240",
+      "pre_honest_rae": 0.4601,
+      "role": "K=20 RFE anchor, deploy default"
+    },
+    {
+      "slot": "PRIMARY-2",
+      "candidate": "nb1162",
+      "pre_honest_rae": 0.4654,
+      "role": "Deep-30 multi-seed anchor; backbone of nb2171"
+    },
+    {
+      "slot": "PRIMARY-3",
+      "candidate": "nb2171",
+      "pre_honest_rae": 0.4682,
+      "role": "Family-weighted anchor swap"
+    },
+    {
+      "slot": "PRIMARY-4",
+      "candidate": "nb2095",
+      "pre_honest_rae": 0.472,
+      "role": "PRE pyramid stack"
+    },
+    {
+      "slot": "PRIMARY-5",
+      "candidate": "nb1191",
+      "pre_honest_rae": 0.4757,
+      "role": "Independent deep-30; rotation diversity"
+    }
+  ],
+  "lb_transfer_projection": {
+    "pre_delta_calibration": 0.0045,
+    "primary_candidate": "nb2240",
+    "primary_pre_honest_rae": 0.4601,
+    "projected_lb_rae": 0.4646,
+    "current_best_lb_rae": 0.7655,
+    "expected_win_vs_current": 0.3009,
+    "expected_win_pct": 39.3,
+    "regime": "PRE-unblind (trained on 4139 only); LB delta validated n=4"
+  },
+  "closed_axes": {
+    "model_paradigms": [
+      "LightGBM (Huber / MSE / quantile / monotone / DART / Tweedie)",
+      "XGBoost (MSE / Huber / pseudo-Huber)",
+      "CatBoost (RMSE / ordered / categorical)",
+      "Random Forest (sklearn / cuML / extra-trees)",
+      "Sklearn Stack (ridge / lasso / kernel-ridge / SVR)",
+      "Neural Nets (MLP / dropout-MC / tanh-head)",
+      "GNN (Chemprop / SchNet / SE3-EGNN / multitask)",
+      "ChemBERTa (anchor / counter / family)",
+      "MolFormer (extract / embed)",
+      "Gaussian Process (Tanimoto / Matern)",
+      "Bayesian Dirichlet blend",
+      "Persistent Homology (TDA)",
+      "Symbolic regression (PySR residual)"
+    ],
+    "calibration_methods": [
+      "Rank-stretch (scalar / per-quantile / Murcko-gated)",
+      "Isotonic regression (per-fold / pooled)",
+      "Quantile / conformal stacking",
+      "Conformal shrinkage",
+      "Confidence-aware shrinkage",
+      "Bias-shift / mean re-anchoring",
+      "Heteroscedastic NLL",
+      "PCHIP CDF-match",
+      "Pinball / tail-weighted loss",
+      "Tanh-target compression",
+      "Soft07 truth injection (cross-fit guarded)"
+    ],
+    "feature_substrates": [
+      "Morgan FP (radius 1-4, bits 1024/2048/4096)",
+      "RDKit descriptors (217-D)",
+      "Combined Morgan + RDKit (2265-D)",
+      "Mordred substrate (1600+ descriptors, full)",
+      "MACCS keys (167-bit)",
+      "ChemBERTa-77M-MTR embeddings",
+      "MolFormer embeddings",
+      "SHAP-K top selection (K=20..50 grid)",
+      "LASSO selection",
+      "Mutual Information selection",
+      "Boruta wrapper selection",
+      "Permutation Importance selection",
+      "Spectral graph features",
+      "Persistent Homology features",
+      "3D conformer / pharmacophore features",
+      "Similarity-matrix as features",
+      "MMP transform features",
+      "Cliff-transformation features",
+      "Counter-assay pEC50 as feature",
+      "Single-conc log2FC as feature"
+    ],
+    "blend_methods": [
+      "SLSQP convex combination (2/3/4/5/13-way)",
+      "Plain average / weighted average",
+      "Median / trimmed-median",
+      "Best-of-bag (BoB) selection",
+      "Trimmed adversarial blend",
+      "Meta-pyramid stack",
+      "Per-fold pyramid",
+      "Bag-of-bags",
+      "Tri-vote / diverse-vote",
+      "Dirichlet posterior weighting",
+      "Meta-LGBM stacker",
+      "Sklearn stacking regressor",
+      "Multi-K stack (RFE feature counts)",
+      "Decorrelated greedy",
+      "Family ablation greedy"
+    ],
+    "data_augmentation": [
+      "SMILES TTA (test-time augmentation)",
+      "Unblind label augmentation (253)",
+      "Single-conc auxiliary task",
+      "Counter-assay multitask head",
+      "PubChem PXR external pull",
+      "ChEMBL PXR active kNN",
+      "Tox21 broad analogy transfer",
+      "Large-ADME analogy transfer",
+      "NR-family transfer / CLIP",
+      "Cross-target profile features",
+      "MMP transform model",
+      "Pseudo self-training (nb2011)"
+    ],
+    "structural_priors": [
+      "Boltz-2 pose veto (0/513 fired)",
+      "Pocket-aware predictor",
+      "PDB fragment-residue DB",
+      "Pose IFP + GBSA",
+      "3D atom features (biotype)",
+      "Multi-template delta"
+    ]
+  },
+  "actively_open": [
+    {
+      "candidate": "nb2263",
+      "name": "lucky-aware RFE",
+      "status": "running",
+      "hypothesis": "Bootstrap-stabilized RFE eliminates lucky-feature subsets; if nb2240 K=20 was a lucky local optimum, this finds the robust K.",
+      "expected_pre_honest": "0.4570-0.4620"
+    },
+    {
+      "candidate": "nb2291",
+      "name": "Mordred substrate (full 1600-D)",
+      "status": "running",
+      "hypothesis": "Mordred 1600+ descriptors contain physchem signal absent from RDKit-217 + Morgan; first orthogonal substrate not yet exhausted.",
+      "expected_pre_honest": "0.4550-0.4650"
+    }
+  ],
+  "closed_axes_count": 77,
+  "regime_note": "All compounding wins are PRE-unblind scaffold-CV honest cross-fit. POST-unblind cross-fit candidates (nb703/562/730 etc.) deprecated due to unreliable LB transfer (+0.10 shift observed on 253-unblind)."
+}

@@ -1,0 +1,79 @@
+{
+  "tag": "nb2453",
+  "generated_at": "2026-06-08T04:42:06",
+  "elapsed_sec": 6.7,
+  "method": "ChEMBL_PXR_direct_kNN_novel_scaffold_only_F2_attack6",
+  "kb_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\external\\chembl_pxr_nr_kb.parquet",
+  "kb_raw_rows": 11185,
+  "kb_src_breakdown_raw_top": {
+    "NR_PPARg": 4220,
+    "NR_FXR": 3135,
+    "NR_RXRa": 1315,
+    "NR_LXRa": 1137,
+    "PXR_CHEMBL3401": 726,
+    "NR_VDR": 491,
+    "NR_PXR": 157,
+    "NR_PPARa": 4
+  },
+  "pxr_direct_sources": [
+    "NR_PXR",
+    "PXR_CHEMBL3401"
+  ],
+  "n_pxr_direct_raw": 883,
+  "n_pxr_direct_with_pec50": 883,
+  "n_kb_unique_dedup": 883,
+  "n_train_inchikey_overlap_dropped": 0,
+  "n_kb_used": 883,
+  "knn_k": 5,
+  "sim_gate": 0.4,
+  "n_novel_te_513": 416,
+  "n_novel_te_hit": 0,
+  "n_replaced_te_513": 0,
+  "n_novel_unb_253": 197,
+  "n_novel_unb_hit": 0,
+  "n_replaced_unb_253": 0,
+  "max_sim_novel_te_summary": {
+    "mean": 0.25717833638191223,
+    "median": 0.2530120611190796,
+    "p25": 0.2299712598323822,
+    "p75": 0.2763157784938812
+  },
+  "anchor_te_unb_rae_in_sample": 0.16570824273473972,
+  "blend_te_unb_rae_in_sample": 0.16570824273473972,
+  "delta_insample": 0.0,
+  "F2_subset_anchor_rae": null,
+  "F2_subset_blend_rae": null,
+  "F2_subset_n": 0,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "n_folds": 5,
+  "n_unique_unb_scaffolds": 180,
+  "per_seed_blend_rae": [
+    0.16570824273473972,
+    0.16570824273473972,
+    0.16570824273473972,
+    0.16570824273473972,
+    0.16570824273473972
+  ],
+  "per_seed_anchor_rae": [
+    0.16570824273473972,
+    0.16570824273473972,
+    0.16570824273473972,
+    0.16570824273473972,
+    0.16570824273473972
+  ],
+  "cv_mean_blend_rae": 0.16570824273473972,
+  "cv_std_blend_rae": 0.0,
+  "cv_mean_anchor_rae": 0.16570824273473972,
+  "delta_cv_vs_anchor_recomputed": 0.0,
+  "nb2240_oof_ref": 0.4601,
+  "delta_cv_vs_nb2240_ref": 0.2943917572652603,
+  "gate_delta": 0.003,
+  "gate_pass": true,
+  "verdict": "CHEMBL_F2_ONLY_BEATS_NB2240  delta=+0.2944 >= 0.003  -> consider integration"
+}

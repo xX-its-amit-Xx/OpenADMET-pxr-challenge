@@ -1,0 +1,10 @@
+{
+  "method": "nb1993_chembl_knn1",
+  "csv": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1993_chembl_knn1.csv",
+  "in_rae_unblind": 1.6413097285733629,
+  "pred_mean": 5.66574074074074,
+  "pred_std": 0.9709488909261399,
+  "top1_sim_median": 0.2545454545454545,
+  "n_chembl_anchors": 753,
+  "n_test": 513
+}

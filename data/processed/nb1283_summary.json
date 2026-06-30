@@ -1,0 +1,112 @@
+{
+  "tag": "nb1283",
+  "purpose": "LB-faithful RAE estimate via distance-weighted KFold on nb1242 protocol",
+  "anchor": "nb1070",
+  "n_clusters": 5,
+  "n_unb": 253,
+  "feature_dim": 169,
+  "resid_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "cluster_sizes": {
+    "0": 152,
+    "1": 80,
+    "2": 16,
+    "3": 2,
+    "4": 3
+  },
+  "intra_253_sim_p10": 0.08641975373029709,
+  "intra_253_sim_p50": 0.1325301229953766,
+  "intra_253_sim_p90": 0.20454545319080353,
+  "intra_253_sim_mean": 0.1479356437921524,
+  "mean_within_cluster_sim": 0.1801532804965973,
+  "mean_between_cluster_sim": 0.12015598267316818,
+  "separation_ratio_within_minus_between": 0.05999729782342911,
+  "per_cluster_mean_sim_to_training_fold": {
+    "0": 0.12234736979007721,
+    "1": 0.12086056172847748,
+    "2": 0.11263509094715118,
+    "3": 0.10665445774793625,
+    "4": 0.10936052352190018
+  },
+  "random_kfold_mean_holdout_to_train_sim": 0.14784224331378937,
+  "dw_kfold_mean_holdout_to_train_sim": 0.11437160074710846,
+  "dw_minus_random_sim_delta": -0.033470642566680905,
+  "rae_anchor_nb1070": 0.5771305166381785,
+  "residual_mean": -0.1019658057365929,
+  "residual_std": 0.6666145784833671,
+  "per_seed_rae": [
+    0.6435653021126949,
+    0.6440061825775074,
+    0.6331057059800439,
+    0.645424160072653,
+    0.641402348614659
+  ],
+  "per_seed_records": [
+    {
+      "seed": 0,
+      "rae_corrected": 0.6435653021126949,
+      "delta_vs_nb1070": 0.06643478547451642,
+      "resid_oof_std": 0.19073036150494604,
+      "resid_oof_mean": -0.08329841210027498
+    },
+    {
+      "seed": 1,
+      "rae_corrected": 0.6440061825775074,
+      "delta_vs_nb1070": 0.06687566593932892,
+      "resid_oof_std": 0.18691106034744545,
+      "resid_oof_mean": -0.08589917379374182
+    },
+    {
+      "seed": 7,
+      "rae_corrected": 0.6331057059800439,
+      "delta_vs_nb1070": 0.055975189341865406,
+      "resid_oof_std": 0.18104408168856942,
+      "resid_oof_mean": -0.07031581182386491
+    },
+    {
+      "seed": 42,
+      "rae_corrected": 0.645424160072653,
+      "delta_vs_nb1070": 0.06829364343447453,
+      "resid_oof_std": 0.1945023984509264,
+      "resid_oof_mean": -0.07747181028952975
+    },
+    {
+      "seed": 137,
+      "rae_corrected": 0.641402348614659,
+      "delta_vs_nb1070": 0.06427183197648045,
+      "resid_oof_std": 0.19196165361587253,
+      "resid_oof_mean": -0.08020343611427942
+    }
+  ],
+  "rae_per_seed_mean": 0.6415007398715117,
+  "rae_per_seed_median": 0.6435653021126949,
+  "rae_per_seed_std": 0.004391336046211642,
+  "rae_mean_bag": 0.6406263125840558,
+  "rae_median_bag": 0.6406268350165346,
+  "per_cluster_rae_pooled_meanbag": {
+    "0": 0.5889699077736221,
+    "1": 0.8624949114699707,
+    "2": 1.1018056182276639,
+    "3": 0.9974495263671188,
+    "4": 0.6029873562193904
+  },
+  "per_cluster_rae_pooled_anchor": {
+    "0": 0.5571154156314778,
+    "1": 0.7092161034711749,
+    "2": 0.8384368372230131,
+    "3": 1.1586870222256105,
+    "4": 0.6218853568708574
+  },
+  "nb1242_random_kfold_rae": 0.5431,
+  "optimism_gap_dw_minus_random": 0.09752631258405575,
+  "nb1242_lb_predicted_random_kfold": 0.542,
+  "predicted_lb_from_dw_kfold": 0.6436263125840558,
+  "predicted_lb_adjustment_dw_minus_random": 0.10162631258405574,
+  "lb_calibration_pre_unblind_offset": 0.003,
+  "wall_sec": 4.44
+}

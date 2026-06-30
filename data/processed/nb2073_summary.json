@@ -1,0 +1,29 @@
+{
+  "tag": "nb2073",
+  "status": "OK",
+  "target_chembl_id": "CHEMBL3401",
+  "snapshot_inchikeys": 2889,
+  "snapshot_scaffolds": 1381,
+  "current_rows": 7044,
+  "current_unique_compounds": 3648,
+  "new_compounds": 760,
+  "new_compounds_novel_scaffold": 613,
+  "new_pec50_records_total": 53,
+  "new_pec50_records_novel_scaffold": 34,
+  "max_tanimoto_to_test_513": {
+    "n": 760,
+    "min": 0.08163265138864517,
+    "p25": 0.19767442345619202,
+    "median": 0.23032714426517487,
+    "mean": 0.2339928299188614,
+    "p75": 0.2666666805744171,
+    "p90": 0.3056817948818207,
+    "max": 0.44736841320991516,
+    "frac_ge_0.40": 0.006578947368421052,
+    "frac_ge_0.50": 0.0
+  },
+  "gate_threshold": 50,
+  "decision": "AXIS_CLOSED",
+  "rationale": "only 34 novel-scaffold pEC50 records (gate 50); ChEMBL PXR delta too thin to move the LB. Re-probe next cycle.",
+  "queue_marker": null
+}

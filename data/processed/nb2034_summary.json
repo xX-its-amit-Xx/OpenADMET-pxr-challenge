@@ -1,0 +1,111 @@
+{
+  "tag": "nb2034",
+  "anchor": "chemprop_aux",
+  "anchor_kind": "PRE_unblind_te_slice_to_unb_idx",
+  "anchor_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+  "data_source": "AtomPair-cache + MACCS-cache + Mordred-cached_nb1030 + ChempropEmbed-cache + Avalon-cache + local_chembl_caches_union",
+  "model_family": "LightGBM",
+  "trajectory_method": "within-fit-iteration-snapshot-average",
+  "snapshots": [
+    200,
+    225,
+    250,
+    275,
+    300
+  ],
+  "lgbm_objective": "regression",
+  "lgbm_max_depth": 4,
+  "lgbm_num_leaves": 15,
+  "lgbm_n_estimators": 300,
+  "lgbm_learning_rate": 0.03,
+  "lgbm_min_child_samples": 5,
+  "lgbm_reg_lambda": 2.0,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "resid_folds": 5,
+  "K_AP_best": 25,
+  "K_Mord_best": 20,
+  "K_Embed_best": 20,
+  "K_Avalon_used": 30,
+  "K_MACCS_fixed": 20,
+  "n_chembl_pool": 945,
+  "n_unb": 253,
+  "feat_dim": 117,
+  "feat_breakdown": {
+    "atompair": 25,
+    "maccs": 20,
+    "mordred": 20,
+    "chemprop_embed": 20,
+    "avalon": 30,
+    "pred_chembl_pec50": 1,
+    "mean_sim": 1,
+    "total": 117
+  },
+  "rae_anchor_chemprop_aux": 0.6215728863514471,
+  "residual_mean": -0.1325965261753001,
+  "residual_std": 0.6999145683913596,
+  "per_seed_records": [
+    {
+      "seed": 0,
+      "rae_traj": 0.5234119685956709,
+      "rae_last": 0.5234240488013292,
+      "delta_traj_minus_last": -1.2080205658349108e-05,
+      "wall_sec": 0.5
+    },
+    {
+      "seed": 1,
+      "rae_traj": 0.5622150337249536,
+      "rae_last": 0.5613517712051213,
+      "delta_traj_minus_last": 0.0008632625198323751,
+      "wall_sec": 0.53
+    },
+    {
+      "seed": 2,
+      "rae_traj": 0.5330258233205613,
+      "rae_last": 0.5330225258026056,
+      "delta_traj_minus_last": 3.2975179556915535e-06,
+      "wall_sec": 0.5
+    },
+    {
+      "seed": 3,
+      "rae_traj": 0.5300870087567167,
+      "rae_last": 0.5312001728001737,
+      "delta_traj_minus_last": -0.001113164043457071,
+      "wall_sec": 0.48
+    },
+    {
+      "seed": 4,
+      "rae_traj": 0.5323283619607442,
+      "rae_last": 0.5321527579859514,
+      "delta_traj_minus_last": 0.00017560397479277068,
+      "wall_sec": 0.5
+    }
+  ],
+  "seed_mean_rae_traj": 0.5362136392717293,
+  "seed_std_rae_traj": 0.013436877891829492,
+  "seed_mean_rae_last": 0.5362302553190361,
+  "seed_std_rae_last": 0.013017731976711187,
+  "rae_mean_bag_traj": 0.5082983460987619,
+  "rae_median_bag_traj": 0.5147683455615532,
+  "rae_mean_bag_last": 0.5072053505278495,
+  "rae_median_bag_last": 0.5139609870861831,
+  "delta_mean_bag_traj_vs_anchor": -0.11327454025268524,
+  "delta_mean_bag_traj_vs_nb1852": -0.0017016539012381093,
+  "delta_mean_bag_traj_vs_nb1861": 0.006998346098761932,
+  "delta_mean_bag_traj_vs_last_only": 0.0010929955709123584,
+  "mean_bag_traj_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2034_mean_bag_oof.npy",
+  "mean_bag_last_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2034_mean_bag_oof_last_only.npy",
+  "verdict": "TRAJECTORY_HURTS_VS_NB1861",
+  "ablation_vs_last_only": "LAST_ONLY_BEATS_TRAJECTORY",
+  "pre_unblind_clean": true,
+  "chemprop_aux_ref": 0.6216,
+  "nb1852_ref": 0.51,
+  "nb1861_ref": 0.5013,
+  "decision_margin": 0.003,
+  "wall_sec": 6.43
+}

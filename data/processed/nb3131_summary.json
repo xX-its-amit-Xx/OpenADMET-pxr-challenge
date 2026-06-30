@@ -1,0 +1,240 @@
+{
+  "tag": "nb3131",
+  "parent_tag": "nb3080",
+  "method": "L2_noise_quantile_conditional_blend_K18_K19_deep30_gaussian_perturb_avg10",
+  "anchor_pool": [
+    "K18",
+    "K19"
+  ],
+  "anchor_depth": {
+    "K18": "deep30",
+    "K19": "deep30"
+  },
+  "anchor_pre_unblind": true,
+  "per_K_full_oof_rae": {
+    "K18": 0.4536,
+    "K19": 0.4607
+  },
+  "anchor_leak_eq_truth_frac": {
+    "K18": 0.0,
+    "K19": 0.0
+  },
+  "oof_pairwise_corr": 0.9846,
+  "base_schedule": {
+    "q_cut": 0.4,
+    "w_low": 0.9,
+    "w_high": 0.5
+  },
+  "noise_schedule": {
+    "sigma": 0.05,
+    "n_noise": 10,
+    "noise_seed_base": 9000,
+    "clip_low": 0.0,
+    "clip_high": 1.0
+  },
+  "n_folds": 5,
+  "kf_seeds": [
+    1141,
+    1142,
+    1143,
+    1144,
+    1145,
+    1146,
+    1147,
+    1148,
+    1149,
+    1150,
+    1151,
+    1152,
+    1153,
+    1154,
+    1155
+  ],
+  "n_seeds": 15,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "seed_records": [
+    {
+      "kf_seed": 1141,
+      "pooled_rae": 0.4473,
+      "per_fold_val_rae_mean": 0.4563,
+      "per_fold_val_rae_std": 0.0651,
+      "fold_q_thr_mean": 4.6892,
+      "fold_q_thr_std": 0.051,
+      "fold_high_share_mean": 0.5926
+    },
+    {
+      "kf_seed": 1142,
+      "pooled_rae": 0.4478,
+      "per_fold_val_rae_mean": 0.4505,
+      "per_fold_val_rae_std": 0.047,
+      "fold_q_thr_mean": 4.6917,
+      "fold_q_thr_std": 0.0444,
+      "fold_high_share_mean": 0.5928
+    },
+    {
+      "kf_seed": 1143,
+      "pooled_rae": 0.4478,
+      "per_fold_val_rae_mean": 0.481,
+      "per_fold_val_rae_std": 0.0721,
+      "fold_q_thr_mean": 4.6814,
+      "fold_q_thr_std": 0.1065,
+      "fold_high_share_mean": 0.605
+    },
+    {
+      "kf_seed": 1144,
+      "pooled_rae": 0.4468,
+      "per_fold_val_rae_mean": 0.4625,
+      "per_fold_val_rae_std": 0.0902,
+      "fold_q_thr_mean": 4.6905,
+      "fold_q_thr_std": 0.0445,
+      "fold_high_share_mean": 0.6086
+    },
+    {
+      "kf_seed": 1145,
+      "pooled_rae": 0.4472,
+      "per_fold_val_rae_mean": 0.4615,
+      "per_fold_val_rae_std": 0.0663,
+      "fold_q_thr_mean": 4.6924,
+      "fold_q_thr_std": 0.0654,
+      "fold_high_share_mean": 0.5976
+    },
+    {
+      "kf_seed": 1146,
+      "pooled_rae": 0.4469,
+      "per_fold_val_rae_mean": 0.4497,
+      "per_fold_val_rae_std": 0.0488,
+      "fold_q_thr_mean": 4.6865,
+      "fold_q_thr_std": 0.0485,
+      "fold_high_share_mean": 0.6159
+    },
+    {
+      "kf_seed": 1147,
+      "pooled_rae": 0.4485,
+      "per_fold_val_rae_mean": 0.4506,
+      "per_fold_val_rae_std": 0.0461,
+      "fold_q_thr_mean": 4.6941,
+      "fold_q_thr_std": 0.0447,
+      "fold_high_share_mean": 0.6002
+    },
+    {
+      "kf_seed": 1148,
+      "pooled_rae": 0.4477,
+      "per_fold_val_rae_mean": 0.4502,
+      "per_fold_val_rae_std": 0.0557,
+      "fold_q_thr_mean": 4.699,
+      "fold_q_thr_std": 0.0283,
+      "fold_high_share_mean": 0.597
+    },
+    {
+      "kf_seed": 1149,
+      "pooled_rae": 0.4485,
+      "per_fold_val_rae_mean": 0.4537,
+      "per_fold_val_rae_std": 0.055,
+      "fold_q_thr_mean": 4.6969,
+      "fold_q_thr_std": 0.0561,
+      "fold_high_share_mean": 0.5891
+    },
+    {
+      "kf_seed": 1150,
+      "pooled_rae": 0.4485,
+      "per_fold_val_rae_mean": 0.4691,
+      "per_fold_val_rae_std": 0.0531,
+      "fold_q_thr_mean": 4.6908,
+      "fold_q_thr_std": 0.0562,
+      "fold_high_share_mean": 0.5967
+    },
+    {
+      "kf_seed": 1151,
+      "pooled_rae": 0.4478,
+      "per_fold_val_rae_mean": 0.4631,
+      "per_fold_val_rae_std": 0.051,
+      "fold_q_thr_mean": 4.6825,
+      "fold_q_thr_std": 0.0598,
+      "fold_high_share_mean": 0.6087
+    },
+    {
+      "kf_seed": 1152,
+      "pooled_rae": 0.4476,
+      "per_fold_val_rae_mean": 0.459,
+      "per_fold_val_rae_std": 0.0614,
+      "fold_q_thr_mean": 4.6934,
+      "fold_q_thr_std": 0.0742,
+      "fold_high_share_mean": 0.5921
+    },
+    {
+      "kf_seed": 1153,
+      "pooled_rae": 0.4479,
+      "per_fold_val_rae_mean": 0.4676,
+      "per_fold_val_rae_std": 0.0724,
+      "fold_q_thr_mean": 4.6921,
+      "fold_q_thr_std": 0.0493,
+      "fold_high_share_mean": 0.5929
+    },
+    {
+      "kf_seed": 1154,
+      "pooled_rae": 0.4455,
+      "per_fold_val_rae_mean": 0.4623,
+      "per_fold_val_rae_std": 0.1178,
+      "fold_q_thr_mean": 4.6891,
+      "fold_q_thr_std": 0.0622,
+      "fold_high_share_mean": 0.6002
+    },
+    {
+      "kf_seed": 1155,
+      "pooled_rae": 0.4471,
+      "per_fold_val_rae_mean": 0.4606,
+      "per_fold_val_rae_std": 0.0284,
+      "fold_q_thr_mean": 4.6851,
+      "fold_q_thr_std": 0.0668,
+      "fold_high_share_mean": 0.5878
+    }
+  ],
+  "pooled_rae_array": [
+    0.4473,
+    0.4478,
+    0.4478,
+    0.4468,
+    0.4472,
+    0.4469,
+    0.4485,
+    0.4477,
+    0.4485,
+    0.4485,
+    0.4478,
+    0.4476,
+    0.4479,
+    0.4455,
+    0.4471
+  ],
+  "mean_rae": 0.4475,
+  "std_rae": 0.0008,
+  "sem_rae": 0.0002,
+  "ci95_low": 0.4471,
+  "ci95_high": 0.448,
+  "median_rae": 0.4477,
+  "min_rae": 0.4455,
+  "max_rae": 0.4485,
+  "ref_parent_15seed_mean": 0.4477,
+  "shift_vs_parent_15seed": -0.0002,
+  "ref_nb3073_5seed": 0.447,
+  "ref_nb3030": 0.4509,
+  "ref_K18_deep30": 0.4536,
+  "ref_K19_deep30": 0.4607,
+  "ref_nb2171": 0.4682,
+  "delta_vs_nb3030": -0.0034,
+  "deploy_q_thr": 4.7082,
+  "te_low_share": 0.4133,
+  "te_mean": 4.731665134429932,
+  "te_std": 0.7725608348846436,
+  "te_unb_in_sample_rae": 0.1901,
+  "median_seed": 1148,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb3131_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb3131.npy",
+  "submission_csv": null,
+  "gate_better": 0.4475,
+  "verdict": "FAIL",
+  "ladder_action": "REPORT. nb3131 15-seed mean 0.4475 fails GATE 0.4475 (+0.0000). Shift vs nb3080 15-seed 0.4477 = -0.0002. L2-noise smoothing on nb3080 schedule does not improve. Closes L2-noise axis on quantile-conditional blend. Keep prior PRIMARY-1.",
+  "wall_sec": 0.12
+}

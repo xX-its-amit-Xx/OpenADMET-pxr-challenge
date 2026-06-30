@@ -1,0 +1,158 @@
+{
+  "tag": "nb2604",
+  "method": "equal_weight_ensemble_K18_K20_K24_K28_LGBM_no_SLSQP",
+  "paradigm": "plain_mean_no_learning_df_zero",
+  "anchor_base": "chemprop_aux",
+  "anchor_in_rae": 0.6215728863514471,
+  "anchor_pre_unblind": true,
+  "k18_source": "rebuilt_using_nb2263_K_opt_cols",
+  "k18_idx_in_117col": [
+    45,
+    67,
+    0,
+    66,
+    68,
+    65,
+    92,
+    27,
+    63,
+    1,
+    7,
+    115,
+    46,
+    80,
+    11,
+    70,
+    8,
+    57
+  ],
+  "k18_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2604_mean_bag_oof_K18.npy",
+  "k18_te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2604_K18.npy",
+  "k20_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2240_mean_bag_oof_K20.npy",
+  "k20_te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2240_K20.npy",
+  "k24_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2310_mean_bag_oof_K24.npy",
+  "k24_te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2310_K24.npy",
+  "k28_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2103_mean_bag_oof_K28.npy",
+  "k28_te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2112.npy",
+  "per_anchor_rae_in_sample": {
+    "K18": 0.4618957875920402,
+    "K20": 0.46301757335429367,
+    "K24": 0.4673847310316789,
+    "K28": 0.47368697777353697
+  },
+  "K18_vs_nb2263_ref": {
+    "rae_K18": 0.4618957875920402,
+    "nb2263_K_opt_ref": 0.4619,
+    "delta": -4.212407959780506e-06
+  },
+  "oof_corr_matrix": [
+    [
+      1.0,
+      0.9835426247314897,
+      0.9790607392026683,
+      0.9824962754277093
+    ],
+    [
+      0.9835426247314896,
+      1.0,
+      0.9927690117084048,
+      0.9858339546138429
+    ],
+    [
+      0.9790607392026683,
+      0.9927690117084047,
+      0.9999999999999999,
+      0.9826879622150074
+    ],
+    [
+      0.9824962754277093,
+      0.9858339546138428,
+      0.9826879622150074,
+      1.0
+    ]
+  ],
+  "oof_corr_labels": [
+    "K18",
+    "K20",
+    "K24",
+    "K28"
+  ],
+  "resid_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "resid_folds": 5,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "n_folds": 5,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "rae_equal_weight_single_shot": 0.4580182800778667,
+  "per_seed_pooled_rae": [
+    0.4580182800778667,
+    0.4580182800778667,
+    0.4580182800778667,
+    0.4580182800778667,
+    0.4580182800778667
+  ],
+  "per_seed_fold_rae": [
+    [
+      0.44566311239447715,
+      0.4767631178370673,
+      0.5315794292690428,
+      0.4268973145210977,
+      0.4248683763750253
+    ],
+    [
+      0.49449814686520444,
+      0.394029403263553,
+      0.48532650176591824,
+      0.5727136597139226,
+      0.4086604781505435
+    ],
+    [
+      0.3772745773735931,
+      0.4306813512703112,
+      0.48722387958963803,
+      0.48640426712908175,
+      0.532926444444048
+    ],
+    [
+      0.45117386522102865,
+      0.45962400443036944,
+      0.5009271061451578,
+      0.4313681269130844,
+      0.47727750807856645
+    ],
+    [
+      0.5496356569887239,
+      0.3888698197874192,
+      0.48190021426689617,
+      0.4037400424426014,
+      0.5276874457719525
+    ]
+  ],
+  "mean_rae": 0.4580182800778667,
+  "std_rae": 0.0,
+  "gate_promote": 0.457,
+  "gate_marginal": 0.4601,
+  "verdict": "MARGINAL_BEAT",
+  "delta_vs_nb2171": -0.010181719922133292,
+  "nb2171_ref": 0.4682,
+  "te_mean": 4.7034422899315,
+  "te_std": 0.8395302146195063,
+  "te_unb_in_sample_rae": 0.1126594584862766,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2604_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2604.npy",
+  "submission_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb2604_k_ensemble_equal_weight.csv",
+  "wall_sec": 6.6
+}

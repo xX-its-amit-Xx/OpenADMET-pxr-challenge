@@ -1,0 +1,27 @@
+{
+  "5arch": {
+    "means": {
+      "control": 0.4455,
+      "xtb": 0.4446
+    },
+    "std": {
+      "control": 0.0146,
+      "xtb": 0.0172
+    },
+    "xtb_minus_control": -0.0009
+  },
+  "4gbm_deployed": {
+    "means": {
+      "control": 0.4356,
+      "xtb": 0.4344
+    },
+    "std": {
+      "control": 0.0164,
+      "xtb": 0.0165
+    },
+    "xtb_minus_control": -0.0012
+  },
+  "corr_xtb_vs_combined_err": 0.8134,
+  "n_feat": 9,
+  "morfeus": "ALL-NaN (failed)"
+}

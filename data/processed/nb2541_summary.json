@@ -1,0 +1,74 @@
+{
+  "tag": "nb2541",
+  "method": "per_fold_curriculum_3stage_lgbm_X117_residual_on_chemprop_aux",
+  "anchor": "chemprop_aux",
+  "rae_anchor_chemprop_aux": 0.6215728863514471,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_features": 117,
+  "n_unique_scaffolds": 180,
+  "n_folds": 5,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "difficulty_proxy": "abs(chemprop_aux - nb2240_K20_oof)",
+  "difficulty_mean": 0.335783010296092,
+  "difficulty_std": 0.31017433558916413,
+  "stage_params": {
+    "stage_A": {
+      "n_est": 100,
+      "frac": 0.5
+    },
+    "stage_B": {
+      "n_est": 200,
+      "frac": 0.75,
+      "warm_start_from": "stage_A"
+    },
+    "stage_C": {
+      "n_est": 100,
+      "frac": 1.0,
+      "warm_start_from": "stage_B"
+    }
+  },
+  "lgbm_params": {
+    "objective": "regression",
+    "metric": "None",
+    "num_leaves": 20,
+    "max_depth": 6,
+    "learning_rate": 0.05,
+    "min_child_samples": 5,
+    "reg_lambda": 1.0,
+    "feature_fraction": 0.9,
+    "bagging_fraction": 0.9,
+    "bagging_freq": 1,
+    "verbosity": -1
+  },
+  "per_seed_rae": [
+    0.5983809741240695,
+    0.6114827593668267,
+    0.5929422202936314,
+    0.5483130226511628,
+    0.5628301479151692
+  ],
+  "per_seed_mean_rae": 0.582789824870172,
+  "per_seed_std_rae": 0.023479685489025015,
+  "mean_bag_rae": 0.5424993587593727,
+  "median_bag_rae": 0.5516319088571346,
+  "mean_rae": 0.5424993587593727,
+  "delta_vs_nb2241_raw_K20_mean_bag": 0.06619935875937272,
+  "delta_vs_anchor": -0.07907352759207442,
+  "compare_nb2241_raw_K20_mean_bag": 0.4763,
+  "te_unb_in_sample_rae": 0.05374784460394512,
+  "te_deploy_mean": 4.719186305999756,
+  "te_deploy_std": 0.8456495404243469,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2541_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2541.npy",
+  "gate_promote_threshold": 0.457,
+  "gate_marginal_threshold": 0.4601,
+  "verdict": "FAIL",
+  "wall_sec": 17.0
+}

@@ -1,0 +1,249 @@
+{
+  "tag": "nb2530",
+  "method": "outlier-robust pre-train (4139 residual MAD filter -> 117-col LGBM bag refit)",
+  "mad_thresholds_sweep": [
+    1.0,
+    1.5,
+    2.0,
+    2.5,
+    3.0
+  ],
+  "resid_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "n_folds": 5,
+  "n_train": 4139,
+  "n_test": 513,
+  "n_unb": 253,
+  "feat_dim": 117,
+  "n_unique_unb_scaffolds": 180,
+  "baseline_oof_train_rae_4139": 0.5739274516528367,
+  "resid_median": 0.059821087952779184,
+  "mad_residual": 0.3817174835340813,
+  "abs_resid_mean": 0.5221773289814069,
+  "abs_resid_max": 3.492196497144129,
+  "reference_no_filter_mean_rae": 0.6737700676454553,
+  "reference_no_filter_std_rae": 0.0,
+  "reference_no_filter_per_seed": [
+    {
+      "kf_seed": 1001,
+      "pooled_rae": 0.6737700676454553
+    },
+    {
+      "kf_seed": 1002,
+      "pooled_rae": 0.6737700676454553
+    },
+    {
+      "kf_seed": 1003,
+      "pooled_rae": 0.6737700676454553
+    },
+    {
+      "kf_seed": 1004,
+      "pooled_rae": 0.6737700676454553
+    },
+    {
+      "kf_seed": 1005,
+      "pooled_rae": 0.6737700676454553
+    }
+  ],
+  "sweep_records": [
+    {
+      "thresh": 1.0,
+      "cutoff_abs_resid": 0.3817174835340813,
+      "n_kept": 2070,
+      "n_drop": 2069,
+      "frac_drop": 0.4998791978738826,
+      "mean_rae": 0.6850367856787348,
+      "std_rae": 0.0,
+      "per_seed_results": [
+        {
+          "kf_seed": 1001,
+          "pooled_rae": 0.6850367856787348
+        },
+        {
+          "kf_seed": 1002,
+          "pooled_rae": 0.6850367856787348
+        },
+        {
+          "kf_seed": 1003,
+          "pooled_rae": 0.6850367856787348
+        },
+        {
+          "kf_seed": 1004,
+          "pooled_rae": 0.6850367856787348
+        },
+        {
+          "kf_seed": 1005,
+          "pooled_rae": 0.6850367856787348
+        }
+      ],
+      "te_unb_rae_in_sample": 0.6850367856787348,
+      "te_mean": 4.754619188162705,
+      "te_std": 0.5536396846541499,
+      "skipped": false
+    },
+    {
+      "thresh": 1.5,
+      "cutoff_abs_resid": 0.572576225301122,
+      "n_kept": 2809,
+      "n_drop": 1330,
+      "frac_drop": 0.32133365547233633,
+      "mean_rae": 0.6940565970610266,
+      "std_rae": 0.0,
+      "per_seed_results": [
+        {
+          "kf_seed": 1001,
+          "pooled_rae": 0.6940565970610266
+        },
+        {
+          "kf_seed": 1002,
+          "pooled_rae": 0.6940565970610266
+        },
+        {
+          "kf_seed": 1003,
+          "pooled_rae": 0.6940565970610266
+        },
+        {
+          "kf_seed": 1004,
+          "pooled_rae": 0.6940565970610266
+        },
+        {
+          "kf_seed": 1005,
+          "pooled_rae": 0.6940565970610266
+        }
+      ],
+      "te_unb_rae_in_sample": 0.6940565970610266,
+      "te_mean": 4.771447420413752,
+      "te_std": 0.5360627325961949,
+      "skipped": false
+    },
+    {
+      "thresh": 2.0,
+      "cutoff_abs_resid": 0.7634349670681626,
+      "n_kept": 3269,
+      "n_drop": 870,
+      "frac_drop": 0.2101956994443102,
+      "mean_rae": 0.6862323226895977,
+      "std_rae": 0.0,
+      "per_seed_results": [
+        {
+          "kf_seed": 1001,
+          "pooled_rae": 0.6862323226895977
+        },
+        {
+          "kf_seed": 1002,
+          "pooled_rae": 0.6862323226895977
+        },
+        {
+          "kf_seed": 1003,
+          "pooled_rae": 0.6862323226895977
+        },
+        {
+          "kf_seed": 1004,
+          "pooled_rae": 0.6862323226895977
+        },
+        {
+          "kf_seed": 1005,
+          "pooled_rae": 0.6862323226895977
+        }
+      ],
+      "te_unb_rae_in_sample": 0.6862323226895977,
+      "te_mean": 4.780961862832963,
+      "te_std": 0.5311823683974717,
+      "skipped": false
+    },
+    {
+      "thresh": 2.5,
+      "cutoff_abs_resid": 0.9542937088352033,
+      "n_kept": 3569,
+      "n_drop": 570,
+      "frac_drop": 0.13771442377385842,
+      "mean_rae": 0.6849905112090937,
+      "std_rae": 0.0,
+      "per_seed_results": [
+        {
+          "kf_seed": 1001,
+          "pooled_rae": 0.6849905112090937
+        },
+        {
+          "kf_seed": 1002,
+          "pooled_rae": 0.6849905112090937
+        },
+        {
+          "kf_seed": 1003,
+          "pooled_rae": 0.6849905112090937
+        },
+        {
+          "kf_seed": 1004,
+          "pooled_rae": 0.6849905112090937
+        },
+        {
+          "kf_seed": 1005,
+          "pooled_rae": 0.6849905112090937
+        }
+      ],
+      "te_unb_rae_in_sample": 0.6849905112090937,
+      "te_mean": 4.784332364064269,
+      "te_std": 0.5421718851408867,
+      "skipped": false
+    },
+    {
+      "thresh": 3.0,
+      "cutoff_abs_resid": 1.145152450602244,
+      "n_kept": 3756,
+      "n_drop": 383,
+      "frac_drop": 0.09253442860594346,
+      "mean_rae": 0.6864162125628345,
+      "std_rae": 0.0,
+      "per_seed_results": [
+        {
+          "kf_seed": 1001,
+          "pooled_rae": 0.6864162125628345
+        },
+        {
+          "kf_seed": 1002,
+          "pooled_rae": 0.6864162125628345
+        },
+        {
+          "kf_seed": 1003,
+          "pooled_rae": 0.6864162125628345
+        },
+        {
+          "kf_seed": 1004,
+          "pooled_rae": 0.6864162125628345
+        },
+        {
+          "kf_seed": 1005,
+          "pooled_rae": 0.6864162125628345
+        }
+      ],
+      "te_unb_rae_in_sample": 0.6864162125628345,
+      "te_mean": 4.793220460144041,
+      "te_std": 0.5282460990168486,
+      "skipped": false
+    }
+  ],
+  "best_thresh": 2.5,
+  "best_mean_rae": 0.6849905112090937,
+  "best_std_rae": 0.0,
+  "delta_best_vs_reference": 0.011220443563638383,
+  "gate_promote_threshold": 0.457,
+  "gate_marginal_threshold": 0.4601,
+  "verdict": "FAIL",
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2530_pred_oof.npy",
+  "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2530.npy",
+  "te_mean": 4.784332275390625,
+  "te_std": 0.5421718955039978,
+  "wall_sec": 44.83
+}

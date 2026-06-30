@@ -1,0 +1,41 @@
+{
+  "tag": "nb1067",
+  "method": "smiles_randomization_TTA_chemprop",
+  "n_tta": 5,
+  "tta_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "decision_margin": 0.003,
+  "anchor_target_rae": 0.6216,
+  "artifact_gap": {
+    "real_chemprop_aux_model_persisted": false,
+    "real_chemprop_aux_te_npy_cached": true,
+    "real_chemprop_aux_oof_npy_cached": true,
+    "issue": "nb35_chemprop_auxiliary.ipynb fits the 6-head MPNN on all 4141 rows then runs predict + discards model state. No torch.save() / Trainer.save_checkpoint() call. The only Chemprop ckpts on disk are 5 fold-CV variants under data/processed/chemprop_fold_*/ with n_tasks=8 -- a DIFFERENT model variant.",
+    "consequence": "True chemprop_aux TTA requires re-running nb35 (~3 hr CPU) to obtain trained 6-head model state. This script uses the 5-fold 8-task ensemble as a PROXY -- architecturally similar (BondMessagePassing depth=3 d_h=300 + RegressionFFN n_layers=1 input_dim=300 hidden_dim=300) but with different readout heads.",
+    "remediation": "To do real TTA, add Trainer.save_checkpoint to nb35 final retrain block, save to data/processed/chemprop_aux_final.ckpt, then re-run this script with FOLD_DIR pointing at the saved file."
+  },
+  "real_anchor_rae_on_253": 0.6215728863514471,
+  "proxy_canonical_5fold_rae_on_253": 0.6848245052181308,
+  "proxy_tta_mean_rae_on_253": 0.6851313096615155,
+  "proxy_tta_median_rae_on_253": 0.6875897905264097,
+  "delta_tta_mean_vs_real_anchor": 0.06355842331006833,
+  "delta_tta_mean_vs_proxy_canon": 0.0003068044433847117,
+  "gate_vs_real_chemprop_aux": false,
+  "gate_vs_proxy_canonical": false,
+  "deploy_written": false,
+  "deploy_path": null,
+  "cascade_nb2103_K28": {
+    "nb2103_K28_chemprop_aux_cascade_rae": 0.47368697777353697,
+    "nb2103_K28_TTA_cascade_rae": 0.5758246281727911,
+    "delta_TTA_cascade_vs_chemprop_aux_cascade": 0.10213765039925415,
+    "TTA_cascade_improves": false,
+    "method": "residual_transfer: residual_K28_K28 = nb2103[unb] - chemprop_aux[unb]; cascade_tta = tta_mean[unb] + residual",
+    "caveat": "Residuals were FIT on chemprop_aux; applying to TTA is naive transfer (not a re-fit). Decision-grade cascade requires retraining the 5-seed LGBM residual bag against TTA-mean as anchor (~17s)."
+  },
+  "wall_sec": 24.2
+}

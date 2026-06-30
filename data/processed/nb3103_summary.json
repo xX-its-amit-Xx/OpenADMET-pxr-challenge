@@ -1,0 +1,279 @@
+{
+  "tag": "nb3103",
+  "parent_tag": "nb3090",
+  "method": "4region_quantile_q25_q50_q75_K18_K19_deep30",
+  "anchor_pool": [
+    "K18",
+    "K19"
+  ],
+  "anchor_depth": {
+    "K18": "deep30",
+    "K19": "deep30"
+  },
+  "anchor_pre_unblind": true,
+  "per_K_full_oof_rae": {
+    "K18": 0.4536,
+    "K19": 0.4607
+  },
+  "anchor_leak_eq_truth_frac": {
+    "K18": 0.0,
+    "K19": 0.0
+  },
+  "oof_pairwise_corr": 0.9846,
+  "q_cuts": [
+    0.25,
+    0.5,
+    0.75
+  ],
+  "w_K18": [
+    0.95,
+    0.8,
+    0.55,
+    0.35
+  ],
+  "w_K19": [
+    0.050000000000000044,
+    0.19999999999999996,
+    0.44999999999999996,
+    0.65
+  ],
+  "region_labels": [
+    "R1 (<=q25)",
+    "R2 (q25-q50)",
+    "R3 (q50-q75)",
+    "R4 (>q75)"
+  ],
+  "n_folds": 5,
+  "kf_seeds": [
+    1141,
+    1142,
+    1143,
+    1144,
+    1145,
+    1146,
+    1147,
+    1148,
+    1149,
+    1150,
+    1151,
+    1152,
+    1153,
+    1154,
+    1155
+  ],
+  "n_seeds": 15,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "seed_results": [
+    {
+      "kf_seed": 1141,
+      "pooled_rae": 0.4474,
+      "region_counts": [
+        66,
+        59,
+        64,
+        64
+      ]
+    },
+    {
+      "kf_seed": 1142,
+      "pooled_rae": 0.4472,
+      "region_counts": [
+        61,
+        64,
+        65,
+        63
+      ]
+    },
+    {
+      "kf_seed": 1143,
+      "pooled_rae": 0.4469,
+      "region_counts": [
+        65,
+        60,
+        64,
+        64
+      ]
+    },
+    {
+      "kf_seed": 1144,
+      "pooled_rae": 0.4475,
+      "region_counts": [
+        63,
+        62,
+        65,
+        63
+      ]
+    },
+    {
+      "kf_seed": 1145,
+      "pooled_rae": 0.4477,
+      "region_counts": [
+        67,
+        61,
+        56,
+        69
+      ]
+    },
+    {
+      "kf_seed": 1146,
+      "pooled_rae": 0.4474,
+      "region_counts": [
+        68,
+        57,
+        65,
+        63
+      ]
+    },
+    {
+      "kf_seed": 1147,
+      "pooled_rae": 0.4474,
+      "region_counts": [
+        63,
+        60,
+        69,
+        61
+      ]
+    },
+    {
+      "kf_seed": 1148,
+      "pooled_rae": 0.4478,
+      "region_counts": [
+        62,
+        64,
+        63,
+        64
+      ]
+    },
+    {
+      "kf_seed": 1149,
+      "pooled_rae": 0.4472,
+      "region_counts": [
+        63,
+        64,
+        63,
+        63
+      ]
+    },
+    {
+      "kf_seed": 1150,
+      "pooled_rae": 0.4475,
+      "region_counts": [
+        63,
+        62,
+        65,
+        63
+      ]
+    },
+    {
+      "kf_seed": 1151,
+      "pooled_rae": 0.4472,
+      "region_counts": [
+        65,
+        61,
+        59,
+        68
+      ]
+    },
+    {
+      "kf_seed": 1152,
+      "pooled_rae": 0.4472,
+      "region_counts": [
+        67,
+        58,
+        63,
+        65
+      ]
+    },
+    {
+      "kf_seed": 1153,
+      "pooled_rae": 0.4469,
+      "region_counts": [
+        65,
+        62,
+        64,
+        62
+      ]
+    },
+    {
+      "kf_seed": 1154,
+      "pooled_rae": 0.4472,
+      "region_counts": [
+        65,
+        64,
+        56,
+        68
+      ]
+    },
+    {
+      "kf_seed": 1155,
+      "pooled_rae": 0.4476,
+      "region_counts": [
+        66,
+        60,
+        61,
+        66
+      ]
+    }
+  ],
+  "pooled_raes": [
+    0.4474,
+    0.4472,
+    0.4469,
+    0.4475,
+    0.4477,
+    0.4474,
+    0.4474,
+    0.4478,
+    0.4472,
+    0.4475,
+    0.4472,
+    0.4472,
+    0.4469,
+    0.4472,
+    0.4476
+  ],
+  "mean_rae": 0.4473,
+  "std_rae": 0.0003,
+  "se": 0.0001,
+  "ci95": [
+    0.4472,
+    0.4475
+  ],
+  "min_rae": 0.4469,
+  "max_rae": 0.4478,
+  "region_counts_total": [
+    969,
+    918,
+    942,
+    966
+  ],
+  "ref_nb3090": 0.4472,
+  "ref_nb3080": 0.4475,
+  "ref_nb3030": 0.4509,
+  "ref_K18_deep30": 0.4536,
+  "ref_K19_deep30": 0.4607,
+  "ref_nb2171": 0.4682,
+  "delta_vs_nb3090": 0.0001,
+  "deploy_q25": 4.2015,
+  "deploy_q50": 4.8845,
+  "deploy_q75": 5.2583,
+  "te_region_shares": {
+    "R1": 0.2378,
+    "R2": 0.2749,
+    "R3": 0.2125,
+    "R4": 0.2749
+  },
+  "te_mean": 4.7314605712890625,
+  "te_std": 0.7723423838615417,
+  "te_unb_in_sample_rae": 0.1895,
+  "median_seed": 1147,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb3103_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb3103.npy",
+  "submission_csv": null,
+  "gate_better_than_nb3090": 0.4472,
+  "verdict": "FAIL",
+  "ladder_action": "REJECT. nb3103 4-region quantile blend (q25/q50/q75 with w_K18 = [0.95, 0.8, 0.55, 0.35]) 15-seed mean 0.4473 not better than nb3090 ceiling 0.4472 (+0.0001). Finer 4-region partition with prescribed descending w_K18 weights does not break the 2-region quantile-conditional ceiling on the {K18, K19} deep-30 anchor pair. Keep nb3090 / prior PRIMARY-1.",
+  "wall_sec": 0.11
+}

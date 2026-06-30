@@ -1,0 +1,559 @@
+{
+  "tag": "nb3302",
+  "method": "chemberta_embedding_knn_correction_on_novel_scaffold_tail",
+  "paradigm": "route foundation embeddings (ChemBERTa-768) as a kNN prior on the novel-scaffold tail; soft-blend into nb3200 anchor gated by embedding max-similarity; per-fold grid-learned (w_max,sim_floor)",
+  "anchor": "nb3200",
+  "anchor_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb3200_pred_oof.npy",
+  "anchor_te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb3200.npy",
+  "anchor_pre_unblind": true,
+  "anchor_oof_rae": 0.4416,
+  "anchor_te_unb_rae": 0.1913,
+  "anchor_leak_eq_truth_frac": 0.0,
+  "embedding_name": "chemberta_768",
+  "embedding_used_fallback": false,
+  "embedding_train_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\chemberta_train_emb.npy",
+  "embedding_test_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\chemberta_test_emb.npy",
+  "embedding_dim": 768,
+  "k_nn": 5,
+  "sim_power": 1.0,
+  "w_max_grid": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6
+  ],
+  "sim_floor_grid": [
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8
+  ],
+  "n_novel_test": 416,
+  "n_novel_unb": 197,
+  "novel_frac_test": 0.8109,
+  "novel_frac_unb": 0.7787,
+  "novel_tail_diagnostics": {
+    "n_novel_unb": 197,
+    "anchor_oof_rae_novel": 0.4601,
+    "raw_knn_rae_novel": 0.9815,
+    "maxsim_novel_mean": 0.9224,
+    "maxsim_novel_median": 0.9243,
+    "corr_anchorerr_knnminusanchor_novel": 0.158
+  },
+  "n_folds": 5,
+  "kf_seeds": [
+    1216,
+    1217,
+    1218,
+    1219,
+    1220,
+    1221,
+    1222,
+    1223,
+    1224,
+    1225,
+    1226,
+    1227,
+    1228,
+    1229,
+    1230
+  ],
+  "n_seeds": 15,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "seed_records": [
+    {
+      "kf_seed": 1216,
+      "pooled_rae": 0.4416,
+      "per_fold_val_rae_mean": 0.4444,
+      "per_fold_val_rae_std": 0.0567,
+      "fold_params": [
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        }
+      ]
+    },
+    {
+      "kf_seed": 1217,
+      "pooled_rae": 0.4416,
+      "per_fold_val_rae_mean": 0.453,
+      "per_fold_val_rae_std": 0.0843,
+      "fold_params": [
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        }
+      ]
+    },
+    {
+      "kf_seed": 1218,
+      "pooled_rae": 0.4416,
+      "per_fold_val_rae_mean": 0.449,
+      "per_fold_val_rae_std": 0.0381,
+      "fold_params": [
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        }
+      ]
+    },
+    {
+      "kf_seed": 1219,
+      "pooled_rae": 0.4416,
+      "per_fold_val_rae_mean": 0.4534,
+      "per_fold_val_rae_std": 0.0749,
+      "fold_params": [
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        }
+      ]
+    },
+    {
+      "kf_seed": 1220,
+      "pooled_rae": 0.4416,
+      "per_fold_val_rae_mean": 0.4467,
+      "per_fold_val_rae_std": 0.0541,
+      "fold_params": [
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        }
+      ]
+    },
+    {
+      "kf_seed": 1221,
+      "pooled_rae": 0.4416,
+      "per_fold_val_rae_mean": 0.4487,
+      "per_fold_val_rae_std": 0.0569,
+      "fold_params": [
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        }
+      ]
+    },
+    {
+      "kf_seed": 1222,
+      "pooled_rae": 0.4416,
+      "per_fold_val_rae_mean": 0.462,
+      "per_fold_val_rae_std": 0.079,
+      "fold_params": [
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        }
+      ]
+    },
+    {
+      "kf_seed": 1223,
+      "pooled_rae": 0.4416,
+      "per_fold_val_rae_mean": 0.4544,
+      "per_fold_val_rae_std": 0.0972,
+      "fold_params": [
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        }
+      ]
+    },
+    {
+      "kf_seed": 1224,
+      "pooled_rae": 0.4416,
+      "per_fold_val_rae_mean": 0.4581,
+      "per_fold_val_rae_std": 0.098,
+      "fold_params": [
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        }
+      ]
+    },
+    {
+      "kf_seed": 1225,
+      "pooled_rae": 0.4416,
+      "per_fold_val_rae_mean": 0.4457,
+      "per_fold_val_rae_std": 0.0438,
+      "fold_params": [
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        }
+      ]
+    },
+    {
+      "kf_seed": 1226,
+      "pooled_rae": 0.4416,
+      "per_fold_val_rae_mean": 0.4634,
+      "per_fold_val_rae_std": 0.081,
+      "fold_params": [
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        }
+      ]
+    },
+    {
+      "kf_seed": 1227,
+      "pooled_rae": 0.4416,
+      "per_fold_val_rae_mean": 0.4539,
+      "per_fold_val_rae_std": 0.0766,
+      "fold_params": [
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        }
+      ]
+    },
+    {
+      "kf_seed": 1228,
+      "pooled_rae": 0.4416,
+      "per_fold_val_rae_mean": 0.4548,
+      "per_fold_val_rae_std": 0.0392,
+      "fold_params": [
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        }
+      ]
+    },
+    {
+      "kf_seed": 1229,
+      "pooled_rae": 0.4416,
+      "per_fold_val_rae_mean": 0.4524,
+      "per_fold_val_rae_std": 0.1132,
+      "fold_params": [
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        }
+      ]
+    },
+    {
+      "kf_seed": 1230,
+      "pooled_rae": 0.4416,
+      "per_fold_val_rae_mean": 0.4464,
+      "per_fold_val_rae_std": 0.0559,
+      "fold_params": [
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        },
+        {
+          "w_max": 0.0,
+          "sim_floor": 0.3
+        }
+      ]
+    }
+  ],
+  "pooled_rae_array": [
+    0.4416,
+    0.4416,
+    0.4416,
+    0.4416,
+    0.4416,
+    0.4416,
+    0.4416,
+    0.4416,
+    0.4416,
+    0.4416,
+    0.4416,
+    0.4416,
+    0.4416,
+    0.4416,
+    0.4416
+  ],
+  "per_fold_mean_array": [
+    0.4444,
+    0.453,
+    0.449,
+    0.4534,
+    0.4467,
+    0.4487,
+    0.462,
+    0.4544,
+    0.4581,
+    0.4457,
+    0.4634,
+    0.4539,
+    0.4548,
+    0.4524,
+    0.4464
+  ],
+  "mean_pooled_rae": 0.4416,
+  "std_pooled_rae": 0.0,
+  "mean_per_fold_rae": 0.4524,
+  "std_per_fold_rae": 0.0057,
+  "sem_per_fold_rae": 0.0015,
+  "ci95_per_fold_low": 0.4492,
+  "ci95_per_fold_high": 0.4556,
+  "median_per_fold_rae": 0.453,
+  "min_per_fold_rae": 0.4444,
+  "max_per_fold_rae": 0.4634,
+  "deploy_w_max": 0.0,
+  "deploy_sim_floor": 0.3,
+  "frac_folds_w_max_zero": 1.0,
+  "n_te_rows_changed": 0,
+  "ref_nb3200_deep_verify": 0.4424,
+  "ref_nb1191_pre_pyramid": 0.4718,
+  "ref_nb2171_anchor_swap": 0.4682,
+  "ref_clip_best": 0.4422,
+  "delta_vs_nb3200_perfold_mean": 0.01,
+  "delta_vs_anchor_oof_perfold_mean": 0.0108,
+  "te_mean": 4.730428695678711,
+  "te_std": 0.7718935608863831,
+  "te_min": 3.0,
+  "te_max": 6.07919979095459,
+  "te_unb_in_sample_rae": 0.1913,
+  "median_seed": 1217,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb3302_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb3302.npy",
+  "submission_csv": null,
+  "gate_better": 0.4423,
+  "verdict": "FAIL",
+  "ladder_action": "REJECT. nb3302 15-seed per-fold-mean 0.4524 fails BETTER gate 0.4423 (+0.0101). The ChemBERTa-embedding kNN (chemberta_768) on the novel-scaffold tail did not beat the anchor nb3200 (0.4424); per-fold grid mostly selected w_max=0 (anchor-only) (frac w_max==0 = 100.0%, deploy w_max=0.000). Consistent with feedback_unblind_augmentation (OOD wall set by scaffold support, not embedding proximity) and cycle-160/163 foundation-embedding collapse (ChemBERTa-77M-MTR -> 0 weight). Embedding-similarity at the novel-scaffold tail is too low (novel-unb maxsim mean shown above) for a kNN prior to carry pEC50 signal. Close the embedding-kNN-correction axis on this anchor; pivot to abstention or scaffold-diverse aux TRAINING (not post-hoc kNN). delta vs anchor oof = +0.0108.",
+  "wall_sec": 1.68
+}

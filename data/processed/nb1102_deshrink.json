@@ -1,0 +1,28 @@
+{
+  "anchor": 0.4415675430779881,
+  "linear_stretch": {
+    "mean_rae": 0.4434817254474695,
+    "delta": 0.0019141823694813764,
+    "frac_improved": 0.13333333333333333
+  },
+  "affine_platt": {
+    "mean_rae": 0.44415064139276134,
+    "delta": 0.0025830983147732134,
+    "frac_improved": 0.06666666666666667
+  },
+  "asym_stretch": {
+    "mean_rae": 0.4425823485718015,
+    "delta": 0.0010148054938133866,
+    "frac_improved": 0.5666666666666667
+  },
+  "quantile_down": {
+    "mean_rae": 0.44235123555435313,
+    "delta": 0.0007836924763650055,
+    "frac_improved": 0.0
+  },
+  "isotonic_xfit": {
+    "mean_rae": 0.4581882754659258,
+    "delta": 0.016620732387937653,
+    "frac_improved": 0.0
+  }
+}

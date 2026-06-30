@@ -1,0 +1,113 @@
+{
+  "tag": "nb2843",
+  "method": "per_row_mean_shift_toward_fold_train_mean_on_nb2240_oof",
+  "anchor": "nb2240_mean_bag_oof_K20",
+  "anchor_oof_source": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2240_mean_bag_oof_K20.npy",
+  "anchor_te_source": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2240.npy",
+  "alpha_grid": [
+    0.05,
+    0.1,
+    0.2,
+    0.3,
+    0.5
+  ],
+  "kf_seed": 1001,
+  "n_folds": 5,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "anchor_unshifted_rae": 0.46301757335429367,
+  "anchor_pred_std": 0.8839798635289088,
+  "anchor_truth_std": 1.0320053675542649,
+  "train_mean_global_for_deploy": 4.321067541487525,
+  "sweep_results": [
+    {
+      "alpha": 0.05,
+      "mean_rae": 0.4658187020327832,
+      "n_kf_seeds": 1,
+      "kf_seed": 1001,
+      "fold_train_mus": [
+        4.668019801980198,
+        4.694257425742574,
+        4.647772277227722,
+        4.678694581280788,
+        4.631896551724139
+      ],
+      "pred_va_std": 0.8396290989047163,
+      "pred_va_mean": 4.657607322304416
+    },
+    {
+      "alpha": 0.1,
+      "mean_rae": 0.47215210616536063,
+      "n_kf_seeds": 1,
+      "kf_seed": 1001,
+      "fold_train_mus": [
+        4.668019801980198,
+        4.694257425742574,
+        4.647772277227722,
+        4.678694581280788,
+        4.631896551724139
+      ],
+      "pred_va_std": 0.7952799159641862,
+      "pred_va_mean": 4.657954197457257
+    },
+    {
+      "alpha": 0.2,
+      "mean_rae": 0.49735895526879187,
+      "n_kf_seeds": 1,
+      "kf_seed": 1001,
+      "fold_train_mus": [
+        4.668019801980198,
+        4.694257425742574,
+        4.647772277227722,
+        4.678694581280788,
+        4.631896551724139
+      ],
+      "pred_va_std": 0.706587486422888,
+      "pred_va_mean": 4.658647947762939
+    },
+    {
+      "alpha": 0.3,
+      "mean_rae": 0.5358882308356245,
+      "n_kf_seeds": 1,
+      "kf_seed": 1001,
+      "fold_train_mus": [
+        4.668019801980198,
+        4.694257425742574,
+        4.647772277227722,
+        4.678694581280788,
+        4.631896551724139
+      ],
+      "pred_va_std": 0.6179058122601083,
+      "pred_va_mean": 4.659341698068618
+    },
+    {
+      "alpha": 0.5,
+      "mean_rae": 0.6413807813919723,
+      "n_kf_seeds": 1,
+      "kf_seed": 1001,
+      "fold_train_mus": [
+        4.668019801980198,
+        4.694257425742574,
+        4.647772277227722,
+        4.678694581280788,
+        4.631896551724139
+      ],
+      "pred_va_std": 0.4406007074456809,
+      "pred_va_mean": 4.660729198679981
+    }
+  ],
+  "best_alpha": 0.05,
+  "best_mean_rae": 0.4658187020327832,
+  "delta_best_vs_base": 0.0028011286784895284,
+  "gate_promote": 0.457,
+  "gate_marginal": 0.4598,
+  "decision": "FAIL",
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2843_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2843.npy",
+  "submission_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb2843_train_mean_shift.csv",
+  "te_unb_in_sample_rae": 0.18410099335806335,
+  "deploy_te_mean": 4.696996688842773,
+  "deploy_te_std": 0.7884920835494995,
+  "wall_sec": 0.1
+}

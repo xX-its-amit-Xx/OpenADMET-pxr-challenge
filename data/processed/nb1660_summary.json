@@ -1,0 +1,896 @@
+{
+  "tag": "nb1660",
+  "parent_method": "nb1632",
+  "parent_variants": [
+    "bob_mean",
+    "bob_median"
+  ],
+  "anchor": "chemprop_aux",
+  "anchor_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+  "anchor_kind": "PRE_unblind_te_513",
+  "rae_anchor": 0.6215728863514471,
+  "outer_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "inner_offsets": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "inner_seed_formula": "o * 1000 + offset",
+  "w_nb1561": 0.55,
+  "w_nb1612": 0.44999999999999996,
+  "K_AP_best": 25,
+  "K_Mord_best": 20,
+  "K_Embed_best": 20,
+  "K_Avalon_used": 30,
+  "K_MACCS_fixed": 20,
+  "nb1561_feat_dim": 117,
+  "nb1561_feat_breakdown": {
+    "atompair": 25,
+    "maccs": 20,
+    "mordred": 20,
+    "chemprop_embed": 20,
+    "avalon": 30,
+    "pred_chembl_pec50": 1,
+    "mean_sim": 1,
+    "total": 117
+  },
+  "nb1612_top_k_config": {
+    "AtomPair": 25,
+    "MACCS": 20,
+    "Mordred": 20,
+    "ChempropEmbed": 20,
+    "Avalon": 30,
+    "ChemBERTa": 50
+  },
+  "nb1612_families_order": [
+    "AtomPair",
+    "MACCS",
+    "Mordred",
+    "ChempropEmbed",
+    "Avalon",
+    "ChemBERTa"
+  ],
+  "nb1632_per_outer_lock_source": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb1632_summary.json",
+  "per_outer_records": [
+    {
+      "outer_seed": 0,
+      "inner_seeds": [
+        0,
+        1,
+        7,
+        42,
+        137
+      ],
+      "per_inner_cat": [
+        {
+          "inner_seed": 0,
+          "in_sample_rae_253": 0.24879950134363576,
+          "resid_513_mean": -0.12871341247473916,
+          "resid_513_std": 0.3549338740697591
+        },
+        {
+          "inner_seed": 1,
+          "in_sample_rae_253": 0.25720064301226775,
+          "resid_513_mean": -0.11546301884232527,
+          "resid_513_std": 0.3519658698231598
+        },
+        {
+          "inner_seed": 7,
+          "in_sample_rae_253": 0.2524135940765735,
+          "resid_513_mean": -0.14253196065404358,
+          "resid_513_std": 0.3545394938660109
+        },
+        {
+          "inner_seed": 42,
+          "in_sample_rae_253": 0.2567331201507346,
+          "resid_513_mean": -0.12696573579085998,
+          "resid_513_std": 0.3539991587087039
+        },
+        {
+          "inner_seed": 137,
+          "in_sample_rae_253": 0.2586300513013885,
+          "resid_513_mean": -0.11803006930147177,
+          "resid_513_std": 0.3435803661541448
+        }
+      ],
+      "rae_nb1561_o_in_unb": 0.25303803222903004,
+      "nb1612_variant_locked": "slsqp_5fold",
+      "nb1612_w_locked": {
+        "AtomPair": 0.09687780495231638,
+        "MACCS": 5.492938968667799e-17,
+        "Mordred": 0.27194538388077694,
+        "ChempropEmbed": 0.3791204691767972,
+        "Avalon": 0.07524455915960931,
+        "ChemBERTa": 0.17681178283050009
+      },
+      "family_info": [
+        {
+          "family": "AtomPair",
+          "n_fam_bits": 2048,
+          "top_k_eff": 25,
+          "shap_source": "shap_tree_explainer",
+          "feat_dim_pruned": 27,
+          "per_seed_train_mae": [
+            0.34957736661616623,
+            0.3511918452928025,
+            0.35209924674058857,
+            0.35159589692086746,
+            0.35311192157781895
+          ],
+          "resid_513_mean": -0.13472134179476766,
+          "resid_513_std": 0.2831350796662823,
+          "in_rae_unb_alone": 0.43936529292267235
+        },
+        {
+          "family": "MACCS",
+          "n_fam_bits": 167,
+          "top_k_eff": 20,
+          "shap_source": "shap_tree_explainer",
+          "feat_dim_pruned": 22,
+          "per_seed_train_mae": [
+            0.3697788079202399,
+            0.37156303230713317,
+            0.3704705776964198,
+            0.37209417231175185,
+            0.3713321948084779
+          ],
+          "resid_513_mean": -0.11793936710996722,
+          "resid_513_std": 0.25069824423908693,
+          "in_rae_unb_alone": 0.46390692584336607
+        },
+        {
+          "family": "Mordred",
+          "n_fam_bits": 1533,
+          "top_k_eff": 20,
+          "shap_source": "shap_tree_explainer",
+          "feat_dim_pruned": 22,
+          "per_seed_train_mae": [
+            0.31826272893910235,
+            0.3189279582598155,
+            0.3122477605590994,
+            0.3158047615847997,
+            0.31332188663867006
+          ],
+          "resid_513_mean": -0.12453427960640608,
+          "resid_513_std": 0.316353410197516,
+          "in_rae_unb_alone": 0.3931894354715622
+        },
+        {
+          "family": "ChempropEmbed",
+          "n_fam_bits": 300,
+          "top_k_eff": 20,
+          "shap_source": "shap_tree_explainer",
+          "feat_dim_pruned": 22,
+          "per_seed_train_mae": [
+            0.30376454029294747,
+            0.30862226728605147,
+            0.3068625867503936,
+            0.3083656924174245,
+            0.3013831853972681
+          ],
+          "resid_513_mean": -0.0805576830960702,
+          "resid_513_std": 0.3402304366368369,
+          "in_rae_unb_alone": 0.3817031587214301
+        },
+        {
+          "family": "Avalon",
+          "n_fam_bits": 512,
+          "top_k_eff": 30,
+          "shap_source": "shap_tree_explainer",
+          "feat_dim_pruned": 32,
+          "per_seed_train_mae": [
+            0.35619605714005,
+            0.35486971936950645,
+            0.35215803459864137,
+            0.3550133627610529,
+            0.361313816194726
+          ],
+          "resid_513_mean": -0.09615678869587764,
+          "resid_513_std": 0.26728607888576245,
+          "in_rae_unb_alone": 0.444645476048194
+        },
+        {
+          "family": "ChemBERTa",
+          "n_fam_bits": 768,
+          "top_k_eff": 50,
+          "shap_source": "shap_tree_explainer",
+          "feat_dim_pruned": 52,
+          "per_seed_train_mae": [
+            0.28350760653353985,
+            0.2803195932238024,
+            0.28038131252641885,
+            0.2771392649632249,
+            0.2808853738511608
+          ],
+          "resid_513_mean": -0.12227978845732633,
+          "resid_513_std": 0.2981282727711081,
+          "in_rae_unb_alone": 0.34839501614186813
+        }
+      ],
+      "rae_nb1612_o_in_unb": 0.3653651216649967,
+      "rae_blend_o_in_unb": 0.3014628575749497,
+      "wall_sec": 5.2
+    },
+    {
+      "outer_seed": 1,
+      "inner_seeds": [
+        1000,
+        1001,
+        1007,
+        1042,
+        1137
+      ],
+      "per_inner_cat": [
+        {
+          "inner_seed": 1000,
+          "in_sample_rae_253": 0.24864406407045891,
+          "resid_513_mean": -0.13344740119434437,
+          "resid_513_std": 0.35431732152078504
+        },
+        {
+          "inner_seed": 1001,
+          "in_sample_rae_253": 0.2505240507633672,
+          "resid_513_mean": -0.12610909050304592,
+          "resid_513_std": 0.3608394282692988
+        },
+        {
+          "inner_seed": 1007,
+          "in_sample_rae_253": 0.24925995428710393,
+          "resid_513_mean": -0.10649638234241372,
+          "resid_513_std": 0.3437812041988522
+        },
+        {
+          "inner_seed": 1042,
+          "in_sample_rae_253": 0.2664821462816966,
+          "resid_513_mean": -0.1236208199012011,
+          "resid_513_std": 0.3457367780831156
+        },
+        {
+          "inner_seed": 1137,
+          "in_sample_rae_253": 0.24264299467225584,
+          "resid_513_mean": -0.14667606011213064,
+          "resid_513_std": 0.357029482063111
+        }
+      ],
+      "rae_nb1561_o_in_unb": 0.2501704168963136,
+      "nb1612_variant_locked": "naive_1_6_mean",
+      "nb1612_w_locked": {
+        "AtomPair": 0.16666666666666666,
+        "MACCS": 0.16666666666666666,
+        "Mordred": 0.16666666666666666,
+        "ChempropEmbed": 0.16666666666666666,
+        "Avalon": 0.16666666666666666,
+        "ChemBERTa": 0.16666666666666666
+      },
+      "family_info": [
+        {
+          "family": "AtomPair",
+          "n_fam_bits": 2048,
+          "top_k_eff": 25,
+          "shap_source": "shap_tree_explainer",
+          "feat_dim_pruned": 27,
+          "per_seed_train_mae": [
+            0.35022799217178974,
+            0.3459476474103658,
+            0.35239881249902427,
+            0.35414701475734517,
+            0.3518970600863118
+          ],
+          "resid_513_mean": -0.12870440322189933,
+          "resid_513_std": 0.28628113674482447,
+          "in_rae_unb_alone": 0.4385413204906583
+        },
+        {
+          "family": "MACCS",
+          "n_fam_bits": 167,
+          "top_k_eff": 20,
+          "shap_source": "shap_tree_explainer",
+          "feat_dim_pruned": 22,
+          "per_seed_train_mae": [
+            0.36934524576441174,
+            0.3665460227015934,
+            0.3699283743534155,
+            0.3693135870606607,
+            0.36964747277471144
+          ],
+          "resid_513_mean": -0.12053791048453975,
+          "resid_513_std": 0.251028809702871,
+          "in_rae_unb_alone": 0.4611393891148991
+        },
+        {
+          "family": "Mordred",
+          "n_fam_bits": 1533,
+          "top_k_eff": 20,
+          "shap_source": "shap_tree_explainer",
+          "feat_dim_pruned": 22,
+          "per_seed_train_mae": [
+            0.32877144630369337,
+            0.3268591144645839,
+            0.3244035697809388,
+            0.32603376571688,
+            0.329868086911806
+          ],
+          "resid_513_mean": -0.14385904858440557,
+          "resid_513_std": 0.30697290731082666,
+          "in_rae_unb_alone": 0.40810434728639783
+        },
+        {
+          "family": "ChempropEmbed",
+          "n_fam_bits": 300,
+          "top_k_eff": 20,
+          "shap_source": "shap_tree_explainer",
+          "feat_dim_pruned": 22,
+          "per_seed_train_mae": [
+            0.3105520473061036,
+            0.31188171074490323,
+            0.31395219358097887,
+            0.3055098118997809,
+            0.308125245711474
+          ],
+          "resid_513_mean": -0.09579970258576147,
+          "resid_513_std": 0.32595968948209025,
+          "in_rae_unb_alone": 0.38704607657801615
+        },
+        {
+          "family": "Avalon",
+          "n_fam_bits": 512,
+          "top_k_eff": 30,
+          "shap_source": "shap_tree_explainer",
+          "feat_dim_pruned": 32,
+          "per_seed_train_mae": [
+            0.360024446043735,
+            0.3558126170128738,
+            0.3549725797329556,
+            0.35799243951861226,
+            0.3599987415785756
+          ],
+          "resid_513_mean": -0.10473676678809697,
+          "resid_513_std": 0.2636236572527485,
+          "in_rae_unb_alone": 0.44685882010115946
+        },
+        {
+          "family": "ChemBERTa",
+          "n_fam_bits": 768,
+          "top_k_eff": 50,
+          "shap_source": "shap_tree_explainer",
+          "feat_dim_pruned": 52,
+          "per_seed_train_mae": [
+            0.28593157256698815,
+            0.278036813766412,
+            0.2779179624859123,
+            0.2801710271367081,
+            0.28037406738646636
+          ],
+          "resid_513_mean": -0.1202413923992541,
+          "resid_513_std": 0.2951922941628597,
+          "in_rae_unb_alone": 0.3494436017220912
+        }
+      ],
+      "rae_nb1612_o_in_unb": 0.3876870163577944,
+      "rae_blend_o_in_unb": 0.30946766121628516,
+      "wall_sec": 4.47
+    },
+    {
+      "outer_seed": 7,
+      "inner_seeds": [
+        7000,
+        7001,
+        7007,
+        7042,
+        7137
+      ],
+      "per_inner_cat": [
+        {
+          "inner_seed": 7000,
+          "in_sample_rae_253": 0.2546109299234853,
+          "resid_513_mean": -0.12798804088926294,
+          "resid_513_std": 0.3531261389073704
+        },
+        {
+          "inner_seed": 7001,
+          "in_sample_rae_253": 0.2534345353304798,
+          "resid_513_mean": -0.11674748572416034,
+          "resid_513_std": 0.3458725131688797
+        },
+        {
+          "inner_seed": 7007,
+          "in_sample_rae_253": 0.25438738756346974,
+          "resid_513_mean": -0.11690070669614641,
+          "resid_513_std": 0.347055160140227
+        },
+        {
+          "inner_seed": 7042,
+          "in_sample_rae_253": 0.24862061865004792,
+          "resid_513_mean": -0.1374567475883791,
+          "resid_513_std": 0.35661102950952067
+        },
+        {
+          "inner_seed": 7137,
+          "in_sample_rae_253": 0.25847337166675904,
+          "resid_513_mean": -0.12647918093358074,
+          "resid_513_std": 0.3505204830004396
+        }
+      ],
+      "rae_nb1561_o_in_unb": 0.25238141830675254,
+      "nb1612_variant_locked": "slsqp_5fold",
+      "nb1612_w_locked": {
+        "AtomPair": 0.07495861311453436,
+        "MACCS": 1.4039325205692942e-17,
+        "Mordred": 0.44646904042726526,
+        "ChempropEmbed": 0.22238034676258348,
+        "Avalon": 0.043532778968701016,
+        "ChemBERTa": 0.21265922072691587
+      },
+      "family_info": [
+        {
+          "family": "AtomPair",
+          "n_fam_bits": 2048,
+          "top_k_eff": 25,
+          "shap_source": "shap_tree_explainer",
+          "feat_dim_pruned": 27,
+          "per_seed_train_mae": [
+            0.3636612176785463,
+            0.3647153089068644,
+            0.3641754363725165,
+            0.36501870209898535,
+            0.3670757258319715
+          ],
+          "resid_513_mean": -0.14828953752552546,
+          "resid_513_std": 0.272636093202061,
+          "in_rae_unb_alone": 0.4557249774542288
+        },
+        {
+          "family": "MACCS",
+          "n_fam_bits": 167,
+          "top_k_eff": 20,
+          "shap_source": "shap_tree_explainer",
+          "feat_dim_pruned": 22,
+          "per_seed_train_mae": [
+            0.36749102856311205,
+            0.36970743347690094,
+            0.3746028324777015,
+            0.3712124818825299,
+            0.37381494534447507
+          ],
+          "resid_513_mean": -0.11457295449300636,
+          "resid_513_std": 0.24913293823490817,
+          "in_rae_unb_alone": 0.46432151524527243
+        },
+        {
+          "family": "Mordred",
+          "n_fam_bits": 1533,
+          "top_k_eff": 20,
+          "shap_source": "shap_tree_explainer",
+          "feat_dim_pruned": 22,
+          "per_seed_train_mae": [
+            0.3157573616945132,
+            0.31313898329993967,
+            0.31636866269383884,
+            0.3157185314595921,
+            0.3167306192190087
+          ],
+          "resid_513_mean": -0.11692239273827912,
+          "resid_513_std": 0.30973318003156214,
+          "in_rae_unb_alone": 0.3935393500901946
+        },
+        {
+          "family": "ChempropEmbed",
+          "n_fam_bits": 300,
+          "top_k_eff": 20,
+          "shap_source": "shap_tree_explainer",
+          "feat_dim_pruned": 22,
+          "per_seed_train_mae": [
+            0.30218967846748424,
+            0.30547768240842915,
+            0.30099581216796545,
+            0.3031222135391656,
+            0.3051054293960347
+          ],
+          "resid_513_mean": -0.09113279991442431,
+          "resid_513_std": 0.33060390343997287,
+          "in_rae_unb_alone": 0.37838095291586565
+        },
+        {
+          "family": "Avalon",
+          "n_fam_bits": 512,
+          "top_k_eff": 30,
+          "shap_source": "shap_tree_explainer",
+          "feat_dim_pruned": 32,
+          "per_seed_train_mae": [
+            0.35779591291439644,
+            0.3591867922922234,
+            0.36113851422087884,
+            0.3614295428603383,
+            0.35830244649616827
+          ],
+          "resid_513_mean": -0.09145522303534735,
+          "resid_513_std": 0.2606715705545594,
+          "in_rae_unb_alone": 0.44907015646910375
+        },
+        {
+          "family": "ChemBERTa",
+          "n_fam_bits": 768,
+          "top_k_eff": 50,
+          "shap_source": "shap_tree_explainer",
+          "feat_dim_pruned": 52,
+          "per_seed_train_mae": [
+            0.28157347426349766,
+            0.28343121876781535,
+            0.27860525472367814,
+            0.27888315203899094,
+            0.2855058230125224
+          ],
+          "resid_513_mean": -0.12706498628788293,
+          "resid_513_std": 0.29381240734939934,
+          "in_rae_unb_alone": 0.35053874961114034
+        }
+      ],
+      "rae_nb1612_o_in_unb": 0.3656451748667155,
+      "rae_blend_o_in_unb": 0.3011233250103868,
+      "wall_sec": 4.51
+    },
+    {
+      "outer_seed": 42,
+      "inner_seeds": [
+        42000,
+        42001,
+        42007,
+        42042,
+        42137
+      ],
+      "per_inner_cat": [
+        {
+          "inner_seed": 42000,
+          "in_sample_rae_253": 0.2560827085469411,
+          "resid_513_mean": -0.13060744245685987,
+          "resid_513_std": 0.3480047187441508
+        },
+        {
+          "inner_seed": 42001,
+          "in_sample_rae_253": 0.2592532604861392,
+          "resid_513_mean": -0.12447740550445761,
+          "resid_513_std": 0.34172890979623405
+        },
+        {
+          "inner_seed": 42007,
+          "in_sample_rae_253": 0.2501986446982962,
+          "resid_513_mean": -0.11696200209345238,
+          "resid_513_std": 0.3509371860040679
+        },
+        {
+          "inner_seed": 42042,
+          "in_sample_rae_253": 0.2526764672580345,
+          "resid_513_mean": -0.1332206943074868,
+          "resid_513_std": 0.35164788112650747
+        },
+        {
+          "inner_seed": 42137,
+          "in_sample_rae_253": 0.24925088734029693,
+          "resid_513_mean": -0.11397841367850979,
+          "resid_513_std": 0.35486813114335075
+        }
+      ],
+      "rae_nb1561_o_in_unb": 0.25220186604612616,
+      "nb1612_variant_locked": "slsqp_5fold",
+      "nb1612_w_locked": {
+        "AtomPair": 0.140057993835422,
+        "MACCS": 3.373801323125607e-17,
+        "Mordred": 0.4089069682972949,
+        "ChempropEmbed": 0.29455437106157517,
+        "Avalon": 0.024865382529029326,
+        "ChemBERTa": 0.13161528427667868
+      },
+      "family_info": [
+        {
+          "family": "AtomPair",
+          "n_fam_bits": 2048,
+          "top_k_eff": 25,
+          "shap_source": "shap_tree_explainer",
+          "feat_dim_pruned": 27,
+          "per_seed_train_mae": [
+            0.3529131596286934,
+            0.35479165263764645,
+            0.34921600243342465,
+            0.34892691294132094,
+            0.3524082425645507
+          ],
+          "resid_513_mean": -0.13818981833411575,
+          "resid_513_std": 0.2894878699786065,
+          "in_rae_unb_alone": 0.4389012808679302
+        },
+        {
+          "family": "MACCS",
+          "n_fam_bits": 167,
+          "top_k_eff": 20,
+          "shap_source": "shap_tree_explainer",
+          "feat_dim_pruned": 22,
+          "per_seed_train_mae": [
+            0.3729871718633798,
+            0.3672501079121008,
+            0.3701476245219765,
+            0.3704649505046472,
+            0.3713784209085337
+          ],
+          "resid_513_mean": -0.12048922791424743,
+          "resid_513_std": 0.24980206252099824,
+          "in_rae_unb_alone": 0.4625349371967753
+        },
+        {
+          "family": "Mordred",
+          "n_fam_bits": 1533,
+          "top_k_eff": 20,
+          "shap_source": "shap_tree_explainer",
+          "feat_dim_pruned": 22,
+          "per_seed_train_mae": [
+            0.32039715653105316,
+            0.3187859845659005,
+            0.32338312052947243,
+            0.3183503542226336,
+            0.3177413208847537
+          ],
+          "resid_513_mean": -0.13189547139537242,
+          "resid_513_std": 0.31372063843797543,
+          "in_rae_unb_alone": 0.3988885660116058
+        },
+        {
+          "family": "ChempropEmbed",
+          "n_fam_bits": 300,
+          "top_k_eff": 20,
+          "shap_source": "shap_tree_explainer",
+          "feat_dim_pruned": 22,
+          "per_seed_train_mae": [
+            0.3058325528957824,
+            0.30549155852376336,
+            0.30514081089265405,
+            0.30648186104377556,
+            0.306413889743246
+          ],
+          "resid_513_mean": -0.08120867143642471,
+          "resid_513_std": 0.3319881341377827,
+          "in_rae_unb_alone": 0.38164388813547084
+        },
+        {
+          "family": "Avalon",
+          "n_fam_bits": 512,
+          "top_k_eff": 30,
+          "shap_source": "shap_tree_explainer",
+          "feat_dim_pruned": 32,
+          "per_seed_train_mae": [
+            0.3600414398150512,
+            0.36469901647200614,
+            0.3644251222310574,
+            0.3615135616074735,
+            0.36043684426750117
+          ],
+          "resid_513_mean": -0.09881642144125388,
+          "resid_513_std": 0.264844385730536,
+          "in_rae_unb_alone": 0.4527169209423371
+        },
+        {
+          "family": "ChemBERTa",
+          "n_fam_bits": 768,
+          "top_k_eff": 50,
+          "shap_source": "shap_tree_explainer",
+          "feat_dim_pruned": 52,
+          "per_seed_train_mae": [
+            0.28453902738139925,
+            0.277904673470494,
+            0.28114262520736677,
+            0.28165682437949185,
+            0.28105791913178285
+          ],
+          "resid_513_mean": -0.11398171458160034,
+          "resid_513_std": 0.3000136207338912,
+          "in_rae_unb_alone": 0.3505331166562949
+        }
+      ],
+      "rae_nb1612_o_in_unb": 0.37102530246031673,
+      "rae_blend_o_in_unb": 0.3028414096913476,
+      "wall_sec": 4.55
+    },
+    {
+      "outer_seed": 137,
+      "inner_seeds": [
+        137000,
+        137001,
+        137007,
+        137042,
+        137137
+      ],
+      "per_inner_cat": [
+        {
+          "inner_seed": 137000,
+          "in_sample_rae_253": 0.2531597936784426,
+          "resid_513_mean": -0.11846111365144495,
+          "resid_513_std": 0.35031388097497707
+        },
+        {
+          "inner_seed": 137001,
+          "in_sample_rae_253": 0.25406210333971774,
+          "resid_513_mean": -0.1362541973708936,
+          "resid_513_std": 0.3529263406691452
+        },
+        {
+          "inner_seed": 137007,
+          "in_sample_rae_253": 0.2454365068396142,
+          "resid_513_mean": -0.1417251621018197,
+          "resid_513_std": 0.3624751900221264
+        },
+        {
+          "inner_seed": 137042,
+          "in_sample_rae_253": 0.25067691452251883,
+          "resid_513_mean": -0.13320731612535305,
+          "resid_513_std": 0.3535141841583376
+        },
+        {
+          "inner_seed": 137137,
+          "in_sample_rae_253": 0.24880926767291492,
+          "resid_513_mean": -0.14036654772050736,
+          "resid_513_std": 0.3529897753322925
+        }
+      ],
+      "rae_nb1561_o_in_unb": 0.24889174459716953,
+      "nb1612_variant_locked": "naive_1_6_mean",
+      "nb1612_w_locked": {
+        "AtomPair": 0.16666666666666666,
+        "MACCS": 0.16666666666666666,
+        "Mordred": 0.16666666666666666,
+        "ChempropEmbed": 0.16666666666666666,
+        "Avalon": 0.16666666666666666,
+        "ChemBERTa": 0.16666666666666666
+      },
+      "family_info": [
+        {
+          "family": "AtomPair",
+          "n_fam_bits": 2048,
+          "top_k_eff": 25,
+          "shap_source": "shap_tree_explainer",
+          "feat_dim_pruned": 27,
+          "per_seed_train_mae": [
+            0.3547073419204974,
+            0.35792569279843206,
+            0.3588915611186215,
+            0.3573964302913285,
+            0.3571974188288517
+          ],
+          "resid_513_mean": -0.13179535833851916,
+          "resid_513_std": 0.28410650518948816,
+          "in_rae_unb_alone": 0.44638670443622674
+        },
+        {
+          "family": "MACCS",
+          "n_fam_bits": 167,
+          "top_k_eff": 20,
+          "shap_source": "shap_tree_explainer",
+          "feat_dim_pruned": 22,
+          "per_seed_train_mae": [
+            0.3711622143197007,
+            0.3747569911420856,
+            0.37402274588667356,
+            0.36934608403107155,
+            0.37802204648676313
+          ],
+          "resid_513_mean": -0.11804905214096312,
+          "resid_513_std": 0.24804744555749886,
+          "in_rae_unb_alone": 0.4665188845647021
+        },
+        {
+          "family": "Mordred",
+          "n_fam_bits": 1533,
+          "top_k_eff": 20,
+          "shap_source": "shap_tree_explainer",
+          "feat_dim_pruned": 22,
+          "per_seed_train_mae": [
+            0.31519323233301944,
+            0.31033211933212906,
+            0.3159188850096287,
+            0.31536613885140957,
+            0.3152405209958195
+          ],
+          "resid_513_mean": -0.11844585050830035,
+          "resid_513_std": 0.3234566453960246,
+          "in_rae_unb_alone": 0.3921475352002167
+        },
+        {
+          "family": "ChempropEmbed",
+          "n_fam_bits": 300,
+          "top_k_eff": 20,
+          "shap_source": "shap_tree_explainer",
+          "feat_dim_pruned": 22,
+          "per_seed_train_mae": [
+            0.30179519110392733,
+            0.3034327590566658,
+            0.30273612174136927,
+            0.3028125358814864,
+            0.3030009099667287
+          ],
+          "resid_513_mean": -0.07868120843417399,
+          "resid_513_std": 0.3313477341608197,
+          "in_rae_unb_alone": 0.37773373715988584
+        },
+        {
+          "family": "Avalon",
+          "n_fam_bits": 512,
+          "top_k_eff": 30,
+          "shap_source": "shap_tree_explainer",
+          "feat_dim_pruned": 32,
+          "per_seed_train_mae": [
+            0.35187861939651155,
+            0.3540170933999303,
+            0.3549658516834537,
+            0.3585714186868464,
+            0.35613557049512085
+          ],
+          "resid_513_mean": -0.09261418444029822,
+          "resid_513_std": 0.26878053271902846,
+          "in_rae_unb_alone": 0.44352106414804787
+        },
+        {
+          "family": "ChemBERTa",
+          "n_fam_bits": 768,
+          "top_k_eff": 50,
+          "shap_source": "shap_tree_explainer",
+          "feat_dim_pruned": 52,
+          "per_seed_train_mae": [
+            0.2833652510805226,
+            0.28073419007854655,
+            0.28617777190081906,
+            0.28734617141970453,
+            0.2824858416652614
+          ],
+          "resid_513_mean": -0.11856883363572823,
+          "resid_513_std": 0.29721964354989705,
+          "in_rae_unb_alone": 0.3530430633999698
+        }
+      ],
+      "rae_nb1612_o_in_unb": 0.3860225152178706,
+      "rae_blend_o_in_unb": 0.3080738948402188,
+      "wall_sec": 4.49
+    }
+  ],
+  "per_outer_blend_rae_in_unb": [
+    0.3014628575749497,
+    0.30946766121628516,
+    0.3011233250103868,
+    0.3028414096913476,
+    0.3080738948402188
+  ],
+  "per_outer_mean_in_unb": 0.3045938296666376,
+  "per_outer_std_in_unb": 0.0034866445808110387,
+  "per_outer_min_in_unb": 0.3011233250103868,
+  "per_outer_max_in_unb": 0.30946766121628516,
+  "per_outer_median_in_unb": 0.3028414096913476,
+  "te_nb1660_mean_stats": {
+    "mean": 4.710468724728365,
+    "std": 0.7332048415322558,
+    "min": 2.135988269637958,
+    "max": 6.093870380795925
+  },
+  "te_nb1660_median_stats": {
+    "mean": 4.7100789192727675,
+    "std": 0.733140475659654,
+    "min": 2.133972606440112,
+    "max": 6.092358816023613
+  },
+  "in_rae_unb_mean": 0.3036172860521891,
+  "in_rae_unb_median": 0.3028468126174529,
+  "delta_mean_vs_anchor": -0.31795560029925807,
+  "delta_median_vs_anchor": -0.31872607373399425,
+  "rae_bob_mean_nb1561_only_diag": 0.25087064449278224,
+  "rae_bob_mean_nb1612_only_diag": 0.3729902330102787,
+  "honest_lb_anchor_mean_nb1632": 0.5107,
+  "honest_lb_anchor_median_nb1632": 0.5118,
+  "te_mean_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb1660_mean.npy",
+  "te_median_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb1660_median.npy",
+  "csv_mean_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1660_deploy_nb1632_mean.csv",
+  "csv_median_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1660_deploy_nb1632_median.csv",
+  "wall_sec": 23.28
+}

@@ -1,0 +1,20 @@
+{
+  "comp": "COMP-Z rich-z corrector axis",
+  "ctrl_rae": 0.41468426202307357,
+  "deployed_best": 0.4149,
+  "arms": {
+    "Z1_soap_richz": {
+      "treat_rae": 0.41316334251870823,
+      "delta": -0.0015209195043653367,
+      "n_neg": 2,
+      "gate_pass": true
+    },
+    "Z2_soap_pmap_richz": {
+      "treat_rae": 0.41308294093709286,
+      "delta": -0.0016013210859807114,
+      "n_neg": 3,
+      "gate_pass": true
+    }
+  },
+  "wall_min": 11.645101050535837
+}

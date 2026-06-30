@@ -312,10 +312,17 @@ def push_notebook(nb_num: int, poll: bool, pull: bool) -> None:
             "competition_sources": [],
             "kernel_sources":   [],
         }
+        # Kaggle's default "GPU" is a P100 (cc6.0) — modern torch has no sm_60 kernels and crashes on the
+        # first GPU op. Request a T4 (cc7.5, torch-compatible, 2x16GB) explicitly. Override via KAGGLE_GPU_TYPE.
+        gpu_type = os.environ.get("KAGGLE_GPU_TYPE", "NvidiaTeslaT4")
+        push_cmd = ["kernels", "push", "-p", str(tmp)]
+        if accel == "gpu" and gpu_type:
+            push_cmd += ["--accelerator", gpu_type]
         (tmp / "kernel-metadata.json").write_text(json.dumps(meta, indent=2))
 
-        print(f"[nb] Pushing {nb_path.name} -> {USERNAME}/{kernel_slug} ({accel.upper()})")
-        _run(["kernels", "push", "-p", str(tmp)])
+        tag = f"{accel.upper()}{':' + gpu_type if accel == 'gpu' and gpu_type else ''}"
+        print(f"[nb] Pushing {nb_path.name} -> {USERNAME}/{kernel_slug} ({tag})")
+        _run(push_cmd)
         print(f"[nb] Kernel live: https://www.kaggle.com/code/{USERNAME}/{kernel_slug}")
 
     if poll or pull:

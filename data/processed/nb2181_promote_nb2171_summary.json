@@ -1,0 +1,18 @@
+{
+  "tag": "nb2181_promote_nb2171",
+  "utc": "2026-06-08T02:21:49+00:00",
+  "deploy_csv_status": "BUILT",
+  "deploy_csv_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb2171_deploy_anchor_swap.csv",
+  "deploy_csv_built": true,
+  "te_mean": 4.7121262550354,
+  "te_std": 0.8084282279014587,
+  "nb2180_status": "MISSING",
+  "verdict": "HOLD",
+  "reason": "nb2180_summary.json not found at D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2180_summary.json",
+  "nb2171_pooled_rae_mean_seeds": 0.46762591045398344,
+  "nb2171_w_nb1191_deploy": 0.9360891805838886,
+  "nb2171_deploy_s": 1.009,
+  "nb2171_lb_band_estimate": 0.3705360562282526,
+  "action": "HELD",
+  "hold_reason": "nb2180_summary.json not found at D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2180_summary.json"
+}

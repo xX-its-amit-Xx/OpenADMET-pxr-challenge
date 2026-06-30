@@ -1,0 +1,15 @@
+{
+  "feature": "ppar_gamma_tox21_readacross",
+  "n_ppar": 6551,
+  "n_actives": 178,
+  "med_tani_to_test": 0.208,
+  "frac_covered": 0.0,
+  "corr_ra_vs_pec50": 0.035,
+  "corr_ra_vs_ctrl_error": 0.044,
+  "control_rae": 0.583,
+  "treatment_rae": 0.5826,
+  "delta": -0.0005,
+  "neg_seeds": 2,
+  "best_rae": 0.4149,
+  "deploy": false
+}

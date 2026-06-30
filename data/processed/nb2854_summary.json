@@ -1,0 +1,76 @@
+{
+  "tag": "nb2854",
+  "method": "hard binary classifier-routed 2-stage (LGBM clf + 2 LGBM reg heads on FULL 4139 w/ clipped targets, hard if/else routing at P_hit > 0.5)",
+  "hit_threshold": 5.5,
+  "route_threshold": 0.5,
+  "seeds_bag": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "n_folds": 5,
+  "n_train": 4139,
+  "n_test": 513,
+  "n_unb": 253,
+  "n_hits_train": 380,
+  "n_nonhits_train": 3759,
+  "hits_frac_train": 0.09180961584923894,
+  "hits_frac_unblind": 0.16600790513833993,
+  "feat_dim": 117,
+  "stage1_clf_auc_train_oof": 0.8085220033323532,
+  "stage1_clf_brier_train_oof": 0.10926966625298952,
+  "p_hit_te_mean": 0.3353670745363695,
+  "p_hit_te_std": 0.2897602484446519,
+  "p_hit_unb_mean": 0.31422665090408164,
+  "n_route_hit_te": 162,
+  "n_route_nh_te": 351,
+  "n_route_hit_unb": 78,
+  "n_route_nh_unb": 175,
+  "stage2a_te_mean": 5.549743514005403,
+  "stage2a_te_std": 0.06344901293620332,
+  "stage2b_te_mean": 4.68196414316519,
+  "stage2b_te_std": 0.5314084493097444,
+  "deploy_te_mean": 4.837638854980469,
+  "deploy_te_std": 0.6793913245201111,
+  "in_sample_unb_rae": 0.6759782543793484,
+  "per_seed_results": [
+    {
+      "kf_seed": 1001,
+      "pooled_rae": 0.6759782543793484
+    },
+    {
+      "kf_seed": 1002,
+      "pooled_rae": 0.6759782543793484
+    },
+    {
+      "kf_seed": 1003,
+      "pooled_rae": 0.6759782543793484
+    },
+    {
+      "kf_seed": 1004,
+      "pooled_rae": 0.6759782543793484
+    },
+    {
+      "kf_seed": 1005,
+      "pooled_rae": 0.6759782543793484
+    }
+  ],
+  "mean_rae": 0.6759782543793484,
+  "std_rae": 0.0,
+  "rae_of_mean_of_seed_oofs": 0.6759782543793484,
+  "gate_promote_threshold": 0.457,
+  "gate_marginal_threshold": 0.4598,
+  "verdict": "FAIL",
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2854_pred_oof.npy",
+  "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2854.npy",
+  "wall_sec": 21.17
+}

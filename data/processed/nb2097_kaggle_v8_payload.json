@@ -1,0 +1,25 @@
+{
+  "name": "pxr-challenge-chemprop-v8",
+  "chemprop_version": "2.1.0",
+  "lightning_version": ">=2.2",
+  "torch_index": "https://download.pytorch.org/whl/cpu",
+  "gpu_fallback_index": "https://download.pytorch.org/whl/cu124",
+  "kernel_runtime": "cpu",
+  "tasks": [
+    "pEC50",
+    "pEC50_null"
+  ],
+  "n_folds": 5,
+  "scaffold_seed": 42,
+  "hyperparams": {
+    "depth": 3,
+    "d_h": 300,
+    "dropout": 0.1,
+    "epochs": 50,
+    "batch_size": 64,
+    "lr": 0.001
+  },
+  "dispatch_gated_by_v7": true,
+  "v7_status": "UNKNOWN",
+  "should_dispatch": true
+}

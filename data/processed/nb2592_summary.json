@@ -1,0 +1,19 @@
+{
+  "tag": "nb2592",
+  "method": "BART (bartpy) on K=20 chemprop_aux residual",
+  "paradigm": "bayesian_tree_ensemble_mcmc_posterior_vs_gbm_pointmap",
+  "verdict": "INSTALL_FAILED",
+  "install_error": "bartpy depends on deprecated 'sklearn' PyPI package which is EOL since 2023. Modern pip refuses to build the bartpy wheel. Setting SKLEARN_ALLOW_DEPRECATED_SKLEARN_PACKAGE_INSTALL=True would proceed but the resulting bartpy import would still fail against modern scikit-learn API. Paradigm axis closed pending pymc-bart or upstream bartpy maintenance.",
+  "gate_promote_threshold": 0.457,
+  "gate_marginal_threshold": 0.4601,
+  "n_folds": 5,
+  "kf_seed": 1001,
+  "bart_n_trees": 50,
+  "bart_n_burn": 200,
+  "bart_n_samples": 200,
+  "bart_random_state": 42,
+  "k_slice_first_n_of_117": 20,
+  "anchor_name": "chemprop_aux (PRE-unblind, verified clean)",
+  "mean_rae": null,
+  "delta_vs_anchor": null
+}

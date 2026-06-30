@@ -1,0 +1,142 @@
+{
+  "tag": "nb2153",
+  "method": "mahalanobis_novelty_sigmoid_blend_on_nb2095",
+  "n_tr": 4139,
+  "n_te": 513,
+  "n_unb": 253,
+  "n_unique_unb_scaffolds": 180,
+  "feature_dim": 117,
+  "cov_reg": 0.001,
+  "alpha_grid": [
+    0.5,
+    1.0,
+    2.0,
+    5.0
+  ],
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "n_folds": 5,
+  "train_mean_pec50": 4.321067541487525,
+  "median_d_tr": 1.4378957443292397,
+  "median_d_te": 1.2184357470403884,
+  "median_d_te_unb": 1.261327452476371,
+  "nb2095_te_unb_in_rae": 0.263101044476131,
+  "nb2095_ref_scaffold_cv_rae": 0.472,
+  "decision_margin": 0.003,
+  "per_alpha_results": [
+    {
+      "alpha": 0.5,
+      "w_te_mean": 0.5160311257150837,
+      "w_te_std": 0.06750479331566439,
+      "w_te_min": 0.21662435534143046,
+      "w_te_max": 0.6329084128815505,
+      "w_unb_mean": 0.5127781430506231,
+      "shrink_share_unb": 0.4872218569493768,
+      "blend_unb_mean": 4.500108968256961,
+      "blend_unb_std": 0.46177247049969816,
+      "in_sample_rae_unb": 0.6374706878473756,
+      "cv_rae_per_seed": [
+        0.6374706878473756,
+        0.6374706878473756,
+        0.6374706878473756,
+        0.6374706878473756,
+        0.6374706878473756
+      ],
+      "cv_rae_mean_seeds": 0.6374706878473756,
+      "cv_rae_std_seeds": 0.0,
+      "cv_rae_mean_fold": 0.6491450239949661,
+      "cv_rae_std_fold": 0.06437558875228523,
+      "delta_vs_nb2095_ref": 0.16547068784737562,
+      "verdict_vs_nb2095_ref": "LOSE"
+    },
+    {
+      "alpha": 1.0,
+      "w_te_mean": 0.5326666233860724,
+      "w_te_std": 0.126970099791179,
+      "w_te_min": 0.07103521322049472,
+      "w_te_max": 0.7482741272729482,
+      "w_unb_mean": 0.5256069619672593,
+      "shrink_share_unb": 0.47439303803274063,
+      "blend_unb_mean": 4.501933855228432,
+      "blend_unb_std": 0.46906461531042615,
+      "in_sample_rae_unb": 0.6352114688213724,
+      "cv_rae_per_seed": [
+        0.6352114688213724,
+        0.6352114688213724,
+        0.6352114688213724,
+        0.6352114688213724,
+        0.6352114688213724
+      ],
+      "cv_rae_mean_seeds": 0.6352114688213724,
+      "cv_rae_std_seeds": 0.0,
+      "cv_rae_mean_fold": 0.6464607561979107,
+      "cv_rae_std_fold": 0.06751961393985767,
+      "delta_vs_nb2095_ref": 0.16321146882137239,
+      "verdict_vs_nb2095_ref": "LOSE"
+    },
+    {
+      "alpha": 2.0,
+      "w_te_mean": 0.5648368171527882,
+      "w_te_std": 0.21727868435127556,
+      "w_te_min": 0.005813221299271687,
+      "w_te_max": 0.8983347670312255,
+      "w_unb_mean": 0.5501679615490753,
+      "shrink_share_unb": 0.44983203845092473,
+      "blend_unb_mean": 4.504445689790313,
+      "blend_unb_std": 0.49776204840351357,
+      "in_sample_rae_unb": 0.6313619749760789,
+      "cv_rae_per_seed": [
+        0.6313619749760789,
+        0.6313619749760789,
+        0.6313619749760789,
+        0.6313619749760789,
+        0.6313619749760789
+      ],
+      "cv_rae_mean_seeds": 0.6313619749760789,
+      "cv_rae_std_seeds": 0.0,
+      "cv_rae_mean_fold": 0.641810649103787,
+      "cv_rae_std_fold": 0.07364908210953043,
+      "delta_vs_nb2095_ref": 0.15936197497607896,
+      "verdict_vs_nb2095_ref": "LOSE"
+    },
+    {
+      "alpha": 5.0,
+      "w_te_mean": 0.6213790716471475,
+      "w_te_std": 0.34921150188304273,
+      "w_te_min": 2.6143940504432715e-06,
+      "w_te_max": 0.9957098897668295,
+      "w_unb_mean": 0.5978673444489642,
+      "shrink_share_unb": 0.40213265555103583,
+      "blend_unb_mean": 4.504949954192928,
+      "blend_unb_std": 0.5801738591396386,
+      "in_sample_rae_unb": 0.6348578734389162,
+      "cv_rae_per_seed": [
+        0.6348578734389162,
+        0.6348578734389162,
+        0.6348578734389162,
+        0.6348578734389162,
+        0.6348578734389162
+      ],
+      "cv_rae_mean_seeds": 0.6348578734389162,
+      "cv_rae_std_seeds": 0.0,
+      "cv_rae_mean_fold": 0.6436280015559334,
+      "cv_rae_std_fold": 0.08635182297086988,
+      "delta_vs_nb2095_ref": 0.16285787343891622,
+      "verdict_vs_nb2095_ref": "LOSE"
+    }
+  ],
+  "best_alpha": 2.0,
+  "best_cv_rae_mean_seeds": 0.6313619749760789,
+  "best_delta_vs_nb2095_ref": 0.15936197497607896,
+  "best_verdict_vs_nb2095_ref": "LOSE",
+  "outputs": {
+    "mahal_dist_te": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2153_mahal_dist_te.npy",
+    "w_per_alpha": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2153_w_per_alpha.npy"
+  },
+  "wall_sec": 7.24
+}

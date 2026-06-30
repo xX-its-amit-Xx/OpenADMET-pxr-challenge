@@ -1,0 +1,27 @@
+{
+  "name": "PXR Challenge",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12-bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "postCreateCommand": "bash .devcontainer/bootstrap.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "charliermarsh.ruff"
+      ]
+    }
+  },
+  "hostRequirements": {
+    "cpus": 4,
+    "memory": "16gb",
+    "storage": "32gb"
+  },
+  "remoteEnv": {
+    "HF_HOME": "${containerWorkspaceFolder}/.cache/hf",
+    "PIP_CACHE_DIR": "${containerWorkspaceFolder}/.cache/pip"
+  }
+}

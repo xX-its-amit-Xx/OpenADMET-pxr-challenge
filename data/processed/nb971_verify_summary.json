@@ -1,0 +1,147 @@
+{
+  "tag": "nb971_verify",
+  "claimed_crossfit_rae": 0.4675,
+  "floor": 0.4698,
+  "target_rae": 0.4648,
+  "improvement_delta_required": 0.005,
+  "per_anchor_honest_rae": {
+    "chemprop_aux": {
+      "rae": 0.6216,
+      "pearson": 0.7466,
+      "sha8": "c84ca06b",
+      "mean": 4.79670719811206,
+      "std": 0.6342383077953444
+    },
+    "nb503": {
+      "rae": 0.5116,
+      "pearson": 0.8277,
+      "sha8": "b21e41f7",
+      "mean": 4.686190128326416,
+      "std": 0.7557479739189148
+    },
+    "nb464": {
+      "rae": 0.5489,
+      "pearson": 0.7899,
+      "sha8": "b4d1ee35",
+      "mean": 4.731312274932861,
+      "std": 0.6999297142028809
+    },
+    "nb471": {
+      "rae": 0.5506,
+      "pearson": 0.7857,
+      "sha8": "6b7ae73c",
+      "mean": 4.76024055480957,
+      "std": 0.6937917470932007
+    },
+    "nb432": {
+      "rae": 0.5519,
+      "pearson": 0.7914,
+      "sha8": "0d673632",
+      "mean": 4.721008670405406,
+      "std": 0.6930019694789694
+    },
+    "nb2112": {
+      "rae": 0.4737,
+      "pearson": 0.8599,
+      "sha8": "c810a7e9",
+      "mean": 4.668732643127441,
+      "std": 0.8711342811584473
+    }
+  },
+  "in_sample_slsqp": {
+    "mae": {
+      "weights": [
+        0.0,
+        0.2942,
+        0.0,
+        0.0,
+        0.0,
+        0.7058
+      ],
+      "rae": 0.4646
+    },
+    "huber": {
+      "weights": [
+        0.0,
+        0.2473,
+        0.0,
+        0.0,
+        0.0,
+        0.7527
+      ],
+      "rae": 0.4649
+    }
+  },
+  "outer_cv_seed0": {
+    "mae": {
+      "rae_crossfit": 0.4675,
+      "mean_fold_w": [
+        0.0,
+        0.2963,
+        0.0,
+        0.0,
+        0.0,
+        0.7037
+      ]
+    },
+    "huber": {
+      "rae_crossfit": 0.4685,
+      "mean_fold_w": [
+        0.0,
+        0.2447,
+        0.0,
+        0.0,
+        0.0,
+        0.7553
+      ]
+    }
+  },
+  "multi_seed_outer_cv": {
+    "mae": {
+      "seeds": [
+        0,
+        1,
+        7,
+        42,
+        123
+      ],
+      "raes": [
+        0.4675,
+        0.4679,
+        0.4691,
+        0.4689,
+        0.4746
+      ],
+      "mean": 0.4696,
+      "std": 0.0026,
+      "max": 0.4746
+    },
+    "huber": {
+      "seeds": [
+        0,
+        1,
+        7,
+        42,
+        123
+      ],
+      "raes": [
+        0.4685,
+        0.4669,
+        0.469,
+        0.4673,
+        0.4712
+      ],
+      "mean": 0.4686,
+      "std": 0.0015,
+      "max": 0.4712
+    }
+  },
+  "best_outer_cv_rae": 0.4675,
+  "best_loss": "mae",
+  "claim_matches_reproduction": true,
+  "beats_floor_strict_005": false,
+  "beats_floor_loose": true,
+  "robust_across_seeds": false,
+  "verdict": "MARGINAL -- in claimed range but inside policy delta; HOLD",
+  "ladder_action": "DO NOT DEPLOY (within margin); keep nb2112 as PRIMARY-1"
+}

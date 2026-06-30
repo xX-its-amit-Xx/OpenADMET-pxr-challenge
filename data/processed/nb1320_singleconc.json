@@ -1,0 +1,10 @@
+{
+  "baseline_rae": 0.5977,
+  "sc_internal_auc_spearman": 0.5904,
+  "separation_pactive": 0.8228,
+  "separation_log2fc": 0.8555,
+  "corr_pactive_error": -0.1561,
+  "corr_log2fc_error": -0.1624,
+  "lgbm_residual_rae": 0.6414,
+  "best_pulldown_rae": 0.5977
+}

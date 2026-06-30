@@ -1,0 +1,82 @@
+{
+  "tag": "nb2540",
+  "method": "lgbm_mse_monotone_bio_prior_block_on_X117_residual_on_chemprop_aux",
+  "anchor": "chemprop_aux",
+  "anchor_te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+  "rae_anchor_chemprop_aux": 0.6215728863514471,
+  "chemprop_aux_ref": 0.6216,
+  "x117_unb_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\pyramid\\X_117_unb.npy",
+  "x117_te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\pyramid\\X_117_te.npy",
+  "n_unb": 253,
+  "n_test": 513,
+  "n_unique_scaffolds": 180,
+  "n_folds": 5,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "lgbm_params": {
+    "objective": "regression",
+    "max_depth": 4,
+    "num_leaves": 15,
+    "n_estimators": 300,
+    "learning_rate": 0.03,
+    "min_child_samples": 5,
+    "reg_lambda": 2.0,
+    "monotone_constraints_method": "basic"
+  },
+  "bio_block": [
+    {
+      "name": "MolLogP",
+      "col": 117,
+      "monotone": 1
+    },
+    {
+      "name": "MolWt",
+      "col": 118,
+      "monotone": 1
+    },
+    {
+      "name": "NumAtomFsp3",
+      "col": 119,
+      "monotone": 0
+    },
+    {
+      "name": "TPSA",
+      "col": 120,
+      "monotone": -1
+    }
+  ],
+  "feat_dim": 121,
+  "n_monotone_pos": 2,
+  "n_monotone_neg": 1,
+  "n_monotone_zero": 118,
+  "residual_mean": -0.1325965261753001,
+  "residual_std": 0.6999145683913596,
+  "per_seed_rae": [
+    0.5854119399911665,
+    0.5346066348889316,
+    0.5388095313116505,
+    0.5772042312244703,
+    0.5435005847414985
+  ],
+  "per_seed_mean_rae": 0.5559065844315436,
+  "per_seed_std_rae": 0.021090574529052972,
+  "mean_bag_rae": 0.5254244596664979,
+  "median_bag_rae": 0.5364649561971258,
+  "mean_rae": 0.5254244596664979,
+  "delta_vs_anchor": -0.09614842668494927,
+  "te_unb_in_sample_rae": 0.08361718119840442,
+  "te_deploy_mean": 4.694746017456055,
+  "te_deploy_std": 0.8488914966583252,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2540_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2540.npy",
+  "gate_promote_threshold": 0.457,
+  "gate_marginal_threshold": 0.4601,
+  "verdict": "FAIL",
+  "pre_unblind_clean_anchor": true,
+  "wall_sec": 5.34
+}

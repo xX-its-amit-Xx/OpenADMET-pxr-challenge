@@ -1,0 +1,8 @@
+{
+  "tag": "nb2370",
+  "status": "DEFERRED_NB2263_NOT_FINISHED",
+  "reason": "nb2263_summary.json missing -- waiting on lucky-aware RFE",
+  "expected_followup_cycle": 188,
+  "nb2263_summary_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2263_summary.json",
+  "wall_sec": 0.0
+}

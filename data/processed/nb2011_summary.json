@@ -1,0 +1,122 @@
+{
+  "tag": "nb2011",
+  "method": "pseudo_self_train_chemprop_aux_OOF_into_LGBM_K28_residual",
+  "pseudo_label_source": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\oof_chemprop_aux.npy",
+  "pseudo_label_caveat": "nb1191 SLSQP zero'd chemprop_aux on 253 (favored nb1150/1158/2112) but the only 4139-train OOF anchor available among the nb1191 pyramid is chemprop_aux; the LB-faithful PRE-unblind train-side anchor",
+  "alpha_grid": [
+    0.7,
+    0.85,
+    0.95
+  ],
+  "K_target": 28,
+  "seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "n_folds": 5,
+  "n_tr": 4139,
+  "n_te": 513,
+  "n_unb": 253,
+  "y_hard_mean": 4.321067541487525,
+  "y_hard_std": 1.1214809712246,
+  "y_pseudo_mean": 4.338849424824211,
+  "y_pseudo_std": 0.8974401468577917,
+  "hard_pseudo_pearson_4139": 0.7731508311581553,
+  "rae_anchor_chemprop_aux_unb": 0.6215728863514471,
+  "residual_mean": -0.1325965261753001,
+  "residual_std": 0.6999145683913596,
+  "nb2103_K28_ref": 0.4737,
+  "decision_margin": 0.003,
+  "baseline_cross_fit_now_rae": 0.4724482833075772,
+  "baseline_per_seed_rae": [
+    0.4918114153198616,
+    0.503622223197802,
+    0.49458864162844024,
+    0.5038019739708771,
+    0.4803429305612091
+  ],
+  "per_alpha": [
+    {
+      "alpha": 0.7,
+      "per_seed_rae": [
+        0.5895241759741308,
+        0.6157541497924228,
+        0.6172638879574507,
+        0.6086646390793494,
+        0.6109790652494473
+      ],
+      "per_seed_mean": 0.6084371836105602,
+      "per_seed_std": 0.009956540160577555,
+      "rae_mean_bag": 0.5764780149506713,
+      "rae_median_bag": 0.5757069429166382,
+      "pseudo_pred_unb_in_rae": 0.7640619539367919,
+      "delta_vs_nb2103_K28": 0.10277801495067129,
+      "delta_vs_baseline_cross_fit": 0.10402973164309409,
+      "beats_nb2103_K28": false,
+      "flat_vs_nb2103_K28": false,
+      "beats_baseline": false,
+      "verdict": "FAILS_AT_ALPHA=0.7",
+      "oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2011_mean_bag_oof_alpha70.npy",
+      "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2011_te_alpha70.npy"
+    },
+    {
+      "alpha": 0.85,
+      "per_seed_rae": [
+        0.6044427407135072,
+        0.6144333035063427,
+        0.6195474834036803,
+        0.6026621302328429,
+        0.6053190524168665
+      ],
+      "per_seed_mean": 0.6092809420546479,
+      "per_seed_std": 0.006555335711497063,
+      "rae_mean_bag": 0.5771154694183886,
+      "rae_median_bag": 0.5790767784195112,
+      "pseudo_pred_unb_in_rae": 0.7620591637443197,
+      "delta_vs_nb2103_K28": 0.10341546941838864,
+      "delta_vs_baseline_cross_fit": 0.10466718611081144,
+      "beats_nb2103_K28": false,
+      "flat_vs_nb2103_K28": false,
+      "beats_baseline": false,
+      "verdict": "FAILS_AT_ALPHA=0.85",
+      "oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2011_mean_bag_oof_alpha85.npy",
+      "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2011_te_alpha85.npy"
+    },
+    {
+      "alpha": 0.95,
+      "per_seed_rae": [
+        0.5905914453920682,
+        0.6106151790799434,
+        0.6070662274129462,
+        0.6003106867091802,
+        0.5991746484232384
+      ],
+      "per_seed_mean": 0.6015516374034753,
+      "per_seed_std": 0.006926389172698612,
+      "rae_mean_bag": 0.5711539355166775,
+      "rae_median_bag": 0.5698241270362494,
+      "pseudo_pred_unb_in_rae": 0.7614388971229933,
+      "delta_vs_nb2103_K28": 0.09745393551667747,
+      "delta_vs_baseline_cross_fit": 0.09870565220910027,
+      "beats_nb2103_K28": false,
+      "flat_vs_nb2103_K28": false,
+      "beats_baseline": false,
+      "verdict": "FAILS_AT_ALPHA=0.95",
+      "oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2011_mean_bag_oof_alpha95.npy",
+      "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2011_te_alpha95.npy"
+    }
+  ],
+  "best_alpha": 0.95,
+  "best_rae_mean_bag": 0.5711539355166775,
+  "best_delta_vs_nb2103_K28": 0.09745393551667747,
+  "beats_nb2103_K28": false,
+  "flat_vs_nb2103_K28": false,
+  "verdict": "FAILS_VS_NB2103_K28",
+  "submission_csv": null,
+  "deploy_te_path": null,
+  "pre_unblind_clean": true,
+  "wall_sec": 17.5
+}

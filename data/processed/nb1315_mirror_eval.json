@@ -1,0 +1,46 @@
+{
+  "cross_nr_lgbm_combined_scaffoldcv": {
+    "FXR_ChEMBL_500": 0.7084,
+    "PPARg_ChEMBL_500": 0.8062,
+    "PPARg_curated_1243": 0.7822,
+    "RXRa_ChEMBL_500": 0.8474,
+    "LXRa_ChEMBL_500": 0.8208,
+    "VDR_ChEMBL_491": 0.6251,
+    "PXR_ChEMBL_500": 0.755,
+    "PXR_OpenADMET_4139": 0.5986
+  },
+  "pxr_tanimoto_holdout": {
+    "n_test": 413,
+    "n_train": 3726,
+    "rae_lgbm_comb": 0.6772
+  },
+  "pxr_253_unblinded": {
+    "n": 253,
+    "meta_stacker_loocv": 0.6142,
+    "knn_residual_loocv": 0.63,
+    "triple_blend": 0.5985,
+    "best_method": "triple_blend"
+  },
+  "noise_floors": {
+    "PXR": 0.174,
+    "FXR": 0.405,
+    "PPARg": 0.398,
+    "RXRa": 0.567,
+    "LXRa": 0.394
+  },
+  "reducible_pct_remaining": {
+    "PXR_internal_CV": 51.4,
+    "PXR_253_unblinded": 53.3,
+    "PXR_tanimoto_OOD": 60.9,
+    "FXR": 51.0,
+    "PPARg": 63.8,
+    "RXRa": 64.8,
+    "LXRa": 70.4
+  },
+  "nb1090_mirror_baseline": {
+    "FXR_rae_rich": 0.6324,
+    "PPARg_rae_rich": 0.5997,
+    "RXRa_rae_rich": 0.7267,
+    "LXRa_rae_rich": 0.8714
+  }
+}

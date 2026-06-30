@@ -1,0 +1,174 @@
+{
+  "tag": "nb966",
+  "method": "chemberta_77m_mtr_residual_4methods_A_berta_only_B_knn_C_concat_D_shap_top28_of_501",
+  "anchor": "chemprop_aux",
+  "anchor_kind": "PRE_unblind_te_slice_to_unb_idx",
+  "anchor_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+  "data_source": "chemberta_77m_mtr_embeddings (cycle-129-support)",
+  "berta_emb_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\chemberta_77m_mtr_embeddings.npy",
+  "berta_idx_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\chemberta_77m_mtr_index.csv",
+  "n_berta_rows": 4651,
+  "berta_dim": 384,
+  "n_test_emb_coverage": 513,
+  "n_train_emb_coverage": 4138,
+  "n_unb": 253,
+  "n_test": 513,
+  "resid_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "resid_folds": 5,
+  "rae_anchor_chemprop_aux": 0.6215728863514471,
+  "residual_mean": -0.1325965261753001,
+  "residual_std": 0.6999145683913596,
+  "nb2103_k28_mean_bag_ref": 0.4737,
+  "nb2103_k28_median_bag_ref": 0.4698,
+  "decision_margin": 0.003,
+  "method_A": {
+    "name": "A_berta_only_384",
+    "feat_dim": 384,
+    "per_seed_rae": [
+      0.638850515168778,
+      0.6400711239448267,
+      0.6566434263021258,
+      0.6298971878019872,
+      0.6395790005213104
+    ],
+    "rae_per_seed_mean": 0.6410082507478057,
+    "rae_per_seed_std": 0.008665924302509797,
+    "rae_per_seed_min": 0.6298971878019872,
+    "rae_per_seed_max": 0.6566434263021258,
+    "rae_mean_bag": 0.612448862477329,
+    "rae_median_bag": 0.6068216246463387,
+    "delta_mean_bag_vs_nb2103_K28": 0.13874886247732898,
+    "delta_mean_bag_vs_anchor": -0.009124023874118148,
+    "verdict": "BEATS_ANCHOR_BUT_WORSE_THAN_NB2103_K28"
+  },
+  "method_B": {
+    "name": "B_knn_blend_best",
+    "k": 5,
+    "pool_size": 4139,
+    "rae_knn_direct_pec50": 0.8242697632006661,
+    "blend_alpha_sweep": [
+      {
+        "alpha": 0.0,
+        "rae": 0.6215728863514471
+      },
+      {
+        "alpha": 0.09999999999999999,
+        "rae": 0.6287764772282587
+      },
+      {
+        "alpha": 0.19999999999999998,
+        "rae": 0.6391942893152981
+      },
+      {
+        "alpha": 0.3,
+        "rae": 0.6529722834249347
+      },
+      {
+        "alpha": 0.39999999999999997,
+        "rae": 0.6695459968347816
+      },
+      {
+        "alpha": 0.49999999999999994,
+        "rae": 0.6880708558725007
+      },
+      {
+        "alpha": 0.6,
+        "rae": 0.7089867381019791
+      },
+      {
+        "alpha": 0.7,
+        "rae": 0.7326995656883587
+      }
+    ],
+    "best_alpha": 0.0,
+    "rae_best_blend": 0.6215728863514471,
+    "delta_best_vs_nb2103_K28": 0.14787288635144713,
+    "delta_best_vs_anchor": 0.0,
+    "verdict": "FLAT_VS_ANCHOR"
+  },
+  "method_C": {
+    "name": "C_k28_plus_berta_412",
+    "feat_dim": 412,
+    "per_seed_rae": [
+      0.5980354734986424,
+      0.6016354881630134,
+      0.5611629728121093,
+      0.5782663191958642,
+      0.5871237350790466
+    ],
+    "rae_per_seed_mean": 0.5852447977497353,
+    "rae_per_seed_std": 0.014590544740196587,
+    "rae_per_seed_min": 0.5611629728121093,
+    "rae_per_seed_max": 0.6016354881630134,
+    "rae_mean_bag": 0.560525258159712,
+    "rae_median_bag": 0.570578613721251,
+    "delta_mean_bag_vs_nb2103_K28": 0.08682525815971198,
+    "delta_mean_bag_vs_anchor": -0.06104762819173515,
+    "verdict": "BEATS_ANCHOR_BUT_WORSE_THAN_NB2103_K28"
+  },
+  "method_D": {
+    "name": "D_shap_top28_of_501",
+    "feat_dim_full": 501,
+    "feat_dim_top28": 28,
+    "n_117_in_top28": 18,
+    "n_berta_in_top28": 10,
+    "top28_idx_in_501": [
+      45,
+      65,
+      48,
+      331,
+      56,
+      68,
+      71,
+      73,
+      273,
+      63,
+      92,
+      357,
+      70,
+      77,
+      81,
+      27,
+      54,
+      487,
+      66,
+      53,
+      464,
+      7,
+      158,
+      461,
+      423,
+      191,
+      80,
+      353
+    ],
+    "per_seed_rae": [
+      0.5445061894157146,
+      0.5404716170282771,
+      0.5095464233412664,
+      0.5124514439848371,
+      0.5156772342977258
+    ],
+    "rae_per_seed_mean": 0.5245305816135641,
+    "rae_per_seed_std": 0.014845563922170991,
+    "rae_per_seed_min": 0.5095464233412664,
+    "rae_per_seed_max": 0.5445061894157146,
+    "rae_mean_bag": 0.5028115148543508,
+    "rae_median_bag": 0.5100037210102026,
+    "delta_mean_bag_vs_nb2103_K28": 0.029111514854350817,
+    "delta_mean_bag_vs_anchor": -0.11876137149709631,
+    "verdict": "BEATS_ANCHOR_BUT_WORSE_THAN_NB2103_K28"
+  },
+  "winner_method": null,
+  "winner_rae_mean_bag": null,
+  "global_verdict": "NO_BERTA_METHOD_BEATS_NB2103_K28_BY_MARGIN",
+  "deploy_csv_path": null,
+  "pre_unblind_clean": true,
+  "wall_sec": 27.42
+}

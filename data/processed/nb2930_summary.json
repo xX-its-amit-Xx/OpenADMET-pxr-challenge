@@ -1,0 +1,130 @@
+{
+  "tag": "nb2930",
+  "method": "LGBM_K20_plus_nb1191_as_21st_feature",
+  "lgbm_params": {
+    "max_depth": 4,
+    "num_leaves": 15,
+    "n_estimators": 300,
+    "learning_rate": 0.03
+  },
+  "n_folds": 5,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "n_unb": 253,
+  "n_test": 513,
+  "n_unique_scaffolds": 180,
+  "anchor": "chemprop_aux",
+  "anchor_in_rae_253": 0.6215728863514471,
+  "anchor_te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+  "nb1191_in_rae_253": 0.469729103713806,
+  "nb1191_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb1191_pred_oof.npy",
+  "te_nb1191_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb1191.npy",
+  "k20_surviving_idx_in_117": [
+    45,
+    67,
+    66,
+    68,
+    65,
+    92,
+    27,
+    77,
+    81,
+    56,
+    1,
+    7,
+    115,
+    93,
+    80,
+    11,
+    70,
+    54,
+    8,
+    57
+  ],
+  "k20_surviving_names": [
+    "Mordred_col_292",
+    "ChempropEmbed_dim_14",
+    "ChempropEmbed_dim_9",
+    "ChempropEmbed_dim_32",
+    "ChempropEmbed_dim_259",
+    "Avalon_bit_323",
+    "MACCS_bit_126",
+    "ChempropEmbed_dim_172",
+    "ChempropEmbed_dim_16",
+    "Mordred_col_454",
+    "AtomPair_bit_1733",
+    "AtomPair_bit_1729",
+    "pred_chembl_pec50",
+    "Avalon_bit_349",
+    "ChempropEmbed_dim_248",
+    "AtomPair_bit_1113",
+    "ChempropEmbed_dim_275",
+    "Mordred_col_329",
+    "AtomPair_bit_1086",
+    "Mordred_col_400"
+  ],
+  "feature_names_21": [
+    "Mordred_col_292",
+    "ChempropEmbed_dim_14",
+    "ChempropEmbed_dim_9",
+    "ChempropEmbed_dim_32",
+    "ChempropEmbed_dim_259",
+    "Avalon_bit_323",
+    "MACCS_bit_126",
+    "ChempropEmbed_dim_172",
+    "ChempropEmbed_dim_16",
+    "Mordred_col_454",
+    "AtomPair_bit_1733",
+    "AtomPair_bit_1729",
+    "pred_chembl_pec50",
+    "Avalon_bit_349",
+    "ChempropEmbed_dim_248",
+    "AtomPair_bit_1113",
+    "ChempropEmbed_dim_275",
+    "Mordred_col_329",
+    "AtomPair_bit_1086",
+    "Mordred_col_400",
+    "nb1191_oof"
+  ],
+  "per_seed_results": [
+    {
+      "kf_seed": 1001,
+      "pooled_rae": 0.5150872723968184
+    },
+    {
+      "kf_seed": 1002,
+      "pooled_rae": 0.5232390629697148
+    },
+    {
+      "kf_seed": 1003,
+      "pooled_rae": 0.5408479209775408
+    },
+    {
+      "kf_seed": 1004,
+      "pooled_rae": 0.5247596603712639
+    },
+    {
+      "kf_seed": 1005,
+      "pooled_rae": 0.5191553091522155
+    }
+  ],
+  "mean_rae": 0.5246178451735106,
+  "std_rae": 0.008786439890605928,
+  "min_rae": 0.5150872723968184,
+  "max_rae": 0.5408479209775408,
+  "rae_of_mean_of_seed_oofs": 0.5005541484190589,
+  "te_unb_rae_in_sample": 0.1444749796131422,
+  "deploy_te_mean": 4.713380813598633,
+  "deploy_te_std": 0.8647913336753845,
+  "gate_promote": 0.457,
+  "gate_marginal": 0.4598,
+  "verdict": "FAIL",
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2930_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2930.npy",
+  "wall_sec": 5.32
+}

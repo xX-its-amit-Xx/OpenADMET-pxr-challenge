@@ -1,0 +1,49 @@
+{
+  "tag": "nb2563",
+  "method": "gp_tanimoto_kernel_on_chemprop_aux_residual",
+  "fp_radius": 2,
+  "fp_bits": 2048,
+  "alpha_grid": [
+    0.01,
+    0.1,
+    0.5
+  ],
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "rae_anchor_chemprop_aux": 0.6215728863514471,
+  "alpha_grid_results": [
+    {
+      "alpha": 0.01,
+      "rae_corrected_oof": 0.655134549355837,
+      "residual_oof_mean": -0.16233521022597197,
+      "residual_oof_std": 0.3772940286116955,
+      "wall_sec": 0.03
+    },
+    {
+      "alpha": 0.1,
+      "rae_corrected_oof": 0.6514390662200708,
+      "residual_oof_mean": -0.16026691564342926,
+      "residual_oof_std": 0.3539365011624491,
+      "wall_sec": 0.03
+    },
+    {
+      "alpha": 0.5,
+      "rae_corrected_oof": 0.6430962844757577,
+      "residual_oof_mean": -0.15580184218247928,
+      "residual_oof_std": 0.29090159145705097,
+      "wall_sec": 0.03
+    }
+  ],
+  "best_alpha": 0.5,
+  "standalone_oof_rae": 0.6430962844757577,
+  "te_unb_in_sample_rae": 0.29662466401279725,
+  "kernel_diag_median": 1.0,
+  "kernel_off_median": 0.13253012048192772,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2563_pred_oof.npy",
+  "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2563.npy",
+  "promote_thresh": 0.457,
+  "marginal_thresh": 0.4601,
+  "gate": "FAIL",
+  "wall_sec": 0.33
+}

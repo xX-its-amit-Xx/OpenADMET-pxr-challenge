@@ -1,0 +1,188 @@
+{
+  "tag": "nb2752",
+  "method": "Stacked LGBM K=20 + ExtraTrees K=20 convex blend on chemprop_aux residual.  Both base learners share K=20 substrate; LGBM uses greedy-gradient splits, ExtraTrees uses uniform-random splits + no bootstrap.  Scalar w_lgbm sweeps {0.5..1.0}; best w by mean pooled RAE across 5 scaffold kf_seeds.",
+  "paradigm": "stacked_LGBM_plus_ExtraTrees_K20_convex_combo_chemprop_aux_residual",
+  "anchor_name": "chemprop_aux (PRE-unblind, verified clean)",
+  "rae_anchor_unb": 0.6215728863514471,
+  "lgbm_hparams": {
+    "objective": "regression",
+    "max_depth": 4,
+    "num_leaves": 15,
+    "n_estimators": 300,
+    "learning_rate": 0.03,
+    "min_child_samples": 5,
+    "reg_lambda": 2.0,
+    "random_state": 0,
+    "n_jobs": 2,
+    "verbosity": -1
+  },
+  "et_hparams": {
+    "n_estimators": 500,
+    "max_depth": 10,
+    "min_samples_split": 5,
+    "min_samples_leaf": 2
+  },
+  "resid_seeds_bag": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "n_folds": 5,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "w_grid": [
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1.0
+  ],
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "feat_dim": 20,
+  "k_slice_first_n_of_117": 20,
+  "clip_lo": 3.0,
+  "clip_hi": 8.0,
+  "per_seed_base": [
+    {
+      "kf_seed": 1001,
+      "rae_pure_lgbm": 0.5443141013592123,
+      "rae_pure_et": 0.6964756186166631,
+      "wall_sec": 13.17
+    },
+    {
+      "kf_seed": 1002,
+      "rae_pure_lgbm": 0.5411909308628619,
+      "rae_pure_et": 0.6346377812234977,
+      "wall_sec": 12.79
+    },
+    {
+      "kf_seed": 1003,
+      "rae_pure_lgbm": 0.5356159124636347,
+      "rae_pure_et": 0.6458584648951634,
+      "wall_sec": 12.55
+    },
+    {
+      "kf_seed": 1004,
+      "rae_pure_lgbm": 0.5233377298203489,
+      "rae_pure_et": 0.6212949852334474,
+      "wall_sec": 12.48
+    },
+    {
+      "kf_seed": 1005,
+      "rae_pure_lgbm": 0.5272937598975082,
+      "rae_pure_et": 0.6488164073253909,
+      "wall_sec": 12.37
+    }
+  ],
+  "sweep_records": [
+    {
+      "w_lgbm": 0.5,
+      "w_et": 0.5,
+      "per_seed_rae": [
+        0.5869043911328802,
+        0.550977373846424,
+        0.5470593737944814,
+        0.5440851342581912,
+        0.539761053098556
+      ],
+      "mean_rae": 0.5537574652261066,
+      "std_rae": 0.016975073329868556,
+      "rae_of_mean_oof": 0.5154392820982028
+    },
+    {
+      "w_lgbm": 0.6,
+      "w_et": 0.4,
+      "per_seed_rae": [
+        0.5730411386840808,
+        0.5441802132366171,
+        0.5376183861642336,
+        0.5332822572230785,
+        0.5271471177552138
+      ],
+      "mean_rae": 0.5430538226126448,
+      "std_rae": 0.015990988712238405,
+      "rae_of_mean_oof": 0.5120518579497083
+    },
+    {
+      "w_lgbm": 0.7,
+      "w_et": 0.30000000000000004,
+      "per_seed_rae": [
+        0.5616295572741379,
+        0.5395739187849543,
+        0.5318140613196662,
+        0.5259506633534432,
+        0.5209695934334436
+      ],
+      "mean_rae": 0.535987558833129,
+      "std_rae": 0.014241282939847255,
+      "rae_of_mean_oof": 0.5102562166632414
+    },
+    {
+      "w_lgbm": 0.8,
+      "w_et": 0.19999999999999996,
+      "per_seed_rae": [
+        0.5533621241191015,
+        0.5366530521556891,
+        0.5281713396557481,
+        0.521616029503344,
+        0.5191838640908742
+      ],
+      "mean_rae": 0.5317972819049513,
+      "std_rae": 0.012365472826070272,
+      "rae_of_mean_oof": 0.5104392245759759
+    },
+    {
+      "w_lgbm": 0.9,
+      "w_et": 0.09999999999999998,
+      "per_seed_rae": [
+        0.5468302170904041,
+        0.537252823505553,
+        0.5299226586420651,
+        0.5214867761230527,
+        0.5214225949795716
+      ],
+      "mean_rae": 0.5313830140681294,
+      "std_rae": 0.00971955612051044,
+      "rae_of_mean_oof": 0.5110695735730357
+    },
+    {
+      "w_lgbm": 1.0,
+      "w_et": 0.0,
+      "per_seed_rae": [
+        0.5443141013592123,
+        0.5411909308628619,
+        0.5356159124636347,
+        0.5233377298203489,
+        0.5272937598975082
+      ],
+      "mean_rae": 0.5343504868807132,
+      "std_rae": 0.00798429462183206,
+      "rae_of_mean_oof": 0.5120591206949655
+    }
+  ],
+  "best_w_lgbm": 0.9,
+  "best_w_et": 0.09999999999999998,
+  "mean_rae": 0.5313830140681294,
+  "delta_vs_anchor": -0.09018987228331776,
+  "te_unb_rae_in_sample": 0.337150185260523,
+  "te_deploy_mean": 4.690296649932861,
+  "te_deploy_std": 0.7570070624351501,
+  "gate_promote_threshold": 0.457,
+  "gate_marginal_threshold": 0.4598,
+  "verdict": "FAIL",
+  "promote": false,
+  "marginal_beat": false,
+  "oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2752_pred_oof.npy",
+  "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2752.npy",
+  "wall_sec": 66.37
+}

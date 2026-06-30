@@ -1,0 +1,464 @@
+{
+  "tag": "nb2340",
+  "method": "avalon_1024_alone_substrate_shap_top28_lgbm_residual_5seed_bag_scaffold_CV_plus_6anchor_slsqp_pyramid",
+  "anchor": "chemprop_aux",
+  "anchor_kind": "PRE_unblind_te_slice_to_unb_idx",
+  "anchor_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+  "feature_source": "Avalon-1024 from rdkit.Avalon.pyAvalonTools.GetAvalonFP(nBits=1024) on standardize() output",
+  "n_avalon_bits": 1024,
+  "top_K_shap": 28,
+  "avalon_bit_density_train": 0.23340032503322058,
+  "avalon_bit_density_test": 0.24805448952241715,
+  "avalon_bit_density_unb": 0.2316344529390335,
+  "avalon_n_failed_train": 0,
+  "avalon_n_failed_test": 0,
+  "shap_n_nonzero_bits": 388,
+  "model_family": "LightGBM",
+  "lgbm_objective": "regression",
+  "lgbm_max_depth": 4,
+  "lgbm_num_leaves": 15,
+  "lgbm_n_estimators": 300,
+  "lgbm_learning_rate": 0.03,
+  "lgbm_min_child_samples": 5,
+  "lgbm_reg_lambda": 2.0,
+  "n_train": 4139,
+  "n_test": 513,
+  "n_unb": 253,
+  "n_scaffolds_unique_unb": 180,
+  "n_scaffolds_none_unb": 0,
+  "resid_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "resid_folds": 5,
+  "cv_kind": "scaffold_kfold_BemisMurcko_5fold_shuffle_per_seed",
+  "rae_anchor_chemprop_aux": 0.6215728863514471,
+  "residual_mean": -0.1325965261753001,
+  "residual_std": 0.6999145683913596,
+  "top28_records": [
+    {
+      "rank": 1,
+      "avalon_bit_idx": 830,
+      "feat_name": "Avalon1024_bit_830",
+      "mean_abs_shap": 0.06670743227005005
+    },
+    {
+      "rank": 2,
+      "avalon_bit_idx": 606,
+      "feat_name": "Avalon1024_bit_606",
+      "mean_abs_shap": 0.06201893463730812
+    },
+    {
+      "rank": 3,
+      "avalon_bit_idx": 117,
+      "feat_name": "Avalon1024_bit_117",
+      "mean_abs_shap": 0.049789395183324814
+    },
+    {
+      "rank": 4,
+      "avalon_bit_idx": 710,
+      "feat_name": "Avalon1024_bit_710",
+      "mean_abs_shap": 0.03418784961104393
+    },
+    {
+      "rank": 5,
+      "avalon_bit_idx": 757,
+      "feat_name": "Avalon1024_bit_757",
+      "mean_abs_shap": 0.03321445733308792
+    },
+    {
+      "rank": 6,
+      "avalon_bit_idx": 46,
+      "feat_name": "Avalon1024_bit_46",
+      "mean_abs_shap": 0.029987381771206856
+    },
+    {
+      "rank": 7,
+      "avalon_bit_idx": 738,
+      "feat_name": "Avalon1024_bit_738",
+      "mean_abs_shap": 0.029322730377316475
+    },
+    {
+      "rank": 8,
+      "avalon_bit_idx": 70,
+      "feat_name": "Avalon1024_bit_70",
+      "mean_abs_shap": 0.028462296351790428
+    },
+    {
+      "rank": 9,
+      "avalon_bit_idx": 164,
+      "feat_name": "Avalon1024_bit_164",
+      "mean_abs_shap": 0.026676606386899948
+    },
+    {
+      "rank": 10,
+      "avalon_bit_idx": 836,
+      "feat_name": "Avalon1024_bit_836",
+      "mean_abs_shap": 0.02225680835545063
+    },
+    {
+      "rank": 11,
+      "avalon_bit_idx": 868,
+      "feat_name": "Avalon1024_bit_868",
+      "mean_abs_shap": 0.022077227011322975
+    },
+    {
+      "rank": 12,
+      "avalon_bit_idx": 142,
+      "feat_name": "Avalon1024_bit_142",
+      "mean_abs_shap": 0.021428165957331657
+    },
+    {
+      "rank": 13,
+      "avalon_bit_idx": 253,
+      "feat_name": "Avalon1024_bit_253",
+      "mean_abs_shap": 0.021224267780780792
+    },
+    {
+      "rank": 14,
+      "avalon_bit_idx": 828,
+      "feat_name": "Avalon1024_bit_828",
+      "mean_abs_shap": 0.020106114447116852
+    },
+    {
+      "rank": 15,
+      "avalon_bit_idx": 448,
+      "feat_name": "Avalon1024_bit_448",
+      "mean_abs_shap": 0.01776595041155815
+    },
+    {
+      "rank": 16,
+      "avalon_bit_idx": 612,
+      "feat_name": "Avalon1024_bit_612",
+      "mean_abs_shap": 0.017318475991487503
+    },
+    {
+      "rank": 17,
+      "avalon_bit_idx": 506,
+      "feat_name": "Avalon1024_bit_506",
+      "mean_abs_shap": 0.017186909914016724
+    },
+    {
+      "rank": 18,
+      "avalon_bit_idx": 463,
+      "feat_name": "Avalon1024_bit_463",
+      "mean_abs_shap": 0.015682201832532883
+    },
+    {
+      "rank": 19,
+      "avalon_bit_idx": 9,
+      "feat_name": "Avalon1024_bit_9",
+      "mean_abs_shap": 0.015410356223583221
+    },
+    {
+      "rank": 20,
+      "avalon_bit_idx": 917,
+      "feat_name": "Avalon1024_bit_917",
+      "mean_abs_shap": 0.015079687349498272
+    },
+    {
+      "rank": 21,
+      "avalon_bit_idx": 129,
+      "feat_name": "Avalon1024_bit_129",
+      "mean_abs_shap": 0.014955096878111362
+    },
+    {
+      "rank": 22,
+      "avalon_bit_idx": 156,
+      "feat_name": "Avalon1024_bit_156",
+      "mean_abs_shap": 0.014366479590535164
+    },
+    {
+      "rank": 23,
+      "avalon_bit_idx": 249,
+      "feat_name": "Avalon1024_bit_249",
+      "mean_abs_shap": 0.013693059794604778
+    },
+    {
+      "rank": 24,
+      "avalon_bit_idx": 222,
+      "feat_name": "Avalon1024_bit_222",
+      "mean_abs_shap": 0.013661924749612808
+    },
+    {
+      "rank": 25,
+      "avalon_bit_idx": 664,
+      "feat_name": "Avalon1024_bit_664",
+      "mean_abs_shap": 0.013517429120838642
+    },
+    {
+      "rank": 26,
+      "avalon_bit_idx": 323,
+      "feat_name": "Avalon1024_bit_323",
+      "mean_abs_shap": 0.013201717287302017
+    },
+    {
+      "rank": 27,
+      "avalon_bit_idx": 681,
+      "feat_name": "Avalon1024_bit_681",
+      "mean_abs_shap": 0.01283445954322815
+    },
+    {
+      "rank": 28,
+      "avalon_bit_idx": 76,
+      "feat_name": "Avalon1024_bit_76",
+      "mean_abs_shap": 0.012427487410604954
+    }
+  ],
+  "per_seed_rae": [
+    0.5967838975464929,
+    0.6261588177772175,
+    0.5806826821063896,
+    0.5958318095761295,
+    0.6196467357415794
+  ],
+  "per_seed_records": [
+    {
+      "seed": 0,
+      "rae_corrected": 0.5967838975464929,
+      "delta_vs_chemprop_aux": -0.02478898880495428,
+      "resid_oof_std": 0.4297409061459876,
+      "resid_oof_mean": -0.15847696750544318,
+      "wall_sec": 0.24
+    },
+    {
+      "seed": 1,
+      "rae_corrected": 0.6261588177772175,
+      "delta_vs_chemprop_aux": 0.004585931425770351,
+      "resid_oof_std": 0.4922173211966671,
+      "resid_oof_mean": -0.19499974628244598,
+      "wall_sec": 0.23
+    },
+    {
+      "seed": 7,
+      "rae_corrected": 0.5806826821063896,
+      "delta_vs_chemprop_aux": -0.040890204245057515,
+      "resid_oof_std": 0.47663026737120195,
+      "resid_oof_mean": -0.20099765589422178,
+      "wall_sec": 0.22
+    },
+    {
+      "seed": 42,
+      "rae_corrected": 0.5958318095761295,
+      "delta_vs_chemprop_aux": -0.025741076775317673,
+      "resid_oof_std": 0.41676090471484,
+      "resid_oof_mean": -0.19374770999654053,
+      "wall_sec": 0.23
+    },
+    {
+      "seed": 137,
+      "rae_corrected": 0.6196467357415794,
+      "delta_vs_chemprop_aux": -0.0019261506098677827,
+      "resid_oof_std": 0.4323650612299704,
+      "resid_oof_mean": -0.13713532177687407,
+      "wall_sec": 0.23
+    }
+  ],
+  "rae_per_seed_mean": 0.6038207885495617,
+  "rae_per_seed_median": 0.5967838975464929,
+  "rae_per_seed_std": 0.01672221124195428,
+  "rae_per_seed_min": 0.5806826821063896,
+  "rae_per_seed_max": 0.6261588177772175,
+  "rae_mean_bag": 0.5857825902283521,
+  "rae_median_bag": 0.5908644728663323,
+  "delta_mean_bag_vs_chemprop_aux": -0.03579029612309503,
+  "delta_mean_bag_vs_nb2103_K28": 0.1120825902283521,
+  "beats_chemprop_aux": true,
+  "beats_nb2103_K28": false,
+  "flat_vs_nb2103_K28": false,
+  "pearson_vs_anchor": 0.8877771885702809,
+  "pearson_vs_nb2103_K28": 0.9045126433239884,
+  "standalone_verdict": "AVALON_ALONE_BEATS_ANCHOR_BUT_WORSE_THAN_NB2103_K28",
+  "pre_unblind_clean": true,
+  "chemprop_aux_ref": 0.6216,
+  "nb2103_K28_ref": 0.4737,
+  "nb2240_pyramid_ref": 0.4598,
+  "decision_margin": 0.003,
+  "shap_importance_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2340_avalon_shap_importance.npy",
+  "top28_idx_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2340_top28_avalon_bit_idx.npy",
+  "mean_bag_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2340_mean_bag_oof_K28.npy",
+  "te_avalon_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2340_K28_avalon.npy",
+  "pyramid_stage2": {
+    "skipped": false,
+    "anchors": [
+      "nb2340_avalon",
+      "nb2240_K20",
+      "chemprop_aux",
+      "nb1191",
+      "nb503",
+      "nb562"
+    ],
+    "indiv_oof_rae": {
+      "nb2340_avalon": 0.5857825902283521,
+      "nb2240_K20": 0.46301757335429367,
+      "chemprop_aux": 0.5878769556905485,
+      "nb1191": 0.4647519472474954,
+      "nb503": 0.5116212503074237,
+      "nb562": 0.5065400776344995
+    },
+    "kf_seeds": [
+      1001,
+      1002,
+      1003,
+      1004,
+      1005
+    ],
+    "n_folds": 5,
+    "stretch_grid": [
+      1.0,
+      1.025,
+      1.05,
+      1.075,
+      1.1,
+      1.125,
+      1.15
+    ],
+    "per_seed_results": [
+      {
+        "kf_seed": 1001,
+        "pooled_rae": 0.458219334098034,
+        "fold_s": [
+          1.05,
+          1.0,
+          1.05,
+          1.05,
+          1.025
+        ],
+        "fold_w_mean": [
+          0.13008879226102543,
+          0.7205436118769463,
+          4.3790988123184154e-13,
+          0.031523112100877625,
+          4.943258714203127e-14,
+          0.11784448376066341
+        ]
+      },
+      {
+        "kf_seed": 1002,
+        "pooled_rae": 0.46820296674656436,
+        "fold_s": [
+          1.075,
+          1.0,
+          1.025,
+          1.025,
+          1.05
+        ],
+        "fold_w_mean": [
+          0.13262833887679723,
+          0.7125685645582065,
+          4.0535702451399206e-13,
+          0.0445707894628104,
+          5.1922098391881184e-14,
+          0.1102323071017286
+        ]
+      },
+      {
+        "kf_seed": 1003,
+        "pooled_rae": 0.46007981159068695,
+        "fold_s": [
+          1.0,
+          1.05,
+          1.05,
+          1.05,
+          1.025
+        ],
+        "fold_w_mean": [
+          0.13638959229697092,
+          0.7338177323443558,
+          2.0111044350370732e-13,
+          0.009877730562994583,
+          8.273447945206389e-14,
+          0.11991494479539475
+        ]
+      },
+      {
+        "kf_seed": 1004,
+        "pooled_rae": 0.46078152225640473,
+        "fold_s": [
+          1.025,
+          1.0,
+          1.05,
+          1.05,
+          1.025
+        ],
+        "fold_w_mean": [
+          0.13378573466057458,
+          0.7226455669514478,
+          3.215622167681779e-13,
+          0.025799028669008545,
+          1.234317180736471e-13,
+          0.11776966971852418
+        ]
+      },
+      {
+        "kf_seed": 1005,
+        "pooled_rae": 0.46020406611159365,
+        "fold_s": [
+          1.05,
+          1.0,
+          1.025,
+          1.025,
+          1.05
+        ],
+        "fold_w_mean": [
+          0.13214010259849865,
+          0.7257245123831624,
+          5.687347044031105e-13,
+          0.01895803032584732,
+          3.753088153249286e-15,
+          0.12317735469191922
+        ]
+      }
+    ],
+    "pooled_rae_mean_seeds": 0.4614975401606568,
+    "pooled_rae_std_seeds": 0.0034613607653907136,
+    "rae_of_mean_of_seed_oofs": 0.4604443987151527,
+    "deploy_weights": [
+      {
+        "name": "nb2340_avalon",
+        "w": 0.1362547403480613
+      },
+      {
+        "name": "nb2240_K20",
+        "w": 0.7398305214732135
+      },
+      {
+        "name": "chemprop_aux",
+        "w": 1.8058707071748754e-12
+      },
+      {
+        "name": "nb1191",
+        "w": 2.7438261041946204e-14
+      },
+      {
+        "name": "nb503",
+        "w": 4.751860437183667e-13
+      },
+      {
+        "name": "nb562",
+        "w": 0.12391473817641685
+      }
+    ],
+    "deploy_mu_blend": 4.655717196763035,
+    "deploy_s": 1.033,
+    "in_sample_rae_overfit_bound": 0.45505850344974424,
+    "te_unb_rae_in_sample": 0.16181293264821772,
+    "deploy_te_mean": 4.715917587280273,
+    "deploy_te_std": 0.8472293019294739,
+    "lb_band_estimate": 0.31465208247956167,
+    "lb_band_low": 0.2646520824795617,
+    "lb_band_high": 0.36465208247956166,
+    "lb_band_w_oof": 0.51,
+    "lb_band_w_te": 0.49,
+    "compare_nb2240_oof": 0.4598,
+    "delta_vs_nb2240": 0.0016975401606568186,
+    "gate_margin": 0.003,
+    "gate_beat_nb2240": false,
+    "gate_flat_vs_nb2240": true,
+    "verdict_vs_nb2240": "AVALON_BLEND_FLAT_VS_NB2240_PYRAMID"
+  },
+  "wall_sec": 8.22
+}

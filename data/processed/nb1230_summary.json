@@ -1,0 +1,178 @@
+{
+  "tag": "nb1230",
+  "anchor": "nb1070",
+  "feature_source": "mordred_cached_nb1030",
+  "mordred_cache_test": "C:\\pxr_artifacts\\nb1030\\X_mordred_test.npy",
+  "n_unb": 253,
+  "outer_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "inner_bases": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "resid_folds": 5,
+  "feature_dim": 1533,
+  "lgbm_max_depth": 3,
+  "lgbm_num_leaves": 7,
+  "lgbm_n_estimators": 80,
+  "lgbm_learning_rate": 0.05,
+  "lgbm_min_child_samples": 20,
+  "lgbm_huber_alpha": 1.0,
+  "rae_anchor_nb1070": 0.5771305166381785,
+  "residual_mean": -0.1019658057365929,
+  "residual_std": 0.6666145784833671,
+  "per_outer_records": [
+    {
+      "outer_seed": 0,
+      "inner_seeds": [
+        0,
+        1,
+        7,
+        42,
+        137
+      ],
+      "per_inner_rae": [
+        0.586624425915944,
+        0.5891574465770972,
+        0.5808390164209353,
+        0.5639747195838941,
+        0.5706426468506351
+      ],
+      "rae_mean_bag": 0.5640452236845389,
+      "delta_vs_nb1153_ref": 4.522368453896419e-05,
+      "elapsed_sec": 4.2
+    },
+    {
+      "outer_seed": 1,
+      "inner_seeds": [
+        1000,
+        1001,
+        1007,
+        1042,
+        1137
+      ],
+      "per_inner_rae": [
+        0.5882678993542989,
+        0.5538354040972161,
+        0.5994431425553224,
+        0.580271677842504,
+        0.5756427259235389
+      ],
+      "rae_mean_bag": 0.5636790779050249,
+      "delta_vs_nb1153_ref": -0.0003209220949750291,
+      "elapsed_sec": 4.0
+    },
+    {
+      "outer_seed": 7,
+      "inner_seeds": [
+        7000,
+        7001,
+        7007,
+        7042,
+        7137
+      ],
+      "per_inner_rae": [
+        0.5686961400418138,
+        0.5696890180080075,
+        0.5706973921372502,
+        0.5886305198593826,
+        0.5832550716740006
+      ],
+      "rae_mean_bag": 0.5645835786827035,
+      "delta_vs_nb1153_ref": 0.0005835786827035339,
+      "elapsed_sec": 4.2
+    },
+    {
+      "outer_seed": 42,
+      "inner_seeds": [
+        42000,
+        42001,
+        42007,
+        42042,
+        42137
+      ],
+      "per_inner_rae": [
+        0.5942643118136552,
+        0.57289398411596,
+        0.57221456510492,
+        0.5622383651357283,
+        0.5616620458269679
+      ],
+      "rae_mean_bag": 0.5592482001721827,
+      "delta_vs_nb1153_ref": -0.00475179982781726,
+      "elapsed_sec": 4.2
+    },
+    {
+      "outer_seed": 137,
+      "inner_seeds": [
+        137000,
+        137001,
+        137007,
+        137042,
+        137137
+      ],
+      "per_inner_rae": [
+        0.5826187125921773,
+        0.5669548514703106,
+        0.5901079622260911,
+        0.5772991719153922,
+        0.5755682001853926
+      ],
+      "rae_mean_bag": 0.5621058467699438,
+      "delta_vs_nb1153_ref": -0.0018941532300561503,
+      "elapsed_sec": 4.4
+    }
+  ],
+  "per_outer_rae": [
+    0.5640452236845389,
+    0.5636790779050249,
+    0.5645835786827035,
+    0.5592482001721827,
+    0.5621058467699438
+  ],
+  "outer_mean": 0.5627323854428787,
+  "outer_std": 0.0019276298911897476,
+  "outer_min": 0.5592482001721827,
+  "outer_max": 0.5645835786827035,
+  "rae_bag_of_bags_mean": 0.5601773519448298,
+  "rae_bag_of_bags_median": 0.5614816047821712,
+  "nb1153_mean_bag_ref": 0.564,
+  "delta_outer_mean_vs_nb1153": -0.0012676145571212105,
+  "delta_outer0_vs_nb1153": 4.522368453896419e-05,
+  "outer0_reproduces": true,
+  "repro_margin": 0.003,
+  "reproduces": true,
+  "repro_verdict": "NB1230_REPRODUCES_SINGLE_BAG",
+  "nb1190_bob_mean_rae": 0.5499400737423655,
+  "nb1200_bob_mean_rae": 0.5494898403849813,
+  "nb1230_bob_mean_rae": 0.5601773519448298,
+  "pearson_pred_1190_1200": 0.9856465690278305,
+  "pearson_pred_1190_1230": 0.9956108568738977,
+  "pearson_pred_1200_1230": 0.9785568700706498,
+  "pearson_resid_1190_1200": 0.9748804457912404,
+  "pearson_resid_1190_1230": 0.992215687352123,
+  "pearson_resid_1200_1230": 0.9622849541183632,
+  "triple_naive_mean_rae": 0.546042796720299,
+  "triple_inverse_rae_rae": 0.5460260529663408,
+  "triple_inverse_rae_weights": [
+    0.33528420685474564,
+    0.3355589273737353,
+    0.3291568657715191
+  ],
+  "best_triple_rae": 0.5460260529663408,
+  "best_triple_tag": "inverse_rae",
+  "nb1211_mean_ref": 0.5451,
+  "triple_blend_margin": 0.003,
+  "delta_best_triple_vs_nb1211": 0.0009260529663407402,
+  "beats_nb1211": false,
+  "triple_verdict": "TRIPLE_BOB_FLAT_VS_NB1211 (inverse_rae @ 0.5460)",
+  "wall_sec": 20.96
+}

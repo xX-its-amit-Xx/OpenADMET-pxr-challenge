@@ -1,0 +1,237 @@
+{
+  "tag": "nb1473",
+  "anchor": "nb1070",
+  "data_source": "chemprop_embed_cache_nb1312 + local_chembl_caches_union",
+  "model_family": "LightGBM",
+  "lgbm_objective": "huber",
+  "lgbm_huber_alpha": 1.0,
+  "lgbm_max_depth": 3,
+  "lgbm_num_leaves": 7,
+  "lgbm_n_estimators": 80,
+  "lgbm_learning_rate": 0.05,
+  "lgbm_min_child_samples": 20,
+  "n_unb": 253,
+  "outer_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "inner_base_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "per_outer_inner_seeds": [
+    [
+      0,
+      1,
+      7,
+      42,
+      137
+    ],
+    [
+      1000,
+      1001,
+      1007,
+      1042,
+      1137
+    ],
+    [
+      7000,
+      7001,
+      7007,
+      7042,
+      7137
+    ],
+    [
+      42000,
+      42001,
+      42007,
+      42042,
+      42137
+    ],
+    [
+      137000,
+      137001,
+      137007,
+      137042,
+      137137
+    ]
+  ],
+  "resid_folds": 5,
+  "feat_dim": 32,
+  "feat_meta_n_top_embed": 30,
+  "feat_meta_n_embed_dims_total": 300,
+  "feat_meta_feat_dim": 32,
+  "feat_meta_n_chembl_pool": 945,
+  "feat_meta_feat_breakdown": {
+    "chemprop_embed_top": 30,
+    "pred_chembl_pec50": 1,
+    "mean_sim": 1,
+    "total": 32
+  },
+  "feat_meta_top_embed_dim_indices_ranked": [
+    14,
+    16,
+    69,
+    84,
+    32,
+    235,
+    83,
+    163,
+    275,
+    181,
+    126,
+    261,
+    64,
+    158,
+    286,
+    95,
+    221,
+    70,
+    168,
+    215,
+    140,
+    248,
+    74,
+    254,
+    110,
+    198,
+    13,
+    299,
+    86,
+    194
+  ],
+  "rae_anchor_nb1070": 0.5771305166381785,
+  "residual_mean": -0.1019658057365929,
+  "residual_std": 0.6666145784833671,
+  "per_outer_records": [
+    {
+      "outer_seed": 0,
+      "inner_seeds": [
+        0,
+        1,
+        7,
+        42,
+        137
+      ],
+      "inner_per_seed_rae": [
+        0.519257777963148,
+        0.5321474545029626,
+        0.5296634554598278,
+        0.5287330069758275,
+        0.5223809839907158
+      ],
+      "rae_mean_bag": 0.5144375189905886,
+      "wall_sec": 0.29
+    },
+    {
+      "outer_seed": 1,
+      "inner_seeds": [
+        1000,
+        1001,
+        1007,
+        1042,
+        1137
+      ],
+      "inner_per_seed_rae": [
+        0.5070909771005345,
+        0.5044592393092391,
+        0.5232849822248536,
+        0.5226837761426729,
+        0.5325763057625158
+      ],
+      "rae_mean_bag": 0.5082596624188258,
+      "wall_sec": 0.28
+    },
+    {
+      "outer_seed": 7,
+      "inner_seeds": [
+        7000,
+        7001,
+        7007,
+        7042,
+        7137
+      ],
+      "inner_per_seed_rae": [
+        0.5443226898072285,
+        0.5237112729795258,
+        0.530386238379477,
+        0.5346958782607456,
+        0.5277516564396849
+      ],
+      "rae_mean_bag": 0.5229323295123062,
+      "wall_sec": 0.28
+    },
+    {
+      "outer_seed": 42,
+      "inner_seeds": [
+        42000,
+        42001,
+        42007,
+        42042,
+        42137
+      ],
+      "inner_per_seed_rae": [
+        0.5181130338742024,
+        0.5262258293652641,
+        0.5198060522181319,
+        0.52422785968521,
+        0.5313786850295383
+      ],
+      "rae_mean_bag": 0.5145915589891088,
+      "wall_sec": 0.28
+    },
+    {
+      "outer_seed": 137,
+      "inner_seeds": [
+        137000,
+        137001,
+        137007,
+        137042,
+        137137
+      ],
+      "inner_per_seed_rae": [
+        0.5483163734077695,
+        0.519080229414678,
+        0.5307107363428856,
+        0.5140565468940811,
+        0.5232150523616798
+      ],
+      "rae_mean_bag": 0.513808362797066,
+      "wall_sec": 0.28
+    }
+  ],
+  "per_outer_rae_nb1462": [
+    0.5144375189905886,
+    0.5082596624188258,
+    0.5229323295123062,
+    0.5145915589891088,
+    0.513808362797066
+  ],
+  "per_outer_mean": 0.5148058865415791,
+  "per_outer_std": 0.004691882568757121,
+  "per_outer_min": 0.5082596624188258,
+  "per_outer_max": 0.5229323295123062,
+  "per_outer_median": 0.5144375189905886,
+  "rae_bob_mean": 0.5125760754440732,
+  "rae_bob_median": 0.5127549672469517,
+  "nb1462_ref": 0.5264,
+  "nb1462_mean_bag_ref": 0.5144,
+  "nb1462_median_bag_ref": 0.5155,
+  "reproduce_margin": 0.003,
+  "delta_per_outer_mean_vs_nb1462": -0.011594113458420874,
+  "delta_outer0_vs_nb1462": -0.01196248100941133,
+  "delta_bob_mean_vs_nb1462_mean_bag": -0.0018239245559267259,
+  "delta_bob_median_vs_nb1462_median_bag": -0.002745032753048271,
+  "outer0_reproduces": false,
+  "reproduces": false,
+  "pearson_bobmean_vs_nb1462_mean_bag": 0.9986423830311337,
+  "pearson_bobmedian_vs_nb1462_mean_bag": 0.9985864622114903,
+  "verdict": "NB1462_OPTIMISTIC_OUTER_BAG_BETTER",
+  "wall_sec": 5.33
+}

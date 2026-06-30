@@ -76,6 +76,9 @@ wheels/
 /.claude/scheduled_tasks.lock
 /.readme_fingerprint
 
+# Auto-generated trajectory summary (regenerable from data/processed + scripts)
+/trajectory.md
+
 # Per-run task output (Claude Code's temp artifacts mirror)
 /tasks/
 

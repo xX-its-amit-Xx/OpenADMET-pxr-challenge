@@ -1,0 +1,245 @@
+{
+  "tag": "nb1156",
+  "claim": {
+    "source": "nb1150",
+    "scaffold_cv_rae": 0.471
+  },
+  "anchors": [
+    "chemprop_aux",
+    "nb503",
+    "nb1014",
+    "nb2103_K28"
+  ],
+  "anchor_fold_protocol": {
+    "chemprop_aux": "random_kfold_5_shuffle_seed42",
+    "nb503": "random_kfold_5_shuffle_seed0",
+    "nb1014": "random_kfold_5_shuffle_seed_in_{0,1,7,42,137}_bagged",
+    "nb2103_K28": "random_kfold_5_shuffle_seed_in_{0,1,7,42,137}_bagged"
+  },
+  "gate": {
+    "nested_scaffold_cv_rae_ceiling": 0.5,
+    "fresh_seed_tol_std": 0.02,
+    "conservative_lb_shift": 0.1
+  },
+  "y_unb": {
+    "n": 253,
+    "sha256_f32": "48fe339f9a65e0cf7005fc4c306851719598b0975cc39354dbd11f846e9bd940",
+    "mean": 4.6641,
+    "std": 1.032
+  },
+  "indiv_rae_unb": {
+    "chemprop_aux": 0.5879,
+    "nb503": 0.5116,
+    "nb1014": 0.5799,
+    "nb2103_K28": 0.4737
+  },
+  "anchor_audit": {
+    "chemprop_aux": {
+      "path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb1133_chemprop_aux_pred_oof.npy",
+      "sha256_f32": "86ecb5100b09dd4b8f7822af2838a920e62027b9203f3be09fa2dffc34ee3bc2",
+      "sha256_equals_y": false,
+      "exact_eq_truth_frac": 0.0,
+      "pearson_vs_truth": 0.7675,
+      "mean": 4.6835,
+      "std": 0.8106,
+      "fold_protocol": "random_kfold_5_shuffle_seed42",
+      "honest_cross_fit_likely": true
+    },
+    "nb503": {
+      "path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb503_pred_oof.npy",
+      "sha256_f32": "b21e41f7817f7337ce2f5dcb8fa1005407e2fef4d5437fb7dded50e407e497a6",
+      "sha256_equals_y": false,
+      "exact_eq_truth_frac": 0.0,
+      "pearson_vs_truth": 0.8277,
+      "mean": 4.6862,
+      "std": 0.7557,
+      "fold_protocol": "random_kfold_5_shuffle_seed0",
+      "honest_cross_fit_likely": true
+    },
+    "nb1014": {
+      "path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb1133_nb1014_pred_oof.npy",
+      "sha256_f32": "f021b1693f94a98ad8b926ecd68f99d8c9d23d0401d0244cf08faa979cbb61af",
+      "sha256_equals_y": false,
+      "exact_eq_truth_frac": 0.0,
+      "pearson_vs_truth": 0.7697,
+      "mean": 4.6738,
+      "std": 0.8675,
+      "fold_protocol": "random_kfold_5_shuffle_seed_in_{0,1,7,42,137}_bagged",
+      "honest_cross_fit_likely": true
+    },
+    "nb2103_K28": {
+      "path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2103_mean_bag_oof_K28.npy",
+      "sha256_f32": "c810a7e9d7c66473b802bfceba4b8e4cf2965db19a9699b8479c0ce94617d64c",
+      "sha256_equals_y": false,
+      "exact_eq_truth_frac": 0.0,
+      "pearson_vs_truth": 0.8599,
+      "mean": 4.6687,
+      "std": 0.8711,
+      "fold_protocol": "random_kfold_5_shuffle_seed_in_{0,1,7,42,137}_bagged",
+      "honest_cross_fit_likely": true
+    }
+  },
+  "all_anchors_honest_likely": true,
+  "protocol_concern": {
+    "description": "All 4 anchor OOFs are random 5-fold KFold cross-fit; nb1150 regroups them by scaffold for outer SLSQP weight learning. The anchor's residual on a held-out scaffold-fold row was generated when the model SAW its scaffold neighbors in random training folds. This leaks scaffold-neighbor info into the SLSQP weights, giving an OPTIMISTIC scaffold-CV estimate. Nested scaffold-CV (this script) does not fix the underlying anchor leak but reduces the second-order weight-fitting leak.",
+    "severity": "moderate",
+    "mitigation": "nested scaffold-CV (step 4) + fresh-seed (step 5) + conservative shift (step 6)"
+  },
+  "n_unique_scaffolds": 180,
+  "nested_scaffold_cv_seed42": {
+    "rae": 0.471,
+    "fold_records": [
+      {
+        "fold": 0,
+        "n_train": 202,
+        "n_val": 51,
+        "weights": {
+          "chemprop_aux": 0.0,
+          "nb503": 0.3492,
+          "nb1014": 0.0,
+          "nb2103_K28": 0.6508
+        },
+        "train_rae": 0.4637,
+        "val_rae": 0.4774,
+        "max_w": 0.6508
+      },
+      {
+        "fold": 1,
+        "n_train": 202,
+        "n_val": 51,
+        "weights": {
+          "chemprop_aux": 0.0,
+          "nb503": 0.3688,
+          "nb1014": 0.0,
+          "nb2103_K28": 0.6312
+        },
+        "train_rae": 0.468,
+        "val_rae": 0.4429,
+        "max_w": 0.6312
+      },
+      {
+        "fold": 2,
+        "n_train": 202,
+        "n_val": 51,
+        "weights": {
+          "chemprop_aux": 0.0,
+          "nb503": 0.1575,
+          "nb1014": 0.0,
+          "nb2103_K28": 0.8425
+        },
+        "train_rae": 0.4613,
+        "val_rae": 0.4862,
+        "max_w": 0.8425
+      },
+      {
+        "fold": 3,
+        "n_train": 203,
+        "n_val": 50,
+        "weights": {
+          "chemprop_aux": 0.0,
+          "nb503": 0.4126,
+          "nb1014": 0.0,
+          "nb2103_K28": 0.5874
+        },
+        "train_rae": 0.452,
+        "val_rae": 0.5257,
+        "max_w": 0.5874
+      },
+      {
+        "fold": 4,
+        "n_train": 203,
+        "n_val": 50,
+        "weights": {
+          "chemprop_aux": 0.0,
+          "nb503": 0.2698,
+          "nb1014": 0.0,
+          "nb2103_K28": 0.7302
+        },
+        "train_rae": 0.4735,
+        "val_rae": 0.4338,
+        "max_w": 0.7302
+      }
+    ],
+    "delta_vs_claim": -0.0
+  },
+  "fresh_seed_robustness": {
+    "seeds": [
+      1001,
+      1002,
+      1003,
+      1004,
+      1005,
+      1006,
+      1007,
+      1008,
+      1009,
+      1010
+    ],
+    "per_seed": [
+      {
+        "seed": 1001,
+        "rae": 0.4683
+      },
+      {
+        "seed": 1002,
+        "rae": 0.4695
+      },
+      {
+        "seed": 1003,
+        "rae": 0.4684
+      },
+      {
+        "seed": 1004,
+        "rae": 0.4674
+      },
+      {
+        "seed": 1005,
+        "rae": 0.4708
+      },
+      {
+        "seed": 1006,
+        "rae": 0.4681
+      },
+      {
+        "seed": 1007,
+        "rae": 0.4664
+      },
+      {
+        "seed": 1008,
+        "rae": 0.4689
+      },
+      {
+        "seed": 1009,
+        "rae": 0.4697
+      },
+      {
+        "seed": 1010,
+        "rae": 0.4709
+      }
+    ],
+    "mean": 0.4688,
+    "median": 0.4687,
+    "std": 0.0014,
+    "min": 0.4664,
+    "max": 0.4709,
+    "range": 0.0045
+  },
+  "claim_in_fresh_seed_range": true,
+  "claim_vs_fresh_seed_mean_delta": 0.0022,
+  "conservative_lb_band": {
+    "nested_consensus_rae": 0.469,
+    "lb_lo": 0.519,
+    "lb_mid_conservative": 0.569,
+    "lb_hi_pessimistic": 0.619,
+    "memory_basis": "feedback_train_oof_blend_transfer +0.10; nb1150 anchors are 253-OOF not train-OOF so shift is SMALLER but still nonzero due to OOF-regrouping leak (step 3)."
+  },
+  "gate_results": {
+    "rae_pass_at_ceiling": true,
+    "fresh_seed_repro_pass": true,
+    "anchor_leak_pass": true,
+    "verdict": "PROMOTE",
+    "reasoning": "nested_consensus=0.4690 vs ceiling 0.5000 -> rae_pass=True; fresh_seed_std=0.0014 vs tol 0.0200 -> repro_pass=True; anchors_honest=True."
+  },
+  "verdict": "PROMOTE",
+  "wall_sec": 2.71
+}

@@ -1,0 +1,20 @@
+{
+  "approach": "so3lr_longrange_nnp_energy_force_scalars_on_deployed_config",
+  "ctrl_rae": 0.423843191108,
+  "tA_rae": 0.4249557184765505,
+  "delta_scalars": 0.0011125273685504977,
+  "ctrl_raes": [
+    0.42565740285514175,
+    0.44347193722815337,
+    0.40240023324070484
+  ],
+  "tA_raes": [
+    0.42664558960166143,
+    0.4447978947498983,
+    0.4034236710780918
+  ],
+  "n_neg_scalars": 0,
+  "deployed_best": 0.4149,
+  "gate_pass_scalars": false,
+  "so3lr_coverage_train": 4139
+}

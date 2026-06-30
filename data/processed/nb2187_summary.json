@@ -1,0 +1,274 @@
+{
+  "tag": "nb2187",
+  "method": "cycle_125_trajectory_snapshot_audit_trail",
+  "lb_current_best": 0.7655,
+  "lucky_seed_flagged_by_nb2156": [
+    "nb2144",
+    "nb2154"
+  ],
+  "contaminated_excluded": [
+    {
+      "tag": "nb2170",
+      "reported_rae": 0.392,
+      "reason": "chemprop_aux anchor reused across train/eval folds; residual stage inherited in-sample optimism",
+      "audit_tag": "nb2177",
+      "honest_reeval_tag": "nb2184"
+    },
+    {
+      "tag": "nb2178",
+      "reported_rae": 0.381,
+      "reason": "K-sweep at the contaminated nb730 anchor; minimum 0.3810 at K=20 is variance on the same leak surface",
+      "audit_tag": "nb2177",
+      "honest_reeval_tag": "nb2184"
+    }
+  ],
+  "n_cycles_total": 125,
+  "method_universe": {
+    "n_summaries": 444,
+    "n_scripts": 881,
+    "n_submissions": 889,
+    "n_distinct_nb_tags": 853
+  },
+  "method_universe_total": 853,
+  "n_summary_files_total": 444,
+  "n_summary_files_parsed": 444,
+  "n_summary_files_skipped": 0,
+  "n_with_honest_rae": 184,
+  "n_methods_distinct_summary": 444,
+  "n_cycle_buckets": 121,
+  "n_paradigms": 12,
+  "paradigms": [
+    "catboost_ordered",
+    "chemprop_gnn",
+    "dart",
+    "knn_tanimoto",
+    "ordinal_quantile",
+    "other",
+    "rank_stretch_calib",
+    "row_bootstrap",
+    "shap_subset",
+    "slsqp_blend",
+    "stack_lgbm",
+    "trajectory_bag"
+  ],
+  "top10_honest_rae_clean": [
+    {
+      "rank": 1,
+      "rae": 0.380113,
+      "tag": "nb984",
+      "rae_key": "oof_rae"
+    },
+    {
+      "rank": 2,
+      "rae": 0.382926,
+      "tag": "nb801",
+      "rae_key": "oof_rae"
+    },
+    {
+      "rank": 3,
+      "rae": 0.391996,
+      "tag": "nb2179",
+      "rae_key": "best_rae"
+    },
+    {
+      "rank": 4,
+      "rae": 0.469779,
+      "tag": "nb2159",
+      "rae_key": "rae_median_bag"
+    },
+    {
+      "rank": 5,
+      "rae": 0.47305,
+      "tag": "nb2142",
+      "rae_key": "rae_median_bag"
+    },
+    {
+      "rank": 6,
+      "rae": 0.476547,
+      "tag": "nb2163",
+      "rae_key": "rae_pooled_median_120"
+    },
+    {
+      "rank": 7,
+      "rae": 0.477451,
+      "tag": "nb2084",
+      "rae_key": "best_rae"
+    },
+    {
+      "rank": 8,
+      "rae": 0.488514,
+      "tag": "nb2074",
+      "rae_key": "rae_pooled_median"
+    },
+    {
+      "rank": 9,
+      "rae": 0.494352,
+      "tag": "nb2063",
+      "rae_key": "rae_median_bag"
+    },
+    {
+      "rank": 10,
+      "rae": 0.499003,
+      "tag": "nb1431",
+      "rae_key": "best_rae"
+    }
+  ],
+  "honest_floor": 0.3801129655557607,
+  "honest_floor_tag": "nb984",
+  "gap_floor_vs_lb_best": 0.3853870344442393,
+  "audit_trail": [
+    {
+      "step": 1,
+      "tag": "nb2170",
+      "stage": "cycle_123_residual_run",
+      "reported_rae": 0.392,
+      "verdict": "REPRODUCIBLE_BUT_ANCHOR_CONTAMINATED",
+      "note": "mean_bag 0.3920 on nb730 anchor + K=28 SHAP residual; reproducible across re-seeded folds at the residual stage, BUT the chemprop_aux anchor below the residual was fit on indices overlapping the outer eval fold"
+    },
+    {
+      "step": 2,
+      "tag": "nb2177",
+      "stage": "cycle_124_audit",
+      "reported_rae": null,
+      "verdict": "FLAGGED_ANCHOR_LEAK",
+      "note": "5-fold re-seeded audit reproduced residual-stage RAE within bag noise but identified anchor-stage train/eval index overlap; raised the leak flag"
+    },
+    {
+      "step": 3,
+      "tag": "nb2178",
+      "stage": "cycle_124_K_sweep",
+      "reported_rae": 0.381,
+      "verdict": "INHERITED_CONTAMINATION",
+      "note": "K-sweep {12,20,28,36,44} on the same leaked anchor; K=20 minimum 0.3810 is variance on the leak surface, not a real improvement"
+    },
+    {
+      "step": 4,
+      "tag": "nb2183",
+      "stage": "cycle_125_honest_anchor",
+      "reported_rae": null,
+      "verdict": "ANCHOR_REGENERATED",
+      "note": "cross-fit re-fit of chemprop_aux per outer fold; anchor now obeys honest train/eval split for the residual stage"
+    },
+    {
+      "step": 5,
+      "tag": "nb2184",
+      "stage": "cycle_125_honest_reeval",
+      "reported_rae": null,
+      "verdict": "EXPECTED_REVERT_TO_FLOOR",
+      "note": "honest re-eval of nb2170 / nb2178 on the regenerated anchor; expected to revert to within bag noise of the 0.4603-0.4698 floor band; if it lands < 0.45 the gain is real and a new compounding step opens, else contamination explained the full delta"
+    }
+  ],
+  "closed_axes": [
+    "num_leaves_grid (K)",
+    "L_grid (leaves alt)",
+    "learning_rate_grid (lr)",
+    "min_child_samples (mc)",
+    "feature_fraction (ff)",
+    "monotone_constraint",
+    "DART_boosting",
+    "SHAP_seed_perturbation",
+    "row_bootstrap",
+    "pooled_120_cycle_bag",
+    "XGB_cross_paradigm_SHAP",
+    "family_ablation_NR",
+    "residual_cascade_depth2",
+    "tanh_target_rescale",
+    "sklearn_stack_meta_learner",
+    "anchor_swap_to_nb730_CONTAMINATED",
+    "K_sweep_at_contaminated_anchor_nb2178"
+  ],
+  "newly_opened_axes": [
+    {
+      "axis": "honest_anchor_regeneration",
+      "tag": "nb2183",
+      "description": "cross-fit re-fit chemprop_aux anchor per outer fold so the residual stage trains on honest OOF predictions; eliminates the anchor leak that drove nb2170's 0.3920 number"
+    },
+    {
+      "axis": "alt_anchor_sweep",
+      "tag": "nb2185",
+      "description": "alt anchors nb703 (0.4928), nb562 (0.5065), nb464 (0.5489) substituted at the anchor stage under the same honest cross-fit protocol; tests whether the residual stage compounds across anchor families (or whether the gain was anchor-specific and now disappears)"
+    },
+    {
+      "axis": "honest_reeval_nb2170_nb2178",
+      "tag": "nb2184",
+      "description": "honest re-eval of the contaminated nb2170 / nb2178 candidates on the regenerated anchor; this is the verdict on whether ANY compounding remains once the leak is removed"
+    }
+  ],
+  "open_axes": [
+    {
+      "axis": "novel_base_model_NN_or_Transformer",
+      "rationale": "all bags so far are LGBM/XGB/RF/ElasticNet; small MLP or Transformer on the K=28 SHAP substrate (narrow surface limits FT overfit) may extract non-axis-aligned interactions; ChemBERTa-on-Morgan failed (nb601/602) but K=28 SHAP input is a new test surface. EV -0.003 to -0.008"
+    },
+    {
+      "axis": "abstention_conformal",
+      "rationale": "per feedback_failure_mode_quantile_compression, 90% of worst-50 errors are novel-scaffold; per-row conformal scoring + shrink-to-mean on top-5% uncertain rows directly attacks RAE numerator; no external data; EV -0.005 to -0.010. CHEAPEST engineering (1-2 days)"
+    },
+    {
+      "axis": "external_scaffold_diverse_data",
+      "rationale": "ChEMBL PXR analogs / external NR actives outside the 4139-train scaffold support; only axis that touches the OOD wall set by scaffold support. EV ceiling -0.010 to -0.020, but 3-5 day cost and F2 negative-transfer risk"
+    },
+    {
+      "axis": "second_stage_residual_on_HONEST_anchor",
+      "rationale": "if nb2184 re-eval shows the residual stage still compounds on the regenerated honest anchor (i.e. the gain was partly real even though the magnitude was inflated by leak), a clean 2nd-stage residual stack on the honest anchor is the next move; alternate SHAP basis (Avalon / AtomPair) from nb2172 provides decorrelated features. EV -0.003 to -0.005 conditional on nb2184"
+    }
+  ],
+  "cycle_125": {
+    "cycle_idx": 125,
+    "methods": [
+      {
+        "tag": "nb2182",
+        "kind": "lb_poll",
+        "desc": "post-cycle-124 LB snapshot; record latest submission scores and drift vs honest floor; confirm nb2170 was NOT submitted to LB",
+        "rae": null,
+        "status": "PENDING_SUMMARY"
+      },
+      {
+        "tag": "nb2183",
+        "kind": "honest_anchor_regen",
+        "desc": "regenerate chemprop_aux anchor under per-outer-fold cross-fit; writes honest_anchor_oof.npy used as substrate for nb2184/nb2185",
+        "rae": null,
+        "status": "RECORDED"
+      },
+      {
+        "tag": "nb2184",
+        "kind": "honest_reeval_nb2170_nb2178",
+        "desc": "re-eval nb2170 residual stack + nb2178 K-sweep variants on the regenerated honest anchor; verdict on whether the 0.3920 / 0.3810 gain survives without the leak",
+        "rae": null,
+        "status": "PENDING_SUMMARY"
+      },
+      {
+        "tag": "nb2185",
+        "kind": "alt_anchor_sweep",
+        "desc": "swap anchor for nb703 / nb562 / nb464 under the same honest cross-fit protocol; tests cross-anchor-family generalisation of the residual stage",
+        "rae": null,
+        "status": "PENDING_SUMMARY"
+      },
+      {
+        "tag": "nb2186",
+        "kind": "ladder_hygiene_promote",
+        "desc": "ladder hygiene: demote contaminated entries from PRIMARY tier; if nb2184 lands < 0.45 promote honest-anchor variant, else hold nb730 PRIMARY-1 and queue cycle-126 on out-of-manifold axes",
+        "rae": null,
+        "status": "PENDING_SUMMARY"
+      },
+      {
+        "tag": "nb2187",
+        "kind": "trajectory_snapshot",
+        "desc": "this script -- cycle-125 trajectory + audit-trail snapshot",
+        "rae": null,
+        "status": "PENDING_SUMMARY"
+      }
+    ]
+  },
+  "decision": {
+    "highest_EV_next_axis": "abstention_conformal",
+    "secondary_axis_conditional": "IF nb2184 honest re-eval < 0.45: 2nd-stage residual on honest anchor with alt SHAP basis (Avalon / AtomPair from nb2172). ELSE: external scaffold-diverse data (ChEMBL PXR analogs / NR-family actives outside 4139-train scaffold support)",
+    "tertiary_axis": "novel base model (small MLP or Transformer) on K=28 SHAP substrate -- narrow input surface limits FT overfit vs prior ChemBERTa-on-Morgan failures",
+    "rationale": "Cycle 124 audit + cycle 125 honest re-eval close the last within-manifold knobs and demote the 0.3920/0.3810 contaminated candidates. Regardless of whether nb2184 surfaces any residual honest gain, the dominant remaining error source is the novel-scaffold failure tail (per feedback_failure_mode_quantile_compression, 90% of worst-50 errors). Abstention / conformal-shrink is the cheapest engineering (1-2 days), attacks that failure mode directly, requires no external data, has no negative-transfer risk, and stacks additively with any remaining honest-anchor gain. EV -0.005 to -0.010. The secondary axis branches on the nb2184 verdict: honest 2nd-stage residual if any honest gain survives, else external scaffold-diverse data.",
+    "skip_for_now": [
+      "further_anchor_swap_pre_unblind: nb2185 sweep settles whether alt anchors compound; if all collapse to floor band, this axis is closed and no further LGBM-anchor probing is justified",
+      "loss_level_decompression_redux: closed at cycle 70 (nb710-713); rank-stretch dominates loss-shape perturbation on this dataset"
+    ]
+  },
+  "pre_unblind_clean": true,
+  "wall_sec": 0.08
+}

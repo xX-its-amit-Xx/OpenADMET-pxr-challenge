@@ -1,0 +1,203 @@
+{
+  "tag": "nb2972",
+  "method": "per_fold_meta_lgbm_on_4K_deep30_anchors",
+  "paradigm": "non_linear_per_fold_meta_stack",
+  "anchor_pool": [
+    "K18",
+    "K20",
+    "K24",
+    "K28"
+  ],
+  "anchor_provenance": {
+    "K18": "PRE-clean deep-30 K=18 RFE residual stack on chemprop_aux anchor",
+    "K20": "PRE-clean deep-30 K=20 RFE residual stack on chemprop_aux anchor",
+    "K24": "PRE-clean deep-30 K=24 RFE residual stack on chemprop_aux anchor",
+    "K28": "PRE-clean deep-30 K=28 RFE residual stack on chemprop_aux anchor"
+  },
+  "anchor_in_rae": {
+    "K18": 0.4536,
+    "K20": 0.4625,
+    "K24": 0.4687,
+    "K28": 0.474
+  },
+  "anchor_leak_eq_truth_frac": {
+    "K18": 0.0,
+    "K20": 0.0,
+    "K24": 0.0,
+    "K28": 0.0
+  },
+  "anchor_pre_unblind": true,
+  "nb1191_excluded": true,
+  "chemprop_aux_excluded": true,
+  "oof_corr_matrix": [
+    [
+      1.0,
+      0.9849976824220701,
+      0.9815292514443817,
+      0.9838286957961303
+    ],
+    [
+      0.98499768242207,
+      1.0,
+      0.9944802488966924,
+      0.9868543420544826
+    ],
+    [
+      0.9815292514443817,
+      0.9944802488966923,
+      1.0,
+      0.983120195465266
+    ],
+    [
+      0.9838286957961303,
+      0.9868543420544826,
+      0.9831201954652659,
+      1.0
+    ]
+  ],
+  "oof_corr_labels": [
+    "K18",
+    "K20",
+    "K24",
+    "K28"
+  ],
+  "meta_lgbm_params": {
+    "max_depth": 2,
+    "num_leaves": 3,
+    "n_estimators": 50,
+    "learning_rate": 0.05,
+    "min_child_samples": 5,
+    "reg_lambda": 1.0
+  },
+  "n_folds": 5,
+  "kf_seed": 1001,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "K_anchors": 4,
+  "per_fold_rows": [
+    {
+      "fold": 0,
+      "n_train": 202,
+      "n_val": 51,
+      "val_rae": 0.4395,
+      "gain_importance": {
+        "K18": 0.2865,
+        "K20": 0.0675,
+        "K24": 0.5991,
+        "K28": 0.0469
+      }
+    },
+    {
+      "fold": 1,
+      "n_train": 202,
+      "n_val": 51,
+      "val_rae": 0.4818,
+      "gain_importance": {
+        "K18": 0.7524,
+        "K20": 0.0781,
+        "K24": 0.0939,
+        "K28": 0.0756
+      }
+    },
+    {
+      "fold": 2,
+      "n_train": 202,
+      "n_val": 51,
+      "val_rae": 0.5199,
+      "gain_importance": {
+        "K18": 0.5041,
+        "K20": 0.0347,
+        "K24": 0.1823,
+        "K28": 0.2789
+      }
+    },
+    {
+      "fold": 3,
+      "n_train": 203,
+      "n_val": 50,
+      "val_rae": 0.5239,
+      "gain_importance": {
+        "K18": 0.594,
+        "K20": 0.0247,
+        "K24": 0.228,
+        "K28": 0.1533
+      }
+    },
+    {
+      "fold": 4,
+      "n_train": 203,
+      "n_val": 50,
+      "val_rae": 0.4599,
+      "gain_importance": {
+        "K18": 0.5869,
+        "K20": 0.0444,
+        "K24": 0.2116,
+        "K28": 0.1571
+      }
+    }
+  ],
+  "per_fold_val_rae": [
+    0.43948517658964176,
+    0.48181840318734653,
+    0.5199347140605487,
+    0.5239320102409468,
+    0.45989484734655767
+  ],
+  "per_fold_gain_importance": [
+    [
+      0.28648186087027566,
+      0.06748315056908852,
+      0.5991316223772865,
+      0.04690336618334938
+    ],
+    [
+      0.7524305746261605,
+      0.07812485900928881,
+      0.09387766564407549,
+      0.07556690072047519
+    ],
+    [
+      0.5040676036851764,
+      0.03471199987215457,
+      0.1822841805999606,
+      0.2789362158427084
+    ],
+    [
+      0.5939922627525234,
+      0.02473189673598604,
+      0.22796900995157127,
+      0.15330683055991937
+    ],
+    [
+      0.5869487921890977,
+      0.044384428539127455,
+      0.21157249235501355,
+      0.15709428691676128
+    ]
+  ],
+  "pooled_rae": 0.4789720511375034,
+  "mean_fold_rae": 0.4850130302850083,
+  "mean_rae": 0.4789720511375034,
+  "deploy_full_pool_gain_importance": {
+    "K18": 0.5279,
+    "K20": 0.0141,
+    "K24": 0.4058,
+    "K28": 0.0522
+  },
+  "gate_better": 0.4567,
+  "gate_promote": 0.457,
+  "verdict": "FAIL",
+  "delta_vs_nb2960": 0.0213720511375034,
+  "delta_vs_nb2171": 0.010772051137503402,
+  "nb2960_ref": 0.4576,
+  "nb2171_ref": 0.4682,
+  "chemprop_aux_ref": 0.6216,
+  "te_unb_in_sample_rae": 0.2614,
+  "te_mean": 4.712784767150879,
+  "te_std": 0.7322289347648621,
+  "oof_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2972_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2972.npy",
+  "submission_csv": null,
+  "wall_sec": 0.11
+}

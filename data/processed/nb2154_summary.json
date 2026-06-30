@@ -1,0 +1,378 @@
+{
+  "tag": "nb2154",
+  "method": "lgbm_mse_on_top28_shap_of_8285col_pure_FP_stack_scaffold_CV",
+  "anchor": "chemprop_aux",
+  "anchor_kind": "PRE_unblind_te_slice_to_unb_idx",
+  "anchor_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+  "feat_breakdown_full": {
+    "Morgan2048": 2048,
+    "MACCS167": 167,
+    "AtomPair2048": 2048,
+    "Avalon1024": 1024,
+    "ECFP6_2048": 2048,
+    "total": 7335
+  },
+  "model_family": "LightGBM",
+  "lgbm_objective": "regression",
+  "lgbm_max_depth": 4,
+  "lgbm_num_leaves": 15,
+  "lgbm_n_estimators": 300,
+  "lgbm_learning_rate": 0.03,
+  "lgbm_min_child_samples": 5,
+  "lgbm_reg_lambda": 2.0,
+  "top_K_shap": 28,
+  "n_unb": 253,
+  "n_scaffolds_unique_unb": 180,
+  "n_scaffolds_none_unb": 0,
+  "resid_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "resid_folds": 5,
+  "cv_kind": "scaffold_kfold_BemisMurcko_5fold_shuffle_per_seed",
+  "rae_anchor_chemprop_aux": 0.6215728863514471,
+  "residual_mean": -0.1325965261753001,
+  "residual_std": 0.6999145683913596,
+  "top28_family_counts_nb2154": {
+    "ECFP6_2048": 3,
+    "AtomPair2048": 13,
+    "Morgan2048": 2,
+    "Avalon1024": 8,
+    "MACCS167": 2
+  },
+  "top28_family_counts_nb2063_ref": {
+    "Mordred": 11,
+    "ChempropEmbed": 8,
+    "AtomPair": 5,
+    "Avalon": 2,
+    "MACCS": 1,
+    "ChEMBL_kNN": 1
+  },
+  "top28_family_delta_vs_nb2063": {
+    "AtomPair": {
+      "nb2154_count": 0,
+      "nb2063_count": 5,
+      "delta": -5
+    },
+    "AtomPair2048": {
+      "nb2154_count": 13,
+      "nb2063_count": 0,
+      "delta": 13
+    },
+    "Avalon": {
+      "nb2154_count": 0,
+      "nb2063_count": 2,
+      "delta": -2
+    },
+    "Avalon1024": {
+      "nb2154_count": 8,
+      "nb2063_count": 0,
+      "delta": 8
+    },
+    "ChEMBL_kNN": {
+      "nb2154_count": 0,
+      "nb2063_count": 1,
+      "delta": -1
+    },
+    "ChempropEmbed": {
+      "nb2154_count": 0,
+      "nb2063_count": 8,
+      "delta": -8
+    },
+    "ECFP6_2048": {
+      "nb2154_count": 3,
+      "nb2063_count": 0,
+      "delta": 3
+    },
+    "MACCS": {
+      "nb2154_count": 0,
+      "nb2063_count": 1,
+      "delta": -1
+    },
+    "MACCS167": {
+      "nb2154_count": 2,
+      "nb2063_count": 0,
+      "delta": 2
+    },
+    "Mordred": {
+      "nb2154_count": 0,
+      "nb2063_count": 11,
+      "delta": -11
+    },
+    "Morgan2048": {
+      "nb2154_count": 2,
+      "nb2063_count": 0,
+      "delta": 2
+    }
+  },
+  "top28_records": [
+    {
+      "rank": 1,
+      "feat_idx_in_8285": 7082,
+      "feat_name": "ECFP6_2048_bit_1795",
+      "feat_family": "ECFP6_2048",
+      "mean_abs_shap": 0.07027745246887207
+    },
+    {
+      "rank": 2,
+      "feat_idx_in_8285": 3192,
+      "feat_name": "AtomPair2048_bit_977",
+      "feat_family": "AtomPair2048",
+      "mean_abs_shap": 0.04855680838227272
+    },
+    {
+      "rank": 3,
+      "feat_idx_in_8285": 3234,
+      "feat_name": "AtomPair2048_bit_1019",
+      "feat_family": "AtomPair2048",
+      "mean_abs_shap": 0.03461770713329315
+    },
+    {
+      "rank": 4,
+      "feat_idx_in_8285": 3301,
+      "feat_name": "AtomPair2048_bit_1086",
+      "feat_family": "AtomPair2048",
+      "mean_abs_shap": 0.031781360507011414
+    },
+    {
+      "rank": 5,
+      "feat_idx_in_8285": 743,
+      "feat_name": "Morgan2048_bit_743",
+      "feat_family": "Morgan2048",
+      "mean_abs_shap": 0.02985161915421486
+    },
+    {
+      "rank": 6,
+      "feat_idx_in_8285": 3944,
+      "feat_name": "AtomPair2048_bit_1729",
+      "feat_family": "AtomPair2048",
+      "mean_abs_shap": 0.02617703378200531
+    },
+    {
+      "rank": 7,
+      "feat_idx_in_8285": 4204,
+      "feat_name": "AtomPair2048_bit_1989",
+      "feat_family": "AtomPair2048",
+      "mean_abs_shap": 0.025710485875606537
+    },
+    {
+      "rank": 8,
+      "feat_idx_in_8285": 4380,
+      "feat_name": "Avalon1024_bit_117",
+      "feat_family": "Avalon1024",
+      "mean_abs_shap": 0.022059127688407898
+    },
+    {
+      "rank": 9,
+      "feat_idx_in_8285": 4869,
+      "feat_name": "Avalon1024_bit_606",
+      "feat_family": "Avalon1024",
+      "mean_abs_shap": 0.020894361659884453
+    },
+    {
+      "rank": 10,
+      "feat_idx_in_8285": 2759,
+      "feat_name": "AtomPair2048_bit_544",
+      "feat_family": "AtomPair2048",
+      "mean_abs_shap": 0.02081303298473358
+    },
+    {
+      "rank": 11,
+      "feat_idx_in_8285": 4498,
+      "feat_name": "Avalon1024_bit_235",
+      "feat_family": "Avalon1024",
+      "mean_abs_shap": 0.019191768020391464
+    },
+    {
+      "rank": 12,
+      "feat_idx_in_8285": 5982,
+      "feat_name": "ECFP6_2048_bit_695",
+      "feat_family": "ECFP6_2048",
+      "mean_abs_shap": 0.019188500940799713
+    },
+    {
+      "rank": 13,
+      "feat_idx_in_8285": 3999,
+      "feat_name": "AtomPair2048_bit_1784",
+      "feat_family": "AtomPair2048",
+      "mean_abs_shap": 0.01880205236375332
+    },
+    {
+      "rank": 14,
+      "feat_idx_in_8285": 4209,
+      "feat_name": "AtomPair2048_bit_1994",
+      "feat_family": "AtomPair2048",
+      "mean_abs_shap": 0.017794450744986534
+    },
+    {
+      "rank": 15,
+      "feat_idx_in_8285": 3013,
+      "feat_name": "AtomPair2048_bit_798",
+      "feat_family": "AtomPair2048",
+      "mean_abs_shap": 0.01736045815050602
+    },
+    {
+      "rank": 16,
+      "feat_idx_in_8285": 4405,
+      "feat_name": "Avalon1024_bit_142",
+      "feat_family": "Avalon1024",
+      "mean_abs_shap": 0.01566198840737343
+    },
+    {
+      "rank": 17,
+      "feat_idx_in_8285": 4769,
+      "feat_name": "Avalon1024_bit_506",
+      "feat_family": "Avalon1024",
+      "mean_abs_shap": 0.01557291392236948
+    },
+    {
+      "rank": 18,
+      "feat_idx_in_8285": 3608,
+      "feat_name": "AtomPair2048_bit_1393",
+      "feat_family": "AtomPair2048",
+      "mean_abs_shap": 0.01550678163766861
+    },
+    {
+      "rank": 19,
+      "feat_idx_in_8285": 7049,
+      "feat_name": "ECFP6_2048_bit_1762",
+      "feat_family": "ECFP6_2048",
+      "mean_abs_shap": 0.015405011363327503
+    },
+    {
+      "rank": 20,
+      "feat_idx_in_8285": 5093,
+      "feat_name": "Avalon1024_bit_830",
+      "feat_family": "Avalon1024",
+      "mean_abs_shap": 0.014712506905198097
+    },
+    {
+      "rank": 21,
+      "feat_idx_in_8285": 3935,
+      "feat_name": "AtomPair2048_bit_1720",
+      "feat_family": "AtomPair2048",
+      "mean_abs_shap": 0.014618449844419956
+    },
+    {
+      "rank": 22,
+      "feat_idx_in_8285": 565,
+      "feat_name": "Morgan2048_bit_565",
+      "feat_family": "Morgan2048",
+      "mean_abs_shap": 0.01391358207911253
+    },
+    {
+      "rank": 23,
+      "feat_idx_in_8285": 5020,
+      "feat_name": "Avalon1024_bit_757",
+      "feat_family": "Avalon1024",
+      "mean_abs_shap": 0.013590588234364986
+    },
+    {
+      "rank": 24,
+      "feat_idx_in_8285": 3488,
+      "feat_name": "AtomPair2048_bit_1273",
+      "feat_family": "AtomPair2048",
+      "mean_abs_shap": 0.012778876349329948
+    },
+    {
+      "rank": 25,
+      "feat_idx_in_8285": 5249,
+      "feat_name": "Avalon1024_bit_986",
+      "feat_family": "Avalon1024",
+      "mean_abs_shap": 0.012574280612170696
+    },
+    {
+      "rank": 26,
+      "feat_idx_in_8285": 3183,
+      "feat_name": "AtomPair2048_bit_968",
+      "feat_family": "AtomPair2048",
+      "mean_abs_shap": 0.011369322426617146
+    },
+    {
+      "rank": 27,
+      "feat_idx_in_8285": 2164,
+      "feat_name": "MACCS167_bit_116",
+      "feat_family": "MACCS167",
+      "mean_abs_shap": 0.011029697023332119
+    },
+    {
+      "rank": 28,
+      "feat_idx_in_8285": 2163,
+      "feat_name": "MACCS167_bit_115",
+      "feat_family": "MACCS167",
+      "mean_abs_shap": 0.010824484750628471
+    }
+  ],
+  "per_seed_rae": [
+    0.493879988620813,
+    0.5118090274239475,
+    0.490882721855681,
+    0.5052297295180493,
+    0.50121166659732
+  ],
+  "per_seed_records": [
+    {
+      "seed": 0,
+      "rae_corrected": 0.493879988620813,
+      "delta_vs_chemprop_aux": -0.12769289773063414,
+      "resid_oof_std": 0.4957145697830855,
+      "resid_oof_mean": -0.18093084451728175,
+      "wall_sec": 0.18
+    },
+    {
+      "seed": 1,
+      "rae_corrected": 0.5118090274239475,
+      "delta_vs_chemprop_aux": -0.10976385892749962,
+      "resid_oof_std": 0.49300844379173137,
+      "resid_oof_mean": -0.1606532080684682,
+      "wall_sec": 0.16
+    },
+    {
+      "seed": 7,
+      "rae_corrected": 0.490882721855681,
+      "delta_vs_chemprop_aux": -0.13069016449576615,
+      "resid_oof_std": 0.4886843473237647,
+      "resid_oof_mean": -0.1729193547938821,
+      "wall_sec": 0.16
+    },
+    {
+      "seed": 42,
+      "rae_corrected": 0.5052297295180493,
+      "delta_vs_chemprop_aux": -0.1163431568333978,
+      "resid_oof_std": 0.4726776367366456,
+      "resid_oof_mean": -0.15730975884996018,
+      "wall_sec": 0.16
+    },
+    {
+      "seed": 137,
+      "rae_corrected": 0.50121166659732,
+      "delta_vs_chemprop_aux": -0.12036121975412717,
+      "resid_oof_std": 0.4986641119875388,
+      "resid_oof_mean": -0.1706848900266805,
+      "wall_sec": 0.16
+    }
+  ],
+  "rae_per_seed_mean": 0.5006026268031623,
+  "rae_per_seed_median": 0.50121166659732,
+  "rae_per_seed_std": 0.007576738614963172,
+  "rae_per_seed_min": 0.490882721855681,
+  "rae_per_seed_max": 0.5118090274239475,
+  "rae_mean_bag": 0.48527859875723706,
+  "rae_median_bag": 0.48433301439484383,
+  "delta_mean_bag_vs_chemprop_aux": -0.13629428759421008,
+  "delta_mean_bag_vs_nb2103_K28": 0.011578598757237046,
+  "beats_chemprop_aux": true,
+  "beats_nb2103_K28": false,
+  "flat_vs_nb2103_K28": false,
+  "pearson_vs_anchor": 0.8842381307443395,
+  "pearson_vs_nb2103_K28": 0.9259684830116942,
+  "verdict": "MULTI_FP_BEATS_ANCHOR_BUT_WORSE_THAN_NB2103_K28",
+  "pre_unblind_clean": true,
+  "chemprop_aux_ref": 0.6216,
+  "nb2103_K28_ref": 0.4737,
+  "decision_margin": 0.003,
+  "wall_sec": 2.87
+}

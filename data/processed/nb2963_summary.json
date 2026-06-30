@@ -1,0 +1,60 @@
+{
+  "tag": "nb2963",
+  "generated_at": "2026-06-08T13:00:46",
+  "elapsed_sec": 4.99,
+  "method": "ChEMBL_PXR_topK_loose_sim_transfer_over_nb2240",
+  "kb_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\external\\chembl_pxr_nr_kb.parquet",
+  "pxr_direct_sources": [
+    "NR_PXR",
+    "PXR_CHEMBL3401"
+  ],
+  "n_pxr_direct_with_pec50": 883,
+  "n_kb_used": 883,
+  "n_train_inchikey_overlap_dropped": 0,
+  "knn_k": 5,
+  "sim_gate_loose": 0.3,
+  "topk_rows": 50,
+  "kf_seed": 1001,
+  "n_folds": 5,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_unb_scaffolds": 180,
+  "max_sim_unb_summary": {
+    "mean": 0.2712721526622772,
+    "median": 0.2631579041481018,
+    "p25": 0.23655913770198822,
+    "p75": 0.29729729890823364,
+    "max": 0.4545454680919647
+  },
+  "n_sim_ok_unb": 62,
+  "n_override_unb": 50,
+  "n_override_te_513": 50,
+  "anchor_te_unb_rae_in_sample": 0.16570824273473972,
+  "fold_rae_blend": [
+    0.8102230020326299,
+    0.292863778302486,
+    0.47510760849646755,
+    0.4089029426213964,
+    0.23260254684389725
+  ],
+  "fold_rae_anchor": [
+    0.14963763292237894,
+    0.1537769184195286,
+    0.17523646776406743,
+    0.2017348847212785,
+    0.1661347835331747
+  ],
+  "mean_rae": 0.4439399756593755,
+  "pooled_blend_rae": 0.4292707219058226,
+  "pooled_anchor_rae": 0.16570824273473972,
+  "delta_vs_anchor_pooled": -0.2635624791710829,
+  "nb2240_oof_ref": 0.4601,
+  "delta_vs_nb2240_ref": 0.016160024340624524,
+  "gate_thresholds": {
+    "PROMOTE_lt": 0.457,
+    "BETTER_lt": 0.4576
+  },
+  "verdict": "PROMOTE",
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2963_pred_oof.npy",
+  "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2963.npy"
+}

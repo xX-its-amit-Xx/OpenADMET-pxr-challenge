@@ -1,0 +1,30 @@
+{
+  "nb": "nb1442",
+  "anchors": [
+    "nb1430",
+    "nb1410",
+    "nb1390",
+    "nb1360",
+    "nb1380"
+  ],
+  "n_anchors": 5,
+  "te_median": {
+    "mean": 4.7082695960998535,
+    "std": 0.7656653523445129,
+    "min": 1.7622686624526978,
+    "max": 6.069238662719727
+  },
+  "te_mean": {
+    "mean": 4.710885047912598,
+    "std": 0.7611984014511108,
+    "min": 1.834459900856018,
+    "max": 6.049524307250977
+  },
+  "in_rae_median": 0.4062258329207542,
+  "in_rae_mean": 0.4026613614286997,
+  "csv_median": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1442_robust_ensemble.csv",
+  "csv_mean": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1442_robust_ensemble_mean.csv",
+  "te_median_npy": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb1442_median.npy",
+  "te_mean_npy": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb1442_mean.npy",
+  "te_npy": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb1442.npy"
+}

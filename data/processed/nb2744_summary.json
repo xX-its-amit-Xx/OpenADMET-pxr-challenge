@@ -1,0 +1,141 @@
+{
+  "tag": "nb2744",
+  "method": "Per-row tournament blend: train LGBM error predictor for each anchor on (X_117_unb, |y_unb - anchor_oof_unb|) under nested scaffold-CV; per row pick anchor with lowest predicted abs error.",
+  "paradigm": "per_row_argmin_routing_via_per_anchor_error_predictors",
+  "anchors_used": [
+    "chemprop_aux",
+    "nb2240_K20",
+    "nb2490_counter_clean"
+  ],
+  "anchor_meta": [
+    {
+      "name": "chemprop_aux",
+      "oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb1133_chemprop_aux_pred_oof.npy",
+      "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+      "oof_rae_unb": 0.5878769556905485,
+      "te_mean": 4.83127389185985,
+      "te_std": 0.5832170833108092
+    },
+    {
+      "name": "nb2240_K20",
+      "oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2240_mean_bag_oof_K20.npy",
+      "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2240_K20.npy",
+      "oof_rae_unb": 0.46301757335429367,
+      "te_mean": 4.7131058742196,
+      "te_std": 0.8433264363943958
+    },
+    {
+      "name": "nb2490_counter_clean",
+      "oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2490_pred_oof.npy",
+      "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2490.npy",
+      "oof_rae_unb": 0.5382385733206709,
+      "te_mean": 4.723375521672864,
+      "te_std": 0.8112168469087986
+    }
+  ],
+  "n_anchors": 3,
+  "lgbm_err_pred_params": {
+    "objective": "regression",
+    "metric": "mae",
+    "learning_rate": 0.05,
+    "num_leaves": 15,
+    "max_depth": -1,
+    "min_data_in_leaf": 10,
+    "feature_fraction": 0.9,
+    "bagging_fraction": 0.9,
+    "bagging_freq": 5,
+    "n_estimators": 300,
+    "verbosity": -1,
+    "n_jobs": 1
+  },
+  "n_folds": 5,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "feat_dim": 117,
+  "per_seed": [
+    {
+      "kf_seed": 1001,
+      "pooled_rae": 0.5039632385040409,
+      "pick_counts": {
+        "chemprop_aux": 68,
+        "nb2240_K20": 116,
+        "nb2490_counter_clean": 69
+      },
+      "wall_sec": 1.76
+    },
+    {
+      "kf_seed": 1002,
+      "pooled_rae": 0.5200026629270936,
+      "pick_counts": {
+        "chemprop_aux": 60,
+        "nb2240_K20": 114,
+        "nb2490_counter_clean": 79
+      },
+      "wall_sec": 1.76
+    },
+    {
+      "kf_seed": 1003,
+      "pooled_rae": 0.5043038103141275,
+      "pick_counts": {
+        "chemprop_aux": 61,
+        "nb2240_K20": 118,
+        "nb2490_counter_clean": 74
+      },
+      "wall_sec": 1.75
+    },
+    {
+      "kf_seed": 1004,
+      "pooled_rae": 0.5205757583648999,
+      "pick_counts": {
+        "chemprop_aux": 60,
+        "nb2240_K20": 123,
+        "nb2490_counter_clean": 70
+      },
+      "wall_sec": 1.7
+    },
+    {
+      "kf_seed": 1005,
+      "pooled_rae": 0.52353870585628,
+      "pick_counts": {
+        "chemprop_aux": 58,
+        "nb2240_K20": 121,
+        "nb2490_counter_clean": 74
+      },
+      "wall_sec": 1.74
+    }
+  ],
+  "pick_counts_total_oof": {
+    "chemprop_aux": 307,
+    "nb2240_K20": 592,
+    "nb2490_counter_clean": 366
+  },
+  "pick_counts_deploy_te": {
+    "chemprop_aux": 169,
+    "nb2240_K20": 216,
+    "nb2490_counter_clean": 128
+  },
+  "mean_rae": 0.5144768351932884,
+  "pooled_rae_std_seeds": 0.008530829812461168,
+  "rae_of_mean_of_seed_oofs": 0.5024785701461733,
+  "rae_best_anchor_standalone": 0.46301757335429367,
+  "delta_vs_best_anchor": 0.051459261838994685,
+  "te_unb_rae_in_sample": 0.2545317132015634,
+  "te_deploy_mean": 4.788073539733887,
+  "te_deploy_std": 0.7285815477371216,
+  "gate_promote_threshold": 0.457,
+  "gate_marginal_threshold": 0.4598,
+  "verdict": "FAIL",
+  "promote": false,
+  "marginal_beat": false,
+  "oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2744_pred_oof.npy",
+  "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2744.npy",
+  "wall_sec": 9.25
+}

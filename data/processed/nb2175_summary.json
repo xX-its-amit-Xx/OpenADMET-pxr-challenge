@@ -1,0 +1,249 @@
+{
+  "tag": "nb2175",
+  "method": "cycle_123_trajectory_snapshot_full_history_walk",
+  "lb_current_best": 0.7655,
+  "lucky_seed_flagged_by_nb2156": [
+    "nb2144",
+    "nb2154"
+  ],
+  "n_cycles_total": 123,
+  "method_universe": {
+    "n_summaries": 435,
+    "n_scripts": 872,
+    "n_submissions": 887,
+    "n_distinct_nb_tags": 843
+  },
+  "method_universe_total": 843,
+  "n_summary_files_total": 435,
+  "n_summary_files_parsed": 435,
+  "n_summary_files_skipped": 0,
+  "n_with_honest_rae": 181,
+  "n_methods_distinct_summary": 435,
+  "n_cycle_buckets": 120,
+  "n_paradigms": 10,
+  "paradigms": [
+    "catboost_ordered",
+    "dart",
+    "knn_tanimoto",
+    "ordinal_quantile",
+    "other",
+    "row_bootstrap",
+    "shap_subset",
+    "slsqp_blend",
+    "stack_lgbm",
+    "trajectory_bag"
+  ],
+  "top10_honest_rae_lucky_seed_excluded": [
+    {
+      "rank": 1,
+      "rae": 0.380113,
+      "tag": "nb984",
+      "rae_key": "oof_rae"
+    },
+    {
+      "rank": 2,
+      "rae": 0.382926,
+      "tag": "nb801",
+      "rae_key": "oof_rae"
+    },
+    {
+      "rank": 3,
+      "rae": 0.469779,
+      "tag": "nb2159",
+      "rae_key": "rae_median_bag"
+    },
+    {
+      "rank": 4,
+      "rae": 0.47305,
+      "tag": "nb2142",
+      "rae_key": "rae_median_bag"
+    },
+    {
+      "rank": 5,
+      "rae": 0.476547,
+      "tag": "nb2163",
+      "rae_key": "rae_pooled_median_120"
+    },
+    {
+      "rank": 6,
+      "rae": 0.477451,
+      "tag": "nb2084",
+      "rae_key": "best_rae"
+    },
+    {
+      "rank": 7,
+      "rae": 0.488514,
+      "tag": "nb2074",
+      "rae_key": "rae_pooled_median"
+    },
+    {
+      "rank": 8,
+      "rae": 0.494352,
+      "tag": "nb2063",
+      "rae_key": "rae_median_bag"
+    },
+    {
+      "rank": 9,
+      "rae": 0.499003,
+      "tag": "nb1431",
+      "rae_key": "best_rae"
+    },
+    {
+      "rank": 10,
+      "rae": 0.499502,
+      "tag": "nb1471",
+      "rae_key": "best_rae"
+    }
+  ],
+  "lucky_seed_excluded_records": [
+    {
+      "rae": 0.462022,
+      "tag": "nb2154",
+      "rae_key": "best_rae"
+    },
+    {
+      "rae": 0.465496,
+      "tag": "nb2144",
+      "rae_key": "best_rae"
+    }
+  ],
+  "honest_floor": 0.3801129655557607,
+  "honest_floor_tag": "nb984",
+  "gap_floor_vs_lb_best": 0.3853870344442393,
+  "cycle_123": {
+    "cycle_idx": 123,
+    "methods": [
+      {
+        "tag": "nb2170",
+        "kind": "lb_poll",
+        "desc": "leaderboard poll & state snapshot post-nb2168 decision; record current LB-best, latest submission scores, drift vs honest floor",
+        "rae": null,
+        "status": "PENDING_SUMMARY"
+      },
+      {
+        "tag": "nb2171",
+        "kind": "anchor_swap_nb730",
+        "desc": "anchor swap -- residualize on nb730 (multi-seed null-ensemble, RAE 0.4603 cross-fit) instead of chemprop_aux; tests whether the residual tail decorrelates when the anchor is the strongest stand-alone honest model rather than the LB-leading PRE-unblind one",
+        "rae": null,
+        "status": "PENDING_SUMMARY"
+      },
+      {
+        "tag": "nb2172",
+        "kind": "family_ablation_nr",
+        "desc": "nuclear-receptor family ablation -- drop NR-family features one at a time from the K=28 SHAP substrate, measure mean-bag delta; diagnoses which family carries the SHAP-substrate signal",
+        "rae": null,
+        "status": "PENDING_SUMMARY"
+      },
+      {
+        "tag": "nb2173",
+        "kind": "residual_cascade",
+        "desc": "two-stage residual cascade: stage-1 anchor (nb730 or chemprop_aux), stage-2 LGBM on stage-1 residuals with K=28 substrate + counter-assay feature; tests cascade depth-2 vs single-stage stack",
+        "rae": null,
+        "status": "RECORDED"
+      },
+      {
+        "tag": "nb2174",
+        "kind": "tanh_target",
+        "desc": "tanh-rescaled pEC50 target -- transform pEC50 via y' = tanh((y - mu) / sigma); tests whether bounded-target regression compresses novel-scaffold tail variance (operates on target, not features); compare against linear target at L-lock",
+        "rae": null,
+        "status": "PENDING_SUMMARY"
+      }
+    ]
+  },
+  "closed_axes": [
+    {
+      "axis": "num_leaves_grid",
+      "probe_tag": "nb2103",
+      "result": "L in {6..32} grid; plateau at L=12..16; |delta| <= 0.003"
+    },
+    {
+      "axis": "learning_rate_grid",
+      "probe_tag": "nb2121",
+      "result": "lr in {0.01..0.1}; lr=0.03 marginally best; |delta| <= 0.003"
+    },
+    {
+      "axis": "min_child_grid",
+      "probe_tag": "nb2151",
+      "result": "min_child_samples in {3..30}; mc=5 marginally best; |delta| <= 0.003"
+    },
+    {
+      "axis": "feature_fraction_grid",
+      "probe_tag": "nb2153",
+      "result": "ff in {0.6..1.0}; ff=1.0 marginally best; |delta| <= 0.003"
+    },
+    {
+      "axis": "monotone_constraint",
+      "probe_tag": "nb2158",
+      "result": "monotone constraints on top-SHAP features; delta within bag noise (<= 0.003)"
+    },
+    {
+      "axis": "shap_seed_perturbation",
+      "probe_tag": "nb2159",
+      "result": "SHAP-top-K intersect across leaf-locks stable; K=28 substrate confirmed; |delta| <= 0.003"
+    },
+    {
+      "axis": "dart_boosting",
+      "probe_tag": "nb2160",
+      "result": "DART dropout boosting; |delta| <= 0.003 vs gbdt baseline"
+    },
+    {
+      "axis": "trajectory_pooled_120",
+      "probe_tag": "nb2163",
+      "result": "pooled-120-cycle bag at L-lock confirms mean-bag floor 0.4737 +/- bag noise; lucky-seed 0.4620 not reproducible"
+    },
+    {
+      "axis": "row_bootstrap_perturbation",
+      "probe_tag": "nb2166",
+      "result": "row bagging on K=28 substrate; substrate-vs-data variance separated; |delta| <= 0.003 vs leaf-only bag"
+    },
+    {
+      "axis": "cross_paradigm_shap_substrate",
+      "probe_tag": "nb2165",
+      "result": "XGB on K=28 SHAP substrate; XGB-derived SHAP overlaps LGBM-derived top-K by >85%; |delta| <= 0.003"
+    },
+    {
+      "axis": "sklearn_stack_meta_learner",
+      "probe_tag": "nb2167",
+      "result": "sklearn StackingRegressor (ElasticNet + RF + XGB heads) on K=28 substrate; meta-learner collapses to LGBM-like weights; |delta| <= 0.003"
+    }
+  ],
+  "open_axes": [
+    {
+      "axis": "novel_anchor_nb730",
+      "status": "PROBED_CYCLE_123_PENDING_VERDICT",
+      "rationale": "nb2171 swaps chemprop_aux for nb730 as the residualize anchor. If residual tail decorrelates (delta -0.005+), axis remains OPEN with EV; if delta within bag noise, closes the anchor-swap dimension and forces external data or NN model class as the next move"
+    },
+    {
+      "axis": "external_scaffold_diverse_data",
+      "status": "OPEN",
+      "rationale": "feedback_unblind_augmentation closed in-distribution augmentation; OOD wall set by scaffold support; ChEMBL PXR analogs / external NR actives outside the 4139-train scaffold support are the highest theoretical ceiling (-0.020 plausibly); 3-5 day engineering cost"
+    },
+    {
+      "axis": "abstention_conformal_shrink",
+      "status": "OPEN",
+      "rationale": "Per feedback_failure_mode_quantile_compression: 90% of worst-50 errors are novel-scaffold (scaf_train_freq=0). Per-row conformal scoring + shrink-to-mean on top-5% uncertain rows directly attacks RAE numerator; no external data required. EV -0.005 to -0.010"
+    },
+    {
+      "axis": "neural_network_model_class",
+      "status": "OPEN",
+      "rationale": "All trajectory bags + stacking heads are LGBM / XGB / RF / ElasticNet. A small MLP or Transformer on K=28 substrate or Morgan-2048 may extract non-axis-aligned interactions tree ensembles miss; counter-evidence: nb601/602 ChemBERTa-77M collapsed to 0-weight in SLSQP. Worth probing on K=28 SHAP substrate (smaller surface, less FT overfit) not raw Morgan"
+    },
+    {
+      "axis": "positive_unlabeled_framing",
+      "status": "OPEN",
+      "rationale": "Single-concentration screen (21,003 rows, 8,126 unique to SP) is currently used only as an unlabeled aux head. Re-framing as positive-unlabeled (PU) learning -- hits are positives, non-hits are unlabeled -- could extract additional signal via PU bias correction (Elkan / Kiryo nnPU); orthogonal to all tested axes"
+    }
+  ],
+  "decision": {
+    "highest_EV_next_axis": "abstention_conformal_shrink",
+    "rationale": "Cycle 123 probed the last within-manifold axis (anchor identity via nb2171 nb730 swap). Conditional on either outcome -- anchor swap helps (compound with abstention) or anchor swap is null (within-manifold closed) -- the highest-EV next axis is abstention/conformal-shrink: cheapest engineering (1-2 days), attacks the documented dominant failure mode (90% of worst-50 errors are novel-scaffold per feedback_failure_mode_quantile_compression), stacks additively with nb2171/nb2173/nb2174 wins, no external-data dependency, no negative-transfer risk. EV est -0.005 to -0.010 RAE.",
+    "secondary_axis_if_abstention_underdelivers": "external_scaffold_diverse_data: curate ChEMBL PXR + NR actives outside train scaffold support, re-train chemprop_aux / nb730 anchor with augmented set. EV ceiling -0.010 to -0.020 but 3-5 day engineering cost and negative-transfer risk.",
+    "tertiary_axis_if_external_data_blocked": "positive_unlabeled framing on the 21k single-concentration screen (8126 SP-exclusive compounds). Re-frame hits as positives, non-hits as unlabeled; train PU classifier (Elkan / nnPU) and stack output as a 29th K-substrate feature. EV -0.003 to -0.008, orthogonal to all tested axes.",
+    "skip_for_now": [
+      "neural_network_model_class: ChemBERTa already failed (nb601/602 0-weight); MLP retry on K=28 substrate is worth a single probe but not first-priority",
+      "novel_anchor beyond nb730: anchor universe shrinks fast after nb730 swap; further anchor probes are 3rd-tier"
+    ]
+  },
+  "pre_unblind_clean": true,
+  "wall_sec": 0.08
+}

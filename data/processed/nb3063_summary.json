@@ -1,0 +1,132 @@
+{
+  "tag": "nb3063",
+  "parent_tag": "nb3030",
+  "method": "quantile_conditional_hard_split_blend_K18_K19_deep30",
+  "anchor_pool": [
+    "K18",
+    "K19"
+  ],
+  "anchor_depth": {
+    "K18": "deep30",
+    "K19": "deep30"
+  },
+  "anchor_pre_unblind": true,
+  "per_K_full_oof_rae": {
+    "K18": 0.4536,
+    "K19": 0.4607
+  },
+  "anchor_leak_eq_truth_frac": {
+    "K18": 0.0,
+    "K19": 0.0
+  },
+  "oof_pairwise_corr": 0.9846,
+  "tail_diagnostic": {
+    "full_q50": 4.8845,
+    "low_half_K18_rae": 0.5321,
+    "low_half_K19_rae": 0.5537,
+    "high_half_K18_rae": 0.7977,
+    "high_half_K19_rae": 0.778
+  },
+  "w_low": {
+    "K18": 0.8,
+    "K19": 0.2
+  },
+  "w_high": {
+    "K18": 0.5,
+    "K19": 0.5
+  },
+  "quantile_cut": 0.5,
+  "n_folds": 5,
+  "kf_seeds": [
+    1051,
+    1052,
+    1053,
+    1054,
+    1055
+  ],
+  "n_seeds": 5,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "seed_records": [
+    {
+      "kf_seed": 1051,
+      "pooled_rae": 0.448,
+      "per_fold_val_rae_mean": 0.462,
+      "per_fold_val_rae_std": 0.1119,
+      "fold_q50_mean": 4.8954,
+      "fold_q50_std": 0.0483,
+      "fold_high_share_mean": 0.4981
+    },
+    {
+      "kf_seed": 1052,
+      "pooled_rae": 0.4478,
+      "per_fold_val_rae_mean": 0.4595,
+      "per_fold_val_rae_std": 0.081,
+      "fold_q50_mean": 4.8899,
+      "fold_q50_std": 0.024,
+      "fold_high_share_mean": 0.4906
+    },
+    {
+      "kf_seed": 1053,
+      "pooled_rae": 0.4476,
+      "per_fold_val_rae_mean": 0.4625,
+      "per_fold_val_rae_std": 0.0615,
+      "fold_q50_mean": 4.8951,
+      "fold_q50_std": 0.0679,
+      "fold_high_share_mean": 0.5125
+    },
+    {
+      "kf_seed": 1054,
+      "pooled_rae": 0.4478,
+      "per_fold_val_rae_mean": 0.4497,
+      "per_fold_val_rae_std": 0.0268,
+      "fold_q50_mean": 4.8875,
+      "fold_q50_std": 0.0233,
+      "fold_high_share_mean": 0.5094
+    },
+    {
+      "kf_seed": 1055,
+      "pooled_rae": 0.4475,
+      "per_fold_val_rae_mean": 0.4536,
+      "per_fold_val_rae_std": 0.0509,
+      "fold_q50_mean": 4.8835,
+      "fold_q50_std": 0.0267,
+      "fold_high_share_mean": 0.5062
+    }
+  ],
+  "pooled_rae_array": [
+    0.448,
+    0.4478,
+    0.4476,
+    0.4478,
+    0.4475
+  ],
+  "mean_rae": 0.4477,
+  "std_rae": 0.0002,
+  "sem_rae": 0.0001,
+  "ci95_low": 0.4475,
+  "ci95_high": 0.448,
+  "median_rae": 0.4478,
+  "min_rae": 0.4475,
+  "max_rae": 0.448,
+  "ref_nb3030": 0.4509,
+  "ref_nb3002": 0.4501,
+  "ref_K18_deep30": 0.4536,
+  "ref_K19_deep30": 0.4607,
+  "ref_nb2171": 0.4682,
+  "delta_vs_nb3030": -0.0032,
+  "deploy_q50": 4.8845,
+  "te_low_share": 0.5127,
+  "te_mean": 4.733813285827637,
+  "te_std": 0.7710270285606384,
+  "te_unb_in_sample_rae": 0.1898,
+  "median_seed": 1052,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb3063_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb3063.npy",
+  "submission_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb3063_quantile_conditional_blend.csv",
+  "gate_better_than_nb3030": 0.4509,
+  "verdict": "BETTER_THAN_NB3030",
+  "ladder_action": "PROMOTE candidate. nb3063 quantile-conditional blend mean 0.4477 beats nb3030 ceiling 0.4509 (-0.0032). Re-verify with wide-seed (>=15) before deploy.",
+  "wall_sec": 0.1
+}

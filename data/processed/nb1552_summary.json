@@ -1,0 +1,230 @@
+{
+  "tag": "nb1552",
+  "parent_method": "nb1550",
+  "anchor": "chemprop_aux",
+  "anchor_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+  "anchor_kind": "PRE_unblind_te_513",
+  "rae_anchor": 0.6215728863514471,
+  "blend_recipe": "mean_of_4_family_deploy_residuals_added_to_anchor",
+  "families": [
+    {
+      "name": "AtomPair-30+ChEMBL",
+      "K": 30,
+      "info": {
+        "family": "AtomPair-30+ChEMBL",
+        "n_features": 32,
+        "per_seed_records": [
+          {
+            "seed": 0,
+            "in_sample_rae_253": 0.4366739177300439,
+            "resid_513_mean": -0.14739214849740243,
+            "resid_513_std": 0.294256717015527
+          },
+          {
+            "seed": 1,
+            "in_sample_rae_253": 0.4386966931723119,
+            "resid_513_mean": -0.14800704406934015,
+            "resid_513_std": 0.2921875639675315
+          },
+          {
+            "seed": 7,
+            "in_sample_rae_253": 0.4429821954467567,
+            "resid_513_mean": -0.14652756407091685,
+            "resid_513_std": 0.2908653109958005
+          },
+          {
+            "seed": 42,
+            "in_sample_rae_253": 0.4427663061725656,
+            "resid_513_mean": -0.14884623390571916,
+            "resid_513_std": 0.29618913360124627
+          },
+          {
+            "seed": 137,
+            "in_sample_rae_253": 0.4441613668571701,
+            "resid_513_mean": -0.15088762154867108,
+            "resid_513_std": 0.2933121083638009
+          }
+        ],
+        "mean_resid_513_stats": {
+          "mean": -0.14833212241840996,
+          "std": 0.29163662337738805,
+          "min": -1.1296445057429794,
+          "max": 0.6777555937451115
+        }
+      }
+    },
+    {
+      "name": "MACCS-20+ChEMBL",
+      "K": 20,
+      "info": {
+        "family": "MACCS-20+ChEMBL",
+        "n_features": 22,
+        "per_seed_records": [
+          {
+            "seed": 0,
+            "in_sample_rae_253": 0.4778904492992457,
+            "resid_513_mean": -0.13821271790675613,
+            "resid_513_std": 0.2736364870801969
+          },
+          {
+            "seed": 1,
+            "in_sample_rae_253": 0.48051721909207457,
+            "resid_513_mean": -0.13414853706075355,
+            "resid_513_std": 0.2664693322000096
+          },
+          {
+            "seed": 7,
+            "in_sample_rae_253": 0.4768383830727947,
+            "resid_513_mean": -0.13639752432799226,
+            "resid_513_std": 0.28175213788607895
+          },
+          {
+            "seed": 42,
+            "in_sample_rae_253": 0.48064449490716715,
+            "resid_513_mean": -0.13705163749099902,
+            "resid_513_std": 0.27107483509990327
+          },
+          {
+            "seed": 137,
+            "in_sample_rae_253": 0.4808341665010522,
+            "resid_513_mean": -0.13057995083212942,
+            "resid_513_std": 0.2702931351819374
+          }
+        ],
+        "mean_resid_513_stats": {
+          "mean": -0.13527807352372612,
+          "std": 0.271049856997993,
+          "min": -1.1371924289998678,
+          "max": 0.490452012139363
+        }
+      }
+    },
+    {
+      "name": "Mordred-30+ChEMBL",
+      "K": 30,
+      "info": {
+        "family": "Mordred-30+ChEMBL",
+        "n_features": 32,
+        "per_seed_records": [
+          {
+            "seed": 0,
+            "in_sample_rae_253": 0.3877741563155838,
+            "resid_513_mean": -0.13702464872366843,
+            "resid_513_std": 0.31894105034457926
+          },
+          {
+            "seed": 1,
+            "in_sample_rae_253": 0.3881804778708159,
+            "resid_513_mean": -0.14559002262945467,
+            "resid_513_std": 0.32383082737492414
+          },
+          {
+            "seed": 7,
+            "in_sample_rae_253": 0.3858866424751492,
+            "resid_513_mean": -0.139879842766829,
+            "resid_513_std": 0.3133675813926301
+          },
+          {
+            "seed": 42,
+            "in_sample_rae_253": 0.38034859544061694,
+            "resid_513_mean": -0.14436975226533913,
+            "resid_513_std": 0.32388756191863205
+          },
+          {
+            "seed": 137,
+            "in_sample_rae_253": 0.39223763826711455,
+            "resid_513_mean": -0.14404452503191562,
+            "resid_513_std": 0.32193340762358197
+          }
+        ],
+        "mean_resid_513_stats": {
+          "mean": -0.14218175828344137,
+          "std": 0.31833320058089204,
+          "min": -1.2945527056565898,
+          "max": 0.7979688309837579
+        }
+      }
+    },
+    {
+      "name": "ChempropEmbed-20+ChEMBL",
+      "K": 20,
+      "info": {
+        "family": "ChempropEmbed-20+ChEMBL",
+        "n_features": 22,
+        "per_seed_records": [
+          {
+            "seed": 0,
+            "in_sample_rae_253": 0.3803413949523748,
+            "resid_513_mean": -0.0833409235585423,
+            "resid_513_std": 0.3456098585650108
+          },
+          {
+            "seed": 1,
+            "in_sample_rae_253": 0.38642371996329666,
+            "resid_513_mean": -0.08260409319634594,
+            "resid_513_std": 0.3433463260106931
+          },
+          {
+            "seed": 7,
+            "in_sample_rae_253": 0.3842204366276011,
+            "resid_513_mean": -0.08077135066537706,
+            "resid_513_std": 0.33967089680596424
+          },
+          {
+            "seed": 42,
+            "in_sample_rae_253": 0.3861024644166512,
+            "resid_513_mean": -0.07943003318604114,
+            "resid_513_std": 0.34246688397243463
+          },
+          {
+            "seed": 137,
+            "in_sample_rae_253": 0.3773597176241853,
+            "resid_513_mean": -0.07664201487404453,
+            "resid_513_std": 0.3413856430339655
+          }
+        ],
+        "mean_resid_513_stats": {
+          "mean": -0.0805576830960702,
+          "std": 0.3402304366368369,
+          "min": -1.1805797106999925,
+          "max": 0.6917168910493969
+        }
+      }
+    }
+  ],
+  "resid_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "lgbm_params": {
+    "objective": "huber",
+    "alpha": 1.0,
+    "max_depth": 3,
+    "num_leaves": 7,
+    "n_estimators": 80,
+    "learning_rate": 0.05
+  },
+  "n_test": 513,
+  "n_unb": 253,
+  "te_nb1552_stats": {
+    "mean": 4.704686482529439,
+    "std": 0.6867370513493197,
+    "min": 2.069693501850878,
+    "max": 5.966930438873091
+  },
+  "per_family_in_rae_unb": {
+    "AtomPair-30": 0.4402881210368265,
+    "MACCS-20": 0.4783390651619505,
+    "Mordred-30": 0.38571168257496247,
+    "ChempropEmbed-20": 0.3817031587214301
+  },
+  "in_rae_unb_blend": 0.3975204819866279,
+  "delta_blend_vs_anchor": -0.2240524043648192,
+  "honest_lb_anchor_nb1550": 0.521,
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb1552.npy",
+  "csv_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1552_deploy_nb1550.csv",
+  "wall_sec": 0.31
+}

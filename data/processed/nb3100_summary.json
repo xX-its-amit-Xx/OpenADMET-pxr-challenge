@@ -1,0 +1,241 @@
+{
+  "tag": "nb3100",
+  "parent_tag": "nb3090",
+  "method": "holdout_grade_deep_verify_quantile_conditional_hard_split_blend_K18_K19_deep30_nb3090_best_combo",
+  "anchor_pool": [
+    "K18",
+    "K19"
+  ],
+  "anchor_depth": {
+    "K18": "deep30",
+    "K19": "deep30"
+  },
+  "anchor_pre_unblind": true,
+  "per_K_full_oof_rae": {
+    "K18": 0.4536,
+    "K19": 0.4607
+  },
+  "anchor_leak_eq_truth_frac": {
+    "K18": 0.0,
+    "K19": 0.0
+  },
+  "oof_pairwise_corr": 0.9846,
+  "best_combo": {
+    "q_cut": 0.35,
+    "w_K18_low": 0.95,
+    "w_K19_low": 0.050000000000000044,
+    "w_K18_high": 0.4,
+    "w_K19_high": 0.6
+  },
+  "n_folds": 5,
+  "kf_seeds": [
+    1141,
+    1142,
+    1143,
+    1144,
+    1145,
+    1146,
+    1147,
+    1148,
+    1149,
+    1150,
+    1151,
+    1152,
+    1153,
+    1154,
+    1155
+  ],
+  "n_seeds": 15,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "seed_records": [
+    {
+      "kf_seed": 1141,
+      "pooled_rae": 0.4475,
+      "per_fold_val_rae_mean": 0.4568,
+      "per_fold_val_rae_std": 0.0665,
+      "fold_q_thr_mean": 4.5402,
+      "fold_q_thr_std": 0.0672,
+      "fold_high_share_mean": 0.6482
+    },
+    {
+      "kf_seed": 1142,
+      "pooled_rae": 0.4487,
+      "per_fold_val_rae_mean": 0.4519,
+      "per_fold_val_rae_std": 0.0487,
+      "fold_q_thr_mean": 4.5476,
+      "fold_q_thr_std": 0.0576,
+      "fold_high_share_mean": 0.6441
+    },
+    {
+      "kf_seed": 1143,
+      "pooled_rae": 0.4476,
+      "per_fold_val_rae_mean": 0.4814,
+      "per_fold_val_rae_std": 0.0738,
+      "fold_q_thr_mean": 4.5448,
+      "fold_q_thr_std": 0.1285,
+      "fold_high_share_mean": 0.6405
+    },
+    {
+      "kf_seed": 1144,
+      "pooled_rae": 0.4479,
+      "per_fold_val_rae_mean": 0.4638,
+      "per_fold_val_rae_std": 0.0923,
+      "fold_q_thr_mean": 4.5465,
+      "fold_q_thr_std": 0.055,
+      "fold_high_share_mean": 0.6442
+    },
+    {
+      "kf_seed": 1145,
+      "pooled_rae": 0.4478,
+      "per_fold_val_rae_mean": 0.4621,
+      "per_fold_val_rae_std": 0.0624,
+      "fold_q_thr_mean": 4.5386,
+      "fold_q_thr_std": 0.0924,
+      "fold_high_share_mean": 0.6569
+    },
+    {
+      "kf_seed": 1146,
+      "pooled_rae": 0.4473,
+      "per_fold_val_rae_mean": 0.4505,
+      "per_fold_val_rae_std": 0.0476,
+      "fold_q_thr_mean": 4.547,
+      "fold_q_thr_std": 0.0696,
+      "fold_high_share_mean": 0.6356
+    },
+    {
+      "kf_seed": 1147,
+      "pooled_rae": 0.4469,
+      "per_fold_val_rae_mean": 0.4493,
+      "per_fold_val_rae_std": 0.0447,
+      "fold_q_thr_mean": 4.5391,
+      "fold_q_thr_std": 0.0532,
+      "fold_high_share_mean": 0.6555
+    },
+    {
+      "kf_seed": 1148,
+      "pooled_rae": 0.4484,
+      "per_fold_val_rae_mean": 0.4507,
+      "per_fold_val_rae_std": 0.0537,
+      "fold_q_thr_mean": 4.5413,
+      "fold_q_thr_std": 0.0331,
+      "fold_high_share_mean": 0.6524
+    },
+    {
+      "kf_seed": 1149,
+      "pooled_rae": 0.4481,
+      "per_fold_val_rae_mean": 0.4532,
+      "per_fold_val_rae_std": 0.0542,
+      "fold_q_thr_mean": 4.5443,
+      "fold_q_thr_std": 0.0617,
+      "fold_high_share_mean": 0.6486
+    },
+    {
+      "kf_seed": 1150,
+      "pooled_rae": 0.4484,
+      "per_fold_val_rae_mean": 0.469,
+      "per_fold_val_rae_std": 0.0518,
+      "fold_q_thr_mean": 4.5413,
+      "fold_q_thr_std": 0.0683,
+      "fold_high_share_mean": 0.652
+    },
+    {
+      "kf_seed": 1151,
+      "pooled_rae": 0.4458,
+      "per_fold_val_rae_mean": 0.461,
+      "per_fold_val_rae_std": 0.0499,
+      "fold_q_thr_mean": 4.5484,
+      "fold_q_thr_std": 0.0694,
+      "fold_high_share_mean": 0.6364
+    },
+    {
+      "kf_seed": 1152,
+      "pooled_rae": 0.4469,
+      "per_fold_val_rae_mean": 0.4584,
+      "per_fold_val_rae_std": 0.0627,
+      "fold_q_thr_mean": 4.5457,
+      "fold_q_thr_std": 0.0903,
+      "fold_high_share_mean": 0.6475
+    },
+    {
+      "kf_seed": 1153,
+      "pooled_rae": 0.4477,
+      "per_fold_val_rae_mean": 0.4676,
+      "per_fold_val_rae_std": 0.0739,
+      "fold_q_thr_mean": 4.5391,
+      "fold_q_thr_std": 0.0574,
+      "fold_high_share_mean": 0.6485
+    },
+    {
+      "kf_seed": 1154,
+      "pooled_rae": 0.4478,
+      "per_fold_val_rae_mean": 0.4642,
+      "per_fold_val_rae_std": 0.1163,
+      "fold_q_thr_mean": 4.5393,
+      "fold_q_thr_std": 0.0655,
+      "fold_high_share_mean": 0.6516
+    },
+    {
+      "kf_seed": 1155,
+      "pooled_rae": 0.4473,
+      "per_fold_val_rae_mean": 0.461,
+      "per_fold_val_rae_std": 0.0311,
+      "fold_q_thr_mean": 4.5336,
+      "fold_q_thr_std": 0.0812,
+      "fold_high_share_mean": 0.6551
+    }
+  ],
+  "pooled_rae_array": [
+    0.4475,
+    0.4487,
+    0.4476,
+    0.4479,
+    0.4478,
+    0.4473,
+    0.4469,
+    0.4484,
+    0.4481,
+    0.4484,
+    0.4458,
+    0.4469,
+    0.4477,
+    0.4478,
+    0.4473
+  ],
+  "mean_rae": 0.4476,
+  "std_rae": 0.0007,
+  "sem_rae": 0.0002,
+  "ci95_low": 0.4472,
+  "ci95_high": 0.448,
+  "median_rae": 0.4477,
+  "min_rae": 0.4458,
+  "max_rae": 0.4487,
+  "ref_parent_15seed_mean": 0.4472,
+  "ref_parent_15seed_std": 0.0008,
+  "shift_vs_parent_15seed": 0.0004,
+  "cross_batch_std_ratio": 0.91,
+  "ref_nb3080": 0.4475,
+  "ref_nb3070": 0.4477,
+  "ref_nb3030": 0.4509,
+  "ref_K18_deep30": 0.4536,
+  "ref_K19_deep30": 0.4607,
+  "ref_nb2171": 0.4682,
+  "delta_vs_nb3080": 0.0001,
+  "delta_vs_nb3030": -0.0033,
+  "deploy_q_thr": 4.5501,
+  "te_low_share": 0.3489,
+  "te_mean": 4.7315850257873535,
+  "te_std": 0.7740574479103088,
+  "te_unb_in_sample_rae": 0.1889,
+  "median_seed": 1153,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb3100_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb3100.npy",
+  "submission_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb3100_deep_verify_nb3090.csv",
+  "gate_verified_new_primary1": 0.4475,
+  "gate_verified_marginal": 0.4477,
+  "gate_lucky_selection_shift": 0.005,
+  "verdict": "VERIFIED_MARGINAL",
+  "ladder_action": "PROMOTE-MARGINAL. nb3100 fresh-batch 15-seed mean 0.4476 inside PROMOTE band (< 0.4477 nb3070 ref) but does NOT beat nb3080 ceiling 0.4475 (+0.0001). Shift vs nb3090 15-seed = +0.0004. nb3090 best combo VERIFIED as alternate candidate; keep nb3080 / prior PRIMARY-1.",
+  "wall_sec": 0.11
+}

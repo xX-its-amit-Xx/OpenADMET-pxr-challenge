@@ -1,0 +1,235 @@
+{
+  "tag": "nb3091",
+  "parent_tag": "nb3080",
+  "method": "quantile_conditional_hard_split_blend_K18_K20_deep30_new_paradigm_K20_swap",
+  "anchor_pool": [
+    "K18",
+    "K20"
+  ],
+  "anchor_depth": {
+    "K18": "deep30",
+    "K20": "deep30"
+  },
+  "anchor_pre_unblind": true,
+  "per_K_full_oof_rae": {
+    "K18": 0.4536,
+    "K20": 0.4625
+  },
+  "anchor_leak_eq_truth_frac": {
+    "K18": 0.0,
+    "K20": 0.0
+  },
+  "oof_pairwise_corr": 0.985,
+  "weights": {
+    "q_cut": 0.5,
+    "w_K18_low": 0.8,
+    "w_K20_low": 0.19999999999999996,
+    "w_K18_high": 0.5,
+    "w_K20_high": 0.5
+  },
+  "n_folds": 5,
+  "kf_seeds": [
+    1126,
+    1127,
+    1128,
+    1129,
+    1130,
+    1131,
+    1132,
+    1133,
+    1134,
+    1135,
+    1136,
+    1137,
+    1138,
+    1139,
+    1140
+  ],
+  "n_seeds": 15,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "seed_records": [
+    {
+      "kf_seed": 1126,
+      "pooled_rae": 0.4486,
+      "per_fold_val_rae_mean": 0.4547,
+      "per_fold_val_rae_std": 0.0517,
+      "fold_q_thr_mean": 4.8841,
+      "fold_q_thr_std": 0.0204,
+      "fold_high_share_mean": 0.5056
+    },
+    {
+      "kf_seed": 1127,
+      "pooled_rae": 0.4491,
+      "per_fold_val_rae_mean": 0.4525,
+      "per_fold_val_rae_std": 0.0447,
+      "fold_q_thr_mean": 4.8894,
+      "fold_q_thr_std": 0.0266,
+      "fold_high_share_mean": 0.5016
+    },
+    {
+      "kf_seed": 1128,
+      "pooled_rae": 0.4486,
+      "per_fold_val_rae_mean": 0.46,
+      "per_fold_val_rae_std": 0.101,
+      "fold_q_thr_mean": 4.8857,
+      "fold_q_thr_std": 0.0168,
+      "fold_high_share_mean": 0.5058
+    },
+    {
+      "kf_seed": 1129,
+      "pooled_rae": 0.4493,
+      "per_fold_val_rae_mean": 0.4585,
+      "per_fold_val_rae_std": 0.0523,
+      "fold_q_thr_mean": 4.8875,
+      "fold_q_thr_std": 0.0324,
+      "fold_high_share_mean": 0.5056
+    },
+    {
+      "kf_seed": 1130,
+      "pooled_rae": 0.4489,
+      "per_fold_val_rae_mean": 0.4847,
+      "per_fold_val_rae_std": 0.0995,
+      "fold_q_thr_mean": 4.8923,
+      "fold_q_thr_std": 0.0471,
+      "fold_high_share_mean": 0.5048
+    },
+    {
+      "kf_seed": 1131,
+      "pooled_rae": 0.4487,
+      "per_fold_val_rae_mean": 0.4682,
+      "per_fold_val_rae_std": 0.0889,
+      "fold_q_thr_mean": 4.8836,
+      "fold_q_thr_std": 0.0296,
+      "fold_high_share_mean": 0.5131
+    },
+    {
+      "kf_seed": 1132,
+      "pooled_rae": 0.4486,
+      "per_fold_val_rae_mean": 0.4496,
+      "per_fold_val_rae_std": 0.0554,
+      "fold_q_thr_mean": 4.8868,
+      "fold_q_thr_std": 0.0306,
+      "fold_high_share_mean": 0.5055
+    },
+    {
+      "kf_seed": 1133,
+      "pooled_rae": 0.4492,
+      "per_fold_val_rae_mean": 0.4612,
+      "per_fold_val_rae_std": 0.0803,
+      "fold_q_thr_mean": 4.8871,
+      "fold_q_thr_std": 0.0121,
+      "fold_high_share_mean": 0.4943
+    },
+    {
+      "kf_seed": 1134,
+      "pooled_rae": 0.4494,
+      "per_fold_val_rae_mean": 0.4567,
+      "per_fold_val_rae_std": 0.0582,
+      "fold_q_thr_mean": 4.8907,
+      "fold_q_thr_std": 0.0445,
+      "fold_high_share_mean": 0.506
+    },
+    {
+      "kf_seed": 1135,
+      "pooled_rae": 0.4489,
+      "per_fold_val_rae_mean": 0.4782,
+      "per_fold_val_rae_std": 0.0744,
+      "fold_q_thr_mean": 4.8818,
+      "fold_q_thr_std": 0.029,
+      "fold_high_share_mean": 0.5173
+    },
+    {
+      "kf_seed": 1136,
+      "pooled_rae": 0.4489,
+      "per_fold_val_rae_mean": 0.4605,
+      "per_fold_val_rae_std": 0.035,
+      "fold_q_thr_mean": 4.8855,
+      "fold_q_thr_std": 0.0275,
+      "fold_high_share_mean": 0.5094
+    },
+    {
+      "kf_seed": 1137,
+      "pooled_rae": 0.4489,
+      "per_fold_val_rae_mean": 0.4569,
+      "per_fold_val_rae_std": 0.0633,
+      "fold_q_thr_mean": 4.8879,
+      "fold_q_thr_std": 0.0452,
+      "fold_high_share_mean": 0.5091
+    },
+    {
+      "kf_seed": 1138,
+      "pooled_rae": 0.449,
+      "per_fold_val_rae_mean": 0.4592,
+      "per_fold_val_rae_std": 0.0514,
+      "fold_q_thr_mean": 4.8862,
+      "fold_q_thr_std": 0.026,
+      "fold_high_share_mean": 0.5021
+    },
+    {
+      "kf_seed": 1139,
+      "pooled_rae": 0.4489,
+      "per_fold_val_rae_mean": 0.4541,
+      "per_fold_val_rae_std": 0.0801,
+      "fold_q_thr_mean": 4.8855,
+      "fold_q_thr_std": 0.029,
+      "fold_high_share_mean": 0.5141
+    },
+    {
+      "kf_seed": 1140,
+      "pooled_rae": 0.4488,
+      "per_fold_val_rae_mean": 0.4553,
+      "per_fold_val_rae_std": 0.0422,
+      "fold_q_thr_mean": 4.8839,
+      "fold_q_thr_std": 0.0244,
+      "fold_high_share_mean": 0.5054
+    }
+  ],
+  "pooled_rae_array": [
+    0.4486,
+    0.4491,
+    0.4486,
+    0.4493,
+    0.4489,
+    0.4487,
+    0.4486,
+    0.4492,
+    0.4494,
+    0.4489,
+    0.4489,
+    0.4489,
+    0.449,
+    0.4489,
+    0.4488
+  ],
+  "mean_rae": 0.4489,
+  "std_rae": 0.0002,
+  "sem_rae": 0.0001,
+  "ci95_low": 0.4488,
+  "ci95_high": 0.449,
+  "median_rae": 0.4489,
+  "min_rae": 0.4486,
+  "max_rae": 0.4494,
+  "ref_nb3073_5seed_K18_K19": 0.447,
+  "ref_nb3030": 0.4509,
+  "ref_K18_deep30": 0.4536,
+  "ref_K20_deep30": 0.4625,
+  "ref_nb2171": 0.4682,
+  "delta_vs_nb3030": -0.002,
+  "delta_vs_K18_alone": -0.0047,
+  "delta_vs_K20_alone": -0.0136,
+  "deploy_q_thr": 4.8845,
+  "te_low_share": 0.5127,
+  "te_mean": 4.733739852905273,
+  "te_std": 0.7701957821846008,
+  "te_unb_in_sample_rae": 0.1892,
+  "median_seed": 1139,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb3091_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb3091.npy",
+  "submission_csv": null,
+  "gate_better_than_nb3080": 0.4475,
+  "verdict": "FAIL",
+  "ladder_action": "FAIL. nb3091 K18+K20 quantile-conditional 15-seed mean 0.4489 does not beat gate 0.4475 (+0.0014). K20 partner anchor weaker than K19 in this hard-split pattern (K20 standalone 0.4625 vs K19 standalone 0.4607; +0.0018 penalty). Keep K18+K19 quantile blend; K20 paradigm closed.",
+  "wall_sec": 0.1
+}

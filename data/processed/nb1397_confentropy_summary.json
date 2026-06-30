@@ -1,0 +1,20 @@
+{
+  "approach": "conf_entropy_proxy_7scalars_on_deployed_COMP-M_config",
+  "axis": "conformational entropy / Boltzmann free-energy multiplicity (cheap CREST analog)",
+  "ctrl_rae": 0.423843191108,
+  "treat_rae": 0.4243798529983729,
+  "delta": 0.0005366618903728804,
+  "ctrl_raes": [
+    0.42565740285514175,
+    0.44347193722815337,
+    0.40240023324070484
+  ],
+  "treat_raes": [
+    0.4260398131193234,
+    0.44560542838076533,
+    0.40149431749502984
+  ],
+  "n_neg": 1,
+  "deployed_best": 0.4149,
+  "gate_pass": false
+}

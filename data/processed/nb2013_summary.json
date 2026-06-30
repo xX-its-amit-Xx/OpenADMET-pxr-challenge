@@ -1,0 +1,38 @@
+{
+  "tag": "nb2013",
+  "method": "two_stage_nb1191_plus_residual_LGBM_K28_with_meta",
+  "stage1_anchor": "nb1191_reconstructed",
+  "nb1191_oof_rae_local": 0.46972909603198343,
+  "nb1191_oof_rae_ref": 0.4703,
+  "residual_mean": -0.0010624258857293413,
+  "residual_std": 0.5241241710344351,
+  "stage2_top_K_shap": 28,
+  "stage2_meta_features": [
+    "max_train_sim",
+    "scaf_train_freq",
+    "scaf_id_hash_buckets_8"
+  ],
+  "feat_dim_total": 38,
+  "resid_seeds": [
+    0,
+    1,
+    7
+  ],
+  "resid_folds": 5,
+  "per_seed_final_oof_rae": [
+    0.5388473546820379,
+    0.5502108682440919,
+    0.543262624404057
+  ],
+  "final_oof_rae_mean_bag": 0.5243618810524802,
+  "delta_vs_nb1191": 0.05463278502049673,
+  "decision_margin": 0.003,
+  "beats_nb1191": false,
+  "verdict": "HURTS_NB1191",
+  "deploy_te_mean": 4.686063289642334,
+  "deploy_te_std": 0.9303264617919922,
+  "te_unb_rae_in_sample": 0.1651090369653364,
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2013.npy",
+  "submission_csv": null,
+  "wall_sec": 7.56
+}

@@ -1,0 +1,6 @@
+{
+  "test_nn_dist_median": 15.24003424328642,
+  "train_nn_dist_median": 14.870186573855072,
+  "frac_test_far": 0.1286549707602339,
+  "corr_nndist_error": 0.02379835069860102
+}

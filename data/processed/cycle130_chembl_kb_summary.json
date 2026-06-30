@@ -1,0 +1,34 @@
+{
+  "n_pxr_chembl3401_raw_high_quality": 1132,
+  "n_nr_extended_raw": 11496,
+  "nr_per_target_raw": {
+    "PPARg": 4302,
+    "FXR": 3185,
+    "RXRa": 1364,
+    "LXRa": 1173,
+    "PXR": 945,
+    "VDR": 523,
+    "PPARa": 4
+  },
+  "n_kb_rows_final": 11185,
+  "kb_per_target_final": {
+    "NR_PPARg": 4220,
+    "NR_FXR": 3135,
+    "NR_RXRa": 1315,
+    "NR_LXRa": 1137,
+    "PXR_CHEMBL3401": 726,
+    "NR_VDR": 491,
+    "NR_PXR": 157,
+    "NR_PPARa": 4
+  },
+  "n_unique_external_scaffolds": 4003,
+  "n_novel_scaffolds_vs_test513": 11005,
+  "n_shared_scaffolds_with_test513": 180,
+  "test_top1_sim_to_kb_median": 0.29508196721311475,
+  "test_top1_sim_to_train_median": 0.5230769230769231,
+  "f2_cohort_size_train_sim_lt_040": 9,
+  "f2_kb_helps_count": 3,
+  "f2_median_kb_top1_sim": 0.2976190476190476,
+  "f2_median_sim_gain_from_kb": -0.0730769230769231,
+  "output_path": "data\\external\\chembl_pxr_nr_kb.parquet"
+}

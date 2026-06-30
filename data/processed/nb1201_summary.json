@@ -1,0 +1,68 @@
+{
+  "tag": "nb1201",
+  "method": "second_pass_rank_stretch_on_nb1191_reconstructed_OOF",
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "kf_seeds_for_nb1191_replay": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "cv_seed_for_second_pass": 1001,
+  "nb1191_internal_stretch_grid": [
+    1.0,
+    1.025,
+    1.05,
+    1.075,
+    1.1,
+    1.125,
+    1.15
+  ],
+  "second_pass_grid": [
+    1.0,
+    1.02,
+    1.05,
+    1.08,
+    1.1,
+    1.12
+  ],
+  "rae_per_s_fixed": {
+    "1.00": 0.46972909603198343,
+    "1.02": 0.46997482513190714,
+    "1.05": 0.47151562356795196,
+    "1.08": 0.4740900429782108,
+    "1.10": 0.47626376645948937,
+    "1.12": 0.47937996993772064
+  },
+  "rae_baseline_nb1191_oof": 0.46972909603198343,
+  "rae_baseline_memo": 0.4703,
+  "rae_perfold_crossfit": 0.4705777429118989,
+  "fold_s_picks": [
+    1.0,
+    1.0,
+    1.0,
+    1.02,
+    1.0
+  ],
+  "best_s": 1.0,
+  "rae_best_s": 0.46972909603198343,
+  "improvement_vs_baseline": 0.0,
+  "gate_best_s_min": 1.03,
+  "gate_improvement_min": 0.003,
+  "gate_a_best_s_ge_min": false,
+  "gate_b_improve_ge_min": false,
+  "gate_pass": false,
+  "deploy_mu_from_te_nb1191": 4.710525180861267,
+  "deploy_s": 1.0,
+  "deploy_te_mean": 4.7105255126953125,
+  "deploy_te_std": 0.8029069900512695,
+  "te_unb_rae_in_sample": 0.26310103031697585,
+  "te_nb1191_input_mean": 4.710525180861267,
+  "te_nb1191_input_std": 0.8029069860616294,
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb1201.npy",
+  "submission_csv": null,
+  "wall_sec": 0.13
+}

@@ -1,0 +1,9 @@
+{
+  "honest_253_rae": 0.5799,
+  "deploy_253_insample_rae": 0.5636,
+  "n260": 260,
+  "gate_fired_260": 4,
+  "pred260_mean": 4.873,
+  "pred260_std": 0.715,
+  "clean_base_models": 29
+}

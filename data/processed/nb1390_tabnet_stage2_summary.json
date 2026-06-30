@@ -1,0 +1,31 @@
+{
+  "control_deployed_rae": 0.41473806220698944,
+  "best_rae": 0.4149,
+  "feature": "tabnet_stage2_on_deployed_soap_pmapper",
+  "note": "COMP-O only tested over SOAP-alone; this tests on DEPLOYED [SOAP|PMapper]",
+  "treatA_a100": {
+    "treat_rae": 0.4165037017912551,
+    "delta": 0.001765639584265677,
+    "n_neg": 1,
+    "gate_pass": false
+  },
+  "treatA_a1000": {
+    "treat_rae": 0.41552958026692005,
+    "delta": 0.0007915180599306071,
+    "n_neg": 1,
+    "gate_pass": false
+  },
+  "treatB_a100": {
+    "treat_rae": 0.41733178356487827,
+    "delta": 0.002593721357888823,
+    "n_neg": 1,
+    "gate_pass": false
+  },
+  "treatB_a1000": {
+    "treat_rae": 0.4159326306942977,
+    "delta": 0.0011945684873082563,
+    "n_neg": 1,
+    "gate_pass": false
+  },
+  "deploy_candidate": null
+}

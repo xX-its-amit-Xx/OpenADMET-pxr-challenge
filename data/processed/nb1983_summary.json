@@ -1,0 +1,57 @@
+{
+  "tag": "nb1983",
+  "approach": "LGBM_direct_on_full_4139_train_labels_no_anchor_no_residual",
+  "lgbm_params": {
+    "objective": "regression",
+    "max_depth": 4,
+    "num_leaves": 15,
+    "n_estimators": 300,
+    "learning_rate": 0.03,
+    "min_child_samples": 20
+  },
+  "seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "n_train": 4139,
+  "n_test": 513,
+  "n_unb": 253,
+  "n_chembl_pool": 901,
+  "feat_dim": 117,
+  "K_tuned_config": {
+    "AtomPair": 25,
+    "MACCS": 20,
+    "Mordred": 20,
+    "ChempropEmbed": 20,
+    "Avalon": 30,
+    "extras": [
+      "pred_chembl_pec50",
+      "mean_sim"
+    ]
+  },
+  "cv_rae_per_seed_train": [
+    0.5733246664691127,
+    0.5733246664691127,
+    0.5733246664691127,
+    0.5733246664691127,
+    0.5733246664691127
+  ],
+  "cv_rae_mean_bag_train": 0.5733246674639096,
+  "unb_rae_per_seed": [
+    0.6791238058835439,
+    0.6791238058835439,
+    0.6791238058835439,
+    0.6791238058835439,
+    0.6791238058835439
+  ],
+  "unb_rae_per_seed_mean": 0.6791238058835439,
+  "unb_rae_mean_bag": 0.6791238031021165,
+  "chemprop_aux_ref": 0.6216,
+  "delta_mean_bag_vs_chemprop_aux": 0.057523803102116466,
+  "decision_margin": 0.003,
+  "verdict": "UNDERPERFORMS_CHEMPROP_AUX",
+  "wall_sec": 42.52
+}

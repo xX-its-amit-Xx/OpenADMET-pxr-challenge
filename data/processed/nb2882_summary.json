@@ -1,0 +1,274 @@
+{
+  "tag": "nb2882",
+  "method": "LGBM_leaf_conservative_depth3_pathsmooth2_chemprop_aux_residual",
+  "rationale": "Three orthogonal LGBM regularization knobs combined for the first time on this anchor: max_depth=3 (aggressively shallow trees, num_leaves=7 enforces exact budget), path_smooth=2.0 (heavy hierarchical Bayesian shrinkage of leaves toward parent node), and n_estimators=600 with lr=0.02 (many weak learners with small steps compensating for the heavy per-tree shrinkage).",
+  "anchor": "chemprop_aux",
+  "anchor_te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+  "anchor_pre_unblind": true,
+  "rae_anchor_chemprop_aux": 0.6215728863514471,
+  "chemprop_aux_ref": 0.6216,
+  "x117_unb_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\pyramid\\X_117_unb.npy",
+  "x117_te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\pyramid\\X_117_te.npy",
+  "k20_idx_source": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2240_summary.json",
+  "k20_surviving_idx_in_117": [
+    45,
+    67,
+    66,
+    68,
+    65,
+    92,
+    27,
+    77,
+    81,
+    56,
+    1,
+    7,
+    115,
+    93,
+    80,
+    11,
+    70,
+    54,
+    8,
+    57
+  ],
+  "k20_surviving_names": [
+    "Mordred_col_292",
+    "ChempropEmbed_dim_14",
+    "ChempropEmbed_dim_9",
+    "ChempropEmbed_dim_32",
+    "ChempropEmbed_dim_259",
+    "Avalon_bit_323",
+    "MACCS_bit_126",
+    "ChempropEmbed_dim_172",
+    "ChempropEmbed_dim_16",
+    "Mordred_col_454",
+    "AtomPair_bit_1733",
+    "AtomPair_bit_1729",
+    "pred_chembl_pec50",
+    "Avalon_bit_349",
+    "ChempropEmbed_dim_248",
+    "AtomPair_bit_1113",
+    "ChempropEmbed_dim_275",
+    "Mordred_col_329",
+    "AtomPair_bit_1086",
+    "Mordred_col_400"
+  ],
+  "n_unb": 253,
+  "n_test": 513,
+  "n_unique_scaffolds": 180,
+  "n_folds": 5,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "feat_dim": 20,
+  "lgbm_params": {
+    "objective": "regression",
+    "metric": "rmse",
+    "max_depth": 3,
+    "num_leaves": 7,
+    "n_estimators": 600,
+    "learning_rate": 0.02,
+    "lambda_l2": 2.0,
+    "path_smooth": 2.0,
+    "min_data_in_leaf": 10,
+    "feature_fraction": 0.9,
+    "bagging_fraction": 0.9,
+    "bagging_freq": 5,
+    "verbose": -1
+  },
+  "lgbm_boosting_seed": 1001,
+  "residual_mean": -0.1325965261753001,
+  "residual_std": 0.6999145683913596,
+  "per_seed_rae": [
+    0.5073478892328189,
+    0.5212400929667664,
+    0.5211923966612284,
+    0.5275719140740643,
+    0.540246517308935
+  ],
+  "per_seed_mean_rae": 0.5235197620487626,
+  "per_seed_std_rae": 0.010661587768390057,
+  "mean_bag_rae": 0.5049888274252088,
+  "median_bag_rae": 0.503006330511628,
+  "mean_rae": 0.5049888274252088,
+  "delta_vs_anchor": -0.11658405892623835,
+  "delta_vs_nb2240_K20_lgbm": 0.04198882742520876,
+  "nb2240_K20_lgbm_ref": 0.463,
+  "per_seed_fold_diagnostics": [
+    [
+      {
+        "fold": 0,
+        "n_tr": 202,
+        "n_va": 51,
+        "va_mae_resid": 0.3919766857402246
+      },
+      {
+        "fold": 1,
+        "n_tr": 202,
+        "n_va": 51,
+        "va_mae_resid": 0.5375424820658036
+      },
+      {
+        "fold": 2,
+        "n_tr": 202,
+        "n_va": 51,
+        "va_mae_resid": 0.38550542390335507
+      },
+      {
+        "fold": 3,
+        "n_tr": 203,
+        "n_va": 50,
+        "va_mae_resid": 0.33787503858313955
+      },
+      {
+        "fold": 4,
+        "n_tr": 203,
+        "n_va": 50,
+        "va_mae_resid": 0.37111141365853667
+      }
+    ],
+    [
+      {
+        "fold": 0,
+        "n_tr": 202,
+        "n_va": 51,
+        "va_mae_resid": 0.3266233365968756
+      },
+      {
+        "fold": 1,
+        "n_tr": 202,
+        "n_va": 51,
+        "va_mae_resid": 0.38680257930457745
+      },
+      {
+        "fold": 2,
+        "n_tr": 202,
+        "n_va": 51,
+        "va_mae_resid": 0.46718298291847354
+      },
+      {
+        "fold": 3,
+        "n_tr": 203,
+        "n_va": 50,
+        "va_mae_resid": 0.42347182911486314
+      },
+      {
+        "fold": 4,
+        "n_tr": 203,
+        "n_va": 50,
+        "va_mae_resid": 0.47876027582879455
+      }
+    ],
+    [
+      {
+        "fold": 0,
+        "n_tr": 202,
+        "n_va": 51,
+        "va_mae_resid": 0.3547825517208566
+      },
+      {
+        "fold": 1,
+        "n_tr": 202,
+        "n_va": 51,
+        "va_mae_resid": 0.4478527877018201
+      },
+      {
+        "fold": 2,
+        "n_tr": 202,
+        "n_va": 51,
+        "va_mae_resid": 0.46191963884430554
+      },
+      {
+        "fold": 3,
+        "n_tr": 203,
+        "n_va": 50,
+        "va_mae_resid": 0.39883405127835625
+      },
+      {
+        "fold": 4,
+        "n_tr": 203,
+        "n_va": 50,
+        "va_mae_resid": 0.41758030069806706
+      }
+    ],
+    [
+      {
+        "fold": 0,
+        "n_tr": 202,
+        "n_va": 51,
+        "va_mae_resid": 0.35061152184356054
+      },
+      {
+        "fold": 1,
+        "n_tr": 202,
+        "n_va": 51,
+        "va_mae_resid": 0.41444117207613385
+      },
+      {
+        "fold": 2,
+        "n_tr": 202,
+        "n_va": 51,
+        "va_mae_resid": 0.3975947382279559
+      },
+      {
+        "fold": 3,
+        "n_tr": 203,
+        "n_va": 50,
+        "va_mae_resid": 0.425693176823994
+      },
+      {
+        "fold": 4,
+        "n_tr": 203,
+        "n_va": 50,
+        "va_mae_resid": 0.5204479948160617
+      }
+    ],
+    [
+      {
+        "fold": 0,
+        "n_tr": 202,
+        "n_va": 51,
+        "va_mae_resid": 0.40418273321532794
+      },
+      {
+        "fold": 1,
+        "n_tr": 202,
+        "n_va": 51,
+        "va_mae_resid": 0.4019879690644763
+      },
+      {
+        "fold": 2,
+        "n_tr": 202,
+        "n_va": 51,
+        "va_mae_resid": 0.46600236988292
+      },
+      {
+        "fold": 3,
+        "n_tr": 203,
+        "n_va": 50,
+        "va_mae_resid": 0.3924568760760443
+      },
+      {
+        "fold": 4,
+        "n_tr": 203,
+        "n_va": 50,
+        "va_mae_resid": 0.4931891801777109
+      }
+    ]
+  ],
+  "te_unb_in_sample_rae": 0.21774702280253283,
+  "te_deploy_mean": 4.722058296203613,
+  "te_deploy_std": 0.8166742324829102,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2882_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2882.npy",
+  "submission_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb2882_leaf_conservative_lgbm.csv",
+  "gate_promote": 0.457,
+  "gate_marginal": 0.4598,
+  "verdict": "FAIL",
+  "wall_sec": 3.42
+}

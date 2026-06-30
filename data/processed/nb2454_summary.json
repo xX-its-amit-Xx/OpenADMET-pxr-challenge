@@ -1,0 +1,73 @@
+{
+  "tag": "nb2454",
+  "method": "echo_state_reservoir_on_chemprop_aux_residual",
+  "architecture": {
+    "input_dim": 1191,
+    "maccs_dim": 167,
+    "morgan_nbits": 1024,
+    "morgan_radius": 2,
+    "reservoir_dim": 500,
+    "spectral_radius": 0.9,
+    "n_timesteps": 5,
+    "ridge_alpha": 1.0,
+    "activation": "tanh"
+  },
+  "anchor": "chemprop_aux",
+  "anchor_in_rae": 0.6215728863514471,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "n_folds": 5,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "reservoir_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "per_seed_pooled": [
+    {
+      "kf_seed": 1001,
+      "pooled_rae": 0.6654823119902504
+    },
+    {
+      "kf_seed": 1002,
+      "pooled_rae": 0.7219898741081866
+    },
+    {
+      "kf_seed": 1003,
+      "pooled_rae": 0.6929494767226301
+    },
+    {
+      "kf_seed": 1004,
+      "pooled_rae": 0.7002541097206869
+    },
+    {
+      "kf_seed": 1005,
+      "pooled_rae": 0.6740848722812101
+    }
+  ],
+  "pooled_rae_mean_seeds": 0.6909521289645928,
+  "pooled_rae_std_seeds": 0.019935264193792775,
+  "rae_standalone_bag": 0.6575630754193081,
+  "delta_standalone_vs_anchor": 0.035990189067861,
+  "delta_standalone_vs_nb2240": 0.19456307541930812,
+  "nb2240_ref": 0.463,
+  "gate_standalone_threshold": 0.55,
+  "passed_standalone_gate": false,
+  "blend_block": null,
+  "te_unb_in_sample_rae": 0.21463529548724194,
+  "deploy_te_mean": 4.736192226409912,
+  "deploy_te_std": 0.8073062896728516,
+  "oof_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2454_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2454.npy",
+  "submission_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb2454_esn.csv",
+  "wall_sec": 2.45
+}

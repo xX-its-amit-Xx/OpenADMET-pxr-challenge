@@ -1,0 +1,580 @@
+{
+  "tag": "nb1510",
+  "deploy_of": "nb1500",
+  "anchor": "chemprop_aux",
+  "anchor_kind": "PRE_unblind_te",
+  "anchor_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+  "outer_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "inner_base_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "per_outer_inner_seeds": [
+    [
+      0,
+      1,
+      7,
+      42,
+      137
+    ],
+    [
+      1000,
+      1001,
+      1007,
+      1042,
+      1137
+    ],
+    [
+      7000,
+      7001,
+      7007,
+      7042,
+      7137
+    ],
+    [
+      42000,
+      42001,
+      42007,
+      42042,
+      42137
+    ],
+    [
+      137000,
+      137001,
+      137007,
+      137042,
+      137137
+    ]
+  ],
+  "families_order": [
+    "AtomPair",
+    "MACCS",
+    "Mordred",
+    "ChempropEmbed"
+  ],
+  "top_k_config": {
+    "AtomPair": 30,
+    "MACCS": 20,
+    "Mordred": 30,
+    "ChempropEmbed": 30
+  },
+  "families_top_idx_pinned_from_nb1484": {
+    "AtomPair": [
+      977,
+      1733,
+      1145,
+      1019,
+      1304,
+      1561,
+      797,
+      1729,
+      1086,
+      798,
+      1797,
+      1113,
+      296,
+      1720,
+      1893,
+      1313,
+      968,
+      766,
+      1644,
+      1272,
+      1444,
+      1806,
+      404,
+      769,
+      1393,
+      1118,
+      1124,
+      1764,
+      548,
+      1801
+    ],
+    "MACCS": [
+      126,
+      131,
+      106,
+      80,
+      150,
+      90,
+      115,
+      145,
+      74,
+      82,
+      144,
+      116,
+      155,
+      157,
+      153,
+      38,
+      147,
+      105,
+      138,
+      140
+    ],
+    "Mordred": [
+      292,
+      1197,
+      253,
+      770,
+      1228,
+      1494,
+      1176,
+      255,
+      297,
+      329,
+      431,
+      454,
+      400,
+      914,
+      239,
+      14,
+      1473,
+      1089,
+      447,
+      132,
+      1320,
+      1321,
+      182,
+      662,
+      1136,
+      1271,
+      1485,
+      463,
+      784,
+      474
+    ],
+    "ChempropEmbed": [
+      259,
+      9,
+      14,
+      32,
+      140,
+      275,
+      163,
+      74,
+      69,
+      181,
+      83,
+      18,
+      172,
+      21,
+      286,
+      248,
+      16,
+      297,
+      210,
+      59,
+      72,
+      54,
+      84,
+      161,
+      235,
+      158,
+      233,
+      164,
+      30,
+      55
+    ]
+  },
+  "n_test": 513,
+  "n_unb": 253,
+  "rae_anchor_chemprop_aux_in_RAE_unb": 0.6215728863514471,
+  "residual_mean": -0.1325965261753001,
+  "residual_std": 0.6999145683913596,
+  "per_outer_records": [
+    {
+      "outer_seed": 0,
+      "inner_seeds": [
+        0,
+        1,
+        7,
+        42,
+        137
+      ],
+      "families": [
+        {
+          "family": "AtomPair",
+          "per_seed_resid_std_513": [
+            0.2795751158159008,
+            0.2761310373095072,
+            0.2771085170936235,
+            0.28116880250285653,
+            0.2713235358385015
+          ],
+          "mean_bag_resid_513_mean": -0.12755547191562894,
+          "mean_bag_resid_513_std": 0.2750430970306205,
+          "in_RAE_unb_deploy_in_sample": 0.43755458624782595,
+          "wall_sec": 0.06
+        },
+        {
+          "family": "MACCS",
+          "per_seed_resid_std_513": [
+            0.258502413279637,
+            0.25353236575540683,
+            0.25338297537700616,
+            0.2455736778125568,
+            0.2513433381961559
+          ],
+          "mean_bag_resid_513_mean": -0.11793936710996722,
+          "mean_bag_resid_513_std": 0.25069824423908693,
+          "in_RAE_unb_deploy_in_sample": 0.46390692584336607,
+          "wall_sec": 0.05
+        },
+        {
+          "family": "Mordred",
+          "per_seed_resid_std_513": [
+            0.3119554419306668,
+            0.3100685573890573,
+            0.30366466499162675,
+            0.3095269946449036,
+            0.31086491347286377
+          ],
+          "mean_bag_resid_513_mean": -0.12362755491916338,
+          "mean_bag_resid_513_std": 0.30724371831538944,
+          "in_RAE_unb_deploy_in_sample": 0.384899889811768,
+          "wall_sec": 0.06
+        },
+        {
+          "family": "ChempropEmbed",
+          "per_seed_resid_std_513": [
+            0.33609497998326554,
+            0.3298797935437727,
+            0.33959412087788987,
+            0.3386008720253845,
+            0.33069636092233834
+          ],
+          "mean_bag_resid_513_mean": -0.08920197880326779,
+          "mean_bag_resid_513_std": 0.33265781574819664,
+          "in_RAE_unb_deploy_in_sample": 0.36915296348943194,
+          "wall_sec": 0.07
+        }
+      ],
+      "blend_resid_513_mean": -0.11458109318700684,
+      "blend_resid_513_std": 0.24541584951627365,
+      "in_RAE_unb_deploy_in_sample_blend": 0.3907879595931554,
+      "wall_sec": 0.24
+    },
+    {
+      "outer_seed": 1,
+      "inner_seeds": [
+        1000,
+        1001,
+        1007,
+        1042,
+        1137
+      ],
+      "families": [
+        {
+          "family": "AtomPair",
+          "per_seed_resid_std_513": [
+            0.27915961601273187,
+            0.27889532868925754,
+            0.27804259083061095,
+            0.272322090091533,
+            0.2774968434705098
+          ],
+          "mean_bag_resid_513_mean": -0.1276908991808061,
+          "mean_bag_resid_513_std": 0.27532216638730816,
+          "in_RAE_unb_deploy_in_sample": 0.4378457125933935,
+          "wall_sec": 0.05
+        },
+        {
+          "family": "MACCS",
+          "per_seed_resid_std_513": [
+            0.2550023122837618,
+            0.2588105270833967,
+            0.25115536004619665,
+            0.24459925225981485,
+            0.24920155670318905
+          ],
+          "mean_bag_resid_513_mean": -0.11463373006575672,
+          "mean_bag_resid_513_std": 0.24999806703135288,
+          "in_RAE_unb_deploy_in_sample": 0.4629467730800618,
+          "wall_sec": 0.05
+        },
+        {
+          "family": "Mordred",
+          "per_seed_resid_std_513": [
+            0.30560805296487364,
+            0.30657211407291485,
+            0.3114244529790642,
+            0.3063040062067089,
+            0.30931937123092484
+          ],
+          "mean_bag_resid_513_mean": -0.1235214696593252,
+          "mean_bag_resid_513_std": 0.3054930139174486,
+          "in_RAE_unb_deploy_in_sample": 0.3837763339381667,
+          "wall_sec": 0.07
+        },
+        {
+          "family": "ChempropEmbed",
+          "per_seed_resid_std_513": [
+            0.3334902005732047,
+            0.3293570032657046,
+            0.33191627451102707,
+            0.33242018680304786,
+            0.32991388833469276
+          ],
+          "mean_bag_resid_513_mean": -0.09083040365523849,
+          "mean_bag_resid_513_std": 0.3290631468264474,
+          "in_RAE_unb_deploy_in_sample": 0.3746393304349377,
+          "wall_sec": 0.07
+        }
+      ],
+      "blend_resid_513_mean": -0.11416912564028163,
+      "blend_resid_513_std": 0.24297408261140258,
+      "in_RAE_unb_deploy_in_sample_blend": 0.3919004140230041,
+      "wall_sec": 0.24
+    },
+    {
+      "outer_seed": 7,
+      "inner_seeds": [
+        7000,
+        7001,
+        7007,
+        7042,
+        7137
+      ],
+      "families": [
+        {
+          "family": "AtomPair",
+          "per_seed_resid_std_513": [
+            0.27819575585032674,
+            0.27685698471182285,
+            0.27855421844116485,
+            0.272632677343701,
+            0.27418435507096683
+          ],
+          "mean_bag_resid_513_mean": -0.1288196615325073,
+          "mean_bag_resid_513_std": 0.27414264762693097,
+          "in_RAE_unb_deploy_in_sample": 0.4393474519181093,
+          "wall_sec": 0.05
+        },
+        {
+          "family": "MACCS",
+          "per_seed_resid_std_513": [
+            0.25531449189150407,
+            0.2494367385730748,
+            0.2500261405444675,
+            0.2534379891596591,
+            0.2529233870103481
+          ],
+          "mean_bag_resid_513_mean": -0.11541276553705618,
+          "mean_bag_resid_513_std": 0.25027909712642066,
+          "in_RAE_unb_deploy_in_sample": 0.46408086139355675,
+          "wall_sec": 0.05
+        },
+        {
+          "family": "Mordred",
+          "per_seed_resid_std_513": [
+            0.30956315277295726,
+            0.3101556467479483,
+            0.3098238778504331,
+            0.31655204646854257,
+            0.30839863444848664
+          ],
+          "mean_bag_resid_513_mean": -0.126751810997845,
+          "mean_bag_resid_513_std": 0.30881076799403523,
+          "in_RAE_unb_deploy_in_sample": 0.38715732219561005,
+          "wall_sec": 0.07
+        },
+        {
+          "family": "ChempropEmbed",
+          "per_seed_resid_std_513": [
+            0.3276859163910685,
+            0.33559058827088356,
+            0.33068209311530655,
+            0.33575958793331595,
+            0.33643387619125786
+          ],
+          "mean_bag_resid_513_mean": -0.08820055152761473,
+          "mean_bag_resid_513_std": 0.3308362334083842,
+          "in_RAE_unb_deploy_in_sample": 0.37251359216518853,
+          "wall_sec": 0.07
+        }
+      ],
+      "blend_resid_513_mean": -0.11479619739875582,
+      "blend_resid_513_std": 0.24505046618821472,
+      "in_RAE_unb_deploy_in_sample_blend": 0.39247213600807335,
+      "wall_sec": 0.24
+    },
+    {
+      "outer_seed": 42,
+      "inner_seeds": [
+        42000,
+        42001,
+        42007,
+        42042,
+        42137
+      ],
+      "families": [
+        {
+          "family": "AtomPair",
+          "per_seed_resid_std_513": [
+            0.2758744013665362,
+            0.2745033523408315,
+            0.2824186875603945,
+            0.26996662466232324,
+            0.28356987955837165
+          ],
+          "mean_bag_resid_513_mean": -0.12717043707176187,
+          "mean_bag_resid_513_std": 0.27490402808053244,
+          "in_RAE_unb_deploy_in_sample": 0.4374463866883195,
+          "wall_sec": 0.05
+        },
+        {
+          "family": "MACCS",
+          "per_seed_resid_std_513": [
+            0.2514485018799923,
+            0.25494073252534855,
+            0.2552039912587045,
+            0.24836428915498956,
+            0.246425266708276
+          ],
+          "mean_bag_resid_513_mean": -0.11661056871682741,
+          "mean_bag_resid_513_std": 0.2493816244701283,
+          "in_RAE_unb_deploy_in_sample": 0.465798294978751,
+          "wall_sec": 0.05
+        },
+        {
+          "family": "Mordred",
+          "per_seed_resid_std_513": [
+            0.3060483398783799,
+            0.3108576182400897,
+            0.3120512905681453,
+            0.30673524231314675,
+            0.3104689029648017
+          ],
+          "mean_bag_resid_513_mean": -0.12074209730672045,
+          "mean_bag_resid_513_std": 0.307194167081897,
+          "in_RAE_unb_deploy_in_sample": 0.3833531133795715,
+          "wall_sec": 0.07
+        },
+        {
+          "family": "ChempropEmbed",
+          "per_seed_resid_std_513": [
+            0.33028126744656616,
+            0.33305568094423255,
+            0.3295379894370755,
+            0.3323060580326926,
+            0.33469779893053375
+          ],
+          "mean_bag_resid_513_mean": -0.08798707283768611,
+          "mean_bag_resid_513_std": 0.3295328234498144,
+          "in_RAE_unb_deploy_in_sample": 0.3731834122081297,
+          "wall_sec": 0.07
+        }
+      ],
+      "blend_resid_513_mean": -0.11312754398324897,
+      "blend_resid_513_std": 0.24388041639024033,
+      "in_RAE_unb_deploy_in_sample_blend": 0.39225827106900907,
+      "wall_sec": 0.24
+    },
+    {
+      "outer_seed": 137,
+      "inner_seeds": [
+        137000,
+        137001,
+        137007,
+        137042,
+        137137
+      ],
+      "families": [
+        {
+          "family": "AtomPair",
+          "per_seed_resid_std_513": [
+            0.2740395406573297,
+            0.27333560974658533,
+            0.2750208344696436,
+            0.2731131559995414,
+            0.27790004638734167
+          ],
+          "mean_bag_resid_513_mean": -0.12587080507011308,
+          "mean_bag_resid_513_std": 0.27273730728121226,
+          "in_RAE_unb_deploy_in_sample": 0.4369094540571161,
+          "wall_sec": 0.05
+        },
+        {
+          "family": "MACCS",
+          "per_seed_resid_std_513": [
+            0.2487843855645791,
+            0.2501243363753513,
+            0.2513060580751549,
+            0.24636023537868101,
+            0.24781599852371983
+          ],
+          "mean_bag_resid_513_mean": -0.117103768403155,
+          "mean_bag_resid_513_std": 0.24672943465210398,
+          "in_RAE_unb_deploy_in_sample": 0.46586671211104086,
+          "wall_sec": 0.05
+        },
+        {
+          "family": "Mordred",
+          "per_seed_resid_std_513": [
+            0.30649425316793105,
+            0.3085012490103443,
+            0.3060426064133086,
+            0.309875719697635,
+            0.30784371607964073
+          ],
+          "mean_bag_resid_513_mean": -0.12215941681018526,
+          "mean_bag_resid_513_std": 0.3056444227656143,
+          "in_RAE_unb_deploy_in_sample": 0.38455026189292096,
+          "wall_sec": 0.07
+        },
+        {
+          "family": "ChempropEmbed",
+          "per_seed_resid_std_513": [
+            0.3324481228559909,
+            0.3404485568588013,
+            0.3259369746002254,
+            0.3339175666918248,
+            0.3297644398714163
+          ],
+          "mean_bag_resid_513_mean": -0.08915809518173169,
+          "mean_bag_resid_513_std": 0.33012403517572186,
+          "in_RAE_unb_deploy_in_sample": 0.37020373249233407,
+          "wall_sec": 0.07
+        }
+      ],
+      "blend_resid_513_mean": -0.11357302136629625,
+      "blend_resid_513_std": 0.2430254655408444,
+      "in_RAE_unb_deploy_in_sample_blend": 0.39183837578835856,
+      "wall_sec": 0.24
+    }
+  ],
+  "te_mean_stats": {
+    "mean": 4.717224495544733,
+    "std": 0.7021770191304987,
+    "min": 2.0533675848027464,
+    "max": 5.977457814332938
+  },
+  "te_median_stats": {
+    "mean": 4.717227013945909,
+    "std": 0.7023982031258259,
+    "min": 2.047315446155178,
+    "max": 5.975280595830403
+  },
+  "in_RAE_unb_deploy_in_sample_mean": 0.3917858565652119,
+  "in_RAE_unb_deploy_in_sample_median": 0.391847292108104,
+  "honest_LB_anchor_mean_nb1500_bob_mean": 0.5236,
+  "honest_LB_anchor_median_nb1500_bob_median": 0.5234,
+  "pearson_te_mean_unb_vs_nb1500_bob_mean_oof": 0.9833027916117614,
+  "pearson_te_median_unb_vs_nb1500_bob_median_oof": 0.9831894269790391,
+  "te_mean_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb1510_mean.npy",
+  "te_median_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb1510_median.npy",
+  "csv_mean_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1510_deploy_nb1500_mean.csv",
+  "csv_median_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1510_deploy_nb1500_median.csv",
+  "wall_sec": 1.25
+}

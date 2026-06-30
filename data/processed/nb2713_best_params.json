@@ -1,0 +1,7 @@
+{
+  "max_depth": 4,
+  "num_leaves": 62,
+  "learning_rate": 0.09557815672561741,
+  "reg_lambda": 1.323902667829558,
+  "min_child_samples": 3
+}

@@ -1,0 +1,271 @@
+{
+  "tag": "nb2821",
+  "method": "Denoising autoencoder (Vincent et al. 2008) for K=20 feature smoothing: Encoder Linear(20,16)->ReLU->Linear(16,8) + Decoder Linear(8,16)->ReLU->Linear(16,20); Adam lr=1e-3 MSE reconstruction with Gaussian noise sigma=0.1 on input, 200 epochs, batch 64. Bottleneck encoding (8-d) fed to LGBM on chemprop_aux residual.",
+  "paradigm": "unsupervised_denoising_autoencoder_bottleneck_smoothing_vincent_2008_then_lgbm_on_anchor_residual",
+  "anchor_name": "chemprop_aux (PRE-unblind, verified clean)",
+  "rae_anchor_unb": 0.6215728863514471,
+  "ae_in_dim": 20,
+  "ae_hid": 16,
+  "ae_bottle": 8,
+  "ae_noise_sigma": 0.1,
+  "ae_lr": 0.001,
+  "ae_epochs": 200,
+  "ae_batch": 64,
+  "ae_seed": 42,
+  "ae_train_pool_size": 4652,
+  "lgbm_params": {
+    "objective": "regression",
+    "max_depth": 4,
+    "num_leaves": 15,
+    "n_estimators": 300,
+    "learning_rate": 0.03,
+    "min_child_samples": 5,
+    "reg_lambda": 2.0,
+    "n_jobs": 2,
+    "verbosity": -1
+  },
+  "n_folds": 5,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "feat_dim_raw_K20": 20,
+  "feat_dim_bottleneck": 8,
+  "per_seed": [
+    {
+      "kf_seed": 1001,
+      "pooled_rae": 0.6196194835168709,
+      "folds": [
+        {
+          "fold": 0,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.25797530942761626,
+          "resid_pred_std": 0.5100533221418401
+        },
+        {
+          "fold": 1,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.13674227737023797,
+          "resid_pred_std": 0.38286553236491705
+        },
+        {
+          "fold": 2,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.18964186121202362,
+          "resid_pred_std": 0.4622782639693294
+        },
+        {
+          "fold": 3,
+          "n_tr": 203,
+          "n_va": 50,
+          "resid_pred_mean": -0.021302589825774487,
+          "resid_pred_std": 0.34647286427137547
+        },
+        {
+          "fold": 4,
+          "n_tr": 203,
+          "n_va": 50,
+          "resid_pred_mean": -0.1869330446311076,
+          "resid_pred_std": 0.4571001302717628
+        }
+      ],
+      "wall_sec": 0.19
+    },
+    {
+      "kf_seed": 1002,
+      "pooled_rae": 0.5967446124508261,
+      "folds": [
+        {
+          "fold": 0,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.12973603224782518,
+          "resid_pred_std": 0.4464159011710115
+        },
+        {
+          "fold": 1,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.07507006008747769,
+          "resid_pred_std": 0.3525823644097998
+        },
+        {
+          "fold": 2,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.08543822416146256,
+          "resid_pred_std": 0.5279489413463561
+        },
+        {
+          "fold": 3,
+          "n_tr": 203,
+          "n_va": 50,
+          "resid_pred_mean": -0.14125325759568613,
+          "resid_pred_std": 0.4172624383916435
+        },
+        {
+          "fold": 4,
+          "n_tr": 203,
+          "n_va": 50,
+          "resid_pred_mean": -0.27428920134816326,
+          "resid_pred_std": 0.6287449965978903
+        }
+      ],
+      "wall_sec": 0.18
+    },
+    {
+      "kf_seed": 1003,
+      "pooled_rae": 0.6101295877849036,
+      "folds": [
+        {
+          "fold": 0,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.3162530873380116,
+          "resid_pred_std": 0.5990585293468914
+        },
+        {
+          "fold": 1,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.17597963957253385,
+          "resid_pred_std": 0.4992944677042131
+        },
+        {
+          "fold": 2,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.16802179937202646,
+          "resid_pred_std": 0.34876239669232995
+        },
+        {
+          "fold": 3,
+          "n_tr": 203,
+          "n_va": 50,
+          "resid_pred_mean": -0.05107588065144464,
+          "resid_pred_std": 0.4122370777843338
+        },
+        {
+          "fold": 4,
+          "n_tr": 203,
+          "n_va": 50,
+          "resid_pred_mean": -0.18497557262902903,
+          "resid_pred_std": 0.43076800951491784
+        }
+      ],
+      "wall_sec": 0.18
+    },
+    {
+      "kf_seed": 1004,
+      "pooled_rae": 0.60053040847234,
+      "folds": [
+        {
+          "fold": 0,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.2981502437508089,
+          "resid_pred_std": 0.5271289746987993
+        },
+        {
+          "fold": 1,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": 0.025591919409800483,
+          "resid_pred_std": 0.36186189313364375
+        },
+        {
+          "fold": 2,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.15139196739877323,
+          "resid_pred_std": 0.48600528628916306
+        },
+        {
+          "fold": 3,
+          "n_tr": 203,
+          "n_va": 50,
+          "resid_pred_mean": -0.2333137627825328,
+          "resid_pred_std": 0.49081453742965797
+        },
+        {
+          "fold": 4,
+          "n_tr": 203,
+          "n_va": 50,
+          "resid_pred_mean": -0.12434075150070413,
+          "resid_pred_std": 0.3932515106008727
+        }
+      ],
+      "wall_sec": 0.19
+    },
+    {
+      "kf_seed": 1005,
+      "pooled_rae": 0.583347847090219,
+      "folds": [
+        {
+          "fold": 0,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.21673071213251907,
+          "resid_pred_std": 0.4919174706557015
+        },
+        {
+          "fold": 1,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.0011057013456824503,
+          "resid_pred_std": 0.33348699955506533
+        },
+        {
+          "fold": 2,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.21576808312483023,
+          "resid_pred_std": 0.4752013553605878
+        },
+        {
+          "fold": 3,
+          "n_tr": 203,
+          "n_va": 50,
+          "resid_pred_mean": -0.17213673983602323,
+          "resid_pred_std": 0.5983589451319814
+        },
+        {
+          "fold": 4,
+          "n_tr": 203,
+          "n_va": 50,
+          "resid_pred_mean": -0.09843165471894942,
+          "resid_pred_std": 0.44294653972554937
+        }
+      ],
+      "wall_sec": 0.18
+    }
+  ],
+  "mean_rae": 0.6020743878630319,
+  "pooled_rae_std_seeds": 0.012281614998874858,
+  "rae_of_mean_of_seed_oofs": 0.5824813890804049,
+  "delta_vs_anchor": -0.019498498488415228,
+  "te_unb_rae_in_sample": 0.28795964412956726,
+  "te_deploy_mean": 4.68956184387207,
+  "te_deploy_std": 0.7406805157661438,
+  "z_unb_mean": -0.2875179350376129,
+  "z_unb_std": 2.3480865955352783,
+  "z_te_mean": -0.25033700466156006,
+  "z_te_std": 2.2660446166992188,
+  "gate_promote_threshold": 0.457,
+  "gate_marginal_threshold": 0.4598,
+  "verdict": "FAIL",
+  "promote": false,
+  "marginal_beat": false,
+  "oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2821_pred_oof.npy",
+  "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2821.npy",
+  "wall_sec": 15.95
+}

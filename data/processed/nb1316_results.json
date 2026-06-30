@@ -1,0 +1,209 @@
+{
+  "F0_base_ridge": {
+    "rae": 0.6211,
+    "feats": [
+      "base"
+    ],
+    "model": "ridge",
+    "vs_F1": null
+  },
+  "F1_base+morgan_ridge": {
+    "rae": 0.6502,
+    "feats": [
+      "base",
+      "morgan"
+    ],
+    "model": "ridge",
+    "vs_F1": null
+  },
+  "F1_base+morgan_lgbm": {
+    "rae": 0.6831,
+    "feats": [
+      "base",
+      "morgan"
+    ],
+    "model": "lgbm",
+    "vs_F1": 0.0329
+  },
+  "F2_+phys_all_ridge": {
+    "rae": 0.6362,
+    "feats": [
+      "base",
+      "morgan",
+      "phys"
+    ],
+    "model": "ridge",
+    "vs_F1": -0.014
+  },
+  "F3_+soap+pmap_ridge": {
+    "rae": 0.6263,
+    "feats": [
+      "base",
+      "morgan",
+      "soap",
+      "pmap"
+    ],
+    "model": "ridge",
+    "vs_F1": -0.024
+  },
+  "F4_+boltz_ridge": {
+    "rae": 0.6184,
+    "feats": [
+      "base",
+      "morgan",
+      "boltz"
+    ],
+    "model": "ridge",
+    "vs_F1": -0.0318
+  },
+  "F5_+soap+pmap+boltz_ridge": {
+    "rae": 0.6189,
+    "feats": [
+      "base",
+      "morgan",
+      "soap",
+      "pmap",
+      "boltz"
+    ],
+    "model": "ridge",
+    "vs_F1": -0.0313
+  },
+  "F6_all_ridge": {
+    "rae": 0.6282,
+    "feats": [
+      "base",
+      "morgan",
+      "phys",
+      "soap",
+      "pmap",
+      "boltz"
+    ],
+    "model": "ridge",
+    "vs_F1": -0.022
+  },
+  "F6_all_lgbm": {
+    "rae": 0.6807,
+    "feats": [
+      "base",
+      "morgan",
+      "phys",
+      "soap",
+      "pmap",
+      "boltz"
+    ],
+    "model": "lgbm",
+    "vs_F1": 0.0304
+  },
+  "F7_nomorgan+soap+pmap+boltz": {
+    "rae": 0.6107,
+    "feats": [
+      "base",
+      "soap",
+      "pmap",
+      "boltz"
+    ],
+    "model": "ridge",
+    "vs_F1": -0.0395
+  },
+  "Fa_+aimnet": {
+    "rae": 0.6258,
+    "feats": [
+      "base",
+      "morgan",
+      "aimnet"
+    ],
+    "model": "ridge",
+    "vs_F1": -0.0245
+  },
+  "Fb_+d4": {
+    "rae": 0.6481,
+    "feats": [
+      "base",
+      "morgan",
+      "d4"
+    ],
+    "model": "ridge",
+    "vs_F1": -0.0021
+  },
+  "Fc_+dbstep": {
+    "rae": 0.6281,
+    "feats": [
+      "base",
+      "morgan",
+      "dbstep"
+    ],
+    "model": "ridge",
+    "vs_F1": -0.0221
+  },
+  "Fd_+strain": {
+    "rae": 0.6292,
+    "feats": [
+      "base",
+      "morgan",
+      "strain"
+    ],
+    "model": "ridge",
+    "vs_F1": -0.021
+  },
+  "Fe_+cdft": {
+    "rae": 0.66,
+    "feats": [
+      "base",
+      "morgan",
+      "cdft"
+    ],
+    "model": "ridge",
+    "vs_F1": 0.0097
+  },
+  "Ff_+orbmol": {
+    "rae": 0.6267,
+    "feats": [
+      "base",
+      "morgan",
+      "orbmol"
+    ],
+    "model": "ridge",
+    "vs_F1": -0.0236
+  },
+  "Fg_+soap_only": {
+    "rae": 0.6296,
+    "feats": [
+      "base",
+      "morgan",
+      "soap"
+    ],
+    "model": "ridge",
+    "vs_F1": -0.0207
+  },
+  "Fh_+pmap_only": {
+    "rae": 0.6291,
+    "feats": [
+      "base",
+      "morgan",
+      "pmap"
+    ],
+    "model": "ridge",
+    "vs_F1": -0.0211
+  },
+  "Fi_+boltz_only": {
+    "rae": 0.6184,
+    "feats": [
+      "base",
+      "morgan",
+      "boltz"
+    ],
+    "model": "ridge",
+    "vs_F1": -0.0318
+  },
+  "_blend": {
+    "best_rae": 0.598,
+    "weights": {
+      "meta_loocv": 0.5500000000000002,
+      "knn_loocv": 0.15000000000000002,
+      "combined_c": 0.2,
+      "F7_nomorgan+soap+pmap+boltz": 0.1
+    },
+    "meta_rae": 0.6142,
+    "triple_rae": 0.5985
+  }
+}

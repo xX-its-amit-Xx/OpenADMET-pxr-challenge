@@ -1,0 +1,176 @@
+{
+  "tag": "nb2311",
+  "method": "per_row_dynamic_softmin_top5_PRIMARY",
+  "anchors": [
+    "nb2240",
+    "nb1162",
+    "nb2171",
+    "nb2095",
+    "nb1191"
+  ],
+  "anchor_te_paths": [
+    "te_nb2240.npy",
+    "te_nb1162.npy",
+    "te_nb2171.npy",
+    "te_nb2095.npy",
+    "te_nb1191.npy"
+  ],
+  "anchor_oof_rae_unb": {
+    "nb2240": 0.46301757335429367,
+    "nb1162": 0.41724003372108714,
+    "nb2171": 0.46402771694355244,
+    "nb2095": 0.464751945669176,
+    "nb1191": 0.4647519472474954
+  },
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "n_folds": 5,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "anchor_corr_unb": [
+    [
+      1.0,
+      0.9506817180679814,
+      0.9830842488595312,
+      0.9842675986815836,
+      0.9842675977752677
+    ],
+    [
+      0.9506817180679815,
+      1.0,
+      0.9753562024284578,
+      0.9717945841820202,
+      0.9717945839472859
+    ],
+    [
+      0.9830842488595313,
+      0.9753562024284578,
+      1.0,
+      0.999807063520631,
+      0.9998070634989492
+    ],
+    [
+      0.9842675986815836,
+      0.9717945841820202,
+      0.999807063520631,
+      1.0,
+      1.0
+    ],
+    [
+      0.9842675977752678,
+      0.9717945839472858,
+      0.9998070634989492,
+      1.0,
+      1.0
+    ]
+  ],
+  "per_row_std_unb_mean": 0.08784592985653908,
+  "per_row_std_unb_median": 0.07379924532591108,
+  "per_row_std_unb_min": 0.003713863626958165,
+  "per_row_std_unb_max": 0.3156635473827518,
+  "per_row_std_te_mean": 0.10871690930931915,
+  "per_row_std_te_median": 0.0917519061183519,
+  "per_row_std_te_min": 0.006165937668110082,
+  "per_row_std_te_max": 0.39697060676103324,
+  "sigma_global_unb": 0.10487689776498887,
+  "sigma_global_te": 0.13131743487738182,
+  "sigma_deploy": 0.10487689776498887,
+  "per_seed_results": [
+    {
+      "kf_seed": 1001,
+      "pooled_rae": 0.4608297158216033,
+      "mean_sigma": 0.10483093330550823
+    },
+    {
+      "kf_seed": 1002,
+      "pooled_rae": 0.4607972935400374,
+      "mean_sigma": 0.10483969189962745
+    },
+    {
+      "kf_seed": 1003,
+      "pooled_rae": 0.46080946920051896,
+      "mean_sigma": 0.10484232835999585
+    },
+    {
+      "kf_seed": 1004,
+      "pooled_rae": 0.46080929929196046,
+      "mean_sigma": 0.10484997980360425
+    },
+    {
+      "kf_seed": 1005,
+      "pooled_rae": 0.4608052037910378,
+      "mean_sigma": 0.10486447429551929
+    }
+  ],
+  "pooled_rae_mean_seeds": 0.46081019632903164,
+  "pooled_rae_std_seeds": 1.0712155535526814e-05,
+  "rae_of_mean_of_seed_oofs": 0.46081019632903153,
+  "mean_anchor_weights_unb": [
+    {
+      "name": "nb2240",
+      "w": 0.11776919501198453
+    },
+    {
+      "name": "nb1162",
+      "w": 0.09725487087974394
+    },
+    {
+      "name": "nb2171",
+      "w": 0.25137370355599664
+    },
+    {
+      "name": "nb2095",
+      "w": 0.26680111949926427
+    },
+    {
+      "name": "nb1191",
+      "w": 0.2668011110530103
+    }
+  ],
+  "mean_anchor_weights_te": [
+    {
+      "name": "nb2240",
+      "w": 0.1091381032720163
+    },
+    {
+      "name": "nb1162",
+      "w": 0.08448791864704991
+    },
+    {
+      "name": "nb2171",
+      "w": 0.26656642979224077
+    },
+    {
+      "name": "nb2095",
+      "w": 0.2699037727687641
+    },
+    {
+      "name": "nb1191",
+      "w": 0.2699037755199287
+    }
+  ],
+  "in_sample_rae_overfit_bound": 0.4608141620855456,
+  "te_unb_rae_in_sample": 0.26171897552735857,
+  "lb_band_estimate": 0.36325549813621183,
+  "lb_band_low": 0.31325549813621184,
+  "lb_band_high": 0.4132554981362118,
+  "lb_band_w_oof": 0.51,
+  "lb_band_w_te": 0.49,
+  "compare_nb2240_oof": 0.4601,
+  "delta_vs_nb2240": 0.0007101963290316315,
+  "gate_margin": 0.003,
+  "gate_beat_nb2240": false,
+  "gate_flat_vs_nb2240": true,
+  "verdict_vs_nb2240": "FLAT_VS_NB2240",
+  "deploy_te_mean": 4.712761402130127,
+  "deploy_te_std": 0.8038747310638428,
+  "oof_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2311_perrow_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2311.npy",
+  "wall_sec": 0.1
+}

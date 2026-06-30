@@ -1,0 +1,121 @@
+{
+  "tag": "nb2774",
+  "method": "K=20 LGBM residual on chemprop_aux anchor with oblivious-style symmetric tree emulation: num_leaves=2**max_depth=16 (saturates depth-4 budget, removing leaf-wise asymmetry), min_data_in_leaf=5, path_smooth=1.0 (parent-shrinkage analogue of oblivious value-tying); 5-fold scaffold CV mean-bag over 5 kf_seeds",
+  "paradigm": "symmetric_oblivious_tree_LGBM",
+  "novelty": "Tree-structure inductive bias change distinct from prior nb27xx loss-shape (nb2762 Cauchy, nb2754 focal, nb2722 Huber), feature-subsampling (nb2152 colsample, nb2166 row-bootstrap), and linear-leaf (nb2750) attempts. Emulates CatBoost-style oblivious trees in LGBM via (a) saturating num_leaves to 2**max_depth (full perfect-binary depth-4 partition), (b) path_smooth=1.0 to recursively shrink leaf outputs toward parent (mimicking oblivious value-tying), and (c) min_data=5 to keep every depth-4 path alive. Net effect: trees become more uniform / less feature-greedy, trading raw fit for lower-variance leaf estimates -- the regularization story that made CatBoost competitive on small heterogeneous tabular data.",
+  "anchor": "chemprop_aux",
+  "anchor_pre_unblind": true,
+  "anchor_in_rae": 0.6215728863514471,
+  "chemprop_aux_ref": 0.6216,
+  "nb2240_k20_ref": 0.463,
+  "nb2171_ref": 0.4682,
+  "n_test": 513,
+  "n_unb": 253,
+  "n_unique_scaffolds_unb": 180,
+  "K20_cols": [
+    45,
+    67,
+    66,
+    68,
+    65,
+    92,
+    27,
+    77,
+    81,
+    56,
+    1,
+    7,
+    115,
+    93,
+    80,
+    11,
+    70,
+    54,
+    8,
+    57
+  ],
+  "feat_dim_K20": 20,
+  "n_folds": 5,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "lgbm_num_leaves": 16,
+  "lgbm_max_depth": 4,
+  "lgbm_n_estimators": 300,
+  "lgbm_learning_rate": 0.03,
+  "lgbm_min_child_samples": 5,
+  "lgbm_path_smooth": 1.0,
+  "per_seed_corr_oof_rae": [
+    0.48924237274583116,
+    0.5407009782025789,
+    0.5196920414334982,
+    0.5073730190824902,
+    0.5144251691788685
+  ],
+  "per_seed_resid_oof_rae": [
+    0.7691101245367038,
+    0.8500052731502629,
+    0.8169783178516757,
+    0.7976122830551017,
+    0.8086985673612542
+  ],
+  "per_seed_per_fold_resid_rae": [
+    [
+      0.7512663899796735,
+      0.7569978127974561,
+      0.764229625665432,
+      0.9005047807188686,
+      0.70781558299919
+    ],
+    [
+      0.8447464514664491,
+      0.7439043422056345,
+      0.8729113917675729,
+      0.8936418154722631,
+      0.9333277898709907
+    ],
+    [
+      0.5543647991802958,
+      0.7981866039751985,
+      1.0374802887083558,
+      1.031752082688084,
+      0.7934711820550462
+    ],
+    [
+      0.8546321258320311,
+      0.7169330602332014,
+      0.946387843114715,
+      0.6524097495734312,
+      0.9087421814641924
+    ],
+    [
+      1.009381590241592,
+      0.7039982525744674,
+      0.8066610135645184,
+      0.7718185549305762,
+      0.7997595354690886
+    ]
+  ],
+  "per_seed_corr_oof_mean_rae": 0.5142867161286534,
+  "per_seed_corr_oof_std_rae": 0.016744959206466684,
+  "rae_meanbag_oof_corr": 0.4820638309721089,
+  "rae_meanbag_te_at_unb_in_sample": 0.12179106949202331,
+  "mean_rae": 0.4820638309721089,
+  "delta_vs_anchor": -0.13950905537933822,
+  "delta_vs_nb2240_k20": 0.019063830972108897,
+  "delta_vs_nb2171": 0.013863830972108915,
+  "te_deploy_mean": 4.709545612335205,
+  "te_deploy_std": 0.8438101410865784,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2774_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2774.npy",
+  "submission_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb2774_symmetric_lgbm.csv",
+  "chembl_pool_size": 945,
+  "gate_promote_threshold": 0.457,
+  "gate_marginal_threshold": 0.4598,
+  "verdict": "FAIL",
+  "wall_sec": 5.53
+}

@@ -1,0 +1,46 @@
+{
+  "tag": "nb1180",
+  "purpose": "deploy nb1162 stack-pyramid; nb1170 verified HONEST",
+  "source_summaries": {
+    "nb1162": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb1162_summary.json",
+    "nb1170": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb1170_summary.json"
+  },
+  "method": "pure_convex_blend_2anchors_no_stretch",
+  "stage3_stretch_rejected_s": 1.0,
+  "deploy_weights_imported_from_nb1162": {
+    "nb2103_K28": 0.11293551862971236,
+    "chemprop_aux": 1.048266159658086e-12,
+    "nb730_honest": 0.8870644813686026,
+    "nb503": 3.3986421081510336e-13,
+    "nb562": 2.968780695135247e-13
+  },
+  "active_anchors_renormalized": {
+    "nb730_honest": 0.8870644813700973,
+    "nb2103_K28": 0.11293551862990266
+  },
+  "anchor_te_files_513": {
+    "nb730_honest": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb730_honest.npy",
+    "nb2103_K28": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2112.npy"
+  },
+  "note_anchor_te_substitution": "nb1162 used te_chemprop_aux as the nb2103_K28 proxy because the K=28 deploy te was not cached. nb1180 substitutes te_nb2112 (canonical K=28 deploy = chemprop_aux te + nb2103 K=28 BoB residual MEDIAN). Stage-2 weights are imported verbatim -- not refit -- so the audit chain (nb1162 -> nb1170 HONEST) survives.",
+  "n_te": 513,
+  "n_unb": 253,
+  "deploy_te_mean": 4.724725723266602,
+  "deploy_te_std": 0.8056042194366455,
+  "in_sample_rae_253": 0.3782783850464319,
+  "expect_in_sample_rae_nb1162": 0.4172,
+  "expect_crossfit_rae_nb1162": 0.4206,
+  "in_sample_delta_vs_nb1162": -0.03892161495356811,
+  "in_sample_tol": 0.02,
+  "in_sample_within_tol": false,
+  "nb1170_verdict": "HONEST",
+  "nb1162_pooled_scaffold_cv_rae": 0.4206326222520904,
+  "lb_regime_caveat": "POST-unblind regime: nb1180 weights and stretch were fit on the 253 unblind. Per memory notes 'LB two-regime calibration' (POST-unblind in_RAE unreliable) and 'train-OOF blend weights don't transfer' (+0.10 RAE shift expected), the conservative honest LB band for nb1180 is 0.52 - 0.62 RAE -- NOT the 0.42 cross-fit number. Treat 0.52 as the optimistic side and 0.62 as the realistic ceiling. Use only as a candidate, not as PRIMARY-1 until LB validates.",
+  "conservative_lb_band": [
+    0.52,
+    0.62
+  ],
+  "submission_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1180_deploy_stack_pyramid.csv",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb1180.npy",
+  "wall_sec": 0.01
+}

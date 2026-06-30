@@ -1,86 +1,251 @@
 {
   "tag": "nb1091",
-  "anchor": "nb1070",
-  "parent_anchor": "nb1014",
-  "n_bins": 5,
-  "n_folds": 5,
-  "chain_seed": 0,
-  "chain_stretch_grid": [
-    0.95,
-    1.0,
-    1.05,
-    1.1
-  ],
-  "nb1070_seeds": [
+  "method": "lgbm_mse_4stratum_scaf_freq_K28_5seed_bag",
+  "anchor": "chemprop_aux",
+  "anchor_kind": "PRE_unblind_te_slice_to_unb_idx",
+  "anchor_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+  "K_use": 28,
+  "stratum_definition": {
+    "0_unseen": "scaf_train_freq == 0 (test only); model = global fallback trained on ALL rows",
+    "1_singleton": "scaf_train_freq == 1",
+    "2_small": "2 <= scaf_train_freq <= 5",
+    "3_large": "scaf_train_freq >= 6"
+  },
+  "train_stratum_counts": {
+    "0_unseen": 0,
+    "1_singleton": 3532,
+    "2_small": 315,
+    "3_large": 292
+  },
+  "test_stratum_counts": {
+    "0_unseen": 416,
+    "1_singleton": 57,
+    "2_small": 15,
+    "3_large": 25
+  },
+  "unb_stratum_counts": {
+    "0_unseen": 197,
+    "1_singleton": 25,
+    "2_small": 10,
+    "3_large": 21
+  },
+  "resid_seeds": [
     0,
     1,
     7,
     42,
     137
   ],
+  "resid_folds": 5,
+  "rae_anchor_chemprop_aux": 0.6215728863514471,
+  "residual_unb_mean": -0.1325965261753001,
+  "residual_unb_std": 0.6999145683913596,
+  "residual_train_mean": -0.01778188333668546,
+  "residual_train_std": 0.7119160406127919,
   "per_seed_rae": [
-    0.5823301067612162,
-    0.5797446896193795,
-    0.5852147535979683,
-    0.5779907221149416,
-    0.581965483863237
+    0.49752918334210194,
+    0.5154431076798927,
+    0.498559080457804,
+    0.5028618279750349,
+    0.4927758360019063
   ],
-  "nb1070_oof_reconstructed_rae": 0.5771305166381785,
-  "nb1070_oof_reference_rae": 0.5771,
-  "chain_oof_rae": 0.5836191988520626,
-  "delta_vs_nb1070": 0.0064886822138841005,
-  "beats_nb1070": false,
-  "verdict": "CHAIN_HURTS",
-  "fixed_global_s_in_sample_rae": {
-    "0.95": 0.5784100366430662,
-    "1.00": 0.5771305166381785,
-    "1.05": 0.5775021713084231,
-    "1.10": 0.5809033687285567
-  },
-  "per_fold": [
+  "per_seed_records": [
     {
-      "fold": 0,
-      "mu": 4.79410763558192,
-      "s": 1.05,
-      "n_train": 202,
-      "n_val": 51
+      "seed": 0,
+      "rae_corrected": 0.49752918334210194,
+      "delta_vs_anchor": -0.1240437030093452,
+      "wall_sec": 0.47
     },
     {
-      "fold": 1,
-      "mu": 4.756997332086355,
-      "s": 0.95,
-      "n_train": 202,
-      "n_val": 51
+      "seed": 1,
+      "rae_corrected": 0.5154431076798927,
+      "delta_vs_anchor": -0.10612977867155449,
+      "wall_sec": 0.48
     },
     {
-      "fold": 2,
-      "mu": 4.759811725895551,
-      "s": 0.95,
-      "n_train": 202,
-      "n_val": 51
+      "seed": 7,
+      "rae_corrected": 0.498559080457804,
+      "delta_vs_anchor": -0.12301380589364314,
+      "wall_sec": 0.42
     },
     {
-      "fold": 3,
-      "mu": 4.732148924816132,
-      "s": 1.0,
-      "n_train": 203,
-      "n_val": 50
+      "seed": 42,
+      "rae_corrected": 0.5028618279750349,
+      "delta_vs_anchor": -0.11871105837641227,
+      "wall_sec": 0.44
     },
     {
-      "fold": 4,
-      "mu": 4.787379268807215,
-      "s": 1.05,
-      "n_train": 203,
-      "n_val": 50
+      "seed": 137,
+      "rae_corrected": 0.4927758360019063,
+      "delta_vs_anchor": -0.12879705034954086,
+      "wall_sec": 0.44
     }
   ],
-  "deploy_mu": 4.7660764776733515,
-  "deploy_s": 1.0,
-  "in_rae_deploy_on_253": 0.5714565604380177,
-  "deploy_te_mean": 4.8265581130981445,
-  "deploy_te_std": 0.7215852737426758,
-  "anchor_te_mean": 4.8265581563202264,
-  "anchor_te_std": 0.7215853031456049,
-  "plain_submission": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1091_chain_nb1070.csv",
-  "wall_sec": 0.06
+  "per_seed_per_stratum_rae": [
+    {
+      "unseen(0)": {
+        "n": 197,
+        "rae": 0.5119519328576484,
+        "anchor_rae": 0.6212277540534497
+      },
+      "singleton(1)": {
+        "n": 25,
+        "rae": 0.5244808002800981,
+        "anchor_rae": 0.8328138215435655
+      },
+      "small(2-5)": {
+        "n": 10,
+        "rae": 0.8259063927496532,
+        "anchor_rae": 0.7789060110758619
+      },
+      "large(6+)": {
+        "n": 21,
+        "rae": 0.47494852651263425,
+        "anchor_rae": 0.7138926614453268
+      }
+    },
+    {
+      "unseen(0)": {
+        "n": 197,
+        "rae": 0.5309826193360428,
+        "anchor_rae": 0.6212277540534497
+      },
+      "singleton(1)": {
+        "n": 25,
+        "rae": 0.6049275072265654,
+        "anchor_rae": 0.8328138215435655
+      },
+      "small(2-5)": {
+        "n": 10,
+        "rae": 0.7204398243947885,
+        "anchor_rae": 0.7789060110758619
+      },
+      "large(6+)": {
+        "n": 21,
+        "rae": 0.43160249499415465,
+        "anchor_rae": 0.7138926614453268
+      }
+    },
+    {
+      "unseen(0)": {
+        "n": 197,
+        "rae": 0.5189832556816111,
+        "anchor_rae": 0.6212277540534497
+      },
+      "singleton(1)": {
+        "n": 25,
+        "rae": 0.5090018557811871,
+        "anchor_rae": 0.8328138215435655
+      },
+      "small(2-5)": {
+        "n": 10,
+        "rae": 0.8070093607585419,
+        "anchor_rae": 0.7789060110758619
+      },
+      "large(6+)": {
+        "n": 21,
+        "rae": 0.4056658535247778,
+        "anchor_rae": 0.7138926614453268
+      }
+    },
+    {
+      "unseen(0)": {
+        "n": 197,
+        "rae": 0.5190637499744916,
+        "anchor_rae": 0.6212277540534497
+      },
+      "singleton(1)": {
+        "n": 25,
+        "rae": 0.5260324814231667,
+        "anchor_rae": 0.8328138215435655
+      },
+      "small(2-5)": {
+        "n": 10,
+        "rae": 0.6268965960692665,
+        "anchor_rae": 0.7789060110758619
+      },
+      "large(6+)": {
+        "n": 21,
+        "rae": 0.5070089570185078,
+        "anchor_rae": 0.7138926614453268
+      }
+    },
+    {
+      "unseen(0)": {
+        "n": 197,
+        "rae": 0.48905482676398576,
+        "anchor_rae": 0.6212277540534497
+      },
+      "singleton(1)": {
+        "n": 25,
+        "rae": 0.6858441631347426,
+        "anchor_rae": 0.8328138215435655
+      },
+      "small(2-5)": {
+        "n": 10,
+        "rae": 0.9542490496852569,
+        "anchor_rae": 0.7789060110758619
+      },
+      "large(6+)": {
+        "n": 21,
+        "rae": 0.5102361932861145,
+        "anchor_rae": 0.7138926614453268
+      }
+    }
+  ],
+  "rae_mean_bag": 0.47514958327804047,
+  "rae_median_bag": 0.47295472382430376,
+  "rae_per_seed_mean": 0.5014338070913479,
+  "rae_per_seed_std": 0.007704159264330348,
+  "rae_per_seed_min": 0.4927758360019063,
+  "rae_per_seed_max": 0.5154431076798927,
+  "delta_mean_bag_vs_anchor": -0.14642330307340667,
+  "delta_mean_bag_vs_nb2103_K28": 0.001449583278040456,
+  "delta_median_bag_vs_nb2103_K28": 0.0031547238243037623,
+  "beats_nb2103_K28_mean": false,
+  "beats_nb2103_K28_median": false,
+  "flat_vs_nb2103_K28_mean": true,
+  "stratum_rae_mean_bag": {
+    "unseen(0)": {
+      "n": 197,
+      "rae_nb1091": 0.49332550279469595,
+      "rae_chemprop_aux": 0.6212277540534497,
+      "rae_nb2103_K28": 0.4942929839710648
+    },
+    "singleton(1)": {
+      "n": 25,
+      "rae_nb1091": 0.4790908927177373,
+      "rae_chemprop_aux": 0.8328138215435655,
+      "rae_nb2103_K28": 0.43456621238526477
+    },
+    "small(2-5)": {
+      "n": 10,
+      "rae_nb1091": 0.6576571151881956,
+      "rae_chemprop_aux": 0.7789060110758619,
+      "rae_nb2103_K28": 0.716511664659345
+    },
+    "large(6+)": {
+      "n": 21,
+      "rae_nb1091": 0.44129179489913717,
+      "rae_chemprop_aux": 0.7138926614453268,
+      "rae_nb2103_K28": 0.4427707907322055
+    }
+  },
+  "rare_subset_rae": {
+    "n": 197,
+    "rae_chemprop_aux": 0.6212277540534497,
+    "rae_nb2103_K28": 0.4942929839710648,
+    "rae_nb1091": 0.49332550279469595,
+    "delta_vs_nb2103_K28": -0.0009674811763688562,
+    "beats_nb2103_K28_on_rare": false
+  },
+  "verdict": "FLAT_VS_NB2103_K28",
+  "deploy_built": false,
+  "deploy_path": null,
+  "pre_unblind_clean": true,
+  "chemprop_aux_ref": 0.6216,
+  "nb2103_K28_mean_bag_ref": 0.4737,
+  "nb2103_K28_median_bag_ref": 0.4698,
+  "decision_margin": 0.003,
+  "wall_sec": 13.45
 }

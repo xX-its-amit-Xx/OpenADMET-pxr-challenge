@@ -1,0 +1,9 @@
+{
+  "tag": "nb2460",
+  "verdict": "INSTALL_FAILED",
+  "reason": "tabpfn_license_or_weights_download_blocked",
+  "error": "TabPFN requires a one-time license acceptance to download\nmodel weights for local inference, but browser login is\ndisabled (TABPFN_NO_BROWSER is set).\n\nSet the TABPFN_TOKEN environment variable with a valid API key\nobtained from https://ux.priorlabs.ai",
+  "gate_rae": 0.457,
+  "tabpfn_version": "8.0.6",
+  "wall_sec": 2.94
+}

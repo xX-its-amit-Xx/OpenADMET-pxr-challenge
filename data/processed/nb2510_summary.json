@@ -1,0 +1,19 @@
+{
+  "tag": "nb2510",
+  "method": "xtb_qm_descriptors_feasibility_test",
+  "verdict": "QM_INFEASIBLE_LOCAL",
+  "gate": "FAIL",
+  "rae_mean": null,
+  "rae_std": null,
+  "probe": {
+    "mode": "none",
+    "detail": "xtb-python import failed: ModuleNotFoundError: No module named 'xtb'; tblite import failed: ModuleNotFoundError: No module named 'tblite'; xtb binary not on PATH"
+  },
+  "notes": "xtb-python and tblite both refuse to install from PyPI on Windows Python 3.12 (no wheels; metadata-generation-failed). xtb CLI binary is not on PATH. QM descriptor feature substrate is infeasible without either (a) WSL2 conda-forge xtb install, (b) Kaggle conda env with xtb, or (c) precomputed QM cache from external HPC. Closing the QM-descriptor axis as QM_INFEASIBLE_LOCAL for cycle 169+. Recommend cycle 170 investigate Kaggle conda-forge xtb route as an outboard feature-generation step (run-once, cache to parquet).",
+  "next_actions": [
+    "Try `conda install -c conda-forge xtb-python` in a WSL2/Ubuntu shell",
+    "Or `mamba install -c conda-forge xtb` on Kaggle and stream descriptors back",
+    "Or precompute QM features once on remote HPC and ship parquet to data/processed/qm_xtb.parquet"
+  ],
+  "wall_sec": 0.0
+}

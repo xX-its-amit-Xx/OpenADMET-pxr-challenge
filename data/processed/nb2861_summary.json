@@ -1,0 +1,214 @@
+{
+  "tag": "nb2861",
+  "method": "Strong-alpha Ridge regression (no polynomial expansion, no kernel) on chemprop_aux residual over first-K=20 cols of X_117. Per-fold StandardScaler -> Ridge(alpha) over strong-alpha sweep [100.0, 500.0, 1000.0, 5000.0, 10000.0]. Follow-on to nb2760 alpha-grid boundary (best=100 at upper edge). 20 raw features, n=253 unblind.",
+  "paradigm": "linear_floor_strong_ridge_k20_extended_alpha_grid",
+  "anchor_name": "chemprop_aux (PRE-unblind, verified clean)",
+  "rae_anchor_unb": 0.6215728863514471,
+  "alpha_grid": [
+    100.0,
+    500.0,
+    1000.0,
+    5000.0,
+    10000.0
+  ],
+  "ridge_random_state": 42,
+  "n_folds": 5,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "feat_dim_raw": 20,
+  "k_slice_first_n_of_117": 20,
+  "sweep_results": [
+    {
+      "alpha": 100.0,
+      "mean_rae": 0.5249214848922374,
+      "std_rae_seeds": 0.006528601706963178,
+      "rae_of_mean_oof": 0.5225440263135361,
+      "per_seed": [
+        {
+          "kf_seed": 1001,
+          "pooled_rae": 0.5283027196979765,
+          "wall_sec": 0.008
+        },
+        {
+          "kf_seed": 1002,
+          "pooled_rae": 0.5154559741608524,
+          "wall_sec": 0.006
+        },
+        {
+          "kf_seed": 1003,
+          "pooled_rae": 0.5268096322480003,
+          "wall_sec": 0.006
+        },
+        {
+          "kf_seed": 1004,
+          "pooled_rae": 0.5340805587048151,
+          "wall_sec": 0.006
+        },
+        {
+          "kf_seed": 1005,
+          "pooled_rae": 0.5199585396495426,
+          "wall_sec": 0.006
+        }
+      ]
+    },
+    {
+      "alpha": 500.0,
+      "mean_rae": 0.5597812360096417,
+      "std_rae_seeds": 0.0023991453967819342,
+      "rae_of_mean_oof": 0.558657270578643,
+      "per_seed": [
+        {
+          "kf_seed": 1001,
+          "pooled_rae": 0.560187099238961,
+          "wall_sec": 0.006
+        },
+        {
+          "kf_seed": 1002,
+          "pooled_rae": 0.5622619748696434,
+          "wall_sec": 0.006
+        },
+        {
+          "kf_seed": 1003,
+          "pooled_rae": 0.5580086003810164,
+          "wall_sec": 0.006
+        },
+        {
+          "kf_seed": 1004,
+          "pooled_rae": 0.5622818666539038,
+          "wall_sec": 0.006
+        },
+        {
+          "kf_seed": 1005,
+          "pooled_rae": 0.5561666389046839,
+          "wall_sec": 0.006
+        }
+      ]
+    },
+    {
+      "alpha": 1000.0,
+      "mean_rae": 0.586345515871354,
+      "std_rae_seeds": 0.0021764030573167264,
+      "rae_of_mean_oof": 0.58601317927689,
+      "per_seed": [
+        {
+          "kf_seed": 1001,
+          "pooled_rae": 0.5851769341205337,
+          "wall_sec": 0.006
+        },
+        {
+          "kf_seed": 1002,
+          "pooled_rae": 0.5900390116950285,
+          "wall_sec": 0.006
+        },
+        {
+          "kf_seed": 1003,
+          "pooled_rae": 0.5846473944585354,
+          "wall_sec": 0.006
+        },
+        {
+          "kf_seed": 1004,
+          "pooled_rae": 0.5875829901067682,
+          "wall_sec": 0.005
+        },
+        {
+          "kf_seed": 1005,
+          "pooled_rae": 0.5842812489759042,
+          "wall_sec": 0.006
+        }
+      ]
+    },
+    {
+      "alpha": 5000.0,
+      "mean_rae": 0.6218904334319962,
+      "std_rae_seeds": 0.002509343832249876,
+      "rae_of_mean_oof": 0.6216283650456645,
+      "per_seed": [
+        {
+          "kf_seed": 1001,
+          "pooled_rae": 0.6190995823238644,
+          "wall_sec": 0.005
+        },
+        {
+          "kf_seed": 1002,
+          "pooled_rae": 0.6261697083369011,
+          "wall_sec": 0.006
+        },
+        {
+          "kf_seed": 1003,
+          "pooled_rae": 0.6197966298960409,
+          "wall_sec": 0.005
+        },
+        {
+          "kf_seed": 1004,
+          "pooled_rae": 0.6228317676318911,
+          "wall_sec": 0.006
+        },
+        {
+          "kf_seed": 1005,
+          "pooled_rae": 0.6215544789712839,
+          "wall_sec": 0.006
+        }
+      ]
+    },
+    {
+      "alpha": 10000.0,
+      "mean_rae": 0.6283075166021221,
+      "std_rae_seeds": 0.002601206842573042,
+      "rae_of_mean_oof": 0.6281009803864565,
+      "per_seed": [
+        {
+          "kf_seed": 1001,
+          "pooled_rae": 0.6252883806896162,
+          "wall_sec": 0.006
+        },
+        {
+          "kf_seed": 1002,
+          "pooled_rae": 0.6327069026628946,
+          "wall_sec": 0.005
+        },
+        {
+          "kf_seed": 1003,
+          "pooled_rae": 0.626199735889069,
+          "wall_sec": 0.006
+        },
+        {
+          "kf_seed": 1004,
+          "pooled_rae": 0.6292432154137273,
+          "wall_sec": 0.005
+        },
+        {
+          "kf_seed": 1005,
+          "pooled_rae": 0.6280993483553036,
+          "wall_sec": 0.005
+        }
+      ]
+    }
+  ],
+  "best_alpha": 100.0,
+  "best_alpha_idx": 0,
+  "best_at_low_boundary": true,
+  "best_at_high_boundary": false,
+  "mean_rae": 0.5249214848922374,
+  "pooled_rae_std_seeds": 0.006528601706963178,
+  "rae_of_mean_of_seed_oofs": 0.5225440263135361,
+  "delta_vs_anchor": -0.0966514014592097,
+  "te_unb_rae_in_sample": 0.49087622607542103,
+  "te_deploy_mean": 4.6882405281066895,
+  "te_deploy_std": 0.684640109539032,
+  "gate_promote_threshold": 0.457,
+  "gate_marginal_threshold": 0.4598,
+  "verdict": "FAIL",
+  "promote": false,
+  "marginal_beat": false,
+  "oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2861_pred_oof.npy",
+  "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2861.npy",
+  "wall_sec": 0.23
+}

@@ -1,0 +1,85 @@
+{
+  "tag": "nb1341",
+  "status": "ok",
+  "catboost_version": "1.2.10",
+  "anchor": "nb1070",
+  "features": "MACCS-167 + pred_chembl_pec50 + sim_chembl",
+  "feature_dim": 169,
+  "feature_cache_source": "nb1242",
+  "resid_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "resid_folds": 5,
+  "catboost_loss_function": "MAE",
+  "catboost_depth": 4,
+  "catboost_iterations": 200,
+  "catboost_learning_rate": 0.05,
+  "catboost_l2_leaf_reg": 5.0,
+  "n_unb": 253,
+  "rae_anchor_nb1070": 0.5771305166381785,
+  "residual_mean": -0.1019658057365929,
+  "residual_std": 0.6666145784833671,
+  "per_seed_rae": [
+    0.5535576312035132,
+    0.5529985462187254,
+    0.5563477950843383,
+    0.5494174970568846,
+    0.5424001562512237
+  ],
+  "per_seed_records": [
+    {
+      "seed": 0,
+      "rae_corrected": 0.5535576312035132,
+      "delta_vs_nb1070": -0.02357288543466529,
+      "resid_oof_std": 0.231054765617063,
+      "resid_oof_mean": -0.09075963686801063
+    },
+    {
+      "seed": 1,
+      "rae_corrected": 0.5529985462187254,
+      "delta_vs_nb1070": -0.02413197041945314,
+      "resid_oof_std": 0.23347581372262216,
+      "resid_oof_mean": -0.07161796292616644
+    },
+    {
+      "seed": 7,
+      "rae_corrected": 0.5563477950843383,
+      "delta_vs_nb1070": -0.0207827215538402,
+      "resid_oof_std": 0.23630393591911442,
+      "resid_oof_mean": -0.07962918578858678
+    },
+    {
+      "seed": 42,
+      "rae_corrected": 0.5494174970568846,
+      "delta_vs_nb1070": -0.027713019581293907,
+      "resid_oof_std": 0.23716583157301135,
+      "resid_oof_mean": -0.07302824485087998
+    },
+    {
+      "seed": 137,
+      "rae_corrected": 0.5424001562512237,
+      "delta_vs_nb1070": -0.03473036038695476,
+      "resid_oof_std": 0.2273713754806743,
+      "resid_oof_mean": -0.05803758975622171
+    }
+  ],
+  "rae_per_seed_mean": 0.550944325162937,
+  "rae_per_seed_median": 0.5529985462187254,
+  "rae_per_seed_std": 0.004807924838359349,
+  "rae_mean_bag": 0.5419924868611684,
+  "rae_median_bag": 0.5394826180098984,
+  "delta_mean_bag_vs_nb1070": -0.03513802977701008,
+  "delta_mean_bag_vs_nb1242": -0.0011075131388316173,
+  "pearson_vs_nb1242_mean_bag": 0.9900006699745324,
+  "beats_nb1070": true,
+  "beats_nb1242": false,
+  "verdict": "CATBOOST_RESIDUAL_TIES_NB1242_FLAT",
+  "nb1070_ref_pooled": 0.5771,
+  "nb1242_ref": 0.5431,
+  "decision_margin": 0.003,
+  "wall_sec": 8.45
+}

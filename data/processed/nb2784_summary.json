@@ -1,0 +1,199 @@
+{
+  "tag": "nb2784",
+  "method": "per_row_entropy_reweight_lambda_sweep",
+  "anchors_used": [
+    "nb2240_K20",
+    "chemprop_aux",
+    "counter_clean",
+    "nb1191"
+  ],
+  "n_anchors": 4,
+  "nb1191_included": true,
+  "indiv_oof_rae_unb": {
+    "nb2240_K20": 0.46301757335429367,
+    "chemprop_aux": 0.5878769556905485,
+    "counter_clean": 0.5382385733206709,
+    "nb1191": 0.4647519472474954
+  },
+  "rae_anchor_chemprop_aux": 0.5878769556905485,
+  "lambda_grid": [
+    0.5,
+    1.0,
+    2.0
+  ],
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "resid_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "n_folds": 5,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "k20_surviving_idx_in_117": [
+    45,
+    67,
+    66,
+    68,
+    65,
+    92,
+    27,
+    77,
+    81,
+    56,
+    1,
+    7,
+    115,
+    93,
+    80,
+    11,
+    70,
+    54,
+    8,
+    57
+  ],
+  "per_lambda_results": [
+    {
+      "lambda": 0.5,
+      "mean_rae": 0.58963788717447,
+      "std_rae": 0.01659208112868798,
+      "per_seed": [
+        {
+          "kf_seed": 1001,
+          "pooled_rae": 0.5722746687010637
+        },
+        {
+          "kf_seed": 1002,
+          "pooled_rae": 0.6184823761909783
+        },
+        {
+          "kf_seed": 1003,
+          "pooled_rae": 0.593356670679395
+        },
+        {
+          "kf_seed": 1004,
+          "pooled_rae": 0.5895760862759495
+        },
+        {
+          "kf_seed": 1005,
+          "pooled_rae": 0.5744996340249633
+        }
+      ],
+      "weight_stats": {
+        "lambda": 0.5,
+        "weight_mean": 1.0,
+        "weight_min": 0.8220600402600821,
+        "weight_max": 1.0247336790909995,
+        "weight_std": 0.03276875215683687,
+        "entropy_mean": 0.05034433273529902,
+        "entropy_min": 0.000334442615927712,
+        "entropy_max": 0.4410836395505302
+      },
+      "wall_sec": 5.8
+    },
+    {
+      "lambda": 1.0,
+      "mean_rae": 0.591201127927975,
+      "std_rae": 0.014918096259178991,
+      "per_seed": [
+        {
+          "kf_seed": 1001,
+          "pooled_rae": 0.5673205115154843
+        },
+        {
+          "kf_seed": 1002,
+          "pooled_rae": 0.6141252613888063
+        },
+        {
+          "kf_seed": 1003,
+          "pooled_rae": 0.5924333171215991
+        },
+        {
+          "kf_seed": 1004,
+          "pooled_rae": 0.5882891129835479
+        },
+        {
+          "kf_seed": 1005,
+          "pooled_rae": 0.5938374366304371
+        }
+      ],
+      "weight_stats": {
+        "lambda": 1.0,
+        "weight_mean": 1.0,
+        "weight_min": 0.6750578386811522,
+        "weight_max": 1.048952756909892,
+        "weight_std": 0.06260210302070132,
+        "entropy_mean": 0.05034433273529902,
+        "entropy_min": 0.000334442615927712,
+        "entropy_max": 0.4410836395505302
+      },
+      "wall_sec": 5.9
+    },
+    {
+      "lambda": 2.0,
+      "mean_rae": 0.5907239700462281,
+      "std_rae": 0.009682797921492585,
+      "per_seed": [
+        {
+          "kf_seed": 1001,
+          "pooled_rae": 0.5835844287562784
+        },
+        {
+          "kf_seed": 1002,
+          "pooled_rae": 0.6079790159799153
+        },
+        {
+          "kf_seed": 1003,
+          "pooled_rae": 0.5942264533015084
+        },
+        {
+          "kf_seed": 1004,
+          "pooled_rae": 0.5866609760762653
+        },
+        {
+          "kf_seed": 1005,
+          "pooled_rae": 0.581168976117173
+        }
+      ],
+      "weight_stats": {
+        "lambda": 2.0,
+        "weight_mean": 1.0000000000000002,
+        "weight_min": 0.453924146258064,
+        "weight_max": 1.0960066107813917,
+        "weight_std": 0.11495708216308341,
+        "entropy_mean": 0.05034433273529902,
+        "entropy_min": 0.000334442615927712,
+        "entropy_max": 0.4410836395505302
+      },
+      "wall_sec": 5.9
+    }
+  ],
+  "best_lambda": 0.5,
+  "best_mean_rae": 0.58963788717447,
+  "best_te_unb_rae_in_sample": 0.29800428951617,
+  "best_weight_stats": {
+    "lambda": 0.5,
+    "weight_mean": 1.0,
+    "weight_min": 0.8220600402600821,
+    "weight_max": 1.0247336790909995,
+    "weight_std": 0.03276875215683687,
+    "entropy_mean": 0.05034433273529902,
+    "entropy_min": 0.000334442615927712,
+    "entropy_max": 0.4410836395505302
+  },
+  "gate_promote": 0.457,
+  "gate_marginal": 0.4598,
+  "verdict": "FAIL",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2784.npy",
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2784_pred_oof.npy",
+  "wall_sec": 21.5
+}

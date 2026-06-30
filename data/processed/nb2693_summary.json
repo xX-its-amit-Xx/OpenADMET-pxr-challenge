@@ -1,0 +1,93 @@
+{
+  "tag": "nb2693",
+  "method": "DANN_v2_GRL_MLP_disc_chemprop_aux_residual",
+  "arch": {
+    "f_dim": 20,
+    "h_dim": 64,
+    "d_hidden": 32,
+    "encoder": "Linear(20,64)->ReLU",
+    "regressor": "Linear(64,1)",
+    "discriminator": "GRL->Linear(64,32)->ReLU->Linear(32,1)"
+  },
+  "train": {
+    "lambda_adv": 0.3,
+    "lr": 0.001,
+    "n_epochs": 100,
+    "batch": 256,
+    "optimizer": "Adam"
+  },
+  "n_unb": 253,
+  "n_te": 513,
+  "n_train_src_rows_used": 4139,
+  "n_features_in": 20,
+  "top_var_idx_first10": [
+    2058,
+    2076,
+    2079,
+    2080,
+    2082,
+    2089,
+    2090,
+    2094,
+    2104,
+    2105
+  ],
+  "n_unique_scaffolds_unb": 180,
+  "anchor_chemprop_aux_unb_rae": 0.5878769556905485,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "per_seed": [
+    {
+      "kf_seed": 1001,
+      "pooled_rae": 0.6279858488149415,
+      "resid_mean": 0.07260891795158386,
+      "resid_std": 0.16897711157798767,
+      "wall_sec": 1.9
+    },
+    {
+      "kf_seed": 1002,
+      "pooled_rae": 0.6272617607033089,
+      "resid_mean": 0.0515005849301815,
+      "resid_std": 0.16739226877689362,
+      "wall_sec": 0.9
+    },
+    {
+      "kf_seed": 1003,
+      "pooled_rae": 0.6203708370080121,
+      "resid_mean": 0.07110424339771271,
+      "resid_std": 0.15616734325885773,
+      "wall_sec": 1.1
+    },
+    {
+      "kf_seed": 1004,
+      "pooled_rae": 0.6294884336662322,
+      "resid_mean": 0.04840529337525368,
+      "resid_std": 0.16896839439868927,
+      "wall_sec": 1.0
+    },
+    {
+      "kf_seed": 1005,
+      "pooled_rae": 0.6238643153554138,
+      "resid_mean": 0.08027774840593338,
+      "resid_std": 0.1657797247171402,
+      "wall_sec": 1.0
+    }
+  ],
+  "mean_rae": 0.6257942391095817,
+  "std_rae": 0.003278467392037932,
+  "rae_of_mean_pred": 0.623310304985277,
+  "deploy_te_mean": 4.927901744842529,
+  "deploy_te_std": 0.6862088441848755,
+  "deploy_te_unb_rae_in_sample": 0.6493624003076495,
+  "gate_promote": 0.457,
+  "gate_marginal": 0.4598,
+  "gate_verdict": "FAIL",
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2693_pred_oof.npy",
+  "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2693.npy",
+  "wall_sec": 6.4
+}

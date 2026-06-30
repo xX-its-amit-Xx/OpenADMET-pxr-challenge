@@ -1,0 +1,12 @@
+{
+  "deployed": 0.5799,
+  "with_desolv": 0.5966,
+  "corr_error": {
+    "sasa": -0.059,
+    "polar_sasa": 0.039,
+    "apolar_sasa": -0.004,
+    "frac_polar": 0.072,
+    "gsolv_EM": -0.02,
+    "polar_minus_apolar": 0.03
+  }
+}

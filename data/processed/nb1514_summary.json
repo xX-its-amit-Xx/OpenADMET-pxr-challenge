@@ -1,0 +1,263 @@
+{
+  "tag": "nb1514",
+  "candidates": [
+    {
+      "name": "nb1500_bob_median",
+      "file": "nb1500_bob_median_oof.npy",
+      "ref_rae": 0.5234,
+      "desc": "nb1484 BoB MEDIAN",
+      "realized_rae": 0.5233810663894239
+    },
+    {
+      "name": "nb1501_mean_bag",
+      "file": "nb1501_mean_bag_oof.npy",
+      "ref_rae": 0.5223,
+      "desc": "nb1501 CatBoost 4-way",
+      "realized_rae": 0.5223430498778493
+    },
+    {
+      "name": "nb1484_best",
+      "file": "nb1484_best_oof.npy",
+      "ref_rae": 0.5231,
+      "desc": "nb1484 4-way LGBM-Huber",
+      "realized_rae": 0.5230936985014603
+    },
+    {
+      "name": "nb1472_mean",
+      "file": "nb1472_mean_oof.npy",
+      "ref_rae": 0.533,
+      "desc": "nb1472 3-way LGBM-Huber",
+      "realized_rae": 0.532979455536528
+    },
+    {
+      "name": "nb1482_bob_median",
+      "file": "nb1482_bob_median_oof.npy",
+      "ref_rae": 0.531,
+      "desc": "nb1472 BoB MEDIAN",
+      "realized_rae": 0.5309654485330872
+    }
+  ],
+  "ranking_by_realized_rae": [
+    {
+      "rank": 1,
+      "name": "nb1501_mean_bag",
+      "rae": 0.5223430498778493,
+      "ref_rae": 0.5223,
+      "desc": "nb1501 CatBoost 4-way"
+    },
+    {
+      "rank": 2,
+      "name": "nb1484_best",
+      "rae": 0.5230936985014603,
+      "ref_rae": 0.5231,
+      "desc": "nb1484 4-way LGBM-Huber"
+    },
+    {
+      "rank": 3,
+      "name": "nb1500_bob_median",
+      "rae": 0.5233810663894239,
+      "ref_rae": 0.5234,
+      "desc": "nb1484 BoB MEDIAN"
+    },
+    {
+      "rank": 4,
+      "name": "nb1482_bob_median",
+      "rae": 0.5309654485330872,
+      "ref_rae": 0.531,
+      "desc": "nb1472 BoB MEDIAN"
+    },
+    {
+      "rank": 5,
+      "name": "nb1472_mean",
+      "rae": 0.532979455536528,
+      "ref_rae": 0.533,
+      "desc": "nb1472 3-way LGBM-Huber"
+    }
+  ],
+  "n_unb": 253,
+  "K": 5,
+  "pairwise_pearson": [
+    {
+      "a": "nb1500_bob_median",
+      "b": "nb1501_mean_bag",
+      "pearson": 0.9876305292199583
+    },
+    {
+      "a": "nb1500_bob_median",
+      "b": "nb1484_best",
+      "pearson": 0.99659893897333
+    },
+    {
+      "a": "nb1500_bob_median",
+      "b": "nb1472_mean",
+      "pearson": 0.9971862942730528
+    },
+    {
+      "a": "nb1500_bob_median",
+      "b": "nb1482_bob_median",
+      "pearson": 0.9978518237696751
+    },
+    {
+      "a": "nb1501_mean_bag",
+      "b": "nb1484_best",
+      "pearson": 0.9886694175100191
+    },
+    {
+      "a": "nb1501_mean_bag",
+      "b": "nb1472_mean",
+      "pearson": 0.9827720406360921
+    },
+    {
+      "a": "nb1501_mean_bag",
+      "b": "nb1482_bob_median",
+      "pearson": 0.9826019110975917
+    },
+    {
+      "a": "nb1484_best",
+      "b": "nb1472_mean",
+      "pearson": 0.9918807287840377
+    },
+    {
+      "a": "nb1484_best",
+      "b": "nb1482_bob_median",
+      "pearson": 0.9914593300216923
+    },
+    {
+      "a": "nb1472_mean",
+      "b": "nb1482_bob_median",
+      "pearson": 0.9992718038934424
+    }
+  ],
+  "pearson_matrix": [
+    [
+      0.9999999999999999,
+      0.9876305292199583,
+      0.99659893897333,
+      0.9971862942730528,
+      0.9978518237696751
+    ],
+    [
+      0.9876305292199583,
+      0.9999999999999999,
+      0.9886694175100191,
+      0.9827720406360921,
+      0.9826019110975917
+    ],
+    [
+      0.9965989389733299,
+      0.9886694175100192,
+      1.0,
+      0.9918807287840377,
+      0.9914593300216923
+    ],
+    [
+      0.9971862942730528,
+      0.9827720406360922,
+      0.9918807287840377,
+      1.0,
+      0.9992718038934424
+    ],
+    [
+      0.9978518237696751,
+      0.9826019110975917,
+      0.9914593300216923,
+      0.9992718038934424,
+      0.9999999999999999
+    ]
+  ],
+  "pearson_mean_offdiag": 0.9915922818178892,
+  "pearson_min_offdiag": 0.9826019110975917,
+  "rae_naive_mean": 0.5202687625841321,
+  "rae_naive_median": 0.5234642494198941,
+  "cv_folds": 5,
+  "cv_seed": 0,
+  "fold_records": [
+    {
+      "fold": 0,
+      "n_tr": 202,
+      "n_va": 51,
+      "weights": [
+        0.3497840090949119,
+        0.4848442885920619,
+        0.1653717023130262,
+        5.3552575459268104e-18,
+        3.818765252185582e-18
+      ]
+    },
+    {
+      "fold": 1,
+      "n_tr": 202,
+      "n_va": 51,
+      "weights": [
+        0.4236311733873206,
+        0.2822485169463587,
+        0.2941203096663208,
+        1.622726248595742e-17,
+        2.6397934590339574e-17
+      ]
+    },
+    {
+      "fold": 2,
+      "n_tr": 202,
+      "n_va": 51,
+      "weights": [
+        0.23752069311532223,
+        0.42999875872771137,
+        3.9650409747643505e-18,
+        1.5465601495629313e-17,
+        0.33248054815696637
+      ]
+    },
+    {
+      "fold": 3,
+      "n_tr": 203,
+      "n_va": 50,
+      "weights": [
+        0.22475039451695197,
+        0.5900895360577335,
+        1.3942108849581164e-18,
+        0.0,
+        0.18516006942531454
+      ]
+    },
+    {
+      "fold": 4,
+      "n_tr": 203,
+      "n_va": 50,
+      "weights": [
+        0.31185624126183253,
+        0.4608497343397858,
+        0.22729402439838162,
+        1.419814939789605e-23,
+        3.085137459994173e-18
+      ]
+    }
+  ],
+  "mean_fold_weights": [
+    0.3095085022752679,
+    0.4496061669327303,
+    0.13735720727554573,
+    7.409627145132588e-18,
+    0.1035281235164562
+  ],
+  "rae_slsqp_crossfit": 0.5201291251638556,
+  "delta_naive_mean_vs_ref": -0.0020312374158678592,
+  "delta_naive_median_vs_ref": 0.0011642494198941256,
+  "delta_slsqp_vs_ref": -0.0021708748361444208,
+  "options_rae": {
+    "naive_mean": 0.5202687625841321,
+    "naive_median": 0.5234642494198941,
+    "slsqp_cv": 0.5201291251638556,
+    "individual_nb1501_mean_bag": 0.5223430498778493
+  },
+  "best_aggregation": "slsqp_cv",
+  "best_rae": 0.5201291251638556,
+  "ref_name": "nb1501_mean_bag",
+  "ref_rae": 0.5223,
+  "decision_margin": 0.003,
+  "beats_nb1501": false,
+  "flat_vs_nb1501": true,
+  "hurts_vs_nb1501": false,
+  "verdict": "ROBUST_ENSEMBLE_FLAT_VS_NB1501_MEAN_BAG",
+  "wall_sec": 0.06
+}

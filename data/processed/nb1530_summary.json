@@ -1,0 +1,549 @@
+{
+  "tag": "nb1530",
+  "deploy_of": "nb1521",
+  "anchor": "chemprop_aux",
+  "anchor_kind": "PRE_unblind_te",
+  "anchor_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+  "outer_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "inner_base_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "per_outer_inner_seeds": [
+    [
+      0,
+      1,
+      7,
+      42,
+      137
+    ],
+    [
+      1000,
+      1001,
+      1007,
+      1042,
+      1137
+    ],
+    [
+      7000,
+      7001,
+      7007,
+      7042,
+      7137
+    ],
+    [
+      42000,
+      42001,
+      42007,
+      42042,
+      42137
+    ],
+    [
+      137000,
+      137001,
+      137007,
+      137042,
+      137137
+    ]
+  ],
+  "families_order": [
+    "AtomPair",
+    "MACCS",
+    "Mordred",
+    "ChempropEmbed"
+  ],
+  "families_top_idx_pinned_from_nb1484": {
+    "AtomPair": [
+      977,
+      1733,
+      1145,
+      1019,
+      1304,
+      1561,
+      797,
+      1729,
+      1086,
+      798,
+      1797,
+      1113,
+      296,
+      1720,
+      1893,
+      1313,
+      968,
+      766,
+      1644,
+      1272,
+      1444,
+      1806,
+      404,
+      769,
+      1393,
+      1118,
+      1124,
+      1764,
+      548,
+      1801
+    ],
+    "MACCS": [
+      126,
+      131,
+      106,
+      80,
+      150,
+      90,
+      115,
+      145,
+      74,
+      82,
+      144,
+      116,
+      155,
+      157,
+      153,
+      38,
+      147,
+      105,
+      138,
+      140
+    ],
+    "Mordred": [
+      292,
+      1197,
+      253,
+      770,
+      1228,
+      1494,
+      1176,
+      255,
+      297,
+      329,
+      431,
+      454,
+      400,
+      914,
+      239,
+      14,
+      1473,
+      1089,
+      447,
+      132,
+      1320,
+      1321,
+      182,
+      662,
+      1136,
+      1271,
+      1485,
+      463,
+      784,
+      474
+    ],
+    "ChempropEmbed": [
+      259,
+      9,
+      14,
+      32,
+      140,
+      275,
+      163,
+      74,
+      69,
+      181,
+      83,
+      18,
+      172,
+      21,
+      286,
+      248,
+      16,
+      297,
+      210,
+      59,
+      72,
+      54,
+      84,
+      161,
+      235,
+      158,
+      233,
+      164,
+      30,
+      55
+    ]
+  },
+  "blend_w_nb1501": 0.5,
+  "blend_w_nb1484": 0.5,
+  "nb1501_model": "CatBoost(MAE, d4, n200, lr0.05, l2=5)",
+  "nb1484_model": "LGBM(huber alpha=1.0, d3, leaves=7, n_est=80, lr=0.05)",
+  "nb1501_inner_bag_size": 5,
+  "nb1484_family_aggregation": "naive_1_4_mean",
+  "n_top_atompair": 30,
+  "n_top_maccs": 20,
+  "n_top_mordred": 30,
+  "n_top_chemprop_embed": 30,
+  "feat_dim_nb1501_quad": 112,
+  "feat_dim_nb1484_per_family": {
+    "AtomPair": 32,
+    "MACCS": 22,
+    "Mordred": 32,
+    "ChempropEmbed": 32
+  },
+  "n_test": 513,
+  "n_unb": 253,
+  "rae_anchor_chemprop_aux_in_RAE_unb": 0.6215728863514471,
+  "residual_mean": -0.1325965261753001,
+  "residual_std": 0.6999145683913596,
+  "per_outer_records": [
+    {
+      "outer_seed": 0,
+      "inner_seeds_nb1501": [
+        0,
+        1,
+        7,
+        42,
+        137
+      ],
+      "nb1484_family_seed": 0,
+      "per_inner_resid_std_513_nb1501": [
+        0.3429454702939515,
+        0.3472177862836394,
+        0.3356051692478039,
+        0.3441955687003812,
+        0.33816011218901004
+      ],
+      "nb1501_o_resid_513_mean": -0.12384970525965938,
+      "nb1501_o_resid_513_std": 0.3338681108932026,
+      "in_RAE_unb_nb1501_o_in_sample": 0.2569883682797684,
+      "families": [
+        {
+          "family": "AtomPair",
+          "lgbm_seed": 0,
+          "resid_513_mean": -0.12734786561257605,
+          "resid_513_std": 0.2795751158159008,
+          "in_RAE_unb_deploy_in_sample": 0.43471552836749067,
+          "wall_sec": 0.01
+        },
+        {
+          "family": "MACCS",
+          "lgbm_seed": 0,
+          "resid_513_mean": -0.11654502989941198,
+          "resid_513_std": 0.258502413279637,
+          "in_RAE_unb_deploy_in_sample": 0.4629973843970609,
+          "wall_sec": 0.01
+        },
+        {
+          "family": "Mordred",
+          "lgbm_seed": 0,
+          "resid_513_mean": -0.12726713369362178,
+          "resid_513_std": 0.3119554419306668,
+          "in_RAE_unb_deploy_in_sample": 0.3848104508722456,
+          "wall_sec": 0.01
+        },
+        {
+          "family": "ChempropEmbed",
+          "lgbm_seed": 0,
+          "resid_513_mean": -0.08918121912802279,
+          "resid_513_std": 0.33609497998326554,
+          "in_RAE_unb_deploy_in_sample": 0.3731324047428339,
+          "wall_sec": 0.02
+        }
+      ],
+      "nb1484_o_resid_513_mean": -0.11508531208340815,
+      "nb1484_o_resid_513_std": 0.24828191493277954,
+      "in_RAE_unb_nb1484_o_in_sample": 0.3899128707164745,
+      "blend_w": 0.5,
+      "blend_resid_513_mean": -0.11946750867153377,
+      "blend_resid_513_std": 0.2865165432282696,
+      "in_RAE_unb_blend_o_in_sample": 0.32141913497412156,
+      "wall_sec": 4.69
+    },
+    {
+      "outer_seed": 1,
+      "inner_seeds_nb1501": [
+        1000,
+        1001,
+        1007,
+        1042,
+        1137
+      ],
+      "nb1484_family_seed": 1,
+      "per_inner_resid_std_513_nb1501": [
+        0.34388054124857337,
+        0.3436667258442262,
+        0.34388026745129185,
+        0.3538458490345036,
+        0.3387986356033458
+      ],
+      "nb1501_o_resid_513_mean": -0.1271176772640952,
+      "nb1501_o_resid_513_std": 0.33752836011402826,
+      "in_RAE_unb_nb1501_o_in_sample": 0.254099837076671,
+      "families": [
+        {
+          "family": "AtomPair",
+          "lgbm_seed": 1,
+          "resid_513_mean": -0.12263702524646322,
+          "resid_513_std": 0.2761310373095072,
+          "in_RAE_unb_deploy_in_sample": 0.4389574882190893,
+          "wall_sec": 0.01
+        },
+        {
+          "family": "MACCS",
+          "lgbm_seed": 1,
+          "resid_513_mean": -0.120198049143181,
+          "resid_513_std": 0.25353236575540683,
+          "in_RAE_unb_deploy_in_sample": 0.46523139891226595,
+          "wall_sec": 0.01
+        },
+        {
+          "family": "Mordred",
+          "lgbm_seed": 1,
+          "resid_513_mean": -0.12051645741289572,
+          "resid_513_std": 0.3100685573890573,
+          "in_RAE_unb_deploy_in_sample": 0.39041257505038224,
+          "wall_sec": 0.01
+        },
+        {
+          "family": "ChempropEmbed",
+          "lgbm_seed": 1,
+          "resid_513_mean": -0.09135998354174564,
+          "resid_513_std": 0.3298797935437727,
+          "in_RAE_unb_deploy_in_sample": 0.36944793105607987,
+          "wall_sec": 0.01
+        }
+      ],
+      "nb1484_o_resid_513_mean": -0.1136778788360714,
+      "nb1484_o_resid_513_std": 0.2455367653197729,
+      "in_RAE_unb_nb1484_o_in_sample": 0.39211535390166513,
+      "blend_w": 0.5,
+      "blend_resid_513_mean": -0.12039777805008331,
+      "blend_resid_513_std": 0.28673262683963735,
+      "in_RAE_unb_blend_o_in_sample": 0.3210983075589949,
+      "wall_sec": 4.54
+    },
+    {
+      "outer_seed": 7,
+      "inner_seeds_nb1501": [
+        7000,
+        7001,
+        7007,
+        7042,
+        7137
+      ],
+      "nb1484_family_seed": 7,
+      "per_inner_resid_std_513_nb1501": [
+        0.34325971493892915,
+        0.34038562451150634,
+        0.3456292595190814,
+        0.35204099783958864,
+        0.34374370036319685
+      ],
+      "nb1501_o_resid_513_mean": -0.1262861029355987,
+      "nb1501_o_resid_513_std": 0.33701811704496304,
+      "in_RAE_unb_nb1501_o_in_sample": 0.25727206381472983,
+      "families": [
+        {
+          "family": "AtomPair",
+          "lgbm_seed": 7,
+          "resid_513_mean": -0.13014882525476695,
+          "resid_513_std": 0.2771085170936235,
+          "in_RAE_unb_deploy_in_sample": 0.4405977883866359,
+          "wall_sec": 0.01
+        },
+        {
+          "family": "MACCS",
+          "lgbm_seed": 7,
+          "resid_513_mean": -0.11233501640666894,
+          "resid_513_std": 0.25338297537700616,
+          "in_RAE_unb_deploy_in_sample": 0.46386354435570654,
+          "wall_sec": 0.01
+        },
+        {
+          "family": "Mordred",
+          "lgbm_seed": 7,
+          "resid_513_mean": -0.11738761165480592,
+          "resid_513_std": 0.30366466499162675,
+          "in_RAE_unb_deploy_in_sample": 0.38917026796710885,
+          "wall_sec": 0.01
+        },
+        {
+          "family": "ChempropEmbed",
+          "lgbm_seed": 7,
+          "resid_513_mean": -0.08483295521359112,
+          "resid_513_std": 0.33959412087788987,
+          "in_RAE_unb_deploy_in_sample": 0.368841010167504,
+          "wall_sec": 0.01
+        }
+      ],
+      "nb1484_o_resid_513_mean": -0.11117610213245822,
+      "nb1484_o_resid_513_std": 0.24495976161746405,
+      "in_RAE_unb_nb1484_o_in_sample": 0.3915022830247573,
+      "blend_w": 0.5,
+      "blend_resid_513_mean": -0.11873110253402847,
+      "blend_resid_513_std": 0.28587842084831006,
+      "in_RAE_unb_blend_o_in_sample": 0.3225359157852588,
+      "wall_sec": 4.65
+    },
+    {
+      "outer_seed": 42,
+      "inner_seeds_nb1501": [
+        42000,
+        42001,
+        42007,
+        42042,
+        42137
+      ],
+      "nb1484_family_seed": 42,
+      "per_inner_resid_std_513_nb1501": [
+        0.34405139294269405,
+        0.3338931684795802,
+        0.34589626734587253,
+        0.3367126145171533,
+        0.3485667774302107
+      ],
+      "nb1501_o_resid_513_mean": -0.1256894955335967,
+      "nb1501_o_resid_513_std": 0.3347883515300307,
+      "in_RAE_unb_nb1501_o_in_sample": 0.25834825536112027,
+      "families": [
+        {
+          "family": "AtomPair",
+          "lgbm_seed": 42,
+          "resid_513_mean": -0.1288756989137526,
+          "resid_513_std": 0.28116880250285653,
+          "in_RAE_unb_deploy_in_sample": 0.4376458036829887,
+          "wall_sec": 0.01
+        },
+        {
+          "family": "MACCS",
+          "lgbm_seed": 42,
+          "resid_513_mean": -0.11957426452260189,
+          "resid_513_std": 0.2455736778125568,
+          "in_RAE_unb_deploy_in_sample": 0.46589643548986265,
+          "wall_sec": 0.01
+        },
+        {
+          "family": "Mordred",
+          "lgbm_seed": 42,
+          "resid_513_mean": -0.12834698541795242,
+          "resid_513_std": 0.3095269946449036,
+          "in_RAE_unb_deploy_in_sample": 0.38184470171468765,
+          "wall_sec": 0.01
+        },
+        {
+          "family": "ChempropEmbed",
+          "lgbm_seed": 42,
+          "resid_513_mean": -0.08788687252337475,
+          "resid_513_std": 0.3386008720253845,
+          "in_RAE_unb_deploy_in_sample": 0.3710578059898147,
+          "wall_sec": 0.01
+        }
+      ],
+      "nb1484_o_resid_513_mean": -0.11617095534442042,
+      "nb1484_o_resid_513_std": 0.24607623388158315,
+      "in_RAE_unb_nb1484_o_in_sample": 0.38909288403742426,
+      "blend_w": 0.5,
+      "blend_resid_513_mean": -0.12093022543900855,
+      "blend_resid_513_std": 0.2854610780020096,
+      "in_RAE_unb_blend_o_in_sample": 0.3216878482112112,
+      "wall_sec": 4.54
+    },
+    {
+      "outer_seed": 137,
+      "inner_seeds_nb1501": [
+        137000,
+        137001,
+        137007,
+        137042,
+        137137
+      ],
+      "nb1484_family_seed": 137,
+      "per_inner_resid_std_513_nb1501": [
+        0.3310523539642567,
+        0.3411811628960564,
+        0.3441145174346469,
+        0.3398363862279907,
+        0.34992455715620685
+      ],
+      "nb1501_o_resid_513_mean": -0.12581561110081593,
+      "nb1501_o_resid_513_std": 0.3341472743314059,
+      "in_RAE_unb_nb1501_o_in_sample": 0.2561974698642514,
+      "families": [
+        {
+          "family": "AtomPair",
+          "lgbm_seed": 137,
+          "resid_513_mean": -0.12876794455058588,
+          "resid_513_std": 0.2713235358385015,
+          "in_RAE_unb_deploy_in_sample": 0.4426271102670753,
+          "wall_sec": 0.01
+        },
+        {
+          "family": "MACCS",
+          "lgbm_seed": 137,
+          "resid_513_mean": -0.12104447557797231,
+          "resid_513_std": 0.2513433381961559,
+          "in_RAE_unb_deploy_in_sample": 0.4649423689413509,
+          "wall_sec": 0.01
+        },
+        {
+          "family": "Mordred",
+          "lgbm_seed": 137,
+          "resid_513_mean": -0.124619586416541,
+          "resid_513_std": 0.31086491347286377,
+          "in_RAE_unb_deploy_in_sample": 0.38848377619791385,
+          "wall_sec": 0.01
+        },
+        {
+          "family": "ChempropEmbed",
+          "lgbm_seed": 137,
+          "resid_513_mean": -0.09274886360960453,
+          "resid_513_std": 0.33069636092233834,
+          "in_RAE_unb_deploy_in_sample": 0.3695459509792312,
+          "wall_sec": 0.01
+        }
+      ],
+      "nb1484_o_resid_513_mean": -0.11679521753867594,
+      "nb1484_o_resid_513_std": 0.24528473816623111,
+      "in_RAE_unb_nb1484_o_in_sample": 0.39282915871243956,
+      "blend_w": 0.5,
+      "blend_resid_513_mean": -0.12130541431974595,
+      "blend_resid_513_std": 0.2852010904987617,
+      "in_RAE_unb_blend_o_in_sample": 0.32253333155341946,
+      "wall_sec": 4.67
+    }
+  ],
+  "te_mean_stats": {
+    "mean": 4.711107486056971,
+    "std": 0.7296989669125994,
+    "min": 2.115579091325372,
+    "max": 6.074868970748989
+  },
+  "te_median_stats": {
+    "mean": 4.711189311681014,
+    "std": 0.7297931277833568,
+    "min": 2.115962084039936,
+    "max": 6.066206672033362
+  },
+  "in_RAE_unb_deploy_in_sample_mean": 0.3216709202365691,
+  "in_RAE_unb_deploy_in_sample_median": 0.3214937856542007,
+  "honest_LB_anchor_mean_nb1521_bob_mean": 0.5221,
+  "honest_LB_anchor_median_nb1521_bob_median": 0.5231,
+  "predicted_LB_mean": 0.5251,
+  "predicted_LB_median": 0.5261,
+  "pearson_te_mean_unb_vs_nb1521_bob_mean_oof": 0.9706374913959972,
+  "pearson_te_median_unb_vs_nb1521_bob_median_oof": 0.9706243154362991,
+  "te_mean_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb1530_mean.npy",
+  "te_median_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb1530_median.npy",
+  "csv_mean_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1530_deploy_nb1521_mean.csv",
+  "csv_median_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1530_deploy_nb1521_median.csv",
+  "pre_unblind_clean": true,
+  "wall_sec": 23.17
+}

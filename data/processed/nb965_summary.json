@@ -1,0 +1,126 @@
+{
+  "tag": "nb965",
+  "generated_at": "2026-06-08T02:45:34",
+  "elapsed_sec": 20.49,
+  "kb_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\external\\chembl_pxr_nr_kb.parquet",
+  "kb_raw_rows": 11185,
+  "kb_unique_compounds_after_dedup": 11185,
+  "kb_unique_compounds_used_after_train_overlap_drop": 11185,
+  "kb_train_inchikey_overlap": 0,
+  "kb_src_breakdown_used": {
+    "NR_PPARg": 4220,
+    "NR_FXR": 3135,
+    "NR_RXRa": 1315,
+    "NR_LXRa": 1137,
+    "PXR_CHEMBL3401": 726,
+    "NR_VDR": 491,
+    "NR_PXR": 157,
+    "NR_PPARa": 4
+  },
+  "kb_src_weights": {
+    "PXR_direct": 1.0,
+    "NR_related": 0.3,
+    "n_pxr_direct": 883,
+    "n_nr_related": 10302
+  },
+  "shift_factor_pec50_train_minus_kb_median": 0.0,
+  "n_unblind": 253,
+  "n_f2_wide_scaf_freq_zero": 197,
+  "delta_helpable_threshold": 0.05,
+  "n_f2_helpable": 1,
+  "knn_k": 5,
+  "sim_train_summary_on_f2": {
+    "mean": 0.5183981657028198,
+    "median": 0.5087719559669495,
+    "p25": 0.47887325286865234,
+    "p75": 0.5555555820465088
+  },
+  "sim_kb_summary_on_f2": {
+    "mean": 0.3031288981437683,
+    "median": 0.29032257199287415,
+    "p25": 0.2638888955116272,
+    "p75": 0.34090909361839294
+  },
+  "delta_summary_on_f2": {
+    "mean": -0.2152692973613739,
+    "median": -0.2165324091911316,
+    "p25": -0.260869562625885,
+    "p75": -0.1638621687889099
+  },
+  "rae_full_253": {
+    "chemprop_aux": 0.6215728863514471,
+    "nb2103_K28_mean_bag_oof": 0.47368697777353697
+  },
+  "rae_full_f2": {
+    "chemprop_aux": 0.6212277540534497,
+    "nb2103_K28_mean_bag_oof": 0.4942929839710648,
+    "knn_raw": 1.6967828374911778,
+    "knn_calibrated": 1.6967828374911778
+  },
+  "rae_helpable_subset": {
+    "chemprop_aux": 0.0,
+    "nb2103_K28_mean_bag_oof": 0.0,
+    "knn_raw": 0.0,
+    "knn_calibrated": 0.0,
+    "per_row_blend_sim_kb_capped_0_8": 0.0,
+    "best_const_blend": {
+      "w_knn_cal": 0.0,
+      "rae": 0.0
+    },
+    "const_blend_grid": [
+      {
+        "w_knn_cal": 0.0,
+        "rae": 0.0
+      },
+      {
+        "w_knn_cal": 0.1,
+        "rae": 0.0
+      },
+      {
+        "w_knn_cal": 0.2,
+        "rae": 0.0
+      },
+      {
+        "w_knn_cal": 0.3,
+        "rae": 0.0
+      },
+      {
+        "w_knn_cal": 0.4,
+        "rae": 0.0
+      },
+      {
+        "w_knn_cal": 0.5,
+        "rae": 0.0
+      },
+      {
+        "w_knn_cal": 0.6,
+        "rae": 0.0
+      },
+      {
+        "w_knn_cal": 0.7,
+        "rae": 0.0
+      },
+      {
+        "w_knn_cal": 0.8,
+        "rae": 0.0
+      },
+      {
+        "w_knn_cal": 0.9,
+        "rae": 0.0
+      },
+      {
+        "w_knn_cal": 1.0,
+        "rae": 0.0
+      }
+    ]
+  },
+  "deltas_helpable_vs_chemprop_aux": {
+    "knn_calibrated": 0.0,
+    "per_row_blend": 0.0,
+    "best_const_blend": 0.0
+  },
+  "decision_rae_delta": 0.05,
+  "kb_real_signal": false,
+  "verdict": "KB_DOES_NOT_BEAT_ANCHOR  (helpable n=1; best RAE drop +0.0000 < 0.05) -> do NOT integrate; KB neighbors are close in Tanimoto but assay bias and residual noise dominate",
+  "cycle_131_recommendation": "DROP_KB_KNN_ROUTE; revisit only with PXR-direct subset or an assay-bias-learned regression head"
+}

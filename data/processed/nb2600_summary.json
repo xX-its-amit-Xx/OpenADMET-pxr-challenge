@@ -1,0 +1,75 @@
+{
+  "tag": "nb2600",
+  "method": "PyMC-BART on K=20 first-cols of X_117 fit to chemprop_aux residual; modern MCMC posterior over tree ensembles via pytensor backend",
+  "paradigm": "modern_bayesian_tree_ensemble_mcmc_pytensor_backend",
+  "anchor_name": "chemprop_aux (PRE-unblind, verified clean)",
+  "rae_anchor_unb": 0.6215728863514471,
+  "bart_m": 50,
+  "sample_draws": 200,
+  "sample_tune": 200,
+  "sample_chains": 2,
+  "sample_cores": 2,
+  "sample_seed": 42,
+  "posterior_pred_size": 200,
+  "n_folds": 5,
+  "kf_seed": 1001,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "feat_dim": 20,
+  "k_slice_first_n_of_117": 20,
+  "folds": [
+    {
+      "fold": 0,
+      "n_tr": 202,
+      "n_va": 51,
+      "resid_pred_mean": -0.2775077248383932,
+      "resid_pred_std": 0.25907737704774,
+      "wall_sec": 16.47
+    },
+    {
+      "fold": 1,
+      "n_tr": 202,
+      "n_va": 51,
+      "resid_pred_mean": -0.21356597811279351,
+      "resid_pred_std": 0.2713738210007565,
+      "wall_sec": 15.23
+    },
+    {
+      "fold": 2,
+      "n_tr": 202,
+      "n_va": 51,
+      "resid_pred_mean": -0.19141442343669257,
+      "resid_pred_std": 0.2418041139396161,
+      "wall_sec": 15.8
+    },
+    {
+      "fold": 3,
+      "n_tr": 203,
+      "n_va": 50,
+      "resid_pred_mean": -0.11257414572001444,
+      "resid_pred_std": 0.17958264461149498,
+      "wall_sec": 16.13
+    },
+    {
+      "fold": 4,
+      "n_tr": 203,
+      "n_va": 50,
+      "resid_pred_mean": -0.24756463222242567,
+      "resid_pred_std": 0.23949797434542006,
+      "wall_sec": 16.27
+    }
+  ],
+  "fold_failures": [],
+  "mean_rae": 0.5915354578565929,
+  "delta_vs_anchor": -0.030037428494854246,
+  "te_unb_rae_in_sample": 0.5460186757665074,
+  "te_deploy_mean": 4.587717056274414,
+  "te_deploy_std": 0.6475234031677246,
+  "gate_promote_threshold": 0.457,
+  "gate_marginal_threshold": 0.4601,
+  "verdict": "FAIL",
+  "oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2600_pred_oof.npy",
+  "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2600.npy",
+  "wall_sec": 97.74
+}

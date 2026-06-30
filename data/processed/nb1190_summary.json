@@ -1,0 +1,208 @@
+{
+  "tag": "nb1190",
+  "method": "nb1162_reproducibility_audit_5fresh_seeds_with_drop_nb730",
+  "audit_target": "nb1162_stack_pyramid_PRIMARY1_0p4206",
+  "fresh_seeds": [
+    1006,
+    1007,
+    1008,
+    1009,
+    1010
+  ],
+  "n_folds": 5,
+  "stretch_grid": [
+    1.0,
+    1.025,
+    1.05,
+    1.075,
+    1.1,
+    1.125,
+    1.15
+  ],
+  "n_unb": 253,
+  "n_unique_scaffolds": 180,
+  "n_singleton_scaffolds": 0,
+  "nb1162_reported_pooled_cv_rae": 0.4206326222520904,
+  "anchors_full": [
+    "nb2103_K28",
+    "chemprop_aux",
+    "nb730_honest",
+    "nb503",
+    "nb562"
+  ],
+  "anchors_drop_nb730": [
+    "nb2103_K28",
+    "chemprop_aux",
+    "nb503",
+    "nb562"
+  ],
+  "anchors_drop_substitution_note": "Prompt named 'chemprop_aux+nb1150+nb1158' as PRE-unblind anchors for the drop-nb730 swap, but nb1150 and nb1158 only have te(513) cached -- no OOFs on the 253. Using the 4 PRE-unblind OOFs from nb1162 minus nb730 (chemprop_aux + nb2103_K28 + nb503 + nb562) preserves the contamination-decomposition signal.",
+  "indiv_anchor_oof_rae_full": {
+    "nb2103_K28": 0.47368697777353697,
+    "chemprop_aux": 0.5878769556905485,
+    "nb730_honest": 0.42023345844160853,
+    "nb503": 0.5116212503074237,
+    "nb562": 0.5065400776344995
+  },
+  "indiv_anchor_oof_rae_drop": {
+    "nb2103_K28": 0.47368697777353697,
+    "chemprop_aux": 0.5878769556905485,
+    "nb503": 0.5116212503074237,
+    "nb562": 0.5065400776344995
+  },
+  "full_per_seed": [
+    {
+      "seed": 1006,
+      "rae": 0.42055955724587696,
+      "mean_s": 1.0,
+      "fold_s": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fold_w_max": 0.9685501671704333
+    },
+    {
+      "seed": 1007,
+      "rae": 0.41798976755025696,
+      "mean_s": 1.0,
+      "fold_s": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fold_w_max": 0.9246850440587132
+    },
+    {
+      "seed": 1008,
+      "rae": 0.4187900725889523,
+      "mean_s": 1.0,
+      "fold_s": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fold_w_max": 0.9364272528986491
+    },
+    {
+      "seed": 1009,
+      "rae": 0.4229215222420916,
+      "mean_s": 1.0100000000000002,
+      "fold_s": [
+        1.0,
+        1.0,
+        1.025,
+        1.0,
+        1.025
+      ],
+      "fold_w_max": 0.9533716538453605
+    },
+    {
+      "seed": 1010,
+      "rae": 0.427452963818158,
+      "mean_s": 1.01,
+      "fold_s": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.05
+      ],
+      "fold_w_max": 0.9999999999988245
+    }
+  ],
+  "full_mean_rae": 0.4215427766890672,
+  "full_std_rae": 0.003405854532348117,
+  "full_min_rae": 0.41798976755025696,
+  "full_max_rae": 0.427452963818158,
+  "full_delta_vs_reported": 0.0009101544369767844,
+  "drop_nb730_per_seed": [
+    {
+      "seed": 1006,
+      "rae": 0.4688310042784775,
+      "mean_s": 1.0150000000000001,
+      "fold_s": [
+        1.0,
+        1.0,
+        1.025,
+        1.0,
+        1.05
+      ],
+      "fold_w_max": 0.8481234938032401
+    },
+    {
+      "seed": 1007,
+      "rae": 0.469000327745923,
+      "mean_s": 1.0100000000000002,
+      "fold_s": [
+        1.0,
+        1.0,
+        1.0,
+        1.025,
+        1.025
+      ],
+      "fold_w_max": 0.864627665550894
+    },
+    {
+      "seed": 1008,
+      "rae": 0.4690585536195686,
+      "mean_s": 1.01,
+      "fold_s": [
+        1.0,
+        1.05,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fold_w_max": 0.8369969603405446
+    },
+    {
+      "seed": 1009,
+      "rae": 0.47696811209182116,
+      "mean_s": 1.025,
+      "fold_s": [
+        1.0,
+        1.0,
+        1.1,
+        1.0,
+        1.025
+      ],
+      "fold_w_max": 0.8572170705854575
+    },
+    {
+      "seed": 1010,
+      "rae": 0.47300712007664236,
+      "mean_s": 1.0150000000000001,
+      "fold_s": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.075
+      ],
+      "fold_w_max": 0.8222867170473133
+    }
+  ],
+  "drop_nb730_mean_rae": 0.47137302356248656,
+  "drop_nb730_std_rae": 0.0032069800642832366,
+  "drop_nb730_delta_vs_full": 0.04983024687341936,
+  "gate_mean_target": 0.42,
+  "gate_std_target": 0.01,
+  "gate_drop_nb730_target": 0.5,
+  "demote_std_threshold": 0.015,
+  "flag_drop_nb730_threshold": 0.52,
+  "gate_a_mean_le_target": false,
+  "gate_b_std_le_target": true,
+  "gate_c_drop_le_target": true,
+  "gate_keep_primary1": false,
+  "flag_seed_lucky": false,
+  "flag_contamination_dominant": false,
+  "ladder_action": "HOLD_nb1162_partial_gate_fail",
+  "wall_sec": 0.15
+}

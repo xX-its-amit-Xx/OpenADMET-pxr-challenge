@@ -1,0 +1,88 @@
+{
+  "tag": "nb2052",
+  "method": "meta_lgbm_on_nb1162_oof_plus_top20_shap",
+  "anchor": "nb1162",
+  "anchor_oof_source": "honest scaffold-CV replay of nb1162 SLSQP+stretch",
+  "top_K_feats": 20,
+  "feat_provenance": "nb2063_top50_idx.npy[:20] (top-20 SHAP of 117-col)",
+  "top20_idx_in_117": [
+    45,
+    67,
+    48,
+    0,
+    66,
+    68,
+    65,
+    92,
+    50,
+    27,
+    77,
+    47,
+    63,
+    81,
+    56,
+    1,
+    52,
+    7,
+    53,
+    115
+  ],
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "n_folds": 5,
+  "seed": 42,
+  "meta_lgbm_hyperparams": {
+    "objective": "regression",
+    "max_depth": 4,
+    "num_leaves": 15,
+    "n_estimators": 300,
+    "learning_rate": 0.03,
+    "min_child_samples": 5,
+    "reg_lambda": 2.0
+  },
+  "nb1162_oof_rae": 0.4206326222520904,
+  "meta_scaffold_cv_rae": 0.45241124951652867,
+  "delta_vs_nb1162_oof": 0.03177862726443825,
+  "fold_results": [
+    {
+      "fold": 0,
+      "n_tr": 202,
+      "n_va": 51,
+      "val_rae": 0.47822938565094575
+    },
+    {
+      "fold": 1,
+      "n_tr": 202,
+      "n_va": 51,
+      "val_rae": 0.40361495067005676
+    },
+    {
+      "fold": 2,
+      "n_tr": 202,
+      "n_va": 51,
+      "val_rae": 0.4787123959682447
+    },
+    {
+      "fold": 3,
+      "n_tr": 203,
+      "n_va": 50,
+      "val_rae": 0.4513803364730207
+    },
+    {
+      "fold": 4,
+      "n_tr": 203,
+      "n_va": 50,
+      "val_rae": 0.4523980334072319
+    }
+  ],
+  "gate_margin": 0.01,
+  "gate_target": 0.4106326222520904,
+  "gate_pass": false,
+  "in_sample_rae_overfit_bound": 0.0944526442497426,
+  "deploy_te_mean": 4.737508773803711,
+  "deploy_te_std": 0.8651907444000244,
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2052.npy",
+  "submission_csv": null,
+  "wall_sec": 4.18
+}

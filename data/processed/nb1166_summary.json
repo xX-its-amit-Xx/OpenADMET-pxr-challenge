@@ -1,0 +1,11 @@
+{
+  "variants": {
+    "control": 0.4571,
+    "octant": 0.4546
+  },
+  "std": {
+    "control": 0.0127,
+    "octant": 0.0118
+  },
+  "octant_minus_control": -0.0025
+}

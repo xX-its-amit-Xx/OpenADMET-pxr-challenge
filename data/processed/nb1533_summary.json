@@ -1,0 +1,198 @@
+{
+  "tag": "nb1533",
+  "deploy_of": "nb1520",
+  "w_nb1512": 0.45,
+  "w_nb1500": 0.55,
+  "anchor": "chemprop_aux",
+  "anchor_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+  "nb1510_mean_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb1510_mean.npy",
+  "outer_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "inner_base_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "per_outer_inner_seeds": [
+    [
+      0,
+      1,
+      7,
+      42,
+      137
+    ],
+    [
+      1000,
+      1001,
+      1007,
+      1042,
+      1137
+    ],
+    [
+      7000,
+      7001,
+      7007,
+      7042,
+      7137
+    ],
+    [
+      42000,
+      42001,
+      42007,
+      42042,
+      42137
+    ],
+    [
+      137000,
+      137001,
+      137007,
+      137042,
+      137137
+    ]
+  ],
+  "feat_dim": 112,
+  "feat_breakdown": {
+    "atompair": 30,
+    "maccs": 20,
+    "mordred": 30,
+    "chemprop_embed": 30,
+    "pred_chembl_pec50": 1,
+    "mean_sim": 1,
+    "total": 112
+  },
+  "n_test": 513,
+  "n_unb": 253,
+  "rae_anchor_chemprop_aux_in_RAE_unb": 0.6215728863514471,
+  "residual_mean": -0.1325965261753001,
+  "residual_std": 0.6999145683913596,
+  "per_outer_records": [
+    {
+      "outer_seed": 0,
+      "inner_seeds": [
+        0,
+        1,
+        7,
+        42,
+        137
+      ],
+      "per_seed_in_RAE_unb": [
+        0.2521764518658025,
+        0.2484467404381212,
+        0.2641136243120203,
+        0.2545611102908968,
+        0.2628454202269669
+      ],
+      "blend_resid_513_mean": -0.12243694187763265,
+      "blend_resid_513_std": 0.3356592238790808,
+      "in_RAE_unb_blend_in_sample": 0.2551981272590311,
+      "wall_sec": 6.66
+    },
+    {
+      "outer_seed": 1,
+      "inner_seeds": [
+        1000,
+        1001,
+        1007,
+        1042,
+        1137
+      ],
+      "per_seed_in_RAE_unb": [
+        0.25474152283947377,
+        0.25171021715260655,
+        0.26511325354802046,
+        0.25908375536785183,
+        0.2572480785334468
+      ],
+      "blend_resid_513_mean": -0.12529387071242834,
+      "blend_resid_513_std": 0.3382342241340729,
+      "in_RAE_unb_blend_in_sample": 0.25606526044769995,
+      "wall_sec": 6.91
+    },
+    {
+      "outer_seed": 7,
+      "inner_seeds": [
+        7000,
+        7001,
+        7007,
+        7042,
+        7137
+      ],
+      "per_seed_in_RAE_unb": [
+        0.25361298838599444,
+        0.2493337319742456,
+        0.2667965231633963,
+        0.26554951665233645,
+        0.26203843425133716
+      ],
+      "blend_resid_513_mean": -0.12677921297231104,
+      "blend_resid_513_std": 0.3324530136235221,
+      "in_RAE_unb_blend_in_sample": 0.258088736085722,
+      "wall_sec": 6.81
+    },
+    {
+      "outer_seed": 42,
+      "inner_seeds": [
+        42000,
+        42001,
+        42007,
+        42042,
+        42137
+      ],
+      "per_seed_in_RAE_unb": [
+        0.2584738433977264,
+        0.259904483714385,
+        0.25953944236906595,
+        0.2556563583737904,
+        0.25507419317798574
+      ],
+      "blend_resid_513_mean": -0.12850508672251945,
+      "blend_resid_513_std": 0.3379032180381057,
+      "in_RAE_unb_blend_in_sample": 0.2562386200868345,
+      "wall_sec": 6.66
+    },
+    {
+      "outer_seed": 137,
+      "inner_seeds": [
+        137000,
+        137001,
+        137007,
+        137042,
+        137137
+      ],
+      "per_seed_in_RAE_unb": [
+        0.25771340659486414,
+        0.2582592603490195,
+        0.2598834537963878,
+        0.2616375979423934,
+        0.2557112749517123
+      ],
+      "blend_resid_513_mean": -0.12457713364212723,
+      "blend_resid_513_std": 0.33082888438068964,
+      "in_RAE_unb_blend_in_sample": 0.2573336495623022,
+      "wall_sec": 6.45
+    }
+  ],
+  "in_RAE_unb_nb1512_bob_mean_in_sample": 0.25597491068586936,
+  "te_nb1512_bob_mean_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb1512_bob_mean.npy",
+  "te_nb1533_stats": {
+    "mean": 4.712063422341548,
+    "std": 0.7195305962282481,
+    "min": 2.175602554544513,
+    "max": 6.055993505896307
+  },
+  "in_RAE_unb_nb1533_in_sample": 0.3292669290205127,
+  "nb1520_in_sample_ref": 0.5191,
+  "nb1520_cross_fit_ref": 0.5214,
+  "caveat": "in-sample 0.5191; honest 5-fold cross-fit 0.5214; sub-margin (-0.0022) vs nb1500 BoB mean 0.5236.",
+  "pearson_te_nb1533_unb_vs_nb1520_oof": 0.9723461184752082,
+  "te_nb1533_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb1533.npy",
+  "csv_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1533_deploy_nb1520.csv",
+  "wall_sec": 33.54
+}

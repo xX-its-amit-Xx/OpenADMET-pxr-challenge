@@ -1,89 +1,143 @@
 {
   "tag": "nb1142",
-  "anchor": "combined_chemprop_aux_nb1070",
-  "anchor_weights": {
-    "chemprop_aux": 0.5,
-    "nb1070": 0.5
-  },
-  "chemprop_te_file": "te_chemprop_aux.npy",
-  "nb1070_oof_file": "nb1070_pred_oof.npy",
-  "n_unb": 253,
-  "resid_seeds": [
-    0,
-    1,
+  "method": "nested_scaffold_stratified_meta_stacker_4base_LGBM_Ridge_kNN_MLP_meta_LGBM",
+  "anchor": "chemprop_aux",
+  "anchor_kind": "PRE_unblind_te_slice_to_unb_idx",
+  "anchor_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+  "feature_source": "nb2103 cached K=28 SHAP-pruned matrix (X_unb_28_nb2103.npy)",
+  "feature_dim": 28,
+  "binary_cols_used_for_knn_tanimoto": [
+    3,
     7,
-    42,
-    137
+    9,
+    15,
+    17,
+    20,
+    23,
+    26
   ],
-  "resid_folds": 5,
-  "feature_dim": 2265,
-  "rae_chemprop_aux_alone": 0.6215728863514471,
-  "rae_nb1070_alone": 0.5771305166381785,
-  "rae_combined_anchor": 0.5912820633235171,
-  "residual_std_chemprop_aux": 0.6999145683913596,
-  "residual_std_nb1070": 0.6666145784833671,
-  "residual_std_combined": 0.6762852484115619,
-  "per_seed_rae": [
-    0.583219786072198,
-    0.5913312323090434,
-    0.5751063824991417,
-    0.5728168605100367,
-    0.5763506362147625
-  ],
-  "per_seed_records": [
+  "base_learners": [
     {
-      "seed": 0,
-      "rae_corrected": 0.583219786072198,
-      "delta_vs_anchor": -0.008062277251319028,
-      "resid_oof_std": 0.26666199972671883,
-      "resid_oof_mean": -0.11959121177816462
+      "name": "LGBM_K28",
+      "cols": "all 28"
     },
     {
-      "seed": 1,
-      "rae_corrected": 0.5913312323090434,
-      "delta_vs_anchor": 4.9168985526315545e-05,
-      "resid_oof_std": 0.2657054542419607,
-      "resid_oof_mean": -0.10317605061132552
+      "name": "Ridge_K28",
+      "cols": "all 28, standardized"
     },
     {
-      "seed": 7,
-      "rae_corrected": 0.5751063824991417,
-      "delta_vs_anchor": -0.01617568082437537,
-      "resid_oof_std": 0.2562630485838546,
-      "resid_oof_mean": -0.09691300527429954
+      "name": "kNN_Tanimoto_k5",
+      "cols": "8 binary cols",
+      "k": 5
     },
     {
-      "seed": 42,
-      "rae_corrected": 0.5728168605100367,
-      "delta_vs_anchor": -0.018465202813480408,
-      "resid_oof_std": 0.2804447977921384,
-      "resid_oof_mean": -0.09611379176812349
-    },
-    {
-      "seed": 137,
-      "rae_corrected": 0.5763506362147625,
-      "delta_vs_anchor": -0.014931427108754614,
-      "resid_oof_std": 0.2588210860958162,
-      "resid_oof_mean": -0.10196081823178844
+      "name": "MLP_K28",
+      "cols": "all 28, standardized, hidden=(32,), max_iter=500"
     }
   ],
-  "rae_per_seed_mean": 0.5797649795210364,
-  "rae_per_seed_median": 0.5763506362147625,
-  "rae_per_seed_std": 0.006743152320369882,
-  "rae_per_seed_min": 0.5728168605100367,
-  "rae_per_seed_max": 0.5913312323090434,
-  "rae_mean_bag": 0.5667251273954877,
-  "rae_median_bag": 0.5696868980059522,
-  "delta_mean_bag_vs_anchor": -0.024556935928029322,
-  "delta_median_bag_vs_anchor": -0.02159516531756489,
-  "beats_anchor": true,
-  "nb1130_mean_bag_ref": 0.5673366822345808,
-  "beats_nb1130": false,
-  "nb1141_mean_bag_ref": 0.575251075716461,
-  "beats_nb1141": true,
-  "verdict": "COMBINED_BEATS_NB1141_TIES_OR_LOSES_NB1130",
-  "chemprop_aux_ref_rae": 0.6216,
-  "nb1070_ref_rae": 0.5771,
-  "nb1130_ref_mean_bag": 0.5673,
-  "wall_sec": 3.24
+  "meta_learner": {
+    "family": "LightGBM",
+    "objective": "regression",
+    "max_depth": 3,
+    "num_leaves": 7,
+    "n_estimators": 200,
+    "learning_rate": 0.03,
+    "min_child_samples": 4,
+    "reg_lambda": 2.0
+  },
+  "outer_folds": 5,
+  "inner_folds": 4,
+  "outer_seed": 42,
+  "inner_seed_base": 17,
+  "knn_k": 5,
+  "n_unb": 253,
+  "n_scaffolds_unique": 180,
+  "n_empty_scaffolds": 0,
+  "rae_anchor_chemprop_aux": 0.6215728863514471,
+  "residual_mean": -0.1325965261753001,
+  "residual_std": 0.6999145683913596,
+  "outer_pooled_rae": 0.5682860735081317,
+  "per_fold_mean_rae": 0.5707473656490629,
+  "per_fold_std_rae": 0.032897008925218324,
+  "per_fold_records": [
+    {
+      "fold": 0,
+      "n_train": 202,
+      "n_val": 51,
+      "rae_meta_fold": 0.6142371627338267,
+      "rae_anchor_fold": 0.6193204818318819,
+      "per_base_rae_fold": {
+        "LGBM_K28": 0.5981521124412379,
+        "Ridge_K28": 0.7798295535142235,
+        "kNN_Tanimoto_k5": 0.6446799591301027,
+        "MLP_K28": 0.7710397215957049
+      },
+      "wall_sec": 0.68
+    },
+    {
+      "fold": 1,
+      "n_train": 202,
+      "n_val": 51,
+      "rae_meta_fold": 0.5966038533594908,
+      "rae_anchor_fold": 0.6582111357741676,
+      "per_base_rae_fold": {
+        "LGBM_K28": 0.49011772358203104,
+        "Ridge_K28": 0.6066341480260895,
+        "kNN_Tanimoto_k5": 0.653333118057051,
+        "MLP_K28": 0.6173318794760476
+      },
+      "wall_sec": 0.84
+    },
+    {
+      "fold": 2,
+      "n_train": 202,
+      "n_val": 51,
+      "rae_meta_fold": 0.5187992621929887,
+      "rae_anchor_fold": 0.5758541154073211,
+      "per_base_rae_fold": {
+        "LGBM_K28": 0.5331232693350987,
+        "Ridge_K28": 0.5705450034203162,
+        "kNN_Tanimoto_k5": 0.5543487654523376,
+        "MLP_K28": 0.6077679032283656
+      },
+      "wall_sec": 0.74
+    },
+    {
+      "fold": 3,
+      "n_train": 203,
+      "n_val": 50,
+      "rae_meta_fold": 0.5612763409477922,
+      "rae_anchor_fold": 0.624503102821707,
+      "per_base_rae_fold": {
+        "LGBM_K28": 0.5498085813980637,
+        "Ridge_K28": 0.6039068129966401,
+        "kNN_Tanimoto_k5": 0.5951281997210287,
+        "MLP_K28": 0.7109034358064623
+      },
+      "wall_sec": 0.72
+    },
+    {
+      "fold": 4,
+      "n_train": 203,
+      "n_val": 50,
+      "rae_meta_fold": 0.5628202090112161,
+      "rae_anchor_fold": 0.6328929464109844,
+      "per_base_rae_fold": {
+        "LGBM_K28": 0.5289157414499326,
+        "Ridge_K28": 0.6333792777015783,
+        "kNN_Tanimoto_k5": 0.6224975312991115,
+        "MLP_K28": 0.6817557497914037
+      },
+      "wall_sec": 0.79
+    }
+  ],
+  "nb2103_scaffold_cv_ref": 0.5057,
+  "delta_vs_nb2103_scaffold_cv": 0.06258607350813161,
+  "decision_margin": 0.003,
+  "beats_nb2103_scaffold_cv": false,
+  "flat_vs_nb2103_scaffold_cv": false,
+  "verdict": "WORSE_THAN_NB2103_SCAFFOLD_CV",
+  "deploy_csv": null,
+  "pre_unblind_clean": true,
+  "wall_sec": 3.96
 }

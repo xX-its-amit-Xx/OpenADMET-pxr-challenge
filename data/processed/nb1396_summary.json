@@ -1,0 +1,10 @@
+{
+  "tag": "nb1396",
+  "description": "253 TRUE phase-1 labels + 260 SOAP-chain predictions (nb1315 0.4161 RAE)",
+  "n_true": 253,
+  "n_soap_predicted": 260,
+  "soap_model_rae": 0.4161,
+  "format": "3-column (Molecule Name, SMILES, pEC50)",
+  "fixes": "nb1395 rejected due to missing SMILES column",
+  "submission_file": "D:/Users/ashenoy00000/.windsurf/OpenADMET-pxr-challenge/submissions/nb1396_soap_truth_smiles.csv"
+}

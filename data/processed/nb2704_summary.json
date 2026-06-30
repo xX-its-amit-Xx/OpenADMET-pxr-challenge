@@ -1,0 +1,106 @@
+{
+  "tag": "nb2704",
+  "method": "target_encoded_morgan_fp2048_topK20_lgbm_residual",
+  "paradigm": "feature_transform_continuous_per_bit_target_encoding",
+  "anchor_base": "chemprop_aux",
+  "anchor_in_rae": 0.6215728863514471,
+  "anchor_pre_unblind": true,
+  "morgan_radius": 2,
+  "n_bits": 2048,
+  "k_top": 20,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "n_folds": 5,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "per_kf_rae": [
+    0.6520800491950609,
+    0.6426977329949337,
+    0.6276280142865482,
+    0.6444015549369886,
+    0.6799004432909777
+  ],
+  "per_kf_fold_rae": [
+    [
+      0.6190108729246473,
+      0.6534682084351567,
+      0.805072326136096,
+      0.6126083106972836,
+      0.6088708456847824
+    ],
+    [
+      0.7167673225939675,
+      0.6569775084792602,
+      0.6603095983124703,
+      0.6572723198093368,
+      0.5870229720185145
+    ],
+    [
+      0.5832320583298157,
+      0.6095413664426977,
+      0.6869271399005247,
+      0.596087252345047,
+      0.6743254704749417
+    ],
+    [
+      0.7264853311127377,
+      0.7184057201952367,
+      0.5196123199170046,
+      0.6358007618196032,
+      0.6734980278382287
+    ],
+    [
+      0.7245117280483767,
+      0.6030591911252915,
+      0.5802311921102885,
+      0.6969445592021343,
+      0.8800066162553875
+    ]
+  ],
+  "mean_rae": 0.6493415589409018,
+  "std_rae": 0.01721259321432444,
+  "gate_promote": 0.457,
+  "gate_marginal": 0.4598,
+  "verdict": "FAIL",
+  "delta_vs_chemprop_aux": 0.0277415589409018,
+  "delta_vs_nb2171": 0.18114155894090184,
+  "delta_vs_nb2604": 0.19134155894090182,
+  "chemprop_aux_ref": 0.6216,
+  "nb2171_ref": 0.4682,
+  "nb2604_ref": 0.458,
+  "te_mean": 4.710639476776123,
+  "te_std": 0.7127220034599304,
+  "te_unb_in_sample_rae": 0.5272447194133223,
+  "deploy_top_idx_2048": [
+    1795,
+    1978,
+    695,
+    565,
+    45,
+    1385,
+    1000,
+    704,
+    1680,
+    1285,
+    743,
+    1146,
+    486,
+    426,
+    1077,
+    755,
+    1918,
+    583,
+    1665,
+    237
+  ],
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2704_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2704.npy",
+  "submission_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb2704_target_encoding.csv",
+  "wall_sec": 1.32
+}

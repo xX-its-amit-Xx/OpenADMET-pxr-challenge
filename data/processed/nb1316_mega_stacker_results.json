@@ -1,0 +1,196 @@
+{
+  "F0_base_only": {
+    "rae": 0.6223,
+    "features": [
+      "base"
+    ],
+    "model": "ridge",
+    "vs_F1": null
+  },
+  "F1_base+morgan": {
+    "rae": 0.6639,
+    "features": [
+      "base",
+      "morgan"
+    ],
+    "model": "ridge",
+    "vs_F1": 0
+  },
+  "F1_lgbm": {
+    "rae": 0.7058,
+    "features": [
+      "base",
+      "morgan"
+    ],
+    "model": "lgbm",
+    "vs_F1": 0.0419
+  },
+  "F2_+physics_all": {
+    "rae": 0.6268,
+    "features": [
+      "base",
+      "morgan",
+      "aimnet",
+      "d4",
+      "dbstep",
+      "strain",
+      "cdft",
+      "orbmol"
+    ],
+    "model": "ridge",
+    "vs_F1": -0.0371
+  },
+  "F3_+soap+pmap": {
+    "rae": 0.624,
+    "features": [
+      "base",
+      "morgan",
+      "aimnet",
+      "d4",
+      "dbstep",
+      "strain",
+      "cdft",
+      "orbmol",
+      "soap",
+      "pmap"
+    ],
+    "model": "ridge",
+    "vs_F1": -0.0399
+  },
+  "F4_+boltz": {
+    "rae": 0.6147,
+    "features": [
+      "base",
+      "morgan",
+      "aimnet",
+      "d4",
+      "dbstep",
+      "strain",
+      "cdft",
+      "orbmol",
+      "soap",
+      "pmap",
+      "boltz"
+    ],
+    "model": "ridge",
+    "vs_F1": -0.0492
+  },
+  "F2a_noaimnet": {
+    "rae": 0.6231,
+    "features": [
+      "base",
+      "morgan",
+      "d4",
+      "dbstep",
+      "strain",
+      "cdft",
+      "orbmol",
+      "soap",
+      "pmap"
+    ],
+    "model": "ridge",
+    "vs_F1": -0.0408
+  },
+  "F2b_noorbmol": {
+    "rae": 0.6237,
+    "features": [
+      "base",
+      "morgan",
+      "aimnet",
+      "d4",
+      "dbstep",
+      "strain",
+      "cdft",
+      "soap",
+      "pmap"
+    ],
+    "model": "ridge",
+    "vs_F1": -0.0402
+  },
+  "F2c_soap_pmap_boltz_only": {
+    "rae": 0.6142,
+    "features": [
+      "base",
+      "morgan",
+      "soap",
+      "pmap",
+      "boltz"
+    ],
+    "model": "ridge",
+    "vs_F1": -0.0497
+  },
+  "F2d_physics_nosoap_nopmap": {
+    "rae": 0.6861,
+    "features": [
+      "base",
+      "morgan",
+      "aimnet",
+      "d4",
+      "dbstep",
+      "strain",
+      "cdft",
+      "orbmol"
+    ],
+    "model": "lgbm",
+    "vs_F1": 0.0222
+  },
+  "F5_base+boltz": {
+    "rae": 0.6079,
+    "features": [
+      "base",
+      "boltz"
+    ],
+    "model": "ridge",
+    "vs_F1": -0.056
+  },
+  "F5_base+soap": {
+    "rae": 0.6294,
+    "features": [
+      "base",
+      "soap"
+    ],
+    "model": "ridge",
+    "vs_F1": -0.0345
+  },
+  "F5_base+pmap": {
+    "rae": 0.6131,
+    "features": [
+      "base",
+      "pmap"
+    ],
+    "model": "ridge",
+    "vs_F1": -0.0508
+  },
+  "F6_base+morgan+boltz": {
+    "rae": 0.6145,
+    "features": [
+      "base",
+      "morgan",
+      "boltz"
+    ],
+    "model": "ridge",
+    "vs_F1": -0.0494
+  },
+  "F6_base+morgan+soap+pmap": {
+    "rae": 0.6235,
+    "features": [
+      "base",
+      "morgan",
+      "soap",
+      "pmap"
+    ],
+    "model": "ridge",
+    "vs_F1": -0.0404
+  },
+  "_best_blend": {
+    "rae": 0.5977,
+    "weights": {
+      "meta_loocv": 0.4,
+      "knn_loocv": 0.2,
+      "combined_corr": 0.1,
+      "F5_base+boltz": 0.3
+    },
+    "reference_meta_rae": 0.6142,
+    "reference_triple_rae": 0.5985
+  }
+}

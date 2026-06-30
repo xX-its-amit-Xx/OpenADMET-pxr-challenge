@@ -1,0 +1,85 @@
+{
+  "tag": "nb2812",
+  "status": "FAIL",
+  "method": "deap_gp_symbolic_regression",
+  "notebook": "nb2812",
+  "anchor": "nb2240_K20_mean_bag",
+  "anchor_oof_path": "nb2240_mean_bag_oof_K20.npy",
+  "anchor_te_path": "te_nb2240_K20.npy",
+  "features": [
+    "mw",
+    "logp",
+    "tpsa",
+    "hbd",
+    "hba",
+    "rotbonds",
+    "fsp3",
+    "n_rings",
+    "n_aromatic_rings"
+  ],
+  "n_unb": 253,
+  "n_te": 513,
+  "n_folds": 5,
+  "kf_seed": 1001,
+  "gp_hyperparams": {
+    "population": 300,
+    "generations": 50,
+    "tournament_size": 3,
+    "cxpb": 0.7,
+    "mutpb": 0.2,
+    "init_min_depth": 1,
+    "init_max_depth": 3,
+    "max_tree_height": 12,
+    "crossover": "gp.cxOnePoint (subtree)",
+    "mutation": "stochastic_mix(mutShrink, mutUniform random subtree)",
+    "selection": "tournament",
+    "binary_primitives": [
+      "add",
+      "sub",
+      "mul",
+      "pdiv"
+    ],
+    "unary_primitives": [
+      "sin",
+      "cos",
+      "pexp",
+      "plog",
+      "psqrt"
+    ],
+    "ephemeral_const": "uniform(-1, 1)"
+  },
+  "fold_rae": [
+    0.5006024922772536,
+    0.518909159584613,
+    0.5577970822876712,
+    0.4708672552032969,
+    0.43878719098558827
+  ],
+  "fold_train_mse": [
+    0.2507822786354462,
+    0.18443061353981682,
+    0.26019987425282265,
+    0.26235145402657256,
+    0.2384532024908456
+  ],
+  "fold_best_expressions": [
+    "mul(pdiv(cos(pdiv(cos(tpsa), sub(0.4259007936253896, fsp3))), sub(pdiv(pdiv(cos(0.35929678573064816), plog(sin(cos(tpsa)))), add(sin(sin(fsp3)), psqrt(-0.3467898055405072))), n_rings)), 0.35929678573064816)",
+    "pdiv(n_rings, mul(sub(mw, mul(mul(mw, sub(sin(n_rings), fsp3)), mul(sub(mw, sin(pexp(pdiv(pdiv(sub(pexp(mw), mw), add(n_rings, mw)), hbd)))), sub(sin(n_rings), fsp3)))), sub(sin(n_rings), fsp3)))",
+    "pdiv(pdiv(sub(n_aromatic_rings, cos(psqrt(fsp3))), sub(n_aromatic_rings, logp)), add(add(mw, pdiv(sub(sub(n_aromatic_rings, cos(mw)), cos(mw)), sub(n_aromatic_rings, logp))), pdiv(add(logp, hbd), sub(n_aromatic_rings, logp))))",
+    "mul(add(sin(hbd), psqrt(pdiv(fsp3, pdiv(cos(pdiv(add(sub(fsp3, rotbonds), cos(plog(add(hbd, hbd)))), hbd)), add(pdiv(pexp(add(hbd, plog(add(hbd, hbd)))), 0.928991757701445), tpsa))))), pdiv(cos(hbd), add(0.928991757701445, tpsa)))",
+    "pdiv(sin(sub(cos(rotbonds), add(fsp3, tpsa))), add(pdiv(add(-0.3040453466103823, hba), rotbonds), add(pdiv(add(pdiv(add(add(sin(hba), sub(pdiv(add(fsp3, rotbonds), rotbonds), rotbonds)), hba), pdiv(pexp(hba), sub(pdiv(add(cos(rotbonds), tpsa), rotbonds), hbd))), fsp3), rotbonds), sub(pdiv(tpsa, pdiv(add(fsp3, tpsa), add(pdiv(add(sin(pdiv(hbd, rotbonds)), hba), rotbonds), add(pdiv(rotbonds, rotbonds), sub(pdiv(tpsa, pdiv(add(fsp3, tpsa), rotbonds)), hbd))))), hbd))))"
+  ],
+  "mean_rae": 0.49739263606768463,
+  "std_rae": 0.0406451844812035,
+  "gate_promote": 0.457,
+  "gate_marginal": 0.4598,
+  "deploy_expression": "pdiv(pexp(mul(pdiv(cos(tpsa), sub(pdiv(rotbonds, sub(sin(n_aromatic_rings), tpsa)), -0.5789985372760076)), mul(sin(logp), plog(fsp3)))), add(add(-0.5789985372760076, plog(pdiv(fsp3, pexp(hba)))), tpsa))",
+  "deploy_expression_len": 202,
+  "in_sample_rae_overfit_bound": 0.12890858532527494,
+  "te_unb_rae_in_sample": 0.12890859085206052,
+  "deploy_te_mean": 4.739524841308594,
+  "deploy_te_std": 0.8434776663780212,
+  "pred_oof_path": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2812_pred_oof.npy",
+  "te_npy_path": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2812.npy",
+  "wall_sec": 134.65
+}

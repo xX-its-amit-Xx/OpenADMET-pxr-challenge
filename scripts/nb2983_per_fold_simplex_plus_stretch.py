@@ -1,0 +1,545 @@
+"""nb2983 -- Per-fold SLSQP simplex on 4 K-anchors + per-fold rank-stretch.
+
+NEW PARADIGM:
+    Compose two per-fold calibrations.
+      Stage 1: per-fold SLSQP simplex over 4 K-anchors (nb2973-style)
+      Stage 2: per-fold golden-section rank-stretch s in [0.95, 1.20]
+               on Stage-1 fold-val output.
+
+    Stage 1 finds the convex combination of K-anchors that minimises
+    fold-train RAE; Stage 2 then absorbs residual variance compression
+    of that blend (pred_std < truth_std) with a single scalar per fold.
+
+    Both calibrations are learned on TRAIN-fold slices only and applied
+    to held-out VAL slices, so fold-val RAE pooled across the 5 outer
+    folds is the gate metric.  Hypothesis: simplex picks the right
+    anchor mix per fold (variance-reducing direction), and stretch then
+    rescales the residual compression that survives the convex hull.
+
+PROTOCOL:
+    Anchors:  nb2960 deep-30 fresh-seed OOFs + te arrays for K=18, 20, 24, 28
+    Outer CV: 5-fold scaffold split on 253 unblind, kf_seed=1001
+    Per fold:
+      1. SLSQP simplex on (P_tr, y_tr) -> w_tr (sum=1, w>=0), 8 starts
+      2. base_tr = P_tr @ w_tr;  base_va = P_va @ w_tr
+      3. mu_tr = mean(base_tr)
+         s_star = argmin_{s in [0.95,1.20]} RAE(y_tr, mu_tr + s*(base_tr - mu_tr))
+      4. pred_va = mu_tr + s_star * (base_va - mu_tr)
+    Pooled RAE on 5 outer-val folds = mean_rae (gate metric).
+
+    Deploy:
+      - SLSQP refit on FULL 253 -> w_full
+      - base_full_te = P_te @ w_full
+      - s_deploy = mean(s_star) across folds
+      - mu_full = mean(P_unb @ w_full)
+      - te_pred = mu_full + s_deploy * (base_full_te - mu_full)
+
+GATE:
+    mean_rae < 0.4539 -> "BETTER_THAN_NB2973"
+    mean_rae < 0.4570 -> "PROMOTE"
+    else              -> "FAIL"
+
+References:
+    nb2960 K18 deep-30 OOF       = 0.4536
+    nb2960 K20 deep-30 OOF       = 0.4625
+    nb2960 K24 deep-30 OOF       = 0.4687
+    nb2960 K28 deep-30 OOF       = 0.4740
+    nb2960 equal_K(K18,K24,K28)  = 0.4567
+    nb2973 per-fold simplex 4K   = 0.4539
+    nb2922 nb2902 + stretch      = (precedent for stage-2 stretch composition)
+    nb2171 ceiling deep-30       = 0.4682
+
+Inputs:
+    data/processed/_audit_unblind_idx.npy
+    data/processed/_audit_unblind_y.npy
+    data/processed/nb2960_K{18,20,24,28}_30seed_oof.npy
+    data/processed/nb2960_K{18,20,24,28}_30seed_te.npy
+
+Outputs:
+    data/processed/nb2983_summary.json
+    data/processed/nb2983_pred_oof.npy   (253,) float32 -- per-fold simplex+stretch OOF
+    data/processed/te_nb2983.npy         (513,) float32 -- deploy te
+    submissions/nb2983_per_fold_simplex_plus_stretch.csv  (only if verdict != "FAIL")
+"""
+from __future__ import annotations
+
+import json
+import os
+import sys
+import time
+import warnings
+from pathlib import Path
+
+os.environ["PYTHONIOENCODING"] = "utf-8"
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
+warnings.filterwarnings("ignore")
+
+import numpy as np
+import pandas as pd
+from rdkit import RDLogger
+from scipy.optimize import minimize
+
+RDLogger.DisableLog("rdApp.*")
+
+from pxr.chem import bemis_murcko
+from pxr.data import load_test
+from pxr.eval import rae, scaffold_kfold_indices
+from pxr.paths import DATA_PROCESSED, SUBMISSIONS
+
+TAG = "nb2983"
+PARENT_TAG = "nb2973"
+
+# -- Inputs --------------------------------------------------------------------
+K_LABELS = ["K18", "K20", "K24", "K28"]
+OOF_PATHS = {k: DATA_PROCESSED / f"nb2960_{k}_30seed_oof.npy" for k in K_LABELS}
+TE_PATHS = {k: DATA_PROCESSED / f"nb2960_{k}_30seed_te.npy" for k in K_LABELS}
+
+# -- CV protocol ---------------------------------------------------------------
+N_FOLDS = 5
+KF_SEED = 1001
+N_STARTS_FOLD = 8
+N_STARTS_FULL = 12
+DEGEN_MAX_W = 0.85
+
+# -- Stretch search ------------------------------------------------------------
+S_LO = 0.95
+S_HI = 1.20
+GS_TOL = 1e-4
+GS_MAX_ITER = 60
+
+# -- Gates ---------------------------------------------------------------------
+GATE_BETTER_NB2973 = 0.4539
+GATE_PROMOTE = 0.4570
+
+# -- References ----------------------------------------------------------------
+REF_K18 = 0.4536
+REF_K20 = 0.4625
+REF_K24 = 0.4687
+REF_K28 = 0.4740
+REF_EQUAL_K_18_24_28 = 0.4567
+REF_NB2973 = 0.4539
+REF_NB2171 = 0.4682
+
+
+def _simplex_slsqp(P: np.ndarray, y: np.ndarray, n_starts: int = 8,
+                   seed: int = 0) -> tuple[np.ndarray, float]:
+    """Minimize RAE(y, P @ w) over the simplex (w>=0, sum w=1) with multi-start."""
+    K = P.shape[1]
+    rng = np.random.default_rng(seed)
+
+    def loss(w: np.ndarray) -> float:
+        return float(rae(y, P @ w))
+
+    cons = [{"type": "eq", "fun": lambda w: float(np.sum(w) - 1.0)}]
+    bnds = [(0.0, 1.0)] * K
+
+    starts = [np.full(K, 1.0 / K)]
+    for _ in range(max(0, n_starts - 1)):
+        starts.append(rng.dirichlet(np.ones(K)))
+
+    best_w, best_r = None, np.inf
+    for x0 in starts:
+        try:
+            res = minimize(loss, x0, method="SLSQP", bounds=bnds, constraints=cons,
+                           options={"maxiter": 300, "ftol": 1e-9})
+            w = np.clip(res.x, 0.0, 1.0)
+            s = float(w.sum())
+            if s <= 0.0:
+                continue
+            w = w / s
+            r = float(rae(y, P @ w))
+            if r < best_r:
+                best_r, best_w = r, w
+        except Exception:
+            continue
+    if best_w is None:
+        best_w = np.full(K, 1.0 / K)
+        best_r = float(rae(y, P @ best_w))
+    return best_w, best_r
+
+
+def _stretch(pred, mu, s):
+    return mu + s * (pred - mu)
+
+
+def golden_section_min(f, lo, hi, tol=GS_TOL, max_iter=GS_MAX_ITER):
+    """Minimize unimodal f on [lo, hi] via golden-section search."""
+    phi = (np.sqrt(5.0) - 1.0) / 2.0  # 0.618...
+    a, b = float(lo), float(hi)
+    c = b - phi * (b - a)
+    d = a + phi * (b - a)
+    fc = f(c)
+    fd = f(d)
+    for _ in range(max_iter):
+        if abs(b - a) < tol:
+            break
+        if fc < fd:
+            b, d, fd = d, c, fc
+            c = b - phi * (b - a)
+            fc = f(c)
+        else:
+            a, c, fc = c, d, fd
+            d = a + phi * (b - a)
+            fd = f(d)
+    if fc < fd:
+        return c, fc
+    return d, fd
+
+
+def main() -> dict:
+    t0 = time.time()
+    print("=" * 78)
+    print(f"{TAG} -- per-fold SLSQP simplex + per-fold rank-stretch (4 K-anchors)")
+    print(f"          parent={PARENT_TAG} (per-fold simplex 4K)")
+    print(f"          outer CV: {N_FOLDS}-fold scaffold, kf_seed={KF_SEED}")
+    print(f"          Stage 1: SLSQP simplex w (sum=1, w>=0), {N_STARTS_FOLD} starts")
+    print(f"          Stage 2: golden-section stretch s in [{S_LO}, {S_HI}]")
+    print(f"          gate: <{GATE_BETTER_NB2973} BETTER_THAN_NB2973 / "
+          f"<{GATE_PROMOTE} PROMOTE")
+    print("=" * 78)
+
+    # -- Load test, truth ----------------------------------------------------
+    te = load_test()
+    n_test = len(te)
+    te_smiles = (te["smiles"].astype(str).tolist()
+                 if "smiles" in te.columns else te["SMILES"].astype(str).tolist())
+    te_names = (te["name"].values
+                if "name" in te.columns else te["Molecule Name"].values)
+    unb_idx = np.load(DATA_PROCESSED / "_audit_unblind_idx.npy")
+    y_unb = np.load(DATA_PROCESSED / "_audit_unblind_y.npy").astype(np.float64)
+    n_unb = len(y_unb)
+    assert n_unb == 253, f"expected 253 unblind, got {n_unb}"
+    print(f"[load] n_test={n_test}  n_unb={n_unb}  y_unb_std={y_unb.std():.4f}")
+
+    # -- Load deep-30 K-anchor OOFs + te arrays -------------------------------
+    print("\n" + "-" * 78)
+    print("STEP 1: load nb2960 deep-30 K-anchor OOFs and te arrays")
+    print("-" * 78)
+    oof_cols, te_cols = [], []
+    per_K_full_rae = {}
+    for k in K_LABELS:
+        oof = np.load(OOF_PATHS[k]).astype(np.float64)
+        te_arr = np.load(TE_PATHS[k]).astype(np.float64)
+        if oof.shape != (n_unb,):
+            raise ValueError(f"{k} OOF shape {oof.shape} != ({n_unb},)")
+        if te_arr.shape != (n_test,):
+            raise ValueError(f"{k} te shape {te_arr.shape} != ({n_test},)")
+        oof_cols.append(oof)
+        te_cols.append(te_arr)
+        r = float(rae(y_unb, oof))
+        per_K_full_rae[k] = round(r, 4)
+        print(f"   {k}: oof_RAE = {r:.4f}  te_mean={te_arr.mean():.3f}  "
+              f"te_std={te_arr.std():.3f}")
+
+    K = len(K_LABELS)
+    P_unb = np.column_stack(oof_cols)  # (253, 4)
+    P_te = np.column_stack(te_cols)    # (513, 4)
+
+    # Leak sanity
+    leak_flags = {}
+    for i, k in enumerate(K_LABELS):
+        frac = float(np.mean(np.isclose(P_unb[:, i], y_unb, atol=1e-6)))
+        leak_flags[k] = round(frac, 4)
+        if frac > 0.05:
+            print(f"   WARN {k}: {frac:.1%} rows == truth -- possible leak")
+
+    # -- Build scaffolds ------------------------------------------------------
+    print("\n" + "-" * 78)
+    print("STEP 2: scaffolds for outer CV")
+    print("-" * 78)
+    unb_smiles = [te_smiles[i] for i in unb_idx]
+    unb_scaffolds = [bemis_murcko(s) or "" for s in unb_smiles]
+    n_unique_scaf = len({s for s in unb_scaffolds if s})
+    print(f"   unique scaffolds = {n_unique_scaf}")
+
+    # -- Per-fold (simplex -> stretch) ----------------------------------------
+    print("\n" + "-" * 78)
+    print(f"STEP 3: outer CV with per-fold SIMPLEX then per-fold STRETCH")
+    print("-" * 78)
+    splits = scaffold_kfold_indices(
+        unb_scaffolds, n_splits=N_FOLDS, shuffle=True, seed=KF_SEED,
+    )
+    oof_blend = np.full(n_unb, np.nan, dtype=np.float64)
+    oof_stage1 = np.full(n_unb, np.nan, dtype=np.float64)
+    fold_records = []
+    fold_w_list = []
+    fold_s_list = []
+    fold_mu_list = []
+    any_fold_degenerate = False
+    for fold_i, (tr_loc, va_loc) in enumerate(splits):
+        # Stage 1: per-fold simplex
+        w, r_train_simplex = _simplex_slsqp(
+            P_unb[tr_loc], y_unb[tr_loc],
+            n_starts=N_STARTS_FOLD,
+            seed=KF_SEED * 11 + fold_i,
+        )
+        base_tr = P_unb[tr_loc] @ w
+        base_va = P_unb[va_loc] @ w
+        oof_stage1[va_loc] = base_va
+
+        # Stage 2: per-fold golden-section rank-stretch on stage-1 output
+        mu_tr = float(np.mean(base_tr))
+
+        def f(s, base_tr=base_tr, y_tr=y_unb[tr_loc], mu_tr=mu_tr):
+            return float(rae(y_tr, _stretch(base_tr, mu_tr, s)))
+
+        s_star, r_train_stretch = golden_section_min(f, S_LO, S_HI)
+        f_lo = f(S_LO)
+        f_hi = f(S_HI)
+
+        val_pred = _stretch(base_va, mu_tr, s_star)
+        oof_blend[va_loc] = val_pred
+        r_val_stretched = float(rae(y_unb[va_loc], val_pred))
+        r_val_stage1 = float(rae(y_unb[va_loc], base_va))
+
+        fold_w_list.append(w)
+        fold_s_list.append(s_star)
+        fold_mu_list.append(mu_tr)
+        degen = bool(w.max() > DEGEN_MAX_W)
+        any_fold_degenerate = any_fold_degenerate or degen
+        fold_records.append({
+            "fold": int(fold_i),
+            "n_train": int(len(tr_loc)),
+            "n_val": int(len(va_loc)),
+            "simplex_weights": {K_LABELS[k]: round(float(w[k]), 4)
+                                for k in range(K)},
+            "simplex_train_rae": round(float(r_train_simplex), 4),
+            "stretch_s_star": round(float(s_star), 4),
+            "stretch_train_rae_at_s_star": round(float(r_train_stretch), 4),
+            "stretch_train_rae_at_s_lo": round(float(f_lo), 4),
+            "stretch_train_rae_at_s_hi": round(float(f_hi), 4),
+            "mu_tr_pred_stage1": round(float(mu_tr), 4),
+            "val_rae_stage1": round(r_val_stage1, 4),
+            "val_rae_stretched": round(r_val_stretched, 4),
+            "val_rae_delta": round(r_val_stretched - r_val_stage1, 4),
+            "max_w": round(float(w.max()), 4),
+            "degenerate": degen,
+        })
+        wstr = "  ".join(f"{K_LABELS[k]}={w[k]:.3f}" for k in range(K))
+        print(f"   fold {fold_i}: tr={len(tr_loc):3d} va={len(va_loc):3d}  "
+              f"[{wstr}]  s*={s_star:.3f}  "
+              f"val_stage1={r_val_stage1:.4f}  val_stretch={r_val_stretched:.4f}  "
+              f"delta={r_val_stretched - r_val_stage1:+.4f}")
+
+    if np.isnan(oof_blend).any():
+        raise RuntimeError("scaffold splits did not cover all 253 rows")
+    pooled_rae = float(rae(y_unb, oof_blend))
+    pooled_rae_stage1 = float(rae(y_unb, oof_stage1))
+    per_fold_val = [r["val_rae_stretched"] for r in fold_records]
+    per_fold_val_stage1 = [r["val_rae_stage1"] for r in fold_records]
+    mean_fold = float(np.mean(per_fold_val))
+    std_fold = float(np.std(per_fold_val, ddof=1))
+    mean_fold_stage1 = float(np.mean(per_fold_val_stage1))
+    print(f"\n   pooled stage-1 (simplex only) RAE = {pooled_rae_stage1:.4f}")
+    print(f"   pooled stage-2 (+ stretch)    RAE = {pooled_rae:.4f}")
+    print(f"   delta_pooled_stretch_minus_stage1 = "
+          f"{pooled_rae - pooled_rae_stage1:+.4f}")
+    print(f"   per-fold val (stretched) mean = {mean_fold:.4f}  std = {std_fold:.4f}")
+    print(f"   per-fold val (stage-1)   mean = {mean_fold_stage1:.4f}")
+
+    # Mean weights + mean s across folds (LB-honester alternative for deploy)
+    w_stack = np.stack(fold_w_list, axis=0)  # (5, 4)
+    w_mean = w_stack.mean(axis=0)
+    w_mean = w_mean / w_mean.sum()
+    s_mean = float(np.mean(fold_s_list))
+    s_std = float(np.std(fold_s_list))
+    print(f"   mean-of-fold weights: "
+          + ", ".join(f"{K_LABELS[k]}={w_mean[k]:.4f}" for k in range(K)))
+    print(f"   mean-of-fold s_star : {s_mean:.4f} +/- {s_std:.4f}")
+
+    # -- Deploy: SLSQP simplex on FULL 253 -> single weight vector ------------
+    print("\n" + "-" * 78)
+    print("STEP 4: deploy SLSQP on FULL 253 + mean-of-fold stretch")
+    print("-" * 78)
+    w_full, r_full = _simplex_slsqp(P_unb, y_unb, n_starts=N_STARTS_FULL, seed=0)
+    full_pool_weights = {K_LABELS[k]: round(float(w_full[k]), 4) for k in range(K)}
+    full_pool_degen = bool(w_full.max() > DEGEN_MAX_W)
+    print(f"   in-sample simplex RAE = {r_full:.4f}  max_w={w_full.max():.4f}  "
+          f"degen={full_pool_degen}")
+    for k in range(K):
+        flag = " (zeroed)" if w_full[k] < 1e-6 else ""
+        print(f"     w[{K_LABELS[k]:6s}] = {w_full[k]:+.4f}{flag}")
+
+    base_te_full = P_te @ w_full                            # (513,)
+    base_unb_full = P_unb @ w_full                          # (253,)
+    mu_full = float(base_unb_full.mean())
+    s_deploy = s_mean
+    te_pred = _stretch(base_te_full, mu_full, s_deploy).astype(np.float32)
+    te_pred = np.clip(te_pred, 3.0, 9.0)
+    te_unb_in_rae = float(rae(y_unb, te_pred[unb_idx]))
+
+    # Also: deploy with mean-of-fold weights + mean-of-fold s
+    base_te_mean = P_te @ w_mean
+    base_unb_mean = P_unb @ w_mean
+    mu_full_meanw = float(base_unb_mean.mean())
+    te_pred_mean_w = _stretch(base_te_mean, mu_full_meanw, s_deploy).astype(np.float32)
+    te_pred_mean_w = np.clip(te_pred_mean_w, 3.0, 9.0)
+    te_unb_in_mean_w = float(rae(y_unb, te_pred_mean_w[unb_idx]))
+
+    print(f"   deploy: mu_full={mu_full:.4f}  s_deploy={s_deploy:.4f}")
+    print(f"   te(full-pool+stretch) mean={te_pred.mean():.3f} "
+          f"std={te_pred.std():.3f} in-sample unb RAE={te_unb_in_rae:.4f}")
+    print(f"   te(mean-fold+stretch) mean={te_pred_mean_w.mean():.3f} "
+          f"std={te_pred_mean_w.std():.3f} in-sample unb RAE={te_unb_in_mean_w:.4f}")
+
+    # Variance compression diagnostic (post-stage-1 vs truth)
+    var_compress_ratio_stage1 = float(oof_stage1.std() / y_unb.std())
+    var_compress_ratio_stretched = float(oof_blend.std() / y_unb.std())
+    print(f"   variance compression: stage1_std/y_std={var_compress_ratio_stage1:.4f}  "
+          f"stretched_std/y_std={var_compress_ratio_stretched:.4f}")
+
+    # -- Gate -----------------------------------------------------------------
+    print("\n" + "-" * 78)
+    print("STEP 5: GATE")
+    print("-" * 78)
+    if pooled_rae < GATE_BETTER_NB2973:
+        verdict = "BETTER_THAN_NB2973"
+    elif pooled_rae < GATE_PROMOTE:
+        verdict = "PROMOTE"
+    else:
+        verdict = "FAIL"
+    delta_vs_nb2973 = pooled_rae - REF_NB2973
+    delta_vs_K18 = pooled_rae - REF_K18
+    delta_vs_equal_K = pooled_rae - REF_EQUAL_K_18_24_28
+    delta_vs_nb2171 = pooled_rae - REF_NB2171
+    print(f"   pooled_rae               = {pooled_rae:.4f}")
+    print(f"   delta vs nb2973 (0.4539) = {delta_vs_nb2973:+.4f}")
+    print(f"   delta vs K18 (0.4536)    = {delta_vs_K18:+.4f}")
+    print(f"   delta vs equal_K (0.4567)= {delta_vs_equal_K:+.4f}")
+    print(f"   delta vs nb2171 (0.4682) = {delta_vs_nb2171:+.4f}")
+    print(f"   verdict                  = {verdict}")
+
+    # -- Save artifacts -------------------------------------------------------
+    print("\n" + "-" * 78)
+    print("STEP 6: save artifacts")
+    print("-" * 78)
+    oof_path = DATA_PROCESSED / f"{TAG}_pred_oof.npy"
+    te_path = DATA_PROCESSED / f"te_{TAG}.npy"
+    np.save(oof_path, oof_blend.astype(np.float32))
+    np.save(te_path, te_pred)
+    print(f"   [save] {oof_path}")
+    print(f"   [save] {te_path}")
+
+    sub_csv = SUBMISSIONS / f"{TAG}_per_fold_simplex_plus_stretch.csv"
+    if verdict != "FAIL":
+        pd.DataFrame({
+            "SMILES": te_smiles,
+            "Molecule Name": te_names,
+            "pEC50": te_pred,
+        }).to_csv(sub_csv, index=False)
+        print(f"   [save] {sub_csv}")
+    else:
+        print(f"   [skip] verdict={verdict}; no submission CSV written")
+
+    summary = {
+        "tag": TAG,
+        "parent_tag": PARENT_TAG,
+        "method": "per_fold_slsqp_simplex_then_per_fold_golden_section_rank_stretch",
+        "paradigm": "compose_per_fold_simplex_with_per_fold_stretch_on_4K_anchors",
+        "anchor_pool": K_LABELS,
+        "anchor_pre_unblind": True,
+        "per_K_full_oof_rae": per_K_full_rae,
+        "anchor_leak_eq_truth_frac": leak_flags,
+        "n_folds": N_FOLDS,
+        "kf_seed": KF_SEED,
+        "n_starts_fold": N_STARTS_FOLD,
+        "n_starts_full": N_STARTS_FULL,
+        "s_lo": S_LO,
+        "s_hi": S_HI,
+        "gs_tol": GS_TOL,
+        "gs_max_iter": GS_MAX_ITER,
+        "n_unb": int(n_unb),
+        "n_te": int(n_test),
+        "n_unique_scaffolds": int(n_unique_scaf),
+        "K_anchors": K,
+        "fold_records": fold_records,
+        "pooled_outer_val_rae": pooled_rae,
+        "pooled_outer_val_rae_stage1_only": pooled_rae_stage1,
+        "delta_pooled_stretch_minus_stage1": pooled_rae - pooled_rae_stage1,
+        "per_fold_val_rae_mean": mean_fold,
+        "per_fold_val_rae_std": std_fold,
+        "per_fold_val_rae_stage1_mean": mean_fold_stage1,
+        "mean_w_across_folds": {K_LABELS[k]: round(float(w_mean[k]), 4)
+                                for k in range(K)},
+        "mean_s_across_folds": s_mean,
+        "std_s_across_folds": s_std,
+        "fold_s_stars": [round(float(s), 4) for s in fold_s_list],
+        "fold_mu_tr_stage1": [round(float(m), 4) for m in fold_mu_list],
+        "any_fold_degenerate": any_fold_degenerate,
+        "full_pool_slsqp": {
+            "weights": full_pool_weights,
+            "rae_in_sample_simplex": round(float(r_full), 4),
+            "max_w": round(float(w_full.max()), 4),
+            "degenerate": full_pool_degen,
+            "mu_full_stage1": round(float(mu_full), 4),
+            "s_deploy": round(float(s_deploy), 4),
+        },
+        "te_unb_in_sample_rae_full_pool": round(te_unb_in_rae, 4),
+        "te_unb_in_sample_rae_mean_fold": round(te_unb_in_mean_w, 4),
+        "te_mean": float(te_pred.mean()),
+        "te_std": float(te_pred.std()),
+        "variance_compression_ratio_stage1": var_compress_ratio_stage1,
+        "variance_compression_ratio_stretched": var_compress_ratio_stretched,
+        "truth_std": float(y_unb.std()),
+        "pred_oof_path": str(oof_path),
+        "te_npy_path": str(te_path),
+        "submission_csv": str(sub_csv) if verdict != "FAIL" else None,
+        "mean_rae": pooled_rae,
+        "ref_K18_deep30": REF_K18,
+        "ref_K20_deep30": REF_K20,
+        "ref_K24_deep30": REF_K24,
+        "ref_K28_deep30": REF_K28,
+        "ref_equal_K_18_24_28": REF_EQUAL_K_18_24_28,
+        "ref_nb2973": REF_NB2973,
+        "ref_nb2171": REF_NB2171,
+        "delta_vs_nb2973": delta_vs_nb2973,
+        "delta_vs_K18": delta_vs_K18,
+        "delta_vs_equal_K": delta_vs_equal_K,
+        "delta_vs_nb2171": delta_vs_nb2171,
+        "gate_better_nb2973": GATE_BETTER_NB2973,
+        "gate_promote": GATE_PROMOTE,
+        "verdict": verdict,
+        "wall_sec": round(time.time() - t0, 2),
+    }
+    out_path = DATA_PROCESSED / f"{TAG}_summary.json"
+    with open(out_path, "w", encoding="utf-8") as f:
+        json.dump(summary, f, indent=2)
+    print(f"   [save] {out_path}")
+
+    print("\n" + "=" * 78)
+    print(f"=== {TAG} SUMMARY ===")
+    print(f"   per-K full-OOF RAE       = "
+          + ", ".join([f"{k}={v:.4f}" for k, v in per_K_full_rae.items()]))
+    print(f"   pooled stage-1           = {pooled_rae_stage1:.4f}")
+    print(f"   pooled stage-2 (gate)    = {pooled_rae:.4f}")
+    print(f"   stretch delta            = {pooled_rae - pooled_rae_stage1:+.4f}")
+    print(f"   mean-of-fold weights     = "
+          + ", ".join([f"{K_LABELS[k]}={w_mean[k]:.3f}" for k in range(K)]))
+    print(f"   mean-of-fold s_star      = {s_mean:.4f} +/- {s_std:.4f}")
+    print(f"   full-pool weights        = {full_pool_weights}")
+    print(f"   te[unb_idx] in-sample    = {te_unb_in_rae:.4f}")
+    print(f"   verdict                  = {verdict}")
+    print(f"   wall                     = {time.time()-t0:.1f}s")
+    print("=" * 78)
+    return summary
+
+
+if __name__ == "__main__":
+    res = main()
+    print("\n==== SUMMARY ====")
+    for k in (
+        "pooled_outer_val_rae",
+        "pooled_outer_val_rae_stage1_only",
+        "delta_pooled_stretch_minus_stage1",
+        "per_fold_val_rae_mean",
+        "per_fold_val_rae_std",
+        "mean_w_across_folds",
+        "mean_s_across_folds",
+        "std_s_across_folds",
+        "fold_s_stars",
+        "full_pool_slsqp",
+        "te_unb_in_sample_rae_full_pool",
+        "verdict",
+    ):
+        print(f"  {k}: {res.get(k)}")
+    print(f"  per_K_full_oof_rae: {res.get('per_K_full_oof_rae')}")

@@ -1,0 +1,509 @@
+{
+  "tag": "nb2280",
+  "method": "morgan_radius_variants_r3_r5_SHAP_top15_combine_RFE_K20_then_re-prune_to_K20_LGBM_5seed_bag_with_nb2240_pyramid_slsqp",
+  "anchor": "chemprop_aux",
+  "anchor_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+  "data_source": "nb2231 K=20 RFE 117-col 5-way features + Morgan-2048 at radii {3, 5} SHAP top-15 each",
+  "morgan_radii": [
+    3,
+    5
+  ],
+  "morgan_n_bits": 2048,
+  "top_k_per_radius": 15,
+  "K_rfe": 20,
+  "K_combined": 50,
+  "K_reprune": 20,
+  "K20_rfe_family_counts": {
+    "Mordred": 4,
+    "ChempropEmbed": 8,
+    "Avalon": 2,
+    "MACCS": 1,
+    "AtomPair": 4,
+    "ChEMBL_kNN": 1
+  },
+  "K20_rfe_surviving_idx_in_117": [
+    45,
+    67,
+    66,
+    68,
+    65,
+    92,
+    27,
+    77,
+    81,
+    56,
+    1,
+    7,
+    115,
+    93,
+    80,
+    11,
+    70,
+    54,
+    8,
+    57
+  ],
+  "K20_rfe_surviving_names": [
+    "Mordred_col_292",
+    "ChempropEmbed_dim_14",
+    "ChempropEmbed_dim_9",
+    "ChempropEmbed_dim_32",
+    "ChempropEmbed_dim_259",
+    "Avalon_bit_323",
+    "MACCS_bit_126",
+    "ChempropEmbed_dim_172",
+    "ChempropEmbed_dim_16",
+    "Mordred_col_454",
+    "AtomPair_bit_1733",
+    "AtomPair_bit_1729",
+    "pred_chembl_pec50",
+    "Avalon_bit_349",
+    "ChempropEmbed_dim_248",
+    "AtomPair_bit_1113",
+    "ChempropEmbed_dim_275",
+    "Mordred_col_329",
+    "AtomPair_bit_1086",
+    "Mordred_col_400"
+  ],
+  "shap_per_radius_records": [
+    {
+      "radius": 3,
+      "imp_source": "shap_tree_explainer",
+      "morgan_n_bits": 2048,
+      "morgan_nonzero_imp_bits": 55,
+      "top_bits": [
+        695,
+        1855,
+        743,
+        1816,
+        965,
+        1285,
+        1028,
+        1039,
+        69,
+        1683,
+        1295,
+        45,
+        389,
+        1480,
+        486
+      ],
+      "top_bits_imp": [
+        0.09280710821613211,
+        0.04984700805979134,
+        0.048646672031489695,
+        0.035332058952351676,
+        0.028006421591459503,
+        0.027951849985891338,
+        0.01981559643967929,
+        0.01688571725635612,
+        0.016268416292814777,
+        0.015998360770561732,
+        0.015138259375563474,
+        0.011368144495720066,
+        0.011356040932332011,
+        0.010959109068907022,
+        0.009927134905763267
+      ],
+      "pred_chembl_imp": 0.031849748831380996,
+      "sim_imp": 0.03334827450530022
+    },
+    {
+      "radius": 5,
+      "imp_source": "shap_tree_explainer",
+      "morgan_n_bits": 2048,
+      "morgan_nonzero_imp_bits": 55,
+      "top_bits": [
+        695,
+        743,
+        45,
+        1855,
+        802,
+        1,
+        1816,
+        1039,
+        1978,
+        965,
+        407,
+        1385,
+        1647,
+        724,
+        1480
+      ],
+      "top_bits_imp": [
+        0.07740945941899557,
+        0.05217151819139948,
+        0.043117991854453835,
+        0.031446819242563276,
+        0.02845774478621679,
+        0.027888143957579,
+        0.027507679452578548,
+        0.02070605599514433,
+        0.0195251712782388,
+        0.0185929306208209,
+        0.014649578279040986,
+        0.013793324343225711,
+        0.013206899098178454,
+        0.012043325231603187,
+        0.01187766316882288
+      ],
+      "pred_chembl_imp": 0.021283504982888325,
+      "sim_imp": 0.028337139268513743
+    }
+  ],
+  "reprune_family_counts": {
+    "RFE_K20": 18,
+    "ECFP6_r3": 2
+  },
+  "reprune_feature_names": [
+    "Mordred_col_292",
+    "ChempropEmbed_dim_14",
+    "ChempropEmbed_dim_9",
+    "ChempropEmbed_dim_32",
+    "ChempropEmbed_dim_259",
+    "Avalon_bit_323",
+    "ChempropEmbed_dim_172",
+    "ChempropEmbed_dim_16",
+    "Mordred_col_454",
+    "AtomPair_bit_1733",
+    "AtomPair_bit_1729",
+    "pred_chembl_pec50",
+    "Avalon_bit_349",
+    "ChempropEmbed_dim_248",
+    "ChempropEmbed_dim_275",
+    "Mordred_col_329",
+    "AtomPair_bit_1086",
+    "Mordred_col_400",
+    "ECFP6_r3_bit695",
+    "ECFP6_r3_bit743"
+  ],
+  "reprune_indices_in_K50": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    16,
+    17,
+    18,
+    19,
+    20,
+    22
+  ],
+  "shap_K50_imp_source": "shap_tree_explainer",
+  "model_family": "LightGBM_Huber",
+  "lgbm_resid_params": {
+    "objective": "huber",
+    "alpha": 1.0,
+    "max_depth": 4,
+    "num_leaves": 15,
+    "n_estimators": 300,
+    "learning_rate": 0.03,
+    "min_child_samples": 5,
+    "reg_lambda": 2.0,
+    "verbosity": -1,
+    "n_jobs": 2
+  },
+  "lgbm_shap_params": {
+    "objective": "huber",
+    "alpha": 1.0,
+    "max_depth": 3,
+    "num_leaves": 7,
+    "n_estimators": 80,
+    "learning_rate": 0.05,
+    "min_child_samples": 20,
+    "subsample": 0.9,
+    "subsample_freq": 1,
+    "colsample_bytree": 0.9,
+    "reg_lambda": 1.0,
+    "verbosity": -1,
+    "n_jobs": 2,
+    "random_state": 0
+  },
+  "resid_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "resid_folds": 5,
+  "n_test": 513,
+  "n_unb": 253,
+  "n_unique_scaffolds": 180,
+  "rae_anchor_chemprop_aux": 0.6215728863514471,
+  "rae_chemprop_aux_ref": 0.6216,
+  "residual_mean": -0.1325965261753001,
+  "residual_std": 0.6999145683913596,
+  "K50_per_seed_records": [
+    {
+      "seed": 0,
+      "rae_corrected": 0.49058918912101473,
+      "resid_oof_std": 0.4647377280237093,
+      "resid_oof_mean": -0.15300253144708104,
+      "wall_sec": 0.33
+    },
+    {
+      "seed": 1,
+      "rae_corrected": 0.5026980604857698,
+      "resid_oof_std": 0.45110099650236674,
+      "resid_oof_mean": -0.12878531757626827,
+      "wall_sec": 0.32
+    },
+    {
+      "seed": 7,
+      "rae_corrected": 0.4956908502322884,
+      "resid_oof_std": 0.44517249916444107,
+      "resid_oof_mean": -0.13646900632212244,
+      "wall_sec": 0.33
+    },
+    {
+      "seed": 42,
+      "rae_corrected": 0.5070703487215945,
+      "resid_oof_std": 0.4697333201944594,
+      "resid_oof_mean": -0.15271255718250124,
+      "wall_sec": 0.33
+    },
+    {
+      "seed": 137,
+      "rae_corrected": 0.48260400459158626,
+      "resid_oof_std": 0.47088879211518797,
+      "resid_oof_mean": -0.13606102650399315,
+      "wall_sec": 0.32
+    }
+  ],
+  "rae_K50_mean_bag": 0.47645824795523706,
+  "rae_K50_per_seed_mean": 0.49573049063045077,
+  "delta_K50_vs_lgbm_K20_ref": 0.013458247955237035,
+  "oof_K50_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2280_mean_bag_oof_K50.npy",
+  "te_K50_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2280_K50.npy",
+  "K20pruned_per_seed_records": [
+    {
+      "seed": 0,
+      "rae_corrected": 0.4923926810325614,
+      "resid_oof_std": 0.45228077388443305,
+      "resid_oof_mean": -0.138737333398884,
+      "wall_sec": 0.29
+    },
+    {
+      "seed": 1,
+      "rae_corrected": 0.49409653967966394,
+      "resid_oof_std": 0.4474211240213984,
+      "resid_oof_mean": -0.12484848053964948,
+      "wall_sec": 0.29
+    },
+    {
+      "seed": 7,
+      "rae_corrected": 0.48188944511445825,
+      "resid_oof_std": 0.4624312105373339,
+      "resid_oof_mean": -0.13902709040725045,
+      "wall_sec": 0.29
+    },
+    {
+      "seed": 42,
+      "rae_corrected": 0.4930792377680176,
+      "resid_oof_std": 0.46839649632561614,
+      "resid_oof_mean": -0.14350996966726765,
+      "wall_sec": 0.33
+    },
+    {
+      "seed": 137,
+      "rae_corrected": 0.4882577420686664,
+      "resid_oof_std": 0.47387150453725196,
+      "resid_oof_mean": -0.13454532993710205,
+      "wall_sec": 0.31
+    }
+  ],
+  "rae_K20pruned_mean_bag": 0.4647893928146669,
+  "rae_K20pruned_per_seed_mean": 0.4899431291326735,
+  "delta_K20pruned_vs_lgbm_K20_ref": 0.0017893928146668903,
+  "oof_K20pruned_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2280_mean_bag_oof_K20pruned.npy",
+  "te_K20pruned_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2280_K20pruned.npy",
+  "primary_tag": "K20pruned",
+  "primary_oof_rae_mean_bag": 0.4647893928146669,
+  "pyramid_anchors": [
+    "nb2280_K20pruned",
+    "chemprop_aux",
+    "nb1191",
+    "nb503",
+    "nb562"
+  ],
+  "pyramid_anchor_oof_rae": {
+    "nb2280_K20pruned": 0.4647893928146669,
+    "chemprop_aux": 0.5878769556905485,
+    "nb1191": 0.4647519472474954,
+    "nb503": 0.5116212503074237,
+    "nb562": 0.5065400776344995
+  },
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "n_folds": 5,
+  "stretch_grid": [
+    1.0,
+    1.025,
+    1.05,
+    1.075,
+    1.1,
+    1.125,
+    1.15
+  ],
+  "per_seed_results": [
+    {
+      "kf_seed": 1001,
+      "pooled_rae": 0.46293863977712973,
+      "fold_s": [
+        1.0,
+        1.0,
+        1.025,
+        1.025,
+        1.0
+      ],
+      "fold_w_mean": [
+        0.6304006938015404,
+        1.374181194285639e-13,
+        0.2172750330071155,
+        9.071970798745592e-14,
+        0.15232427319111594
+      ]
+    },
+    {
+      "kf_seed": 1002,
+      "pooled_rae": 0.46201913451574106,
+      "fold_s": [
+        1.025,
+        1.0,
+        1.0,
+        1.0,
+        1.025
+      ],
+      "fold_w_mean": [
+        0.6293028086395855,
+        2.275436461803728e-13,
+        0.2197660164878134,
+        3.848563534300159e-15,
+        0.1509311748723697
+      ]
+    },
+    {
+      "kf_seed": 1003,
+      "pooled_rae": 0.46026255197926563,
+      "fold_s": [
+        1.0,
+        1.025,
+        1.025,
+        1.025,
+        1.0
+      ],
+      "fold_w_mean": [
+        0.6332020815182732,
+        5.062639717828862e-13,
+        0.21651094751714375,
+        1.3370317147214611e-14,
+        0.15028697096406352
+      ]
+    },
+    {
+      "kf_seed": 1004,
+      "pooled_rae": 0.461009406020639,
+      "fold_s": [
+        1.0,
+        1.0,
+        1.025,
+        1.025,
+        1.0
+      ],
+      "fold_w_mean": [
+        0.6333418569852667,
+        6.729870542000476e-14,
+        0.2149566975502391,
+        1.761879589176429e-13,
+        0.15170144546425077
+      ]
+    },
+    {
+      "kf_seed": 1005,
+      "pooled_rae": 0.4619122627765634,
+      "fold_s": [
+        1.025,
+        1.0,
+        1.0,
+        1.0,
+        1.025
+      ],
+      "fold_w_mean": [
+        0.6302805789095662,
+        1.8933330358110814e-13,
+        0.21526028230345523,
+        6.783275544519203e-14,
+        0.15445913878672135
+      ]
+    }
+  ],
+  "pooled_rae_mean_seeds": 0.46162839901386776,
+  "pooled_rae_std_seeds": 0.0009163704680430228,
+  "rae_of_mean_of_seed_oofs": 0.46105811323117074,
+  "deploy_weights": [
+    {
+      "name": "nb2280_K20pruned",
+      "w": 0.6347114092376042
+    },
+    {
+      "name": "chemprop_aux",
+      "w": 2.060473467608062e-12
+    },
+    {
+      "name": "nb1191",
+      "w": 0.2142199939478754
+    },
+    {
+      "name": "nb503",
+      "w": 0.0
+    },
+    {
+      "name": "nb562",
+      "w": 0.15106859681246002
+    }
+  ],
+  "deploy_mu_blend": 4.665415749683277,
+  "deploy_s": 1.011,
+  "in_sample_rae_overfit_bound": 0.4562240335444576,
+  "te_unb_rae_in_sample": 0.1902495314741121,
+  "lb_band_estimate": 0.32865275391938753,
+  "lb_band_low": 0.27865275391938754,
+  "lb_band_high": 0.3786527539193875,
+  "lb_band_w_oof": 0.51,
+  "lb_band_w_te": 0.49,
+  "nb2240_K20_mean_bag_ref": 0.463,
+  "nb2240_pyramid_ref": 0.4598,
+  "nb1382_morgan_r2_ref": 0.5527,
+  "compare_nb2240_pyramid_ref": 0.4598,
+  "delta_vs_nb2240_pyramid": 0.0018283990138677764,
+  "compare_task_ref": 0.4601,
+  "delta_vs_task_ref": 0.001528399013867754,
+  "gate_margin": 0.003,
+  "gate_threshold_strict": 0.4568,
+  "gate_beat": false,
+  "gate_flat": true,
+  "verdict": "FLAT_VS_NB2240_PYRAMID",
+  "deep_30_verify": null,
+  "deploy_te_mean": 4.718861103057861,
+  "deploy_te_std": 0.817635178565979,
+  "te_npy_path": null,
+  "submission_csv": null,
+  "pre_unblind_clean": true,
+  "wall_sec": 8.17
+}

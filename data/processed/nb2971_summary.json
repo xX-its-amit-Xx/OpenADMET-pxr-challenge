@@ -1,0 +1,153 @@
+{
+  "tag": "nb2971",
+  "parent_tag": "nb2961",
+  "method": "per_fold_greedy_forward_subset_of_5_K_anchors",
+  "anchor_base": "chemprop_aux",
+  "anchor_in_rae": 0.6215728863514471,
+  "anchor_pre_unblind": true,
+  "K_candidates": [
+    "K18",
+    "K20",
+    "K21",
+    "K22",
+    "K24"
+  ],
+  "K_sources": {
+    "K18": "nb2960_deep30",
+    "K20": "nb2960_deep30",
+    "K21": "nb2631",
+    "K22": "nb2261",
+    "K24": "nb2310"
+  },
+  "n_folds": 5,
+  "kf_seed": 1001,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "per_K_full_oof_rae": {
+    "K18": 0.45362079294799995,
+    "K20": 0.4625435103040268,
+    "K21": 0.4594522293279032,
+    "K22": 0.47320469972305895,
+    "K24": 0.4673847310316789
+  },
+  "fold_records": [
+    {
+      "fold": 0,
+      "n_tr": 202,
+      "n_va": 51,
+      "selected": [
+        "K18",
+        "K21"
+      ],
+      "greedy_rae_path": [
+        0.45837270007340863,
+        0.45532896828191
+      ],
+      "train_subset_rae": 0.45532896828191,
+      "val_subset_rae": 0.4248908572952426
+    },
+    {
+      "fold": 1,
+      "n_tr": 202,
+      "n_va": 51,
+      "selected": [
+        "K18",
+        "K21"
+      ],
+      "greedy_rae_path": [
+        0.4495304651738449,
+        0.4418980007459309
+      ],
+      "train_subset_rae": 0.4418980007459309,
+      "val_subset_rae": 0.47539826306439154
+    },
+    {
+      "fold": 2,
+      "n_tr": 202,
+      "n_va": 51,
+      "selected": [
+        "K18",
+        "K24"
+      ],
+      "greedy_rae_path": [
+        0.4451269158554841,
+        0.43760165658046474
+      ],
+      "train_subset_rae": 0.43760165658046474,
+      "val_subset_rae": 0.5238844473865238
+    },
+    {
+      "fold": 3,
+      "n_tr": 203,
+      "n_va": 50,
+      "selected": [
+        "K18",
+        "K20"
+      ],
+      "greedy_rae_path": [
+        0.4549748528456227,
+        0.4515982959182196
+      ],
+      "train_subset_rae": 0.4515982959182196,
+      "val_subset_rae": 0.45591893475654893
+    },
+    {
+      "fold": 4,
+      "n_tr": 203,
+      "n_va": 50,
+      "selected": [
+        "K18",
+        "K21"
+      ],
+      "greedy_rae_path": [
+        0.4606553396143388,
+        0.45754859267839093
+      ],
+      "train_subset_rae": 0.45754859267839093,
+      "val_subset_rae": 0.42441637255517817
+    }
+  ],
+  "subset_freq": {
+    "K18": 5,
+    "K20": 1,
+    "K21": 3,
+    "K22": 0,
+    "K24": 1
+  },
+  "pooled_outer_val_rae": 0.4570093563356877,
+  "per_fold_val_rae_mean": 0.46090177501157703,
+  "per_fold_val_rae_std": 0.04132119513500431,
+  "deploy_selected": [
+    "K18",
+    "K21"
+  ],
+  "deploy_greedy_path": [
+    0.45362079294799995,
+    0.4495162290500489
+  ],
+  "deploy_oof_in_sample_rae": 0.4495162290500489,
+  "te_unb_in_sample_rae": 0.12850297643786482,
+  "te_mean": 4.70800179231469,
+  "te_std": 0.8420885413953388,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2971_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2971.npy",
+  "submission_csv": null,
+  "mean_rae": 0.4570093563356877,
+  "ref_K18": 0.4536,
+  "ref_K20": 0.4625,
+  "ref_K21": 0.4595,
+  "ref_K22": 0.4732,
+  "ref_K24": 0.4674,
+  "ref_nb2961_pooled": 0.4567017604427287,
+  "ref_nb2943": 0.4576,
+  "ref_nb2171": 0.4682,
+  "ref_nb1191": 0.4718,
+  "ref_chemprop_aux": 0.6216,
+  "delta_vs_K18": 0.0034093563356876744,
+  "delta_vs_nb2961": 0.0003075958929589784,
+  "gate_promote": 0.457,
+  "gate_better_than_nb2961": 0.4567,
+  "verdict": "FAIL",
+  "wall_sec": 0.09
+}

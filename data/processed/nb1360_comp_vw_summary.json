@@ -1,0 +1,23 @@
+{
+  "control_deployed_rae": 0.41473806220698944,
+  "best_rae": 0.4149,
+  "primary_for_V": "compV_quant",
+  "compV_quant": {
+    "treat_rae": 0.42374956405001685,
+    "delta": 0.009011501843027403,
+    "n_neg": 0,
+    "gate_pass": false
+  },
+  "compV_huber": {
+    "treat_rae": 0.41644835088485715,
+    "delta": 0.0017102886778677107,
+    "n_neg": 0,
+    "gate_pass": false
+  },
+  "compW": {
+    "treat_rae": 0.41677768403388377,
+    "delta": 0.0020396218268943223,
+    "n_neg": 0,
+    "gate_pass": false
+  }
+}

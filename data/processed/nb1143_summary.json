@@ -1,382 +1,138 @@
 {
   "tag": "nb1143",
-  "anchor_file": "nb1130_mean_bag_oof.npy",
-  "n_bins": 5,
-  "n_folds": 5,
-  "seeds": [
-    0,
-    1,
-    7,
-    42,
-    137
-  ],
-  "stretch_grid": [
+  "method": "per_butina_cluster_lgbm_top3_sim_routed",
+  "butina_cutoff_grid": [
+    0.75,
     0.8,
     0.85,
     0.9,
-    0.95,
-    1.0,
-    1.05,
-    1.1,
-    1.15,
-    1.2,
-    1.25,
-    1.3,
-    1.35,
-    1.4,
-    1.45,
-    1.5,
-    1.55,
-    1.6,
-    1.65,
-    1.7,
-    1.75,
-    1.8,
-    1.85,
-    1.9,
-    1.95,
-    2.0
+    0.92,
+    0.94,
+    0.96
   ],
-  "n_unb": 253,
-  "in_rae_anchor_on_253": 0.5673366704109766,
-  "anchor_oof_std": 0.8415288950408879,
-  "truth_std": 1.0320053675542649,
-  "anchor_compression_ratio": 0.8154307346629558,
-  "per_seed_rae": [
-    0.5624469594917569,
-    0.5659575822325759,
-    0.5668512754686286,
-    0.5746119019867361,
-    0.5715299725713854
-  ],
-  "per_seed_rae_mean": 0.5682795383502166,
-  "per_seed_rae_std": 0.004292191586184873,
-  "per_seed_rae_min": 0.5624469594917569,
-  "per_seed_rae_max": 0.5746119019867361,
-  "bag_median_rae": 0.5648887508691344,
-  "bag_mean_rae": 0.5665576307179329,
-  "delta_vs_anchor": -0.002447919541842203,
-  "delta_vs_nb1070_ref": -0.014111249130865589,
-  "delta_vs_nb1123_ref": -0.0055112491308656475,
-  "beats_anchor": false,
-  "verdict": "PERQ_NEUTRAL_ON_BAGGED",
-  "per_seed_ss_means_across_folds": [
-    [
-      0.96,
-      1.7799999999999998,
-      0.9200000000000002,
-      0.9299999999999999,
-      1.3199999999999998
-    ],
-    [
-      1.01,
-      1.72,
-      0.9199999999999999,
-      0.8,
-      1.3
-    ],
-    [
-      0.95,
-      1.6800000000000002,
-      1.03,
-      0.9600000000000002,
-      1.33
-    ],
-    [
-      0.93,
-      1.73,
-      0.9199999999999999,
-      1.04,
-      1.3
-    ],
-    [
-      0.9799999999999999,
-      1.73,
-      0.9400000000000001,
-      0.8,
-      1.3
-    ]
-  ],
-  "seed_records": [
+  "butina_cutoff_chosen": 0.9,
+  "butina_cutoff_records": [
     {
-      "seed": 0,
-      "pooled_rae": 0.5624469594917569,
-      "per_fold_ss": [
-        [
-          0.8,
-          1.85,
-          0.8,
-          0.8,
-          1.3
-        ],
-        [
-          1.0,
-          1.85,
-          0.8,
-          0.8,
-          1.45
-        ],
-        [
-          0.95,
-          1.4,
-          0.8,
-          1.45,
-          1.3
-        ],
-        [
-          1.05,
-          1.85,
-          1.35,
-          0.8,
-          1.3
-        ],
-        [
-          1.0,
-          1.95,
-          0.85,
-          0.8,
-          1.25
-        ]
-      ],
-      "fold_ss_mean": [
-        0.96,
-        1.7799999999999998,
-        0.9200000000000002,
-        0.9299999999999999,
-        1.3199999999999998
-      ],
-      "fold_ss_std": [
-        0.08602325267042626,
-        0.1939071942966532,
-        0.21587033144922904,
-        0.25999999999999995,
-        0.06782329983125265
-      ]
+      "cutoff": 0.75,
+      "n_clusters": 749,
+      "max_size": 266,
+      "median_size": 2,
+      "n_singletons": 369
     },
     {
-      "seed": 1,
-      "pooled_rae": 0.5659575822325759,
-      "per_fold_ss": [
-        [
-          1.0,
-          1.85,
-          1.4,
-          0.8,
-          1.3
-        ],
-        [
-          0.95,
-          1.7,
-          0.8,
-          0.8,
-          1.55
-        ],
-        [
-          1.2,
-          1.7,
-          0.8,
-          0.8,
-          1.2
-        ],
-        [
-          0.95,
-          1.7,
-          0.8,
-          0.8,
-          1.3
-        ],
-        [
-          0.95,
-          1.65,
-          0.8,
-          0.8,
-          1.15
-        ]
-      ],
-      "fold_ss_mean": [
-        1.01,
-        1.72,
-        0.9199999999999999,
-        0.8,
-        1.3
-      ],
-      "fold_ss_std": [
-        0.09695359714832658,
-        0.06782329983125275,
-        0.23999999999999994,
-        0.0,
-        0.13784048752090225
-      ]
+      "cutoff": 0.8,
+      "n_clusters": 253,
+      "max_size": 926,
+      "median_size": 2,
+      "n_singletons": 101
     },
     {
-      "seed": 7,
-      "pooled_rae": 0.5668512754686286,
-      "per_fold_ss": [
-        [
-          0.95,
-          1.85,
-          1.35,
-          0.8,
-          1.15
-        ],
-        [
-          1.05,
-          1.8,
-          0.8,
-          0.8,
-          1.2
-        ],
-        [
-          0.8,
-          1.45,
-          0.8,
-          0.8,
-          1.3
-        ],
-        [
-          0.95,
-          1.7,
-          0.8,
-          1.3,
-          1.6
-        ],
-        [
-          1.0,
-          1.6,
-          1.4,
-          1.1,
-          1.4
-        ]
-      ],
-      "fold_ss_mean": [
-        0.95,
-        1.6800000000000002,
-        1.03,
-        0.9600000000000002,
-        1.33
-      ],
-      "fold_ss_std": [
-        0.08366600265340755,
-        0.14352700094407328,
-        0.28213471959331765,
-        0.20591260281974003,
-        0.16000000000000006
-      ]
+      "cutoff": 0.85,
+      "n_clusters": 78,
+      "max_size": 2702,
+      "median_size": 3,
+      "n_singletons": 24
     },
     {
-      "seed": 42,
-      "pooled_rae": 0.5746119019867361,
-      "per_fold_ss": [
-        [
-          1.0,
-          1.35,
-          0.8,
-          0.8,
-          1.15
-        ],
-        [
-          0.8,
-          2.0,
-          0.8,
-          0.8,
-          1.15
-        ],
-        [
-          0.85,
-          1.65,
-          0.8,
-          0.8,
-          1.15
-        ],
-        [
-          1.0,
-          2.0,
-          0.8,
-          0.8,
-          1.3
-        ],
-        [
-          1.0,
-          1.65,
-          1.4,
-          2.0,
-          1.75
-        ]
-      ],
-      "fold_ss_mean": [
-        0.93,
-        1.73,
-        0.9199999999999999,
-        1.04,
-        1.3
-      ],
-      "fold_ss_std": [
-        0.08717797887081347,
-        0.24617067250182342,
-        0.23999999999999994,
-        0.48,
-        0.23237900077244505
-      ]
+      "cutoff": 0.9,
+      "n_clusters": 21,
+      "max_size": 3948,
+      "median_size": 5,
+      "n_singletons": 7
     },
     {
-      "seed": 137,
-      "pooled_rae": 0.5715299725713854,
-      "per_fold_ss": [
-        [
-          0.95,
-          2.0,
-          0.8,
-          0.8,
-          1.1
-        ],
-        [
-          1.15,
-          1.7,
-          0.8,
-          0.8,
-          1.4
-        ],
-        [
-          1.0,
-          1.35,
-          0.8,
-          0.8,
-          1.35
-        ],
-        [
-          0.8,
-          2.0,
-          1.5,
-          0.8,
-          1.15
-        ],
-        [
-          1.0,
-          1.6,
-          0.8,
-          0.8,
-          1.5
-        ]
-      ],
-      "fold_ss_mean": [
-        0.9799999999999999,
-        1.73,
-        0.9400000000000001,
-        0.8,
-        1.3
-      ],
-      "fold_ss_std": [
-        0.11224972160321821,
-        0.24819347291981708,
-        0.27999999999999997,
-        0.0,
-        0.151657508881031
-      ]
+      "cutoff": 0.92,
+      "n_clusters": 12,
+      "max_size": 4073,
+      "median_size": 2,
+      "n_singletons": 4
+    },
+    {
+      "cutoff": 0.94,
+      "n_clusters": 7,
+      "max_size": 4122,
+      "median_size": 3,
+      "n_singletons": 2
+    },
+    {
+      "cutoff": 0.96,
+      "n_clusters": 4,
+      "max_size": 4135,
+      "median_size": 1,
+      "n_singletons": 3
     }
   ],
-  "nb1070_ref_pooled": 0.579,
-  "nb1123_single_seed_ref": 0.5704,
-  "nb1130_mean_bag_ref": 0.5673,
-  "nb1130_median_bag_ref": 0.5696,
-  "wall_sec": 0.05
+  "target_n_clusters": 30,
+  "min_cluster_train": 30,
+  "route_topk": 3,
+  "n_folds_253": 5,
+  "seed": 42,
+  "n_train_pre_dedup": 4139,
+  "n_train_dedup": 4138,
+  "n_test": 513,
+  "n_unb": 253,
+  "n_clusters": 21,
+  "cluster_size_stats": {
+    "max": 3948,
+    "median": 5,
+    "min": 1,
+    "n_singletons": 7,
+    "n_above_min": 2
+  },
+  "feature_pack": "combined_morgan_plus_rdkit_2265",
+  "lgbm_objective": "regression",
+  "lgbm_max_depth": 4,
+  "lgbm_num_leaves": 15,
+  "lgbm_n_estimators": 300,
+  "lgbm_learning_rate": 0.03,
+  "lgbm_min_child_samples": 5,
+  "lgbm_reg_lambda": 2.0,
+  "fold_records": [
+    {
+      "fold": 0,
+      "n_val": 51,
+      "rae_fold": 0.8108512810885451,
+      "wall_sec": 2.04
+    },
+    {
+      "fold": 1,
+      "n_val": 51,
+      "rae_fold": 0.7111967793094358,
+      "wall_sec": 2.12
+    },
+    {
+      "fold": 2,
+      "n_val": 51,
+      "rae_fold": 0.7027302550595224,
+      "wall_sec": 2.17
+    },
+    {
+      "fold": 3,
+      "n_val": 50,
+      "rae_fold": 0.8332154821861558,
+      "wall_sec": 2.19
+    },
+    {
+      "fold": 4,
+      "n_val": 50,
+      "rae_fold": 0.7248148670561111,
+      "wall_sec": 2.2
+    }
+  ],
+  "rae_scaffold_cv_253": 0.7514657882284874,
+  "rae_te_unb_in_sample": 0.7514657882284874,
+  "ref_nb2103_K28_crossfit": 0.4737,
+  "ref_nb2103_scaffold_cv": 0.5057,
+  "delta_vs_nb2103_K28_crossfit": 0.2777657882284874,
+  "delta_vs_scaffold_cv_ref": 0.24576578822848738,
+  "beats_nb2103_K28_crossfit": false,
+  "beats_scaffold_cv_ref": false,
+  "decision_margin": 0.003,
+  "verdict": "WORSE_THAN_BOTH_REFS",
+  "deploy_csv_written": false,
+  "deploy_csv_path": null,
+  "te_npy": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb1143_te.npy",
+  "oof_npy": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb1143_pred_oof.npy",
+  "pre_unblind_clean": true,
+  "wall_sec": 79.45
 }

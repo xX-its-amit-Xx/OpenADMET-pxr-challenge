@@ -1,0 +1,129 @@
+{
+  "tag": "nb2002",
+  "method": "uncertainty_routed_per_row_argmin_bag_std",
+  "candidates": [
+    "nb1191",
+    "nb1211",
+    "nb1150"
+  ],
+  "decision_margin": 0.003,
+  "standalone_reported_rae": {
+    "nb1191": 0.4703,
+    "nb1211": 0.4708,
+    "nb1150": 0.471
+  },
+  "best_standalone_rae": 0.4703,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "kf_seeds_oof_basis": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "n_folds": 5,
+  "soft_T_grid": [
+    0.01,
+    0.03,
+    0.05,
+    0.1,
+    0.2,
+    0.5,
+    1.0
+  ],
+  "hard_route": {
+    "pooled_oof_rae": 0.5366571550351603,
+    "route_share_unb": {
+      "nb1191": 107,
+      "nb1211": 75,
+      "nb1150": 71
+    },
+    "delta_vs_best_standalone": 0.06635715503516032
+  },
+  "soft_route": {
+    "per_T": [
+      {
+        "T": 0.01,
+        "rae": 0.5322652385047467
+      },
+      {
+        "T": 0.03,
+        "rae": 0.5271020434500766
+      },
+      {
+        "T": 0.05,
+        "rae": 0.5241664395375297
+      },
+      {
+        "T": 0.1,
+        "rae": 0.5205595771505015
+      },
+      {
+        "T": 0.2,
+        "rae": 0.5179122965576148
+      },
+      {
+        "T": 0.5,
+        "rae": 0.5161330128781452
+      },
+      {
+        "T": 1.0,
+        "rae": 0.5155848992017784
+      }
+    ],
+    "best_T": 1.0,
+    "best_rae": 0.5155848992017784,
+    "delta_vs_best_standalone": 0.04528489920177842
+  },
+  "best_routing_kind": "soft",
+  "best_routing_rae": 0.5155848992017784,
+  "candidates_to_beat_threshold": 0.4673,
+  "gate_pass": false,
+  "candidate_oof_std_summary": {
+    "nb1191": {
+      "min": 0.04591501442055486,
+      "median": 0.12189986843229415,
+      "max": 0.30221656724024143,
+      "mean": 0.13281986795931572
+    },
+    "nb1211": {
+      "min": 0.025091482949474078,
+      "median": 0.12709902885485003,
+      "max": 0.5593284498607792,
+      "mean": 0.14704775258062228
+    },
+    "nb1150": {
+      "min": 0.019480884183765666,
+      "median": 0.12744359019298335,
+      "max": 0.6648688919644254,
+      "mean": 0.1515410648852833
+    }
+  },
+  "candidate_te_proxy_std_summary": {
+    "nb1191": {
+      "min": 0.00422826951790777,
+      "median": 0.09722988120101185,
+      "max": 0.3812017956775811,
+      "mean": 0.11048170870806298
+    },
+    "nb1211": {
+      "min": 0.022306465944965288,
+      "median": 0.1601849890089888,
+      "max": 0.8296509464561497,
+      "mean": 0.18691511281428194
+    },
+    "nb1150": {
+      "min": 0.016195014219898815,
+      "median": 0.15975060266517768,
+      "max": 1.0218769387089763,
+      "mean": 0.1912486294799402
+    }
+  },
+  "deploy": {
+    "deploy_built": false
+  },
+  "wall_sec": 0.08,
+  "note": "Per-row bag std on 513 is a PROXY computed as std across each candidate's underlying anchors (3 for nb1191, 5 for nb1211, 4 for nb1150); per-seed test arrays are not cached for these blends. On the 253 unb, nb1191 OOF std uses 15 per-seed corrected OOFs (5 seeds x 3 components); nb1211/nb1150 use std across their anchor OOFs. Routing decision is made on the 253 OOF and applied row-wise to 513."
+}

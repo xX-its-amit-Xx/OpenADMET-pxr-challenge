@@ -1,0 +1,94 @@
+{
+  "tag": "nb1183",
+  "anchor": "nb1070",
+  "feature_source": "maccs_cached_167",
+  "maccs_cache_train": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\tr_maccs.npy",
+  "maccs_cache_test": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_maccs.npy",
+  "n_unb": 253,
+  "resid_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "resid_folds": 5,
+  "feature_dim": 167,
+  "lgbm_max_depth": 3,
+  "lgbm_num_leaves": 7,
+  "lgbm_n_estimators": 80,
+  "lgbm_learning_rate": 0.05,
+  "lgbm_min_child_samples": 20,
+  "lgbm_huber_alpha": 1.0,
+  "rae_anchor_nb1070": 0.5771305166381785,
+  "residual_mean": -0.1019658057365929,
+  "residual_std": 0.6666145784833671,
+  "per_seed_rae": [
+    0.5619569948815537,
+    0.5682233401111831,
+    0.561085163772949,
+    0.5488576093012476,
+    0.5614494109419207
+  ],
+  "per_seed_records": [
+    {
+      "seed": 0,
+      "rae_corrected": 0.5619569948815537,
+      "delta_vs_nb1070": -0.015173521756624786,
+      "resid_oof_std": 0.21977783972759554,
+      "resid_oof_mean": -0.07588480573639617
+    },
+    {
+      "seed": 1,
+      "rae_corrected": 0.5682233401111831,
+      "delta_vs_nb1070": -0.008907176526995353,
+      "resid_oof_std": 0.23092738599121584,
+      "resid_oof_mean": -0.08097391103628641
+    },
+    {
+      "seed": 7,
+      "rae_corrected": 0.561085163772949,
+      "delta_vs_nb1070": -0.016045352865229456,
+      "resid_oof_std": 0.23598464652992857,
+      "resid_oof_mean": -0.07742183461424623
+    },
+    {
+      "seed": 42,
+      "rae_corrected": 0.5488576093012476,
+      "delta_vs_nb1070": -0.028272907336930886,
+      "resid_oof_std": 0.22050138590103893,
+      "resid_oof_mean": -0.07803917726828087
+    },
+    {
+      "seed": 137,
+      "rae_corrected": 0.5614494109419207,
+      "delta_vs_nb1070": -0.015681105696257802,
+      "resid_oof_std": 0.23426436788194957,
+      "resid_oof_mean": -0.07372174281211569
+    }
+  ],
+  "rae_per_seed_mean": 0.5603145038017708,
+  "rae_per_seed_median": 0.5614494109419207,
+  "rae_per_seed_std": 0.006299044869189354,
+  "rae_per_seed_min": 0.5488576093012476,
+  "rae_per_seed_max": 0.5682233401111831,
+  "rae_mean_bag": 0.5512772785550101,
+  "rae_median_bag": 0.5561195918562121,
+  "delta_mean_bag_vs_nb1070": -0.025853238083168417,
+  "delta_median_bag_vs_nb1070": -0.021010924781966422,
+  "delta_mean_bag_vs_nb1153": -0.01272272144498987,
+  "delta_mean_bag_vs_nb1172": -0.014622721444989883,
+  "beats_nb1070": true,
+  "beats_nb1153": true,
+  "beats_nb1172": true,
+  "verdict": "MACCS_RESIDUAL_BEATS_NB1153_CURATED_DICTIONARY_WINS",
+  "nb1070_ref_pooled": 0.5771,
+  "nb1153_mean_bag_ref": 0.564,
+  "nb1172_mean_bag_ref": 0.5659,
+  "decision_margin": 0.003,
+  "orthogonality_probe": {
+    "pearson_vs_nb1153_mean_bag": 0.9768790682193733,
+    "pearson_vs_nb1172_mean_bag": 0.9775745953645781
+  },
+  "wall_sec": 0.35
+}

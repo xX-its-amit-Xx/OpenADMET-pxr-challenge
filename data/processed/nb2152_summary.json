@@ -1,0 +1,84 @@
+{
+  "tag": "nb2152",
+  "method": "chemberta_77m_mtr_ridge_on_pec50_null_then_K28_plus1_LGBM_bag",
+  "cycle_hypothesis": "ChemBERTa fails on pec50 axis (nb2120 Pearson 0.90) but may carry orthogonal signal on counter axis",
+  "n_dual": 2646,
+  "n_unb": 253,
+  "n_te": 513,
+  "alpha_grid": [
+    0.1,
+    1.0,
+    10.0,
+    100.0
+  ],
+  "kf_seed_counter": 1001,
+  "ridge_per_alpha": [
+    {
+      "alpha": 0.1,
+      "oof_rae_null": 0.9841811849591651,
+      "oof_mean": 3.1448281706730543,
+      "oof_std": 0.7817308197118639
+    },
+    {
+      "alpha": 1.0,
+      "oof_rae_null": 0.949728483383461,
+      "oof_mean": 3.133296007122995,
+      "oof_std": 0.504938785469481
+    },
+    {
+      "alpha": 10.0,
+      "oof_rae_null": 0.9440404181471514,
+      "oof_mean": 3.1308974862876755,
+      "oof_std": 0.4233307115898142
+    },
+    {
+      "alpha": 100.0,
+      "oof_rae_null": 0.9524108464372721,
+      "oof_mean": 3.1315123383220307,
+      "oof_std": 0.2842601582261722
+    }
+  ],
+  "best_alpha": 10.0,
+  "counter_oof_rae_best_alpha": 0.9440404181471514,
+  "null_hat_unb_mean": 3.125094175338745,
+  "null_hat_unb_std": 0.352200984954834,
+  "null_hat_te_mean": 3.0643749237060547,
+  "null_hat_te_std": 0.3780694007873535,
+  "chemprop_aux_te_unb_in_rae": 0.6215728863514471,
+  "K28_per_seed_rae": [
+    0.4932399127303269,
+    0.5092356523639533,
+    0.4886371260037302,
+    0.4998304296760553,
+    0.48110681218891027
+  ],
+  "K28_mean_bag_rae": 0.4736869992362601,
+  "K28_median_bag_rae": 0.4697789387514748,
+  "K29_per_seed_rae": [
+    0.5008842454010349,
+    0.5260092622152838,
+    0.4897811752555465,
+    0.503317087023584,
+    0.4893746283764661
+  ],
+  "K29_mean_bag_rae": 0.4800360599977457,
+  "K29_median_bag_rae": 0.47907320854326824,
+  "delta_K29_minus_K28_mean_bag": 0.006349060761485559,
+  "delta_K29_minus_K28_median_bag": 0.00929426979179343,
+  "delta_K29_vs_nb2095_baseline": 0.008036059997745704,
+  "nb2095_baseline_oof": 0.472,
+  "nb2103_K28_mean_bag_ref": 0.4737,
+  "nb2103_K28_median_bag_ref": 0.4698,
+  "decision_margin": 0.003,
+  "gate_beats_K28": false,
+  "gate_beats_nb2095": false,
+  "gate_overall": false,
+  "deploy_csv_path": null,
+  "diagnostics_pearson_null_vs_y": 0.1263085525523094,
+  "diagnostics_pearson_null_vs_anchor": 0.13608085394750374,
+  "diagnostics_pearson_null_vs_resid": 0.06292684230335399,
+  "null_hat_unb_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2152_null_hat_unb.npy",
+  "null_hat_te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2152_null_hat_te.npy",
+  "K28_plus1_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2152_K28_plus1_oof.npy",
+  "wall_sec": 7.74
+}

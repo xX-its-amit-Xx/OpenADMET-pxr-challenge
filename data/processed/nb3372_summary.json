@@ -1,0 +1,336 @@
+{
+  "tag": "nb3372",
+  "parent_tag": "nb3200",
+  "method": "rank_domain_isotonic_pava_on_nb3200",
+  "paradigm": "rank-domain isotonic (PAVA) recalibration: fit IsotonicRegression(y in [3,8], increasing) on (rank(p_train), y_train) instead of (value(p_train), y_train); apply to val/te by interpolating each query's fractional rank within the sorted fold-train predictions then iso.transform. Ranks are equally-spaced order statistics, so PAVA capacity is decoupled from the compressed value spacing; strictly rank-preserving (safe at n=253)",
+  "anchor_pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb3200_pred_oof.npy",
+  "anchor_te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb3200.npy",
+  "anchor_pre_unblind": true,
+  "anchor_full_oof_rae": 0.44157,
+  "anchor_te_unb_in_sample_rae": 0.1913,
+  "anchor_leak_eq_truth_frac": 0.0,
+  "iso_y_min": 3.0,
+  "iso_y_max": 8.0,
+  "te_clip_lo": 3.0,
+  "te_clip_hi": 9.0,
+  "n_folds": 5,
+  "kf_seeds": [
+    1216,
+    1217,
+    1218,
+    1219,
+    1220,
+    1221,
+    1222,
+    1223,
+    1224,
+    1225,
+    1226,
+    1227,
+    1228,
+    1229,
+    1230
+  ],
+  "n_seeds": 15,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "seed_records": [
+    {
+      "kf_seed": 1216,
+      "pooled_rae": 0.4734,
+      "per_fold_mean": 0.4753,
+      "per_fold_std": 0.0511,
+      "per_fold_base_mean": 0.4444,
+      "per_fold_train_mean": 0.4133,
+      "fold_val_raes": [
+        0.4194,
+        0.4278,
+        0.5411,
+        0.4971,
+        0.4913
+      ]
+    },
+    {
+      "kf_seed": 1217,
+      "pooled_rae": 0.4636,
+      "per_fold_mean": 0.473,
+      "per_fold_std": 0.0754,
+      "per_fold_base_mean": 0.453,
+      "per_fold_train_mean": 0.4151,
+      "fold_val_raes": [
+        0.4427,
+        0.3732,
+        0.5792,
+        0.4972,
+        0.4726
+      ]
+    },
+    {
+      "kf_seed": 1218,
+      "pooled_rae": 0.4592,
+      "per_fold_mean": 0.4676,
+      "per_fold_std": 0.0378,
+      "per_fold_base_mean": 0.449,
+      "per_fold_train_mean": 0.4158,
+      "fold_val_raes": [
+        0.4417,
+        0.4252,
+        0.5074,
+        0.4569,
+        0.5067
+      ]
+    },
+    {
+      "kf_seed": 1219,
+      "pooled_rae": 0.4664,
+      "per_fold_mean": 0.4797,
+      "per_fold_std": 0.0924,
+      "per_fold_base_mean": 0.4534,
+      "per_fold_train_mean": 0.4147,
+      "fold_val_raes": [
+        0.4673,
+        0.4165,
+        0.6306,
+        0.4889,
+        0.395
+      ]
+    },
+    {
+      "kf_seed": 1220,
+      "pooled_rae": 0.465,
+      "per_fold_mean": 0.4706,
+      "per_fold_std": 0.0456,
+      "per_fold_base_mean": 0.4467,
+      "per_fold_train_mean": 0.4141,
+      "fold_val_raes": [
+        0.4991,
+        0.4074,
+        0.5271,
+        0.4541,
+        0.4651
+      ]
+    },
+    {
+      "kf_seed": 1221,
+      "pooled_rae": 0.4708,
+      "per_fold_mean": 0.4769,
+      "per_fold_std": 0.0375,
+      "per_fold_base_mean": 0.4487,
+      "per_fold_train_mean": 0.4139,
+      "fold_val_raes": [
+        0.5266,
+        0.5077,
+        0.4565,
+        0.4453,
+        0.4486
+      ]
+    },
+    {
+      "kf_seed": 1222,
+      "pooled_rae": 0.4582,
+      "per_fold_mean": 0.4783,
+      "per_fold_std": 0.0856,
+      "per_fold_base_mean": 0.462,
+      "per_fold_train_mean": 0.4162,
+      "fold_val_raes": [
+        0.3643,
+        0.4397,
+        0.5031,
+        0.5972,
+        0.4869
+      ]
+    },
+    {
+      "kf_seed": 1223,
+      "pooled_rae": 0.468,
+      "per_fold_mean": 0.4776,
+      "per_fold_std": 0.0812,
+      "per_fold_base_mean": 0.4544,
+      "per_fold_train_mean": 0.4148,
+      "fold_val_raes": [
+        0.4128,
+        0.3864,
+        0.5271,
+        0.5843,
+        0.4773
+      ]
+    },
+    {
+      "kf_seed": 1224,
+      "pooled_rae": 0.456,
+      "per_fold_mean": 0.4715,
+      "per_fold_std": 0.092,
+      "per_fold_base_mean": 0.4581,
+      "per_fold_train_mean": 0.4159,
+      "fold_val_raes": [
+        0.3626,
+        0.4905,
+        0.4313,
+        0.6126,
+        0.4604
+      ]
+    },
+    {
+      "kf_seed": 1225,
+      "pooled_rae": 0.4655,
+      "per_fold_mean": 0.4673,
+      "per_fold_std": 0.0527,
+      "per_fold_base_mean": 0.4457,
+      "per_fold_train_mean": 0.4144,
+      "fold_val_raes": [
+        0.3931,
+        0.5284,
+        0.4476,
+        0.4617,
+        0.5055
+      ]
+    },
+    {
+      "kf_seed": 1226,
+      "pooled_rae": 0.4678,
+      "per_fold_mean": 0.4912,
+      "per_fold_std": 0.0913,
+      "per_fold_base_mean": 0.4634,
+      "per_fold_train_mean": 0.4162,
+      "fold_val_raes": [
+        0.5272,
+        0.4394,
+        0.6362,
+        0.4239,
+        0.4295
+      ]
+    },
+    {
+      "kf_seed": 1227,
+      "pooled_rae": 0.4667,
+      "per_fold_mean": 0.4786,
+      "per_fold_std": 0.0729,
+      "per_fold_base_mean": 0.4539,
+      "per_fold_train_mean": 0.4149,
+      "fold_val_raes": [
+        0.4098,
+        0.4154,
+        0.5227,
+        0.4644,
+        0.5806
+      ]
+    },
+    {
+      "kf_seed": 1228,
+      "pooled_rae": 0.4788,
+      "per_fold_mean": 0.4948,
+      "per_fold_std": 0.0566,
+      "per_fold_base_mean": 0.4548,
+      "per_fold_train_mean": 0.4149,
+      "fold_val_raes": [
+        0.4448,
+        0.5076,
+        0.4922,
+        0.583,
+        0.4462
+      ]
+    },
+    {
+      "kf_seed": 1229,
+      "pooled_rae": 0.4597,
+      "per_fold_mean": 0.4695,
+      "per_fold_std": 0.122,
+      "per_fold_base_mean": 0.4524,
+      "per_fold_train_mean": 0.4158,
+      "fold_val_raes": [
+        0.3574,
+        0.4204,
+        0.4063,
+        0.6695,
+        0.4939
+      ]
+    },
+    {
+      "kf_seed": 1230,
+      "pooled_rae": 0.4574,
+      "per_fold_mean": 0.4619,
+      "per_fold_std": 0.0752,
+      "per_fold_base_mean": 0.4464,
+      "per_fold_train_mean": 0.4162,
+      "fold_val_raes": [
+        0.4397,
+        0.4119,
+        0.5911,
+        0.4585,
+        0.4079
+      ]
+    }
+  ],
+  "per_fold_mean_array": [
+    0.47533,
+    0.47298,
+    0.46759,
+    0.47967,
+    0.47057,
+    0.47695,
+    0.47826,
+    0.47759,
+    0.4715,
+    0.46727,
+    0.49124,
+    0.4786,
+    0.49475,
+    0.46952,
+    0.46185
+  ],
+  "pooled_rae_array": [
+    0.47336,
+    0.46364,
+    0.45925,
+    0.46635,
+    0.46498,
+    0.47084,
+    0.45821,
+    0.46804,
+    0.45595,
+    0.46546,
+    0.46781,
+    0.46665,
+    0.47883,
+    0.4597,
+    0.45742
+  ],
+  "mean_per_fold_mean": 0.47558,
+  "std_per_fold_mean": 0.0087,
+  "sem_per_fold_mean": 0.00225,
+  "ci95_low": 0.47076,
+  "ci95_high": 0.48039,
+  "median_per_fold_mean": 0.47533,
+  "min_per_fold_mean": 0.46185,
+  "max_per_fold_mean": 0.49475,
+  "mean_base_per_fold_mean": 0.45241,
+  "delta_vs_base": 0.02317,
+  "mean_pooled_rae": 0.4651,
+  "full_rae_in_sample": 0.41928,
+  "te_unb_in_sample_rae": 0.23626,
+  "te_mean": 4.757676601409912,
+  "te_std": 0.8281436562538147,
+  "te_min": 3.0,
+  "te_max": 6.389999866485596,
+  "median_seed": 1216,
+  "ref_nb3200_nom": 0.4424,
+  "ref_nb3232_nom": 0.4424,
+  "ref_nb3190_nom": 0.4426,
+  "ref_nb3090_nom": 0.4472,
+  "ref_nb3173_nom": 0.4437,
+  "ref_nb3080_nom": 0.4475,
+  "ref_nb2171": 0.4682,
+  "delta_vs_nb3200_nom": 0.03318,
+  "delta_vs_nb3200_full_oof": 0.03401,
+  "delta_vs_nb3173": 0.03188,
+  "delta_vs_nb2171": 0.00738,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb3372_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb3372.npy",
+  "submission_csv": null,
+  "gate_better": 0.4423,
+  "mean_rae": 0.47557767706360793,
+  "verdict": "FAIL",
+  "ladder_action": "REJECT. nb3372 rank-domain isotonic per-fold-mean 0.4756 +/- 0.0087 >= BETTER gate 0.4423 (base 0.4524, delta +0.0232). Isotonic is invariant to monotone re-spacing of x, so rank(p) and value(p) yield the SAME PAVA fit on fold-train; the only difference is the val/te apply step (rank-interp vs value-interp), which adds order-statistic quantization variance without correcting a residual non-monotone bias the nb3200 q-cut-blend pipeline left. Keep nb3200 post-hoc-blend line PRIMARY; do not promote nb3372.",
+  "wall_sec": 0.23
+}

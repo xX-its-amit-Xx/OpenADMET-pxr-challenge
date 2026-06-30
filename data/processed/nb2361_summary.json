@@ -1,0 +1,118 @@
+{
+  "notebook": "nb2361",
+  "snapshot_date": "2026-06-08",
+  "cycle": 185,
+  "methods_total_approx": 1215,
+  "plateau_cycles": 10,
+  "plateau_log": [
+    {
+      "cycle": 176,
+      "best_cross_fit": 0.4601,
+      "delta_vs_prev": 0.0
+    },
+    {
+      "cycle": 177,
+      "best_cross_fit": 0.4601,
+      "delta_vs_prev": 0.0
+    },
+    {
+      "cycle": 178,
+      "best_cross_fit": 0.4601,
+      "delta_vs_prev": 0.0
+    },
+    {
+      "cycle": 179,
+      "best_cross_fit": 0.4601,
+      "delta_vs_prev": 0.0
+    },
+    {
+      "cycle": 180,
+      "best_cross_fit": 0.4601,
+      "delta_vs_prev": 0.0
+    },
+    {
+      "cycle": 181,
+      "best_cross_fit": 0.4601,
+      "delta_vs_prev": 0.0
+    },
+    {
+      "cycle": 182,
+      "best_cross_fit": 0.4601,
+      "delta_vs_prev": 0.0
+    },
+    {
+      "cycle": 183,
+      "best_cross_fit": 0.4601,
+      "delta_vs_prev": 0.0
+    },
+    {
+      "cycle": 184,
+      "best_cross_fit": 0.4601,
+      "delta_vs_prev": 0.0
+    },
+    {
+      "cycle": 185,
+      "best_cross_fit": 0.4601,
+      "delta_vs_prev": 0.0
+    }
+  ],
+  "phase2_deadline": "2026-07-01",
+  "days_to_deadline_working": 21,
+  "days_to_deadline_calendar": 23,
+  "primary_roster": [
+    {
+      "slot": "PRIMARY-1",
+      "id": "nb2240",
+      "cross_fit_rae": 0.4601,
+      "status": "stable_anchor",
+      "note": "Held PRIMARY-1 for 10 consecutive cycles; in-manifold ceiling."
+    },
+    {
+      "slot": "PRIMARY-2",
+      "id": "nb2330",
+      "cross_fit_rae": 0.4662,
+      "status": "newly_deployed",
+      "note": "Decorrelated residuals vs nb2240; rotation candidate this cycle."
+    },
+    {
+      "slot": "PRIMARY-3",
+      "id": "nb730",
+      "cross_fit_rae": 0.4603,
+      "status": "rotation",
+      "note": "Multi-seed null-ensemble; biological orthogonality."
+    },
+    {
+      "slot": "PRIMARY-4",
+      "id": "nb703",
+      "cross_fit_rae": 0.4928,
+      "status": "rotation",
+      "note": "P1+P2+P3 SLSQP blend; safety floor."
+    },
+    {
+      "slot": "PRIMARY-5",
+      "id": "nb562",
+      "cross_fit_rae": 0.5065,
+      "status": "rotation",
+      "note": "Rank-stretch scalar calibration; legacy stable."
+    }
+  ],
+  "primary_rotation_count": 5,
+  "open_path": "substrate_change_only",
+  "substrate_prescriptions": [
+    "External scaffold-diverse data (ChEMBL PXR-adjacent NR ligands)",
+    "Foundation-model pretrained embeddings routed on counter-assay axis",
+    "Abstention head on novel-scaffold tail (sim<0.35 cluster)",
+    "Phase-2 unblind augmentation gated by scaffold-support filter",
+    "3D pose-quality features for top-50 failure-cluster ligands"
+  ],
+  "anchor": {
+    "id": "nb2240",
+    "rae": 0.4601,
+    "stable": true
+  },
+  "newly_deployed": {
+    "id": "nb2330",
+    "rae": 0.4662,
+    "slot": "PRIMARY-2"
+  }
+}

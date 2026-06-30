@@ -1,0 +1,272 @@
+{
+  "tag": "nb2873",
+  "method": "per_fold_forward_stepwise_ensemble_equal_weight",
+  "anchor_pool": [
+    "nb2240_K20",
+    "chemprop_aux",
+    "counter_clean"
+  ],
+  "anchor_provenance": {
+    "nb2240_K20": "PRE-clean seed anchor (K=20 residual stack on chemprop_aux)",
+    "chemprop_aux": "PRE-clean (4139 PRE-unblind only)",
+    "counter_clean": "PRE-clean counter-assay residual on chemprop_aux (nb730-free)"
+  },
+  "anchor_skipped": {},
+  "anchor_in_rae": {
+    "nb2240_K20": 0.46301757335429367,
+    "chemprop_aux": 0.5878769556905485,
+    "counter_clean": 0.5382385733206709
+  },
+  "seed_anchor": "nb2240_K20",
+  "n_folds": 5,
+  "kf_seed": 1001,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "K_anchors": 3,
+  "fold_rae": [
+    0.4446892510077819,
+    0.48581048744209665,
+    0.53099829462698,
+    0.4360571510799799,
+    0.431798228312293
+  ],
+  "per_fold_selected": [
+    [
+      "nb2240_K20"
+    ],
+    [
+      "nb2240_K20"
+    ],
+    [
+      "nb2240_K20"
+    ],
+    [
+      "nb2240_K20"
+    ],
+    [
+      "nb2240_K20"
+    ]
+  ],
+  "per_fold_decisions": [
+    [
+      {
+        "step": 0,
+        "action": "seed",
+        "candidate": "nb2240_K20",
+        "selected_after": [
+          "nb2240_K20"
+        ],
+        "rae_after": 0.46731515682898556
+      },
+      {
+        "step": 1,
+        "action": "reject",
+        "candidate": "chemprop_aux",
+        "trial_rae": 0.5043160520974372,
+        "cur_rae_before": 0.46731515682898556,
+        "selected_after": [
+          "nb2240_K20"
+        ],
+        "rae_after": 0.46731515682898556
+      },
+      {
+        "step": 2,
+        "action": "reject",
+        "candidate": "counter_clean",
+        "trial_rae": 0.48878086620110395,
+        "cur_rae_before": 0.46731515682898556,
+        "selected_after": [
+          "nb2240_K20"
+        ],
+        "rae_after": 0.46731515682898556
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "action": "seed",
+        "candidate": "nb2240_K20",
+        "selected_after": [
+          "nb2240_K20"
+        ],
+        "rae_after": 0.45660038940578146
+      },
+      {
+        "step": 1,
+        "action": "reject",
+        "candidate": "chemprop_aux",
+        "trial_rae": 0.4987409670763986,
+        "cur_rae_before": 0.45660038940578146,
+        "selected_after": [
+          "nb2240_K20"
+        ],
+        "rae_after": 0.45660038940578146
+      },
+      {
+        "step": 2,
+        "action": "reject",
+        "candidate": "counter_clean",
+        "trial_rae": 0.48766116864487874,
+        "cur_rae_before": 0.45660038940578146,
+        "selected_after": [
+          "nb2240_K20"
+        ],
+        "rae_after": 0.45660038940578146
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "action": "seed",
+        "candidate": "nb2240_K20",
+        "selected_after": [
+          "nb2240_K20"
+        ],
+        "rae_after": 0.4496793050416757
+      },
+      {
+        "step": 1,
+        "action": "reject",
+        "candidate": "chemprop_aux",
+        "trial_rae": 0.4904476329580834,
+        "cur_rae_before": 0.4496793050416757,
+        "selected_after": [
+          "nb2240_K20"
+        ],
+        "rae_after": 0.4496793050416757
+      },
+      {
+        "step": 2,
+        "action": "reject",
+        "candidate": "counter_clean",
+        "trial_rae": 0.48072875961888367,
+        "cur_rae_before": 0.4496793050416757,
+        "selected_after": [
+          "nb2240_K20"
+        ],
+        "rae_after": 0.4496793050416757
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "action": "seed",
+        "candidate": "nb2240_K20",
+        "selected_after": [
+          "nb2240_K20"
+        ],
+        "rae_after": 0.46922931685154456
+      },
+      {
+        "step": 1,
+        "action": "reject",
+        "candidate": "chemprop_aux",
+        "trial_rae": 0.5048016460664325,
+        "cur_rae_before": 0.46922931685154456,
+        "selected_after": [
+          "nb2240_K20"
+        ],
+        "rae_after": 0.46922931685154456
+      },
+      {
+        "step": 2,
+        "action": "reject",
+        "candidate": "counter_clean",
+        "trial_rae": 0.4866716178661585,
+        "cur_rae_before": 0.46922931685154456,
+        "selected_after": [
+          "nb2240_K20"
+        ],
+        "rae_after": 0.46922931685154456
+      }
+    ],
+    [
+      {
+        "step": 0,
+        "action": "seed",
+        "candidate": "nb2240_K20",
+        "selected_after": [
+          "nb2240_K20"
+        ],
+        "rae_after": 0.4725865608515084
+      },
+      {
+        "step": 1,
+        "action": "reject",
+        "candidate": "chemprop_aux",
+        "trial_rae": 0.5169236894980491,
+        "cur_rae_before": 0.4725865608515084,
+        "selected_after": [
+          "nb2240_K20"
+        ],
+        "rae_after": 0.4725865608515084
+      },
+      {
+        "step": 2,
+        "action": "reject",
+        "candidate": "counter_clean",
+        "trial_rae": 0.49484157029164577,
+        "cur_rae_before": 0.4725865608515084,
+        "selected_after": [
+          "nb2240_K20"
+        ],
+        "rae_after": 0.4725865608515084
+      }
+    ]
+  ],
+  "selection_freq": {
+    "nb2240_K20": 5,
+    "chemprop_aux": 0,
+    "counter_clean": 0
+  },
+  "pooled_rae": 0.46301757335429367,
+  "mean_fold_rae": 0.46587068249382624,
+  "mean_rae": 0.46301757335429367,
+  "gate_promote": 0.457,
+  "gate_marginal": 0.4598,
+  "verdict": "FAIL",
+  "deploy_selected": [
+    "nb2240_K20"
+  ],
+  "deploy_decision_log": [
+    {
+      "step": 0,
+      "action": "seed",
+      "candidate": "nb2240_K20",
+      "selected_after": [
+        "nb2240_K20"
+      ],
+      "rae_after": 0.46301757335429367
+    },
+    {
+      "step": 1,
+      "action": "reject",
+      "candidate": "chemprop_aux",
+      "trial_rae": 0.5028957961177075,
+      "cur_rae_before": 0.46301757335429367,
+      "selected_after": [
+        "nb2240_K20"
+      ],
+      "rae_after": 0.46301757335429367
+    },
+    {
+      "step": 2,
+      "action": "reject",
+      "candidate": "counter_clean",
+      "trial_rae": 0.48752588517359824,
+      "cur_rae_before": 0.46301757335429367,
+      "selected_after": [
+        "nb2240_K20"
+      ],
+      "rae_after": 0.46301757335429367
+    }
+  ],
+  "te_unb_in_sample_rae": 0.18907877993923367,
+  "te_mean": 4.740163803100586,
+  "te_std": 0.7714982032775879,
+  "oof_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2873_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2873.npy",
+  "submission_csv": null,
+  "wall_sec": 0.08
+}

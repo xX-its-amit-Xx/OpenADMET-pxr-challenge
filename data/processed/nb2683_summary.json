@@ -1,0 +1,75 @@
+{
+  "tag": "nb2683",
+  "parent_tag": "cycle170_substrate_change",
+  "method": "cross_attn_morgan2048_physchem9_residual_chemprop_aux",
+  "architecture": {
+    "morgan_bits": 2048,
+    "physchem_dim": 9,
+    "physchem_keys": [
+      "mw",
+      "logp",
+      "tpsa",
+      "hbd",
+      "hba",
+      "rotbonds",
+      "fsp3",
+      "n_rings",
+      "formal_charge"
+    ],
+    "d_model": 64,
+    "num_heads": 4,
+    "blocks": [
+      "morgan_embed: Linear(2048, 64)",
+      "physchem_embed: Linear(9, 64)",
+      "cross_attn: MultiheadAttention(d=64, h=4) Q=phys, K=V=morgan",
+      "head: Linear(64, 1)"
+    ]
+  },
+  "hparams": {
+    "epochs": 100,
+    "batch_size": 32,
+    "lr": 0.001,
+    "loss": "MSE",
+    "optimizer": "Adam",
+    "kf_seeds": [
+      1001,
+      1002,
+      1003,
+      1004,
+      1005
+    ],
+    "n_folds": 5,
+    "train_seed_base": 1009
+  },
+  "anchor_base": "chemprop_aux",
+  "anchor_in_rae": 0.6215728863514471,
+  "anchor_pre_unblind": true,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "per_seed_pooled_rae": [
+    0.7110170173705151,
+    0.706885965848484,
+    0.7275887440601616,
+    0.7038532446682677,
+    0.7448881879199456
+  ],
+  "mean_rae": 0.7188466319734749,
+  "std_rae": 0.017202828413648234,
+  "pooled_seedmean_rae": 0.6912350470780212,
+  "te_unb_in_sample_rae": 0.1362386118918459,
+  "pred_oof_std": 0.8567399837275194,
+  "te_mean": 4.757969967338309,
+  "te_std": 0.8488370184794226,
+  "truth_std": 1.0320053675542649,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2683_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2683.npy",
+  "nb2171_ref": 0.4682,
+  "chemprop_aux_ref": 0.6216,
+  "delta_vs_nb2171": 0.25064663197347486,
+  "delta_vs_anchor": 0.09727374562202773,
+  "gate_promote": 0.457,
+  "gate_marginal_beat": 0.4598,
+  "verdict": "FAIL",
+  "wall_sec": 45.0
+}

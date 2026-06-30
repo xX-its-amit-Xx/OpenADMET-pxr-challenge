@@ -1,0 +1,151 @@
+{
+  "tag": "nb1224",
+  "anchor": "nb1070",
+  "n_unb": 253,
+  "new_outer_seeds": [
+    2,
+    13,
+    99,
+    271,
+    500
+  ],
+  "inner_offsets": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "inner_family_rule": "inner = outer * 7 + offset",
+  "resid_folds": 5,
+  "rae_anchor_nb1070": 0.5771305166381785,
+  "per_outer_records": [
+    {
+      "outer_seed": 2,
+      "inner_seeds": [
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "rae_nb1130_mean_bag": 0.5593531142589553,
+      "rae_nb1153_mean_bag": 0.5662656078673396,
+      "rae_nb1172_mean_bag": 0.5647030016817713,
+      "rae_nb1190_triple_mean": 0.5520490278279605,
+      "rae_nb1200_maccs_mean_bag": 0.5573767545279693,
+      "rae_nb1211_half_half": 0.551043695591777,
+      "delta_blend_vs_nb1211_ref": 0.005943695591776987,
+      "elapsed_sec": 6.6
+    },
+    {
+      "outer_seed": 13,
+      "inner_seeds": [
+        91,
+        92,
+        93,
+        94,
+        95
+      ],
+      "rae_nb1130_mean_bag": 0.5583507468869242,
+      "rae_nb1153_mean_bag": 0.5588988204749278,
+      "rae_nb1172_mean_bag": 0.5613512583134952,
+      "rae_nb1190_triple_mean": 0.5510465281993104,
+      "rae_nb1200_maccs_mean_bag": 0.5568843416649131,
+      "rae_nb1211_half_half": 0.5481644672943965,
+      "delta_blend_vs_nb1211_ref": 0.003064467294396467,
+      "elapsed_sec": 6.9
+    },
+    {
+      "outer_seed": 99,
+      "inner_seeds": [
+        693,
+        694,
+        695,
+        696,
+        697
+      ],
+      "rae_nb1130_mean_bag": 0.5595204535330949,
+      "rae_nb1153_mean_bag": 0.569155345253359,
+      "rae_nb1172_mean_bag": 0.5676414710654829,
+      "rae_nb1190_triple_mean": 0.5563060826004655,
+      "rae_nb1200_maccs_mean_bag": 0.5537980775025965,
+      "rae_nb1211_half_half": 0.5494799400319142,
+      "delta_blend_vs_nb1211_ref": 0.00437994003191422,
+      "elapsed_sec": 6.6
+    },
+    {
+      "outer_seed": 271,
+      "inner_seeds": [
+        1897,
+        1898,
+        1899,
+        1900,
+        1901
+      ],
+      "rae_nb1130_mean_bag": 0.5594214234972459,
+      "rae_nb1153_mean_bag": 0.564600047110932,
+      "rae_nb1172_mean_bag": 0.5633652361274278,
+      "rae_nb1190_triple_mean": 0.554928195209654,
+      "rae_nb1200_maccs_mean_bag": 0.5489001633781275,
+      "rae_nb1211_half_half": 0.5476551014576101,
+      "delta_blend_vs_nb1211_ref": 0.002555101457610065,
+      "elapsed_sec": 6.6
+    },
+    {
+      "outer_seed": 500,
+      "inner_seeds": [
+        3500,
+        3501,
+        3502,
+        3503,
+        3504
+      ],
+      "rae_nb1130_mean_bag": 0.5652620851837238,
+      "rae_nb1153_mean_bag": 0.561271947328346,
+      "rae_nb1172_mean_bag": 0.5716716054238865,
+      "rae_nb1190_triple_mean": 0.5565210014955617,
+      "rae_nb1200_maccs_mean_bag": 0.5564747366769809,
+      "rae_nb1211_half_half": 0.5510717369204282,
+      "delta_blend_vs_nb1211_ref": 0.005971736920428183,
+      "elapsed_sec": 6.8
+    }
+  ],
+  "per_outer_rae_nb1190_triple": [
+    0.5520490278279605,
+    0.5510465281993104,
+    0.5563060826004655,
+    0.554928195209654,
+    0.5565210014955617
+  ],
+  "per_outer_rae_nb1200_maccs": [
+    0.5573767545279693,
+    0.5568843416649131,
+    0.5537980775025965,
+    0.5489001633781275,
+    0.5564747366769809
+  ],
+  "per_outer_rae_blend_half_half": [
+    0.551043695591777,
+    0.5481644672943965,
+    0.5494799400319142,
+    0.5476551014576101,
+    0.5510717369204282
+  ],
+  "outer_mean_blend": 0.5494829882592251,
+  "outer_std_blend": 0.0014170114094287757,
+  "outer_min_blend": 0.5476551014576101,
+  "outer_max_blend": 0.5510717369204282,
+  "outer_mean_nb1190": 0.5541701670665905,
+  "outer_std_nb1190": 0.0022324657125608865,
+  "outer_mean_nb1200": 0.5546868147501175,
+  "outer_std_nb1200": 0.003147594426299678,
+  "rae_bag_of_bags_mean": 0.5478345773037688,
+  "rae_bag_of_bags_median": 0.5495234321205089,
+  "nb1211_half_half_ref": 0.5451,
+  "delta_outer_mean_vs_nb1211": 0.004382988259225118,
+  "repro_margin": 0.003,
+  "reproduces": false,
+  "verdict": "NB1211_LUCKY_OUTER_BAG_PULLS_UP",
+  "wall_sec": 35.83
+}

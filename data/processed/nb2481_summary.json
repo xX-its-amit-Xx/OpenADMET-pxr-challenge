@@ -1,0 +1,193 @@
+{
+  "tag": "nb2481",
+  "status": "OK",
+  "method": "htchem_weighted_aug_K20_RFE_pyramid",
+  "htchem_file": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\raw\\pxr-challenge_htchem-libraries_TRAIN.csv",
+  "n_htchem_used": 431,
+  "htchem_weight_min": 0.20979020979020982,
+  "htchem_weight_median": 0.3,
+  "htchem_weight_max": 0.3,
+  "htchem_weight_sum": 126.85304149382428,
+  "se_default_for_missing": 0.5,
+  "imputed_K20_chempropembed_idx_in_K20": [
+    1,
+    2,
+    3,
+    4,
+    7,
+    8,
+    14,
+    16
+  ],
+  "n_imputed_K20_cols": 8,
+  "anchors": [
+    "nb2481_K20_aug",
+    "chemprop_aux",
+    "nb1191",
+    "nb503",
+    "nb562"
+  ],
+  "anchor_oof_rae_unb": {
+    "nb2481_K20_aug": 0.7482926535117992,
+    "chemprop_aux": 0.5878769556905485,
+    "nb1191": 0.4647519472474954,
+    "nb503": 0.5116212503074237,
+    "nb562": 0.5065400776344995
+  },
+  "rae_anchor_chemprop_aux": 0.6215728863514471,
+  "K20_aug_mean_bag_oof_RAE": 0.7482926535117992,
+  "train_only_cv_rae_mean_3seeds": 0.630090146317475,
+  "nb2481_oof_K20_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2481_mean_bag_oof_K20.npy",
+  "nb2481_te_K20_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2481_K20.npy",
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "n_folds": 5,
+  "stretch_grid": [
+    1.0,
+    1.025,
+    1.05,
+    1.075,
+    1.1,
+    1.125,
+    1.15
+  ],
+  "n_unb": 253,
+  "n_te": 513,
+  "per_seed_results": [
+    {
+      "kf_seed": 1001,
+      "pooled_rae": 0.46584280311176085,
+      "fold_s": [
+        1.0,
+        1.0,
+        1.0,
+        1.025,
+        1.0
+      ],
+      "fold_w_mean": [
+        1.9317766552257657e-14,
+        5.317825291238917e-14,
+        0.93217111522343,
+        5.305249988013066e-14,
+        0.06782888477644437
+      ]
+    },
+    {
+      "kf_seed": 1002,
+      "pooled_rae": 0.4677290021861263,
+      "fold_s": [
+        1.05,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fold_w_mean": [
+        2.8281685010463233e-14,
+        2.3983575731017997e-13,
+        0.9310255280867221,
+        1.1117757374719914e-13,
+        0.06897447191289868
+      ]
+    },
+    {
+      "kf_seed": 1003,
+      "pooled_rae": 0.46695047602245965,
+      "fold_s": [
+        1.0,
+        1.0,
+        1.025,
+        1.025,
+        1.0
+      ],
+      "fold_w_mean": [
+        1.247372578318135e-14,
+        3.008292838040117e-14,
+        0.9332910608571702,
+        3.4899127215537075e-13,
+        0.06670893914243833
+      ]
+    },
+    {
+      "kf_seed": 1004,
+      "pooled_rae": 0.46731679083077204,
+      "fold_s": [
+        1.0,
+        1.0,
+        1.05,
+        1.0,
+        1.0
+      ],
+      "fold_w_mean": [
+        1.7225404654136306e-14,
+        2.227021251512786e-13,
+        0.9248711005078194,
+        3.968817068845387e-13,
+        0.07512889949154389
+      ]
+    },
+    {
+      "kf_seed": 1005,
+      "pooled_rae": 0.4687683222752095,
+      "fold_s": [
+        1.0,
+        1.0,
+        1.025,
+        1.0,
+        1.025
+      ],
+      "fold_w_mean": [
+        3.425148063718411e-14,
+        1.7365238465169246e-13,
+        0.93215213039375,
+        9.505401840625406e-14,
+        0.06784786960594698
+      ]
+    }
+  ],
+  "pooled_rae_mean_seeds": 0.46732147888526565,
+  "pooled_rae_std_seeds": 0.0009574526809178307,
+  "deploy_weights": [
+    {
+      "name": "nb2481_K20_aug",
+      "w": 0.0
+    },
+    {
+      "name": "chemprop_aux",
+      "w": 0.0
+    },
+    {
+      "name": "nb1191",
+      "w": 0.9360905782728112
+    },
+    {
+      "name": "nb503",
+      "w": 6.886175435722434e-13
+    },
+    {
+      "name": "nb562",
+      "w": 0.06390942172650003
+    }
+  ],
+  "deploy_mu_blend": 4.666466858781847,
+  "deploy_s": 1.009,
+  "in_sample_rae_overfit_bound": 0.4640277305282427,
+  "te_unb_rae_in_sample": 0.269483184439562,
+  "lb_band_estimate": 0.37038071460687083,
+  "lb_band_w_oof": 0.51,
+  "lb_band_w_te": 0.49,
+  "gate_promote_thresh": 0.457,
+  "gate_marginal_thresh": 0.4601,
+  "mean_rae": 0.46732147888526565,
+  "verdict": "FAIL",
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2481_pred_oof.npy",
+  "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2481.npy",
+  "deploy_te_mean": 4.7121262550354,
+  "deploy_te_std": 0.8084283471107483,
+  "wall_sec": 67.77
+}

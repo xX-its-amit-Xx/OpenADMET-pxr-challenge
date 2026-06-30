@@ -1,0 +1,387 @@
+{
+  "tag": "nb2770",
+  "method": "polynomial_chaos_expansion_hermite_order2_dim20_on_K20_substrate_on_chemprop_aux_residual",
+  "rationale": "Hermite polynomial chaos basis is orthogonal under the N(0,1) input measure of StandardScaler-projected K=20 substrate; LinearRegression on the degree-2 expansion gives a sparse closed-form decomposition in function space, capturing smooth univariate non-linearity + low-order pairwise interactions that LGBM axis-aligned tree splits represent only via greedy piecewise approximation.  New paradigm vs cycle-134 LGBM exhaustion.",
+  "anchor": "chemprop_aux",
+  "anchor_te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+  "anchor_pre_unblind": true,
+  "rae_anchor_chemprop_aux": 0.6215728863514471,
+  "chemprop_aux_ref": 0.6216,
+  "feature_source": "nb2240_K20_RFE_surviving_idx_in_117",
+  "feat_dim_input": 20,
+  "k20_surviving_idx_in_117": [
+    45,
+    67,
+    66,
+    68,
+    65,
+    92,
+    27,
+    77,
+    81,
+    56,
+    1,
+    7,
+    115,
+    93,
+    80,
+    11,
+    70,
+    54,
+    8,
+    57
+  ],
+  "k20_surviving_names": [
+    "Mordred_col_292",
+    "ChempropEmbed_dim_14",
+    "ChempropEmbed_dim_9",
+    "ChempropEmbed_dim_32",
+    "ChempropEmbed_dim_259",
+    "Avalon_bit_323",
+    "MACCS_bit_126",
+    "ChempropEmbed_dim_172",
+    "ChempropEmbed_dim_16",
+    "Mordred_col_454",
+    "AtomPair_bit_1733",
+    "AtomPair_bit_1729",
+    "pred_chembl_pec50",
+    "Avalon_bit_349",
+    "ChempropEmbed_dim_248",
+    "AtomPair_bit_1113",
+    "ChempropEmbed_dim_275",
+    "Mordred_col_329",
+    "AtomPair_bit_1086",
+    "Mordred_col_400"
+  ],
+  "k20_family_counts": {
+    "Mordred": 4,
+    "ChempropEmbed": 8,
+    "Avalon": 2,
+    "MACCS": 1,
+    "AtomPair": 4,
+    "ChEMBL_kNN": 1
+  },
+  "pce_order": 2,
+  "pce_dims": 20,
+  "pce_basis_dim_actual": 231,
+  "pce_basis_dim_expected_total_degree_2": 231,
+  "pce_distribution": "chaospy.Normal(0,1) x 20  (Wiener-Hermite chaos)",
+  "scaler": "StandardScaler (per-fold fit on train only)",
+  "regressor": "sklearn.linear_model.LinearRegression",
+  "fit_policy": "per-fold-on-train (Scaler + PCE-eval + LinReg on train)",
+  "n_unb": 253,
+  "n_test": 513,
+  "n_unique_scaffolds": 180,
+  "n_folds": 5,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "model_class": "chaospy.generate_expansion(order=2, dist=J(Normal(0,1)^20)) -> sklearn.linear_model.LinearRegression",
+  "residual_mean": -0.1325965261753001,
+  "residual_std": 0.6999145683913596,
+  "per_seed_rae": [
+    2.5668292400344512,
+    2.046759990477673,
+    2.3114037743096096,
+    2.6637438510485127,
+    2.229658710807207
+  ],
+  "per_seed_mean_rae": 2.3636791133354906,
+  "per_seed_std_rae": 0.22469567445488173,
+  "mean_bag_rae": 1.522503744956321,
+  "median_bag_rae": 1.624511206581188,
+  "mean_rae": 1.522503744956321,
+  "delta_vs_anchor": 0.9009308586048739,
+  "delta_vs_nb2240_K20_lgbm": 1.059503744956321,
+  "nb2240_K20_lgbm_ref": 0.463,
+  "per_seed_fold_diagnostics": [
+    [
+      {
+        "fold": 0,
+        "n_tr": 202,
+        "n_va": 51,
+        "phi_dim": 231,
+        "lin_intercept": -1.8410421833698865,
+        "lin_coef_abs_mean": 0.2580666088344713,
+        "lin_coef_abs_max": 1.2584939868277063
+      },
+      {
+        "fold": 1,
+        "n_tr": 202,
+        "n_va": 51,
+        "phi_dim": 231,
+        "lin_intercept": -0.6348042783082685,
+        "lin_coef_abs_mean": 0.2414835670477086,
+        "lin_coef_abs_max": 0.8834677394451272
+      },
+      {
+        "fold": 2,
+        "n_tr": 202,
+        "n_va": 51,
+        "phi_dim": 231,
+        "lin_intercept": -1.6495346210663964,
+        "lin_coef_abs_mean": 0.2889401902556181,
+        "lin_coef_abs_max": 1.1715404550007562
+      },
+      {
+        "fold": 3,
+        "n_tr": 203,
+        "n_va": 50,
+        "phi_dim": 231,
+        "lin_intercept": -1.316681452594591,
+        "lin_coef_abs_mean": 0.322988796696567,
+        "lin_coef_abs_max": 1.5699456991108964
+      },
+      {
+        "fold": 4,
+        "n_tr": 203,
+        "n_va": 50,
+        "phi_dim": 231,
+        "lin_intercept": -1.2689475561302226,
+        "lin_coef_abs_mean": 0.30276528706563466,
+        "lin_coef_abs_max": 2.0314705200791177
+      }
+    ],
+    [
+      {
+        "fold": 0,
+        "n_tr": 202,
+        "n_va": 51,
+        "phi_dim": 231,
+        "lin_intercept": -0.4578580167124754,
+        "lin_coef_abs_mean": 0.20354186755756684,
+        "lin_coef_abs_max": 0.726366541189596
+      },
+      {
+        "fold": 1,
+        "n_tr": 202,
+        "n_va": 51,
+        "phi_dim": 231,
+        "lin_intercept": -0.5658395878532889,
+        "lin_coef_abs_mean": 0.22629111910805846,
+        "lin_coef_abs_max": 1.2197517036089252
+      },
+      {
+        "fold": 2,
+        "n_tr": 202,
+        "n_va": 51,
+        "phi_dim": 231,
+        "lin_intercept": -0.15388432383341893,
+        "lin_coef_abs_mean": 0.248219591973485,
+        "lin_coef_abs_max": 1.4581956592236596
+      },
+      {
+        "fold": 3,
+        "n_tr": 203,
+        "n_va": 50,
+        "phi_dim": 231,
+        "lin_intercept": -0.32446669376904347,
+        "lin_coef_abs_mean": 0.25659164362571074,
+        "lin_coef_abs_max": 1.3466997868994433
+      },
+      {
+        "fold": 4,
+        "n_tr": 203,
+        "n_va": 50,
+        "phi_dim": 231,
+        "lin_intercept": -1.8129197721011485,
+        "lin_coef_abs_mean": 0.27006056257214334,
+        "lin_coef_abs_max": 1.2582045150565488
+      }
+    ],
+    [
+      {
+        "fold": 0,
+        "n_tr": 202,
+        "n_va": 51,
+        "phi_dim": 231,
+        "lin_intercept": 0.11902995987799753,
+        "lin_coef_abs_mean": 0.2493510488462497,
+        "lin_coef_abs_max": 1.0516901068054496
+      },
+      {
+        "fold": 1,
+        "n_tr": 202,
+        "n_va": 51,
+        "phi_dim": 231,
+        "lin_intercept": -1.3577900161122012,
+        "lin_coef_abs_mean": 0.24222749838451527,
+        "lin_coef_abs_max": 0.8323439749647137
+      },
+      {
+        "fold": 2,
+        "n_tr": 202,
+        "n_va": 51,
+        "phi_dim": 231,
+        "lin_intercept": -0.10731338916284418,
+        "lin_coef_abs_mean": 0.26929152484081176,
+        "lin_coef_abs_max": 1.2060028508787153
+      },
+      {
+        "fold": 3,
+        "n_tr": 203,
+        "n_va": 50,
+        "phi_dim": 231,
+        "lin_intercept": 0.033443574992859854,
+        "lin_coef_abs_mean": 0.2621567901165625,
+        "lin_coef_abs_max": 1.2284380503610186
+      },
+      {
+        "fold": 4,
+        "n_tr": 203,
+        "n_va": 50,
+        "phi_dim": 231,
+        "lin_intercept": -1.8292127677980798,
+        "lin_coef_abs_mean": 0.29263168693400804,
+        "lin_coef_abs_max": 1.3085033284863625
+      }
+    ],
+    [
+      {
+        "fold": 0,
+        "n_tr": 202,
+        "n_va": 51,
+        "phi_dim": 231,
+        "lin_intercept": 0.6295610962273624,
+        "lin_coef_abs_mean": 0.2618673293476072,
+        "lin_coef_abs_max": 1.2135211322793211
+      },
+      {
+        "fold": 1,
+        "n_tr": 202,
+        "n_va": 51,
+        "phi_dim": 231,
+        "lin_intercept": -1.763352608235052,
+        "lin_coef_abs_mean": 0.25477814174768426,
+        "lin_coef_abs_max": 1.0983260594625508
+      },
+      {
+        "fold": 2,
+        "n_tr": 202,
+        "n_va": 51,
+        "phi_dim": 231,
+        "lin_intercept": -0.2195089820934043,
+        "lin_coef_abs_mean": 0.28438889610435186,
+        "lin_coef_abs_max": 1.4029343455601273
+      },
+      {
+        "fold": 3,
+        "n_tr": 203,
+        "n_va": 50,
+        "phi_dim": 231,
+        "lin_intercept": -0.44116529588709036,
+        "lin_coef_abs_mean": 0.32839553804290755,
+        "lin_coef_abs_max": 1.425413515012721
+      },
+      {
+        "fold": 4,
+        "n_tr": 203,
+        "n_va": 50,
+        "phi_dim": 231,
+        "lin_intercept": 0.21943351012773687,
+        "lin_coef_abs_mean": 0.38720461274652546,
+        "lin_coef_abs_max": 1.6417644120775923
+      }
+    ],
+    [
+      {
+        "fold": 0,
+        "n_tr": 202,
+        "n_va": 51,
+        "phi_dim": 231,
+        "lin_intercept": -0.9346960250784973,
+        "lin_coef_abs_mean": 0.23936511252226514,
+        "lin_coef_abs_max": 1.098647479040701
+      },
+      {
+        "fold": 1,
+        "n_tr": 202,
+        "n_va": 51,
+        "phi_dim": 231,
+        "lin_intercept": -0.29131105383248346,
+        "lin_coef_abs_mean": 0.33971268234578295,
+        "lin_coef_abs_max": 1.6653043657432327
+      },
+      {
+        "fold": 2,
+        "n_tr": 202,
+        "n_va": 51,
+        "phi_dim": 231,
+        "lin_intercept": -0.07631663180752554,
+        "lin_coef_abs_mean": 0.2533525860929488,
+        "lin_coef_abs_max": 1.3492077416413157
+      },
+      {
+        "fold": 3,
+        "n_tr": 203,
+        "n_va": 50,
+        "phi_dim": 231,
+        "lin_intercept": -0.5989857920917989,
+        "lin_coef_abs_mean": 0.20955113105248943,
+        "lin_coef_abs_max": 0.7571947196606853
+      },
+      {
+        "fold": 4,
+        "n_tr": 203,
+        "n_va": 50,
+        "phi_dim": 231,
+        "lin_intercept": -1.9995347314156118,
+        "lin_coef_abs_mean": 0.2931040964085867,
+        "lin_coef_abs_max": 1.298456175011565
+      }
+    ]
+  ],
+  "per_seed_deploy_diagnostics": [
+    {
+      "seed": 1001,
+      "phi_dim": 231,
+      "lin_intercept": -4.394942686872745,
+      "lin_coef_abs_mean": 0.2963072074539298,
+      "lin_coef_abs_max": 3.240144453936244
+    },
+    {
+      "seed": 1002,
+      "phi_dim": 231,
+      "lin_intercept": -4.394942686872745,
+      "lin_coef_abs_mean": 0.2963072074539298,
+      "lin_coef_abs_max": 3.240144453936244
+    },
+    {
+      "seed": 1003,
+      "phi_dim": 231,
+      "lin_intercept": -4.394942686872745,
+      "lin_coef_abs_mean": 0.2963072074539298,
+      "lin_coef_abs_max": 3.240144453936244
+    },
+    {
+      "seed": 1004,
+      "phi_dim": 231,
+      "lin_intercept": -4.394942686872745,
+      "lin_coef_abs_mean": 0.2963072074539298,
+      "lin_coef_abs_max": 3.240144453936244
+    },
+    {
+      "seed": 1005,
+      "phi_dim": 231,
+      "lin_intercept": -4.394942686872745,
+      "lin_coef_abs_mean": 0.2963072074539298,
+      "lin_coef_abs_max": 3.240144453936244
+    }
+  ],
+  "te_unb_in_sample_rae": 0.10859720455089086,
+  "te_deploy_mean": 4.7609381675720215,
+  "te_deploy_std": 1.5581706762313843,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2770_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2770.npy",
+  "submission_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb2770_polynomial_chaos.csv",
+  "gate_promote_threshold": 0.457,
+  "gate_marginal_threshold": 0.4598,
+  "verdict": "FAIL",
+  "pre_unblind_clean": true,
+  "chaospy_version": "4.3.21",
+  "wall_sec": 4.61
+}

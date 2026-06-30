@@ -1,0 +1,19 @@
+{
+  "approach": "kallisto_eeq_cn_polariz_9scalars_on_deployed_config",
+  "ctrl_rae": 0.423843191108,
+  "treat_rae": 0.42735925927515384,
+  "delta": 0.0035160681671538296,
+  "ctrl_raes": [
+    0.42565740285514175,
+    0.44347193722815337,
+    0.40240023324070484
+  ],
+  "treat_raes": [
+    0.4289554819909318,
+    0.4498704701111212,
+    0.40325182572340845
+  ],
+  "n_neg": 0,
+  "deployed_best": 0.4149,
+  "gate_pass": false
+}

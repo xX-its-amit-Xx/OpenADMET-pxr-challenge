@@ -1,0 +1,94 @@
+{
+  "tag": "nb1434",
+  "n_unb": 253,
+  "components": [
+    "nb1373",
+    "nb1352",
+    "nb1364"
+  ],
+  "anchor": "nb1411_naive_third_mean",
+  "anchor_rae": 0.5036723505321206,
+  "anchor_ref_rae": 0.5037,
+  "pred_std": 0.8309141991464586,
+  "truth_std": 1.0320053675542649,
+  "pred_over_truth_std_ratio": 0.8051452301218458,
+  "mu_pool": 4.680731008646516,
+  "s_grid": [
+    0.95,
+    1.0,
+    1.02,
+    1.05,
+    1.08,
+    1.1,
+    1.12,
+    1.15,
+    1.2
+  ],
+  "grid_results": [
+    {
+      "s": 0.95,
+      "rae": 0.5079689920766736,
+      "delta_vs_naive": 0.004296641544553004
+    },
+    {
+      "s": 1.0,
+      "rae": 0.5036723505321206,
+      "delta_vs_naive": 0.0
+    },
+    {
+      "s": 1.02,
+      "rae": 0.5030555055835995,
+      "delta_vs_naive": -0.0006168449485211003
+    },
+    {
+      "s": 1.05,
+      "rae": 0.5033409826532308,
+      "delta_vs_naive": -0.0003313678788897656
+    },
+    {
+      "s": 1.08,
+      "rae": 0.5052879624306671,
+      "delta_vs_naive": 0.0016156118985465318
+    },
+    {
+      "s": 1.1,
+      "rae": 0.5076226974489928,
+      "delta_vs_naive": 0.003950346916872238
+    },
+    {
+      "s": 1.12,
+      "rae": 0.5107550075479286,
+      "delta_vs_naive": 0.007082657015808014
+    },
+    {
+      "s": 1.15,
+      "rae": 0.5161586309544287,
+      "delta_vs_naive": 0.01248628042230815
+    },
+    {
+      "s": 1.2,
+      "rae": 0.5280369788399132,
+      "delta_vs_naive": 0.024364628307792624
+    }
+  ],
+  "best_s_insample": 1.02,
+  "best_rae_insample": 0.5030555055835995,
+  "delta_insample_vs_anchor": -0.0006168449485211003,
+  "delta_insample_vs_ref": -0.0006444944164005761,
+  "crossfit_folds": 5,
+  "crossfit_seed": 0,
+  "crossfit_fold_best_s": [
+    1.05,
+    1.02,
+    1.0,
+    1.02,
+    1.05
+  ],
+  "crossfit_rae": 0.5053704184449506,
+  "delta_crossfit_vs_anchor": 0.0016980679128300036,
+  "delta_crossfit_vs_ref": 0.0016704184449505277,
+  "decision_margin": 0.003,
+  "beats_nb1411_insample": false,
+  "beats_nb1411_crossfit": false,
+  "verdict": "STRETCH_FLAT_ON_NB1411"
+}

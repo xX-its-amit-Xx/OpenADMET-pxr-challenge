@@ -1,0 +1,305 @@
+{
+  "tag": "nb3281",
+  "parent_tag": "nb3090",
+  "method": "venn_abers_isotonic_pair_layercake_on_nb3090_pred_oof",
+  "anchor_pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb3090_pred_oof.npy",
+  "anchor_te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb3090.npy",
+  "anchor_pre_unblind": true,
+  "venn_abers_pkg_available": true,
+  "parent_full_oof_rae": 0.447,
+  "parent_leak_eq_truth_frac": 0.0,
+  "headline_thresholds": [
+    5.0,
+    5.5,
+    6.0
+  ],
+  "recon_grid_lo": 2.0,
+  "recon_grid_hi": 7.0,
+  "recon_grid_step": 0.1,
+  "recon_grid_n": 51,
+  "n_folds": 5,
+  "kf_seeds": [
+    1216,
+    1217,
+    1218,
+    1219,
+    1220,
+    1221,
+    1222,
+    1223,
+    1224,
+    1225,
+    1226,
+    1227,
+    1228,
+    1229,
+    1230
+  ],
+  "n_seeds": 15,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "seed_records": [
+    {
+      "kf_seed": 1216,
+      "pooled_rae": 0.4517,
+      "per_fold_mean_rae": 0.4548,
+      "per_fold_val_raes": [
+        0.4063,
+        0.3781,
+        0.53,
+        0.4761,
+        0.4833
+      ]
+    },
+    {
+      "kf_seed": 1217,
+      "pooled_rae": 0.4466,
+      "per_fold_mean_rae": 0.4583,
+      "per_fold_val_raes": [
+        0.4118,
+        0.3613,
+        0.603,
+        0.4734,
+        0.4422
+      ]
+    },
+    {
+      "kf_seed": 1218,
+      "pooled_rae": 0.4455,
+      "per_fold_mean_rae": 0.4534,
+      "per_fold_val_raes": [
+        0.4178,
+        0.4011,
+        0.5012,
+        0.4459,
+        0.5012
+      ]
+    },
+    {
+      "kf_seed": 1219,
+      "pooled_rae": 0.4511,
+      "per_fold_mean_rae": 0.4645,
+      "per_fold_val_raes": [
+        0.4746,
+        0.3906,
+        0.6217,
+        0.4437,
+        0.392
+      ]
+    },
+    {
+      "kf_seed": 1220,
+      "pooled_rae": 0.4449,
+      "per_fold_mean_rae": 0.4505,
+      "per_fold_val_raes": [
+        0.5021,
+        0.3841,
+        0.5101,
+        0.4241,
+        0.4321
+      ]
+    },
+    {
+      "kf_seed": 1221,
+      "pooled_rae": 0.4543,
+      "per_fold_mean_rae": 0.4607,
+      "per_fold_val_raes": [
+        0.5255,
+        0.5097,
+        0.4185,
+        0.4283,
+        0.4218
+      ]
+    },
+    {
+      "kf_seed": 1222,
+      "pooled_rae": 0.4441,
+      "per_fold_mean_rae": 0.4659,
+      "per_fold_val_raes": [
+        0.3496,
+        0.3991,
+        0.4781,
+        0.5777,
+        0.5248
+      ]
+    },
+    {
+      "kf_seed": 1223,
+      "pooled_rae": 0.4512,
+      "per_fold_mean_rae": 0.462,
+      "per_fold_val_raes": [
+        0.419,
+        0.339,
+        0.4913,
+        0.5915,
+        0.4692
+      ]
+    },
+    {
+      "kf_seed": 1224,
+      "pooled_rae": 0.4435,
+      "per_fold_mean_rae": 0.46,
+      "per_fold_val_raes": [
+        0.35,
+        0.4641,
+        0.4236,
+        0.6233,
+        0.4389
+      ]
+    },
+    {
+      "kf_seed": 1225,
+      "pooled_rae": 0.4516,
+      "per_fold_mean_rae": 0.4553,
+      "per_fold_val_raes": [
+        0.4049,
+        0.4956,
+        0.4037,
+        0.4532,
+        0.519
+      ]
+    },
+    {
+      "kf_seed": 1226,
+      "pooled_rae": 0.4507,
+      "per_fold_mean_rae": 0.474,
+      "per_fold_val_raes": [
+        0.5011,
+        0.421,
+        0.6465,
+        0.4106,
+        0.3907
+      ]
+    },
+    {
+      "kf_seed": 1227,
+      "pooled_rae": 0.4455,
+      "per_fold_mean_rae": 0.4578,
+      "per_fold_val_raes": [
+        0.3952,
+        0.3762,
+        0.4942,
+        0.4366,
+        0.5867
+      ]
+    },
+    {
+      "kf_seed": 1228,
+      "pooled_rae": 0.4564,
+      "per_fold_mean_rae": 0.4717,
+      "per_fold_val_raes": [
+        0.4301,
+        0.4856,
+        0.5027,
+        0.5351,
+        0.4048
+      ]
+    },
+    {
+      "kf_seed": 1229,
+      "pooled_rae": 0.4441,
+      "per_fold_mean_rae": 0.4556,
+      "per_fold_val_raes": [
+        0.3441,
+        0.3711,
+        0.4136,
+        0.6747,
+        0.4748
+      ]
+    },
+    {
+      "kf_seed": 1230,
+      "pooled_rae": 0.4461,
+      "per_fold_mean_rae": 0.4516,
+      "per_fold_val_raes": [
+        0.4554,
+        0.3817,
+        0.5753,
+        0.4597,
+        0.3862
+      ]
+    }
+  ],
+  "per_fold_mean_array": [
+    0.4548,
+    0.4583,
+    0.4534,
+    0.4645,
+    0.4505,
+    0.4607,
+    0.4659,
+    0.462,
+    0.46,
+    0.4553,
+    0.474,
+    0.4578,
+    0.4717,
+    0.4556,
+    0.4516
+  ],
+  "pooled_rae_array": [
+    0.4517,
+    0.4466,
+    0.4455,
+    0.4511,
+    0.4449,
+    0.4543,
+    0.4441,
+    0.4512,
+    0.4435,
+    0.4516,
+    0.4507,
+    0.4455,
+    0.4564,
+    0.4441,
+    0.4461
+  ],
+  "per_fold_mean_rae": 0.4597,
+  "per_fold_mean_std": 0.0069,
+  "per_fold_mean_sem": 0.0018,
+  "per_fold_mean_ci95_low": 0.4559,
+  "per_fold_mean_ci95_high": 0.4636,
+  "per_fold_mean_min": 0.4505,
+  "per_fold_mean_max": 0.474,
+  "pooled_mean_rae": 0.4485,
+  "pooled_std_rae": 0.0041,
+  "ref_parent_nb3090": 0.4472,
+  "delta_per_fold_mean_vs_parent": 0.0125,
+  "delta_pooled_vs_parent": 0.0013,
+  "ref_nb3190_gate": 0.4422,
+  "ref_nb3080": 0.4475,
+  "ref_K18_deep30": 0.4536,
+  "ref_nb2171": 0.4682,
+  "headline_calibration": {
+    "5.0": {
+      "base_rate": 0.4427,
+      "mean_pred_proba": 0.4453,
+      "brier": 0.1124
+    },
+    "5.5": {
+      "base_rate": 0.166,
+      "mean_pred_proba": 0.1818,
+      "brier": 0.0753
+    },
+    "6.0": {
+      "base_rate": 0.0395,
+      "mean_pred_proba": 0.0567,
+      "brier": 0.0178
+    }
+  },
+  "full_refit_in_sample_rae": 0.4176,
+  "te_mean": 4.774553298950195,
+  "te_std": 0.8135958313941956,
+  "te_min": 3.0,
+  "te_max": 6.32155704498291,
+  "te_unb_in_sample_rae": 0.217,
+  "median_seed": 1217,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb3281_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb3281.npy",
+  "submission_csv": null,
+  "gate_better": 0.4423,
+  "verdict": "FAIL",
+  "ladder_action": "REJECT. nb3281 Venn-Abers isotonic-pair layer-cake 15-seed PER-FOLD-MEAN 0.4597 does NOT clear gate 0.4423 (+0.0174). Delta vs parent nb3090 = +0.0125. The anchor pred is a near-monotone function of truth already (pooled corr high), so isotonic-pair re-mapping + layer-cake integration mostly reproduces the parent without net RAE gain -- consistent with the cycle-160 finding that deep-ensemble averaging already performs the variance decompression post-hoc operators target. Keep nb3090 / prior PRIMARY-1.",
+  "wall_sec": 9.34
+}

@@ -1,0 +1,109 @@
+{
+  "tag": "nb1263",
+  "anchor": "nb1070",
+  "status": "ok",
+  "data_source": "PubChem BioAssay REST",
+  "pubchem_aids_attempted": [
+    720659,
+    651751
+  ],
+  "pool_cache_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\external\\pubchem_pxr_pool.parquet",
+  "n_pubchem_pool_pre_leakguard": 780,
+  "n_pubchem_pool_post_leakguard": 780,
+  "test_inchikeys_in_pool_dropped": 0,
+  "pool_pec50_mean": 4.556571006774902,
+  "pool_pec50_std": 0.4720396101474762,
+  "pool_pec50_median": 4.450000286102295,
+  "knn_k": 5,
+  "top1_sim_p10": 0.19129733741283417,
+  "top1_sim_p50": 0.232876718044281,
+  "top1_sim_p90": 0.3035714328289032,
+  "top1_sim_max": 0.5111111402511597,
+  "mean5_sim_p10": 0.17769840359687805,
+  "mean5_sim_p50": 0.21233932673931122,
+  "mean5_sim_p90": 0.26482531428337097,
+  "n_zero_neighbor_rows": 0,
+  "n_unb": 253,
+  "resid_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "resid_folds": 5,
+  "feature_dim": 169,
+  "lgbm_max_depth": 3,
+  "lgbm_num_leaves": 7,
+  "lgbm_n_estimators": 80,
+  "lgbm_learning_rate": 0.05,
+  "lgbm_min_child_samples": 20,
+  "lgbm_huber_alpha": 1.0,
+  "rae_anchor_nb1070": 0.5771305166381785,
+  "residual_mean": -0.1019658057365929,
+  "residual_std": 0.6666145784833671,
+  "per_seed_rae": [
+    0.5629648357442576,
+    0.5770718905607594,
+    0.5668418902035769,
+    0.5610349323680965,
+    0.5720444533031291
+  ],
+  "per_seed_records": [
+    {
+      "seed": 0,
+      "rae_corrected": 0.5629648357442576,
+      "delta_vs_nb1070": -0.014165680893920896,
+      "resid_oof_std": 0.21662872464669233,
+      "resid_oof_mean": -0.07584257816329171
+    },
+    {
+      "seed": 1,
+      "rae_corrected": 0.5770718905607594,
+      "delta_vs_nb1070": -5.862607741913273e-05,
+      "resid_oof_std": 0.2287177131660142,
+      "resid_oof_mean": -0.07677916651884209
+    },
+    {
+      "seed": 7,
+      "rae_corrected": 0.5668418902035769,
+      "delta_vs_nb1070": -0.0102886264346016,
+      "resid_oof_std": 0.22714829573454148,
+      "resid_oof_mean": -0.07606983203623151
+    },
+    {
+      "seed": 42,
+      "rae_corrected": 0.5610349323680965,
+      "delta_vs_nb1070": -0.016095584270081953,
+      "resid_oof_std": 0.22374537953524412,
+      "resid_oof_mean": -0.07459923907591537
+    },
+    {
+      "seed": 137,
+      "rae_corrected": 0.5720444533031291,
+      "delta_vs_nb1070": -0.005086063335049351,
+      "resid_oof_std": 0.23671245052497586,
+      "resid_oof_mean": -0.07960496674637936
+    }
+  ],
+  "rae_per_seed_mean": 0.5679916004359639,
+  "rae_per_seed_median": 0.5668418902035769,
+  "rae_per_seed_std": 0.005896824782950116,
+  "rae_mean_bag": 0.5586089381344295,
+  "rae_median_bag": 0.5623871304474597,
+  "delta_mean_bag_vs_nb1070": -0.018521578503749025,
+  "delta_mean_bag_vs_nb1183": 0.007308938134429455,
+  "delta_mean_bag_vs_nb1211": 0.013508938134429438,
+  "delta_mean_bag_vs_nb1242": 0.01550893813442944,
+  "beats_nb1070": true,
+  "beats_nb1183": false,
+  "beats_nb1211": false,
+  "beats_nb1242": false,
+  "verdict": "PUBCHEM_BIOASSAY_HELPS_NB1070_BUT_NOT_NB1183",
+  "nb1070_ref_pooled": 0.5771,
+  "nb1183_ref": 0.5513,
+  "nb1211_ref": 0.5451,
+  "nb1242_ref": 0.5431,
+  "decision_margin": 0.003,
+  "wall_sec": 3.59
+}

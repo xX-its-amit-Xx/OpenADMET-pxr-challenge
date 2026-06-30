@@ -1,0 +1,170 @@
+{
+  "tag": "nb1351",
+  "status": "ok",
+  "catboost_version": "1.2.10",
+  "anchor": "nb1070",
+  "features": "MACCS-167 + pred_chembl_pec50 + sim_chembl",
+  "feature_dim": 169,
+  "feature_cache_source": "nb1242",
+  "outer_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "inner_bases": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "resid_folds": 5,
+  "catboost_loss_function": "MAE",
+  "catboost_depth": 4,
+  "catboost_iterations": 200,
+  "catboost_learning_rate": 0.05,
+  "catboost_l2_leaf_reg": 5.0,
+  "n_unb": 253,
+  "rae_anchor_nb1070": 0.5771305166381785,
+  "residual_mean": -0.1019658057365929,
+  "residual_std": 0.6666145784833671,
+  "per_outer_records": [
+    {
+      "outer_seed": 0,
+      "inner_seeds": [
+        0,
+        1,
+        7,
+        42,
+        137
+      ],
+      "per_inner_rae": [
+        0.5535576312035132,
+        0.5529985462187254,
+        0.5563477950843383,
+        0.5494174970568846,
+        0.5424001562512237
+      ],
+      "rae_outer_mean_bag": 0.5419924868611684,
+      "delta_vs_nb1070": -0.03513802977701008,
+      "elapsed_sec": 7.7
+    },
+    {
+      "outer_seed": 1,
+      "inner_seeds": [
+        1000,
+        1001,
+        1007,
+        1042,
+        1137
+      ],
+      "per_inner_rae": [
+        0.5800745542011315,
+        0.5360350221266581,
+        0.5701516301124255,
+        0.5553057825555997,
+        0.5602413457424384
+      ],
+      "rae_outer_mean_bag": 0.5488777664810168,
+      "delta_vs_nb1070": -0.028252750157161666,
+      "elapsed_sec": 7.5
+    },
+    {
+      "outer_seed": 7,
+      "inner_seeds": [
+        7000,
+        7001,
+        7007,
+        7042,
+        7137
+      ],
+      "per_inner_rae": [
+        0.5545512951000691,
+        0.5544926757955042,
+        0.5421248669666836,
+        0.5443064856676916,
+        0.5625339781270794
+      ],
+      "rae_outer_mean_bag": 0.5391627199172502,
+      "delta_vs_nb1070": -0.037967796720928315,
+      "elapsed_sec": 7.4
+    },
+    {
+      "outer_seed": 42,
+      "inner_seeds": [
+        42000,
+        42001,
+        42007,
+        42042,
+        42137
+      ],
+      "per_inner_rae": [
+        0.568288117240057,
+        0.5429826536473487,
+        0.5530899551061899,
+        0.5470925142677107,
+        0.5418498807162376
+      ],
+      "rae_outer_mean_bag": 0.5388751922255991,
+      "delta_vs_nb1070": -0.038255324412579395,
+      "elapsed_sec": 7.5
+    },
+    {
+      "outer_seed": 137,
+      "inner_seeds": [
+        137000,
+        137001,
+        137007,
+        137042,
+        137137
+      ],
+      "per_inner_rae": [
+        0.5322621069665383,
+        0.5387030075701229,
+        0.5502747515993803,
+        0.540528241795353,
+        0.5458371616705507
+      ],
+      "rae_outer_mean_bag": 0.5323612204576195,
+      "delta_vs_nb1070": -0.044769296180559026,
+      "elapsed_sec": 7.4
+    }
+  ],
+  "per_outer_rae": [
+    0.5419924868611684,
+    0.5488777664810168,
+    0.5391627199172502,
+    0.5388751922255991,
+    0.5323612204576195
+  ],
+  "outer_mean": 0.5402538771885308,
+  "outer_std": 0.005343775010468287,
+  "outer_min": 0.5323612204576195,
+  "outer_max": 0.5488777664810168,
+  "rae_bob_mean": 0.5379514801453367,
+  "rae_bob_median": 0.5381283192412152,
+  "best_bob_tag": "bob_mean",
+  "best_bob_rae": 0.5379514801453367,
+  "delta_outer0_vs_nb1341_ref": -7.513138831627408e-06,
+  "delta_outer_mean_vs_nb1341_ref": -0.0017461228114692418,
+  "delta_best_bob_vs_outer_mean": -0.0023023970431941265,
+  "delta_best_bob_vs_nb1242_ref": -0.005148519854663358,
+  "delta_best_bob_vs_nb1342_ref": -0.010648519854663308,
+  "outer0_reproduces_nb1341": true,
+  "outer_mean_reproduces_nb1341": true,
+  "pearson_bob_mean_vs_nb1341": 0.9988028907100466,
+  "pearson_bob_mean_vs_nb1242": 0.9905203189430493,
+  "pearson_bob_mean_vs_nb1342": 0.9856662205060303,
+  "verdict_repro": "NB1341_REPRODUCES",
+  "verdict_var": "BOB_FLAT_VS_PER_OUTER_MEAN",
+  "verdict_vs_nb1242": "BOB_BEATS_NB1242_NEW_CANDIDATE",
+  "verdict_vs_nb1342": "BOB_BEATS_NB1342",
+  "nb1070_ref_pooled": 0.5771,
+  "nb1341_ref": 0.542,
+  "nb1242_ref": 0.5431,
+  "nb1342_ref": 0.5486,
+  "repro_margin": 0.003,
+  "wall_sec": 37.5
+}

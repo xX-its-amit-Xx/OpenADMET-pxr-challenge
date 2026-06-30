@@ -1,0 +1,15 @@
+{
+  "anchor": 0.4415675430779881,
+  "low_specialist": {
+    "cascade_pooled": 0.4415675430779881,
+    "cascade_xseries": 0.4415675430779881
+  },
+  "quantile_low": {
+    "cascade_pooled": 0.4415675430779881,
+    "cascade_xseries": 0.4415675430779881
+  },
+  "knn_mean": {
+    "cascade_pooled": 0.4415675430779881,
+    "cascade_xseries": 0.4415675430779881
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "anchor": 0.4415675430779881,
+  "uniform": {
+    "standalone": 0.6192693465352997,
+    "blend_pooled": 0.4415675430779881,
+    "blend_xseries": 0.4442352663325928,
+    "delta_xseries": 0.0026677232546046814
+  },
+  "inv_variance": {
+    "standalone": 0.6523041510196467,
+    "blend_pooled": 0.4415675430779881,
+    "blend_xseries": 0.4432984160168331,
+    "delta_xseries": 0.0017308729388449962
+  },
+  "inv_se": {
+    "standalone": 0.6308588481381544,
+    "blend_pooled": 0.4415675430779881,
+    "blend_xseries": 0.44353215100747073,
+    "delta_xseries": 0.001964607929482609
+  },
+  "inv_var_capped": {
+    "standalone": 0.6525662437227189,
+    "blend_pooled": 0.4415675430779881,
+    "blend_xseries": 0.4435657235441981,
+    "delta_xseries": 0.0019981804662099756
+  },
+  "emax_gated": {
+    "standalone": 0.6374775166809015,
+    "blend_pooled": 0.4415675430779881,
+    "blend_xseries": 0.4444035290123619,
+    "delta_xseries": 0.002835985934373786
+  }
+}

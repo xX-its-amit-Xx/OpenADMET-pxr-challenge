@@ -1,0 +1,270 @@
+"""nb1330 -- RANK STRETCH grid on nb1290 (universal post-hoc per
+feedback_rank_stretch_universal).
+
+Per memory: s in {1.05..1.10} yields -0.003 to -0.005 RAE on every
+variance-compressed predictor. nb1290 has pred_std=0.821 vs truth_std=1.032
+(ratio 0.80 -- clearly compressed). Rank-stretch has NEVER been applied to
+nb1290 (only nb562 and nb1070 path were pre-stretched).
+
+Recipe: stretched[i] = mu + s * (pred[i] - mu), with mu = mean(pred).
+
+Protocol:
+  1. Load nb1290 OOF (bestw = 0.35*nb1190 + 0.65*nb1242). Verify pooled
+     RAE = 0.5390.
+  2. Compute pred_mean (mu) and pred_std (sigma_p) on the 253.
+  3. In-sample grid: s in {0.95, 1.00, 1.02, 1.05, 1.08, 1.10, 1.12, 1.15,
+     1.18, 1.20}. Pool RAE per s.
+  4. 5-fold cross-fit s grid: per training fold, pick best s on training
+     rows, apply to held-out rows.
+  5. Verdict at 0.003 margin vs nb1290 (0.5390).
+
+Outputs:
+  data/processed/nb1330_summary.json
+  data/processed/nb1330_best_s_oof.npy   -- in-sample stretched OOF (253,)
+"""
+from __future__ import annotations
+
+import json
+import os
+import sys
+import time
+import warnings
+from pathlib import Path
+
+os.environ["PYTHONIOENCODING"] = "utf-8"
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
+warnings.filterwarnings("ignore")
+
+import numpy as np
+from sklearn.model_selection import KFold
+
+from pxr.eval import rae
+from pxr.paths import DATA_PROCESSED
+
+TAG = "nb1330"
+SEED = 0
+N_FOLDS = 5
+STRETCH_GRID = [0.95, 1.00, 1.02, 1.05, 1.08, 1.10, 1.12, 1.15, 1.18, 1.20]
+NB1290_REF = 0.5390
+MARGIN = 0.003
+
+
+def _stretch(p: np.ndarray, mu: float, s: float) -> np.ndarray:
+    return mu + s * (p - mu)
+
+
+def _best_s_on(p_tr: np.ndarray, y_tr: np.ndarray, grid) -> tuple[float, float, float]:
+    """Pick s minimising RAE on (p_tr, y_tr); mu fit from p_tr. Returns (s*, mu, best_rae)."""
+    mu = float(p_tr.mean())
+    best_s, best_r = 1.0, float("inf")
+    for s in grid:
+        pred = _stretch(p_tr, mu, s)
+        r = float(rae(y_tr, pred))
+        if r < best_r:
+            best_r = r
+            best_s = float(s)
+    return best_s, mu, best_r
+
+
+def main() -> dict:
+    t0 = time.time()
+    print("=" * 78)
+    print(f"{TAG} -- RANK STRETCH grid on nb1290 (universal post-hoc)")
+    print(f"          grid={STRETCH_GRID}")
+    print(f"          margin={MARGIN} vs nb1290 (ref {NB1290_REF:.4f})")
+    print("=" * 78)
+
+    # ---- Load truth ----
+    y_unb = np.load(DATA_PROCESSED / "_audit_unblind_y.npy").astype(np.float64)
+    n_unb = len(y_unb)
+    print(f"\n[load] unblind y: n={n_unb}  mean={y_unb.mean():.4f}  "
+          f"std={y_unb.std():.4f}")
+
+    # ---- Load nb1290 OOF (bestw = 0.35*nb1190 + 0.65*nb1242) ----
+    p_path = DATA_PROCESSED / "nb1290_bestw_oof.npy"
+    if not p_path.exists():
+        raise FileNotFoundError(f"{p_path} not found")
+    p_oof = np.load(p_path).astype(np.float64)
+    assert p_oof.shape == (n_unb,), f"shape mismatch: {p_oof.shape}"
+
+    mu_global = float(p_oof.mean())
+    sigma_p = float(p_oof.std())
+    sigma_y = float(y_unb.std())
+    var_match_s = sigma_y / max(sigma_p, 1e-9)
+
+    rae_nb1290 = float(rae(y_unb, p_oof))
+    print(f"\n[diag] nb1290 OOF pooled RAE = {rae_nb1290:.4f}  "
+          f"(ref {NB1290_REF:.4f})")
+    print(f"[diag] pred_mean (mu)      = {mu_global:.4f}")
+    print(f"[diag] pred_std  (sigma_p) = {sigma_p:.4f}")
+    print(f"[diag] truth_std (sigma_y) = {sigma_y:.4f}")
+    print(f"[diag] ratio sigma_p/sigma_y = {sigma_p / sigma_y:.4f}  "
+          f"(<1 = compressed)")
+    print(f"[diag] variance-match s    = {var_match_s:.4f}")
+
+    # Verify reference
+    if abs(rae_nb1290 - NB1290_REF) > 5e-4:
+        print(f"  WARN: rae_nb1290 ({rae_nb1290:.4f}) "
+              f"differs from reference {NB1290_REF:.4f} by "
+              f">5e-4 ({rae_nb1290 - NB1290_REF:+.4f}). Proceeding with actual.")
+
+    # =================================================================
+    # (A) In-sample grid (mu = global mean of all 253)
+    # =================================================================
+    print("\n" + "-" * 78)
+    print("(A) IN-SAMPLE GRID (mu fit on all 253; s sweep)")
+    print("-" * 78)
+    grid_in_sample = []
+    best_s_is = 1.0
+    best_rae_is = float("inf")
+    best_oof_is = p_oof.copy()
+    for s in STRETCH_GRID:
+        pred = _stretch(p_oof, mu_global, s)
+        r = float(rae(y_unb, pred))
+        marker = ""
+        if r < best_rae_is:
+            best_rae_is = r
+            best_s_is = float(s)
+            best_oof_is = pred.copy()
+            marker = "  <-- best so far"
+        grid_in_sample.append({"s": float(s), "rae": r})
+        print(f"   s={s:.2f}  RAE={r:.4f}{marker}")
+    print(f"   best in-sample: s*={best_s_is:.2f}  RAE={best_rae_is:.4f}")
+
+    # =================================================================
+    # (B) 5-fold cross-fit: per training fold pick best s
+    # =================================================================
+    print("\n" + "-" * 78)
+    print(f"(B) 5-FOLD CROSS-FIT GRID  seed={SEED}")
+    print("-" * 78)
+    kf = KFold(n_splits=N_FOLDS, shuffle=True, random_state=SEED)
+    oof_cf = np.full(n_unb, np.nan, dtype=np.float64)
+    fold_records = []
+    for fold, (tr_i, va_i) in enumerate(kf.split(np.arange(n_unb))):
+        s_star, mu_tr, rae_tr = _best_s_on(p_oof[tr_i], y_unb[tr_i], STRETCH_GRID)
+        oof_cf[va_i] = _stretch(p_oof[va_i], mu_tr, s_star)
+        r_va = float(rae(y_unb[va_i], oof_cf[va_i]))
+        fold_records.append({
+            "fold": int(fold),
+            "n_tr": int(len(tr_i)),
+            "n_va": int(len(va_i)),
+            "s_star": float(s_star),
+            "mu_tr": float(mu_tr),
+            "rae_tr": float(rae_tr),
+            "rae_va": float(r_va),
+        })
+        print(f"   fold {fold}: n_tr={len(tr_i):3d} n_va={len(va_i):3d}  "
+              f"s*={s_star:.2f}  mu_tr={mu_tr:.4f}  "
+              f"RAE_tr={rae_tr:.4f}  RAE_va={r_va:.4f}")
+    assert not np.any(np.isnan(oof_cf)), "cross-fit oof has NaNs"
+    rae_cf = float(rae(y_unb, oof_cf))
+    fold_per_va_raes = [r["rae_va"] for r in fold_records]
+    fold_s_stars = [r["s_star"] for r in fold_records]
+    print(f"\n   pooled CROSS-FIT RAE = {rae_cf:.4f}  "
+          f"(per-fold va: {min(fold_per_va_raes):.4f}..{max(fold_per_va_raes):.4f})")
+    print(f"   per-fold s*: {fold_s_stars}")
+
+    # =================================================================
+    # Verdict
+    # =================================================================
+    candidates = {
+        "nb1290_passthrough_s1.00": rae_nb1290,
+        "in_sample_best":           best_rae_is,
+        "cross_fit":                rae_cf,
+    }
+    best_tag = min(candidates, key=candidates.get)
+    best_rae_candidate = candidates[best_tag]
+
+    # Honest evaluation: only the cross-fit value matters for LB.
+    delta_cf_vs_nb1290 = rae_cf - rae_nb1290
+    delta_is_vs_nb1290 = best_rae_is - rae_nb1290
+
+    beats_nb1290_cf = rae_cf < rae_nb1290 - MARGIN
+    flat_nb1290_cf = abs(rae_cf - rae_nb1290) < MARGIN
+    beats_nb1290_is = best_rae_is < rae_nb1290 - MARGIN
+
+    if beats_nb1290_cf:
+        verdict = (f"STRETCH_NB1290_BEATS_NB1290_CROSSFIT  "
+                   f"(cf RAE {rae_cf:.4f}, delta {delta_cf_vs_nb1290:+.4f})")
+    elif flat_nb1290_cf:
+        verdict = (f"STRETCH_NB1290_FLAT_VS_NB1290_CROSSFIT  "
+                   f"(cf RAE {rae_cf:.4f}, delta {delta_cf_vs_nb1290:+.4f})")
+    else:
+        verdict = (f"STRETCH_NB1290_HURTS_VS_NB1290_CROSSFIT  "
+                   f"(cf RAE {rae_cf:.4f}, delta {delta_cf_vs_nb1290:+.4f})")
+
+    print("\n" + "=" * 78)
+    print("VERDICT")
+    print("=" * 78)
+    print(f"   nb1290 standalone (s=1.00) : {rae_nb1290:.4f}  "
+          f"(ref {NB1290_REF:.4f})")
+    print(f"   best in-sample s={best_s_is:.2f} : {best_rae_is:.4f}  "
+          f"(delta {delta_is_vs_nb1290:+.4f})")
+    print(f"   5-fold cross-fit           : {rae_cf:.4f}  "
+          f"(delta {delta_cf_vs_nb1290:+.4f})")
+    print(f"   margin                     : {MARGIN}")
+    print(f"   beats nb1290 cross-fit     : {beats_nb1290_cf}")
+    print(f"   beats nb1290 in-sample     : {beats_nb1290_is}")
+    print(f"   verdict                    : {verdict}")
+
+    # ---- Save artifacts ----
+    np.save(DATA_PROCESSED / f"{TAG}_best_s_oof.npy",
+            best_oof_is.astype(np.float32))
+    # Also save the cross-fit OOF for downstream blending if useful.
+    np.save(DATA_PROCESSED / f"{TAG}_cf_oof.npy",
+            oof_cf.astype(np.float32))
+    print(f"\n[save] {DATA_PROCESSED / f'{TAG}_best_s_oof.npy'}  (in-sample stretched)")
+    print(f"[save] {DATA_PROCESSED / f'{TAG}_cf_oof.npy'}      (cross-fit stretched)")
+
+    summary = {
+        "tag": TAG,
+        "n_unb": n_unb,
+        "seed": SEED,
+        "n_folds": N_FOLDS,
+        "stretch_grid": STRETCH_GRID,
+        "nb1290_ref": NB1290_REF,
+        "margin": MARGIN,
+        "rae_nb1290_actual": rae_nb1290,
+        "pred_mean": mu_global,
+        "pred_std": sigma_p,
+        "truth_std": sigma_y,
+        "var_match_s": var_match_s,
+        "in_sample_grid": grid_in_sample,
+        "in_sample_best_s": float(best_s_is),
+        "in_sample_best_rae": float(best_rae_is),
+        "fold_records": fold_records,
+        "cf_per_fold_s": [float(x) for x in fold_s_stars],
+        "cf_per_fold_va_rae": [float(x) for x in fold_per_va_raes],
+        "rae_cross_fit": float(rae_cf),
+        "candidate_rae_table": candidates,
+        "best_candidate_tag": best_tag,
+        "best_candidate_rae": float(best_rae_candidate),
+        "delta_cf_vs_nb1290": float(delta_cf_vs_nb1290),
+        "delta_in_sample_vs_nb1290": float(delta_is_vs_nb1290),
+        "beats_nb1290_cross_fit": bool(beats_nb1290_cf),
+        "beats_nb1290_in_sample": bool(beats_nb1290_is),
+        "flat_vs_nb1290_cross_fit": bool(flat_nb1290_cf),
+        "verdict": verdict,
+        "wall_sec": round(time.time() - t0, 2),
+    }
+    out_path = DATA_PROCESSED / f"{TAG}_summary.json"
+    with open(out_path, "w") as f:
+        json.dump(summary, f, indent=2)
+    print(f"[save] {out_path}")
+    print(f"[done] wall = {time.time() - t0:.1f}s")
+    print("=" * 78)
+    return summary
+
+
+if __name__ == "__main__":
+    res = main()
+    print("\n==== SUMMARY ====")
+    for k in (
+        "rae_nb1290_actual",
+        "pred_mean", "pred_std", "truth_std", "var_match_s",
+        "in_sample_best_s", "in_sample_best_rae",
+        "cf_per_fold_s", "rae_cross_fit",
+        "delta_cf_vs_nb1290", "delta_in_sample_vs_nb1290",
+        "beats_nb1290_cross_fit", "beats_nb1290_in_sample", "verdict",
+    ):
+        print(f"  {k}: {res.get(k)}")

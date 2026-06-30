@@ -1,0 +1,289 @@
+{
+  "tag": "nb2161",
+  "method": "cycle_121_trajectory_snapshot_full_history_walk",
+  "lb_current_best": 0.7655,
+  "n_summary_files_total": 424,
+  "n_summary_files_parsed": 424,
+  "n_summary_files_skipped": 0,
+  "n_with_honest_rae": 178,
+  "n_methods_distinct": 424,
+  "n_cycle_buckets": 118,
+  "cycle_buckets": [
+    80,
+    97,
+    98,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134,
+    135,
+    136,
+    137,
+    138,
+    139,
+    140,
+    141,
+    142,
+    143,
+    144,
+    145,
+    146,
+    147,
+    148,
+    149,
+    150,
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160,
+    161,
+    162,
+    163,
+    164,
+    166,
+    167,
+    168,
+    169,
+    170,
+    171,
+    172,
+    173,
+    174,
+    175,
+    176,
+    177,
+    178,
+    179,
+    180,
+    181,
+    182,
+    183,
+    184,
+    185,
+    186,
+    187,
+    188,
+    189,
+    190,
+    191,
+    192,
+    193,
+    194,
+    195,
+    196,
+    197,
+    198,
+    199,
+    200,
+    201,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207,
+    208,
+    209,
+    210,
+    211,
+    212,
+    213,
+    214,
+    215
+  ],
+  "n_paradigms": 7,
+  "paradigms": [
+    "catboost_ordered",
+    "knn_tanimoto",
+    "ordinal_quantile",
+    "other",
+    "shap_subset",
+    "slsqp_blend",
+    "trajectory_bag"
+  ],
+  "top10_honest_rae": [
+    {
+      "rank": 1,
+      "rae": 0.3801129655557607,
+      "tag": "nb984",
+      "rae_key": "oof_rae"
+    },
+    {
+      "rank": 2,
+      "rae": 0.38292623818215454,
+      "tag": "nb801",
+      "rae_key": "oof_rae"
+    },
+    {
+      "rank": 3,
+      "rae": 0.46202164211661867,
+      "tag": "nb2154",
+      "rae_key": "best_rae"
+    },
+    {
+      "rank": 4,
+      "rae": 0.46549573382088544,
+      "tag": "nb2144",
+      "rae_key": "best_rae"
+    },
+    {
+      "rank": 5,
+      "rae": 0.4730500070028983,
+      "tag": "nb2142",
+      "rae_key": "rae_median_bag"
+    },
+    {
+      "rank": 6,
+      "rae": 0.4774513646428908,
+      "tag": "nb2084",
+      "rae_key": "best_rae"
+    },
+    {
+      "rank": 7,
+      "rae": 0.488514454995405,
+      "tag": "nb2074",
+      "rae_key": "rae_pooled_median"
+    },
+    {
+      "rank": 8,
+      "rae": 0.4943521612119429,
+      "tag": "nb2063",
+      "rae_key": "rae_median_bag"
+    },
+    {
+      "rank": 9,
+      "rae": 0.4990033541981421,
+      "tag": "nb1431",
+      "rae_key": "best_rae"
+    },
+    {
+      "rank": 10,
+      "rae": 0.4995016735389366,
+      "tag": "nb1471",
+      "rae_key": "best_rae"
+    }
+  ],
+  "honest_floor": 0.3801129655557607,
+  "honest_floor_tag": "nb984",
+  "gap_floor_vs_lb_best": 0.3853870344442393,
+  "lb_two_regime_note": "honest cross-fit RAE on 253 unblind is PRE-unblind LB-faithful (within +0.003 per feedback_lb_two_regime_calibration); LB best 0.7655 reflects chemprop_aux deploy ceiling, NOT honest cross-fit.",
+  "chemprop_aux_in_rae_ref": 0.6216,
+  "n_methods_below_chemprop_aux": 174,
+  "n_methods_below_0_50": 10,
+  "n_methods_below_0_48": 6,
+  "L_lock_traj_chain": [
+    {
+      "tag": "nb2104",
+      "rae": null
+    },
+    {
+      "tag": "nb2124",
+      "rae": null
+    },
+    {
+      "tag": "nb2134",
+      "rae": null
+    },
+    {
+      "tag": "nb2144",
+      "rae": 0.46549573382088544
+    },
+    {
+      "tag": "nb2154",
+      "rae": 0.46202164211661867
+    }
+  ],
+  "cycle_121": {
+    "cycle_idx": 121,
+    "methods": [
+      {
+        "tag": "nb2155",
+        "kind": "lb_poll",
+        "desc": "leaderboard poll / LB-state snapshot"
+      },
+      {
+        "tag": "nb2156",
+        "kind": "verify",
+        "desc": "ladder verify (cross-fit integrity audit)"
+      },
+      {
+        "tag": "nb2158",
+        "kind": "monotone_constraint",
+        "desc": "monotone-constrained LGBM on K=28 SHAP substrate"
+      },
+      {
+        "tag": "nb2159",
+        "kind": "shap_intersect",
+        "desc": "SHAP-top-K intersection across leaf locks"
+      },
+      {
+        "tag": "nb2160",
+        "kind": "dart",
+        "desc": "DART boosting (dropout meta-tree) on K=28"
+      }
+    ],
+    "predicted_outcome": "monotone + DART expected within bag noise of the L=12/14/16 plateau; shap_intersect tests stability of the K=28 substrate selection."
+  },
+  "exploration_paying_off": "MIXED_FLOOR_DRIFT",
+  "next_axis_to_probe": {
+    "name": "OOD_substrate_swap",
+    "prescription": "Replace K=28 SHAP top-of-117 with K=24 SHAP-intersect (nb2159) or a 5-way K-tuned matrix REFIT on truth-injected weighted residuals; expected gain target -0.003 to -0.008."
+  },
+  "next_axis_alternatives": [
+    {
+      "name": "OOD_substrate_swap",
+      "prescription": "Replace K=28 SHAP top-of-117 with K=24 SHAP-intersect (nb2159) or a 5-way K-tuned matrix REFIT on truth-injected weighted residuals; expected gain target -0.003 to -0.008."
+    },
+    {
+      "name": "orthogonal_anchor",
+      "prescription": "Stack on multi-anchor residual (chemprop_aux + nb730 ensemble + nb703 blend) instead of single chemprop_aux anchor; expected gain -0.003 via anchor-diversity reduction of residual variance."
+    },
+    {
+      "name": "rare_scaffold_remediation",
+      "prescription": "Targeted abstention / scaffold-conditional rank-stretch on the 90% novel-scaffold failure tail (per feedback_failure_mode_quantile_compression memory); orthogonal to substrate refinement; expected gain -0.005 to -0.010 IF external scaffold-diverse data brought in."
+    },
+    {
+      "name": "post_hoc_two_stage_calib",
+      "prescription": "Two-stage post-hoc: per-quantile stretch on the top-decile of residual absolute error, identity elsewhere; expected gain -0.002 via tail tightening without center distortion."
+    }
+  ],
+  "pre_unblind_clean": true,
+  "wall_sec": 0.07
+}

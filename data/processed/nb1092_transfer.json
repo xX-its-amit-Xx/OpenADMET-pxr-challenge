@@ -1,0 +1,35 @@
+[
+  {
+    "target": "RXRa",
+    "n": 432,
+    "n_test": 200,
+    "rae_base": 0.675145336001016,
+    "rae_transfer": 0.6495029172829142,
+    "rae_pooled": 0.6687386403681618,
+    "transfer_delta": -0.0256424187181018,
+    "pooled_delta": -0.006406695632854231,
+    "best_donor_corr": 0.6076028914492334
+  },
+  {
+    "target": "LXRa",
+    "n": 447,
+    "n_test": 200,
+    "rae_base": 0.9569726481428515,
+    "rae_transfer": 0.9206313955001215,
+    "rae_pooled": 0.9789727970967097,
+    "transfer_delta": -0.036341252642730026,
+    "pooled_delta": 0.022000148953858156,
+    "best_donor_corr": 0.19578885712306357
+  },
+  {
+    "target": "PXR",
+    "n": 737,
+    "n_test": 185,
+    "rae_base": 0.7522002947762345,
+    "rae_transfer": 0.7467700212829459,
+    "rae_pooled": 0.7324898424221882,
+    "transfer_delta": -0.005430273493288618,
+    "pooled_delta": -0.019710452354046337,
+    "best_donor_corr": 0.2802220897043119
+  }
+]

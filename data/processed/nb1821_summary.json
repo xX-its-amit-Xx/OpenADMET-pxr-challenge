@@ -1,0 +1,180 @@
+{
+  "tag": "nb1821",
+  "anchor": "chemprop_aux",
+  "anchor_kind": "PRE_unblind_te_slice_to_unb_idx",
+  "anchor_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+  "data_source": "AtomPair-cache + MACCS-cache + Mordred-cached_nb1030 + ChempropEmbed-cache + Avalon-cache + local_chembl_caches_union",
+  "model_family": "LightGBM",
+  "lgbm_boosting_type": "goss",
+  "lgbm_objective": "huber",
+  "lgbm_alpha": 1.0,
+  "lgbm_max_depth": 4,
+  "lgbm_num_leaves": 15,
+  "lgbm_n_estimators": 300,
+  "lgbm_learning_rate": 0.03,
+  "lgbm_min_child_samples": 5,
+  "lgbm_reg_lambda": 2.0,
+  "outer_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "inner_per_outer": 5,
+  "resid_folds": 5,
+  "K_AP_best": 25,
+  "K_Mord_best": 20,
+  "K_Embed_best": 20,
+  "K_Avalon_used": 30,
+  "K_MACCS_fixed": 20,
+  "n_chembl_pool": 945,
+  "n_unb": 253,
+  "feat_dim": 117,
+  "feat_breakdown": {
+    "atompair": 25,
+    "maccs": 20,
+    "mordred": 20,
+    "chemprop_embed": 20,
+    "avalon": 30,
+    "pred_chembl_pec50": 1,
+    "mean_sim": 1,
+    "total": 117
+  },
+  "rae_anchor_chemprop_aux": 0.6215728863514471,
+  "residual_mean": -0.1325965261753001,
+  "residual_std": 0.6999145683913596,
+  "per_outer_rae": [
+    0.5058252905470171,
+    0.5105770123804003,
+    0.49841571077000035,
+    0.5082711768005769,
+    0.5125851045844183
+  ],
+  "per_outer_records": [
+    {
+      "outer_seed": 0,
+      "inner_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "inner_rae": [
+        0.5278865881246259,
+        0.5381611673512205,
+        0.5364004405016654,
+        0.5088127335863012,
+        0.5255737060587452
+      ],
+      "inner_rae_mean": 0.5273669271245117,
+      "rae_outer_mean_bag": 0.5058252905470171,
+      "delta_outer_vs_anchor": -0.11574759580443006,
+      "wall_sec": 2.27
+    },
+    {
+      "outer_seed": 1,
+      "inner_seeds": [
+        1000,
+        1001,
+        1002,
+        1003,
+        1004
+      ],
+      "inner_rae": [
+        0.5403215754312979,
+        0.509949193851248,
+        0.5258713379613748,
+        0.5218213741707292,
+        0.5457824271784719
+      ],
+      "inner_rae_mean": 0.5287491817186243,
+      "rae_outer_mean_bag": 0.5105770123804003,
+      "delta_outer_vs_anchor": -0.11099587397104682,
+      "wall_sec": 2.26
+    },
+    {
+      "outer_seed": 7,
+      "inner_seeds": [
+        7000,
+        7001,
+        7002,
+        7003,
+        7004
+      ],
+      "inner_rae": [
+        0.5264493522696749,
+        0.5063823651710865,
+        0.5029469118333884,
+        0.5184053514764871,
+        0.5283581380924948
+      ],
+      "inner_rae_mean": 0.5165084237686263,
+      "rae_outer_mean_bag": 0.49841571077000035,
+      "delta_outer_vs_anchor": -0.12315717558144679,
+      "wall_sec": 2.23
+    },
+    {
+      "outer_seed": 42,
+      "inner_seeds": [
+        42000,
+        42001,
+        42002,
+        42003,
+        42004
+      ],
+      "inner_rae": [
+        0.5030962261724439,
+        0.5350374765490253,
+        0.5564210817896348,
+        0.5371562718510784,
+        0.5251808702577112
+      ],
+      "inner_rae_mean": 0.5313783853239787,
+      "rae_outer_mean_bag": 0.5082711768005769,
+      "delta_outer_vs_anchor": -0.11330170955087027,
+      "wall_sec": 2.22
+    },
+    {
+      "outer_seed": 137,
+      "inner_seeds": [
+        137000,
+        137001,
+        137002,
+        137003,
+        137004
+      ],
+      "inner_rae": [
+        0.532549211715832,
+        0.5113067283683085,
+        0.5229968917395121,
+        0.5299979437320451,
+        0.5447773705302452
+      ],
+      "inner_rae_mean": 0.5283256292171886,
+      "rae_outer_mean_bag": 0.5125851045844183,
+      "delta_outer_vs_anchor": -0.10898778176702884,
+      "wall_sec": 2.27
+    }
+  ],
+  "bob_mean_rae": 0.5071348590164826,
+  "bob_median_rae": 0.5082711768005769,
+  "bob_std_rae": 0.004910872231250463,
+  "bob_min_rae": 0.49841571077000035,
+  "bob_max_rae": 0.5125851045844183,
+  "rae_pooled_25bag": 0.5024522233939982,
+  "delta_bob_mean_vs_anchor": -0.11443802733496455,
+  "delta_bob_mean_vs_nb1554": -0.009165140983517395,
+  "delta_bob_mean_vs_nb1771": -0.0028651409835174224,
+  "delta_bob_mean_vs_nb1811": -0.0006497763675079593,
+  "verdict": "NB1811_REPRODUCES",
+  "pre_unblind_clean": true,
+  "chemprop_aux_ref": 0.6216,
+  "nb1554_ref": 0.5163,
+  "nb1771_ref": 0.51,
+  "nb1811_ref": 0.5077846353839905,
+  "reproduce_margin": 0.005,
+  "decision_margin": 0.003,
+  "wall_sec": 15.16
+}

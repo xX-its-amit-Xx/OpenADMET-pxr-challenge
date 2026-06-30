@@ -1,0 +1,176 @@
+{
+  "tag": "nb3031",
+  "parent_tag": "nb2960+nb3000+chemprop_aux",
+  "method": "per_fold_slsqp_simplex_K18_K19_chemprop_aux",
+  "paradigm": "3_anchor_chemprop_aux_external_pre_clean_on_K18_K19_axis",
+  "anchor_pool": [
+    "K18",
+    "K19",
+    "chemprop_aux"
+  ],
+  "anchor_depth": {
+    "K18": "deep30",
+    "K19": "deep30",
+    "chemprop_aux": "te_unb_in_sample"
+  },
+  "anchor_pre_unblind": {
+    "K18": true,
+    "K19": true,
+    "chemprop_aux": true
+  },
+  "chemprop_aux_in_sample_caveat": "chemprop_aux OOF column is te[unb_idx] (in-sample, model trained on 4139 incl unblind); used because chemprop_aux is PRE-clean and no honest 253 cross-fit OOF exists for it",
+  "per_K_full_oof_rae": {
+    "K18": 0.4536,
+    "K19": 0.4607,
+    "chemprop_aux": 0.6216
+  },
+  "anchor_leak_eq_truth_frac": {
+    "K18": 0.0,
+    "K19": 0.0,
+    "chemprop_aux": 0.0
+  },
+  "oof_corr_matrix": [
+    [
+      1.0,
+      0.9846003004762865,
+      0.8931001217820613
+    ],
+    [
+      0.9846003004762865,
+      0.9999999999999999,
+      0.8875133951115416
+    ],
+    [
+      0.8931001217820614,
+      0.8875133951115417,
+      1.0
+    ]
+  ],
+  "oof_corr_labels": [
+    "K18",
+    "K19",
+    "chemprop_aux"
+  ],
+  "n_folds": 5,
+  "kf_seed": 1001,
+  "n_starts_fold": 8,
+  "n_starts_full": 12,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "K_anchors": 3,
+  "fold_records": [
+    {
+      "fold": 0,
+      "n_train": 202,
+      "n_val": 51,
+      "weights": {
+        "K18": 0.7292,
+        "K19": 0.2708,
+        "chemprop_aux": 0.0
+      },
+      "train_rae": 0.4553,
+      "val_rae": 0.4216,
+      "max_w": 0.7292,
+      "degenerate": false
+    },
+    {
+      "fold": 1,
+      "n_train": 202,
+      "n_val": 51,
+      "weights": {
+        "K18": 0.6451,
+        "K19": 0.3549,
+        "chemprop_aux": 0.0
+      },
+      "train_rae": 0.4441,
+      "val_rae": 0.4675,
+      "max_w": 0.6451,
+      "degenerate": false
+    },
+    {
+      "fold": 2,
+      "n_train": 202,
+      "n_val": 51,
+      "weights": {
+        "K18": 0.6451,
+        "K19": 0.3549,
+        "chemprop_aux": 0.0
+      },
+      "train_rae": 0.4393,
+      "val_rae": 0.4988,
+      "max_w": 0.6451,
+      "degenerate": false
+    },
+    {
+      "fold": 3,
+      "n_train": 203,
+      "n_val": 50,
+      "weights": {
+        "K18": 0.7088,
+        "K19": 0.2912,
+        "chemprop_aux": 0.0
+      },
+      "train_rae": 0.4491,
+      "val_rae": 0.4518,
+      "max_w": 0.7088,
+      "degenerate": false
+    },
+    {
+      "fold": 4,
+      "n_train": 203,
+      "n_val": 50,
+      "weights": {
+        "K18": 0.7292,
+        "K19": 0.2708,
+        "chemprop_aux": 0.0
+      },
+      "train_rae": 0.4567,
+      "val_rae": 0.4245,
+      "max_w": 0.7292,
+      "degenerate": false
+    }
+  ],
+  "pooled_outer_val_rae": 0.44927976194868324,
+  "per_fold_val_rae_mean": 0.45284,
+  "per_fold_val_rae_std": 0.03204454711803556,
+  "mean_w_across_folds": {
+    "K18": 0.6915,
+    "K19": 0.3085,
+    "chemprop_aux": 0.0
+  },
+  "any_fold_degenerate": false,
+  "full_pool_slsqp": {
+    "weights": {
+      "K18": 0.7088,
+      "K19": 0.2912,
+      "chemprop_aux": 0.0
+    },
+    "rae_in_sample": 0.4488,
+    "max_w": 0.7088,
+    "degenerate": false
+  },
+  "te_unb_in_sample_rae_full_pool": 0.1917,
+  "te_unb_in_sample_rae_mean_fold": 0.1915,
+  "te_mean": 4.735404014587402,
+  "te_std": 0.7702359557151794,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb3031_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb3031.npy",
+  "submission_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb3031_per_fold_simplex_K18_K19_chemprop.csv",
+  "mean_rae": 0.44927976194868324,
+  "ref_K18_deep30": 0.4536,
+  "ref_K19_deep30": 0.4607,
+  "ref_chemprop_aux": 0.6216,
+  "ref_nb2982": 0.4505,
+  "ref_nb2992": 0.4511,
+  "ref_nb2171": 0.4682,
+  "delta_vs_K18": -0.00432023805131676,
+  "delta_vs_K19": -0.011420238051316756,
+  "delta_vs_chemprop_aux": -0.1723202380513168,
+  "delta_vs_nb2982": -0.0012202380513167688,
+  "delta_vs_nb2992": -0.0018202380513167582,
+  "delta_vs_nb2171": -0.018920238051316762,
+  "gate_better_than_nb2992": 0.4511,
+  "verdict": "BETTER_THAN_NB2992",
+  "wall_sec": 0.38
+}

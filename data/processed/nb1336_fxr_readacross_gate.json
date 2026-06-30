@@ -1,0 +1,15 @@
+{
+  "feature": "fxr_nr1h4_readacross",
+  "n_fxr": 3855,
+  "ik_overlap_train": 48,
+  "med_tani_to_test": 0.245,
+  "frac_covered": 0.016,
+  "corr_ra_vs_pec50": -0.033,
+  "corr_ra_vs_ctrl_error": -0.074,
+  "control_rae": 0.583,
+  "treatment_rae": 0.5825,
+  "delta": -0.0006,
+  "neg_seeds": 2,
+  "best_rae": 0.4149,
+  "deploy": false
+}

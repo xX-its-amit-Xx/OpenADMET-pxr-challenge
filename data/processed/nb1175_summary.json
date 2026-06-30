@@ -1,0 +1,36 @@
+{
+  "5arch": {
+    "means": {
+      "sn (deployed)": 0.4469,
+      "treat (extEC50)": 0.4503,
+      "sn+treat": 0.4484,
+      "sn+octant": 0.4475,
+      "sn+treat+octant": 0.4483
+    },
+    "std": {
+      "sn (deployed)": 0.0133,
+      "treat (extEC50)": 0.0132,
+      "sn+treat": 0.0133,
+      "sn+octant": 0.0128,
+      "sn+treat+octant": 0.013
+    }
+  },
+  "4gbm_deployed": {
+    "means": {
+      "sn (deployed)": 0.4373,
+      "treat (extEC50)": 0.4418,
+      "sn+treat": 0.4391,
+      "sn+octant": 0.4381,
+      "sn+treat+octant": 0.4391
+    },
+    "std": {
+      "sn (deployed)": 0.0153,
+      "treat (extEC50)": 0.0139,
+      "sn+treat": 0.0146,
+      "sn+octant": 0.0141,
+      "sn+treat+octant": 0.014
+    }
+  },
+  "best_combo": "sn (deployed)",
+  "delta_vs_sn_4gbm": 0.0
+}

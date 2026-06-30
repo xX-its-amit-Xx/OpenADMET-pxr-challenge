@@ -1,0 +1,60 @@
+{
+  "snapshot": {
+    "date": "2026-06-03",
+    "generated_at": "2026-06-08T03:57:30.402324Z",
+    "cycle": 184,
+    "total_methods_explored": 1210
+  },
+  "robust_honest_floor": {
+    "script": "nb2240",
+    "honest_cross_fit_rae": 0.4601,
+    "label": "ROBUST honest floor"
+  },
+  "plateau": {
+    "cycles": [
+      175,
+      176,
+      177,
+      178,
+      179,
+      180,
+      181,
+      182,
+      183
+    ],
+    "extensions_tested": 20,
+    "extensions_improving": 0,
+    "verdict": "all_failed_to_beat_floor"
+  },
+  "phase2_final_lock": {
+    "activity_primary_1": "nb2240",
+    "activity_primary_1_rae": 0.4601,
+    "activity_primary_2": "nb730",
+    "activity_primary_2_rae": 0.4603,
+    "policy": "lock_nb2240_as_phase2_final",
+    "rationale": "9 consecutive cycles (175-183) of plateau-break attempts produced zero improvement; further search has negative expected value vs the 21-day deadline and submission rate limit.",
+    "deprecate": [
+      "post-unblind train-OOF SLSQP variants",
+      "delta-ML on sim<0.35 tier",
+      "loss-level decompression (pinball/tail-weight/CDF-match)"
+    ]
+  },
+  "deadline": {
+    "phase2_close": "2026-06-24",
+    "days_remaining": 21
+  },
+  "background_jobs": [
+    {
+      "script": "nb2263_rfe",
+      "description": "Recursive feature elimination on combined feature set",
+      "status": "running",
+      "expected_outcome": "feature-pruned LGBM variant; low probability of beating nb2240"
+    },
+    {
+      "script": "nb2291_mordred",
+      "description": "Mordred descriptor expansion (1800+ features)",
+      "status": "running",
+      "expected_outcome": "alternate feature axis; orthogonality check vs nb730 ensemble"
+    }
+  ]
+}

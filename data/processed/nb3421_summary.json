@@ -1,0 +1,771 @@
+{
+  "tag": "nb3421",
+  "method": "global_slsqp_minimizing_pooled_rae_on_4_clip_winners",
+  "paradigm": "INNER fit minimizes POOLED rae(y_tr, P_tr@w) (single denom over fold-train); OUTER aggregate is POOLED rae over all 253 cross-fit preds (single rae() call) -- the LB-faithful estimand",
+  "anchors": [
+    "nb3173",
+    "nb3174",
+    "nb3190",
+    "nb3200"
+  ],
+  "anchor_oof_paths": {
+    "nb3173": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb3173_pred_oof.npy",
+    "nb3174": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb3174_pred_oof.npy",
+    "nb3190": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb3190_pred_oof.npy",
+    "nb3200": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb3200_pred_oof.npy"
+  },
+  "anchor_te_paths": {
+    "nb3173": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb3173.npy",
+    "nb3174": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb3174.npy",
+    "nb3190": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb3190.npy",
+    "nb3200": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb3200.npy"
+  },
+  "anchor_pre_unblind": true,
+  "indiv_oof_rae": {
+    "nb3173": 0.4423,
+    "nb3174": 0.443,
+    "nb3190": 0.4422,
+    "nb3200": 0.4416
+  },
+  "leak_eq_truth_frac": {
+    "nb3173": 0.0,
+    "nb3174": 0.0,
+    "nb3190": 0.0,
+    "nb3200": 0.0
+  },
+  "cross_anchor_corr_oof": [
+    [
+      1.0,
+      0.9989,
+      0.9996,
+      0.9995
+    ],
+    [
+      0.9989,
+      1.0,
+      0.9992,
+      0.9994
+    ],
+    [
+      0.9996,
+      0.9992,
+      1.0,
+      0.9997
+    ],
+    [
+      0.9995,
+      0.9994,
+      0.9997,
+      1.0
+    ]
+  ],
+  "equal_weight_pooled_rae": 0.4415,
+  "in_sample_global_pooled_slsqp_rae": 0.4411,
+  "in_sample_global_slsqp_weights": {
+    "nb3173": 0.0,
+    "nb3174": 0.2129,
+    "nb3190": 0.2206,
+    "nb3200": 0.5665
+  },
+  "n_folds": 5,
+  "n_slsqp_starts": 12,
+  "kf_seeds": [
+    1416,
+    1417,
+    1418,
+    1419,
+    1420,
+    1421,
+    1422,
+    1423,
+    1424,
+    1425,
+    1426,
+    1427,
+    1428,
+    1429,
+    1430
+  ],
+  "n_seeds": 15,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "seed_records": [
+    {
+      "kf_seed": 1416,
+      "pooled_rae": 0.4431,
+      "per_fold_val_rae_mean": 0.4628,
+      "per_fold_val_rae_std": 0.1002,
+      "per_fold_train_rae_mean": 0.4421,
+      "per_fold_weights": [
+        {
+          "nb3173": 0.476,
+          "nb3174": 0.243,
+          "nb3190": 0.0,
+          "nb3200": 0.282
+        },
+        {
+          "nb3173": 0.659,
+          "nb3174": 0.0,
+          "nb3190": 0.0,
+          "nb3200": 0.341
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.468,
+          "nb3190": 0.135,
+          "nb3200": 0.396
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.243,
+          "nb3190": 0.0,
+          "nb3200": 0.757
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.213,
+          "nb3190": 0.221,
+          "nb3200": 0.567
+        }
+      ],
+      "any_fold_degenerate": false
+    },
+    {
+      "kf_seed": 1417,
+      "pooled_rae": 0.4435,
+      "per_fold_val_rae_mean": 0.4492,
+      "per_fold_val_rae_std": 0.0562,
+      "per_fold_train_rae_mean": 0.4412,
+      "per_fold_weights": [
+        {
+          "nb3173": 0.476,
+          "nb3174": 0.243,
+          "nb3190": 0.0,
+          "nb3200": 0.282
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.243,
+          "nb3190": 0.0,
+          "nb3200": 0.757
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.125,
+          "nb3190": 0.875,
+          "nb3200": 0.0
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.0,
+          "nb3190": 0.292,
+          "nb3200": 0.708
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.213,
+          "nb3190": 0.221,
+          "nb3200": 0.567
+        }
+      ],
+      "any_fold_degenerate": true
+    },
+    {
+      "kf_seed": 1418,
+      "pooled_rae": 0.4432,
+      "per_fold_val_rae_mean": 0.4799,
+      "per_fold_val_rae_std": 0.0521,
+      "per_fold_train_rae_mean": 0.4433,
+      "per_fold_weights": [
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.213,
+          "nb3190": 0.221,
+          "nb3200": 0.567
+        },
+        {
+          "nb3173": 0.476,
+          "nb3174": 0.243,
+          "nb3190": 0.0,
+          "nb3200": 0.282
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.468,
+          "nb3190": 0.135,
+          "nb3200": 0.396
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.125,
+          "nb3190": 0.875,
+          "nb3200": 0.0
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.468,
+          "nb3190": 0.135,
+          "nb3200": 0.396
+        }
+      ],
+      "any_fold_degenerate": true
+    },
+    {
+      "kf_seed": 1419,
+      "pooled_rae": 0.4437,
+      "per_fold_val_rae_mean": 0.4588,
+      "per_fold_val_rae_std": 0.0928,
+      "per_fold_train_rae_mean": 0.4415,
+      "per_fold_weights": [
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.213,
+          "nb3190": 0.221,
+          "nb3200": 0.567
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.243,
+          "nb3190": 0.0,
+          "nb3200": 0.757
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.469,
+          "nb3190": 0.0,
+          "nb3200": 0.531
+        },
+        {
+          "nb3173": 1.0,
+          "nb3174": 0.0,
+          "nb3190": 0.0,
+          "nb3200": 0.0
+        },
+        {
+          "nb3173": 0.476,
+          "nb3174": 0.243,
+          "nb3190": 0.0,
+          "nb3200": 0.282
+        }
+      ],
+      "any_fold_degenerate": true
+    },
+    {
+      "kf_seed": 1420,
+      "pooled_rae": 0.4435,
+      "per_fold_val_rae_mean": 0.4557,
+      "per_fold_val_rae_std": 0.0799,
+      "per_fold_train_rae_mean": 0.4415,
+      "per_fold_weights": [
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.468,
+          "nb3190": 0.135,
+          "nb3200": 0.396
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.243,
+          "nb3190": 0.0,
+          "nb3200": 0.757
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.213,
+          "nb3190": 0.221,
+          "nb3200": 0.567
+        },
+        {
+          "nb3173": 1.0,
+          "nb3174": 0.0,
+          "nb3190": 0.0,
+          "nb3200": 0.0
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.213,
+          "nb3190": 0.221,
+          "nb3200": 0.567
+        }
+      ],
+      "any_fold_degenerate": true
+    },
+    {
+      "kf_seed": 1421,
+      "pooled_rae": 0.4449,
+      "per_fold_val_rae_mean": 0.4599,
+      "per_fold_val_rae_std": 0.0568,
+      "per_fold_train_rae_mean": 0.4415,
+      "per_fold_weights": [
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.468,
+          "nb3190": 0.135,
+          "nb3200": 0.396
+        },
+        {
+          "nb3173": 0.476,
+          "nb3174": 0.243,
+          "nb3190": 0.0,
+          "nb3200": 0.282
+        },
+        {
+          "nb3173": 0.757,
+          "nb3174": 0.243,
+          "nb3190": 0.0,
+          "nb3200": 0.0
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.873,
+          "nb3190": 0.0,
+          "nb3200": 0.127
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.0,
+          "nb3190": 0.292,
+          "nb3200": 0.708
+        }
+      ],
+      "any_fold_degenerate": true
+    },
+    {
+      "kf_seed": 1422,
+      "pooled_rae": 0.4431,
+      "per_fold_val_rae_mean": 0.4472,
+      "per_fold_val_rae_std": 0.0519,
+      "per_fold_train_rae_mean": 0.4412,
+      "per_fold_weights": [
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.468,
+          "nb3190": 0.135,
+          "nb3200": 0.396
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.213,
+          "nb3190": 0.221,
+          "nb3200": 0.567
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.468,
+          "nb3190": 0.135,
+          "nb3200": 0.396
+        },
+        {
+          "nb3173": 0.163,
+          "nb3174": 0.223,
+          "nb3190": 0.145,
+          "nb3200": 0.469
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.0,
+          "nb3190": 1.0,
+          "nb3200": 0.0
+        }
+      ],
+      "any_fold_degenerate": true
+    },
+    {
+      "kf_seed": 1423,
+      "pooled_rae": 0.4421,
+      "per_fold_val_rae_mean": 0.4458,
+      "per_fold_val_rae_std": 0.0335,
+      "per_fold_train_rae_mean": 0.4411,
+      "per_fold_weights": [
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.213,
+          "nb3190": 0.221,
+          "nb3200": 0.567
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.213,
+          "nb3190": 0.221,
+          "nb3200": 0.567
+        },
+        {
+          "nb3173": 0.164,
+          "nb3174": 0.223,
+          "nb3190": 0.144,
+          "nb3200": 0.468
+        },
+        {
+          "nb3173": 0.305,
+          "nb3174": 0.469,
+          "nb3190": 0.0,
+          "nb3200": 0.226
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.243,
+          "nb3190": 0.0,
+          "nb3200": 0.757
+        }
+      ],
+      "any_fold_degenerate": false
+    },
+    {
+      "kf_seed": 1424,
+      "pooled_rae": 0.4421,
+      "per_fold_val_rae_mean": 0.4492,
+      "per_fold_val_rae_std": 0.0505,
+      "per_fold_train_rae_mean": 0.4414,
+      "per_fold_weights": [
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.468,
+          "nb3190": 0.135,
+          "nb3200": 0.396
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.213,
+          "nb3190": 0.221,
+          "nb3200": 0.567
+        },
+        {
+          "nb3173": 0.757,
+          "nb3174": 0.243,
+          "nb3190": 0.0,
+          "nb3200": 0.0
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.213,
+          "nb3190": 0.221,
+          "nb3200": 0.567
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.213,
+          "nb3190": 0.221,
+          "nb3200": 0.567
+        }
+      ],
+      "any_fold_degenerate": false
+    },
+    {
+      "kf_seed": 1425,
+      "pooled_rae": 0.4441,
+      "per_fold_val_rae_mean": 0.4834,
+      "per_fold_val_rae_std": 0.0878,
+      "per_fold_train_rae_mean": 0.4431,
+      "per_fold_weights": [
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.468,
+          "nb3190": 0.135,
+          "nb3200": 0.396
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.213,
+          "nb3190": 0.221,
+          "nb3200": 0.567
+        },
+        {
+          "nb3173": 0.757,
+          "nb3174": 0.243,
+          "nb3190": 0.0,
+          "nb3200": 0.0
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.468,
+          "nb3190": 0.135,
+          "nb3200": 0.396
+        },
+        {
+          "nb3173": 0.772,
+          "nb3174": 0.0,
+          "nb3190": 0.228,
+          "nb3200": 0.0
+        }
+      ],
+      "any_fold_degenerate": false
+    },
+    {
+      "kf_seed": 1426,
+      "pooled_rae": 0.443,
+      "per_fold_val_rae_mean": 0.4525,
+      "per_fold_val_rae_std": 0.0603,
+      "per_fold_train_rae_mean": 0.4415,
+      "per_fold_weights": [
+        {
+          "nb3173": 0.476,
+          "nb3174": 0.243,
+          "nb3190": 0.0,
+          "nb3200": 0.282
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.469,
+          "nb3190": 0.0,
+          "nb3200": 0.531
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.213,
+          "nb3190": 0.221,
+          "nb3200": 0.567
+        },
+        {
+          "nb3173": 0.757,
+          "nb3174": 0.243,
+          "nb3190": 0.0,
+          "nb3200": 0.0
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.213,
+          "nb3190": 0.221,
+          "nb3200": 0.567
+        }
+      ],
+      "any_fold_degenerate": false
+    },
+    {
+      "kf_seed": 1427,
+      "pooled_rae": 0.4428,
+      "per_fold_val_rae_mean": 0.4631,
+      "per_fold_val_rae_std": 0.0944,
+      "per_fold_train_rae_mean": 0.4422,
+      "per_fold_weights": [
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.213,
+          "nb3190": 0.221,
+          "nb3200": 0.567
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.213,
+          "nb3190": 0.221,
+          "nb3200": 0.567
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.469,
+          "nb3190": 0.0,
+          "nb3200": 0.531
+        },
+        {
+          "nb3173": 0.757,
+          "nb3174": 0.243,
+          "nb3190": 0.0,
+          "nb3200": 0.0
+        },
+        {
+          "nb3173": 0.476,
+          "nb3174": 0.243,
+          "nb3190": 0.0,
+          "nb3200": 0.282
+        }
+      ],
+      "any_fold_degenerate": false
+    },
+    {
+      "kf_seed": 1428,
+      "pooled_rae": 0.4433,
+      "per_fold_val_rae_mean": 0.4485,
+      "per_fold_val_rae_std": 0.0507,
+      "per_fold_train_rae_mean": 0.4411,
+      "per_fold_weights": [
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.213,
+          "nb3190": 0.221,
+          "nb3200": 0.567
+        },
+        {
+          "nb3173": 0.659,
+          "nb3174": 0.0,
+          "nb3190": 0.0,
+          "nb3200": 0.341
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.243,
+          "nb3190": 0.0,
+          "nb3200": 0.757
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.213,
+          "nb3190": 0.221,
+          "nb3200": 0.567
+        },
+        {
+          "nb3173": 0.757,
+          "nb3174": 0.243,
+          "nb3190": 0.0,
+          "nb3200": 0.0
+        }
+      ],
+      "any_fold_degenerate": false
+    },
+    {
+      "kf_seed": 1429,
+      "pooled_rae": 0.4422,
+      "per_fold_val_rae_mean": 0.4644,
+      "per_fold_val_rae_std": 0.0675,
+      "per_fold_train_rae_mean": 0.4426,
+      "per_fold_weights": [
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.213,
+          "nb3190": 0.221,
+          "nb3200": 0.567
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.243,
+          "nb3190": 0.0,
+          "nb3200": 0.757
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.0,
+          "nb3190": 0.0,
+          "nb3200": 1.0
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.213,
+          "nb3190": 0.221,
+          "nb3200": 0.567
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.0,
+          "nb3190": 0.292,
+          "nb3200": 0.708
+        }
+      ],
+      "any_fold_degenerate": true
+    },
+    {
+      "kf_seed": 1430,
+      "pooled_rae": 0.4434,
+      "per_fold_val_rae_mean": 0.4634,
+      "per_fold_val_rae_std": 0.0765,
+      "per_fold_train_rae_mean": 0.4417,
+      "per_fold_weights": [
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.213,
+          "nb3190": 0.221,
+          "nb3200": 0.567
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.243,
+          "nb3190": 0.0,
+          "nb3200": 0.757
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.0,
+          "nb3190": 1.0,
+          "nb3200": 0.0
+        },
+        {
+          "nb3173": 0.164,
+          "nb3174": 0.469,
+          "nb3190": 0.062,
+          "nb3200": 0.304
+        },
+        {
+          "nb3173": 0.0,
+          "nb3174": 0.243,
+          "nb3190": 0.0,
+          "nb3200": 0.757
+        }
+      ],
+      "any_fold_degenerate": true
+    }
+  ],
+  "pooled_rae_array": [
+    0.4431,
+    0.4435,
+    0.4432,
+    0.4437,
+    0.4435,
+    0.4449,
+    0.4431,
+    0.4421,
+    0.4421,
+    0.4441,
+    0.443,
+    0.4428,
+    0.4433,
+    0.4422,
+    0.4434
+  ],
+  "per_fold_mean_array": [
+    0.4628,
+    0.4492,
+    0.4799,
+    0.4588,
+    0.4557,
+    0.4599,
+    0.4472,
+    0.4458,
+    0.4492,
+    0.4834,
+    0.4525,
+    0.4631,
+    0.4485,
+    0.4644,
+    0.4634
+  ],
+  "mean_rae": 0.4432,
+  "std_rae": 0.0007,
+  "sem_rae": 0.0002,
+  "ci95_low": 0.4428,
+  "ci95_high": 0.4436,
+  "median_rae": 0.4432,
+  "min_rae": 0.4421,
+  "max_rae": 0.4449,
+  "per_fold_mean_mean": 0.4589,
+  "per_fold_mean_std": 0.0113,
+  "any_fold_degenerate_across_seeds": true,
+  "mean_of_fold_weights": {
+    "nb3173": 0.1701,
+    "nb3174": 0.2483,
+    "nb3190": 0.1522,
+    "nb3200": 0.4295
+  },
+  "delta_vs_equal_weight_pooled": 0.0017,
+  "delta_vs_best_single_nb3200": 0.0016,
+  "delta_vs_nb2171_primary1": -0.025,
+  "ref": {
+    "nb3200_oof_pooled": 0.4416,
+    "nb3190_oof_pooled": 0.4422,
+    "nb3173_oof_pooled": 0.4423,
+    "nb3174_oof_pooled": 0.443,
+    "nb3204_equal_weight_pooled_15": 0.4418,
+    "nb2171_primary1": 0.4682
+  },
+  "te_mean": 4.729562759399414,
+  "te_std": 0.7700854539871216,
+  "te_min": 3.0,
+  "te_max": 6.038930416107178,
+  "te_unb_in_sample_rae": 0.1924,
+  "median_seed": 1418,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb3421_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb3421.npy",
+  "submission_csv": null,
+  "gate_better": 0.4414,
+  "gate_marginal": 0.4424,
+  "verdict": "FAIL",
+  "ladder_action": "REJECT. nb3421 15-seed POOLED mean 0.4432 fails the MARGINAL gate 0.4424 (+0.0008). The 4 clip winners are too correlated (>0.998) for a pooled-objective SLSQP to extract residual orthogonality; the cross-fit blend collapses to/above the equal-weight pooled baseline 0.4415 (delta +0.0017). Switching the objective from per-fold-train-mean to pooled does NOT break the substrate ceiling. Keep nb3200 0.4416 on the ladder; close the SLSQP-on-clip-winners axis. Substrate change (orthogonal anchor) remains the open lever.",
+  "wall_sec": 9.73
+}

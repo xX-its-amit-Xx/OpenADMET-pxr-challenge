@@ -1,0 +1,74 @@
+{
+  "tag": "nb2863",
+  "method": "crossfit_mlp_stack_preclean_tanh_biasinit",
+  "architecture": "Linear(3,8)->Tanh->Linear(8,1)",
+  "fix_vs_nb2792": "smaller(3->8->1) + Tanh + bias_init=mean(y) + mini-batch=16",
+  "fix_vs_nb2801": "smaller capacity + smoother Tanh + mini-batch SGD-style noise",
+  "new_paradigm": "cross-fit inner MLP per outer fold (3-fold inner OOF stacking)",
+  "anchor_pool": [
+    "nb2240_K20",
+    "chemprop_aux",
+    "counter_clean"
+  ],
+  "anchor_provenance": {
+    "nb2240_K20": "PRE-clean (K=20 residual stack on chemprop_aux)",
+    "chemprop_aux": "PRE-clean (4139 PRE-unblind only)",
+    "counter_clean": "PRE-clean counter-assay residual on chemprop_aux (nb730-free)"
+  },
+  "anchor_skipped": {},
+  "anchor_in_rae": {
+    "nb2240_K20": 0.46301757335429367,
+    "chemprop_aux": 0.5878769556905485,
+    "counter_clean": 0.5382385733206709
+  },
+  "nn_hidden": 8,
+  "nn_activation": "Tanh",
+  "nn_dropout": 0.0,
+  "nn_zscore": false,
+  "nn_bias_init_mean_y": true,
+  "nn_lr": 0.001,
+  "nn_epochs": 500,
+  "nn_batch_size": 16,
+  "nn_n_params": 41,
+  "n_outer_folds": 5,
+  "n_inner_folds": 3,
+  "kf_seeds": [
+    42,
+    1,
+    7,
+    137,
+    1009
+  ],
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "K_anchors": 3,
+  "per_seed_pooled_rae": [
+    0.47066148783086376,
+    0.4687735834428823,
+    0.476348783775624,
+    0.47180419862213274,
+    0.48203599037611533
+  ],
+  "per_seed_mean_fold_rae": [
+    0.47352327173628106,
+    0.48068615627076844,
+    0.5033751713324035,
+    0.48527597578136306,
+    0.48355838976214843
+  ],
+  "mean_pooled_rae": 0.4739248088095236,
+  "std_pooled_rae": 0.004761266537320827,
+  "pooled_on_seed_mean_oof": 0.47117106293892685,
+  "mean_rae": 0.4739248088095236,
+  "gate_promote": 0.457,
+  "gate_marginal": 0.4598,
+  "verdict": "FAIL",
+  "te_unb_in_sample_rae": 0.2019193027630835,
+  "te_mean": 4.757333755493164,
+  "te_std": 0.8014026880264282,
+  "oof_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2863_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2863.npy",
+  "submission_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb2863_crossfit_mlp_stack.csv",
+  "wall_sec": 248.72
+}

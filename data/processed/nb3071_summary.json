@@ -1,0 +1,241 @@
+{
+  "tag": "nb3071",
+  "parent_tag": "nb3030",
+  "method": "soft_continuous_rank_quantile_blend_K18_K19_deep30",
+  "anchor_pool": [
+    "K18",
+    "K19"
+  ],
+  "anchor_depth": {
+    "K18": "deep30",
+    "K19": "deep30"
+  },
+  "anchor_pre_unblind": true,
+  "per_K_full_oof_rae": {
+    "K18": 0.4536,
+    "K19": 0.4607
+  },
+  "anchor_leak_eq_truth_frac": {
+    "K18": 0.0,
+    "K19": 0.0
+  },
+  "oof_pairwise_corr": 0.9846,
+  "tail_diagnostic": {
+    "full_q50": 4.8845,
+    "low_half_K18_rae": 0.5321,
+    "low_half_K19_rae": 0.5537,
+    "high_half_K18_rae": 0.7977,
+    "high_half_K19_rae": 0.778
+  },
+  "schedule": {
+    "form": "w_K18 = W_BASE - W_SLOPE * (rank / n)",
+    "W_BASE": 0.8,
+    "W_SLOPE": 0.3,
+    "w_K18_min": 0.5,
+    "w_K18_max": 0.8
+  },
+  "n_folds": 5,
+  "kf_seeds": [
+    1096,
+    1097,
+    1098,
+    1099,
+    1100,
+    1101,
+    1102,
+    1103,
+    1104,
+    1105,
+    1106,
+    1107,
+    1108,
+    1109,
+    1110
+  ],
+  "n_seeds": 15,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "seed_records": [
+    {
+      "kf_seed": 1096,
+      "pooled_rae": 0.4486,
+      "per_fold_val_rae_mean": 0.4699,
+      "per_fold_val_rae_std": 0.0756,
+      "fold_w_k18_mean": 0.653,
+      "fold_w_k18_min": 0.5059,
+      "fold_w_k18_max": 0.8
+    },
+    {
+      "kf_seed": 1097,
+      "pooled_rae": 0.4483,
+      "per_fold_val_rae_mean": 0.4727,
+      "per_fold_val_rae_std": 0.058,
+      "fold_w_k18_mean": 0.653,
+      "fold_w_k18_min": 0.5059,
+      "fold_w_k18_max": 0.8
+    },
+    {
+      "kf_seed": 1098,
+      "pooled_rae": 0.4483,
+      "per_fold_val_rae_mean": 0.4629,
+      "per_fold_val_rae_std": 0.0847,
+      "fold_w_k18_mean": 0.653,
+      "fold_w_k18_min": 0.5059,
+      "fold_w_k18_max": 0.8
+    },
+    {
+      "kf_seed": 1099,
+      "pooled_rae": 0.4487,
+      "per_fold_val_rae_mean": 0.4676,
+      "per_fold_val_rae_std": 0.0383,
+      "fold_w_k18_mean": 0.653,
+      "fold_w_k18_min": 0.5059,
+      "fold_w_k18_max": 0.8
+    },
+    {
+      "kf_seed": 1100,
+      "pooled_rae": 0.4486,
+      "per_fold_val_rae_mean": 0.4685,
+      "per_fold_val_rae_std": 0.0992,
+      "fold_w_k18_mean": 0.653,
+      "fold_w_k18_min": 0.5059,
+      "fold_w_k18_max": 0.8
+    },
+    {
+      "kf_seed": 1101,
+      "pooled_rae": 0.4484,
+      "per_fold_val_rae_mean": 0.4486,
+      "per_fold_val_rae_std": 0.0608,
+      "fold_w_k18_mean": 0.653,
+      "fold_w_k18_min": 0.5059,
+      "fold_w_k18_max": 0.8
+    },
+    {
+      "kf_seed": 1102,
+      "pooled_rae": 0.4485,
+      "per_fold_val_rae_mean": 0.4659,
+      "per_fold_val_rae_std": 0.1046,
+      "fold_w_k18_mean": 0.653,
+      "fold_w_k18_min": 0.5059,
+      "fold_w_k18_max": 0.8
+    },
+    {
+      "kf_seed": 1103,
+      "pooled_rae": 0.4482,
+      "per_fold_val_rae_mean": 0.4656,
+      "per_fold_val_rae_std": 0.0838,
+      "fold_w_k18_mean": 0.653,
+      "fold_w_k18_min": 0.5059,
+      "fold_w_k18_max": 0.8
+    },
+    {
+      "kf_seed": 1104,
+      "pooled_rae": 0.4485,
+      "per_fold_val_rae_mean": 0.454,
+      "per_fold_val_rae_std": 0.0524,
+      "fold_w_k18_mean": 0.653,
+      "fold_w_k18_min": 0.5059,
+      "fold_w_k18_max": 0.8
+    },
+    {
+      "kf_seed": 1105,
+      "pooled_rae": 0.4484,
+      "per_fold_val_rae_mean": 0.451,
+      "per_fold_val_rae_std": 0.0673,
+      "fold_w_k18_mean": 0.653,
+      "fold_w_k18_min": 0.5059,
+      "fold_w_k18_max": 0.8
+    },
+    {
+      "kf_seed": 1106,
+      "pooled_rae": 0.4483,
+      "per_fold_val_rae_mean": 0.4551,
+      "per_fold_val_rae_std": 0.0445,
+      "fold_w_k18_mean": 0.653,
+      "fold_w_k18_min": 0.5059,
+      "fold_w_k18_max": 0.8
+    },
+    {
+      "kf_seed": 1107,
+      "pooled_rae": 0.4484,
+      "per_fold_val_rae_mean": 0.447,
+      "per_fold_val_rae_std": 0.0396,
+      "fold_w_k18_mean": 0.653,
+      "fold_w_k18_min": 0.5059,
+      "fold_w_k18_max": 0.8
+    },
+    {
+      "kf_seed": 1108,
+      "pooled_rae": 0.4486,
+      "per_fold_val_rae_mean": 0.448,
+      "per_fold_val_rae_std": 0.0324,
+      "fold_w_k18_mean": 0.653,
+      "fold_w_k18_min": 0.5059,
+      "fold_w_k18_max": 0.8
+    },
+    {
+      "kf_seed": 1109,
+      "pooled_rae": 0.4484,
+      "per_fold_val_rae_mean": 0.4612,
+      "per_fold_val_rae_std": 0.0741,
+      "fold_w_k18_mean": 0.653,
+      "fold_w_k18_min": 0.5059,
+      "fold_w_k18_max": 0.8
+    },
+    {
+      "kf_seed": 1110,
+      "pooled_rae": 0.4482,
+      "per_fold_val_rae_mean": 0.4557,
+      "per_fold_val_rae_std": 0.0416,
+      "fold_w_k18_mean": 0.653,
+      "fold_w_k18_min": 0.5059,
+      "fold_w_k18_max": 0.8
+    }
+  ],
+  "pooled_rae_array": [
+    0.4486,
+    0.4483,
+    0.4483,
+    0.4487,
+    0.4486,
+    0.4484,
+    0.4485,
+    0.4482,
+    0.4485,
+    0.4484,
+    0.4483,
+    0.4484,
+    0.4486,
+    0.4484,
+    0.4482
+  ],
+  "mean_rae": 0.4484,
+  "std_rae": 0.0001,
+  "sem_rae": 0.0,
+  "ci95_low": 0.4484,
+  "ci95_high": 0.4485,
+  "median_rae": 0.4484,
+  "min_rae": 0.4482,
+  "max_rae": 0.4487,
+  "ref_nb3030": 0.4509,
+  "ref_nb3002": 0.4501,
+  "ref_K18_deep30": 0.4536,
+  "ref_K19_deep30": 0.4607,
+  "ref_nb2171": 0.4682,
+  "delta_vs_nb3030": -0.0025,
+  "deploy_w_k18_mean": 0.6502923976608188,
+  "deploy_w_k18_min": 0.5005847953216376,
+  "deploy_w_k18_max": 0.8,
+  "te_mean": 4.734064102172852,
+  "te_std": 0.7706325650215149,
+  "te_unb_in_sample_rae": 0.1903,
+  "median_seed": 1101,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb3071_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb3071.npy",
+  "submission_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb3071_soft_quantile_blend.csv",
+  "gate_better_than_nb3030": 0.4509,
+  "verdict": "BETTER_THAN_NB3030",
+  "ladder_action": "PROMOTE candidate. nb3071 soft-quantile blend mean 0.4484 beats nb3030 ceiling 0.4509 (-0.0025). Continuous rank-based schedule extracts gain hard-split missed; re-verify with wider seed sweep before deploy.",
+  "wall_sec": 0.1
+}

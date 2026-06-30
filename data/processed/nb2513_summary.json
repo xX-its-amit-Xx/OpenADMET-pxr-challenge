@@ -1,0 +1,105 @@
+{
+  "tag": "nb2513",
+  "method": "dirichlet_bma_importance_sample_posterior_mean",
+  "anchors_used": [
+    "nb2240_K20",
+    "chemprop_aux"
+  ],
+  "anchors_skipped": [
+    "nb1191"
+  ],
+  "K": 2,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "n_folds": 5,
+  "kf_seed": 1001,
+  "rng_seed": 1729,
+  "prior_alpha": 1.0,
+  "n_dirichlet_samples": 10000,
+  "likelihood_sigma": 0.44430427330398536,
+  "indiv_oof_rae_unb": {
+    "nb2240_K20": 0.46301757335429367,
+    "chemprop_aux": 0.5878769556905485
+  },
+  "best_single_anchor": "nb2240_K20",
+  "per_fold": [
+    {
+      "fold": 0,
+      "n_tr": 202,
+      "n_va": 51,
+      "rae": 0.4446110016214858,
+      "ess": 796.8597512291154,
+      "weights": {
+        "nb2240_K20": 0.9639168212163964,
+        "chemprop_aux": 0.036083178783603585
+      },
+      "wall_sec": 0.02
+    },
+    {
+      "fold": 1,
+      "n_tr": 202,
+      "n_va": 51,
+      "rae": 0.48698799749259103,
+      "ess": 844.093296951724,
+      "weights": {
+        "nb2240_K20": 0.962296660005943,
+        "chemprop_aux": 0.03770333999405692
+      },
+      "wall_sec": 0.02
+    },
+    {
+      "fold": 2,
+      "n_tr": 202,
+      "n_va": 51,
+      "rae": 0.5319633849221281,
+      "ess": 759.3873250353805,
+      "weights": {
+        "nb2240_K20": 0.965073130869569,
+        "chemprop_aux": 0.03492686913043102
+      },
+      "wall_sec": 0.02
+    },
+    {
+      "fold": 3,
+      "n_tr": 203,
+      "n_va": 50,
+      "rae": 0.43925035626381864,
+      "ess": 619.2282682214499,
+      "weights": {
+        "nb2240_K20": 0.9703171247919625,
+        "chemprop_aux": 0.029682875208037487
+      },
+      "wall_sec": 0.02
+    },
+    {
+      "fold": 4,
+      "n_tr": 203,
+      "n_va": 50,
+      "rae": 0.4314899309322709,
+      "ess": 490.485412146007,
+      "weights": {
+        "nb2240_K20": 0.9758522188642946,
+        "chemprop_aux": 0.024147781135705346
+      },
+      "wall_sec": 0.02
+    }
+  ],
+  "deploy_weights": {
+    "nb2240_K20": 0.9736330476036696,
+    "chemprop_aux": 0.02636695239633032
+  },
+  "deploy_ess": 619.0703157237358,
+  "rae_pooled_oof": 0.4639504527830423,
+  "mean_fold_rae": 0.46686053424645896,
+  "std_fold_rae": 0.03782046840507227,
+  "gate_promote": 0.457,
+  "gate_marginal": 0.4601,
+  "verdict": "FAIL",
+  "te_unb_in_sample_rae": 0.19341123749197475,
+  "deploy_te_mean": 4.741523742675781,
+  "deploy_te_std": 0.7658969759941101,
+  "oof_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2513_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2513.npy",
+  "wall_sec": 0.22
+}

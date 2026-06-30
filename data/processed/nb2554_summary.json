@@ -1,0 +1,76 @@
+{
+  "tag": "nb2554",
+  "method": "hit-margin decomposition: LGBM clf P(hit) + 2 sigmoid-weighted LGBM reg heads on FULL 4139 (no partition), soft-blend, margin clip [2.5,7.5] linear extrapolation",
+  "hit_threshold": 5.5,
+  "sigmoid_sharpness": 10.0,
+  "margin_clip_low": 2.5,
+  "margin_clip_high": 7.5,
+  "seeds_bag": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "n_folds": 5,
+  "n_train": 4139,
+  "n_test": 513,
+  "n_unb": 253,
+  "hits_frac_train": 0.09180961584923894,
+  "hits_frac_unblind": 0.16600790513833993,
+  "sw_hit_sum_effective_n": 419.92608626088725,
+  "sw_nh_sum_effective_n": 3719.073913739113,
+  "feat_dim": 117,
+  "stage1_clf_auc_train_oof": 0.8085220033323532,
+  "stage1_clf_brier_train_oof": 0.10926966625298952,
+  "p_hit_te_mean": 0.3353670745363695,
+  "p_hit_te_std": 0.2897602484446519,
+  "p_hit_unb_mean": 0.31422665090408164,
+  "stage2a_te_mean": 5.609071574083992,
+  "stage2a_te_std": 0.14895213381613093,
+  "stage2b_te_mean": 4.592665855874811,
+  "stage2b_te_std": 0.4909562346090219,
+  "deploy_te_mean": 4.865681171417236,
+  "deploy_te_std": 0.6451640725135803,
+  "n_clip_below": 0,
+  "n_clip_above": 0,
+  "in_sample_unb_rae": 0.6664067589190985,
+  "per_seed_results": [
+    {
+      "kf_seed": 1001,
+      "pooled_rae": 0.6664067589190985
+    },
+    {
+      "kf_seed": 1002,
+      "pooled_rae": 0.6664067589190985
+    },
+    {
+      "kf_seed": 1003,
+      "pooled_rae": 0.6664067589190985
+    },
+    {
+      "kf_seed": 1004,
+      "pooled_rae": 0.6664067589190985
+    },
+    {
+      "kf_seed": 1005,
+      "pooled_rae": 0.6664067589190985
+    }
+  ],
+  "mean_rae": 0.6664067589190985,
+  "std_rae": 0.0,
+  "rae_of_mean_of_seed_oofs": 0.6664067589190985,
+  "gate_promote_threshold": 0.457,
+  "gate_marginal_threshold": 0.4601,
+  "verdict": "FAIL",
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2554_pred_oof.npy",
+  "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2554.npy",
+  "wall_sec": 26.0
+}

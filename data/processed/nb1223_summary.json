@@ -1,0 +1,85 @@
+{
+  "tag": "nb1223",
+  "anchor": "nb1211",
+  "anchor_file": "nb1211_mean_oof.npy",
+  "feature_source": "maccs_166_from_te_maccs_npy",
+  "n_unb": 253,
+  "resid_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "resid_folds": 5,
+  "feature_dim": 167,
+  "feature_zero_variance_bits": 40,
+  "lgbm_max_depth": 2,
+  "lgbm_num_leaves": 3,
+  "lgbm_n_estimators": 40,
+  "lgbm_learning_rate": 0.03,
+  "lgbm_min_child_samples": 30,
+  "lgbm_alpha_huber": 1.0,
+  "rae_anchor_nb1211": 0.5451012235404641,
+  "residual_mean": -0.01906164448251832,
+  "residual_std": 0.6230660447439242,
+  "residual_std_nb1070": 0.6666145784833671,
+  "residual_std_ratio_nb1211_over_nb1070": 0.9346720951730139,
+  "per_seed_rae": [
+    0.5620525449835166,
+    0.5629869447759533,
+    0.5626993152691298,
+    0.5569711781798904,
+    0.5600706036103963
+  ],
+  "per_seed_records": [
+    {
+      "seed": 0,
+      "rae_corrected": 0.5620525449835166,
+      "delta_vs_nb1211": 0.01695132144305256,
+      "resid_oof_std": 0.05407145247325649,
+      "resid_oof_mean": -0.0023293196717474353
+    },
+    {
+      "seed": 1,
+      "rae_corrected": 0.5629869447759533,
+      "delta_vs_nb1211": 0.01788572123548926,
+      "resid_oof_std": 0.05183638735916466,
+      "resid_oof_mean": -0.0002987762056268111
+    },
+    {
+      "seed": 7,
+      "rae_corrected": 0.5626993152691298,
+      "delta_vs_nb1211": 0.017598091728665666,
+      "resid_oof_std": 0.05435807888884331,
+      "resid_oof_mean": -0.0016042523218952511
+    },
+    {
+      "seed": 42,
+      "rae_corrected": 0.5569711781798904,
+      "delta_vs_nb1211": 0.011869954639426306,
+      "resid_oof_std": 0.04893909618617117,
+      "resid_oof_mean": -0.0028187320549837988
+    },
+    {
+      "seed": 137,
+      "rae_corrected": 0.5600706036103963,
+      "delta_vs_nb1211": 0.014969380069932203,
+      "resid_oof_std": 0.048020687388688525,
+      "resid_oof_mean": -0.0018661747682367546
+    }
+  ],
+  "rae_per_seed_mean": 0.5609561173637773,
+  "rae_per_seed_median": 0.5620525449835166,
+  "rae_per_seed_std": 0.0022373657433375663,
+  "rae_per_seed_min": 0.5569711781798904,
+  "rae_per_seed_max": 0.5629869447759533,
+  "rae_mean_bag": 0.559787966674697,
+  "delta_mean_bag_vs_nb1211": 0.014686743134232905,
+  "margin": 0.003,
+  "beats_nb1211": false,
+  "verdict": "RECURSIVE_RESIDUAL_NB1211_MACCS_HURTS_ANCHOR_OVERFITS_NOISE",
+  "nb1070_ref_pooled": 0.5771,
+  "nb1211_mean_ref": 0.5451,
+  "wall_sec": 0.21
+}

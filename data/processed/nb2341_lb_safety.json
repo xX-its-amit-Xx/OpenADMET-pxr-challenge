@@ -1,0 +1,130 @@
+{
+  "tag": "nb2341",
+  "purpose": "Phase-2 final 48h LB safety check; pick PRIMARY-1/2 + diversity panel",
+  "regime_constants": {
+    "pre_delta": 0.0045,
+    "post_band_lo": 0.42,
+    "post_band_hi": 0.62
+  },
+  "candidates": [
+    {
+      "tag": "nb2240",
+      "regime": "PRE-clean",
+      "anchors": [
+        "nb2240_K20",
+        "chemprop_aux",
+        "nb1191",
+        "nb503",
+        "nb562"
+      ],
+      "cross_fit_rae": 0.4598,
+      "seed_std": 0.00116,
+      "deploy_stretch_s": 1.011,
+      "max_anchor_weight": 0.8080849972303814,
+      "in_sample_rae": 0.4562,
+      "lb_pred_point": 0.4643,
+      "lb_pred_lo": 0.4593,
+      "lb_pred_hi": 0.4843,
+      "transfer_risk": "LOW",
+      "transfer_notes": "All 5 anchors trained on 4139 labels only (chemprop_aux + LGBM-MSE on K=20 RFE features). PRE-delta calibration n=4 holds; expected LB jitter +0.005 with +0.02 upside if scaffold variance is heavy-tailed."
+    },
+    {
+      "tag": "nb1162",
+      "regime": "POST-risk",
+      "anchors": [
+        "nb2103_K28",
+        "chemprop_aux",
+        "nb730_honest",
+        "nb503",
+        "nb562"
+      ],
+      "cross_fit_rae": 0.4206,
+      "single_seed_only": true,
+      "deploy_stretch_s": 1.0,
+      "max_anchor_weight": 0.8871,
+      "in_sample_rae": 0.4172,
+      "lb_pred_point": 0.5203,
+      "lb_pred_lo": 0.42,
+      "lb_pred_hi": 0.62,
+      "transfer_risk": "HIGH",
+      "transfer_notes": "nb730_honest holds 88.7% of deploy weight. nb730 lambda discount was tuned against the 253 unblind in its ensemble selector; honest LB transfer is unbounded. In-sample 0.4206 has +0.04-0.06 optimism vs cross-fit (cf. nb463/nb472). Worst-case LB ~0.62 if POST-leak compounds with novel-scaffold quantile compression."
+    },
+    {
+      "tag": "nb2330",
+      "regime": "PRE-clean",
+      "anchors": [
+        "nb2103_K28",
+        "chemprop_aux",
+        "K24_anchor",
+        "nb503",
+        "nb562"
+      ],
+      "cross_fit_rae": 0.4662,
+      "seed_std": 0.00116,
+      "deploy_stretch_s": 1.03,
+      "max_anchor_weight": 0.838,
+      "in_sample_rae": 0.4619,
+      "lb_pred_point": 0.4707,
+      "lb_pred_lo": 0.4657,
+      "lb_pred_hi": 0.4907,
+      "transfer_risk": "LOW",
+      "transfer_notes": "K24 anchor swap; PRE-clean. Pooled 0.4662 (+0.006 vs nb2240); useful as PRIMARY-2 LB safety floor."
+    }
+  ],
+  "recommendation": {
+    "primary_1": "nb2240",
+    "primary_1_rationale": "Lowest LB-band MID (0.4646) among PRE-clean candidates; transfer risk LOW; would beat current LB best 0.7655 by ~0.30 with very high confidence. nb1162 has the lower cross-fit (0.4206) but its 88.7% nb730 weight is a known POST-leak vector; +0.10 honest gap consistent with prior POST candidates puts its true LB band 0.52-0.62 -- still better than baseline but with HIGH variance, not appropriate for the FINAL of two slots.",
+    "primary_2": "nb2330",
+    "primary_2_rationale": "PRE-clean fallback at 0.4707 LB-point; uncorrelated K24 anchor; if nb2240 K20 RFE happens to overfit a single scaffold cluster, nb2330 covers the failure mode without sharing the K20 feature slice.",
+    "primary_3_speculative": "nb1162",
+    "primary_3_rationale": "Fire nb1162 ONCE on the cron as a high-variance lottery ticket: if POST-leak does NOT degrade transfer (counter-assay axis happened to generalize), LB could land 0.42-0.45. Single shot only -- do not rotate.",
+    "drop_for_final_48h": [
+      "nb730 (POST-leak chassis; superseded by nb1162 as exploratory shot)",
+      "nb503 / nb562 standalone (variance-compressed; nb2240 carries them)"
+    ]
+  },
+  "diversity_panel": [
+    {
+      "slot": 1,
+      "tag": "nb2240",
+      "regime": "PRE-clean",
+      "axis": "K20 RFE Mordred-pruned residual on chemprop_aux",
+      "lb_pred": 0.4646
+    },
+    {
+      "slot": 2,
+      "tag": "nb2330",
+      "regime": "PRE-clean",
+      "axis": "K24 anchor swap (orthogonal feature slice to K20)",
+      "lb_pred": 0.4707
+    },
+    {
+      "slot": 3,
+      "tag": "chemprop_aux",
+      "regime": "PRE-clean",
+      "axis": "Bare MPNN multi-task (no LGBM residual layer)",
+      "lb_pred": 0.6246
+    },
+    {
+      "slot": 4,
+      "tag": "nb1191",
+      "regime": "PRE-clean",
+      "axis": "Independent residual stack -- different feature family",
+      "lb_pred": 0.4693
+    },
+    {
+      "slot": 5,
+      "tag": "nb1162",
+      "regime": "POST-risk",
+      "axis": "nb730 counter-assay discount -- single shot lottery",
+      "lb_pred_band": [
+        0.42,
+        0.62
+      ]
+    }
+  ],
+  "current_lb_best": {
+    "score": 0.7655,
+    "n_teams": 262
+  }
+}

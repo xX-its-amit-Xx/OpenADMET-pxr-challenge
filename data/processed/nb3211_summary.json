@@ -1,0 +1,222 @@
+{
+  "tag": "nb3211",
+  "method": "inverse_rae_weighted_mean_of_3_clip_winners",
+  "components": [
+    "nb3190",
+    "nb3173",
+    "nb3174"
+  ],
+  "spec_rae": {
+    "nb3190": 0.4424,
+    "nb3173": 0.4422,
+    "nb3174": 0.4433
+  },
+  "weights": [
+    0.333509,
+    0.33366,
+    0.332832
+  ],
+  "weights_raw_inv_rae": [
+    2.260398,
+    2.26142,
+    2.255809
+  ],
+  "weights_sum": 1.0,
+  "component_live_oof_rae": {
+    "nb3190": 0.4422,
+    "nb3173": 0.4423,
+    "nb3174": 0.443
+  },
+  "component_oof_rae_mean": 0.4425,
+  "component_oof_rae_min": 0.4422,
+  "pairwise_corr": {
+    "nb3190_nb3173": 0.9996,
+    "nb3190_nb3174": 0.9992,
+    "nb3173_nb3174": 0.9989
+  },
+  "anchor_pre_unblind": true,
+  "ens_full_oof_rae": 0.4418,
+  "ens_leak_eq_truth_frac": 0.0,
+  "delta_vs_best_component": -0.0004,
+  "delta_vs_mean_components": -0.0007,
+  "n_folds": 5,
+  "kf_seeds": [
+    1216,
+    1217,
+    1218,
+    1219,
+    1220,
+    1221,
+    1222,
+    1223,
+    1224,
+    1225,
+    1226,
+    1227,
+    1228,
+    1229,
+    1230
+  ],
+  "n_seeds": 15,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "seed_records": [
+    {
+      "kf_seed": 1216,
+      "pooled_rae": 0.4418,
+      "per_fold_val_rae_mean": 0.4448,
+      "per_fold_val_rae_std": 0.059
+    },
+    {
+      "kf_seed": 1217,
+      "pooled_rae": 0.4418,
+      "per_fold_val_rae_mean": 0.4532,
+      "per_fold_val_rae_std": 0.0843
+    },
+    {
+      "kf_seed": 1218,
+      "pooled_rae": 0.4418,
+      "per_fold_val_rae_mean": 0.4493,
+      "per_fold_val_rae_std": 0.0405
+    },
+    {
+      "kf_seed": 1219,
+      "pooled_rae": 0.4418,
+      "per_fold_val_rae_mean": 0.4537,
+      "per_fold_val_rae_std": 0.0762
+    },
+    {
+      "kf_seed": 1220,
+      "pooled_rae": 0.4418,
+      "per_fold_val_rae_mean": 0.4471,
+      "per_fold_val_rae_std": 0.056
+    },
+    {
+      "kf_seed": 1221,
+      "pooled_rae": 0.4418,
+      "per_fold_val_rae_mean": 0.4489,
+      "per_fold_val_rae_std": 0.0556
+    },
+    {
+      "kf_seed": 1222,
+      "pooled_rae": 0.4418,
+      "per_fold_val_rae_mean": 0.4621,
+      "per_fold_val_rae_std": 0.08
+    },
+    {
+      "kf_seed": 1223,
+      "pooled_rae": 0.4418,
+      "per_fold_val_rae_mean": 0.4546,
+      "per_fold_val_rae_std": 0.0981
+    },
+    {
+      "kf_seed": 1224,
+      "pooled_rae": 0.4418,
+      "per_fold_val_rae_mean": 0.4583,
+      "per_fold_val_rae_std": 0.0981
+    },
+    {
+      "kf_seed": 1225,
+      "pooled_rae": 0.4418,
+      "per_fold_val_rae_mean": 0.4458,
+      "per_fold_val_rae_std": 0.044
+    },
+    {
+      "kf_seed": 1226,
+      "pooled_rae": 0.4418,
+      "per_fold_val_rae_mean": 0.4639,
+      "per_fold_val_rae_std": 0.0823
+    },
+    {
+      "kf_seed": 1227,
+      "pooled_rae": 0.4418,
+      "per_fold_val_rae_mean": 0.4543,
+      "per_fold_val_rae_std": 0.0769
+    },
+    {
+      "kf_seed": 1228,
+      "pooled_rae": 0.4418,
+      "per_fold_val_rae_mean": 0.4551,
+      "per_fold_val_rae_std": 0.0393
+    },
+    {
+      "kf_seed": 1229,
+      "pooled_rae": 0.4418,
+      "per_fold_val_rae_mean": 0.4527,
+      "per_fold_val_rae_std": 0.114
+    },
+    {
+      "kf_seed": 1230,
+      "pooled_rae": 0.4418,
+      "per_fold_val_rae_mean": 0.4465,
+      "per_fold_val_rae_std": 0.0583
+    }
+  ],
+  "pooled_rae_array": [
+    0.4418,
+    0.4418,
+    0.4418,
+    0.4418,
+    0.4418,
+    0.4418,
+    0.4418,
+    0.4418,
+    0.4418,
+    0.4418,
+    0.4418,
+    0.4418,
+    0.4418,
+    0.4418,
+    0.4418
+  ],
+  "per_fold_val_rae_means_array": [
+    0.4448,
+    0.4532,
+    0.4493,
+    0.4537,
+    0.4471,
+    0.4489,
+    0.4621,
+    0.4546,
+    0.4583,
+    0.4458,
+    0.4639,
+    0.4543,
+    0.4551,
+    0.4527,
+    0.4465
+  ],
+  "mean_rae": 0.4418,
+  "std_rae": 0.0,
+  "sem_rae": 0.0,
+  "ci95_low": 0.4418,
+  "ci95_high": 0.4418,
+  "median_rae": 0.4418,
+  "min_rae": 0.4418,
+  "max_rae": 0.4418,
+  "per_fold_mean_rae_mean": 0.4527,
+  "per_fold_mean_rae_std": 0.0058,
+  "ref_nb3190": 0.4424,
+  "ref_nb3173": 0.4422,
+  "ref_nb3174": 0.4433,
+  "ref_nb3204_equal_weight": 0.4418,
+  "shift_vs_nb3204_equal_weight": 0.0,
+  "ref_nb2171": 0.4682,
+  "shift_vs_nb3190": -0.0006,
+  "shift_vs_nb3173": -0.0004,
+  "shift_vs_nb3174": -0.0015,
+  "gain_vs_nb2171": 0.0264,
+  "te_mean": 4.729281425476074,
+  "te_std": 0.769310712814331,
+  "te_min": 3.0,
+  "te_max": 6.025214672088623,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb3211_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb3211.npy",
+  "submission_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb3211_weighted_ensemble.csv",
+  "gate_better": 0.4418,
+  "gate_marginal": 0.4426,
+  "verdict": "MARGINAL",
+  "ladder_action": "MARGINAL. nb3211 1/RAE-weighted ensemble 15-seed mean 0.4418 clears MARGINAL gate 0.4426 but not BETTER gate 0.4418. Inverse-RAE weighting tilts the ensemble toward the lowest-RAE component (nb3173) but the components correlate >0.999 so tilt magnitude is small. Hold as alternate; do not displace PRIMARY-1 without deep-30 confirmation.",
+  "wall_sec": 0.1
+}

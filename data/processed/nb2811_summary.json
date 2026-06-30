@@ -1,0 +1,257 @@
+{
+  "tag": "nb2811",
+  "method": "TabNet (Arik & Pfister 2019) via pytorch_tabnet.tab_model.TabNetRegressor; attention-based tabular DL with Sparsemax feature-mask selection at each of n_steps decision steps, lambda_sparse entropy penalty, fit on chemprop_aux residual over first-K=20 cols of X_117.",
+  "paradigm": "sparse_attention_tabular_dl_tabnet_arik_pfister_2019_sequential_feature_mask_selection_via_sparsemax",
+  "anchor_name": "chemprop_aux (PRE-unblind, verified clean)",
+  "rae_anchor_unb": 0.6215728863514471,
+  "tn_n_d": 32,
+  "tn_n_a": 32,
+  "tn_n_steps": 3,
+  "tn_gamma": 1.3,
+  "tn_lambda_sparse": 0.001,
+  "tn_lr": 0.01,
+  "tn_max_epochs": 100,
+  "tn_batch_size": 32,
+  "tn_patience": 10,
+  "tn_seed": 42,
+  "n_folds": 5,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "feat_dim": 20,
+  "k_slice_first_n_of_117": 20,
+  "per_seed": [
+    {
+      "kf_seed": 1001,
+      "pooled_rae": 0.6008311043293864,
+      "folds": [
+        {
+          "fold": 0,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.1367607865409524,
+          "resid_pred_std": 0.12640734698892597
+        },
+        {
+          "fold": 1,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.08616884293801644,
+          "resid_pred_std": 0.21772519546743493
+        },
+        {
+          "fold": 2,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.06406616956433829,
+          "resid_pred_std": 0.17895130041076665
+        },
+        {
+          "fold": 3,
+          "n_tr": 203,
+          "n_va": 50,
+          "resid_pred_mean": -0.2419487512856722,
+          "resid_pred_std": 0.28802867138654675
+        },
+        {
+          "fold": 4,
+          "n_tr": 203,
+          "n_va": 50,
+          "resid_pred_mean": -0.23557427667081357,
+          "resid_pred_std": 0.46029258440531307
+        }
+      ],
+      "wall_sec": 13.54
+    },
+    {
+      "kf_seed": 1002,
+      "pooled_rae": 0.6410214095408623,
+      "folds": [
+        {
+          "fold": 0,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.07842774433540363,
+          "resid_pred_std": 0.49752501724627834
+        },
+        {
+          "fold": 1,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.12909569635110743,
+          "resid_pred_std": 0.09151316306225762
+        },
+        {
+          "fold": 2,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.0010354046289827309,
+          "resid_pred_std": 0.267508935070221
+        },
+        {
+          "fold": 3,
+          "n_tr": 203,
+          "n_va": 50,
+          "resid_pred_mean": -0.12005890294909477,
+          "resid_pred_std": 0.21873290907739715
+        },
+        {
+          "fold": 4,
+          "n_tr": 203,
+          "n_va": 50,
+          "resid_pred_mean": -0.1165022161975503,
+          "resid_pred_std": 0.2113558797543356
+        }
+      ],
+      "wall_sec": 8.0
+    },
+    {
+      "kf_seed": 1003,
+      "pooled_rae": 0.6438689757877231,
+      "folds": [
+        {
+          "fold": 0,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.07151191743711631,
+          "resid_pred_std": 0.18485222151663094
+        },
+        {
+          "fold": 1,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.21786492303305982,
+          "resid_pred_std": 0.24063486635024905
+        },
+        {
+          "fold": 2,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.31099786525409595,
+          "resid_pred_std": 0.32699114100922366
+        },
+        {
+          "fold": 3,
+          "n_tr": 203,
+          "n_va": 50,
+          "resid_pred_mean": -0.08641653917729855,
+          "resid_pred_std": 0.25493518494033224
+        },
+        {
+          "fold": 4,
+          "n_tr": 203,
+          "n_va": 50,
+          "resid_pred_mean": 0.0042406850680708884,
+          "resid_pred_std": 0.09802532018521343
+        }
+      ],
+      "wall_sec": 9.6
+    },
+    {
+      "kf_seed": 1004,
+      "pooled_rae": 0.6435611765304974,
+      "folds": [
+        {
+          "fold": 0,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.15399585415919623,
+          "resid_pred_std": 0.2617297012526527
+        },
+        {
+          "fold": 1,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.0023547065097327324,
+          "resid_pred_std": 0.18957380831279133
+        },
+        {
+          "fold": 2,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.21919534998197182,
+          "resid_pred_std": 0.3676413669531491
+        },
+        {
+          "fold": 3,
+          "n_tr": 203,
+          "n_va": 50,
+          "resid_pred_mean": -0.06656516753137112,
+          "resid_pred_std": 0.29045818698390186
+        },
+        {
+          "fold": 4,
+          "n_tr": 203,
+          "n_va": 50,
+          "resid_pred_mean": -0.06321761639788746,
+          "resid_pred_std": 0.2694920536999711
+        }
+      ],
+      "wall_sec": 12.33
+    },
+    {
+      "kf_seed": 1005,
+      "pooled_rae": 0.6102274940253759,
+      "folds": [
+        {
+          "fold": 0,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.1350546210419898,
+          "resid_pred_std": 0.1937235458729512
+        },
+        {
+          "fold": 1,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.004886201162840806,
+          "resid_pred_std": 0.16755130074885313
+        },
+        {
+          "fold": 2,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.11360889764539167,
+          "resid_pred_std": 0.20839477339151688
+        },
+        {
+          "fold": 3,
+          "n_tr": 203,
+          "n_va": 50,
+          "resid_pred_mean": -0.10958174504339695,
+          "resid_pred_std": 0.4439029468413008
+        },
+        {
+          "fold": 4,
+          "n_tr": 203,
+          "n_va": 50,
+          "resid_pred_mean": 0.06555859312415123,
+          "resid_pred_std": 0.2593178616289303
+        }
+      ],
+      "wall_sec": 9.82
+    }
+  ],
+  "mean_rae": 0.627902032042769,
+  "pooled_rae_std_seeds": 0.018533723781102494,
+  "rae_of_mean_of_seed_oofs": 0.5928969092286367,
+  "delta_vs_anchor": 0.006329145691321814,
+  "te_unb_rae_in_sample": 0.4789918828435533,
+  "te_deploy_mean": 4.783987998962402,
+  "te_deploy_std": 0.728084146976471,
+  "gate_promote_threshold": 0.457,
+  "gate_marginal_threshold": 0.4598,
+  "verdict": "FAIL",
+  "promote": false,
+  "marginal_beat": false,
+  "oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2811_pred_oof.npy",
+  "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2811.npy",
+  "wall_sec": 57.98
+}

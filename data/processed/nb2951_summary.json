@@ -1,0 +1,83 @@
+{
+  "tag": "nb2951",
+  "method": "uscale96_aug_substrate_blend_nb2240K20_equalK",
+  "paradigm": "uscale_aug_substrate_change_then_2way_scalar_blend",
+  "anchors_post_aug": {
+    "nb2240_K20_aug": "K=20 LGBM trained on 4139+96 uscale + heldin unblind",
+    "equal_K_aug": "mean(K18_aug, K24_aug, K28_aug), each retrained on aug data"
+  },
+  "blend_weights": {
+    "w_nb2240_K20_aug": 0.5,
+    "w_equal_K_aug": 0.5
+  },
+  "blend_source": "nb2943 best combo (0.5 / 0.5)",
+  "n_train_orig": 4139,
+  "n_uscale_kept": 88,
+  "n_combo": 4227,
+  "n_test": 513,
+  "n_unb": 253,
+  "n_unique_unb_scaffolds": 180,
+  "lgbm_params": {
+    "objective": "regression",
+    "max_depth": 4,
+    "num_leaves": 15,
+    "n_estimators": 300,
+    "learning_rate": 0.03,
+    "min_child_samples": 5,
+    "reg_lambda": 2.0,
+    "n_jobs": 2,
+    "verbosity": -1
+  },
+  "seeds_lgbm": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "kf_seed": 1001,
+  "n_folds": 5,
+  "K_list": [
+    18,
+    20,
+    24,
+    28
+  ],
+  "per_K_oof_rae_unb": {
+    "18": 0.6001977514333255,
+    "20": 0.6053660824629163,
+    "24": 0.6053660824629163,
+    "28": 0.6069338668155104
+  },
+  "equal_K_oof_rae": 0.5957555282607536,
+  "blend_pooled_rae": 0.5996261153328031,
+  "mean_rae": 0.5996261153328031,
+  "blend_per_fold_rae": [
+    0.6336600316967729,
+    0.6163571397098933,
+    0.57355866348948,
+    0.5946160112004011,
+    0.5942813322256619
+  ],
+  "blend_fold_mean": 0.6024946356644418,
+  "blend_fold_std": 0.020641087620545635,
+  "te_mean": 4.711505895261692,
+  "te_std": 0.7578021143383723,
+  "te_unb_in_sample_rae": 0.43891444337308755,
+  "gate_promote": 0.457,
+  "gate_better_nb2943": 0.4576,
+  "verdict": "FAIL",
+  "delta_vs_nb2943": 0.14202611533280307,
+  "delta_vs_nb2171": 0.13142611533280307,
+  "delta_vs_nb2480_fail": -0.018773884667196872,
+  "nb2943_ref": 0.4576,
+  "nb2934_ref": 0.458,
+  "nb2171_ref": 0.4682,
+  "nb2480_fail_ref": 0.6184,
+  "chemprop_aux_ref": 0.6216,
+  "embed_train_was_zero": false,
+  "anchor_feature_used": "chemprop_aux_513_for_test;train_mean_for_combo",
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2951_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2951.npy",
+  "wall_sec": 48.07
+}

@@ -1,0 +1,90 @@
+{
+  "tag": "nb3012",
+  "method": "per_fold_slsqp_K15_K18_K19_deep30",
+  "paradigm": "small_K_probe_per_fold_simplex_no_post_hoc",
+  "anchor_spec": [
+    "K15_nb2261",
+    "K18_nb2604",
+    "K19_nb3000"
+  ],
+  "anchor_pool": [
+    "K15_nb2261",
+    "K18_nb2604",
+    "K19_nb3000"
+  ],
+  "anchor_provenance": {
+    "K15_nb2261": "PRE-clean K=15 SHAP-ranked LGBM residual mean-bag on chemprop_aux",
+    "K18_nb2604": "PRE-clean K=18 LGBM residual mean-bag on chemprop_aux (cycle-160 canon)",
+    "K19_nb3000": "PRE-clean K=19 LGBM residual deep-30 seed bag on chemprop_aux"
+  },
+  "anchor_in_rae": {
+    "K15_nb2261": 0.48202511951957916,
+    "K18_nb2604": 0.4618957917529802,
+    "K19_nb3000": 0.4606831513488098
+  },
+  "anchor_pre_unblind": true,
+  "truth_std": 1.0320053675542649,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "K_anchors": 3,
+  "n_folds": 5,
+  "kf_seed": 1001,
+  "n_starts_slsqp": 8,
+  "fold_weights": [
+    [
+      1.1892849824866194e-17,
+      0.6573358071113855,
+      0.3426641928886145
+    ],
+    [
+      9.41780391799519e-19,
+      0.5961196200300758,
+      0.4038803799699242
+    ],
+    [
+      1.1180938413231968e-17,
+      0.49463832532205376,
+      0.5053616746779461
+    ],
+    [
+      1.6736105322684558e-17,
+      0.38137899251652346,
+      0.6186210074834765
+    ],
+    [
+      1.806748564056821e-18,
+      0.5961213645470895,
+      0.4038786354529105
+    ]
+  ],
+  "fold_train_rae": [
+    0.4581719969157271,
+    0.44653183465837876,
+    0.4415391144629275,
+    0.45473551373105375,
+    0.46009479638916817
+  ],
+  "mean_fold_weights": {
+    "K15_nb2261": 8.511684503327811e-18,
+    "K18_nb2604": 0.5451188219054256,
+    "K19_nb3000": 0.45488117809457435
+  },
+  "mean_rae": 0.45498944844488076,
+  "pooled_rae": 0.45498944844488076,
+  "gate_better": 0.4511,
+  "verdict": "FAIL",
+  "deploy_weights": {
+    "K15_nb2261": 1.6578102089348815e-20,
+    "K18_nb2604": 0.5961213643552825,
+    "K19_nb3000": 0.40387863564471754
+  },
+  "deploy_in_sample_rae": 0.4525160979667502,
+  "te_unb_in_sample_rae": 0.12912629607439408,
+  "te_mean": 4.709254741668701,
+  "te_std": 0.8408783078193665,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb3012_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb3012.npy",
+  "submission_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb3012_K15_K18_K19.csv",
+  "wall_sec": 0.44
+}

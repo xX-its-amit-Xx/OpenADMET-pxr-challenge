@@ -1,0 +1,14 @@
+{
+  "novel_frac": 0.78,
+  "kb_size": 17849,
+  "corr_error": {
+    "sc_pactive": -0.156,
+    "P_broad": -0.166,
+    "substruct": -0.081
+  },
+  "rae": {
+    "baseline": 0.5977,
+    "sc_stack": 0.5799,
+    "broad_stack": 0.5807
+  }
+}

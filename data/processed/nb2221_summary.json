@@ -1,0 +1,112 @@
+{
+  "tag": "nb2221",
+  "method": "lgbm_mse_combined_2265_on_pec50_null_then_K28_plus1_LGBM_bag_plus_shrink",
+  "cycle_hypothesis": "Cycle 170 nb2152 failure was Ridge predictor, not axis. LGBM(MSE) on combined 2265 should beat 0.94 RAE (nb1240 memo: ~0.4350).",
+  "n_dual": 2646,
+  "n_unb": 253,
+  "n_te": 513,
+  "kf_seed_counter": 1001,
+  "counter_oof_rae_lgbm": 0.9594498336670806,
+  "counter_oof_pearson": 0.27784726606831217,
+  "counter_oof_rae_ridge_nb2152": 0.944,
+  "counter_oof_rae_delta_vs_ridge": 0.015449833667080637,
+  "null_hat_unb_mean": 3.0922842025756836,
+  "null_hat_unb_std": 0.46914079785346985,
+  "null_hat_te_mean": 3.0495877265930176,
+  "null_hat_te_std": 0.44246384501457214,
+  "chemprop_aux_te_unb_in_rae": 0.6215728863514471,
+  "K28_per_seed_rae": [
+    0.4932399127303269,
+    0.5092356523639533,
+    0.4886371260037302,
+    0.4998304296760553,
+    0.48110681218891027
+  ],
+  "K28_mean_bag_rae": 0.4736869992362601,
+  "K28_median_bag_rae": 0.4697789387514748,
+  "K29_per_seed_rae": [
+    0.5028297109521863,
+    0.5063235488284417,
+    0.4942022418488085,
+    0.5127134285129867,
+    0.48261390378151525
+  ],
+  "K29_mean_bag_rae": 0.47641436662502484,
+  "K29_median_bag_rae": 0.4774984891209436,
+  "delta_K29_minus_K28_mean_bag": 0.002727367388764723,
+  "delta_K29_minus_K28_median_bag": 0.007719550369468808,
+  "delta_K29_vs_nb2095_baseline": 0.004414366625024868,
+  "delta_K29_vs_nb2171_ceiling": 0.008214366625024838,
+  "nb2095_baseline_oof": 0.472,
+  "nb2103_K28_mean_bag_ref": 0.4737,
+  "nb2103_K28_median_bag_ref": 0.4698,
+  "nb2171_ceiling_oof": 0.4682,
+  "decision_margin": 0.003,
+  "gate_beats_K28": false,
+  "gate_beats_nb2095": false,
+  "gate_beats_nb2171": false,
+  "gate_overall": false,
+  "shrink_lambdas": [
+    0.0,
+    0.025,
+    0.05,
+    0.1,
+    0.15,
+    0.2
+  ],
+  "shrink_results": [
+    {
+      "lambda": 0.0,
+      "rae": 0.47641436662502484,
+      "delta_vs_base": 0.0,
+      "mean_shrink_factor": 1.0,
+      "std_shrink_factor": 0.0
+    },
+    {
+      "lambda": 0.025,
+      "rae": 0.47694868856368466,
+      "delta_vs_base": 0.0005343219386598208,
+      "mean_shrink_factor": 1.000022292137146,
+      "std_shrink_factor": 0.024930378422141075
+    },
+    {
+      "lambda": 0.05,
+      "rae": 0.477962606689808,
+      "delta_vs_base": 0.0015482400647831573,
+      "mean_shrink_factor": 1.0000447034835815,
+      "std_shrink_factor": 0.04986076429486275
+    },
+    {
+      "lambda": 0.1,
+      "rae": 0.4811982751410332,
+      "delta_vs_base": 0.0047839085160083505,
+      "mean_shrink_factor": 1.0000892877578735,
+      "std_shrink_factor": 0.0997215211391449
+    },
+    {
+      "lambda": 0.15,
+      "rae": 0.4883649567704445,
+      "delta_vs_base": 0.01195059014541966,
+      "mean_shrink_factor": 1.0001341104507446,
+      "std_shrink_factor": 0.14958228170871735
+    },
+    {
+      "lambda": 0.2,
+      "rae": 0.5014159767720752,
+      "delta_vs_base": 0.025001610147050324,
+      "mean_shrink_factor": 1.0001786947250366,
+      "std_shrink_factor": 0.1994430422782898
+    }
+  ],
+  "shrink_best_lambda": 0.0,
+  "shrink_best_rae": 0.47641436662502484,
+  "shrink_best_delta_vs_base": 0.0,
+  "shrink_helps_gate": false,
+  "diagnostics_pearson_null_vs_y": 0.03290430080452207,
+  "diagnostics_pearson_null_vs_anchor": 0.025262989368979846,
+  "diagnostics_pearson_null_vs_resid": 0.025624069320164613,
+  "null_hat_unb_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2221_null_hat_lgbm_unb.npy",
+  "null_hat_te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2221_null_hat_lgbm_te.npy",
+  "K28_plus1_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2221_K28_plus1_lgbm_oof.npy",
+  "wall_sec": 50.73
+}

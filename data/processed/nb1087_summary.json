@@ -1,0 +1,393 @@
+{
+  "tag": "nb1087",
+  "method": "random_gaussian_projection_lgbm_bag_K28_K14_K7_K28",
+  "anchor": "chemprop_aux",
+  "anchor_kind": "PRE_unblind_te_slice_to_unb_idx",
+  "anchor_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+  "data_source": "nb2103 top-28 SHAP indices on 117-col 5-way K-tuned matrix (AtomPair/MACCS/Mordred/ChempropEmbed/Avalon + ChEMBL kNN); standardized z-score on 253 unblind",
+  "modes": [
+    {
+      "mode": "a",
+      "K_in": 28,
+      "K_out": 14,
+      "label": "K28_to_K14"
+    },
+    {
+      "mode": "b",
+      "K_in": 14,
+      "K_out": 7,
+      "label": "K14_to_K7"
+    },
+    {
+      "mode": "c",
+      "K_in": 14,
+      "K_out": 28,
+      "label": "K14_to_K28"
+    }
+  ],
+  "model_family": "LightGBM",
+  "lgbm_objective": "regression",
+  "lgbm_max_depth": 4,
+  "lgbm_num_leaves": 15,
+  "lgbm_n_estimators": 300,
+  "lgbm_learning_rate": 0.03,
+  "lgbm_min_child_samples": 5,
+  "lgbm_reg_lambda": 2.0,
+  "proj_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "inner_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "resid_folds": 5,
+  "top_k_shap": 28,
+  "top28_idx_in_117_from_nb2103": [
+    45,
+    67,
+    48,
+    0,
+    66,
+    68,
+    65,
+    92,
+    50,
+    27,
+    77,
+    47,
+    63,
+    81,
+    56,
+    1,
+    52,
+    7,
+    53,
+    115,
+    93,
+    46,
+    80,
+    11,
+    70,
+    54,
+    8,
+    57
+  ],
+  "feat_dim_full": 117,
+  "anchor_K28_to_K14_proj_seed": 12345,
+  "n_unb": 253,
+  "n_test": 513,
+  "n_chembl_pool": 945,
+  "rae_anchor_chemprop_aux": 0.6215728863514471,
+  "residual_mean": -0.1325965261753001,
+  "residual_std": 0.6999145683913596,
+  "nb2103_K28_mean_bag_ref": 0.4736869992362601,
+  "nb2103_K28_median_bag_ref": 0.4697789387514748,
+  "per_mode_records": [
+    {
+      "mode": "a",
+      "label": "K28_to_K14",
+      "K_in": 28,
+      "K_out": 14,
+      "per_proj_records": [
+        {
+          "proj_seed": 0,
+          "per_inner_rae": [
+            0.5908965070226511,
+            0.6147880145778364,
+            0.6028711564217692,
+            0.5816194771470686,
+            0.5840970098174603
+          ],
+          "per_inner_rae_mean": 0.5948544329973572,
+          "per_inner_rae_std": 0.01239489343996842,
+          "rae_inner_mean_bag": 0.5710331255205675,
+          "wall_sec": 1.1
+        },
+        {
+          "proj_seed": 1,
+          "per_inner_rae": [
+            0.5745590938739832,
+            0.5515852975358063,
+            0.5742036783598556,
+            0.5567391221537917,
+            0.5694274668275495
+          ],
+          "per_inner_rae_mean": 0.5653029317501973,
+          "per_inner_rae_std": 0.009417260114478946,
+          "rae_inner_mean_bag": 0.5394083128834626,
+          "wall_sec": 1.11
+        },
+        {
+          "proj_seed": 7,
+          "per_inner_rae": [
+            0.5852481309574031,
+            0.6165299144009366,
+            0.5953604168754096,
+            0.5940469592755887,
+            0.5930060763427206
+          ],
+          "per_inner_rae_mean": 0.5968382995704118,
+          "per_inner_rae_std": 0.010457087126731443,
+          "rae_inner_mean_bag": 0.5713196405425622,
+          "wall_sec": 1.14
+        },
+        {
+          "proj_seed": 42,
+          "per_inner_rae": [
+            0.5742485714632763,
+            0.5798462653416979,
+            0.5732190833967638,
+            0.573078532594475,
+            0.5672820439974916
+          ],
+          "per_inner_rae_mean": 0.5735348993587409,
+          "per_inner_rae_std": 0.003993717039493139,
+          "rae_inner_mean_bag": 0.550123288435966,
+          "wall_sec": 1.05
+        },
+        {
+          "proj_seed": 137,
+          "per_inner_rae": [
+            0.6224049395345472,
+            0.6113007773386527,
+            0.6172190560090971,
+            0.602433398765359,
+            0.5806124741103069
+          ],
+          "per_inner_rae_mean": 0.6067941291515926,
+          "per_inner_rae_std": 0.014677747844142278,
+          "rae_inner_mean_bag": 0.5859167409921014,
+          "wall_sec": 1.11
+        }
+      ],
+      "per_proj_rae_inner_mean_bag": [
+        0.5710331255205675,
+        0.5394083128834626,
+        0.5713196405425622,
+        0.550123288435966,
+        0.5859167409921014
+      ],
+      "rae_mean_bag": 0.5218651619025381,
+      "rae_median_bag": 0.5195213162604819,
+      "delta_vs_nb2103_K28_mean": 0.048178162666277946,
+      "delta_vs_nb2103_K28_median": 0.05208622315106326,
+      "beats_nb2103_K28_mean": false,
+      "beats_nb2103_K28_median": false,
+      "flat_vs_nb2103_K28_mean": false,
+      "verdict": "WORSE_THAN_NB2103_K28",
+      "oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb1087_mean_bag_oof_mode_a.npy"
+    },
+    {
+      "mode": "b",
+      "label": "K14_to_K7",
+      "K_in": 14,
+      "K_out": 7,
+      "per_proj_records": [
+        {
+          "proj_seed": 0,
+          "per_inner_rae": [
+            0.6374968167109416,
+            0.6292586369739839,
+            0.615808596532207,
+            0.6800738104396156,
+            0.6317665733909327
+          ],
+          "per_inner_rae_mean": 0.6388808868095361,
+          "per_inner_rae_std": 0.021791302545688375,
+          "rae_inner_mean_bag": 0.6147065906792392,
+          "wall_sec": 0.84
+        },
+        {
+          "proj_seed": 1,
+          "per_inner_rae": [
+            0.6668193471514412,
+            0.6482815130913384,
+            0.6726409350988424,
+            0.672065460258993,
+            0.6562249614606479
+          ],
+          "per_inner_rae_mean": 0.6632064434122527,
+          "per_inner_rae_std": 0.009508307121970046,
+          "rae_inner_mean_bag": 0.6425958271101943,
+          "wall_sec": 0.83
+        },
+        {
+          "proj_seed": 7,
+          "per_inner_rae": [
+            0.7154110987498996,
+            0.7000074020433923,
+            0.7240172863986338,
+            0.7027863475640082,
+            0.7076804969505293
+          ],
+          "per_inner_rae_mean": 0.7099805263412927,
+          "per_inner_rae_std": 0.008752500229440371,
+          "rae_inner_mean_bag": 0.6767650773933808,
+          "wall_sec": 0.85
+        },
+        {
+          "proj_seed": 42,
+          "per_inner_rae": [
+            0.6193361053102225,
+            0.6411800184654431,
+            0.6694725421934363,
+            0.6352238747887052,
+            0.6480649791648164
+          ],
+          "per_inner_rae_mean": 0.6426555039845248,
+          "per_inner_rae_std": 0.01642934255882833,
+          "rae_inner_mean_bag": 0.6160572860342154,
+          "wall_sec": 0.85
+        },
+        {
+          "proj_seed": 137,
+          "per_inner_rae": [
+            0.6055593831048665,
+            0.6335539883778945,
+            0.6152545667269428,
+            0.5903331331887339,
+            0.5984254110992339
+          ],
+          "per_inner_rae_mean": 0.6086252964995343,
+          "per_inner_rae_std": 0.014922651428121483,
+          "rae_inner_mean_bag": 0.5815705740917727,
+          "wall_sec": 0.92
+        }
+      ],
+      "per_proj_rae_inner_mean_bag": [
+        0.6147065906792392,
+        0.6425958271101943,
+        0.6767650773933808,
+        0.6160572860342154,
+        0.5815705740917727
+      ],
+      "rae_mean_bag": 0.5735903644498754,
+      "rae_median_bag": 0.5698388934750209,
+      "delta_vs_nb2103_K28_mean": 0.09990336521361531,
+      "delta_vs_nb2103_K28_median": 0.10381142569840063,
+      "beats_nb2103_K28_mean": false,
+      "beats_nb2103_K28_median": false,
+      "flat_vs_nb2103_K28_mean": false,
+      "verdict": "WORSE_THAN_NB2103_K28",
+      "oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb1087_mean_bag_oof_mode_b.npy"
+    },
+    {
+      "mode": "c",
+      "label": "K14_to_K28",
+      "K_in": 14,
+      "K_out": 28,
+      "per_proj_records": [
+        {
+          "proj_seed": 0,
+          "per_inner_rae": [
+            0.5812866018285424,
+            0.6177178878910976,
+            0.582802773955619,
+            0.602971676813274,
+            0.5848529655822889
+          ],
+          "per_inner_rae_mean": 0.5939263812141644,
+          "per_inner_rae_std": 0.014238530085806963,
+          "rae_inner_mean_bag": 0.5772764271325546,
+          "wall_sec": 1.49
+        },
+        {
+          "proj_seed": 1,
+          "per_inner_rae": [
+            0.591869294972879,
+            0.5976379572953595,
+            0.5921174333711823,
+            0.5753826743273209,
+            0.5769173407851468
+          ],
+          "per_inner_rae_mean": 0.5867849401503777,
+          "per_inner_rae_std": 0.008938180040619479,
+          "rae_inner_mean_bag": 0.5665926273109767,
+          "wall_sec": 1.49
+        },
+        {
+          "proj_seed": 7,
+          "per_inner_rae": [
+            0.5439459438798785,
+            0.5778372129493216,
+            0.5892768868749448,
+            0.5166497446377196,
+            0.544814610314815
+          ],
+          "per_inner_rae_mean": 0.554504879731336,
+          "per_inner_rae_std": 0.026045705806624627,
+          "rae_inner_mean_bag": 0.535383555846816,
+          "wall_sec": 1.34
+        },
+        {
+          "proj_seed": 42,
+          "per_inner_rae": [
+            0.5871053332673866,
+            0.6012708741786805,
+            0.6116609046510902,
+            0.5989607490134132,
+            0.5861844972329892
+          ],
+          "per_inner_rae_mean": 0.597036471668712,
+          "per_inner_rae_std": 0.009506838665631111,
+          "rae_inner_mean_bag": 0.5742125011545449,
+          "wall_sec": 1.35
+        },
+        {
+          "proj_seed": 137,
+          "per_inner_rae": [
+            0.6040021702971442,
+            0.6000367789500891,
+            0.6116129745979514,
+            0.6175092794614537,
+            0.5762713453345649
+          ],
+          "per_inner_rae_mean": 0.6018865097282406,
+          "per_inner_rae_std": 0.014161279769203087,
+          "rae_inner_mean_bag": 0.581781787110996,
+          "wall_sec": 1.43
+        }
+      ],
+      "per_proj_rae_inner_mean_bag": [
+        0.5772764271325546,
+        0.5665926273109767,
+        0.535383555846816,
+        0.5742125011545449,
+        0.581781787110996
+      ],
+      "rae_mean_bag": 0.5393095682194625,
+      "rae_median_bag": 0.5421605033025997,
+      "delta_vs_nb2103_K28_mean": 0.0656225689832024,
+      "delta_vs_nb2103_K28_median": 0.06953062946798771,
+      "beats_nb2103_K28_mean": false,
+      "beats_nb2103_K28_median": false,
+      "flat_vs_nb2103_K28_mean": false,
+      "verdict": "WORSE_THAN_NB2103_K28",
+      "oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb1087_mean_bag_oof_mode_c.npy"
+    }
+  ],
+  "best_mode": "a",
+  "best_mode_label": "K28_to_K14",
+  "best_mode_rae_mean_bag": 0.5218651619025381,
+  "best_mode_rae_median_bag": 0.5195213162604819,
+  "best_mode_delta_vs_nb2103_K28_mean": 0.048178162666277946,
+  "best_mode_delta_vs_nb2103_K28_median": 0.05208622315106326,
+  "beats_nb2103_K28_median_at_margin": false,
+  "deploy_csv": null,
+  "deploy_te_path": null,
+  "deploy_in_RAE_unb": null,
+  "verdict": "RANDOM_PROJECTION_DOES_NOT_BEAT_NB2103_K28",
+  "chemprop_aux_ref": 0.6216,
+  "nb2103_K28_mean_bag_anchor": 0.4737,
+  "nb2103_K28_median_bag_anchor": 0.4698,
+  "decision_margin": 0.003,
+  "pre_unblind_clean": true,
+  "wall_sec": 20.7
+}

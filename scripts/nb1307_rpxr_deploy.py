@@ -1,0 +1,185 @@
+"""nb1307 deploy — Add rat rPXR ortholog as 5th GNN ensemble member.
+Gate WIN: delta=-0.00177 (2/3 seeds neg), treat=0.4213 < best=0.4231 (nb1306_rpxr_gate).
+Coverage-neg (median Tanimoto 0.203) but aux-head mechanism still lifted like sisterNR/octant.
+
+Trains 4-head GNN on FULL 4139+435+959+4295+402 (rat rPXR as 5th head) -> 513 test predictions.
+Ensemble: 4-GBM(combined+AIMNet2+strain+D4+DBSTEP+OrbMol) + sisterNR + CheMeleon + TabPFN + rat_rPXR.
+Resumable: caches te_rpxr_seed*.npy.
+"""
+import os, sys, json
+import numpy as np, pandas as pd
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__))))
+from nb1126_combinatorial_search import feature_matrix, CACHE, make_model
+from nb1163_external_multitask_head import train_predict
+from src.pxr.data import load_train, load_test
+from sklearn.preprocessing import StandardScaler
+from rdkit import RDLogger; RDLogger.DisableLog("rdApp.*")
+
+P  = "data/processed"; SD = "C:/pxr_work/search"; MTL = "C:/pxr_work/mtl"
+LOG = f"{SD}/results.jsonl"
+EXT = "C:/pxr_work/cpi2m/ext_ec50_aux.csv"
+OC  = "C:/pxr_work/octant_htchem/octant_novel_curated.csv"
+SN  = "C:/pxr_work/sisterNR/sisterNR_aux.csv"
+RAT = "C:/pxr_work/orthologs/rat_pxr_novel.csv"
+
+AIM   = "C:/pxr_work/aimnet2/aimnet_features.csv"
+ACOLS = ["aimnet_energy","aimnet_qmin","aimnet_qmax","aimnet_qabs_mean","aimnet_qstd",
+         "aimnet_qsum_abs","aimnet_dipole","aimnet_fmax","aimnet_frms"]
+STR   = "C:/pxr_work/strain/strain_features.csv"
+SCOLS = ["strain_relax_mean","strain_relax_max","conf_espread","conf_erange","conf_n",
+         "rmsd_mean","rmsd_max","e_per_heavy"]
+D4    = "C:/pxr_work/d4/d4_features.csv"
+DCOLS = ["d4_alpha_sum","d4_alpha_mean","d4_alpha_std","d4_alpha_max","d4_c6diag_mean",
+         "d4_c6diag_std","d4_c6_total","d4_edisp","d4_edisp_per_atom","d4_cn_mean",
+         "d4_cn_max","d4_qeeq_min","d4_qeeq_max","d4_qeeq_std","d4_qeeq_absum"]
+DB    = "C:/pxr_work/dbstep/dbstep_features.csv"
+DBCOLS= ["vbur_r25","vbur_r35","vbur_r45","vbur_r55","vbur_r65","ster_L","ster_Bmin",
+         "ster_Bmax","ster_aniso","npr1","npr2","asphericity","spherocity","eccentricity",
+         "radgyr","inertial_sf"]
+ORB   = "C:/pxr_work/orbmol/orbmol_features.csv"
+ORBCOLS = ["orb_energy","orb_energy_per_ha","orb_fmax","orb_frms","orb_fstd",
+           "orb_conf_mean","orb_conf_std","orb_conf_node_mean","orb_conf_node_std",
+           "orb_conf_node_min","orb_node_emb_mean","orb_node_emb_std","orb_node_emb_norm"]
+N_SEEDS = 3
+EPOCHS = int(os.environ.get("MTL_EPOCHS", "30"))
+
+
+def topK_configs():
+    recs = [json.loads(l) for l in open(LOG) if l.strip()]
+    valid = [r for r in recs if "ps_rae" in r and "error" not in r
+             and r["arch"] in ("lgbm","xgb","cat","histgb")]
+    valid.sort(key=lambda r: r["ps_rae"]); bp = {}
+    for r in valid: bp.setdefault(r["arch"], r)
+    return list(bp.values())
+
+
+def block(df, names, cols):
+    df = df.drop_duplicates(subset="name", keep="first")
+    sub = df.set_index("name").reindex(names)
+    X = sub[cols].apply(pd.to_numeric, errors="coerce").to_numpy(float)
+    med = np.nanmedian(X, axis=0); inds = np.where(np.isnan(X)); X[inds] = np.take(med, inds[1])
+    return X
+
+
+def fit_pred(c, Xtr, ytr, Xte, Xex_tr, Xex_te, se):
+    A = np.hstack([Xtr, Xex_tr]); B = np.hstack([Xte, Xex_te])
+    mask = np.ones(len(ytr), bool)
+    if c["prep"] == "noisy20": mask = se <= np.quantile(se, 0.8)
+    elif c["prep"] == "noisy30": mask = se <= np.quantile(se, 0.7)
+    use = np.where(mask)[0]
+    m = make_model(c["arch"], c["hp"])
+    if c["arch"] in ("ridge","enet"):
+        sc = StandardScaler().fit(A[use]); m.fit(sc.transform(A[use]), ytr[use])
+        return m.predict(sc.transform(B))
+    m.fit(A[use], ytr[use]); return m.predict(B)
+
+
+def main():
+    tr  = load_train().dropna(subset=["pec50"]).reset_index(drop=True)
+    te  = load_test().reset_index(drop=True)
+    ytr = tr["pec50"].to_numpy(); smi = tr["smiles"].tolist(); te_smi = te["smiles"].tolist()
+
+    ext = pd.read_csv(EXT); ext_smi = ext["smiles"].tolist(); ext_p = ext["p"].to_numpy()
+    oc  = pd.read_csv(OC);  oc_smi  = oc["cs"].tolist();     oc_p  = oc["pec50"].to_numpy(float)
+    sn  = pd.read_csv(SN);  sn_smi  = sn["cs"].tolist();     sn_p  = sn["p"].to_numpy(float)
+    rat = pd.read_csv(RAT); rat_smi = rat["std_smiles"].tolist(); rat_p = rat["p_activity"].to_numpy(float)
+
+    print(f"train {len(tr)} | octant {len(oc)} | ext {len(ext)} | sisterNR {len(sn)} | rat {len(rat)} | test {len(te)}", flush=True)
+
+    # Train 5-head GNN on full training set -> predict 513 test
+    for seed in range(N_SEEDS):
+        sp = f"{MTL}/te_rpxr_seed{seed}.npy"
+        if os.path.exists(sp):
+            print(f"[seed {seed}] te_rpxr cached", flush=True); continue
+        print(f"[seed {seed}] training rat-rPXR 5-head on full {len(tr)+len(oc)} -> 513...", flush=True)
+
+        main_smi = smi + oc_smi
+        n_main = len(tr) + len(oc)
+        # 5 task cols: [PXR-main, ext, sisterNR, rat]
+        # Note: octant goes in main (same assay, main head), same as nb1173/sn scripts
+        main_Y = np.column_stack([
+            np.concatenate([ytr, oc_p]),
+            np.full(n_main, np.nan), np.full(n_main, np.nan), np.full(n_main, np.nan)
+        ])
+        ext_Y = np.column_stack([
+            np.full(len(ext), np.nan), ext_p,
+            np.full(len(ext), np.nan), np.full(len(ext), np.nan)
+        ])
+        sn_Y  = np.column_stack([
+            np.full(len(sn), np.nan), np.full(len(sn), np.nan),
+            sn_p, np.full(len(sn), np.nan)
+        ])
+        rat_Y = np.column_stack([
+            np.full(len(rat), np.nan), np.full(len(rat), np.nan),
+            np.full(len(rat), np.nan), rat_p
+        ])
+
+        allsmi = main_smi + ext_smi + sn_smi + rat_smi
+        allY   = np.vstack([main_Y, ext_Y, sn_Y, rat_Y])
+
+        pred = train_predict(allsmi, allY, te_smi, 4, seed, EPOCHS)
+        np.save(sp, pred); print(f"  saved {sp}", flush=True)
+
+    # Build submission
+    d = np.load(CACHE); ytr_c = d["ytr"]; se = d["se"]
+    Xtr, _ = feature_matrix(d, "combined")
+    ff = np.load(f"{SD}/feats_full513.npz"); Xte = ff["combined"]
+
+    adf = pd.read_csv(AIM); sdf = pd.read_csv(STR)
+    ddf = pd.read_csv(D4);  bdf = pd.read_csv(DB); odf = pd.read_csv(ORB)
+
+    Xqm_tr = block(adf[adf.src=="train"], tr["name"], ACOLS)
+    Xqm_te = block(adf[adf.src=="test"],  te["name"], ACOLS)
+    Xst_tr = block(sdf[sdf.src=="train"], tr["name"], SCOLS)
+    Xst_te = block(sdf[sdf.src=="test"],  te["name"], SCOLS)
+    Xd4_tr = block(ddf[ddf.src=="train"], tr["name"], DCOLS)
+    Xd4_te = block(ddf[ddf.src=="test"],  te["name"], DCOLS)
+    Xdb_tr = block(bdf[bdf.src=="train"], tr["name"], DBCOLS)
+    Xdb_te = block(bdf[bdf.src=="test"],  te["name"], DBCOLS)
+    Xob_tr = block(odf[odf.src=="train"], tr["name"], ORBCOLS)
+    Xob_te = block(odf[odf.src=="test"],  te["name"], ORBCOLS)
+
+    scq = StandardScaler().fit(Xqm_tr); Xqm_tr = scq.transform(Xqm_tr); Xqm_te = scq.transform(Xqm_te)
+    scs = StandardScaler().fit(Xst_tr); Xst_tr = scs.transform(Xst_tr); Xst_te = scs.transform(Xst_te)
+    scd = StandardScaler().fit(Xd4_tr); Xd4_tr = scd.transform(Xd4_tr); Xd4_te = scd.transform(Xd4_te)
+    scb = StandardScaler().fit(Xdb_tr); Xdb_tr = scb.transform(Xdb_tr); Xdb_te = scb.transform(Xdb_te)
+    sco = StandardScaler().fit(Xob_tr); Xob_tr = sco.transform(Xob_tr); Xob_te = sco.transform(Xob_te)
+
+    Xex_tr = np.hstack([Xqm_tr, Xst_tr, Xd4_tr, Xdb_tr, Xob_tr])
+    Xex_te = np.hstack([Xqm_te, Xst_te, Xd4_te, Xdb_te, Xob_te])
+    print(f"Physics feats: {Xex_tr.shape[1]} cols", flush=True)
+
+    topK = topK_configs()
+    print(f"4-GBM: {[c['arch'] for c in topK]} + sisterNR + CheMeleon + TabPFN + rat_rPXR", flush=True)
+
+    ps = [fit_pred(c, Xtr, ytr_c, Xte, Xex_tr, Xex_te, se) for c in topK]
+    te_sn   = np.mean([np.load(f"{MTL}/te_sn_seed{s}.npy")   for s in range(N_SEEDS)], 0)
+    te_rpxr = np.mean([np.load(f"{MTL}/te_rpxr_seed{s}.npy") for s in range(N_SEEDS)], 0)
+    ps.append(te_sn)
+    ps.append(te_rpxr)
+    ps.append(np.load(f"{SD}/chemeleon_lgbm_te.npy"))
+    ps.append(np.load(f"{SD}/tabpfn_te.npy"))
+    full = np.clip(np.mean(ps, 0), np.quantile(ytr_c, 0.05), np.quantile(ytr_c, 0.98))
+
+    out = "submissions/nb1307_rpxr_ensemble.csv"
+    pd.DataFrame({"SMILES": te["smiles"], "Molecule Name": te["name"], "pEC50": full}
+                 ).to_csv(out, index=False)
+    print(f"saved {out}  (n={len(full)}, mean={full.mean():.3f}, "
+          f"range={full.min():.2f}-{full.max():.2f})", flush=True)
+
+    new_rae = round(0.4231 + (-0.00177), 4)
+    best = {
+        "rae": new_rae,
+        "via": "+rat_rPXR_aux_head (402 novel, matched -0.00177, 2/3 seeds neg, nb1306_rpxr_gate)",
+        "submission": out,
+        "members": [c["arch"] for c in topK] + ["sisterNR_gnn","rat_rpxr_gnn","chemeleon","tabpfn"],
+        "qm_feats": ACOLS, "strain_feats": SCOLS, "d4_feats": DCOLS,
+        "dbstep_feats": DBCOLS, "orbmol_feats": ORBCOLS
+    }
+    json.dump(best, open(f"{SD}/best_ensemble.json","w"), indent=2)
+    print(f"updated best_ensemble.json -> {new_rae} (+rat_rPXR)", flush=True)
+
+
+if __name__ == "__main__":
+    main()

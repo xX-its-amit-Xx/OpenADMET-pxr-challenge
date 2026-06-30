@@ -1,0 +1,89 @@
+{
+  "tag": "nb2090",
+  "method": "tri_vote_median_rank_anchor_nb1158_cdf_STRUCTURALLY_DIVERSE",
+  "candidates": [
+    "nb1158",
+    "chemprop_aux",
+    "nb1014"
+  ],
+  "candidate_classes": {
+    "nb1158": "LGBM_K32_mean_bag_ECFP_RDKit",
+    "chemprop_aux": "MPNN_GNN_multitask",
+    "nb1014": "multi_seed_bag_stack_SLSQP_rankstretch"
+  },
+  "n_unb": 253,
+  "n_te": 513,
+  "indiv_oof_rae_unb": {
+    "nb1158": 0.49021118924935564,
+    "chemprop_aux": 0.5878769556905485,
+    "nb1014": 0.5798504465889924
+  },
+  "indiv_ref_memo": {
+    "nb1158": 0.4902,
+    "chemprop_aux": 0.6216,
+    "nb1014": 0.5871
+  },
+  "pairwise_spearman": {
+    "nb1158_vs_chemprop_aux": 0.8960460970046729,
+    "nb1158_vs_nb1014": 0.898895296190743,
+    "chemprop_aux_vs_nb1014": 0.9815561592350365
+  },
+  "max_pairwise_spearman": 0.9815561592350365,
+  "spearman_max_pairwise_gate": 0.95,
+  "diversity_pass": false,
+  "diversity_note": "chemprop_aux is a 76%-weight component of nb1014; they share rank space",
+  "global_oof_rae_anchor_nb1158": 0.5652950111911429,
+  "spearman_vote_vs_nb1158": 0.9195526144274655,
+  "spearman_vote_vs_chemprop_aux": 0.9918542970390138,
+  "spearman_vote_vs_nb1014": 0.9918387355412702,
+  "spearman_max_anchor_gate": 0.98,
+  "distinct_pass": true,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "n_folds": 5,
+  "per_seed_results": [
+    {
+      "kf_seed": 1001,
+      "pooled_rae": 0.5694587882746444
+    },
+    {
+      "kf_seed": 1002,
+      "pooled_rae": 0.5708101134026999
+    },
+    {
+      "kf_seed": 1003,
+      "pooled_rae": 0.5666544447953659
+    },
+    {
+      "kf_seed": 1004,
+      "pooled_rae": 0.5593104766810022
+    },
+    {
+      "kf_seed": 1005,
+      "pooled_rae": 0.5602815266896668
+    }
+  ],
+  "pooled_rae_mean_seeds": 0.5653030699686757,
+  "pooled_rae_std_seeds": 0.0047021443440080244,
+  "rae_of_mean_of_seed_oofs": 0.5576330045709308,
+  "te_unb_rae_in_sample": 0.5760894943301414,
+  "deploy_te_mean": 4.692902565002441,
+  "deploy_te_std": 0.8271481394767761,
+  "nb2060_ref_oof_rae": 0.4697,
+  "delta_vs_nb2060": 0.09560306996867574,
+  "delta_vs_nb1158": 0.07510306996867572,
+  "delta_vs_chemprop_aux": -0.0562969300313243,
+  "delta_vs_nb1014": -0.021796930031324213,
+  "gate_margin": 0.003,
+  "beats_nb2060_by_margin": false,
+  "beats_nb1158_by_margin": false,
+  "promote": false,
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2090.npy",
+  "submission_csv": null,
+  "wall_sec": 0.09
+}

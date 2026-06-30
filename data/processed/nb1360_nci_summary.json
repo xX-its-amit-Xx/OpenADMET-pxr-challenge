@@ -1,0 +1,21 @@
+{
+  "control_rae": 0.4229225332279092,
+  "treatment_rae": 0.4247134910907208,
+  "matched_delta": 0.0017909578628116374,
+  "c_raes": [
+    0.4229012624519132,
+    0.4422045190426461,
+    0.40366181818916813
+  ],
+  "t_raes": [
+    0.42701597411262426,
+    0.44570118626154925,
+    0.4014233128979889
+  ],
+  "neg_seeds": 1,
+  "resid_corr_mean": 0.1030955400117302,
+  "nci_imputed": 0,
+  "deployed_best": 0.4149,
+  "deploy": false,
+  "feature": "intramolecular_nci_promolecular_15feat"
+}

@@ -1,0 +1,350 @@
+{
+  "tag": "nb3303",
+  "anchor_tag": "nb3200",
+  "method": "per_scaffold_freq_bin_james_stein_residual_shift",
+  "paradigm": "scaffold-frequency-conditioned additive residual correction (F2 novel-scaffold over-prediction); substrate axis, orthogonal to post-hoc clip/stretch operators",
+  "anchor_pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb3200_pred_oof.npy",
+  "anchor_te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb3200.npy",
+  "anchor_pre_unblind": true,
+  "anchor_full_oof_rae": 0.4416,
+  "anchor_leak_eq_truth_frac": 0.0,
+  "bins": {
+    "0": "novel(freq==0)",
+    "1": "rare(1-2)",
+    "2": "common(3+)"
+  },
+  "bin_counts_unb": {
+    "novel(freq==0)": 197,
+    "rare(1-2)": 26,
+    "common(3+)": 30
+  },
+  "bin_counts_te": {
+    "novel(freq==0)": 416,
+    "rare(1-2)": 61,
+    "common(3+)": 36
+  },
+  "n_folds": 5,
+  "kf_seeds": [
+    1216,
+    1217,
+    1218,
+    1219,
+    1220,
+    1221,
+    1222,
+    1223,
+    1224,
+    1225,
+    1226,
+    1227,
+    1228,
+    1229,
+    1230
+  ],
+  "n_seeds": 15,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "seed_records": [
+    {
+      "kf_seed": 1216,
+      "pooled_rae": 0.4417,
+      "per_fold_mean": 0.4446,
+      "per_fold_std": 0.0611,
+      "per_fold_base_mean": 0.4444,
+      "fold_val_raes": [
+        0.3969,
+        0.3762,
+        0.5307,
+        0.4521,
+        0.4672
+      ]
+    },
+    {
+      "kf_seed": 1217,
+      "pooled_rae": 0.4412,
+      "per_fold_mean": 0.4522,
+      "per_fold_std": 0.0814,
+      "per_fold_base_mean": 0.453,
+      "fold_val_raes": [
+        0.4285,
+        0.3677,
+        0.5811,
+        0.4733,
+        0.4104
+      ]
+    },
+    {
+      "kf_seed": 1218,
+      "pooled_rae": 0.447,
+      "per_fold_mean": 0.4538,
+      "per_fold_std": 0.0386,
+      "per_fold_base_mean": 0.449,
+      "fold_val_raes": [
+        0.4456,
+        0.4016,
+        0.4414,
+        0.477,
+        0.5035
+      ]
+    },
+    {
+      "kf_seed": 1219,
+      "pooled_rae": 0.4445,
+      "per_fold_mean": 0.4557,
+      "per_fold_std": 0.0714,
+      "per_fold_base_mean": 0.4534,
+      "fold_val_raes": [
+        0.473,
+        0.3886,
+        0.571,
+        0.4321,
+        0.4138
+      ]
+    },
+    {
+      "kf_seed": 1220,
+      "pooled_rae": 0.4447,
+      "per_fold_mean": 0.4496,
+      "per_fold_std": 0.0563,
+      "per_fold_base_mean": 0.4467,
+      "fold_val_raes": [
+        0.523,
+        0.3712,
+        0.4752,
+        0.4273,
+        0.4513
+      ]
+    },
+    {
+      "kf_seed": 1221,
+      "pooled_rae": 0.4447,
+      "per_fold_mean": 0.4516,
+      "per_fold_std": 0.0562,
+      "per_fold_base_mean": 0.4487,
+      "fold_val_raes": [
+        0.5123,
+        0.5081,
+        0.3846,
+        0.4288,
+        0.4242
+      ]
+    },
+    {
+      "kf_seed": 1222,
+      "pooled_rae": 0.4434,
+      "per_fold_mean": 0.4661,
+      "per_fold_std": 0.0892,
+      "per_fold_base_mean": 0.462,
+      "fold_val_raes": [
+        0.3641,
+        0.408,
+        0.4668,
+        0.5975,
+        0.4941
+      ]
+    },
+    {
+      "kf_seed": 1223,
+      "pooled_rae": 0.4436,
+      "per_fold_mean": 0.4565,
+      "per_fold_std": 0.0992,
+      "per_fold_base_mean": 0.4544,
+      "fold_val_raes": [
+        0.4278,
+        0.3159,
+        0.4953,
+        0.588,
+        0.4555
+      ]
+    },
+    {
+      "kf_seed": 1224,
+      "pooled_rae": 0.4408,
+      "per_fold_mean": 0.4567,
+      "per_fold_std": 0.0954,
+      "per_fold_base_mean": 0.4581,
+      "fold_val_raes": [
+        0.354,
+        0.4596,
+        0.4174,
+        0.6117,
+        0.4409
+      ]
+    },
+    {
+      "kf_seed": 1225,
+      "pooled_rae": 0.4454,
+      "per_fold_mean": 0.4503,
+      "per_fold_std": 0.0542,
+      "per_fold_base_mean": 0.4457,
+      "fold_val_raes": [
+        0.42,
+        0.499,
+        0.3875,
+        0.4305,
+        0.5145
+      ]
+    },
+    {
+      "kf_seed": 1226,
+      "pooled_rae": 0.4441,
+      "per_fold_mean": 0.4671,
+      "per_fold_std": 0.0925,
+      "per_fold_base_mean": 0.4634,
+      "fold_val_raes": [
+        0.5111,
+        0.4204,
+        0.6094,
+        0.3912,
+        0.4033
+      ]
+    },
+    {
+      "kf_seed": 1227,
+      "pooled_rae": 0.4411,
+      "per_fold_mean": 0.4531,
+      "per_fold_std": 0.0799,
+      "per_fold_base_mean": 0.4539,
+      "fold_val_raes": [
+        0.4017,
+        0.3763,
+        0.4863,
+        0.4252,
+        0.576
+      ]
+    },
+    {
+      "kf_seed": 1228,
+      "pooled_rae": 0.4417,
+      "per_fold_mean": 0.4544,
+      "per_fold_std": 0.0408,
+      "per_fold_base_mean": 0.4548,
+      "fold_val_raes": [
+        0.446,
+        0.4619,
+        0.4959,
+        0.4787,
+        0.3895
+      ]
+    },
+    {
+      "kf_seed": 1229,
+      "pooled_rae": 0.442,
+      "per_fold_mean": 0.453,
+      "per_fold_std": 0.1138,
+      "per_fold_base_mean": 0.4524,
+      "fold_val_raes": [
+        0.3493,
+        0.3791,
+        0.4386,
+        0.6411,
+        0.4567
+      ]
+    },
+    {
+      "kf_seed": 1230,
+      "pooled_rae": 0.4415,
+      "per_fold_mean": 0.446,
+      "per_fold_std": 0.0541,
+      "per_fold_base_mean": 0.4464,
+      "fold_val_raes": [
+        0.4492,
+        0.392,
+        0.5333,
+        0.4434,
+        0.4119
+      ]
+    }
+  ],
+  "per_fold_mean_array": [
+    0.4446,
+    0.4522,
+    0.4538,
+    0.4557,
+    0.4496,
+    0.4516,
+    0.4661,
+    0.4565,
+    0.4567,
+    0.4503,
+    0.4671,
+    0.4531,
+    0.4544,
+    0.453,
+    0.446
+  ],
+  "pooled_rae_array": [
+    0.4417,
+    0.4412,
+    0.447,
+    0.4445,
+    0.4447,
+    0.4447,
+    0.4434,
+    0.4436,
+    0.4408,
+    0.4454,
+    0.4441,
+    0.4411,
+    0.4417,
+    0.442,
+    0.4415
+  ],
+  "mean_per_fold_mean": 0.454,
+  "std_per_fold_mean": 0.0062,
+  "sem_per_fold_mean": 0.0016,
+  "ci95_low": 0.4506,
+  "ci95_high": 0.4575,
+  "median_per_fold_mean": 0.4531,
+  "min_per_fold_mean": 0.4446,
+  "max_per_fold_mean": 0.4671,
+  "mean_base_per_fold_mean": 0.4524,
+  "delta_vs_base": 0.0016,
+  "mean_pooled_rae": 0.4432,
+  "ref_anchor_nb3200": 0.4416,
+  "ref_nb3173": 0.4437,
+  "ref_nb2171": 0.4682,
+  "deploy_shifts": {
+    "novel": -0.0084,
+    "rare": 0.0557,
+    "common": 0.0862
+  },
+  "deploy_diag": {
+    "0": {
+      "n": 197,
+      "d_raw": -0.026,
+      "s2": 0.2761,
+      "shrink": 0.3316,
+      "d_shrunk": -0.0084
+    },
+    "1": {
+      "n": 26,
+      "d_raw": 0.0846,
+      "s2": 0.0962,
+      "shrink": 0.657,
+      "d_shrunk": 0.0557
+    },
+    "2": {
+      "n": 30,
+      "d_raw": 0.1006,
+      "s2": 0.0504,
+      "shrink": 0.8565,
+      "d_shrunk": 0.0862
+    },
+    "global": 0.0004
+  },
+  "te_mean": 4.736330032348633,
+  "te_std": 0.7779098153114319,
+  "te_min": 2.991649866104126,
+  "te_max": 6.165397644042969,
+  "te_unb_in_sample_rae": 0.1954,
+  "median_seed": 1227,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb3303_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb3303.npy",
+  "submission_csv": null,
+  "gate_better": 0.4423,
+  "verdict": "FAIL",
+  "ladder_action": "REJECT. nb3303 per-bin residual correction per-fold-mean 0.4540 +/- 0.0062 >= BETTER gate 0.4423 (base 0.4524, delta +0.0016). The nb3200 anchor's per-bin residual bias is too small / too noisy at n=253 (novel bin only carries mean_resid near the global) for a 3-bin additive shift to beat the learned-clip ceiling. The F2 novel-scaffold over-prediction is already largely absorbed by the nb3090->nb3200 clip pipeline; a coarse scaffold-frequency stratum shift adds no honest signal. Keep nb3200/nb3190 line PRIMARY; do not promote nb3303.",
+  "wall_sec": 1.44
+}

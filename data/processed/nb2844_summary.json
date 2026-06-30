@@ -1,0 +1,117 @@
+{
+  "tag": "nb2844",
+  "method": "lasso_positive_alpha_0p1_then_simplex_renorm_meta",
+  "anchor_pool": [
+    "nb2240_K20",
+    "chemprop_aux",
+    "counter_clean"
+  ],
+  "anchor_provenance": {
+    "nb2240_K20": "PRE-clean (K=20 residual stack on chemprop_aux)",
+    "chemprop_aux": "PRE-clean (4139 PRE-unblind only)",
+    "counter_clean": "PRE-clean counter-assay residual on chemprop_aux (nb730-free)"
+  },
+  "anchor_skipped": {},
+  "anchor_in_rae": {
+    "nb2240_K20": 0.46301757335429367,
+    "chemprop_aux": 0.5878769556905485,
+    "counter_clean": 0.5382385733206709
+  },
+  "lasso_alpha": 0.1,
+  "lasso_max_iter": 10000,
+  "lasso_positive": true,
+  "n_folds": 5,
+  "kf_seeds": [
+    42,
+    1,
+    7,
+    137,
+    1009
+  ],
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "K_anchors": 3,
+  "per_seed_pooled_rae": [
+    0.46368071137585304,
+    0.46258205117826423,
+    0.4671558468920658,
+    0.4634459238707372,
+    0.46580100219011256
+  ],
+  "per_seed_mean_fold_rae": [
+    0.4657307161343591,
+    0.4743443314279189,
+    0.49050663815875317,
+    0.4777523066396777,
+    0.46749224463236594
+  ],
+  "per_seed_w_mean": [
+    [
+      0.9926068784731532,
+      0.0,
+      0.007393121526846834
+    ],
+    [
+      0.9938669470507866,
+      0.0,
+      0.0061330529492134
+    ],
+    [
+      0.9728655493003387,
+      0.0,
+      0.027134450699661215
+    ],
+    [
+      0.9872002723838269,
+      0.0,
+      0.012799727616173009
+    ],
+    [
+      0.9884867112912119,
+      0.0,
+      0.01151328870878814
+    ]
+  ],
+  "per_seed_bias_mean": [
+    0.0068737067777497884,
+    0.007025157021948658,
+    0.006950157710752869,
+    0.006927435358981526,
+    0.006841104508976059
+  ],
+  "per_seed_degen_frac": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "mean_pooled_rae": 0.46453310710140655,
+  "std_pooled_rae": 0.0016853181913627714,
+  "pooled_on_seed_mean_oof": 0.46411603612252134,
+  "mean_rae": 0.46453310710140655,
+  "gate_promote": 0.457,
+  "gate_marginal": 0.4598,
+  "verdict": "FAIL",
+  "deploy_raw_coef_pre_renorm": [
+    0.9025047509370162,
+    0.0,
+    0.0
+  ],
+  "deploy_w_simplex": [
+    1.0,
+    0.0,
+    0.0
+  ],
+  "deploy_bias": 0.0068502247851824905,
+  "deploy_intercept_lasso": 4.664110671936759,
+  "deploy_degenerate": false,
+  "te_unb_in_sample_rae": 0.18863518701321508,
+  "te_mean": 4.746706485748291,
+  "te_std": 0.7721919417381287,
+  "oof_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2844_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2844.npy",
+  "submission_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb2844_lasso_simplex_meta.csv",
+  "wall_sec": 0.1
+}

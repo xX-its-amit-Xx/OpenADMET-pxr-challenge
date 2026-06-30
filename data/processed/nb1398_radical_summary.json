@@ -1,0 +1,20 @@
+{
+  "approach": "open_shell_radical_spin_distribution_12scalars_on_deployed_COMP-M_config",
+  "axis": "open-shell radical cation/anion spin & charge-distribution geometry (UHF GFN2-xTB)",
+  "ctrl_rae": 0.423843191108,
+  "treat_rae": 0.42586796577784763,
+  "delta": 0.0020247746698476288,
+  "ctrl_raes": [
+    0.42565740285514175,
+    0.44347193722815337,
+    0.40240023324070484
+  ],
+  "treat_raes": [
+    0.4280266271229567,
+    0.44555826080060473,
+    0.4040190094099814
+  ],
+  "n_neg": 0,
+  "deployed_best": 0.4149,
+  "gate_pass": false
+}

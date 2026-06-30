@@ -1,0 +1,168 @@
+{
+  "tag": "nb2077",
+  "status": "OK",
+  "global_delta_prior": 0.0153,
+  "n_paired_total": 8,
+  "n_pre": 8,
+  "n_post": 0,
+  "shrinkage_tau2": 0.001,
+  "regime_estimates": {
+    "PRE": {
+      "n": 8,
+      "mean_delta": 0.004463,
+      "sd": 0.004137,
+      "ci_95": [
+        0.001595,
+        0.00733
+      ],
+      "shrunk_delta": 0.004486,
+      "weight_on_data": 0.9979
+    },
+    "POST": {
+      "n": 0,
+      "mean_delta": null,
+      "sd": null,
+      "ci_95": null,
+      "shrunk_delta": null,
+      "weight_on_data": 0.0
+    }
+  },
+  "anchored_pairs": [
+    {
+      "label": "nb224_pool_plus_2",
+      "in_RAE": 0.751,
+      "LB": 0.7543,
+      "delta": 0.0033,
+      "regime": "PRE"
+    },
+    {
+      "label": "nb239_full_slsqp_v2",
+      "in_RAE": 0.7454,
+      "LB": 0.7487,
+      "delta": 0.0033,
+      "regime": "PRE"
+    },
+    {
+      "label": "nb244_deep_greedy",
+      "in_RAE": 0.7631,
+      "LB": 0.7659,
+      "delta": 0.0028,
+      "regime": "PRE"
+    },
+    {
+      "label": "nb243_greedy_huber",
+      "in_RAE": 0.7611,
+      "LB": 0.7638,
+      "delta": 0.0027,
+      "regime": "PRE"
+    },
+    {
+      "label": "nb253_meanshift_003",
+      "in_RAE": 0.743,
+      "LB": 0.7446,
+      "delta": 0.0016,
+      "regime": "PRE"
+    },
+    {
+      "label": "nb254_meanshift_006",
+      "in_RAE": 0.74,
+      "LB": 0.743,
+      "delta": 0.003,
+      "regime": "PRE"
+    },
+    {
+      "label": "nb273_molformer_combined",
+      "in_RAE": 0.7544,
+      "LB": 0.7581,
+      "delta": 0.0037,
+      "regime": "PRE"
+    },
+    {
+      "label": "nb120_huber_2_0",
+      "in_RAE": 0.7502,
+      "LB": 0.7655,
+      "delta": 0.0153,
+      "regime": "PRE"
+    }
+  ],
+  "primary_recalibrated": {
+    "nb306_cepsmim.csv": {
+      "regime": "PRE",
+      "in_RAE": 0.6486,
+      "old_predicted_LB": 0.6516,
+      "new_predicted_LB": 0.6531,
+      "band_95": [
+        0.645,
+        0.6612
+      ],
+      "delta_used": 0.0045
+    },
+    "nb305_mope.csv": {
+      "regime": "PRE",
+      "in_RAE": 0.6601,
+      "old_predicted_LB": 0.6631,
+      "new_predicted_LB": 0.6646,
+      "band_95": [
+        0.6565,
+        0.6727
+      ],
+      "delta_used": 0.0045
+    },
+    "95_all_feature_fusion.csv": {
+      "regime": "PRE",
+      "in_RAE": 0.6625,
+      "old_predicted_LB": 0.6655,
+      "new_predicted_LB": 0.667,
+      "band_95": [
+        0.6589,
+        0.6751
+      ],
+      "delta_used": 0.0045
+    },
+    "54_deep_ensemble_uncertainty.csv": {
+      "regime": "PRE",
+      "in_RAE": 0.6657,
+      "old_predicted_LB": 0.6687,
+      "new_predicted_LB": 0.6702,
+      "band_95": [
+        0.6621,
+        0.6783
+      ],
+      "delta_used": 0.0045
+    },
+    "27_nr_weighted_lgbm.csv": {
+      "regime": "PRE",
+      "in_RAE": 0.6729,
+      "old_predicted_LB": 0.6759,
+      "new_predicted_LB": 0.6774,
+      "band_95": [
+        0.6693,
+        0.6855
+      ],
+      "delta_used": 0.0045
+    },
+    "82_selectivity_aware.csv": {
+      "regime": "PRE",
+      "in_RAE": 0.673,
+      "old_predicted_LB": 0.676,
+      "new_predicted_LB": 0.6775,
+      "band_95": [
+        0.6694,
+        0.6856
+      ],
+      "delta_used": 0.0045
+    },
+    "67_lgbm_chembl_all_nr_weighted.csv": {
+      "regime": "PRE",
+      "in_RAE": 0.6746,
+      "old_predicted_LB": 0.6776,
+      "new_predicted_LB": 0.6791,
+      "band_95": [
+        0.671,
+        0.6872
+      ],
+      "delta_used": 0.0045
+    }
+  },
+  "wall_sec": 0.0
+}

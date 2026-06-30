@@ -1,0 +1,122 @@
+{
+  "tag": "nb1120",
+  "method": "lgbm_mse_K28_SHAP_top + 6 ETKDG/MMFF94 3D pharmacophore feats -> K=34, scaffold-CF 5-fold x 5-seed bag, residual on chemprop_aux",
+  "anchor": "chemprop_aux",
+  "anchor_kind": "PRE_unblind_te_slice_to_unb_idx",
+  "anchor_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+  "feat_dim": 34,
+  "feat_breakdown": {
+    "shap_top_28_from_nb2063": 28,
+    "pharma_3d": 6,
+    "total": 34
+  },
+  "pharma3d_cols": [
+    "DD_mean_dist",
+    "DA_mean_dist",
+    "AA_mean_dist",
+    "ArAr_mean_dist",
+    "PMI_NPR1",
+    "PMI_NPR2"
+  ],
+  "pharma3d_fail_count": 0,
+  "pharma3d_fail_rate_pct": 0.0,
+  "n_confs": 10,
+  "etkdg_version": 3,
+  "etkdg_seed": 42,
+  "mmff_variant": "MMFF94",
+  "max_opt_iters": 200,
+  "lgbm_objective": "regression",
+  "lgbm_max_depth": 4,
+  "lgbm_num_leaves": 15,
+  "lgbm_n_estimators": 300,
+  "lgbm_learning_rate": 0.03,
+  "lgbm_min_child_samples": 5,
+  "lgbm_reg_lambda": 2.0,
+  "resid_folds": 5,
+  "resid_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "verify_seeds": [
+    211,
+    314,
+    271
+  ],
+  "cv_split": "scaffold_kfold_indices_5fold",
+  "n_unb": 253,
+  "rae_anchor_chemprop_aux": 0.6215728863514471,
+  "residual_mean": -0.1325965261753001,
+  "residual_std": 0.6999145683913596,
+  "nb2103_K28_mean_bag_ref": 0.4736869992362601,
+  "nb2103_K28_median_bag_ref": 0.4697789387514748,
+  "per_seed_rae": [
+    0.5394841702938289,
+    0.5359108721055953,
+    0.5386382458972973,
+    0.5552811691220921,
+    0.5545804104644394
+  ],
+  "per_seed_records": [
+    {
+      "seed": 0,
+      "rae_corrected": 0.5394841702938289,
+      "delta_vs_chemprop_aux": -0.08208871605761825,
+      "resid_oof_std": 0.45484910897109376,
+      "resid_oof_mean": -0.16775739289377828,
+      "wall_sec": 0.35
+    },
+    {
+      "seed": 1,
+      "rae_corrected": 0.5359108721055953,
+      "delta_vs_chemprop_aux": -0.08566201424585185,
+      "resid_oof_std": 0.42319906640756966,
+      "resid_oof_mean": -0.1395610733117943,
+      "wall_sec": 0.36
+    },
+    {
+      "seed": 7,
+      "rae_corrected": 0.5386382458972973,
+      "delta_vs_chemprop_aux": -0.08293464045414989,
+      "resid_oof_std": 0.4109165040686636,
+      "resid_oof_mean": -0.14943422651307453,
+      "wall_sec": 0.34
+    },
+    {
+      "seed": 42,
+      "rae_corrected": 0.5552811691220921,
+      "delta_vs_chemprop_aux": -0.06629171722935501,
+      "resid_oof_std": 0.43933382502752105,
+      "resid_oof_mean": -0.13702791484795246,
+      "wall_sec": 0.34
+    },
+    {
+      "seed": 137,
+      "rae_corrected": 0.5545804104644394,
+      "delta_vs_chemprop_aux": -0.06699247588700774,
+      "resid_oof_std": 0.47770725976305944,
+      "resid_oof_mean": -0.15846858367225264,
+      "wall_sec": 0.34
+    }
+  ],
+  "rae_per_seed_mean": 0.5447789735766506,
+  "rae_per_seed_std": 0.00837557136291833,
+  "rae_per_seed_min": 0.5359108721055953,
+  "rae_per_seed_max": 0.5552811691220921,
+  "rae_mean_bag": 0.5202081133185115,
+  "rae_median_bag": 0.527149240713392,
+  "delta_mean_bag_vs_nb2103_K28": 0.04652111408225135,
+  "delta_median_bag_vs_nb2103_K28": 0.05737030196191717,
+  "beats_nb2103_K28_mean": false,
+  "beats_nb2103_K28_median": false,
+  "decision_margin": 0.003,
+  "verdict": "WORSE_THAN_NB2103_K28",
+  "verify_records": [],
+  "verify_verdict": "NOT_RUN",
+  "deploy_csv": null,
+  "pre_unblind_clean": true,
+  "chemprop_aux_ref": 0.6216,
+  "wall_sec": 215.89
+}

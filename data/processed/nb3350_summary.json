@@ -1,0 +1,33 @@
+{
+  "script": "nb3350_fresh_chemprop_5fold",
+  "architecture": "MPNN multitask BondMP(depth=3,d_h=300)+MeanAgg+FFN(2,drop=0.1), n_tasks=2",
+  "protocol": "5-fold scaffold CV ensemble on 4139; 253+513 held out",
+  "corpus_train_rows": 4139,
+  "counter_null_labels": 2647,
+  "folds_done": 5,
+  "n_splits_requested": 5,
+  "fold_best_epochs": [
+    null,
+    null,
+    37,
+    40,
+    31
+  ],
+  "oof_coverage": 3646,
+  "oof_train_RAE": 0.5850201674721418,
+  "fresh_anchor_unblind_RAE": 0.629206504349574,
+  "fresh_anchor_unblind_RAE_direct_phase1order": 0.6292064662017959,
+  "frozen_anchor_unblind_RAE": 0.6215728863514471,
+  "pearson_fresh_vs_frozen_253": 0.9440324524222624,
+  "fresh_253_mean": 4.74865177780272,
+  "fresh_253_std": 0.6182952952399964,
+  "frozen_253_mean": 4.79670719811206,
+  "frozen_253_std": 0.6342383077953444,
+  "truth_253_mean": 4.664110671936759,
+  "truth_253_std": 1.0320053675542649,
+  "te_513_mean": 4.765462292379339,
+  "te_513_std": 0.5856295774530956,
+  "GATE_usable_anchor": true,
+  "GATE_decorrelated": true,
+  "wall_time_min": 8.989049724737804
+}

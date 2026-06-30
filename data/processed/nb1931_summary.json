@@ -1,0 +1,98 @@
+{
+  "tag": "nb1931",
+  "anchor": "chemprop_aux",
+  "anchor_kind": "PRE_unblind_te_slice_to_unb_idx",
+  "anchor_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+  "data_source": "AtomPair-cache + MACCS-cache + Mordred-cached_nb1030 + ChempropEmbed-cache + Avalon-cache + local_chembl_caches_union",
+  "model_family": "LightGBM",
+  "lgbm_api": "sklearn",
+  "lgbm_objective": "regression_l2",
+  "lgbm_max_depth": 4,
+  "lgbm_num_leaves": 15,
+  "lgbm_n_estimators": 300,
+  "lgbm_learning_rate": 0.03,
+  "lgbm_min_child_samples": 5,
+  "lgbm_reg_lambda": 2.0,
+  "bag_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "resid_folds": 5,
+  "K_AP_best": 25,
+  "K_Mord_best": 20,
+  "K_Embed_best": 20,
+  "K_Avalon_used": 30,
+  "K_MACCS_fixed": 20,
+  "n_chembl_pool": 945,
+  "n_unb": 253,
+  "feat_dim": 117,
+  "feat_breakdown": {
+    "atompair": 25,
+    "maccs": 20,
+    "mordred": 20,
+    "chemprop_embed": 20,
+    "avalon": 30,
+    "pred_chembl_pec50": 1,
+    "mean_sim": 1,
+    "total": 117
+  },
+  "rae_anchor_chemprop_aux": 0.6215728863514471,
+  "residual_mean": -0.1325965261753001,
+  "residual_std": 0.6999145683913596,
+  "per_seed_rae": [
+    0.5234240488013292,
+    0.5613517712051213,
+    0.5103962805323423,
+    0.5408522937128875,
+    0.5314096432017347
+  ],
+  "per_seed_records": [
+    {
+      "seed": 0,
+      "rae": 0.5234240488013292,
+      "delta_vs_anchor": -0.09814883755011794,
+      "wall_sec": 0.5
+    },
+    {
+      "seed": 1,
+      "rae": 0.5613517712051213,
+      "delta_vs_anchor": -0.06022111514632589,
+      "wall_sec": 0.54
+    },
+    {
+      "seed": 7,
+      "rae": 0.5103962805323423,
+      "delta_vs_anchor": -0.11117660581910482,
+      "wall_sec": 0.5
+    },
+    {
+      "seed": 42,
+      "rae": 0.5408522937128875,
+      "delta_vs_anchor": -0.08072059263855969,
+      "wall_sec": 0.53
+    },
+    {
+      "seed": 137,
+      "rae": 0.5314096432017347,
+      "delta_vs_anchor": -0.09016324314971247,
+      "wall_sec": 0.52
+    }
+  ],
+  "rae_seed_mean": 0.5334868074906829,
+  "rae_seed_median": 0.5314096432017347,
+  "rae_seed_std": 0.017143236271099746,
+  "rae_seed_min": 0.5103962805323423,
+  "rae_seed_max": 0.5613517712051213,
+  "rae_mean_bag": 0.5061938853968053,
+  "delta_mean_bag_vs_anchor": -0.11537900095464182,
+  "delta_mean_bag_vs_nb1861": 0.004928130818682153,
+  "verdict": "LOSES_TO_NB1861",
+  "pre_unblind_clean": true,
+  "chemprop_aux_ref": 0.6216,
+  "nb1861_ref": 0.5012657545781232,
+  "decision_margin": 0.003,
+  "wall_sec": 6.76
+}

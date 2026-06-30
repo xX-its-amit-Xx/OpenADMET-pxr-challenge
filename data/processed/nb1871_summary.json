@@ -1,0 +1,239 @@
+{
+  "tag": "nb1871",
+  "anchor": "chemprop_aux",
+  "anchor_te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+  "lgbm_objective": "regression",
+  "lgbm_max_depth": 4,
+  "lgbm_num_leaves": 15,
+  "lgbm_n_estimators": 300,
+  "lgbm_learning_rate": 0.03,
+  "lgbm_min_child_samples": 5,
+  "lgbm_reg_lambda": 2.0,
+  "outer_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "inner_per_outer": 5,
+  "n_fits": 25,
+  "n_test": 513,
+  "n_unb": 253,
+  "feat_dim": 117,
+  "rae_anchor_chemprop_aux_unb": 0.6215728863514471,
+  "residual_mean_unb": -0.1325965261753001,
+  "residual_std_unb": 0.6999145683913596,
+  "te_nb1871_mean": 4.68929683200811,
+  "te_nb1871_std": 0.8488834872306998,
+  "te_nb1871_min": 1.7525714017471752,
+  "te_nb1871_max": 6.456167031581232,
+  "in_RAE_unb_idx": 0.08008101953670532,
+  "nb1861_pooled_25bag_honest": 0.5013,
+  "predicted_LB": 0.504,
+  "submission_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1871_deploy_nb1861.csv",
+  "te_artifact": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb1871.npy",
+  "fit_records": [
+    {
+      "k": 0,
+      "outer_seed": 0,
+      "inner_seed": 0,
+      "resid_513_mean": -0.1419770598517405,
+      "resid_513_std": 0.5230494426708457,
+      "wall_sec": 0.12
+    },
+    {
+      "k": 1,
+      "outer_seed": 0,
+      "inner_seed": 1,
+      "resid_513_mean": -0.1419770598517405,
+      "resid_513_std": 0.5230494426708457,
+      "wall_sec": 0.11
+    },
+    {
+      "k": 2,
+      "outer_seed": 0,
+      "inner_seed": 2,
+      "resid_513_mean": -0.1419770598517405,
+      "resid_513_std": 0.5230494426708457,
+      "wall_sec": 0.11
+    },
+    {
+      "k": 3,
+      "outer_seed": 0,
+      "inner_seed": 3,
+      "resid_513_mean": -0.1419770598517405,
+      "resid_513_std": 0.5230494426708457,
+      "wall_sec": 0.11
+    },
+    {
+      "k": 4,
+      "outer_seed": 0,
+      "inner_seed": 4,
+      "resid_513_mean": -0.1419770598517405,
+      "resid_513_std": 0.5230494426708457,
+      "wall_sec": 0.11
+    },
+    {
+      "k": 5,
+      "outer_seed": 1,
+      "inner_seed": 1000,
+      "resid_513_mean": -0.1419770598517405,
+      "resid_513_std": 0.5230494426708457,
+      "wall_sec": 0.11
+    },
+    {
+      "k": 6,
+      "outer_seed": 1,
+      "inner_seed": 1001,
+      "resid_513_mean": -0.1419770598517405,
+      "resid_513_std": 0.5230494426708457,
+      "wall_sec": 0.12
+    },
+    {
+      "k": 7,
+      "outer_seed": 1,
+      "inner_seed": 1002,
+      "resid_513_mean": -0.1419770598517405,
+      "resid_513_std": 0.5230494426708457,
+      "wall_sec": 0.11
+    },
+    {
+      "k": 8,
+      "outer_seed": 1,
+      "inner_seed": 1003,
+      "resid_513_mean": -0.1419770598517405,
+      "resid_513_std": 0.5230494426708457,
+      "wall_sec": 0.12
+    },
+    {
+      "k": 9,
+      "outer_seed": 1,
+      "inner_seed": 1004,
+      "resid_513_mean": -0.1419770598517405,
+      "resid_513_std": 0.5230494426708457,
+      "wall_sec": 0.11
+    },
+    {
+      "k": 10,
+      "outer_seed": 7,
+      "inner_seed": 7000,
+      "resid_513_mean": -0.1419770598517405,
+      "resid_513_std": 0.5230494426708457,
+      "wall_sec": 0.12
+    },
+    {
+      "k": 11,
+      "outer_seed": 7,
+      "inner_seed": 7001,
+      "resid_513_mean": -0.1419770598517405,
+      "resid_513_std": 0.5230494426708457,
+      "wall_sec": 0.11
+    },
+    {
+      "k": 12,
+      "outer_seed": 7,
+      "inner_seed": 7002,
+      "resid_513_mean": -0.1419770598517405,
+      "resid_513_std": 0.5230494426708457,
+      "wall_sec": 0.12
+    },
+    {
+      "k": 13,
+      "outer_seed": 7,
+      "inner_seed": 7003,
+      "resid_513_mean": -0.1419770598517405,
+      "resid_513_std": 0.5230494426708457,
+      "wall_sec": 0.11
+    },
+    {
+      "k": 14,
+      "outer_seed": 7,
+      "inner_seed": 7004,
+      "resid_513_mean": -0.1419770598517405,
+      "resid_513_std": 0.5230494426708457,
+      "wall_sec": 0.12
+    },
+    {
+      "k": 15,
+      "outer_seed": 42,
+      "inner_seed": 42000,
+      "resid_513_mean": -0.1419770598517405,
+      "resid_513_std": 0.5230494426708457,
+      "wall_sec": 0.12
+    },
+    {
+      "k": 16,
+      "outer_seed": 42,
+      "inner_seed": 42001,
+      "resid_513_mean": -0.1419770598517405,
+      "resid_513_std": 0.5230494426708457,
+      "wall_sec": 0.12
+    },
+    {
+      "k": 17,
+      "outer_seed": 42,
+      "inner_seed": 42002,
+      "resid_513_mean": -0.1419770598517405,
+      "resid_513_std": 0.5230494426708457,
+      "wall_sec": 0.11
+    },
+    {
+      "k": 18,
+      "outer_seed": 42,
+      "inner_seed": 42003,
+      "resid_513_mean": -0.1419770598517405,
+      "resid_513_std": 0.5230494426708457,
+      "wall_sec": 0.12
+    },
+    {
+      "k": 19,
+      "outer_seed": 42,
+      "inner_seed": 42004,
+      "resid_513_mean": -0.1419770598517405,
+      "resid_513_std": 0.5230494426708457,
+      "wall_sec": 0.11
+    },
+    {
+      "k": 20,
+      "outer_seed": 137,
+      "inner_seed": 137000,
+      "resid_513_mean": -0.1419770598517405,
+      "resid_513_std": 0.5230494426708457,
+      "wall_sec": 0.12
+    },
+    {
+      "k": 21,
+      "outer_seed": 137,
+      "inner_seed": 137001,
+      "resid_513_mean": -0.1419770598517405,
+      "resid_513_std": 0.5230494426708457,
+      "wall_sec": 0.13
+    },
+    {
+      "k": 22,
+      "outer_seed": 137,
+      "inner_seed": 137002,
+      "resid_513_mean": -0.1419770598517405,
+      "resid_513_std": 0.5230494426708457,
+      "wall_sec": 0.12
+    },
+    {
+      "k": 23,
+      "outer_seed": 137,
+      "inner_seed": 137003,
+      "resid_513_mean": -0.1419770598517405,
+      "resid_513_std": 0.5230494426708457,
+      "wall_sec": 0.11
+    },
+    {
+      "k": 24,
+      "outer_seed": 137,
+      "inner_seed": 137004,
+      "resid_513_mean": -0.1419770598517405,
+      "resid_513_std": 0.5230494426708457,
+      "wall_sec": 0.12
+    }
+  ],
+  "wall_sec": 6.87
+}

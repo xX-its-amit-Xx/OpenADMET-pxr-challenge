@@ -1,0 +1,183 @@
+{
+  "tag": "nb2903",
+  "method": "lgbm_warm_start_init_score_nb1191_pred_full_pec50_target",
+  "rationale": "Anchor-axis swap of nb2831 paradigm: init_score swapped from nb2240 (residual-stack on chemprop_aux) to nb1191 (PRE-unblind pyramid, deep-30 0.4718).  Cycle-167 nb2171 swap finding (nb730 -> nb1191 broke 0.4720 ceiling to 0.4682) showed nb1191 carries independent information not in the chemprop_aux + residual chain.  Target = full pEC50 (not residual); LGBM trees learn corrections on top of nb1191 prior with small incremental budget (n_est=100, lr=0.01).  Substrate held fixed at K=20 (same as nb2831) so only variable is init axis.",
+  "init_anchor": "nb1191",
+  "init_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb1191_pred_oof.npy",
+  "init_te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb1191.npy",
+  "init_anchor_pre_unblind": true,
+  "rae_init_nb1191": 0.469729103713806,
+  "nb1191_deep30_ref": 0.4718,
+  "nb2240_K20_ref": 0.463,
+  "nb2171_ref": 0.4682,
+  "chemprop_aux_ref": 0.6216,
+  "x117_unb_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\pyramid\\X_117_unb.npy",
+  "x117_te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\pyramid\\X_117_te.npy",
+  "k20_idx_source": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2240_summary.json",
+  "k20_surviving_idx_in_117": [
+    45,
+    67,
+    66,
+    68,
+    65,
+    92,
+    27,
+    77,
+    81,
+    56,
+    1,
+    7,
+    115,
+    93,
+    80,
+    11,
+    70,
+    54,
+    8,
+    57
+  ],
+  "k20_surviving_names": [
+    "Mordred_col_292",
+    "ChempropEmbed_dim_14",
+    "ChempropEmbed_dim_9",
+    "ChempropEmbed_dim_32",
+    "ChempropEmbed_dim_259",
+    "Avalon_bit_323",
+    "MACCS_bit_126",
+    "ChempropEmbed_dim_172",
+    "ChempropEmbed_dim_16",
+    "Mordred_col_454",
+    "AtomPair_bit_1733",
+    "AtomPair_bit_1729",
+    "pred_chembl_pec50",
+    "Avalon_bit_349",
+    "ChempropEmbed_dim_248",
+    "AtomPair_bit_1113",
+    "ChempropEmbed_dim_275",
+    "Mordred_col_329",
+    "AtomPair_bit_1086",
+    "Mordred_col_400"
+  ],
+  "feat_dim": 20,
+  "n_unb": 253,
+  "n_test": 513,
+  "n_unique_scaffolds": 180,
+  "n_singleton_scaffolds": 0,
+  "n_folds": 5,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "cv_protocol": "5-fold scaffold_kfold_indices per kf_seed; warm-start init_score = nb1191_pred_oof per row (fold-train only); predict adds init_va back to raw boosted score",
+  "model_class": "lightgbm.LGBMRegressor",
+  "lgbm_params_sample": {
+    "objective": "regression",
+    "max_depth": 4,
+    "num_leaves": 15,
+    "n_estimators": 100,
+    "learning_rate": 0.01,
+    "min_child_samples": 5,
+    "reg_lambda": 2.0,
+    "random_state": 1001,
+    "n_jobs": 2,
+    "verbosity": -1
+  },
+  "per_seed_records": [
+    {
+      "kf_seed": 1001,
+      "pooled_rae": 0.47704574911468656,
+      "per_fold_rae": [
+        0.4626207582228536,
+        0.5113960219921075,
+        0.5417798480029842,
+        0.4655746814209682,
+        0.41614118892567653
+      ],
+      "per_fold_rae_mean": 0.479502499712918,
+      "per_fold_rae_std": 0.04333427718608839,
+      "wall_sec": 0.09
+    },
+    {
+      "kf_seed": 1002,
+      "pooled_rae": 0.4832630421240709,
+      "per_fold_rae": [
+        0.5066256241892402,
+        0.4104534760831488,
+        0.5187576306249578,
+        0.555683631858522,
+        0.4776840043157649
+      ],
+      "per_fold_rae_mean": 0.4938408734143268,
+      "per_fold_rae_std": 0.04862781892495914,
+      "wall_sec": 0.09
+    },
+    {
+      "kf_seed": 1003,
+      "pooled_rae": 0.4772279936134186,
+      "per_fold_rae": [
+        0.38406325879236214,
+        0.4501029285522222,
+        0.5262745422831565,
+        0.5181146513424827,
+        0.532093376000315
+      ],
+      "per_fold_rae_mean": 0.48212975139410774,
+      "per_fold_rae_std": 0.05724123290649171,
+      "wall_sec": 0.09
+    },
+    {
+      "kf_seed": 1004,
+      "pooled_rae": 0.47342208819422626,
+      "per_fold_rae": [
+        0.45693374168163925,
+        0.4719393534799182,
+        0.5336253977723293,
+        0.40889802228895894,
+        0.5252685743354638
+      ],
+      "per_fold_rae_mean": 0.47933301791166183,
+      "per_fold_rae_std": 0.04598960820147866,
+      "wall_sec": 0.09
+    },
+    {
+      "kf_seed": 1005,
+      "pooled_rae": 0.4765095497579452,
+      "per_fold_rae": [
+        0.5585070910462752,
+        0.403069192458356,
+        0.4788390287577599,
+        0.39965380102306736,
+        0.6114167736740455
+      ],
+      "per_fold_rae_mean": 0.4902971773919008,
+      "per_fold_rae_std": 0.08399854895117856,
+      "wall_sec": 0.09
+    }
+  ],
+  "per_seed_rae": [
+    0.47704574911468656,
+    0.4832630421240709,
+    0.4772279936134186,
+    0.47342208819422626,
+    0.4765095497579452
+  ],
+  "mean_rae": 0.47749368456086944,
+  "std_rae": 0.0031969717802559,
+  "pooled_mean_bag_rae": 0.4715804715854425,
+  "delta_vs_nb1191_init": 0.00776458084706344,
+  "delta_vs_nb1191_deep30": 0.005693684560869439,
+  "delta_vs_nb2171": 0.00929368456086943,
+  "te_unb_in_sample_rae": 0.20536886855795883,
+  "te_deploy_mean": 4.713160514831543,
+  "te_deploy_std": 0.8312365412712097,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2903_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2903.npy",
+  "submission_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb2903_lgbm_init_from_nb1191.csv",
+  "gate_promote_threshold": 0.457,
+  "gate_marginal_threshold": 0.4598,
+  "verdict": "FAIL",
+  "wall_sec": 0.62
+}

@@ -1,0 +1,208 @@
+{
+  "tag": "nb2981",
+  "parent_tag": "nb2973",
+  "method": "per_fold_slsqp_simplex_5anchors_4K_plus_nb1191",
+  "paradigm": "extend_nb2973_with_nb1191_pre_pyramid",
+  "anchor_pool": [
+    "K18",
+    "K20",
+    "K24",
+    "K28",
+    "nb1191"
+  ],
+  "anchor_pre_unblind": true,
+  "per_anchor_full_oof_rae": {
+    "K18": 0.4536,
+    "K20": 0.4625,
+    "K24": 0.4687,
+    "K28": 0.474,
+    "nb1191": 0.4697
+  },
+  "anchor_leak_eq_truth_frac": {
+    "K18": 0.0,
+    "K20": 0.0,
+    "K24": 0.0,
+    "K28": 0.0,
+    "nb1191": 0.0
+  },
+  "oof_corr_matrix": [
+    [
+      1.0,
+      0.9849976824220701,
+      0.9815292514443817,
+      0.9838286957961303,
+      0.9813966389496408
+    ],
+    [
+      0.98499768242207,
+      1.0,
+      0.9944802488966924,
+      0.9868543420544826,
+      0.9847444042402352
+    ],
+    [
+      0.9815292514443817,
+      0.9944802488966923,
+      1.0,
+      0.983120195465266,
+      0.9819552432993024
+    ],
+    [
+      0.9838286957961303,
+      0.9868543420544826,
+      0.9831201954652659,
+      1.0,
+      0.9957175865631871
+    ],
+    [
+      0.9813966389496408,
+      0.9847444042402353,
+      0.9819552432993024,
+      0.9957175865631871,
+      0.9999999999999999
+    ]
+  ],
+  "oof_corr_labels": [
+    "K18",
+    "K20",
+    "K24",
+    "K28",
+    "nb1191"
+  ],
+  "n_folds": 5,
+  "kf_seed": 1001,
+  "n_starts_fold": 8,
+  "n_starts_full": 12,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "K_anchors": 5,
+  "fold_records": [
+    {
+      "fold": 0,
+      "n_train": 202,
+      "n_val": 51,
+      "weights": {
+        "K18": 0.8027,
+        "K20": 0.0,
+        "K24": 0.0,
+        "K28": 0.0,
+        "nb1191": 0.1973
+      },
+      "train_rae": 0.4546,
+      "val_rae": 0.4359,
+      "max_w": 0.8027,
+      "degenerate": false
+    },
+    {
+      "fold": 1,
+      "n_train": 202,
+      "n_val": 51,
+      "weights": {
+        "K18": 0.6462,
+        "K20": 0.2102,
+        "K24": 0.0,
+        "K28": 0.0,
+        "nb1191": 0.1435
+      },
+      "train_rae": 0.4443,
+      "val_rae": 0.4708,
+      "max_w": 0.6462,
+      "degenerate": false
+    },
+    {
+      "fold": 2,
+      "n_train": 202,
+      "n_val": 51,
+      "weights": {
+        "K18": 0.5988,
+        "K20": 0.0684,
+        "K24": 0.3327,
+        "K28": 0.0,
+        "nb1191": 0.0
+      },
+      "train_rae": 0.4397,
+      "val_rae": 0.5118,
+      "max_w": 0.5988,
+      "degenerate": false
+    },
+    {
+      "fold": 3,
+      "n_train": 203,
+      "n_val": 50,
+      "weights": {
+        "K18": 0.6827,
+        "K20": 0.3173,
+        "K24": 0.0,
+        "K28": 0.0,
+        "nb1191": 0.0
+      },
+      "train_rae": 0.4502,
+      "val_rae": 0.453,
+      "max_w": 0.6827,
+      "degenerate": false
+    },
+    {
+      "fold": 4,
+      "n_train": 203,
+      "n_val": 50,
+      "weights": {
+        "K18": 0.7654,
+        "K20": 0.2223,
+        "K24": 0.0124,
+        "K28": 0.0,
+        "nb1191": 0.0
+      },
+      "train_rae": 0.4578,
+      "val_rae": 0.4256,
+      "max_w": 0.7654,
+      "degenerate": false
+    }
+  ],
+  "pooled_outer_val_rae": 0.45558500686753406,
+  "per_fold_val_rae_mean": 0.45942000000000005,
+  "per_fold_val_rae_std": 0.03395352706273681,
+  "mean_w_across_folds": {
+    "K18": 0.6992,
+    "K20": 0.1636,
+    "K24": 0.069,
+    "K28": 0.0,
+    "nb1191": 0.0682
+  },
+  "any_fold_degenerate": false,
+  "full_pool_slsqp": {
+    "weights": {
+      "K18": 0.7028,
+      "K20": 0.2419,
+      "K24": 0.0,
+      "K28": 0.0,
+      "nb1191": 0.0552
+    },
+    "rae_in_sample": 0.4498,
+    "max_w": 0.7028,
+    "degenerate": false
+  },
+  "te_unb_in_sample_rae_full_pool": 0.1949,
+  "te_unb_in_sample_rae_mean_fold": 0.1951,
+  "te_mean": 4.734570026397705,
+  "te_std": 0.7681289315223694,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2981_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2981.npy",
+  "submission_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb2981_per_fold_simplex_5K_nb1191.csv",
+  "mean_rae": 0.45558500686753406,
+  "ref_nb2973": 0.4539,
+  "ref_K18_deep30": 0.4536,
+  "ref_K20_deep30": 0.4625,
+  "ref_K24_deep30": 0.4687,
+  "ref_K28_deep30": 0.474,
+  "ref_nb1191": 0.4718,
+  "ref_nb2171": 0.4682,
+  "delta_vs_nb2973": 0.0016850068675340335,
+  "delta_vs_K18": 0.001985006867534056,
+  "delta_vs_nb1191": -0.016214993132465938,
+  "delta_vs_nb2171": -0.012614993132465946,
+  "gate_better_nb2973": 0.4539,
+  "gate_promote": 0.457,
+  "verdict": "PROMOTE",
+  "wall_sec": 0.54
+}

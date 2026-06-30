@@ -54,6 +54,59 @@ _STRUCTURE_RENAME = {
     "OCNT_ID": "ocnt_id",
 }
 
+# Two CHANGELOG-2026-05-27 add-ons share a wide-format crude/semi-pure schema.
+_SEMI_PURE_RENAME = {
+    "SMILES": "smiles",
+    "OCNT_ID": "ocnt_id",
+    "Semi-Pure Batch ID": "batch",
+    "Semi-Pure EC50s (µM)": "ec50_um",
+    "Semi-Pure pEC50s (log)": "pec50_raw",
+    "Semi-Pure Emax normalized": "emax_norm",
+    "Semi-Pure Emax raw": "emax_raw",
+    "Corrected Semi-Pure EC50 (µM)": "ec50_um_corr",
+    "Corrected Semi-Pure pEC50 (log)": "pec50",
+    "Semi-Pure DRC pEC50 SE (log)": "pec50_se_drc",
+    "Corrected Semi-Pure pEC50 ±1 SE (log)": "pec50_se",
+    "Volatility": "volatility",
+    "Semi-Pure Product Yield (%)": "product_yield_pct",
+    "Semi-Pure Correction Factor": "correction_factor",
+}
+
+_CRUDES_RENAME = {
+    "SMILES": "smiles",
+    "OCNT_ID": "ocnt_id",
+    "Crude Batch ID": "batch",
+    "Crude EC50s (µM)": "ec50_um",
+    "Crude pEC50s (log)": "pec50_raw",
+    "Crude Emax normalized": "emax_norm",
+    "Crude Emax raw": "emax_raw",
+    "Corrected Crude EC50 (µM)": "ec50_um_corr",
+    "Corrected Crude pEC50 (log)": "pec50",
+    "Crude DRC pEC50 SE (log)": "pec50_se_drc",
+    "Corrected Crude pEC50 ±1 SE (log)": "pec50_se",
+    "Volatility": "volatility",
+    "Crude Product Yield (%)": "product_yield_pct",
+    "Crude Correction Factor": "correction_factor",
+}
+
+
+def load_semi_pure(raw: bool = False) -> pd.DataFrame:
+    """96-compound microscale semi-pure dose-response set (CHANGELOG 2026-05-27)."""
+    df = pd.read_csv(DATA_RAW / "pxr-challenge_96-compound-uscale-semi-pure_TRAIN.csv")
+    return df if raw else _rename(df, _SEMI_PURE_RENAME)
+
+
+def load_crudes(raw: bool = False) -> pd.DataFrame:
+    """Crude / htchem direct-to-biology library dose-response (CHANGELOG 2026-05-27)."""
+    df = pd.read_csv(DATA_RAW / "pxr-challenge_htchem-libraries_TRAIN.csv")
+    return df if raw else _rename(df, _CRUDES_RENAME)
+
+
+def load_phase1_unblinded(raw: bool = False) -> pd.DataFrame:
+    """Phase-1 unblinded subset of the 513-test (CHANGELOG 2026-05-27): 253 rows w/ labels."""
+    df = pd.read_csv(DATA_RAW / "pxr-challenge_TEST_PHASE_1_UNBLINDED.csv")
+    return df if raw else _rename(df, _DOSE_RESPONSE_RENAME)
+
 
 def _rename(df: pd.DataFrame, mapping: dict[str, str]) -> pd.DataFrame:
     return df.rename(columns={k: v for k, v in mapping.items() if k in df.columns})
@@ -97,4 +150,7 @@ def load_all() -> dict[str, pd.DataFrame]:
         "counter": load_counter(),
         "single_conc": load_single_conc(),
         "structure": load_structure(),
+        "semi_pure": load_semi_pure(),
+        "crudes": load_crudes(),
+        "phase1_unblinded": load_phase1_unblinded(),
     }

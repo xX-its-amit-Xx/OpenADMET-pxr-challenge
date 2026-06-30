@@ -1,0 +1,83 @@
+{
+  "tag": "nb2081",
+  "method": "tri_vote_median_rank_anchor_nb1158_cdf_DIVERSE",
+  "candidates": [
+    "nb1158",
+    "nb503",
+    "nb562"
+  ],
+  "n_unb": 253,
+  "n_te": 513,
+  "indiv_oof_rae_unb": {
+    "nb1158": 0.49021118924935564,
+    "nb503": 0.5116212503074237,
+    "nb562": 0.5065400776344995
+  },
+  "indiv_ref_memo": {
+    "nb1158": 0.4902,
+    "nb503": 0.5116,
+    "nb562": 0.5065
+  },
+  "pairwise_spearman": {
+    "nb1158_vs_nb503": 0.9025492366813833,
+    "nb1158_vs_nb562": 0.902166132395506,
+    "nb503_vs_nb562": 0.999964431323555
+  },
+  "max_pairwise_spearman": 0.999964431323555,
+  "spearman_max_pairwise_gate": 0.95,
+  "diversity_pass": false,
+  "global_oof_rae_anchor_nb1158": 0.5206350277858948,
+  "spearman_vote_vs_nb1158": 0.9028785688045532,
+  "spearman_vote_vs_nb503": 0.9999861059552025,
+  "spearman_vote_vs_nb562": 0.9999831418916939,
+  "spearman_max_anchor_gate": 0.98,
+  "distinct_pass": true,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "n_folds": 5,
+  "per_seed_results": [
+    {
+      "kf_seed": 1001,
+      "pooled_rae": 0.5242429069526141
+    },
+    {
+      "kf_seed": 1002,
+      "pooled_rae": 0.5320936047040302
+    },
+    {
+      "kf_seed": 1003,
+      "pooled_rae": 0.5443643829013309
+    },
+    {
+      "kf_seed": 1004,
+      "pooled_rae": 0.52431972957261
+    },
+    {
+      "kf_seed": 1005,
+      "pooled_rae": 0.5353068864827681
+    }
+  ],
+  "pooled_rae_mean_seeds": 0.5320655021226706,
+  "pooled_rae_std_seeds": 0.0075227630339460855,
+  "rae_of_mean_of_seed_oofs": 0.5207410543712905,
+  "te_unb_rae_in_sample": 0.4350884463647646,
+  "deploy_te_mean": 4.690591335296631,
+  "deploy_te_std": 0.8446354866027832,
+  "nb2060_ref_oof_rae": 0.4697,
+  "delta_vs_nb2060": 0.06236550212267056,
+  "delta_vs_nb1158": 0.04186550212267054,
+  "delta_vs_nb503": 0.02046550212267051,
+  "delta_vs_nb562": 0.025565502122670614,
+  "gate_margin": 0.003,
+  "beats_nb2060_by_margin": false,
+  "beats_nb1158_by_margin": false,
+  "promote": false,
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2081.npy",
+  "submission_csv": null,
+  "wall_sec": 0.09
+}

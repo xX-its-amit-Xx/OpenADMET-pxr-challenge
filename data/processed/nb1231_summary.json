@@ -1,0 +1,64 @@
+{
+  "tag": "nb1231",
+  "anchor": "chemprop_aux",
+  "anchor_te_file": "te_chemprop_aux.npy",
+  "n_unb": 253,
+  "inner_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "resid_folds": 5,
+  "feature": "MACCS-167",
+  "rae_anchor": 0.6215728863514471,
+  "per_inner_records": [
+    {
+      "inner_seed": 0,
+      "rae": 0.5832188962975702,
+      "resid_oof_mean": -0.09706445400956637,
+      "resid_oof_std": 0.23698354037187908,
+      "elapsed_sec": 0.07
+    },
+    {
+      "inner_seed": 1,
+      "rae": 0.5922768257179689,
+      "resid_oof_mean": -0.10189557939326896,
+      "resid_oof_std": 0.25400011360971053,
+      "elapsed_sec": 0.07
+    },
+    {
+      "inner_seed": 7,
+      "rae": 0.5899286676200229,
+      "resid_oof_mean": -0.10337034776199143,
+      "resid_oof_std": 0.2508578050039944,
+      "elapsed_sec": 0.07
+    },
+    {
+      "inner_seed": 42,
+      "rae": 0.5832156635365289,
+      "resid_oof_mean": -0.09598404567050668,
+      "resid_oof_std": 0.24293442374300434,
+      "elapsed_sec": 0.07
+    },
+    {
+      "inner_seed": 137,
+      "rae": 0.5968843938667425,
+      "resid_oof_mean": -0.10558664313111288,
+      "resid_oof_std": 0.2570394721504271,
+      "elapsed_sec": 0.07
+    }
+  ],
+  "per_inner_rae": [
+    0.5832188962975702,
+    0.5922768257179689,
+    0.5899286676200229,
+    0.5832156635365289,
+    0.5968843938667425
+  ],
+  "rae_mean_bag": 0.5804806784335109,
+  "rae_median_bag": 0.5826345541884136,
+  "delta_mean_bag_vs_anchor": -0.04109220791793622,
+  "wall_sec": 0.36
+}

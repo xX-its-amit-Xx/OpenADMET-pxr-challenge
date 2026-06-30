@@ -1,0 +1,38 @@
+{
+  "notebook": "nb3422",
+  "title": "Structure template-transplant lever feasibility (read-only assessment)",
+  "date": "2026-06-09",
+  "context": "Cycle 285 identified rigid-align ligand transplant from the 64 holo crystals as the only no-GPU structure lever. This assesses whether a close-enough crystal exists to make it worth building.",
+  "inputs": {
+    "holo_dir": "data/external/pdb64_structures/",
+    "n_holo_cif_files": 64,
+    "n_holo_crystals_with_ligand": 63,
+    "n_holo_unique_ligand_smiles": 56,
+    "test_csv": "data/raw/pxr-challenge_structure_TEST_BLINDED.csv",
+    "n_test_ligands": 184,
+    "holo_ligand_source": "data/processed/pxr_pdb64_contacts.parquet (CCD-resolved bound ligands)"
+  },
+  "method": "ECFP4 (Morgan radius 2, 2048 bit) on standardized SMILES; per-test-ligand max Tanimoto over the 56 unique holo ligands. Independently reproduces scripts/nb361_pdb64_inventory.py.",
+  "tanimoto_ecfp4_max_to_holo": {
+    "min": 0.129,
+    "q05": 0.152,
+    "q25": 0.174,
+    "median": 0.195,
+    "q75": 0.220,
+    "q95": 0.264,
+    "max": 0.317,
+    "mean": 0.200
+  },
+  "coverage_counts": {
+    "ge_0.4": 0,
+    "ge_0.5": 0,
+    "ge_0.6": 0,
+    "ge_0.7": 0
+  },
+  "coverage_threshold_for_go": 30,
+  "max_pairwise_similarity_observed": 0.317,
+  "interpretation": "The 64 holo crystals are drug-like PXR agonists (MW 400-700, complex multi-ring scaffolds, e.g. 8R81/Y8B benzimidazole MW 405). The 184 structure-test ligands are small fragment-like molecules (e.g. NS(=O)(=O)C=1C=CC=2CCCC2C1). Scaffold mismatch is total: the single best test-to-holo pair across all 184x56 comparisons reaches only Tanimoto 0.317, well below the 0.5 transplant gate. Rigid-align ligand transplant requires a near-isosteric crystal analog (typically sim>=0.7 for a defensible pose) to place atoms meaningfully; here the maximum-common-substructure overlap is far too small for the transplanted coordinates to map onto the test ligand.",
+  "decision": "NO-GO",
+  "recommendation": "Do NOT build the template-transplant lever. Coverage at sim>=0.5 is 0 (need >30); even the loosest reasonable gate (sim>=0.4) yields 0 ligands. The holo set and the test set occupy disjoint chemical space (drug-like agonists vs small fragments). Given the documented history that every post-hoc structure pose-swap has HURT LDDT-PLI under strict gating (v4 -0.0049, v6 -0.0364), and that 0 ligands would even pass the gate, this lever cannot produce a single transplant and carries only downside risk. Structure track should remain on the pure multi-seed Boltz-2 v5 safety floor (LDDT-PLI 0.4996, rank 10/50). The only paths that could move the structure track are GPU-bound (Boltz-2 re-runs), consistent with cycle-285's no-GPU-lever conclusion.",
+  "gate_summary": "coverage(sim>=0.5)=0 of 184; coverage(sim>=0.7)=0 of 184; max observed sim=0.317; NO-GO."
+}

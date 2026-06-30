@@ -1,0 +1,268 @@
+{
+  "tag": "nb2185",
+  "method": "alt_anchor_scan_28shap_lgbm_residual_5fold_5seed_bag",
+  "n_folds": 5,
+  "bag_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "kfold_seed": 2026,
+  "n_test": 513,
+  "n_unb": 253,
+  "n_feat": 28,
+  "X_unb_28_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\X_unb_28_nb2103.npy",
+  "X_unb_28_sha": "4cf70c4d2334bde4",
+  "y_unb_sha": "9a8880d57969c9c7",
+  "nb2112_ref": 0.4698,
+  "candidates": [
+    {
+      "name": "chemprop_aux",
+      "status": "OK",
+      "anchor_rae": 0.6215728863514471,
+      "source": "te[unb_idx]:te_chemprop_aux.npy",
+      "expected_rae": 0.6216,
+      "notes": [
+        "vs MEMORY expected 0.6216: gap=-0.0000"
+      ]
+    },
+    {
+      "name": "nb562",
+      "status": "OK",
+      "anchor_rae": 0.5065400776344995,
+      "source": "oof:nb562_pred_oof.npy",
+      "expected_rae": 0.5065,
+      "notes": [
+        "vs MEMORY expected 0.5065: gap=+0.0000"
+      ]
+    },
+    {
+      "name": "nb503",
+      "status": "OK",
+      "anchor_rae": 0.5116212503074237,
+      "source": "oof:nb503_pred_oof.npy",
+      "expected_rae": 0.5116,
+      "notes": [
+        "vs MEMORY expected 0.5116: gap=+0.0000"
+      ]
+    },
+    {
+      "name": "nb464",
+      "status": "OK",
+      "anchor_rae": 0.5488842103001169,
+      "source": "te[unb_idx]:te_nb464.npy",
+      "expected_rae": 0.5489,
+      "notes": [
+        "vs MEMORY expected 0.5489: gap=-0.0000"
+      ]
+    },
+    {
+      "name": "nb463",
+      "status": "OK",
+      "anchor_rae": 0.5489456868974095,
+      "source": "te[unb_idx]:te_nb463.npy",
+      "expected_rae": 0.5489,
+      "notes": [
+        "vs MEMORY expected 0.5489: gap=+0.0000"
+      ]
+    },
+    {
+      "name": "nb471",
+      "status": "OK",
+      "anchor_rae": 0.5506408640870192,
+      "source": "te[unb_idx]:te_nb471.npy",
+      "expected_rae": 0.5506,
+      "notes": [
+        "vs MEMORY expected 0.5506: gap=+0.0000"
+      ]
+    },
+    {
+      "name": "nb432",
+      "status": "OK",
+      "anchor_rae": 0.551855789583967,
+      "source": "te[unb_idx]:te_nb432.npy",
+      "expected_rae": 0.5519,
+      "notes": [
+        "vs MEMORY expected 0.5519: gap=-0.0000"
+      ]
+    },
+    {
+      "name": "nb239_full_slsqp",
+      "status": "OK",
+      "anchor_rae": 0.745412218640566,
+      "source": "te[unb_idx]:te_nb239_full_slsqp.npy",
+      "expected_rae": null,
+      "notes": []
+    },
+    {
+      "name": "nb1521_bob_mean",
+      "status": "OK",
+      "anchor_rae": 0.5220505581692239,
+      "source": "oof:nb1521_bob_mean_oof.npy",
+      "expected_rae": 0.5221,
+      "notes": [
+        "vs MEMORY expected 0.5221: gap=-0.0000"
+      ]
+    },
+    {
+      "name": "nb1500_bob_mean",
+      "status": "OK",
+      "anchor_rae": 0.5236296396318634,
+      "source": "oof:nb1500_bob_mean_oof.npy",
+      "expected_rae": 0.5234,
+      "notes": [
+        "vs MEMORY expected 0.5234: gap=+0.0002"
+      ]
+    },
+    {
+      "name": "nb1484_best",
+      "status": "OK",
+      "anchor_rae": 0.5230936985014603,
+      "source": "oof:nb1484_best_oof.npy",
+      "expected_rae": 0.5231,
+      "notes": [
+        "vs MEMORY expected 0.5231: gap=-0.0000"
+      ]
+    }
+  ],
+  "results_ranked": [
+    {
+      "anchor_name": "nb503",
+      "anchor_source": "oof:nb503_pred_oof.npy",
+      "anchor_rae": 0.5116212503074237,
+      "residual_pred_mean_mean": -0.04115412753017945,
+      "residual_pred_mean_std": 0.38328959930735335,
+      "rae_final_mean_bag": 0.4846825338865031,
+      "rae_final_median_bag": 0.4846825338865031,
+      "improvement_mean_bag": 0.02693871642092055,
+      "wall_sec": 1.62
+    },
+    {
+      "anchor_name": "nb562",
+      "anchor_source": "oof:nb562_pred_oof.npy",
+      "anchor_rae": 0.5065400776344995,
+      "residual_pred_mean_mean": -0.04279828087459539,
+      "residual_pred_mean_std": 0.36137891267857325,
+      "rae_final_mean_bag": 0.4899636852001293,
+      "rae_final_median_bag": 0.4899636852001293,
+      "improvement_mean_bag": 0.016576392434370202,
+      "wall_sec": 1.62
+    },
+    {
+      "anchor_name": "nb463",
+      "anchor_source": "te[unb_idx]:te_nb463.npy",
+      "anchor_rae": 0.5489456868974095,
+      "residual_pred_mean_mean": -0.08783532370620788,
+      "residual_pred_mean_std": 0.4278226651600928,
+      "rae_final_mean_bag": 0.49324965029699996,
+      "rae_final_median_bag": 0.493249650297,
+      "improvement_mean_bag": 0.05569603660040956,
+      "wall_sec": 1.58
+    },
+    {
+      "anchor_name": "nb464",
+      "anchor_source": "te[unb_idx]:te_nb464.npy",
+      "anchor_rae": 0.5488842103001169,
+      "residual_pred_mean_mean": -0.08376573921912908,
+      "residual_pred_mean_std": 0.430648053875647,
+      "rae_final_mean_bag": 0.4971699224064086,
+      "rae_final_median_bag": 0.4971699224064086,
+      "improvement_mean_bag": 0.0517142878937083,
+      "wall_sec": 1.58
+    },
+    {
+      "anchor_name": "nb471",
+      "anchor_source": "te[unb_idx]:te_nb471.npy",
+      "anchor_rae": 0.5506408640870192,
+      "residual_pred_mean_mean": -0.11727950472688389,
+      "residual_pred_mean_std": 0.428272777118002,
+      "rae_final_mean_bag": 0.49836575073832023,
+      "rae_final_median_bag": 0.49836575073832023,
+      "improvement_mean_bag": 0.05227511334869894,
+      "wall_sec": 1.58
+    },
+    {
+      "anchor_name": "nb1500_bob_mean",
+      "anchor_source": "oof:nb1500_bob_mean_oof.npy",
+      "anchor_rae": 0.5236296396318634,
+      "residual_pred_mean_mean": -0.0555702027933551,
+      "residual_pred_mean_std": 0.3305080710014998,
+      "rae_final_mean_bag": 0.5001481855317551,
+      "rae_final_median_bag": 0.5001481855317551,
+      "improvement_mean_bag": 0.023481454100108268,
+      "wall_sec": 1.5
+    },
+    {
+      "anchor_name": "nb432",
+      "anchor_source": "te[unb_idx]:te_nb432.npy",
+      "anchor_rae": 0.551855789583967,
+      "residual_pred_mean_mean": -0.07790903248758634,
+      "residual_pred_mean_std": 0.42940101733693686,
+      "rae_final_mean_bag": 0.5023411483780034,
+      "rae_final_median_bag": 0.5023411483780034,
+      "improvement_mean_bag": 0.049514641205963605,
+      "wall_sec": 1.59
+    },
+    {
+      "anchor_name": "chemprop_aux",
+      "anchor_source": "te[unb_idx]:te_chemprop_aux.npy",
+      "anchor_rae": 0.6215728863514471,
+      "residual_pred_mean_mean": -0.15390225218924647,
+      "residual_pred_mean_std": 0.46808913408167757,
+      "rae_final_mean_bag": 0.5062424368427552,
+      "rae_final_median_bag": 0.5062424368427552,
+      "improvement_mean_bag": 0.11533044950869198,
+      "wall_sec": 1.54
+    },
+    {
+      "anchor_name": "nb1484_best",
+      "anchor_source": "oof:nb1484_best_oof.npy",
+      "anchor_rae": 0.5230936985014603,
+      "residual_pred_mean_mean": -0.0457292002412832,
+      "residual_pred_mean_std": 0.3159113338066853,
+      "rae_final_mean_bag": 0.5122726145051342,
+      "rae_final_median_bag": 0.5122726145051342,
+      "improvement_mean_bag": 0.010821083996326086,
+      "wall_sec": 1.5
+    },
+    {
+      "anchor_name": "nb1521_bob_mean",
+      "anchor_source": "oof:nb1521_bob_mean_oof.npy",
+      "anchor_rae": 0.5220505581692239,
+      "residual_pred_mean_mean": -0.058032200867210934,
+      "residual_pred_mean_std": 0.325127596666677,
+      "rae_final_mean_bag": 0.52107285723141,
+      "rae_final_median_bag": 0.52107285723141,
+      "improvement_mean_bag": 0.0009777009378139079,
+      "wall_sec": 1.51
+    },
+    {
+      "anchor_name": "nb239_full_slsqp",
+      "anchor_source": "te[unb_idx]:te_nb239_full_slsqp.npy",
+      "anchor_rae": 0.745412218640566,
+      "residual_pred_mean_mean": -0.06786478806650516,
+      "residual_pred_mean_std": 0.6199514771272131,
+      "rae_final_mean_bag": 0.5665829739777973,
+      "rae_final_median_bag": 0.5665829739777973,
+      "improvement_mean_bag": 0.17882924466276862,
+      "wall_sec": 1.63
+    }
+  ],
+  "winner": {
+    "anchor_name": "nb503",
+    "anchor_source": "oof:nb503_pred_oof.npy",
+    "anchor_rae": 0.5116212503074237,
+    "residual_pred_mean_mean": -0.04115412753017945,
+    "residual_pred_mean_std": 0.38328959930735335,
+    "rae_final_mean_bag": 0.4846825338865031,
+    "rae_final_median_bag": 0.4846825338865031,
+    "improvement_mean_bag": 0.02693871642092055,
+    "wall_sec": 1.62
+  },
+  "beats_nb2112": false,
+  "gap_vs_nb2112": 0.014882533886503124,
+  "deploy_csv": null,
+  "wall_sec": 17.25
+}

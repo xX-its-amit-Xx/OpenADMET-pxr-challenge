@@ -1,0 +1,50 @@
+{
+  "tag": "nb1353",
+  "status": "ok",
+  "n_unb": 253,
+  "components": [
+    "nb1341_catboost_5seed",
+    "nb1242_lgbm_5seed"
+  ],
+  "seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "n_models": 10,
+  "per_model_rae_catboost": [
+    0.5535576240604075,
+    0.5529985591418005,
+    0.5563477992991046,
+    0.5494175131787443,
+    0.5424001643486142
+  ],
+  "per_model_rae_lgbm": [
+    0.5541846986576784,
+    0.5550690590503108,
+    0.5545655166154781,
+    0.5470875297380114,
+    0.5552016566354154
+  ],
+  "rae_catboost_5bag_mean": 0.5419924955354044,
+  "rae_lgbm_5bag_mean": 0.5431120406745675,
+  "pearson_cb_lg_5bag": 0.9900006712716085,
+  "rae_combined_mean": 0.5385133999257727,
+  "rae_combined_median": 0.5376422164558735,
+  "delta_combined_mean_vs_nb1242": -0.004586600074227287,
+  "delta_combined_mean_vs_nb1290": -0.0004866000742272947,
+  "delta_combined_median_vs_nb1242": -0.0054577835441265155,
+  "delta_combined_median_vs_nb1290": -0.001357783544126523,
+  "best_aggregation": "median",
+  "best_rae": 0.5376422164558735,
+  "beats_nb1242": true,
+  "beats_nb1290": false,
+  "verdict": "COMBINED_BAG_BEATS_NB1242_ONLY (median @ 0.5376; flat vs nb1290)",
+  "nb1242_ref": 0.5431,
+  "nb1290_ref": 0.539,
+  "nb1341_ref": 0.542,
+  "decision_margin": 0.003,
+  "wall_sec": 0.0
+}

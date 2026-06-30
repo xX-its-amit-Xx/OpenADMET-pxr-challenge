@@ -1,0 +1,48 @@
+{
+  "base_loocv": 0.6041,
+  "base_bio_loocv": 0.6099,
+  "sc_stack": 0.5799,
+  "ridge_best_bio": 0.6135,
+  "bio_signals": {
+    "sc_pactive": {
+      "corr_truth": 0.714,
+      "corr_error": -0.156
+    },
+    "sc_log2fc": {
+      "corr_truth": 0.686,
+      "corr_error": -0.162
+    },
+    "counter_pred": {
+      "corr_truth": 0.075,
+      "corr_error": 0.008
+    },
+    "pxr_minus_counter": {
+      "corr_truth": 0.657,
+      "corr_error": -0.102
+    },
+    "emax_nn": {
+      "corr_truth": 0.102,
+      "corr_error": -0.077
+    },
+    "xnr_NR_FXR": {
+      "corr_truth": -0.007,
+      "corr_error": 0.07
+    },
+    "xnr_NR_PPARg": {
+      "corr_truth": 0.402,
+      "corr_error": -0.105
+    },
+    "xnr_NR_VDR": {
+      "corr_truth": 0.044,
+      "corr_error": 0.083
+    },
+    "xnr_NR_RXRa": {
+      "corr_truth": 0.071,
+      "corr_error": 0.002
+    },
+    "xnr_NR_LXRa": {
+      "corr_truth": 0.09,
+      "corr_error": -0.005
+    }
+  }
+}

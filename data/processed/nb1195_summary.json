@@ -1,0 +1,101 @@
+{
+  "tag": "nb1195",
+  "source_blend": "nb1162_stack_pyramid",
+  "anchors": [
+    "nb2103_K28",
+    "chemprop_aux",
+    "nb730_honest",
+    "nb503",
+    "nb562"
+  ],
+  "n_unb": 253,
+  "n_te": 513,
+  "n_f2_novel_scaffold": 197,
+  "base_pooled_rae_reconstructed": 0.4206326222520904,
+  "nb1162_cached_pooled_rae": 0.4206326222520904,
+  "variance_diag_full": {
+    "pred_std": 0.8721046555823623,
+    "truth_std": 1.0320053675542649,
+    "s_var_ratio": 1.1833503707936592
+  },
+  "variance_diag_f2": {
+    "n": 197,
+    "pred_std": 0.9040308674186089,
+    "truth_std": 1.0724904479923407,
+    "s_var_ratio": 1.1863427308126715,
+    "f2_only_rae": 0.4365627826305807
+  },
+  "variance_diag_in_manifold": {
+    "n": 56,
+    "pred_std": 0.5594756715792124,
+    "truth_std": 0.655200393622876,
+    "in_manifold_rae": 0.42498646924719613
+  },
+  "stretch_grid": [
+    1.0,
+    1.02,
+    1.05,
+    1.08,
+    1.1,
+    1.12,
+    1.15
+  ],
+  "grid_results": {
+    "1.00": {
+      "pooled_rae": 0.4206326222520904,
+      "f2_rae": 0.4365627826305807,
+      "delta_vs_base": 0.0
+    },
+    "1.02": {
+      "pooled_rae": 0.4217711667232866,
+      "f2_rae": 0.43870009315141945,
+      "delta_vs_base": -0.0011385444711961568
+    },
+    "1.05": {
+      "pooled_rae": 0.4238975632713748,
+      "f2_rae": 0.4422506076162,
+      "delta_vs_base": -0.003264941019284373
+    },
+    "1.08": {
+      "pooled_rae": 0.42741298940616734,
+      "f2_rae": 0.446695360900227,
+      "delta_vs_base": -0.006780367154076927
+    },
+    "1.10": {
+      "pooled_rae": 0.43049919908518214,
+      "f2_rae": 0.4498402815184327,
+      "delta_vs_base": -0.009866576833091723
+    },
+    "1.12": {
+      "pooled_rae": 0.4339051332888668,
+      "f2_rae": 0.4531348952666481,
+      "delta_vs_base": -0.013272511036776402
+    },
+    "1.15": {
+      "pooled_rae": 0.44020638956809266,
+      "f2_rae": 0.4591769307011069,
+      "delta_vs_base": -0.019573767316002244
+    }
+  },
+  "per_fold_diagnostic": {
+    "per_fold_s": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "per_fold_mean_s": 1.0,
+    "per_fold_pooled_rae": 0.4206326222520904
+  },
+  "best_s": 1.0,
+  "best_stretched_rae": 0.4206326222520904,
+  "delta_rae_vs_base": 0.0,
+  "gate_s_min": 1.03,
+  "gate_delta_rae": 0.005,
+  "gate_a_best_s_ge_min": false,
+  "gate_b_delta_ge_min": false,
+  "gate_pass": false,
+  "deploy": null,
+  "wall_sec": 1.27
+}

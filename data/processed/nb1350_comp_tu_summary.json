@@ -1,0 +1,16 @@
+{
+  "control_deployed_rae": 0.4147576179656949,
+  "best_rae": 0.4149,
+  "compT": {
+    "treat_rae": 0.4216771614340888,
+    "delta": 0.006919543468393907,
+    "n_neg": 0,
+    "gate_pass": false
+  },
+  "compU": {
+    "treat_rae": 0.4167798526028466,
+    "delta": 0.002022234637151732,
+    "n_neg": 0,
+    "gate_pass": false
+  }
+}

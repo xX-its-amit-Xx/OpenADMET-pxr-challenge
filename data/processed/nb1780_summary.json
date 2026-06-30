@@ -1,0 +1,176 @@
+{
+  "tag": "nb1780",
+  "anchor": "chemprop_aux",
+  "anchor_kind": "PRE_unblind_te_slice_to_unb_idx",
+  "anchor_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+  "data_source": "AtomPair-cache + MACCS-cache + Mordred-cached_nb1030 + ChempropEmbed-cache + Avalon-cache + local_chembl_caches_union",
+  "model_family": "LightGBM",
+  "lgbm_objective": "huber",
+  "lgbm_alpha": 1.0,
+  "lgbm_max_depth": 4,
+  "lgbm_num_leaves": 15,
+  "lgbm_n_estimators": 300,
+  "lgbm_learning_rate": 0.03,
+  "lgbm_min_child_samples": 5,
+  "lgbm_reg_lambda": 2.0,
+  "K_AP_best": 25,
+  "K_Mord_best": 20,
+  "K_Embed_best": 20,
+  "K_Avalon_used": 30,
+  "K_MACCS_fixed": 20,
+  "n_chembl_pool": 945,
+  "n_unb": 253,
+  "n_top_atompair": 25,
+  "n_top_maccs": 20,
+  "n_top_mordred": 20,
+  "n_top_chemprop_embed": 20,
+  "n_top_avalon": 30,
+  "feat_dim": 117,
+  "feat_breakdown": {
+    "atompair": 25,
+    "maccs": 20,
+    "mordred": 20,
+    "chemprop_embed": 20,
+    "avalon": 30,
+    "pred_chembl_pec50": 1,
+    "mean_sim": 1,
+    "total": 117
+  },
+  "outer_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "inner_base_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "inner_seed_rule": "inner_seeds = [o*1000 + s for s in INNER_BASE]",
+  "resid_folds": 5,
+  "rae_anchor_chemprop_aux": 0.6215728863514471,
+  "residual_mean": -0.1325965261753001,
+  "residual_std": 0.6999145683913596,
+  "per_outer_rae": [
+    0.5099769339292406,
+    0.5124146618525567,
+    0.5073967664457516,
+    0.504466963622814,
+    0.5117171492377601
+  ],
+  "per_outer_records": [
+    {
+      "outer_seed": 0,
+      "inner_seeds": [
+        0,
+        1,
+        7,
+        42,
+        137
+      ],
+      "per_inner_rae": [
+        0.5299696033637928,
+        0.5490129081350872,
+        0.523479517178466,
+        0.5244546675648117,
+        0.5448697243964319
+      ],
+      "rae_pooled_mean_bag": 0.5099769339292406,
+      "wall_sec": 2.46
+    },
+    {
+      "outer_seed": 1,
+      "inner_seeds": [
+        1000,
+        1001,
+        1007,
+        1042,
+        1137
+      ],
+      "per_inner_rae": [
+        0.5452335125736646,
+        0.5122462248738145,
+        0.5622394532794844,
+        0.5332067315785552,
+        0.5373152973897869
+      ],
+      "rae_pooled_mean_bag": 0.5124146618525567,
+      "wall_sec": 2.48
+    },
+    {
+      "outer_seed": 7,
+      "inner_seeds": [
+        7000,
+        7001,
+        7007,
+        7042,
+        7137
+      ],
+      "per_inner_rae": [
+        0.5205364907887697,
+        0.5440033879527716,
+        0.5490559508510826,
+        0.5318076036720888,
+        0.5315391246075921
+      ],
+      "rae_pooled_mean_bag": 0.5073967664457516,
+      "wall_sec": 2.43
+    },
+    {
+      "outer_seed": 42,
+      "inner_seeds": [
+        42000,
+        42001,
+        42007,
+        42042,
+        42137
+      ],
+      "per_inner_rae": [
+        0.5265872362464545,
+        0.5333840884247897,
+        0.5366968892203354,
+        0.5150101053940744,
+        0.5328572295919668
+      ],
+      "rae_pooled_mean_bag": 0.504466963622814,
+      "wall_sec": 2.42
+    },
+    {
+      "outer_seed": 137,
+      "inner_seeds": [
+        137000,
+        137001,
+        137007,
+        137042,
+        137137
+      ],
+      "per_inner_rae": [
+        0.5342209731329078,
+        0.5122962117443632,
+        0.5713271302953548,
+        0.5300579921076942,
+        0.5380339000256864
+      ],
+      "rae_pooled_mean_bag": 0.5117171492377601,
+      "wall_sec": 2.42
+    }
+  ],
+  "rae_per_outer_mean": 0.5091944950176245,
+  "rae_per_outer_median": 0.5099769339292406,
+  "rae_per_outer_std": 0.002930080221312165,
+  "rae_per_outer_min": 0.504466963622814,
+  "rae_per_outer_max": 0.5124146618525567,
+  "rae_bob_mean": 0.503201877734989,
+  "rae_bob_median": 0.5039789785937395,
+  "nb1771_ref": 0.51,
+  "decision_margin": 0.003,
+  "delta_per_outer_mean_vs_ref": -0.0008055049823755267,
+  "delta_bob_mean_vs_ref": -0.006798122265010975,
+  "delta_bob_median_vs_ref": -0.006021021406260485,
+  "verdict": "NB1771_REPRODUCES",
+  "wall_sec": 16.14
+}

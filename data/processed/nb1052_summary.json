@@ -1,100 +1,66 @@
 {
   "tag": "nb1052",
-  "candidates": [
-    "chemprop_aux",
-    "nb972_long_train",
-    "nb914_persistence",
-    "nb960_pseudo",
-    "nb1030_mordred"
-  ],
-  "phys_keys": [
-    "logp",
-    "mw",
-    "tpsa",
-    "fsp3",
-    "formal_charge"
-  ],
-  "n_features": 10,
+  "method": "BayesianRidge + GaussianProcess on K=28 SHAP features (chemprop_aux residual); per-row uncertainty router Bayes/GP <-> LGBM",
+  "anchor": "chemprop_aux",
+  "anchor_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
   "n_unb": 253,
-  "n_te": 513,
-  "lgbm_params": {
-    "objective": "huber",
-    "alpha": 2.0,
-    "learning_rate": 0.05,
-    "n_estimators": 200,
-    "max_depth": 4,
-    "num_leaves": 15,
-    "min_child_samples": 15,
-    "subsample": 0.9,
-    "subsample_freq": 1,
-    "colsample_bytree": 0.9,
-    "reg_lambda": 1.0,
-    "verbosity": -1,
-    "random_state": 42,
-    "n_jobs": 2
+  "n_test": 513,
+  "K_features": 28,
+  "cv_folds": 5,
+  "cv_seed": 42,
+  "decision_margin": 0.003,
+  "rae_anchor_chemprop_aux": 0.6215728863514471,
+  "rae_lgbm_K28_meanbag_in_RAE": 0.47368697777353697,
+  "nb2103_K28_mean_bag_ref": 0.4737,
+  "nb2103_K28_median_bag_ref": 0.4698,
+  "residual_mean": -0.1325965261753001,
+  "residual_std": 0.6999145683913596,
+  "method_A_bayesian_ridge": {
+    "rae": 0.5463841603839655,
+    "delta_vs_anchor": -0.0751887259674816,
+    "delta_vs_K28_mean_bag": 0.07268416038396552,
+    "delta_vs_K28_median_bag": 0.07658416038396554,
+    "verdict": "HURTS",
+    "bayes_std_mean": 0.595681778457067,
+    "bayes_std_min": 0.5601972995493272,
+    "bayes_std_max": 0.6424919478402825,
+    "bayes_std_std": 0.018229320170216626
   },
-  "n_folds": 5,
-  "seed": 42,
-  "indiv_in_rae": {
-    "chemprop_aux": 0.6215728863514471,
-    "nb972_long_train": 0.6897558359185051,
-    "nb914_persistence": 0.7062430518106672,
-    "nb960_pseudo": 0.6951270420579556,
-    "nb1030_mordred": 0.7206506225144002
+  "method_B_bayes_lgbm_router": {
+    "rae": 0.4872577824765043,
+    "delta_vs_anchor": -0.13431510387494283,
+    "delta_vs_K28_mean_bag": 0.013557782476504299,
+    "delta_vs_K28_median_bag": 0.017457782476504313,
+    "verdict": "HURTS",
+    "weight_w_mean": 0.4146015497095941,
+    "weight_w_min": 0.2,
+    "weight_w_max": 1.0,
+    "n_bayes_dominant_rows": 65
   },
-  "fold_records": [
-    {
-      "fold": 0,
-      "n_tr": 202,
-      "n_va": 51,
-      "val_rae": 0.5972264087205886
-    },
-    {
-      "fold": 1,
-      "n_tr": 202,
-      "n_va": 51,
-      "val_rae": 0.6307580823106695
-    },
-    {
-      "fold": 2,
-      "n_tr": 202,
-      "n_va": 51,
-      "val_rae": 0.7236396117812562
-    },
-    {
-      "fold": 3,
-      "n_tr": 203,
-      "n_va": 50,
-      "val_rae": 0.6644764366778977
-    },
-    {
-      "fold": 4,
-      "n_tr": 203,
-      "n_va": 50,
-      "val_rae": 0.5276604485885107
-    }
-  ],
-  "pooled_cross_fit_rae": 0.6282264978066279,
-  "fold_mean_rae": 0.6287521976157845,
-  "fold_std_rae": 0.06557024215883868,
-  "nb1014_reference": 0.593,
-  "delta_vs_nb1014": 0.0352264978066279,
-  "verdict": "WORSE_THAN_NB1014",
-  "in_sample_train_rae_overfit_bound": 0.30396764661803977,
-  "feature_importance": {
-    "chemprop_aux": 219,
-    "tpsa": 215,
-    "logp": 138,
-    "mw": 135,
-    "nb972_long_train": 128,
-    "nb960_pseudo": 125,
-    "fsp3": 116,
-    "nb1030_mordred": 110,
-    "nb914_persistence": 97,
-    "formal_charge": 0
+  "method_C_gp_rbf": {
+    "rae": 0.5276624329316048,
+    "delta_vs_anchor": -0.09391045341984239,
+    "delta_vs_K28_mean_bag": 0.05396243293160474,
+    "delta_vs_K28_median_bag": 0.05786243293160476,
+    "verdict": "HURTS",
+    "gp_std_mean": 0.5446060936664291,
+    "gp_std_min": 0.30374480779006113,
+    "gp_std_max": 0.7023225632545825
   },
-  "deploy_te_mean": 4.721621990203857,
-  "deploy_te_std": 0.8607584834098816,
-  "plain_submission": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1052_meta_stack_lgbm.csv",
-  "wall_sec": 0.9
+  "method_D_gp_lgbm_router": {
+    "rae": 0.48035030295737513,
+    "delta_vs_anchor": -0.141222583394072,
+    "delta_vs_K28_mean_bag": 0.0066503029573751204,
+    "delta_vs_K28_median_bag": 0.010550302957375135,
+    "verdict": "HURTS"
+  },
+  "best_method": "D_gp_router",
+  "best_rae": 0.48035030295737513,
+  "beats_K28_mean_bag": false,
+  "beats_K28_median_bag": false,
+  "deploy_method": null,
+  "deploy_built": false,
+  "deploy_path": null,
+  "pre_unblind_clean": true,
+  "wall_sec": 2.76
 }

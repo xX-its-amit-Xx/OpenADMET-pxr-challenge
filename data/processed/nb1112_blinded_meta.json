@@ -1,0 +1,83 @@
+{
+  "adv_auc": 0.9840072970507754,
+  "cross_series_corr": 0.048417108372174875,
+  "blind_hardness_median": 1.24859581360449,
+  "unb_hardness_median": 0.8802432356284378,
+  "hardest_blinded": [
+    {
+      "name": "OADMET-0006353",
+      "train_sim": 0.4057970941066742,
+      "nbr_disagree": 1.7210760396841853
+    },
+    {
+      "name": "OADMET-0006142",
+      "train_sim": 0.42592594027519226,
+      "nbr_disagree": 1.399115233817429
+    },
+    {
+      "name": "OADMET-0006178",
+      "train_sim": 0.5,
+      "nbr_disagree": 1.5485229857835499
+    },
+    {
+      "name": "OADMET-0006240",
+      "train_sim": 0.5138888955116272,
+      "nbr_disagree": 1.5519532803454492
+    },
+    {
+      "name": "OADMET-0006389",
+      "train_sim": 0.4333333373069763,
+      "nbr_disagree": 1.2635105794472004
+    },
+    {
+      "name": "OADMET-0006179",
+      "train_sim": 0.4642857015132904,
+      "nbr_disagree": 1.3155914485032958
+    },
+    {
+      "name": "OADMET-0006198",
+      "train_sim": 0.5492957830429077,
+      "nbr_disagree": 1.4705945863833443
+    },
+    {
+      "name": "OADMET-0006572",
+      "train_sim": 0.5454545617103577,
+      "nbr_disagree": 1.7148082072056923
+    },
+    {
+      "name": "OADMET-0006608",
+      "train_sim": 0.4754098355770111,
+      "nbr_disagree": 1.328209409082393
+    },
+    {
+      "name": "OADMET-0006216",
+      "train_sim": 0.43396225571632385,
+      "nbr_disagree": 1.2041333436854076
+    },
+    {
+      "name": "OADMET-0006229",
+      "train_sim": 0.5272727012634277,
+      "nbr_disagree": 1.5712662837262816
+    },
+    {
+      "name": "OADMET-0006465",
+      "train_sim": 0.42424243688583374,
+      "nbr_disagree": 1.1105741758207779
+    },
+    {
+      "name": "OADMET-0006419",
+      "train_sim": 0.4693877696990967,
+      "nbr_disagree": 1.2362770156299923
+    },
+    {
+      "name": "OADMET-0006242",
+      "train_sim": 0.546875,
+      "nbr_disagree": 1.411716596913134
+    },
+    {
+      "name": "OADMET-0006189",
+      "train_sim": 0.5,
+      "nbr_disagree": 1.2988257918212125
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "tag": "nb954",
+  "cycle": 129,
+  "method": "cycle_129_integration_summary_plus_trajectory",
+  "precondition_check": {
+    "nb950_summary_present": false,
+    "nb951_summary_present": false,
+    "nb952_summary_present": false,
+    "nb953_summary_present": false,
+    "all_inputs_present": false
+  },
+  "cycle_129_methods": [
+    {
+      "id": "nb950_chemprop_aux_v2",
+      "axis": "chemprop_aux retrained on augmented substrate (BACE+ChEMBL+Tox21)",
+      "parent_anchor": "chemprop_aux",
+      "parent_rae": 0.6216,
+      "status": "PENDING",
+      "v2_rae": null,
+      "expected_summary_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb950_summary.json"
+    },
+    {
+      "id": "nb951_nb2112_v2_residual",
+      "axis": "nb2112-style residual on chemprop_aux_v2 with refreshed K=28 SHAP",
+      "parent_anchor": "nb2112_residual",
+      "parent_rae": 0.4698,
+      "status": "PENDING",
+      "v2_rae": null,
+      "expected_summary_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb951_summary.json"
+    },
+    {
+      "id": "nb952_nb562_v2_stretch",
+      "axis": "nb562 rank-stretch on chemprop_aux_v2 with refreshed scalar s",
+      "parent_anchor": "nb562_rank_stretch",
+      "parent_rae": 0.5065,
+      "status": "PENDING",
+      "v2_rae": null,
+      "expected_summary_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb952_summary.json"
+    },
+    {
+      "id": "nb953_nb730_v2_planning",
+      "axis": "nb730 multi-seed null-ensemble v2 (PLANNED for cycle 130 conditional on v2 floor moving)",
+      "parent_anchor": "nb730_multi_seed_null_ens",
+      "parent_rae": 0.4603,
+      "status": "PENDING_CYCLE_130",
+      "v2_rae": null,
+      "expected_summary_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb953_summary.json"
+    },
+    {
+      "id": "nb954_trajectory",
+      "axis": "this integrator -- records cycle-129 slate + ladder implications",
+      "parent_anchor": null,
+      "parent_rae": null,
+      "status": "DONE",
+      "v2_rae": null,
+      "expected_summary_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb954_summary.json"
+    }
+  ],
+  "n_distinct_methods_cycle_129": 5,
+  "prior_honest_floor": {
+    "id": "nb2189_truly_honest_residual_K28_median",
+    "rae": 0.4698
+  },
+  "floor_transition": {
+    "old_floor_rae": 0.4698,
+    "old_floor_id": "nb2189_truly_honest_residual_K28_median",
+    "new_floor_rae": 0.4698,
+    "new_floor_id": "nb2189_truly_honest_residual_K28_median",
+    "floor_moved": false,
+    "delta_rae": 0.0,
+    "reason": "all v2 candidates PENDING -- floor preserved; no candidate beats 0.4698"
+  },
+  "memory_implications": [
+    {
+      "key": "chemprop_aux",
+      "v1_rae": 0.6216,
+      "v2_label": "chemprop_aux_v2",
+      "v2_rae": null,
+      "status": "PENDING_nb950"
+    },
+    {
+      "key": "nb562",
+      "v1_rae": 0.5065,
+      "v2_label": "nb562_v2",
+      "v2_rae": null,
+      "status": "PENDING_nb952"
+    },
+    {
+      "key": "nb730",
+      "v1_rae": 0.4603,
+      "v2_label": "nb730_v2",
+      "v2_rae": null,
+      "status": "PLANNED_cycle130_conditional"
+    },
+    {
+      "key": "nb2112",
+      "v1_rae": 0.4698,
+      "v2_label": "nb951_residual",
+      "v2_rae": null,
+      "status": "PENDING_nb951"
+    },
+    {
+      "key": "feedback_lb_two_regime_calibration",
+      "v1_state": "PRE-unblind in_RAE ~= LB + 0.003; POST-unblind unreliable",
+      "v2_check": "augmented anchors (cycle 128) are still PRE-unblind w.r.t. the 513 -- 2 regime model should hold; CONFIRM with nb950 LB submission delta",
+      "status": "UNCHANGED_pending_LB_evidence"
+    }
+  ],
+  "cycle_130_plan": [
+    {
+      "id": "nb1010_chemprop_aux_v2_pose_features",
+      "axis": "anchor v2 + 3D pose-quality features (Boltz-2 + DOCK6 cross-score per ligand)",
+      "depends_on": "nb950_chemprop_aux_v2"
+    },
+    {
+      "id": "nb1011_residual_v2_isotonic",
+      "axis": "v2 residual + isotonic per-decile calibration on the 253 unblind",
+      "depends_on": "nb951_nb2112_v2_residual"
+    },
+    {
+      "id": "nb1012_OOD_aware_router",
+      "axis": "scaffold-novelty router: route Tan<0.35 to mean-predictor abstention, Tan>=0.35 to v2 stack",
+      "depends_on": "nb951 + nb950"
+    },
+    {
+      "id": "nb1013_abstention_conformal",
+      "axis": "conformal-shrink on chemprop_aux_v2 residuals (already trial'd via nb2190; rerun on v2 substrate)",
+      "depends_on": "nb950_chemprop_aux_v2"
+    },
+    {
+      "id": "nb1014_nb730_v2_multi_seed_null",
+      "axis": "promoted from cycle 129 PENDING_CYCLE_130 (nb953); only fires if floor moves",
+      "depends_on": "FLOOR_TRANSITION.floor_moved == True"
+    }
+  ],
+  "n_distinct_methods_cycle_130_plan": 5,
+  "still_open_axes": [
+    "NN / Transformer on K=28 augmented v2 (Graphormer / MAT / ChemBERTa fine-tune on 4139+253+aug)",
+    "Structure-track integration (pose-quality of activity ligands via Boltz-2 + DOCK6 -> per-row gate)",
+    "External-data abstention on F2 tail (scaffold-novelty + counter-assay disagreement gate)",
+    "2-stage stack (PRE-unblind chemprop_aux_v2 base -> honest meta on 253)",
+    "Novel feature paradigm (3D-pose-quality, docking score, MD descriptors from cycle-128 boltz outputs)"
+  ],
+  "closed_axes_inherited_from_nb2193": [
+    "K/L/lr/mc/ff hyperparam sweep",
+    "monotone constraints",
+    "DART boosting",
+    "SHAP-seeded feature selection beyond K=28",
+    "row-bootstrap ensembling",
+    "pooled-120 cross-fit",
+    "XGB-SHAP transfer",
+    "family-ablation (drop NR-family)",
+    "residual-cascade depth>2",
+    "tanh-target reparameterization",
+    "sklearn-stack meta-learner",
+    "contaminated-anchor swap (te_nb730 <-> te_nb562)",
+    "alt-honest-anchor swap (nb503 <-> nb464)",
+    "loss-level decompression (nb710-712 pinball/tail/PCHIP)",
+    "unblind augmentation alone (nb590-593)"
+  ],
+  "decision": {
+    "next_action": "Execute nb950 first (chemprop_aux v2 retrain on augmented substrate); only then build nb951/nb952 residuals on the new anchor.",
+    "rationale": "Cycle 129 cannot integrate -- nb950/nb951/nb952/nb953 are PENDING. Floor stays at 0.4698 (nb2189 K=28 median). The v2 thesis (augmented training substrate translates to honest deploy gain) is unfalsified but also unconfirmed. The cheapest first move is nb950 because every downstream cycle-129 method depends on a refreshed chemprop_aux v2.",
+    "abort_condition": "if nb950 v2 RAE on 4139 OOF degrades by >0.02 vs chemprop_aux v1 (0.6216), abort cycle 129 and pivot to cycle 130 external-data axes only."
+  }
+}

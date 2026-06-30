@@ -1,0 +1,166 @@
+{
+  "tag": "nb2782",
+  "method": "K=20 LGBM residual on chemprop_aux anchor with hessian-aware init_score warm-start: init_score = median(residual_fold_train) (L1-optimal scalar warm-start passed via fit(init_score=...)). Standard nb27xx hyperparams (max_depth=4, num_leaves=15, n_est=300, lr=0.03). 5-fold scaffold CV mean-bag over 5 kf_seeds.",
+  "paradigm": "hessian_init_warm_start_LGBM",
+  "novelty": "Warm-start / base-score regularizer distinct from prior nb27xx tree-structure (nb2774 symmetric), loss-shape (nb2762 Cauchy, nb2754 focal, nb2722 Huber), feature-subsampling (nb2152 colsample), and linear-leaf (nb2750) attempts. LightGBM defaults to init_score=0 so the first ~lr^-1=33 boosting rounds spend structural budget recovering the constant offset; by supplying init_score = median(train_residual) (the L1-optimal constant), the first tree's leaves can immediately allocate splits to feature signal, lowering early-round variance. Critically, init_score is computed from fold-TRAIN ONLY (never validation), and the same constant is added back to validation/test predict outputs so the OOF protocol stays leak-free. xgboost calls this base_score, sklearn HGB calls it init, LightGBM exposes it as init_score -- the canonical gradient-boosting warm-start lever.",
+  "anchor": "chemprop_aux",
+  "anchor_pre_unblind": true,
+  "anchor_in_rae": 0.6215728863514471,
+  "chemprop_aux_ref": 0.6216,
+  "nb2240_k20_ref": 0.463,
+  "nb2171_ref": 0.4682,
+  "n_test": 513,
+  "n_unb": 253,
+  "n_unique_scaffolds_unb": 180,
+  "K20_cols": [
+    45,
+    67,
+    66,
+    68,
+    65,
+    92,
+    27,
+    77,
+    81,
+    56,
+    1,
+    7,
+    115,
+    93,
+    80,
+    11,
+    70,
+    54,
+    8,
+    57
+  ],
+  "feat_dim_K20": 20,
+  "n_folds": 5,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "lgbm_max_depth": 4,
+  "lgbm_num_leaves": 15,
+  "lgbm_n_estimators": 300,
+  "lgbm_learning_rate": 0.03,
+  "residual_full_mean": -0.1325965261753001,
+  "residual_full_median": -0.018599678521849405,
+  "residual_full_std": 0.6999145683913596,
+  "per_seed_corr_oof_rae": [
+    0.5397845645614359,
+    0.5377049534315131,
+    0.5176456002914392,
+    0.5052799643457088,
+    0.5434694928922842
+  ],
+  "per_seed_resid_oof_rae": [
+    0.8485646313560723,
+    0.8452953929085805,
+    0.8137612240566464,
+    0.7943219106774326,
+    0.8543574977252327
+  ],
+  "per_seed_per_fold_resid_rae": [
+    [
+      0.7928784872075905,
+      0.8322987320627737,
+      0.8347462501158346,
+      1.0009515816748809,
+      0.824043017011798
+    ],
+    [
+      0.9220772168028126,
+      0.74159296668828,
+      0.885103067540941,
+      0.9576971596830994,
+      0.7921439574335513
+    ],
+    [
+      0.6086496029385379,
+      0.768416561266064,
+      0.9924418474621053,
+      1.0398313040153353,
+      0.7877287136771844
+    ],
+    [
+      0.7585273118883522,
+      0.6996743660388771,
+      0.9852299301634282,
+      0.70215121467299,
+      0.9081043129856247
+    ],
+    [
+      0.9262697457194626,
+      0.7873225765175088,
+      0.848252050823375,
+      0.8288765099302454,
+      0.8984838538888595
+    ]
+  ],
+  "per_seed_per_fold_init_scalar": [
+    [
+      0.011740546179344946,
+      -0.02029249282341361,
+      -0.028931318623506286,
+      -0.0006166483908689457,
+      -0.050189243850359055
+    ],
+    [
+      -0.03662499356684279,
+      -0.051443363811164655,
+      0.005821506227960516,
+      -0.044390201118546635,
+      0.018930834787061812
+    ],
+    [
+      -0.028931318623506286,
+      -0.04088142906509873,
+      -0.01071078640297829,
+      0.0012509642760303308,
+      -0.004655409551553191
+    ],
+    [
+      -0.028931318623506286,
+      -0.04088142906509873,
+      -0.04088142906509873,
+      0.013089044178799192,
+      0.013089044178799192
+    ],
+    [
+      -0.028931318623506286,
+      -0.017682920888126397,
+      -0.01071078640297829,
+      -0.004655409551553191,
+      -0.021985307124977815
+    ]
+  ],
+  "per_seed_deploy_init_scalar": [
+    -0.018599678521849405,
+    -0.018599678521849405,
+    -0.018599678521849405,
+    -0.018599678521849405,
+    -0.018599678521849405
+  ],
+  "per_seed_corr_oof_mean_rae": 0.5287769151044762,
+  "per_seed_corr_oof_std_rae": 0.014783524081990811,
+  "rae_meanbag_oof_corr": 0.5056409760427428,
+  "rae_meanbag_te_at_unb_in_sample": 0.21281948349950838,
+  "mean_rae": 0.5056409760427428,
+  "delta_vs_anchor": -0.11593191030870431,
+  "delta_vs_nb2240_k20": 0.042640976042742806,
+  "delta_vs_nb2171": 0.037440976042742824,
+  "te_deploy_mean": 4.719944000244141,
+  "te_deploy_std": 0.8191388845443726,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2782_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2782.npy",
+  "submission_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb2782_hessian_init_lgbm.csv",
+  "chembl_pool_size": 945,
+  "gate_promote_threshold": 0.457,
+  "gate_marginal_threshold": 0.4598,
+  "verdict": "FAIL",
+  "wall_sec": 4.75
+}

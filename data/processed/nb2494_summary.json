@@ -1,0 +1,161 @@
+{
+  "tag": "nb2494",
+  "method": "label_smoothing_distill_K20_student_chemprop_aux_anchor",
+  "teacher_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2240_mean_bag_oof_K20.npy",
+  "teacher_in_rae_253": 0.46301757335429367,
+  "teacher_pearson_y_253": 0.8699528653568634,
+  "teacher_mean": 4.657260447151576,
+  "teacher_std": 0.8839798635289088,
+  "anchor_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+  "anchor_in_rae_253": 0.6215728863514471,
+  "anchor_pre_unblind": true,
+  "k20_surviving_idx_in_117": [
+    45,
+    67,
+    66,
+    68,
+    65,
+    92,
+    27,
+    77,
+    81,
+    56,
+    1,
+    7,
+    115,
+    93,
+    80,
+    11,
+    70,
+    54,
+    8,
+    57
+  ],
+  "k20_surviving_names": [
+    "Mordred_col_292",
+    "ChempropEmbed_dim_14",
+    "ChempropEmbed_dim_9",
+    "ChempropEmbed_dim_32",
+    "ChempropEmbed_dim_259",
+    "Avalon_bit_323",
+    "MACCS_bit_126",
+    "ChempropEmbed_dim_172",
+    "ChempropEmbed_dim_16",
+    "Mordred_col_454",
+    "AtomPair_bit_1733",
+    "AtomPair_bit_1729",
+    "pred_chembl_pec50",
+    "Avalon_bit_349",
+    "ChempropEmbed_dim_248",
+    "AtomPair_bit_1113",
+    "ChempropEmbed_dim_275",
+    "Mordred_col_329",
+    "AtomPair_bit_1086",
+    "Mordred_col_400"
+  ],
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "alphas": [
+    0.5,
+    0.7,
+    0.8,
+    0.9,
+    1.0
+  ],
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "lgbm_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "n_folds": 5,
+  "per_alpha_results": [
+    {
+      "alpha": 0.5,
+      "per_kf_seed_rae": [
+        0.46232832934361234,
+        0.4775325911728791,
+        0.4664733065721625,
+        0.48012822520456994,
+        0.46045092198750975
+      ],
+      "mean_rae": 0.46938267485614676,
+      "std_rae": 0.00799865503680101,
+      "rae_of_mean_oof": 0.45863287628732763
+    },
+    {
+      "alpha": 0.7,
+      "per_kf_seed_rae": [
+        0.4707231206838994,
+        0.4924505100282687,
+        0.4696242193987176,
+        0.49795993247632014,
+        0.4710608861190161
+      ],
+      "mean_rae": 0.4803637337412444,
+      "std_rae": 0.012251840133253797,
+      "rae_of_mean_oof": 0.4644080487020548
+    },
+    {
+      "alpha": 0.8,
+      "per_kf_seed_rae": [
+        0.4777161806791252,
+        0.5046811867525265,
+        0.4792041238949194,
+        0.5007748906533145,
+        0.4916589965786733
+      ],
+      "mean_rae": 0.4908070757117118,
+      "std_rae": 0.010941426640648514,
+      "rae_of_mean_oof": 0.47005393414542535
+    },
+    {
+      "alpha": 0.9,
+      "per_kf_seed_rae": [
+        0.4820694072777399,
+        0.5132682434335709,
+        0.4933974094503879,
+        0.502864549520838,
+        0.5040691063425856
+      ],
+      "mean_rae": 0.4991337432050245,
+      "std_rae": 0.010603375946935858,
+      "rae_of_mean_oof": 0.4731594041715847
+    },
+    {
+      "alpha": 1.0,
+      "per_kf_seed_rae": [
+        0.4829981546116635,
+        0.5194055108048538,
+        0.5068697716384676,
+        0.5064241474594637,
+        0.5185465522999535
+      ],
+      "mean_rae": 0.5068488273628804,
+      "std_rae": 0.013141860219421262,
+      "rae_of_mean_oof": 0.47629055379732593
+    }
+  ],
+  "best_alpha": 0.5,
+  "best_mean_rae": 0.46938267485614676,
+  "best_std_rae": 0.00799865503680101,
+  "best_rae_of_mean_oof": 0.45863287628732763,
+  "gate_promote_below": 0.457,
+  "gate_marginal_below": 0.4601,
+  "verdict": "FAIL",
+  "te_unb_rae_in_sample": 0.27254593287742146,
+  "te_mean": 4.706563949584961,
+  "te_std": 0.798326849937439,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2494_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2494.npy",
+  "wall_sec": 42.7
+}

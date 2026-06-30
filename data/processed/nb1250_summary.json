@@ -1,0 +1,107 @@
+{
+  "tag": "nb1250",
+  "anchor": "nb1070",
+  "feature_source": "maccs_cached_167+chembl_knn_2",
+  "maccs_cache_test": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_maccs.npy",
+  "pred_chembl_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\pred_chembl_pec50_513.npy",
+  "sim_chembl_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\sim_chembl_513.npy",
+  "n_test": 513,
+  "n_unb": 253,
+  "n_chembl_pool": 945,
+  "test_inchikeys_dropped_from_pool": 0,
+  "knn_k": 5,
+  "resid_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "feature_dim": 169,
+  "lgbm_params_template": {
+    "objective": "huber",
+    "alpha": 1.0,
+    "learning_rate": 0.05,
+    "n_estimators": 80,
+    "max_depth": 3,
+    "num_leaves": 7,
+    "min_child_samples": 20,
+    "subsample": 0.9,
+    "subsample_freq": 1,
+    "colsample_bytree": 0.9,
+    "reg_lambda": 1.0,
+    "verbosity": -1,
+    "random_state": 0,
+    "n_jobs": 2
+  },
+  "rae_anchor_oof_253": 0.5771305166381785,
+  "rae_anchor_te_in_sample_253": 0.5714565604380177,
+  "residual_target_mean": -0.1019658057365929,
+  "residual_target_std": 0.6666145784833671,
+  "pred_chembl_stats": {
+    "mean": 5.62330436706543,
+    "std": 0.6067268252372742,
+    "min": 4.225313186645508,
+    "max": 7.914859771728516
+  },
+  "sim_chembl_stats": {
+    "mean": 0.24341948330402374,
+    "std": 0.0339910164475441,
+    "min": 0.139800563454628,
+    "max": 0.3697809875011444
+  },
+  "per_seed_records": [
+    {
+      "seed": 0,
+      "in_rae_te_seed": 0.42956646243904695,
+      "resid_513_mean": -0.09861977374942596,
+      "resid_513_std": 0.2540295467790311,
+      "resid_513_min": -1.05350493182339,
+      "resid_513_max": 0.5725453216220164
+    },
+    {
+      "seed": 1,
+      "in_rae_te_seed": 0.42567930656120856,
+      "resid_513_mean": -0.09783721475557489,
+      "resid_513_std": 0.2524665115486069,
+      "resid_513_min": -1.077557337986052,
+      "resid_513_max": 0.6030415148663488
+    },
+    {
+      "seed": 7,
+      "in_rae_te_seed": 0.429387597365188,
+      "resid_513_mean": -0.09573502313318831,
+      "resid_513_std": 0.24905288518382088,
+      "resid_513_min": -1.0005432724498566,
+      "resid_513_max": 0.574268761069112
+    },
+    {
+      "seed": 42,
+      "in_rae_te_seed": 0.43425239031973784,
+      "resid_513_mean": -0.1038509786357802,
+      "resid_513_std": 0.25805923172856915,
+      "resid_513_min": -0.9967548880082596,
+      "resid_513_max": 0.5702328303174011
+    },
+    {
+      "seed": 137,
+      "in_rae_te_seed": 0.4281684448804268,
+      "resid_513_mean": -0.09447026036603302,
+      "resid_513_std": 0.24966310554705654,
+      "resid_513_min": -1.0328862493152127,
+      "resid_513_max": 0.5682559103460427
+    }
+  ],
+  "te_stats": {
+    "mean": 4.728455506192225,
+    "std": 0.7720329630544496,
+    "min": 2.0580459138427436,
+    "max": 5.9351601187946335
+  },
+  "in_rae_mean_bag_253": 0.42866580005774785,
+  "crossfit_lb_anchor_nb1242": 0.5431,
+  "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb1250.npy",
+  "csv_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1250_deploy_nb1242.csv",
+  "wall_sec": 4.25,
+  "note": "POST-unblind deploy: each LGBM is fit on ALL 253 unblind rows, so in_RAE on te[unb_idx] is in-sample optimistic. The LB-faithful anchor is the honest 0.5431 cross-fit mean-bag RAE from nb1242."
+}

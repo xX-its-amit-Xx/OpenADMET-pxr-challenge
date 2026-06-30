@@ -1,0 +1,271 @@
+{
+  "tag": "nb2041",
+  "anchor": "chemprop_aux",
+  "deploy_companion_of": "nb2031",
+  "outer_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "inner_per_outer_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "n_fits": 25,
+  "lgbm_params_template": {
+    "objective": "regression",
+    "max_depth": 4,
+    "num_leaves": 15,
+    "n_estimators": 300,
+    "learning_rate": 0.03,
+    "min_child_samples": 5,
+    "reg_lambda": 3.0,
+    "random_state": 0,
+    "n_jobs": 2,
+    "verbosity": -1
+  },
+  "reg_lambda": 3.0,
+  "n_test": 513,
+  "n_unb": 253,
+  "feat_dim": 117,
+  "feat_breakdown": {
+    "atompair": 25,
+    "maccs": 20,
+    "mordred": 20,
+    "chemprop_embed": 20,
+    "avalon": 30,
+    "pred_chembl_pec50": 1,
+    "mean_sim": 1,
+    "total": 117
+  },
+  "K_AP_best": 25,
+  "K_Mord_best": 20,
+  "K_Embed_best": 20,
+  "K_Avalon_used": 30,
+  "K_MACCS_fixed": 20,
+  "n_chembl_pool": 945,
+  "rae_anchor_chemprop_aux": 0.6215728863514471,
+  "residual_target_mean": -0.1325965261753001,
+  "residual_target_std": 0.6999145683913596,
+  "mean_residual_513_mean": -0.13419323484126375,
+  "mean_residual_513_std": 0.5132260536015931,
+  "te_mean": 4.697080657018588,
+  "te_std": 0.8418153263694907,
+  "te_min": 1.7808771614719485,
+  "te_max": 6.431370126484911,
+  "in_rae_253": 0.08711707554596967,
+  "delta_in_sample_vs_anchor": -0.5344558108054774,
+  "nb2031_pooled25_lb_anchor": 0.5007105416539916,
+  "predicted_lb": 0.504,
+  "per_fit_records": [
+    {
+      "fit_i": 0,
+      "outer_seed": 0,
+      "inner_seed": 0,
+      "resid_513_mean": -0.13419323484126378,
+      "resid_513_std": 0.5132260536015931,
+      "in_rae_253": 0.08711707554596967
+    },
+    {
+      "fit_i": 1,
+      "outer_seed": 0,
+      "inner_seed": 1,
+      "resid_513_mean": -0.13419323484126378,
+      "resid_513_std": 0.5132260536015931,
+      "in_rae_253": 0.08711707554596967
+    },
+    {
+      "fit_i": 2,
+      "outer_seed": 0,
+      "inner_seed": 7,
+      "resid_513_mean": -0.13419323484126378,
+      "resid_513_std": 0.5132260536015931,
+      "in_rae_253": 0.08711707554596967
+    },
+    {
+      "fit_i": 3,
+      "outer_seed": 0,
+      "inner_seed": 42,
+      "resid_513_mean": -0.13419323484126378,
+      "resid_513_std": 0.5132260536015931,
+      "in_rae_253": 0.08711707554596967
+    },
+    {
+      "fit_i": 4,
+      "outer_seed": 0,
+      "inner_seed": 137,
+      "resid_513_mean": -0.13419323484126378,
+      "resid_513_std": 0.5132260536015931,
+      "in_rae_253": 0.08711707554596967
+    },
+    {
+      "fit_i": 5,
+      "outer_seed": 1,
+      "inner_seed": 1000,
+      "resid_513_mean": -0.13419323484126378,
+      "resid_513_std": 0.5132260536015931,
+      "in_rae_253": 0.08711707554596967
+    },
+    {
+      "fit_i": 6,
+      "outer_seed": 1,
+      "inner_seed": 1001,
+      "resid_513_mean": -0.13419323484126378,
+      "resid_513_std": 0.5132260536015931,
+      "in_rae_253": 0.08711707554596967
+    },
+    {
+      "fit_i": 7,
+      "outer_seed": 1,
+      "inner_seed": 1007,
+      "resid_513_mean": -0.13419323484126378,
+      "resid_513_std": 0.5132260536015931,
+      "in_rae_253": 0.08711707554596967
+    },
+    {
+      "fit_i": 8,
+      "outer_seed": 1,
+      "inner_seed": 1042,
+      "resid_513_mean": -0.13419323484126378,
+      "resid_513_std": 0.5132260536015931,
+      "in_rae_253": 0.08711707554596967
+    },
+    {
+      "fit_i": 9,
+      "outer_seed": 1,
+      "inner_seed": 1137,
+      "resid_513_mean": -0.13419323484126378,
+      "resid_513_std": 0.5132260536015931,
+      "in_rae_253": 0.08711707554596967
+    },
+    {
+      "fit_i": 10,
+      "outer_seed": 7,
+      "inner_seed": 7000,
+      "resid_513_mean": -0.13419323484126378,
+      "resid_513_std": 0.5132260536015931,
+      "in_rae_253": 0.08711707554596967
+    },
+    {
+      "fit_i": 11,
+      "outer_seed": 7,
+      "inner_seed": 7001,
+      "resid_513_mean": -0.13419323484126378,
+      "resid_513_std": 0.5132260536015931,
+      "in_rae_253": 0.08711707554596967
+    },
+    {
+      "fit_i": 12,
+      "outer_seed": 7,
+      "inner_seed": 7007,
+      "resid_513_mean": -0.13419323484126378,
+      "resid_513_std": 0.5132260536015931,
+      "in_rae_253": 0.08711707554596967
+    },
+    {
+      "fit_i": 13,
+      "outer_seed": 7,
+      "inner_seed": 7042,
+      "resid_513_mean": -0.13419323484126378,
+      "resid_513_std": 0.5132260536015931,
+      "in_rae_253": 0.08711707554596967
+    },
+    {
+      "fit_i": 14,
+      "outer_seed": 7,
+      "inner_seed": 7137,
+      "resid_513_mean": -0.13419323484126378,
+      "resid_513_std": 0.5132260536015931,
+      "in_rae_253": 0.08711707554596967
+    },
+    {
+      "fit_i": 15,
+      "outer_seed": 42,
+      "inner_seed": 42000,
+      "resid_513_mean": -0.13419323484126378,
+      "resid_513_std": 0.5132260536015931,
+      "in_rae_253": 0.08711707554596967
+    },
+    {
+      "fit_i": 16,
+      "outer_seed": 42,
+      "inner_seed": 42001,
+      "resid_513_mean": -0.13419323484126378,
+      "resid_513_std": 0.5132260536015931,
+      "in_rae_253": 0.08711707554596967
+    },
+    {
+      "fit_i": 17,
+      "outer_seed": 42,
+      "inner_seed": 42007,
+      "resid_513_mean": -0.13419323484126378,
+      "resid_513_std": 0.5132260536015931,
+      "in_rae_253": 0.08711707554596967
+    },
+    {
+      "fit_i": 18,
+      "outer_seed": 42,
+      "inner_seed": 42042,
+      "resid_513_mean": -0.13419323484126378,
+      "resid_513_std": 0.5132260536015931,
+      "in_rae_253": 0.08711707554596967
+    },
+    {
+      "fit_i": 19,
+      "outer_seed": 42,
+      "inner_seed": 42137,
+      "resid_513_mean": -0.13419323484126378,
+      "resid_513_std": 0.5132260536015931,
+      "in_rae_253": 0.08711707554596967
+    },
+    {
+      "fit_i": 20,
+      "outer_seed": 137,
+      "inner_seed": 137000,
+      "resid_513_mean": -0.13419323484126378,
+      "resid_513_std": 0.5132260536015931,
+      "in_rae_253": 0.08711707554596967
+    },
+    {
+      "fit_i": 21,
+      "outer_seed": 137,
+      "inner_seed": 137001,
+      "resid_513_mean": -0.13419323484126378,
+      "resid_513_std": 0.5132260536015931,
+      "in_rae_253": 0.08711707554596967
+    },
+    {
+      "fit_i": 22,
+      "outer_seed": 137,
+      "inner_seed": 137007,
+      "resid_513_mean": -0.13419323484126378,
+      "resid_513_std": 0.5132260536015931,
+      "in_rae_253": 0.08711707554596967
+    },
+    {
+      "fit_i": 23,
+      "outer_seed": 137,
+      "inner_seed": 137042,
+      "resid_513_mean": -0.13419323484126378,
+      "resid_513_std": 0.5132260536015931,
+      "in_rae_253": 0.08711707554596967
+    },
+    {
+      "fit_i": 24,
+      "outer_seed": 137,
+      "inner_seed": 137137,
+      "resid_513_mean": -0.13419323484126378,
+      "resid_513_std": 0.5132260536015931,
+      "in_rae_253": 0.08711707554596967
+    }
+  ],
+  "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2041.npy",
+  "submission_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb2041_deploy_nb2031.csv",
+  "wall_sec": 7.39,
+  "note": "DEPLOY artifact: 25 LGBM(MSE, reg_lambda=3.0) fits each on ALL 253 unblind residuals; deploy residuals mean-averaged on 513. in_RAE is in-sample and optimistic; LB-faithful number is nb2031 honest cross-fit pooled-25 RAE = 0.5007 (predicted LB ~0.504)."
+}

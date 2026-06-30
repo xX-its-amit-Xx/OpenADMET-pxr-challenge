@@ -1,0 +1,100 @@
+{
+  "seeds": [
+    42,
+    101,
+    202,
+    303,
+    404,
+    505,
+    606,
+    707
+  ],
+  "rows": [
+    {
+      "seed": 42,
+      "n_novel": 536,
+      "rae_combined": 0.5663,
+      "rae_combined3d": 0.5674,
+      "d_overall_rae": 0.00109,
+      "mae_deep_combined": 0.5906,
+      "mae_deep_combined3d": 0.5756,
+      "d_deep_mae": -0.01505
+    },
+    {
+      "seed": 101,
+      "n_novel": 530,
+      "rae_combined": 0.57,
+      "rae_combined3d": 0.5651,
+      "d_overall_rae": -0.00495,
+      "mae_deep_combined": 0.5886,
+      "mae_deep_combined3d": 0.5857,
+      "d_deep_mae": -0.00291
+    },
+    {
+      "seed": 202,
+      "n_novel": 520,
+      "rae_combined": 0.5681,
+      "rae_combined3d": 0.5683,
+      "d_overall_rae": 0.00022,
+      "mae_deep_combined": 0.6175,
+      "mae_deep_combined3d": 0.5992,
+      "d_deep_mae": -0.01833
+    },
+    {
+      "seed": 303,
+      "n_novel": 527,
+      "rae_combined": 0.5707,
+      "rae_combined3d": 0.5726,
+      "d_overall_rae": 0.00188,
+      "mae_deep_combined": 0.5943,
+      "mae_deep_combined3d": 0.5958,
+      "d_deep_mae": 0.00144
+    },
+    {
+      "seed": 404,
+      "n_novel": 526,
+      "rae_combined": 0.5699,
+      "rae_combined3d": 0.5748,
+      "d_overall_rae": 0.00495,
+      "mae_deep_combined": 0.6066,
+      "mae_deep_combined3d": 0.6108,
+      "d_deep_mae": 0.00417
+    },
+    {
+      "seed": 505,
+      "n_novel": 525,
+      "rae_combined": 0.5716,
+      "rae_combined3d": 0.5728,
+      "d_overall_rae": 0.00122,
+      "mae_deep_combined": 0.5789,
+      "mae_deep_combined3d": 0.5779,
+      "d_deep_mae": -0.001
+    },
+    {
+      "seed": 606,
+      "n_novel": 531,
+      "rae_combined": 0.5713,
+      "rae_combined3d": 0.5717,
+      "d_overall_rae": 0.00045,
+      "mae_deep_combined": 0.6008,
+      "mae_deep_combined3d": 0.6065,
+      "d_deep_mae": 0.00563
+    },
+    {
+      "seed": 707,
+      "n_novel": 512,
+      "rae_combined": 0.5671,
+      "rae_combined3d": 0.5694,
+      "d_overall_rae": 0.00233,
+      "mae_deep_combined": 0.5829,
+      "mae_deep_combined3d": 0.5797,
+      "d_deep_mae": -0.00318
+    }
+  ],
+  "d_overall_mean": 0.0008987499999999998,
+  "d_overall_std": 0.002608488247529592,
+  "d_deep_mean": -0.00365375,
+  "d_deep_std": 0.008111967913983635,
+  "stable_overall": false,
+  "stable_deep": false
+}

@@ -30,15 +30,41 @@ RATE_LIMIT_HOURS = 4
 TRACK = "Structure Prediction"
 
 # Hand-curated ladder.
-# 2026-06-01 reorder: v4 (170 Boltz + 14 RDKit redocks) scored LB 0.4583 (rank 29/48),
-# below openadmet-boltz-baseline 0.4632 -- the RDKit-placed-at-centroid redocks HURT.
-# Promote pure Boltz v1 to PRIMARY; deprecate v2/v3 (same RDKit redock failure mode as v4).
+# ===========================================================================
+# CYCLE 161 REGRESSION (2026-06-08 01:29 UTC):
+#   v6 (per-ligand QSel, nb2040) submitted 2026-06-08 01:17 UTC -> LB 0.4632
+#   (rank 27/50). Collapsed to openadmet-boltz-baseline level, regressing
+#   -0.0364 vs v5's verified 0.4996 (rank 10/50, 2026-06-02 16:50 UTC).
+#   Diagnosis: per-ligand QSel (clash+pocket-distance) over-rotated the 14
+#   disputed positions to v1/v2/v3 pure-baseline geometries, erasing v5's
+#   template-bias gains. The QSel score is NOT correlated with LDDT-PLI on
+#   this dataset -- it picked the wrong "best" pose 14/14 times.
+#   ACTION: revert PRIMARY-1 to v5 (LB-verified 0.4996), v1 fallback,
+#   demote v6 to DEPRECATED-AUDIT-REGRESSION.
+# ===========================================================================
+# 2026-06-01 history: v4 (170 Boltz + 14 RDKit redocks) scored LB 0.4583
+# (rank 29/48), below openadmet-boltz-baseline 0.4632 -- the RDKit-placed
+# centroid redocks HURT. v2/v3 (same redock failure mode) DEPRECATED.
 STRUCTURE_LADDER = [
-    {"file": "structure_baseline_v5.zip", "note": "PRIMARY-1: built+validated v5 (184 PDBs); promoted above v1 per 2026-06-01 reorder"},
-    {"file": "structure_baseline_v1.zip", "note": "PRIMARY-2 fallback: 184 pure Boltz-2 cofolds; expected ~0.46 LB (matches openadmet-boltz-baseline 0.4632)"},
+    # ===========================================================================
+    # CYCLE 294 CROSS-REPO RECONCILE (2026-06-12): the STRUCTURE REPO
+    # (OpenADMET-pxr-structure) overtook this ladder. Its ai_3model_zhybrid
+    # (Boltz-2 + OpenFold3 + AF3 z-hybrid) scored LB 0.5414 rank 2/54 on
+    # 2026-06-11 21:04 UTC (AF3 won 61/184; leader 0.5612). That zip is copied
+    # here as structure_3model_zhybrid_0p5414.zip and is the new PRIMARY-1 so
+    # this stale cron RESTORES rank-2 (0.5414) instead of clobbering it back to
+    # v5's 0.4996. Do NOT resubmit v5 over 0.5414. New structure work happens in
+    # the structure repo; this ladder is now a safety net only.
+    # ===========================================================================
+    {"file": "structure_3model_zhybrid_0p5414.zip", "note": "PRIMARY-1: LB-VERIFIED 0.5414 (rank 2/54, 2026-06-11 21:04 UTC); B2+OF3+AF3 z-hybrid from structure repo; 184 PDBs verified LIG; 8694557 bytes = submitted bytes"},
+    {"file": "structure_baseline_v5_resubmit.zip", "note": "PRIMARY-2: LB-VERIFIED 0.4996 (rank 10/50, 2026-06-02 16:50 UTC); SUPERSEDED by 0.5414 3-model; keep as deep fallback only"},
+    {"file": "structure_baseline_v5.zip", "note": "PRIMARY-2-REFERENCE: LB-VERIFIED 0.4996; original submission; identical bytes to _resubmit copy"},
+    {"file": "structure_baseline_v1.zip", "note": "PRIMARY-2: LB-VERIFIED 0.4632 baseline (rank 27/48); 184 pure Boltz-2 cofolds; matches openadmet-boltz-baseline"},
+    {"file": "structure_v6_perlig_qsel.zip", "note": "DEPRECATED-AUDIT-REGRESSION: Cycle 161 LB scored 0.4632 vs v5 0.4996 (rank 10->27); per-ligand QSel collapsed to baseline; do not resubmit"},
     # DEPRECATED below: redock variants underperformed pure Boltz (v4=0.4583 < baseline 0.4632).
     {"file": "structure_baseline_v3.zip", "note": "DEPRECATED: 170 Boltz + 14 per-ligand template redocks (RDKit redocks hurt; see v4 LB 0.4583)"},
     {"file": "structure_baseline_v2.zip", "note": "DEPRECATED: 170 Boltz + 14 global 8R81 redocks (RDKit redocks hurt; see v4 LB 0.4583)"},
+    {"file": "structure_baseline_v4.zip", "note": "DEPRECATED: LB 0.4583 (rank 29/48); 170 Boltz + 14 RDKit centroid redocks"},
 ]
 
 SUBMIT_KWARGS = dict(
@@ -180,6 +206,16 @@ def main():
     if mode == "status":
         status(log)
         return
+
+    # ===========================================================================
+    # HARD-DISABLED 2026-06-12 (user directive): the STRUCTURE track is owned by
+    # the SEPARATE OpenADMET-pxr-structure repo. This main-repo ladder must NEVER
+    # submit to the structure track -- a submit here would burn a 1/4h API slot
+    # the structure repo needs and interfere with the user's process. This repo's
+    # only purpose is the compound pEC50 (Activity) track. Status-only from here.
+    # ===========================================================================
+    print("DISABLED: structure submissions are owned by the separate structure repo; refusing to submit. (Use 'status' to inspect.)")
+    return
 
     wait = time_until_slot(log)
     if mode != "force" and wait.total_seconds() > 0:

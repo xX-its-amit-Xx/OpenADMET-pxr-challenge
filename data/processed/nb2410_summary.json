@@ -1,0 +1,159 @@
+{
+  "tag": "nb2410",
+  "method": "f2_shrink_high_conf_top25pct_AND_novel_scaffold_to_train_mean",
+  "anchor_confidence_gate": "te_chemprop_aux",
+  "anchor_prediction": "te_nb2240",
+  "rule": {
+    "high_conf_percentile": 75,
+    "high_conf_threshold": 5.25038828606367,
+    "scaf_train_freq_eq": 0,
+    "fallback_value": 4.32,
+    "train_mean_observed": 4.321067541487525
+  },
+  "w_grid": [
+    0.3,
+    0.5,
+    0.7,
+    0.85
+  ],
+  "n_te": 513,
+  "n_unb": 253,
+  "n_high_te": 129,
+  "n_novel_te": 416,
+  "n_novel_unb": 197,
+  "n_fire_te": 97,
+  "n_fire_unb": 44,
+  "fire_rate_te": 0.18908382066276802,
+  "fire_rate_unb": 0.17391304347826086,
+  "fire_unb_bias_oof_pre_shrink": 0.0697836598482997,
+  "fire_unb_bias_te_pre_shrink": 0.04303048350594274,
+  "nb2240_baseline_cv_ref": 0.4601,
+  "nb2240_oof_rae_unb": 0.46301757335429367,
+  "nb2240_te_in_sample_rae_unb": 0.16570824273473972,
+  "decision_margin": 0.003,
+  "results": [
+    {
+      "w": 0.3,
+      "n_fire_unb": 44,
+      "n_fire_te": 97,
+      "rae_oof_honest": 0.5534290507054171,
+      "delta_vs_nb2240_oof": 0.09041147735112348,
+      "beats_nb2240_oof_by_margin": false,
+      "rae_te_insample": 0.29369609977360916,
+      "delta_vs_te_insample": 0.12798785703886945,
+      "rae_cv_seed_mean": 0.5534290507054171,
+      "rae_cv_seed_std": 0.0,
+      "per_seed_rae": [
+        0.5534290507054171,
+        0.5534290507054171,
+        0.5534290507054171,
+        0.5534290507054171,
+        0.5534290507054171
+      ]
+    },
+    {
+      "w": 0.5,
+      "n_fire_unb": 44,
+      "n_fire_te": 97,
+      "rae_oof_honest": 0.5098591603960947,
+      "delta_vs_nb2240_oof": 0.046841587041801025,
+      "beats_nb2240_oof_by_margin": false,
+      "rae_te_insample": 0.2481763954448519,
+      "delta_vs_te_insample": 0.08246815271011218,
+      "rae_cv_seed_mean": 0.5098591603960947,
+      "rae_cv_seed_std": 0.0,
+      "per_seed_rae": [
+        0.5098591603960947,
+        0.5098591603960947,
+        0.5098591603960947,
+        0.5098591603960947,
+        0.5098591603960947
+      ]
+    },
+    {
+      "w": 0.7,
+      "n_fire_unb": 44,
+      "n_fire_te": 97,
+      "rae_oof_honest": 0.476723174208554,
+      "delta_vs_nb2240_oof": 0.013705600854260314,
+      "beats_nb2240_oof_by_margin": false,
+      "rae_te_insample": 0.2039487402816258,
+      "delta_vs_te_insample": 0.038240497546886076,
+      "rae_cv_seed_mean": 0.4767231742085539,
+      "rae_cv_seed_std": 5.551115123125783e-17,
+      "per_seed_rae": [
+        0.476723174208554,
+        0.476723174208554,
+        0.476723174208554,
+        0.476723174208554,
+        0.476723174208554
+      ]
+    },
+    {
+      "w": 0.85,
+      "n_fire_unb": 44,
+      "n_fire_te": 97,
+      "rae_oof_honest": 0.46366739876402396,
+      "delta_vs_nb2240_oof": 0.000649825409730298,
+      "beats_nb2240_oof_by_margin": false,
+      "rae_te_insample": 0.17643184504407594,
+      "delta_vs_te_insample": 0.010723602309336222,
+      "rae_cv_seed_mean": 0.46366739876402396,
+      "rae_cv_seed_std": 0.0,
+      "per_seed_rae": [
+        0.46366739876402396,
+        0.46366739876402396,
+        0.46366739876402396,
+        0.46366739876402396,
+        0.46366739876402396
+      ]
+    }
+  ],
+  "best_cv": {
+    "w": 0.85,
+    "n_fire_unb": 44,
+    "n_fire_te": 97,
+    "rae_oof_honest": 0.46366739876402396,
+    "delta_vs_nb2240_oof": 0.000649825409730298,
+    "beats_nb2240_oof_by_margin": false,
+    "rae_te_insample": 0.17643184504407594,
+    "delta_vs_te_insample": 0.010723602309336222,
+    "rae_cv_seed_mean": 0.46366739876402396,
+    "rae_cv_seed_std": 0.0,
+    "per_seed_rae": [
+      0.46366739876402396,
+      0.46366739876402396,
+      0.46366739876402396,
+      0.46366739876402396,
+      0.46366739876402396
+    ]
+  },
+  "best_insample": {
+    "w": 0.85,
+    "n_fire_unb": 44,
+    "n_fire_te": 97,
+    "rae_oof_honest": 0.46366739876402396,
+    "delta_vs_nb2240_oof": 0.000649825409730298,
+    "beats_nb2240_oof_by_margin": false,
+    "rae_te_insample": 0.17643184504407594,
+    "delta_vs_te_insample": 0.010723602309336222,
+    "rae_cv_seed_mean": 0.46366739876402396,
+    "rae_cv_seed_std": 0.0,
+    "per_seed_rae": [
+      0.46366739876402396,
+      0.46366739876402396,
+      0.46366739876402396,
+      0.46366739876402396,
+      0.46366739876402396
+    ]
+  },
+  "verdict_cv": "BELOW_MARGIN",
+  "deploy_csv": null,
+  "previous_failed_attempts": [
+    "nb960",
+    "nb1144",
+    "nb2212",
+    "nb2220"
+  ],
+  "wall_sec": 1.7
+}

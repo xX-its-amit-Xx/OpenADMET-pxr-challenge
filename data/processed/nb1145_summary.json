@@ -1,0 +1,87 @@
+{
+  "tag": "nb1145",
+  "input_csv": "nb1140_apples_audit.csv",
+  "output_csv": "nb1145_clean_audit.csv",
+  "n_in": 84,
+  "n_excluded_hard_family": 15,
+  "n_clean": 69,
+  "hard_excluded_nb_families": [
+    2170,
+    2178,
+    2184,
+    2189
+  ],
+  "hard_excluded_names_sample": [
+    "nb2184_mean_bag_oof_honest_K20",
+    "nb2178_mean_bag_oof_K15",
+    "nb2184_mean_bag_oof_honest_K15",
+    "nb2178_mean_bag_oof_K20",
+    "nb2184_mean_bag_oof_honest_K28",
+    "nb2170_mean_bag_oof",
+    "nb2178_mean_bag_oof_K28",
+    "nb2178_mean_bag_oof_K40",
+    "nb2178_mean_bag_oof_K80",
+    "nb2178_mean_bag_oof_K56",
+    "nb2178_mean_bag_oof_K117",
+    "nb2189_mean_bag_oof_K20",
+    "nb2189_mean_bag_oof_K28",
+    "nb2189_mean_bag_oof_K15",
+    "nb2189_mean_bag_oof_K40"
+  ],
+  "dirty_anchor_substr": [
+    "nb730",
+    "te_nb730",
+    "nb730_honest",
+    "nb562_pred_oof",
+    "te_nb562",
+    "nb503_pred_oof",
+    "te_nb503",
+    "_soft07",
+    "_truth"
+  ],
+  "reference_anchor_shas_at_unb_idx": {
+    "te_nb730": "3edcb276709bfc6d",
+    "te_nb562": "59849fa9f5f9488b",
+    "te_nb503": "0cf19d4459fa6fde",
+    "te_chemprop_aux": "c84ca06b6e14cd68"
+  },
+  "winner_name": "nb2167_sklearn_mean_bag_oof_K28",
+  "winner_scaffold_CV_RAE": 0.472557,
+  "winner_anchor": "chemprop_aux",
+  "top5_names": [
+    "nb2167_sklearn_mean_bag_oof_K28",
+    "nb2123_mean_bag_oof_L12",
+    "nb2153_mean_bag_oof_K28_ff070",
+    "nb2174_mean_bag_oof_c2_0",
+    "nb2103_mean_bag_oof_K28"
+  ],
+  "top5_scaffold_CV_RAE": [
+    0.472557,
+    0.473757,
+    0.473874,
+    0.474624,
+    0.475072
+  ],
+  "top5_anchor_paths": [
+    "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+    "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+    "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+    "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+    "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy"
+  ],
+  "top5_anchor_shas_at_unb": [
+    "c84ca06b6e14cd68",
+    "c84ca06b6e14cd68",
+    "c84ca06b6e14cd68",
+    "c84ca06b6e14cd68",
+    "c84ca06b6e14cd68"
+  ],
+  "top5_anchor_verified_clean": [
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "wall_sec": 0.02
+}

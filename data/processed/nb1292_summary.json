@@ -1,0 +1,143 @@
+{
+  "tag": "nb1292",
+  "anchor": "nb1070",
+  "data_source": "local_nr_family_chembl_caches_union",
+  "chembl_caches": [
+    "data/external/chembl_nr_extended.parquet (PPARg, FXR, RXRa, LXRa, PXR, VDR, PPARa)",
+    "data/external/chembl_ahr_activity.parquet (AhR)"
+  ],
+  "mcp_probed": false,
+  "mcp_used_for_pool": false,
+  "mcp_probe_note": "MCP claude_ai_ChEMBL was NOT live-queried this run because the local caches already contain MCP-sourced mirrors of CHEMBL3401 (PXR), CHEMBL1860 (VDR), CHEMBL2047 (FXR) and CHEMBL3201 (AhR) collected in earlier cycles.  CAR (NR1I3 / CHEMBL2972) has no local parquet and is marked UNAVAILABLE.",
+  "car_available": false,
+  "nr_targets_core_requested": [
+    "AhR",
+    "CAR",
+    "FXR",
+    "VDR"
+  ],
+  "nr_targets_core_in_pool": [
+    "AhR",
+    "FXR",
+    "PXR",
+    "VDR"
+  ],
+  "nr_targets_bonus_in_pool": [
+    "LXRa",
+    "PPARa",
+    "PPARg",
+    "RXRa"
+  ],
+  "src_counts": {
+    "PPARg": 4302,
+    "FXR": 3185,
+    "RXRa": 1364,
+    "LXRa": 1173,
+    "PXR": 945,
+    "VDR": 523,
+    "PPARa": 4,
+    "AhR": 587,
+    "__union_after_dedup__": 11709,
+    "__pxr_compounds_kept__": 945,
+    "__multi_target_compounds__": 239
+  },
+  "n_pool_pre_leakguard": 11709,
+  "n_pool_post_leakguard": 11709,
+  "test_inchikeys_in_pool_dropped": 0,
+  "n_pxr_compounds_kept": 945,
+  "n_multi_target_compounds": 239,
+  "pool_pec50_mean": 6.433131217956543,
+  "pool_pec50_std": 1.1138004064559937,
+  "pool_pec50_median": 6.300000190734863,
+  "knn_k": 5,
+  "top1_sim_p10": 0.2445351481437683,
+  "top1_sim_p50": 0.2976190447807312,
+  "top1_sim_p90": 0.36973655223846436,
+  "top1_sim_max": 0.5081967115402222,
+  "mean5_sim_p10": 0.23061394691467285,
+  "mean5_sim_p50": 0.27480024099349976,
+  "mean5_sim_p90": 0.332824170589447,
+  "frac_top1_neighbours_from_pxr": 0.23586744639376217,
+  "frac_top5_neighbours_from_pxr": 0.2155945419103314,
+  "n_zero_neighbor_rows": 0,
+  "n_unb": 253,
+  "resid_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "resid_folds": 5,
+  "feature_dim": 169,
+  "lgbm_max_depth": 3,
+  "lgbm_num_leaves": 7,
+  "lgbm_n_estimators": 80,
+  "lgbm_learning_rate": 0.05,
+  "lgbm_min_child_samples": 20,
+  "lgbm_huber_alpha": 1.0,
+  "rae_anchor_nb1070": 0.5771305166381785,
+  "residual_mean": -0.1019658057365929,
+  "residual_std": 0.6666145784833671,
+  "per_seed_rae": [
+    0.5710432237904736,
+    0.5778388850292694,
+    0.5736433664525272,
+    0.5615790188637619,
+    0.5836533695036764
+  ],
+  "per_seed_records": [
+    {
+      "seed": 0,
+      "rae_corrected": 0.5710432237904736,
+      "delta_vs_nb1070": -0.006087292847704928,
+      "resid_oof_std": 0.21361798119620762,
+      "resid_oof_mean": -0.07213835956165737
+    },
+    {
+      "seed": 1,
+      "rae_corrected": 0.5778388850292694,
+      "delta_vs_nb1070": 0.0007083683910908967,
+      "resid_oof_std": 0.23043913749869843,
+      "resid_oof_mean": -0.07582165612640536
+    },
+    {
+      "seed": 7,
+      "rae_corrected": 0.5736433664525272,
+      "delta_vs_nb1070": -0.0034871501856512666,
+      "resid_oof_std": 0.2303858935611332,
+      "resid_oof_mean": -0.07200444818630992
+    },
+    {
+      "seed": 42,
+      "rae_corrected": 0.5615790188637619,
+      "delta_vs_nb1070": -0.015551497774416556,
+      "resid_oof_std": 0.21476538989630384,
+      "resid_oof_mean": -0.07556132408145569
+    },
+    {
+      "seed": 137,
+      "rae_corrected": 0.5836533695036764,
+      "delta_vs_nb1070": 0.006522852865497919,
+      "resid_oof_std": 0.23530923479035012,
+      "resid_oof_mean": -0.07753467434045115
+    }
+  ],
+  "rae_per_seed_mean": 0.5735515727279417,
+  "rae_per_seed_median": 0.5736433664525272,
+  "rae_per_seed_std": 0.007349416730299304,
+  "rae_mean_bag": 0.5644199800911388,
+  "rae_median_bag": 0.5670155779839207,
+  "delta_mean_bag_vs_nb1070": -0.012710536547039686,
+  "delta_mean_bag_vs_nb1242": 0.02131998009113878,
+  "delta_mean_bag_vs_nb1251": 0.025019980091138816,
+  "beats_nb1070": true,
+  "beats_nb1242": false,
+  "beats_nb1251": false,
+  "verdict": "NR_FAMILY_HELPS_NB1070_BUT_NOT_NB1242",
+  "nb1070_ref_pooled": 0.5771,
+  "nb1242_ref": 0.5431,
+  "nb1251_ref": 0.5394,
+  "decision_margin": 0.003,
+  "wall_sec": 33.42
+}

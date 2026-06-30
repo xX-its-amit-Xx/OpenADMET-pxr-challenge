@@ -1,0 +1,17 @@
+{
+  "tag": "nb2684",
+  "method": "grover_pretrained_embeddings_lgbm",
+  "verdict": "NO_CHECKPOINT_AVAILABLE",
+  "mean_rae": null,
+  "std_rae": null,
+  "anchor_base": "chemprop_aux",
+  "anchor_pre_unblind": true,
+  "K_rfe": 25,
+  "embedding_dim_target": 768,
+  "feature_dim_target": 885,
+  "gate_promote": 0.457,
+  "gate_marginal": 0.4598,
+  "import_resolved_as": "grover",
+  "external_dir": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\external",
+  "wall_sec": 4.56
+}

@@ -1,0 +1,76 @@
+{
+  "tag": "nb2593",
+  "method": "LinUCB_contextual_bandit_per_row_anchor_selection",
+  "arms": [
+    "nb2240",
+    "chemprop_aux"
+  ],
+  "state": "X_117_5way_K_tuned",
+  "n_actions": 2,
+  "alpha": 1.0,
+  "lambda_reg": 1.0,
+  "n_folds": 5,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "anchor_oof_rae": {
+    "nb2240": 0.46301757335429367,
+    "chemprop_aux": 0.5878769556905485
+  },
+  "oracle_per_row_rae": 0.3761917125037425,
+  "per_seed_results": [
+    {
+      "kf_seed": 1001,
+      "pooled_rae": 0.5304141933560729,
+      "frac_action_nb2240": 0.5177865612648221
+    },
+    {
+      "kf_seed": 1002,
+      "pooled_rae": 0.5118210832777941,
+      "frac_action_nb2240": 0.5652173913043478
+    },
+    {
+      "kf_seed": 1003,
+      "pooled_rae": 0.5439181535406282,
+      "frac_action_nb2240": 0.42292490118577075
+    },
+    {
+      "kf_seed": 1004,
+      "pooled_rae": 0.5349707633612283,
+      "frac_action_nb2240": 0.5533596837944664
+    },
+    {
+      "kf_seed": 1005,
+      "pooled_rae": 0.525700345768468,
+      "frac_action_nb2240": 0.44664031620553357
+    }
+  ],
+  "per_seed_rae": [
+    0.5304141933560729,
+    0.5118210832777941,
+    0.5439181535406282,
+    0.5349707633612283,
+    0.525700345768468
+  ],
+  "per_seed_mean_rae": 0.5293649078608383,
+  "per_seed_std_rae": 0.010635209185413802,
+  "mean_rae": 0.5293649078608383,
+  "mean_bag_rae": 0.5122651115506356,
+  "frac_deploy_pick_nb2240": 0.557504873294347,
+  "te_unb_in_sample_rae": 0.3638577275547874,
+  "te_deploy_mean": 4.7757568359375,
+  "te_deploy_std": 0.6844357252120972,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2593_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2593.npy",
+  "gate_promote_threshold": 0.457,
+  "gate_marginal_threshold": 0.4601,
+  "verdict": "FAIL",
+  "wall_sec": 11.64
+}

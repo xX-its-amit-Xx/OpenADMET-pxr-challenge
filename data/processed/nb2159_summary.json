@@ -1,0 +1,443 @@
+{
+  "tag": "nb2159",
+  "method": "lgbm_mse_shap_top50_intersect_3seed_K28_on_117col",
+  "anchor": "chemprop_aux",
+  "anchor_kind": "PRE_unblind_te_slice_to_unb_idx",
+  "anchor_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+  "data_source": "nb2063/nb2081/nb2091/nb2103 117-col 5-way K-tuned matrix: AtomPair/MACCS/Mordred/ChempropEmbed/Avalon + ChEMBL kNN; SHAP top-50 intersection across 3 LGBM seeds [0, 42, 137]; top-K=28 by mean |SHAP|",
+  "model_family": "LightGBM",
+  "lgbm_objective": "regression",
+  "lgbm_max_depth": 4,
+  "lgbm_num_leaves": 15,
+  "lgbm_n_estimators": 300,
+  "lgbm_learning_rate": 0.03,
+  "lgbm_min_child_samples": 5,
+  "lgbm_reg_lambda": 2.0,
+  "shap_seeds": [
+    0,
+    42,
+    137
+  ],
+  "shap_topN_per_seed": 50,
+  "target_K": 28,
+  "n_intersect_top50": 50,
+  "intersect_idx_sorted": [
+    0,
+    1,
+    6,
+    7,
+    8,
+    11,
+    12,
+    22,
+    27,
+    32,
+    34,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    72,
+    73,
+    76,
+    77,
+    78,
+    80,
+    81,
+    82,
+    83,
+    84,
+    92,
+    93,
+    108,
+    115,
+    116
+  ],
+  "select_mode": "INTERSECT",
+  "fallback_to_union": false,
+  "top28_idx_in_117": [
+    45,
+    67,
+    48,
+    0,
+    66,
+    68,
+    65,
+    92,
+    50,
+    27,
+    77,
+    47,
+    63,
+    81,
+    56,
+    1,
+    52,
+    7,
+    53,
+    115,
+    93,
+    46,
+    80,
+    11,
+    70,
+    54,
+    8,
+    57
+  ],
+  "top28_records": [
+    {
+      "rank": 1,
+      "feat_idx_in_117": 45,
+      "feat_name": "Mordred_col_292",
+      "feat_family": "Mordred",
+      "mean_abs_shap_3seed": 0.08903756737709045
+    },
+    {
+      "rank": 2,
+      "feat_idx_in_117": 67,
+      "feat_name": "ChempropEmbed_dim_14",
+      "feat_family": "ChempropEmbed",
+      "mean_abs_shap_3seed": 0.05039993301033974
+    },
+    {
+      "rank": 3,
+      "feat_idx_in_117": 48,
+      "feat_name": "Mordred_col_770",
+      "feat_family": "Mordred",
+      "mean_abs_shap_3seed": 0.05005825683474541
+    },
+    {
+      "rank": 4,
+      "feat_idx_in_117": 0,
+      "feat_name": "AtomPair_bit_977",
+      "feat_family": "AtomPair",
+      "mean_abs_shap_3seed": 0.047693196684122086
+    },
+    {
+      "rank": 5,
+      "feat_idx_in_117": 66,
+      "feat_name": "ChempropEmbed_dim_9",
+      "feat_family": "ChempropEmbed",
+      "mean_abs_shap_3seed": 0.04638002812862396
+    },
+    {
+      "rank": 6,
+      "feat_idx_in_117": 68,
+      "feat_name": "ChempropEmbed_dim_32",
+      "feat_family": "ChempropEmbed",
+      "mean_abs_shap_3seed": 0.04552800953388214
+    },
+    {
+      "rank": 7,
+      "feat_idx_in_117": 65,
+      "feat_name": "ChempropEmbed_dim_259",
+      "feat_family": "ChempropEmbed",
+      "mean_abs_shap_3seed": 0.036768149584531784
+    },
+    {
+      "rank": 8,
+      "feat_idx_in_117": 92,
+      "feat_name": "Avalon_bit_323",
+      "feat_family": "Avalon",
+      "mean_abs_shap_3seed": 0.03626333177089691
+    },
+    {
+      "rank": 9,
+      "feat_idx_in_117": 50,
+      "feat_name": "Mordred_col_1494",
+      "feat_family": "Mordred",
+      "mean_abs_shap_3seed": 0.03288586437702179
+    },
+    {
+      "rank": 10,
+      "feat_idx_in_117": 27,
+      "feat_name": "MACCS_bit_126",
+      "feat_family": "MACCS",
+      "mean_abs_shap_3seed": 0.03216874971985817
+    },
+    {
+      "rank": 11,
+      "feat_idx_in_117": 77,
+      "feat_name": "ChempropEmbed_dim_172",
+      "feat_family": "ChempropEmbed",
+      "mean_abs_shap_3seed": 0.03016437031328678
+    },
+    {
+      "rank": 12,
+      "feat_idx_in_117": 47,
+      "feat_name": "Mordred_col_253",
+      "feat_family": "Mordred",
+      "mean_abs_shap_3seed": 0.029955139383673668
+    },
+    {
+      "rank": 13,
+      "feat_idx_in_117": 63,
+      "feat_name": "Mordred_col_447",
+      "feat_family": "Mordred",
+      "mean_abs_shap_3seed": 0.02779250405728817
+    },
+    {
+      "rank": 14,
+      "feat_idx_in_117": 81,
+      "feat_name": "ChempropEmbed_dim_16",
+      "feat_family": "ChempropEmbed",
+      "mean_abs_shap_3seed": 0.027666376903653145
+    },
+    {
+      "rank": 15,
+      "feat_idx_in_117": 56,
+      "feat_name": "Mordred_col_454",
+      "feat_family": "Mordred",
+      "mean_abs_shap_3seed": 0.02728121168911457
+    },
+    {
+      "rank": 16,
+      "feat_idx_in_117": 1,
+      "feat_name": "AtomPair_bit_1733",
+      "feat_family": "AtomPair",
+      "mean_abs_shap_3seed": 0.025568140670657158
+    },
+    {
+      "rank": 17,
+      "feat_idx_in_117": 52,
+      "feat_name": "Mordred_col_255",
+      "feat_family": "Mordred",
+      "mean_abs_shap_3seed": 0.023725474253296852
+    },
+    {
+      "rank": 18,
+      "feat_idx_in_117": 7,
+      "feat_name": "AtomPair_bit_1729",
+      "feat_family": "AtomPair",
+      "mean_abs_shap_3seed": 0.022021641954779625
+    },
+    {
+      "rank": 19,
+      "feat_idx_in_117": 53,
+      "feat_name": "Mordred_col_297",
+      "feat_family": "Mordred",
+      "mean_abs_shap_3seed": 0.021616866812109947
+    },
+    {
+      "rank": 20,
+      "feat_idx_in_117": 115,
+      "feat_name": "pred_chembl_pec50",
+      "feat_family": "ChEMBL_kNN",
+      "mean_abs_shap_3seed": 0.02138284035027027
+    },
+    {
+      "rank": 21,
+      "feat_idx_in_117": 93,
+      "feat_name": "Avalon_bit_349",
+      "feat_family": "Avalon",
+      "mean_abs_shap_3seed": 0.021362945437431335
+    },
+    {
+      "rank": 22,
+      "feat_idx_in_117": 46,
+      "feat_name": "Mordred_col_1197",
+      "feat_family": "Mordred",
+      "mean_abs_shap_3seed": 0.02102012000977993
+    },
+    {
+      "rank": 23,
+      "feat_idx_in_117": 80,
+      "feat_name": "ChempropEmbed_dim_248",
+      "feat_family": "ChempropEmbed",
+      "mean_abs_shap_3seed": 0.020183203741908073
+    },
+    {
+      "rank": 24,
+      "feat_idx_in_117": 11,
+      "feat_name": "AtomPair_bit_1113",
+      "feat_family": "AtomPair",
+      "mean_abs_shap_3seed": 0.018928520381450653
+    },
+    {
+      "rank": 25,
+      "feat_idx_in_117": 70,
+      "feat_name": "ChempropEmbed_dim_275",
+      "feat_family": "ChempropEmbed",
+      "mean_abs_shap_3seed": 0.018164867535233498
+    },
+    {
+      "rank": 26,
+      "feat_idx_in_117": 54,
+      "feat_name": "Mordred_col_329",
+      "feat_family": "Mordred",
+      "mean_abs_shap_3seed": 0.01793649047613144
+    },
+    {
+      "rank": 27,
+      "feat_idx_in_117": 8,
+      "feat_name": "AtomPair_bit_1086",
+      "feat_family": "AtomPair",
+      "mean_abs_shap_3seed": 0.017583530396223068
+    },
+    {
+      "rank": 28,
+      "feat_idx_in_117": 57,
+      "feat_name": "Mordred_col_400",
+      "feat_family": "Mordred",
+      "mean_abs_shap_3seed": 0.017546217888593674
+    }
+  ],
+  "family_counts_top28": {
+    "Mordred": 11,
+    "ChempropEmbed": 8,
+    "AtomPair": 5,
+    "Avalon": 2,
+    "MACCS": 1,
+    "ChEMBL_kNN": 1
+  },
+  "feat_dim_full": 117,
+  "feat_breakdown_full": {
+    "atompair": 25,
+    "maccs": 20,
+    "mordred": 20,
+    "chemprop_embed": 20,
+    "avalon": 30,
+    "pred_chembl_pec50": 1,
+    "mean_sim": 1,
+    "total": 117
+  },
+  "nb2063_top28_idx_seed0": [
+    45,
+    67,
+    48,
+    0,
+    66,
+    68,
+    65,
+    92,
+    50,
+    27,
+    77,
+    47,
+    63,
+    81,
+    56,
+    1,
+    52,
+    7,
+    53,
+    115,
+    93,
+    46,
+    80,
+    11,
+    70,
+    54,
+    8,
+    57
+  ],
+  "vs_nb2063_top28": {
+    "overlap_count": 28,
+    "new_in_nb2159": [],
+    "dropped_from_nb2063": []
+  },
+  "n_chembl_pool": 945,
+  "n_unb": 253,
+  "resid_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "resid_folds": 5,
+  "rae_anchor_chemprop_aux": 0.6215728863514471,
+  "residual_mean": -0.1325965261753001,
+  "residual_std": 0.6999145683913596,
+  "per_seed_rae": [
+    0.4932399127303269,
+    0.5092356523639533,
+    0.4886371260037302,
+    0.4998304296760553,
+    0.48110681218891027
+  ],
+  "per_seed_records": [
+    {
+      "seed": 0,
+      "rae_corrected": 0.4932399127303269,
+      "delta_vs_chemprop_aux": -0.12833297362112023,
+      "resid_oof_std": 0.4417369609402247,
+      "resid_oof_mean": -0.13325351257519574,
+      "wall_sec": 0.33
+    },
+    {
+      "seed": 1,
+      "rae_corrected": 0.5092356523639533,
+      "delta_vs_chemprop_aux": -0.11233723398749385,
+      "resid_oof_std": 0.425472334362904,
+      "resid_oof_mean": -0.1322155900110132,
+      "wall_sec": 0.31
+    },
+    {
+      "seed": 7,
+      "rae_corrected": 0.4886371260037302,
+      "delta_vs_chemprop_aux": -0.13293576034771692,
+      "resid_oof_std": 0.4349326628279182,
+      "resid_oof_mean": -0.13756850078462857,
+      "wall_sec": 0.33
+    },
+    {
+      "seed": 42,
+      "rae_corrected": 0.4998304296760553,
+      "delta_vs_chemprop_aux": -0.12174245667539185,
+      "resid_oof_std": 0.43246474741772306,
+      "resid_oof_mean": -0.11560876655145669,
+      "wall_sec": 0.34
+    },
+    {
+      "seed": 137,
+      "rae_corrected": 0.48110681218891027,
+      "delta_vs_chemprop_aux": -0.14046607416253687,
+      "resid_oof_std": 0.44415865783566394,
+      "resid_oof_mean": -0.12122587846650634,
+      "wall_sec": 0.34
+    }
+  ],
+  "rae_per_seed_mean": 0.4944099865925953,
+  "rae_per_seed_median": 0.4932399127303269,
+  "rae_per_seed_std": 0.009600531341770009,
+  "rae_per_seed_min": 0.48110681218891027,
+  "rae_per_seed_max": 0.5092356523639533,
+  "rae_mean_bag": 0.4736869992362601,
+  "rae_median_bag": 0.4697789387514748,
+  "nb2103_K28_mean_bag_ref": 0.4737,
+  "nb2103_K28_median_bag_ref": 0.4698,
+  "delta_mean_bag_vs_nb2103_K28": -1.3000763739889898e-05,
+  "delta_median_bag_vs_nb2103_K28": -2.1061248525189313e-05,
+  "beats_chemprop_aux": true,
+  "beats_nb2103_K28_mean": false,
+  "flat_vs_nb2103_K28_mean": true,
+  "beats_nb2103_K28_median": false,
+  "flat_vs_nb2103_K28_median": true,
+  "verdict": "SHAP_INTERSECT_K28_FLAT_VS_NB2103_K28",
+  "pre_unblind_clean": true,
+  "chemprop_aux_ref": 0.6216,
+  "decision_margin": 0.003,
+  "wall_sec": 7.04
+}

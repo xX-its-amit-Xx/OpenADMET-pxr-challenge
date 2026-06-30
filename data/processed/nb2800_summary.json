@@ -1,0 +1,119 @@
+{
+  "tag": "nb2800",
+  "method": "per_row_exponential_hard_row_upweight",
+  "paradigm_note": "UP-weight hard rows via w = exp(alpha * |y - anchor_pred|). Genuinely up-weights hard rows (vs nb2791 which used 1/(|resid|+eps) and inadvertently DOWN-weighted them).",
+  "anchor": "chemprop_aux",
+  "anchor_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb1133_chemprop_aux_pred_oof.npy",
+  "anchor_te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+  "rae_anchor_chemprop_aux": 0.5878769556905485,
+  "alpha": 0.5,
+  "weight_recipe": "w_raw = exp(alpha * |y - anchor_pred|); w = w_raw / mean(w_raw)",
+  "weight_stats": {
+    "alpha": 0.5,
+    "weight_mean": 0.9999999999999999,
+    "weight_min": 0.7671266599248965,
+    "weight_max": 2.5658746352919817,
+    "weight_std": 0.2898842960837877,
+    "abs_resid_mean": 0.4695154815229032,
+    "abs_resid_median": 0.31593887329101555,
+    "abs_resid_max": 2.41654712677002,
+    "abs_resid_p90": 1.111288738250733,
+    "abs_resid_p10": 0.053089569091796386,
+    "n_top_decile_resid": 26,
+    "weight_top_decile_resid_mean": 1.7244620823847887,
+    "weight_bottom_decile_resid_mean": 0.7779302441444161
+  },
+  "hard_rows_up_weighted": true,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "resid_seeds": [
+    0,
+    1,
+    7,
+    13,
+    23,
+    42,
+    53,
+    67,
+    89,
+    101,
+    137,
+    199,
+    211,
+    251,
+    313,
+    401,
+    503,
+    617,
+    727,
+    911
+  ],
+  "n_resid_seeds": 20,
+  "n_folds": 5,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "k20_surviving_idx_in_117": [
+    45,
+    67,
+    66,
+    68,
+    65,
+    92,
+    27,
+    77,
+    81,
+    56,
+    1,
+    7,
+    115,
+    93,
+    80,
+    11,
+    70,
+    54,
+    8,
+    57
+  ],
+  "per_seed_results": [
+    {
+      "kf_seed": 1001,
+      "pooled_rae": 0.576342686623139,
+      "wall_sec": 4.6
+    },
+    {
+      "kf_seed": 1002,
+      "pooled_rae": 0.6075875626175524,
+      "wall_sec": 4.6
+    },
+    {
+      "kf_seed": 1003,
+      "pooled_rae": 0.6215486095057109,
+      "wall_sec": 4.6
+    },
+    {
+      "kf_seed": 1004,
+      "pooled_rae": 0.5866124662554775,
+      "wall_sec": 4.7
+    },
+    {
+      "kf_seed": 1005,
+      "pooled_rae": 0.5778382718022453,
+      "wall_sec": 4.8
+    }
+  ],
+  "mean_rae": 0.593985919360825,
+  "std_rae": 0.017726277562507504,
+  "te_unb_rae_in_sample": 0.2909695330903507,
+  "gate_promote": 0.457,
+  "gate_marginal": 0.4598,
+  "verdict": "FAIL",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2800.npy",
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2800_pred_oof.npy",
+  "wall_sec": 28.03
+}

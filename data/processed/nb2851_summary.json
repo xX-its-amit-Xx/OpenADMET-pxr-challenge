@@ -1,0 +1,298 @@
+{
+  "tag": "nb2851",
+  "method": "Ridge cross-quadratic on TOP-5 K=20 chemprop_aux residual. PolynomialFeatures(degree=2, interaction_only=False, include_bias=False) on 5 SHAP-top features -> 5 raw + 5 squares + 10 cross-products = 20 features. Per-fold StandardScaler -> PolynomialFeatures -> Ridge(alpha=1.0). 5-fold scaffold CV on n=253 across 5 kf_seeds.",
+  "paradigm": "linear_top5_quadratic_interactions_ridge_distinct_from_nb2740_K20_blowup_and_tree_axis_aligned_and_kernel_radial",
+  "anchor_name": "chemprop_aux (PRE-unblind, verified clean)",
+  "rae_anchor_unb": 0.6215728863514471,
+  "top5_shap_in_117": [
+    45,
+    67,
+    66,
+    68,
+    65
+  ],
+  "top5_shap_in_K20": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "top5_names": [
+    "Mordred_col_292",
+    "ChempropEmbed_dim_14",
+    "ChempropEmbed_dim_9",
+    "ChempropEmbed_dim_32",
+    "ChempropEmbed_dim_259"
+  ],
+  "k20_idx_in_117": [
+    45,
+    67,
+    66,
+    68,
+    65,
+    92,
+    27,
+    77,
+    81,
+    56,
+    1,
+    7,
+    115,
+    93,
+    80,
+    11,
+    70,
+    54,
+    8,
+    57
+  ],
+  "shap_source_nb": "nb2263_summary.json:shap_top28_idx_in_117",
+  "k20_source_nb": "nb2231_summary.json:snapshots.20.surviving_idx_in_117",
+  "poly_degree": 2,
+  "poly_interaction_only": false,
+  "poly_include_bias": false,
+  "n_poly_features": 20,
+  "ridge_alpha": 1.0,
+  "ridge_random_state": 42,
+  "n_folds": 5,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "feat_dim_raw": 5,
+  "top_n_from_K20_by_shap": 5,
+  "per_seed": [
+    {
+      "kf_seed": 1001,
+      "pooled_rae": 0.6073495512411424,
+      "folds": [
+        {
+          "fold": 0,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.07696631682269714,
+          "resid_pred_std": 0.31038448217780545
+        },
+        {
+          "fold": 1,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.37861106062636657,
+          "resid_pred_std": 0.4215965660098379
+        },
+        {
+          "fold": 2,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.09177338463418624,
+          "resid_pred_std": 0.38934790528647933
+        },
+        {
+          "fold": 3,
+          "n_tr": 203,
+          "n_va": 50,
+          "resid_pred_mean": 0.008914792239665984,
+          "resid_pred_std": 0.39155130926148884
+        },
+        {
+          "fold": 4,
+          "n_tr": 203,
+          "n_va": 50,
+          "resid_pred_mean": -0.13011451959609985,
+          "resid_pred_std": 0.3477918363327314
+        }
+      ],
+      "wall_sec": 0.01
+    },
+    {
+      "kf_seed": 1002,
+      "pooled_rae": 0.6368574547404332,
+      "folds": [
+        {
+          "fold": 0,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.07672534824586381,
+          "resid_pred_std": 0.47201152126772394
+        },
+        {
+          "fold": 1,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.1759074751068564,
+          "resid_pred_std": 0.34448810308243105
+        },
+        {
+          "fold": 2,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.15707247368260926,
+          "resid_pred_std": 0.4276722877438461
+        },
+        {
+          "fold": 3,
+          "n_tr": 203,
+          "n_va": 50,
+          "resid_pred_mean": -0.2019548261165619,
+          "resid_pred_std": 0.40720742158142226
+        },
+        {
+          "fold": 4,
+          "n_tr": 203,
+          "n_va": 50,
+          "resid_pred_mean": -0.09357567712664604,
+          "resid_pred_std": 0.3018624358447471
+        }
+      ],
+      "wall_sec": 0.01
+    },
+    {
+      "kf_seed": 1003,
+      "pooled_rae": 0.6281722921904385,
+      "folds": [
+        {
+          "fold": 0,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.06253793017536986,
+          "resid_pred_std": 0.3594518608256129
+        },
+        {
+          "fold": 1,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.1586742111865212,
+          "resid_pred_std": 0.39549245962919194
+        },
+        {
+          "fold": 2,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.3026781800915213,
+          "resid_pred_std": 0.38530338948708437
+        },
+        {
+          "fold": 3,
+          "n_tr": 203,
+          "n_va": 50,
+          "resid_pred_mean": -0.15378495991230012,
+          "resid_pred_std": 0.39304690548896437
+        },
+        {
+          "fold": 4,
+          "n_tr": 203,
+          "n_va": 50,
+          "resid_pred_mean": -0.06298205822706222,
+          "resid_pred_std": 0.37354761712323137
+        }
+      ],
+      "wall_sec": 0.01
+    },
+    {
+      "kf_seed": 1004,
+      "pooled_rae": 0.6191186205696719,
+      "folds": [
+        {
+          "fold": 0,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.12669583862903072,
+          "resid_pred_std": 0.3349459292302448
+        },
+        {
+          "fold": 1,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.1917331215797686,
+          "resid_pred_std": 0.3680809207746849
+        },
+        {
+          "fold": 2,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.17248854099535474,
+          "resid_pred_std": 0.5029939161707853
+        },
+        {
+          "fold": 3,
+          "n_tr": 203,
+          "n_va": 50,
+          "resid_pred_mean": -0.16510830342769622,
+          "resid_pred_std": 0.4357746782121676
+        },
+        {
+          "fold": 4,
+          "n_tr": 203,
+          "n_va": 50,
+          "resid_pred_mean": -0.1272938521206379,
+          "resid_pred_std": 0.3658413654298305
+        }
+      ],
+      "wall_sec": 0.01
+    },
+    {
+      "kf_seed": 1005,
+      "pooled_rae": 0.6113680332284003,
+      "folds": [
+        {
+          "fold": 0,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.2052142441857095,
+          "resid_pred_std": 0.374578687831074
+        },
+        {
+          "fold": 1,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.14161546528339386,
+          "resid_pred_std": 0.3959642228898529
+        },
+        {
+          "fold": 2,
+          "n_tr": 202,
+          "n_va": 51,
+          "resid_pred_mean": -0.11650930812545851,
+          "resid_pred_std": 0.3348632330790919
+        },
+        {
+          "fold": 3,
+          "n_tr": 203,
+          "n_va": 50,
+          "resid_pred_mean": -0.12524715662002564,
+          "resid_pred_std": 0.45334370353762576
+        },
+        {
+          "fold": 4,
+          "n_tr": 203,
+          "n_va": 50,
+          "resid_pred_mean": -0.0963715037703514,
+          "resid_pred_std": 0.4303672436927182
+        }
+      ],
+      "wall_sec": 0.01
+    }
+  ],
+  "mean_rae": 0.6205731903940173,
+  "pooled_rae_std_seeds": 0.010813315288840657,
+  "rae_of_mean_of_seed_oofs": 0.6149735918878929,
+  "delta_vs_anchor": -0.0009996959574298803,
+  "te_unb_rae_in_sample": 0.5497291679351111,
+  "te_deploy_mean": 4.709116458892822,
+  "te_deploy_std": 0.7530047297477722,
+  "gate_promote_threshold": 0.457,
+  "gate_marginal_threshold": 0.4598,
+  "verdict": "FAIL",
+  "promote": false,
+  "marginal_beat": false,
+  "oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2851_pred_oof.npy",
+  "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2851.npy",
+  "wall_sec": 0.12
+}

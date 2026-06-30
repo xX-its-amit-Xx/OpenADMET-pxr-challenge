@@ -1,0 +1,51 @@
+{
+  "tag": "nb2482",
+  "method": "K20_RFE_plus_Boltz2_dargason_44feats_residual_LGBM_meanbag",
+  "status": "OK",
+  "boltz_parquet": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\boltz_dargason_features_test.parquet",
+  "n_boltz_feats": 44,
+  "boltz_missing_rows": 0,
+  "anchor": "chemprop_aux",
+  "anchor_in_sample_rae_unb": 0.6215728863514471,
+  "feat_dim_K64": 64,
+  "resid_folds": 5,
+  "resid_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "n_folds": 5,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "per_seed_raes": [
+    0.5346900809040908,
+    0.56311052303524,
+    0.5586950276852668,
+    0.5653803598100097,
+    0.5549846182780668
+  ],
+  "mean_rae": 0.5553721219425347,
+  "std_rae": 0.010945194012574468,
+  "min_rae": 0.5346900809040908,
+  "max_rae": 0.5653803598100097,
+  "te_unb_in_sample_rae": 0.09990180867819555,
+  "te_mean": 4.726656436920166,
+  "te_std": 0.8448936939239502,
+  "promote_gate": 0.457,
+  "marginal_gate": 0.4601,
+  "verdict": "FAIL",
+  "compare_nb2171_oof": 0.4676,
+  "delta_vs_nb2171": 0.0877721219425347,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2482_pred_oof.npy",
+  "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2482.npy",
+  "n_unb": 253,
+  "n_te": 513,
+  "wall_sec": 16.93
+}

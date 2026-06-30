@@ -1,0 +1,15 @@
+{
+  "variants": {
+    "base": 0.4493,
+    "+chemeleon": 0.4462,
+    "+tabpfn": 0.4478,
+    "+both": 0.4451
+  },
+  "std": {
+    "base": 0.0154,
+    "+chemeleon": 0.0143,
+    "+tabpfn": 0.0147,
+    "+both": 0.0136
+  },
+  "best": "+both"
+}

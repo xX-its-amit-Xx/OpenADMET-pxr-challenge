@@ -1,0 +1,74 @@
+{
+  "tag": "nb2874",
+  "method": "skip_connection_nn_preclean",
+  "architecture": "anchor_mean + (Linear(3,16) -> Tanh -> Linear(16,1))",
+  "paradigm": "skip-connection: y_hat = anchor_mean + nn_residual(P); NN learns small correction",
+  "fix_vs_nb2863": "anchor_mean skip frees the hidden layer from learning central tendency",
+  "anchor_pool": [
+    "nb2240_K20",
+    "chemprop_aux",
+    "counter_clean"
+  ],
+  "anchor_provenance": {
+    "nb2240_K20": "PRE-clean (K=20 residual stack on chemprop_aux)",
+    "chemprop_aux": "PRE-clean (4139 PRE-unblind only)",
+    "counter_clean": "PRE-clean counter-assay residual on chemprop_aux (nb730-free)"
+  },
+  "anchor_skipped": {},
+  "anchor_in_rae": {
+    "nb2240_K20": 0.46301757335429367,
+    "chemprop_aux": 0.5878769556905485,
+    "counter_clean": 0.5382385733206709
+  },
+  "anchor_mean_baseline_rae": 0.5025604186998717,
+  "nn_hidden": 16,
+  "nn_activation": "Tanh",
+  "nn_dropout": 0.0,
+  "nn_zscore": false,
+  "nn_final_bias_init": 0.0,
+  "nn_skip_connection": "anchor_mean",
+  "nn_lr": 0.001,
+  "nn_epochs": 500,
+  "nn_batch_size": "full_batch",
+  "nn_n_params": 81,
+  "n_outer_folds": 5,
+  "kf_seeds": [
+    42,
+    1,
+    7,
+    137,
+    1009
+  ],
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "K_anchors": 3,
+  "per_seed_pooled_rae": [
+    0.46950455801484364,
+    0.46613524675958146,
+    0.4766559842977747,
+    0.4771787266885463,
+    0.4779725624815797
+  ],
+  "per_seed_mean_fold_rae": [
+    0.4716909181348024,
+    0.47775448865238934,
+    0.5016962198491494,
+    0.49001589950772695,
+    0.4800905351719652
+  ],
+  "mean_pooled_rae": 0.47348941564846514,
+  "std_pooled_rae": 0.004768640663647792,
+  "pooled_on_seed_mean_oof": 0.4713311123175835,
+  "mean_rae": 0.47348941564846514,
+  "gate_promote": 0.457,
+  "gate_marginal": 0.4598,
+  "verdict": "FAIL",
+  "te_unb_in_sample_rae": 0.1932605543472351,
+  "te_mean": 4.755256652832031,
+  "te_std": 0.7610105276107788,
+  "oof_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2874_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2874.npy",
+  "submission_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb2874_skip_connection_nn.csv",
+  "wall_sec": 8.54
+}

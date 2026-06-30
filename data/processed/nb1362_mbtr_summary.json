@@ -1,0 +1,21 @@
+{
+  "approach": "dscribe_MBTR_global_manybody_PCA_block_on_deployed_config",
+  "control_rae": 0.4211291283617787,
+  "treatment_rae": 0.4238504897207407,
+  "matched_delta": 0.0027213613589620045,
+  "n_seeds_neg": 2,
+  "c_raes": [
+    0.41797229500866095,
+    0.43754862199129946,
+    0.4078664680853757
+  ],
+  "t_raes": [
+    0.4228834556680013,
+    0.44202895600288966,
+    0.4066390574913311
+  ],
+  "mbtr_missing": 1,
+  "n_pca": 24,
+  "deployed_best": 0.4133,
+  "deploy": false
+}

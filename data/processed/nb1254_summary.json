@@ -1,0 +1,112 @@
+{
+  "tag": "nb1254",
+  "anchor": "nb1070",
+  "control_for": "nb1242 (MACCS + CHEMBL-kNN)",
+  "pool_source": "training_set_only_no_chembl",
+  "n_pool": 4139,
+  "n_test": 513,
+  "n_unb": 253,
+  "morgan_bits": 2048,
+  "morgan_radius": 2,
+  "knn_k": 5,
+  "pool_pec50_mean": 4.3210673332214355,
+  "pool_pec50_std": 1.121480941772461,
+  "pool_pec50_median": 4.650000095367432,
+  "top1_sim_p10": 0.44806402921676636,
+  "top1_sim_p50": 0.5230769515037537,
+  "top1_sim_p90": 0.6273845434188843,
+  "top1_sim_max": 0.8064516186714172,
+  "mean5_sim_p10": 0.33625298738479614,
+  "mean5_sim_p50": 0.3848363757133484,
+  "mean5_sim_p90": 0.44622480869293213,
+  "n_zero_neighbor_rows": 0,
+  "resid_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "resid_folds": 5,
+  "feature_dim": 169,
+  "lgbm_max_depth": 3,
+  "lgbm_num_leaves": 7,
+  "lgbm_n_estimators": 80,
+  "lgbm_learning_rate": 0.05,
+  "lgbm_min_child_samples": 20,
+  "lgbm_huber_alpha": 1.0,
+  "rae_anchor_nb1070": 0.5771305166381785,
+  "residual_mean": -0.1019658057365929,
+  "residual_std": 0.6666145784833671,
+  "per_seed_rae": [
+    0.5671502966931438,
+    0.5770002808760932,
+    0.5714466217827201,
+    0.565406862090236,
+    0.5710446815512122
+  ],
+  "per_seed_records": [
+    {
+      "seed": 0,
+      "rae_corrected": 0.5671502966931438,
+      "delta_vs_nb1070": -0.00998021994503473,
+      "resid_oof_std": 0.22423347256590487,
+      "resid_oof_mean": -0.07923545435247174
+    },
+    {
+      "seed": 1,
+      "rae_corrected": 0.5770002808760932,
+      "delta_vs_nb1070": -0.00013023576208526233,
+      "resid_oof_std": 0.25098398401647226,
+      "resid_oof_mean": -0.0871463503039334
+    },
+    {
+      "seed": 7,
+      "rae_corrected": 0.5714466217827201,
+      "delta_vs_nb1070": -0.0056838948554583935,
+      "resid_oof_std": 0.2361547416740197,
+      "resid_oof_mean": -0.0852280300378542
+    },
+    {
+      "seed": 42,
+      "rae_corrected": 0.565406862090236,
+      "delta_vs_nb1070": -0.011723654547942441,
+      "resid_oof_std": 0.24007839462616934,
+      "resid_oof_mean": -0.08952652049143939
+    },
+    {
+      "seed": 137,
+      "rae_corrected": 0.5710446815512122,
+      "delta_vs_nb1070": -0.006085835086966251,
+      "resid_oof_std": 0.23552246472153976,
+      "resid_oof_mean": -0.07371918634816887
+    }
+  ],
+  "rae_per_seed_mean": 0.5704097485986811,
+  "rae_per_seed_median": 0.5710446815512122,
+  "rae_per_seed_std": 0.004014131579669323,
+  "rae_per_seed_min": 0.565406862090236,
+  "rae_per_seed_max": 0.5770002808760932,
+  "rae_mean_bag": 0.5611312371685382,
+  "rae_median_bag": 0.5642408941115571,
+  "delta_mean_bag_vs_nb1070": -0.015999279469640304,
+  "delta_mean_bag_vs_nb1183": 0.009831237168538176,
+  "delta_mean_bag_vs_nb1242": 0.01803123716853816,
+  "delta_mean_bag_vs_nb1211": 0.01603123716853816,
+  "beats_nb1070": true,
+  "beats_nb1183": false,
+  "beats_nb1242": false,
+  "near_nb1242_within_0p01": false,
+  "chembl_specific_win": true,
+  "verdict": "TRAIN_KNN_HELPS_NB1070_BUT_BELOW_NB1183  internal kNN features carry weak signal; ChEMBL was the real driver",
+  "nb1070_ref_pooled": 0.5771,
+  "nb1183_ref": 0.5513,
+  "nb1242_ref": 0.5431,
+  "nb1211_ref": 0.5451,
+  "decision_margin": 0.003,
+  "orthogonality_probe": {
+    "pearson_vs_nb1183_mean_bag": 0.9909489658684943,
+    "pearson_vs_nb1242_mean_bag": 0.987873396554194
+  },
+  "wall_sec": 1.55
+}

@@ -1,0 +1,331 @@
+{
+  "tag": "nb3061",
+  "parent_tag": "nb3030",
+  "method": "diversity_constraint_slsqp_K18_K19_K23_all_deep30_wmin0p05",
+  "anchor_pool": [
+    "K18",
+    "K19",
+    "K23"
+  ],
+  "anchor_depth": {
+    "K18": "deep30",
+    "K19": "deep30",
+    "K23": "deep30"
+  },
+  "anchor_pre_unblind": true,
+  "w_min": 0.05,
+  "per_K_full_oof_rae": {
+    "K18": 0.4536,
+    "K19": 0.4607,
+    "K23": 0.475
+  },
+  "anchor_leak_eq_truth_frac": {
+    "K18": 0.0,
+    "K19": 0.0,
+    "K23": 0.0
+  },
+  "oof_corr_matrix": [
+    [
+      1.0,
+      0.9846003004762865,
+      0.9852100249107434
+    ],
+    [
+      0.9846003004762865,
+      0.9999999999999999,
+      0.9934532231843721
+    ],
+    [
+      0.9852100249107434,
+      0.9934532231843722,
+      1.0
+    ]
+  ],
+  "oof_corr_labels": [
+    "K18",
+    "K19",
+    "K23"
+  ],
+  "n_folds": 5,
+  "kf_seeds": [
+    1081,
+    1082,
+    1083,
+    1084,
+    1085,
+    1086,
+    1087,
+    1088,
+    1089,
+    1090,
+    1091,
+    1092,
+    1093,
+    1094,
+    1095
+  ],
+  "n_seeds": 15,
+  "n_starts_fold": 8,
+  "n_starts_full": 12,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "K_anchors": 3,
+  "seed_records": [
+    {
+      "kf_seed": 1081,
+      "pooled_rae": 0.4522,
+      "per_fold_val_rae_mean": 0.4629,
+      "per_fold_val_rae_std": 0.0634,
+      "mean_fold_weights": {
+        "K18": 0.6776,
+        "K19": 0.2724,
+        "K23": 0.05
+      },
+      "any_fold_degenerate": false,
+      "min_w_observed": 0.05
+    },
+    {
+      "kf_seed": 1082,
+      "pooled_rae": 0.4513,
+      "per_fold_val_rae_mean": 0.4552,
+      "per_fold_val_rae_std": 0.0596,
+      "mean_fold_weights": {
+        "K18": 0.6813,
+        "K19": 0.2687,
+        "K23": 0.05
+      },
+      "any_fold_degenerate": false,
+      "min_w_observed": 0.05
+    },
+    {
+      "kf_seed": 1083,
+      "pooled_rae": 0.4499,
+      "per_fold_val_rae_mean": 0.455,
+      "per_fold_val_rae_std": 0.0667,
+      "mean_fold_weights": {
+        "K18": 0.7099,
+        "K19": 0.2401,
+        "K23": 0.05
+      },
+      "any_fold_degenerate": false,
+      "min_w_observed": 0.05
+    },
+    {
+      "kf_seed": 1084,
+      "pooled_rae": 0.453,
+      "per_fold_val_rae_mean": 0.4793,
+      "per_fold_val_rae_std": 0.1107,
+      "mean_fold_weights": {
+        "K18": 0.6367,
+        "K19": 0.3133,
+        "K23": 0.05
+      },
+      "any_fold_degenerate": false,
+      "min_w_observed": 0.05
+    },
+    {
+      "kf_seed": 1085,
+      "pooled_rae": 0.4505,
+      "per_fold_val_rae_mean": 0.4621,
+      "per_fold_val_rae_std": 0.1032,
+      "mean_fold_weights": {
+        "K18": 0.6632,
+        "K19": 0.2868,
+        "K23": 0.05
+      },
+      "any_fold_degenerate": false,
+      "min_w_observed": 0.05
+    },
+    {
+      "kf_seed": 1086,
+      "pooled_rae": 0.452,
+      "per_fold_val_rae_mean": 0.4631,
+      "per_fold_val_rae_std": 0.0648,
+      "mean_fold_weights": {
+        "K18": 0.6655,
+        "K19": 0.2845,
+        "K23": 0.05
+      },
+      "any_fold_degenerate": false,
+      "min_w_observed": 0.05
+    },
+    {
+      "kf_seed": 1087,
+      "pooled_rae": 0.4508,
+      "per_fold_val_rae_mean": 0.4584,
+      "per_fold_val_rae_std": 0.0388,
+      "mean_fold_weights": {
+        "K18": 0.6814,
+        "K19": 0.2686,
+        "K23": 0.05
+      },
+      "any_fold_degenerate": false,
+      "min_w_observed": 0.05
+    },
+    {
+      "kf_seed": 1088,
+      "pooled_rae": 0.4504,
+      "per_fold_val_rae_mean": 0.4938,
+      "per_fold_val_rae_std": 0.107,
+      "mean_fold_weights": {
+        "K18": 0.6886,
+        "K19": 0.2614,
+        "K23": 0.05
+      },
+      "any_fold_degenerate": false,
+      "min_w_observed": 0.05
+    },
+    {
+      "kf_seed": 1089,
+      "pooled_rae": 0.4517,
+      "per_fold_val_rae_mean": 0.4511,
+      "per_fold_val_rae_std": 0.0347,
+      "mean_fold_weights": {
+        "K18": 0.6774,
+        "K19": 0.2726,
+        "K23": 0.05
+      },
+      "any_fold_degenerate": false,
+      "min_w_observed": 0.05
+    },
+    {
+      "kf_seed": 1090,
+      "pooled_rae": 0.4517,
+      "per_fold_val_rae_mean": 0.4584,
+      "per_fold_val_rae_std": 0.0381,
+      "mean_fold_weights": {
+        "K18": 0.7061,
+        "K19": 0.2439,
+        "K23": 0.05
+      },
+      "any_fold_degenerate": false,
+      "min_w_observed": 0.05
+    },
+    {
+      "kf_seed": 1091,
+      "pooled_rae": 0.4528,
+      "per_fold_val_rae_mean": 0.4628,
+      "per_fold_val_rae_std": 0.0802,
+      "mean_fold_weights": {
+        "K18": 0.663,
+        "K19": 0.287,
+        "K23": 0.05
+      },
+      "any_fold_degenerate": false,
+      "min_w_observed": 0.05
+    },
+    {
+      "kf_seed": 1092,
+      "pooled_rae": 0.4507,
+      "per_fold_val_rae_mean": 0.468,
+      "per_fold_val_rae_std": 0.0888,
+      "mean_fold_weights": {
+        "K18": 0.692,
+        "K19": 0.258,
+        "K23": 0.05
+      },
+      "any_fold_degenerate": false,
+      "min_w_observed": 0.05
+    },
+    {
+      "kf_seed": 1093,
+      "pooled_rae": 0.4534,
+      "per_fold_val_rae_mean": 0.4644,
+      "per_fold_val_rae_std": 0.0881,
+      "mean_fold_weights": {
+        "K18": 0.6399,
+        "K19": 0.3101,
+        "K23": 0.05
+      },
+      "any_fold_degenerate": false,
+      "min_w_observed": 0.05
+    },
+    {
+      "kf_seed": 1094,
+      "pooled_rae": 0.4521,
+      "per_fold_val_rae_mean": 0.4762,
+      "per_fold_val_rae_std": 0.0852,
+      "mean_fold_weights": {
+        "K18": 0.6758,
+        "K19": 0.2742,
+        "K23": 0.05
+      },
+      "any_fold_degenerate": false,
+      "min_w_observed": 0.05
+    },
+    {
+      "kf_seed": 1095,
+      "pooled_rae": 0.4516,
+      "per_fold_val_rae_mean": 0.464,
+      "per_fold_val_rae_std": 0.0463,
+      "mean_fold_weights": {
+        "K18": 0.6679,
+        "K19": 0.2821,
+        "K23": 0.05
+      },
+      "any_fold_degenerate": false,
+      "min_w_observed": 0.05
+    }
+  ],
+  "pooled_rae_array": [
+    0.4522,
+    0.4513,
+    0.4499,
+    0.453,
+    0.4505,
+    0.452,
+    0.4508,
+    0.4504,
+    0.4517,
+    0.4517,
+    0.4528,
+    0.4507,
+    0.4534,
+    0.4521,
+    0.4516
+  ],
+  "mean_rae": 0.4516,
+  "std_rae": 0.001,
+  "sem_rae": 0.0003,
+  "ci95_low": 0.451,
+  "ci95_high": 0.4522,
+  "median_rae": 0.4517,
+  "p5_rae": 0.4502,
+  "p95_rae": 0.4531,
+  "min_rae": 0.4499,
+  "max_rae": 0.4534,
+  "min_w_observed_global": 0.05,
+  "ref_nb3030_wide_mean": 0.4509,
+  "ref_nb3001_wide_mean": 0.4511,
+  "ref_K18_deep30": 0.4536,
+  "ref_K19_deep30": 0.4607,
+  "ref_K23_deep30": 0.475,
+  "ref_nb2171": 0.4682,
+  "delta_vs_nb3030": 0.0007,
+  "delta_vs_nb3001_ceiling": 0.0005,
+  "mean_of_seed_mean_fold_weights": {
+    "K18": 0.6751,
+    "K19": 0.2749,
+    "K23": 0.05
+  },
+  "full_pool_weights": {
+    "K18": 0.7187,
+    "K19": 0.2313,
+    "K23": 0.05
+  },
+  "full_pool_min_w": 0.05,
+  "full_pool_rae_in_sample": 0.4494,
+  "full_pool_degenerate": false,
+  "te_unb_in_sample_rae": 0.1914,
+  "te_mean": 4.73516845703125,
+  "te_std": 0.7700851559638977,
+  "median_seed": 1090,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb3061_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb3061.npy",
+  "submission_csv": null,
+  "gate_better": 0.4509,
+  "verdict": "FAIL",
+  "ladder_action": "REJECT nb3061. Diversity-constrained mean 0.4516 >= nb3030 unconstrained 0.4509; vanilla SLSQP zeroing K23 was correct, no anchor-floor gain.",
+  "wall_sec": 3.32
+}

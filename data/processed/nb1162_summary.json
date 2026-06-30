@@ -1,84 +1,172 @@
 {
   "tag": "nb1162",
-  "anchor": "nb1070",
-  "deploy_companion_of": "nb1153",
-  "feature_source": "mordred_cached_nb1030",
-  "resid_seeds": [
-    0,
-    1,
-    7,
-    42,
-    137
+  "method": "5-anchor_stack_SLSQP_then_rank_stretch_scaffoldCV",
+  "anchors": [
+    "nb2103_K28",
+    "chemprop_aux",
+    "nb730_honest",
+    "nb503",
+    "nb562"
   ],
-  "n_seeds": 5,
-  "n_test": 513,
-  "n_unb": 253,
-  "lgbm_params_template": {
-    "objective": "huber",
-    "alpha": 1.0,
-    "learning_rate": 0.05,
-    "n_estimators": 80,
-    "max_depth": 3,
-    "num_leaves": 7,
-    "min_child_samples": 20,
-    "subsample": 0.9,
-    "subsample_freq": 1,
-    "colsample_bytree": 0.9,
-    "reg_lambda": 1.0,
-    "verbosity": -1,
-    "random_state": 0,
-    "n_jobs": 2
+  "anchor_oof_paths": [
+    "nb2103_mean_bag_oof_K28.npy",
+    "nb1133_chemprop_aux_pred_oof.npy",
+    "nb730_honest_pred_oof.npy",
+    "nb503_pred_oof.npy",
+    "nb562_pred_oof.npy"
+  ],
+  "anchor_te_paths": [
+    "te_chemprop_aux.npy",
+    "te_chemprop_aux.npy",
+    "te_nb730_honest.npy",
+    "te_nb503.npy",
+    "te_nb562.npy"
+  ],
+  "indiv_oof_rae": {
+    "nb2103_K28": 0.47368697777353697,
+    "chemprop_aux": 0.5878769556905485,
+    "nb730_honest": 0.42023345844160853,
+    "nb503": 0.5116212503074237,
+    "nb562": 0.5065400776344995
   },
-  "feature_dim": 1533,
-  "rae_anchor_oof_253": 0.5771305166381785,
-  "rae_anchor_te_in_sample_253": 0.5714565604380177,
-  "in_rae_253": 0.32538825597534354,
-  "delta_in_sample_vs_anchor_te": -0.2460683044626742,
-  "residual_target_mean": -0.1019658057365929,
-  "residual_target_std": 0.6666145784833671,
-  "te_residual_513_mean": -0.10596697749100918,
-  "te_residual_513_std": 0.2806126545680841,
-  "per_seed_records": [
+  "n_folds": 5,
+  "seed": 42,
+  "stretch_grid": [
+    1.0,
+    1.025,
+    1.05,
+    1.075,
+    1.1,
+    1.125,
+    1.15
+  ],
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "n_singleton_scaffolds": 0,
+  "fold_results": [
     {
-      "seed": 0,
-      "residual_pred_513_mean": -0.11055331237915655,
-      "residual_pred_513_std": 0.2886889438928621,
-      "in_rae_253_corr_on_oof_anchor": 0.32874834687206483,
-      "in_rae_253_te_anchor": 0.3266315411975099
+      "fold": 0,
+      "n_tr": 202,
+      "n_va": 51,
+      "w": [
+        0.08997846044573428,
+        6.841354136876243e-14,
+        0.9100215395537683,
+        1.7104175735972734e-13,
+        2.579819641069351e-13
+      ],
+      "s": 1.0,
+      "mu_tr": 4.6324608110928605,
+      "train_rae": 0.41924906838997245,
+      "val_rae": 0.41737149414466823
     },
     {
-      "seed": 1,
-      "residual_pred_513_mean": -0.09682820658444606,
-      "residual_pred_513_std": 0.2893849806619687,
-      "in_rae_253_corr_on_oof_anchor": 0.3318563891577487,
-      "in_rae_253_te_anchor": 0.33024151483388164
+      "fold": 1,
+      "n_tr": 202,
+      "n_va": 51,
+      "w": [
+        0.05384170581176716,
+        1.3603683011667222e-13,
+        0.9461582941868981,
+        5.138533136685028e-13,
+        6.84883236029737e-13
+      ],
+      "s": 1.0,
+      "mu_tr": 4.637856897036673,
+      "train_rae": 0.408511088193564,
+      "val_rae": 0.45063276968138455
     },
     {
-      "seed": 7,
-      "residual_pred_513_mean": -0.1063213919860378,
-      "residual_pred_513_std": 0.27950695588955066,
-      "in_rae_253_corr_on_oof_anchor": 0.3275138496577749,
-      "in_rae_253_te_anchor": 0.32668953856166966
+      "fold": 2,
+      "n_tr": 202,
+      "n_va": 51,
+      "w": [
+        0.20955706690154277,
+        2.388258460540482e-13,
+        0.7904429330974462,
+        3.701691728344106e-13,
+        4.0202237621420546e-13
+      ],
+      "s": 1.0,
+      "mu_tr": 4.686243922352964,
+      "train_rae": 0.42243442333874287,
+      "val_rae": 0.39700107293907655
     },
     {
-      "seed": 42,
-      "residual_pred_513_mean": -0.10234756313549084,
-      "residual_pred_513_std": 0.28355951563398635,
-      "in_rae_253_corr_on_oof_anchor": 0.3307366417983029,
-      "in_rae_253_te_anchor": 0.328821095885107
+      "fold": 3,
+      "n_tr": 203,
+      "n_va": 50,
+      "w": [
+        0.0631444156694973,
+        0.0,
+        0.9368555843305026,
+        0.0,
+        0.0
+      ],
+      "s": 1.0,
+      "mu_tr": 4.666163069439978,
+      "train_rae": 0.4053541841622947,
+      "val_rae": 0.4748815265374527
     },
     {
-      "seed": 137,
-      "residual_pred_513_mean": -0.11378441336991471,
-      "residual_pred_513_std": 0.2822967029069193,
-      "in_rae_253_corr_on_oof_anchor": 0.3276043080857836,
-      "in_rae_253_te_anchor": 0.32573598884692806
+      "fold": 4,
+      "n_tr": 203,
+      "n_va": 50,
+      "w": [
+        0.15021736656200244,
+        0.0,
+        0.8497826334379976,
+        0.0,
+        0.0
+      ],
+      "s": 1.0,
+      "mu_tr": 4.691870891653231,
+      "train_rae": 0.4280717178236368,
+      "val_rae": 0.3771691283876643
     }
   ],
-  "te_nb1162_mean": 4.720591178829217,
-  "te_nb1162_std": 0.7863752989308114,
-  "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb1162.npy",
-  "submission_path": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1162_deploy_nb1153.csv",
-  "wall_sec": 1.07,
-  "note": "DEPLOY artifact: 5 LGBM seeds each fit on ALL 253 unblind rows (Mordred-only features), deploy residuals mean-bagged on 513. in_RAE is in-sample and optimistic; LB-faithful number is nb1153 honest cross-fit RAE."
+  "fold_s_per_fold": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "fold_s_mean": 1.0,
+  "pooled_scaffold_cv_rae": 0.4206326222520904,
+  "gate_rae_target": 0.5027,
+  "gate_a_pooled_le_target": true,
+  "gate_b_stretch_alive_s_gt_1": false,
+  "gate_pass": false,
+  "deploy_weights": [
+    {
+      "name": "nb2103_K28",
+      "w": 0.11293551862971236
+    },
+    {
+      "name": "chemprop_aux",
+      "w": 1.048266159658086e-12
+    },
+    {
+      "name": "nb730_honest",
+      "w": 0.8870644813686026
+    },
+    {
+      "name": "nb503",
+      "w": 3.3986421081510336e-13
+    },
+    {
+      "name": "nb562",
+      "w": 2.968780695135247e-13
+    }
+  ],
+  "deploy_mu_blend": 4.6626874739218644,
+  "deploy_s": 1.0,
+  "in_sample_rae_overfit_bound": 0.41724003372108714,
+  "deploy_te_mean": 4.740731239318848,
+  "deploy_te_std": 0.7812247276306152,
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb1162.npy",
+  "submission_csv": null,
+  "wall_sec": 0.13
 }

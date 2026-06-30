@@ -1,0 +1,24 @@
+{
+  "5arch": {
+    "means": {
+      "control": 0.4546,
+      "car": 0.4539
+    },
+    "std": {
+      "control": 0.0118,
+      "car": 0.0129
+    },
+    "car_minus_control": -0.0007
+  },
+  "4gbm_deployed": {
+    "means": {
+      "control": 0.4448,
+      "car": 0.4442
+    },
+    "std": {
+      "control": 0.0125,
+      "car": 0.0141
+    },
+    "car_minus_control": -0.0006
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "tag": "nb2721",
+  "method": "quantile_random_forest_k20_chemprop_aux_residual",
+  "paradigm": "conditional_quantile_distribution_per_row_meinshausen_2006_scikit_garden_RandomForestQuantileRegressor",
+  "install_failed": true,
+  "install_error": "ModuleNotFoundError(\"No module named 'skgarden'\")",
+  "verdict": "INSTALL_FAILED",
+  "promote": false,
+  "marginal_beat": false,
+  "gate_promote_threshold": 0.457,
+  "gate_marginal_threshold": 0.4598,
+  "qrf_n_estimators": 300,
+  "qrf_max_depth": 8,
+  "qrf_min_samples_leaf": 2,
+  "qrf_random_state": 42,
+  "qrf_quantile": 50,
+  "wall_sec": 0.0
+}

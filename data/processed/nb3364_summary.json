@@ -1,0 +1,603 @@
+{
+  "tag": "nb3364",
+  "anchor_tag": "nb3090",
+  "method": "histogram_binning_15_equal_freq_james_stein_to_bin_pred_mean",
+  "paradigm": "non-parametric piecewise-constant histogram-binning recalibration (15 equal-frequency bins on fold-train predictions; per-bin value = JS-shrunk mean(y_tr in bin) toward mean(pred in bin)); corrects NON-monotone local calibration error, orthogonal to the monotone global q-cut-blend / stretch / clip operator ceiling",
+  "anchor_pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb3090_pred_oof.npy",
+  "anchor_te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb3090.npy",
+  "anchor_pre_unblind": true,
+  "anchor_full_oof_rae": 0.447,
+  "anchor_leak_eq_truth_frac": 0.0,
+  "n_bins": 15,
+  "n_folds": 5,
+  "kf_seeds": [
+    1216,
+    1217,
+    1218,
+    1219,
+    1220,
+    1221,
+    1222,
+    1223,
+    1224,
+    1225,
+    1226,
+    1227,
+    1228,
+    1229,
+    1230
+  ],
+  "n_seeds": 15,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "seed_records": [
+    {
+      "kf_seed": 1216,
+      "pooled_rae": 0.4634,
+      "per_fold_mean": 0.4665,
+      "per_fold_std": 0.0516,
+      "per_fold_base_mean": 0.4494,
+      "fold_val_raes": [
+        0.4338,
+        0.4027,
+        0.525,
+        0.4596,
+        0.5117
+      ],
+      "fold_nbins": [
+        15,
+        15,
+        15,
+        15,
+        15
+      ]
+    },
+    {
+      "kf_seed": 1217,
+      "pooled_rae": 0.4592,
+      "per_fold_mean": 0.4682,
+      "per_fold_std": 0.0704,
+      "per_fold_base_mean": 0.4586,
+      "fold_val_raes": [
+        0.4432,
+        0.3805,
+        0.5678,
+        0.5023,
+        0.4474
+      ],
+      "fold_nbins": [
+        15,
+        15,
+        15,
+        15,
+        15
+      ]
+    },
+    {
+      "kf_seed": 1218,
+      "pooled_rae": 0.4569,
+      "per_fold_mean": 0.4655,
+      "per_fold_std": 0.0604,
+      "per_fold_base_mean": 0.4545,
+      "fold_val_raes": [
+        0.4171,
+        0.4133,
+        0.5368,
+        0.4355,
+        0.5249
+      ],
+      "fold_nbins": [
+        15,
+        15,
+        15,
+        15,
+        15
+      ]
+    },
+    {
+      "kf_seed": 1219,
+      "pooled_rae": 0.4558,
+      "per_fold_mean": 0.4681,
+      "per_fold_std": 0.0775,
+      "per_fold_base_mean": 0.4583,
+      "fold_val_raes": [
+        0.4793,
+        0.3886,
+        0.5933,
+        0.4515,
+        0.4281
+      ],
+      "fold_nbins": [
+        15,
+        15,
+        15,
+        15,
+        15
+      ]
+    },
+    {
+      "kf_seed": 1220,
+      "pooled_rae": 0.4621,
+      "per_fold_mean": 0.467,
+      "per_fold_std": 0.0598,
+      "per_fold_base_mean": 0.4522,
+      "fold_val_raes": [
+        0.5476,
+        0.3993,
+        0.5047,
+        0.4259,
+        0.4577
+      ],
+      "fold_nbins": [
+        15,
+        15,
+        15,
+        15,
+        15
+      ]
+    },
+    {
+      "kf_seed": 1221,
+      "pooled_rae": 0.4506,
+      "per_fold_mean": 0.458,
+      "per_fold_std": 0.0634,
+      "per_fold_base_mean": 0.4539,
+      "fold_val_raes": [
+        0.5562,
+        0.487,
+        0.4152,
+        0.4057,
+        0.4262
+      ],
+      "fold_nbins": [
+        15,
+        15,
+        15,
+        15,
+        15
+      ]
+    },
+    {
+      "kf_seed": 1222,
+      "pooled_rae": 0.4589,
+      "per_fold_mean": 0.4811,
+      "per_fold_std": 0.091,
+      "per_fold_base_mean": 0.4681,
+      "fold_val_raes": [
+        0.3688,
+        0.418,
+        0.4763,
+        0.5817,
+        0.5609
+      ],
+      "fold_nbins": [
+        15,
+        15,
+        15,
+        15,
+        15
+      ]
+    },
+    {
+      "kf_seed": 1223,
+      "pooled_rae": 0.4661,
+      "per_fold_mean": 0.4766,
+      "per_fold_std": 0.0777,
+      "per_fold_base_mean": 0.459,
+      "fold_val_raes": [
+        0.4488,
+        0.375,
+        0.4969,
+        0.5889,
+        0.4733
+      ],
+      "fold_nbins": [
+        15,
+        15,
+        15,
+        15,
+        15
+      ]
+    },
+    {
+      "kf_seed": 1224,
+      "pooled_rae": 0.4416,
+      "per_fold_mean": 0.4585,
+      "per_fold_std": 0.0982,
+      "per_fold_base_mean": 0.4639,
+      "fold_val_raes": [
+        0.3584,
+        0.4882,
+        0.419,
+        0.6138,
+        0.4133
+      ],
+      "fold_nbins": [
+        15,
+        15,
+        15,
+        15,
+        15
+      ]
+    },
+    {
+      "kf_seed": 1225,
+      "pooled_rae": 0.454,
+      "per_fold_mean": 0.4578,
+      "per_fold_std": 0.0471,
+      "per_fold_base_mean": 0.4518,
+      "fold_val_raes": [
+        0.4308,
+        0.5195,
+        0.4005,
+        0.4491,
+        0.4891
+      ],
+      "fold_nbins": [
+        15,
+        15,
+        15,
+        15,
+        15
+      ]
+    },
+    {
+      "kf_seed": 1226,
+      "pooled_rae": 0.4617,
+      "per_fold_mean": 0.4845,
+      "per_fold_std": 0.0948,
+      "per_fold_base_mean": 0.4679,
+      "fold_val_raes": [
+        0.5052,
+        0.4286,
+        0.642,
+        0.4312,
+        0.4154
+      ],
+      "fold_nbins": [
+        15,
+        15,
+        15,
+        15,
+        15
+      ]
+    },
+    {
+      "kf_seed": 1227,
+      "pooled_rae": 0.4562,
+      "per_fold_mean": 0.4682,
+      "per_fold_std": 0.0975,
+      "per_fold_base_mean": 0.4589,
+      "fold_val_raes": [
+        0.4083,
+        0.3795,
+        0.5276,
+        0.4152,
+        0.6105
+      ],
+      "fold_nbins": [
+        15,
+        15,
+        15,
+        15,
+        15
+      ]
+    },
+    {
+      "kf_seed": 1228,
+      "pooled_rae": 0.4488,
+      "per_fold_mean": 0.4675,
+      "per_fold_std": 0.0697,
+      "per_fold_base_mean": 0.4609,
+      "fold_val_raes": [
+        0.4354,
+        0.4876,
+        0.4604,
+        0.5712,
+        0.3827
+      ],
+      "fold_nbins": [
+        15,
+        15,
+        15,
+        15,
+        15
+      ]
+    },
+    {
+      "kf_seed": 1229,
+      "pooled_rae": 0.4689,
+      "per_fold_mean": 0.4796,
+      "per_fold_std": 0.1298,
+      "per_fold_base_mean": 0.4583,
+      "fold_val_raes": [
+        0.3787,
+        0.4133,
+        0.4231,
+        0.7024,
+        0.4803
+      ],
+      "fold_nbins": [
+        15,
+        15,
+        15,
+        15,
+        15
+      ]
+    },
+    {
+      "kf_seed": 1230,
+      "pooled_rae": 0.4544,
+      "per_fold_mean": 0.4597,
+      "per_fold_std": 0.0624,
+      "per_fold_base_mean": 0.452,
+      "fold_val_raes": [
+        0.4554,
+        0.4187,
+        0.5581,
+        0.4704,
+        0.3959
+      ],
+      "fold_nbins": [
+        15,
+        15,
+        15,
+        15,
+        15
+      ]
+    }
+  ],
+  "per_fold_mean_array": [
+    0.4665,
+    0.4682,
+    0.4655,
+    0.4681,
+    0.467,
+    0.458,
+    0.4811,
+    0.4766,
+    0.4585,
+    0.4578,
+    0.4845,
+    0.4682,
+    0.4675,
+    0.4796,
+    0.4597
+  ],
+  "pooled_rae_array": [
+    0.4634,
+    0.4592,
+    0.4569,
+    0.4558,
+    0.4621,
+    0.4506,
+    0.4589,
+    0.4661,
+    0.4416,
+    0.454,
+    0.4617,
+    0.4562,
+    0.4488,
+    0.4689,
+    0.4544
+  ],
+  "mean_per_fold_mean": 0.4685,
+  "std_per_fold_mean": 0.0085,
+  "sem_per_fold_mean": 0.0022,
+  "ci95_low": 0.4637,
+  "ci95_high": 0.4732,
+  "median_per_fold_mean": 0.4675,
+  "min_per_fold_mean": 0.4578,
+  "max_per_fold_mean": 0.4845,
+  "mean_base_per_fold_mean": 0.4578,
+  "delta_vs_base": 0.0106,
+  "mean_pooled_rae": 0.4572,
+  "ref_anchor_nb3090": 0.447,
+  "ref_nb3080": 0.4475,
+  "ref_nb2171": 0.4682,
+  "ref_ceiling_band": 0.4718,
+  "deploy_n_bins": 15,
+  "deploy_edges": [
+    1.5193,
+    3.0151,
+    3.52,
+    4.0283,
+    4.2597,
+    4.4585,
+    4.6653,
+    4.8408,
+    4.9911,
+    5.0807,
+    5.1684,
+    5.2662,
+    5.375,
+    5.4946,
+    5.6939,
+    6.0531
+  ],
+  "deploy_values": [
+    2.4853,
+    3.2856,
+    3.7526,
+    4.1009,
+    4.3643,
+    4.5818,
+    4.8395,
+    5.008,
+    5.0385,
+    5.1715,
+    5.1963,
+    5.3153,
+    5.4205,
+    5.4703,
+    5.9833
+  ],
+  "deploy_diag": [
+    {
+      "bin": 0,
+      "n": 17,
+      "pred_mean": 2.4853,
+      "truth_mean": 2.4782,
+      "s2": 0.3523,
+      "shrink": 0.0024,
+      "value": 2.4853
+    },
+    {
+      "bin": 1,
+      "n": 17,
+      "pred_mean": 3.2865,
+      "truth_mean": 3.2547,
+      "s2": 0.6487,
+      "shrink": 0.0257,
+      "value": 3.2856
+    },
+    {
+      "bin": 2,
+      "n": 17,
+      "pred_mean": 3.7648,
+      "truth_mean": 3.6915,
+      "s2": 0.4581,
+      "shrink": 0.1665,
+      "value": 3.7526
+    },
+    {
+      "bin": 3,
+      "n": 17,
+      "pred_mean": 4.1506,
+      "truth_mean": 4.0015,
+      "s2": 0.7561,
+      "shrink": 0.3334,
+      "value": 4.1009
+    },
+    {
+      "bin": 4,
+      "n": 16,
+      "pred_mean": 4.3634,
+      "truth_mean": 4.3863,
+      "s2": 0.1963,
+      "shrink": 0.0409,
+      "value": 4.3643
+    },
+    {
+      "bin": 5,
+      "n": 17,
+      "pred_mean": 4.5526,
+      "truth_mean": 4.6347,
+      "s2": 0.2074,
+      "shrink": 0.3562,
+      "value": 4.5818
+    },
+    {
+      "bin": 6,
+      "n": 17,
+      "pred_mean": 4.7675,
+      "truth_mean": 4.8709,
+      "s2": 0.0791,
+      "shrink": 0.6966,
+      "value": 4.8395
+    },
+    {
+      "bin": 7,
+      "n": 17,
+      "pred_mean": 4.9036,
+      "truth_mean": 5.045,
+      "s2": 0.1203,
+      "shrink": 0.7386,
+      "value": 5.008
+    },
+    {
+      "bin": 8,
+      "n": 17,
+      "pred_mean": 5.0378,
+      "truth_mean": 5.0582,
+      "s2": 0.1774,
+      "shrink": 0.0386,
+      "value": 5.0385
+    },
+    {
+      "bin": 9,
+      "n": 16,
+      "pred_mean": 5.1172,
+      "truth_mean": 5.2025,
+      "s2": 0.0664,
+      "shrink": 0.6369,
+      "value": 5.1715
+    },
+    {
+      "bin": 10,
+      "n": 17,
+      "pred_mean": 5.2073,
+      "truth_mean": 5.1612,
+      "s2": 0.1151,
+      "shrink": 0.2387,
+      "value": 5.1963
+    },
+    {
+      "bin": 11,
+      "n": 17,
+      "pred_mean": 5.3126,
+      "truth_mean": 5.3406,
+      "s2": 0.1252,
+      "shrink": 0.0959,
+      "value": 5.3153
+    },
+    {
+      "bin": 12,
+      "n": 17,
+      "pred_mean": 5.4214,
+      "truth_mean": 5.4029,
+      "s2": 0.1145,
+      "shrink": 0.0481,
+      "value": 5.4205
+    },
+    {
+      "bin": 13,
+      "n": 17,
+      "pred_mean": 5.6116,
+      "truth_mean": 5.4432,
+      "s2": 0.0925,
+      "shrink": 0.839,
+      "value": 5.4703
+    },
+    {
+      "bin": 14,
+      "n": 17,
+      "pred_mean": 5.8448,
+      "truth_mean": 6.0056,
+      "s2": 0.0707,
+      "shrink": 0.8615,
+      "value": 5.9833
+    }
+  ],
+  "te_bin_counts": [
+    23,
+    24,
+    47,
+    37,
+    32,
+    44,
+    42,
+    46,
+    21,
+    33,
+    27,
+    32,
+    32,
+    30,
+    43
+  ],
+  "te_mean": 4.718747615814209,
+  "te_std": 0.8368342518806458,
+  "te_min": 2.4852845668792725,
+  "te_max": 5.983309745788574,
+  "te_unb_in_sample_rae": 0.1847,
+  "median_seed": 1228,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb3364_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb3364.npy",
+  "submission_csv": null,
+  "gate_better": 0.4423,
+  "verdict": "FAIL",
+  "ladder_action": "REJECT. nb3364 histogram-binning calibration per-fold-mean 0.4685 +/- 0.0085 >= BETTER gate 0.4423 (base 0.4578, delta +0.0106). The nb3090 anchor is already monotone-calibrated by its q-cut-blend pipeline; a 15-bin piecewise-constant map (15 free params at n=253, ~17 rows/bin) adds quantization variance without correcting a residual non-monotone bias. JS-shrink toward bin-pred-mean drives most bins back to identity, so the operator degenerates to the anchor. Keep nb3090/nb3080 post-hoc-blend line PRIMARY; do not promote nb3364.",
+  "wall_sec": 0.38
+}

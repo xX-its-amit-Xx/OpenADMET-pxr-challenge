@@ -1,0 +1,368 @@
+{
+  "tag": "nb2190",
+  "method": "min_anchor_variants_of_nb2171_SLSQP_then_rank_stretch_seedavg",
+  "candidate_anchors": [
+    "nb1191",
+    "nb562",
+    "nb1158_K32",
+    "nb503"
+  ],
+  "indiv_oof_rae_unb": {
+    "nb1191": 0.4647519472474954,
+    "nb562": 0.5065400776344995,
+    "nb1158_K32": 0.49021118924935564,
+    "nb503": 0.5116212503074237
+  },
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "n_folds": 5,
+  "stretch_grid": [
+    1.0,
+    1.025,
+    1.05,
+    1.075,
+    1.1,
+    1.125,
+    1.15
+  ],
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "variants": {
+    "A_2anchor_nb1191_nb562": {
+      "name": "A_2anchor_nb1191_nb562",
+      "anchors": [
+        "nb1191",
+        "nb562"
+      ],
+      "K": 2,
+      "per_seed": [
+        {
+          "kf_seed": 1001,
+          "pooled_rae": 0.4658427882904585,
+          "fold_s": [
+            1.0,
+            1.0,
+            1.0,
+            1.025,
+            1.0
+          ],
+          "fold_w_mean": [
+            0.9321700784834697,
+            0.06782992151653038
+          ]
+        },
+        {
+          "kf_seed": 1002,
+          "pooled_rae": 0.46772901941857425,
+          "fold_s": [
+            1.05,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "fold_w_mean": [
+            0.9310247050062772,
+            0.06897529499372279
+          ]
+        },
+        {
+          "kf_seed": 1003,
+          "pooled_rae": 0.46695047564879794,
+          "fold_s": [
+            1.0,
+            1.0,
+            1.025,
+            1.025,
+            1.0
+          ],
+          "fold_w_mean": [
+            0.9332899628223815,
+            0.06671003717761834
+          ]
+        },
+        {
+          "kf_seed": 1004,
+          "pooled_rae": 0.4673167892564831,
+          "fold_s": [
+            1.0,
+            1.0,
+            1.05,
+            1.0,
+            1.0
+          ],
+          "fold_w_mean": [
+            0.9248699159355203,
+            0.07513008406447973
+          ]
+        },
+        {
+          "kf_seed": 1005,
+          "pooled_rae": 0.46876833538940393,
+          "fold_s": [
+            1.0,
+            1.0,
+            1.025,
+            1.0,
+            1.025
+          ],
+          "fold_w_mean": [
+            0.9321509960217546,
+            0.06784900397824549
+          ]
+        }
+      ],
+      "pooled_rae_mean_seeds": 0.46732148160074355,
+      "pooled_rae_std_seeds": 0.0009574627198046527,
+      "rae_of_mean_of_seed_oofs": 0.4670675764285596,
+      "delta_vs_nb2171": -0.0002785183992564666,
+      "deploy_weights": [
+        {
+          "name": "nb1191",
+          "w": 0.9360891329858922
+        },
+        {
+          "name": "nb562",
+          "w": 0.06391086701410773
+        }
+      ],
+      "deploy_mu_blend": 4.666466889214902,
+      "deploy_s": 1.009,
+      "in_sample_rae_overfit_bound": 0.46402771648077035
+    },
+    "B_3anchor_nb1191_nb562_nb1158_K32": {
+      "name": "B_3anchor_nb1191_nb562_nb1158_K32",
+      "anchors": [
+        "nb1191",
+        "nb562",
+        "nb1158_K32"
+      ],
+      "K": 3,
+      "per_seed": [
+        {
+          "kf_seed": 1001,
+          "pooled_rae": 0.46803747585961536,
+          "fold_s": [
+            1.0,
+            1.0,
+            1.0,
+            1.05,
+            1.0
+          ],
+          "fold_w_mean": [
+            0.8775737919352287,
+            0.07618944366458691,
+            0.046236764400184496
+          ]
+        },
+        {
+          "kf_seed": 1002,
+          "pooled_rae": 0.46802787533674833,
+          "fold_s": [
+            1.05,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "fold_w_mean": [
+            0.8998372317546297,
+            0.07374891441205042,
+            0.02641385383331994
+          ]
+        },
+        {
+          "kf_seed": 1003,
+          "pooled_rae": 0.4681354684563084,
+          "fold_s": [
+            1.0,
+            1.0,
+            1.025,
+            1.025,
+            1.0
+          ],
+          "fold_w_mean": [
+            0.887838499950482,
+            0.06953498189893184,
+            0.04262651815058604
+          ]
+        },
+        {
+          "kf_seed": 1004,
+          "pooled_rae": 0.4679689077457151,
+          "fold_s": [
+            1.0,
+            1.0,
+            1.05,
+            1.0,
+            1.0
+          ],
+          "fold_w_mean": [
+            0.8926078549667895,
+            0.07512980533599575,
+            0.032262339697214586
+          ]
+        },
+        {
+          "kf_seed": 1005,
+          "pooled_rae": 0.46893327474094,
+          "fold_s": [
+            1.0,
+            1.0,
+            1.025,
+            1.0,
+            1.025
+          ],
+          "fold_w_mean": [
+            0.9182547017642424,
+            0.06984465632328138,
+            0.011900641912476199
+          ]
+        }
+      ],
+      "pooled_rae_mean_seeds": 0.46822060042786545,
+      "pooled_rae_std_seeds": 0.00036032732441167495,
+      "rae_of_mean_of_seed_oofs": 0.4679354072668847,
+      "delta_vs_nb2171": 0.0006206004278654365,
+      "deploy_weights": [
+        {
+          "name": "nb1191",
+          "w": 0.9360891299435902
+        },
+        {
+          "name": "nb562",
+          "w": 0.06391087005640984
+        },
+        {
+          "name": "nb1158_K32",
+          "w": 1.7719520910700832e-18
+        }
+      ],
+      "deploy_mu_blend": 4.666466889278964,
+      "deploy_s": 1.01,
+      "in_sample_rae_overfit_bound": 0.46404932864024084
+    },
+    "C_2anchor_nb1191_nb503": {
+      "name": "C_2anchor_nb1191_nb503",
+      "anchors": [
+        "nb1191",
+        "nb503"
+      ],
+      "K": 2,
+      "per_seed": [
+        {
+          "kf_seed": 1001,
+          "pooled_rae": 0.46674940887615907,
+          "fold_s": [
+            1.0,
+            1.0,
+            1.0,
+            1.05,
+            1.0
+          ],
+          "fold_w_mean": [
+            0.9644025714464941,
+            0.035597428553505735
+          ]
+        },
+        {
+          "kf_seed": 1002,
+          "pooled_rae": 0.46789334392455095,
+          "fold_s": [
+            1.05,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "fold_w_mean": [
+            0.9558057512464615,
+            0.04419424875353855
+          ]
+        },
+        {
+          "kf_seed": 1003,
+          "pooled_rae": 0.46754557823692156,
+          "fold_s": [
+            1.0,
+            1.0,
+            1.025,
+            1.025,
+            1.0
+          ],
+          "fold_w_mean": [
+            0.9507431003040292,
+            0.049256899695970795
+          ]
+        },
+        {
+          "kf_seed": 1004,
+          "pooled_rae": 0.4674974209428646,
+          "fold_s": [
+            1.0,
+            1.0,
+            1.05,
+            1.0,
+            1.0
+          ],
+          "fold_w_mean": [
+            0.9523209457958643,
+            0.04767905420413574
+          ]
+        },
+        {
+          "kf_seed": 1005,
+          "pooled_rae": 0.4683940373190227,
+          "fold_s": [
+            1.0,
+            1.0,
+            1.025,
+            1.0,
+            1.025
+          ],
+          "fold_w_mean": [
+            0.956908529867673,
+            0.04309147013232695
+          ]
+        }
+      ],
+      "pooled_rae_mean_seeds": 0.46761595785990373,
+      "pooled_rae_std_seeds": 0.000538936379700698,
+      "rae_of_mean_of_seed_oofs": 0.4672833309744941,
+      "delta_vs_nb2171": 1.5957859903714677e-05,
+      "deploy_weights": [
+        {
+          "name": "nb1191",
+          "w": 0.9679253696033407
+        },
+        {
+          "name": "nb503",
+          "w": 0.0320746303966593
+        }
+      ],
+      "deploy_mu_blend": 4.665796914554346,
+      "deploy_s": 1.01,
+      "in_sample_rae_overfit_bound": 0.46432295958970826
+    }
+  },
+  "best_variant": "A_2anchor_nb1191_nb562",
+  "best_pooled_rae_mean_seeds": 0.46732148160074355,
+  "nb2171_pooled_rae_ref": 0.4676,
+  "decision_margin": 0.003,
+  "best_delta_vs_nb2171": -0.0002785183992564666,
+  "beats_nb2171": false,
+  "deep_30_verify": null,
+  "best_te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2190_min_anchor_A_2anchor_nb1191_nb562.npy",
+  "best_te_unb_rae_in_sample": 0.26948336850857857,
+  "best_lb_band_estimate": 0.37038080618558267,
+  "pre_unblind_clean": true,
+  "coexists_with_nb2190_conformal_shrink": true,
+  "note": "Tag nb2190 was previously used by scripts/nb2190_conformal_shrink.py; this run overwrites nb2190_summary.json with min-anchor results as specified by the task. The conformal-shrink npy artefacts (nb2190_per_seed_oof_K28.npy, nb2190_per_row_std_K28.npy) are untouched.",
+  "wall_sec": 0.18
+}

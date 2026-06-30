@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "control": 0.4451,
+    "treatment": 0.4453
+  },
+  "std": {
+    "control": 0.0136,
+    "treatment": 0.0137
+  },
+  "treat_minus_control": 0.0002,
+  "solo": {
+    "control": 0.4543,
+    "treatment": 0.4564
+  },
+  "n_octant": 435
+}

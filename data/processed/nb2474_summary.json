@@ -1,0 +1,8 @@
+{
+  "script": "nb2474_knockoff_features",
+  "status": "INSTALL_FAILED",
+  "reason": "knockpy import failed; package not installable in this env",
+  "detail": "ModuleNotFoundError: No module named 'knockpy'\nTraceback (most recent call last):\n  File \"D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\scripts\\nb2474_knockoff_features.py\", line 70, in main\n    import knockpy  # noqa: F401\n    ^^^^^^^^^^^^^^\nModuleNotFoundError: No module named 'knockpy'\n",
+  "gate": "FAIL",
+  "promote": false
+}

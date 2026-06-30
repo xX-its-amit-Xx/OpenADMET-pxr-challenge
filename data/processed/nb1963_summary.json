@@ -1,0 +1,95 @@
+{
+  "tag": "nb1963",
+  "anchor": "chemprop_aux",
+  "anchor_kind": "PRE_unblind_te_slice_to_unb_idx",
+  "anchor_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+  "ablation": "DROP_ChempropEmbed",
+  "data_source": "AtomPair-cache + MACCS-cache + Mordred-cached_nb1030 + Avalon-cache + local_chembl_caches_union",
+  "model_family": "LightGBM",
+  "lgbm_objective": "regression",
+  "lgbm_max_depth": 4,
+  "lgbm_num_leaves": 15,
+  "lgbm_n_estimators": 300,
+  "lgbm_learning_rate": 0.03,
+  "lgbm_min_child_samples": 5,
+  "lgbm_reg_lambda": 2.0,
+  "seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "resid_folds": 5,
+  "K_AP_best": 25,
+  "K_Mord_best": 20,
+  "K_Avalon_used": 30,
+  "K_MACCS_fixed": 20,
+  "K_Embed_used": 0,
+  "n_chembl_pool": 945,
+  "n_unb": 253,
+  "feat_dim": 97,
+  "feat_breakdown": {
+    "atompair": 25,
+    "maccs": 20,
+    "mordred": 20,
+    "chemprop_embed": 0,
+    "avalon": 30,
+    "pred_chembl_pec50": 1,
+    "mean_sim": 1,
+    "total": 97
+  },
+  "rae_anchor_chemprop_aux": 0.6215728863514471,
+  "residual_mean": -0.1325965261753001,
+  "residual_std": 0.6999145683913596,
+  "per_seed_rae": [
+    0.5433922060180433,
+    0.5776965738907793,
+    0.5501207184297244,
+    0.5638428046925299,
+    0.5421073020527951
+  ],
+  "per_seed_records": [
+    {
+      "seed": 0,
+      "rae_corrected": 0.5433922060180433,
+      "delta_vs_anchor": -0.07818068033340386,
+      "wall_sec": 0.37
+    },
+    {
+      "seed": 1,
+      "rae_corrected": 0.5776965738907793,
+      "delta_vs_anchor": -0.04387631246066781,
+      "wall_sec": 0.34
+    },
+    {
+      "seed": 7,
+      "rae_corrected": 0.5501207184297244,
+      "delta_vs_anchor": -0.07145216792172271,
+      "wall_sec": 0.35
+    },
+    {
+      "seed": 42,
+      "rae_corrected": 0.5638428046925299,
+      "delta_vs_anchor": -0.05773008165891724,
+      "wall_sec": 0.34
+    },
+    {
+      "seed": 137,
+      "rae_corrected": 0.5421073020527951,
+      "delta_vs_anchor": -0.07946558429865203,
+      "wall_sec": 0.34
+    }
+  ],
+  "per_seed_std": 0.013543757325894615,
+  "rae_mean_bag": 0.528464109870671,
+  "rae_median_bag": 0.5329049237224005,
+  "delta_mean_bag_vs_anchor": -0.09310877648077609,
+  "delta_mean_bag_vs_nb1861": 0.020686393684884452,
+  "verdict": "LOSES_TO_NB1861",
+  "pre_unblind_clean": true,
+  "chemprop_aux_ref": 0.6216,
+  "nb1861_ref": 0.5077777161857866,
+  "verdict_margin": 0.005,
+  "wall_sec": 5.6
+}

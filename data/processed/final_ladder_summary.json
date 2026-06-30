@@ -1,0 +1,267 @@
+{
+  "generated_at": "2026-06-08T22:30:00Z",
+  "cycle": 267,
+  "lb_calibration": {
+    "PRE-unblind": "predicted_LB = RAE + 0.0045 (8-anchor James-Stein, cycle 160)",
+    "POST-unblind": "predicted_LB = RAE + 0.20 (conservative; in-sample on 253 unreliable)"
+  },
+  "regime_count": {
+    "PRE-unblind": 19,
+    "POST-unblind": 4
+  },
+  "ladder": [
+    {
+      "rank": 1,
+      "name": "nb3204_ensemble_clip_winners",
+      "regime": "PRE-unblind",
+      "rae": 0.4418,
+      "honest_rae_est": 0.4418,
+      "rae_kind": "deep_30seed_verified_by_nb3210",
+      "predicted_LB": 0.4463,
+      "deploy_csv": "submissions/nb3204_ensemble_clip_winners.csv",
+      "notes": "PRIMARY-1 cycle 267: equal-weight ensemble of (nb3190, nb3173, nb3174) clip winners; nb3210 deep-30 verification (30 fresh seeds 1216-1245) confirms pooled = 0.4418 +/- 0.000 (split-invariant for fixed predictions, NOT methodology artifact); per-fold-mean 0.4563 +/- 0.0087 (CI [0.4530, 0.4595]) shift vs nb3204 15-seed pf_mean (+0.0015 within +/-0.005 noise); components corr > 0.999 (nb3190/nb3173/nb3174); BEATS prior PRIMARY-1 nb3200 (0.4424) by -0.0006 RAE; PRE-clean anchor (chemprop_aux-derived clip chain), no POST contamination; cycle-267 cohort (nb3211 weighted, nb3212 clip-on-nb3204, nb3213 4-way, nb3214 SLSQP) all FAIL <0.4418 gate; VERIFIED_PROMOTE_PRIMARY1"
+    },
+    {
+      "rank": 2,
+      "name": "nb3200_deep30_verify_nb3190",
+      "regime": "PRE-unblind",
+      "rae": 0.4424,
+      "honest_rae_est": 0.4424,
+      "rae_kind": "deep_30seed_verified",
+      "predicted_LB": 0.4469,
+      "deploy_csv": "submissions/nb3200_deep_verify_nb3190.csv",
+      "notes": "DEMOTED to PRIMARY-1B (cycle 267): deep-30 verification of nb3190 (learned (q_low, q_high) grid clip on nb3090 anchor); 30 fresh seeds {1186-1215} mean 0.4424 +/- 0.0023; superseded by nb3204 ensemble of clip winners (-0.0006 RAE); held as alternate"
+    },
+    {
+      "rank": 3,
+      "name": "nb3190_learned_clip_on_nb3090",
+      "regime": "PRE-unblind",
+      "rae": 0.4426,
+      "honest_rae_est": 0.4426,
+      "rae_kind": "wide_15seed_verified_by_nb3200",
+      "predicted_LB": 0.4471,
+      "deploy_csv": "submissions/nb3190_learned_clip_on_nb3090.csv",
+      "notes": "PRIMARY-1C (parent of nb3200; ensemble component of nb3204); 15 fresh seeds {1171-1185} mean 0.4426 +/- 0.0022, CI [0.4414, 0.4438], median 0.4422"
+    },
+    {
+      "rank": 4,
+      "name": "nb3173_learned_clip_on_nb3080",
+      "regime": "PRE-unblind",
+      "rae": 0.4431,
+      "honest_rae_est": 0.4431,
+      "rae_kind": "wide_15seed_verified_by_nb3180",
+      "predicted_LB": 0.4476,
+      "deploy_csv": "submissions/nb3173_learned_clip.csv",
+      "notes": "Ensemble component of nb3204; per-fold LEARNED (q_low, q_high) grid clip on nb3080 anchor; nb3180 wide-verify 15 fresh seeds {1171-1185} mean 0.4431 +/- 0.0020, CI [0.4420, 0.4442], modal pick (q0.05, q0.98)"
+    },
+    {
+      "rank": 5,
+      "name": "nb3174_per_fold_clip_on_nb3090",
+      "regime": "PRE-unblind",
+      "rae": 0.4433,
+      "honest_rae_est": 0.4433,
+      "rae_kind": "wide_15seed_verified_by_nb3181",
+      "predicted_LB": 0.4478,
+      "deploy_csv": "submissions/nb3174_clip_nb3090.csv",
+      "notes": "Ensemble component of nb3204; per-fold q05/q95 y-range clip on nb3090 anchor; nb3181 wide-verify 15 fresh seeds {1171-1185} mean 0.4433 +/- 0.0013, sem 0.0003, median 0.4429"
+    },
+    {
+      "rank": 6,
+      "name": "nb3161_range_clip_nb3080",
+      "regime": "PRE-unblind",
+      "rae": 0.4437,
+      "honest_rae_est": 0.4437,
+      "rae_kind": "wide_15seed_verified",
+      "predicted_LB": 0.4482,
+      "deploy_csv": "submissions/nb3161_range_clip_nb3080.csv",
+      "notes": "DEMOTED from PRIMARY-1 candidate (cycle 265): per-fold (q0.05, q0.95) y-range clip on nb3080"
+    },
+    {
+      "rank": 7,
+      "name": "nb3214_slsqp_clip_winners",
+      "regime": "PRE-unblind",
+      "rae": 0.4448,
+      "honest_rae_est": 0.4448,
+      "rae_kind": "wide_15seed",
+      "predicted_LB": 0.4493,
+      "deploy_csv": null,
+      "notes": "REJECTED cycle 267: SLSQP simplex on 3 clip winners (nb3190, nb3173, nb3174); 15-seed mean 0.4448 +/- 0.0013 CI [0.4441, 0.4456] FAILS gate <0.4418; equal-weight nb3204 beats SLSQP-weighted; SLSQP picks degenerate weights at n=253"
+    },
+    {
+      "rank": 8,
+      "name": "nb3211_weighted_ensemble",
+      "regime": "PRE-unblind",
+      "rae": null,
+      "honest_rae_est": null,
+      "rae_kind": "wide_15seed",
+      "predicted_LB": null,
+      "deploy_csv": null,
+      "notes": "REJECTED cycle 267: 1/RAE-weighted ensemble of (nb3190, nb3173, nb3174); weights near-uniform (0.333392/0.333543/0.333065) so degenerates to equal-weight nb3204; FAILS gate <0.4418"
+    },
+    {
+      "rank": 9,
+      "name": "nb3212_clip_on_nb3204",
+      "regime": "PRE-unblind",
+      "rae": null,
+      "honest_rae_est": null,
+      "rae_kind": "wide_15seed",
+      "predicted_LB": null,
+      "deploy_csv": null,
+      "notes": "REJECTED cycle 267: learned outer clip on nb3204 ensemble (double-layer clip + blend); FAILS gate <0.4418; ensemble of clip-winners is already pre-clipped, outer clip adds zero capacity"
+    },
+    {
+      "rank": 10,
+      "name": "nb3213_top4_ensemble",
+      "regime": "PRE-unblind",
+      "rae": 0.4421,
+      "honest_rae_est": 0.4421,
+      "rae_kind": "wide_15seed",
+      "predicted_LB": 0.4466,
+      "deploy_csv": null,
+      "notes": "REJECTED cycle 267: 4-way equal-weight (nb3190, nb3173, nb3174, nb3170); 15-seed pooled 0.4421 +/- 0.0000 FAILS gate <0.4418 by +0.0003; nb3170 dilutes the 3-way ensemble; nb3204 3-way is the local optimum"
+    },
+    {
+      "rank": 11,
+      "name": "nb3073_nb3080_verified",
+      "regime": "PRE-unblind",
+      "rae": 0.4475,
+      "honest_rae_est": 0.4475,
+      "rae_kind": "wide_15seed_verified",
+      "predicted_LB": 0.4520,
+      "deploy_csv": "submissions/nb3080_verify_nb3073.csv",
+      "notes": "PRIMARY-1 cycle 255 (demoted cycle 265); nb3080 wide-verify of nb3073 best combo"
+    },
+    {
+      "rank": 12,
+      "name": "nb3082_sigmoid_smooth",
+      "regime": "PRE-unblind",
+      "rae": 0.4475,
+      "honest_rae_est": 0.4475,
+      "rae_kind": "wide_15seed_verified",
+      "predicted_LB": 0.4520,
+      "deploy_csv": "submissions/nb3082_sigmoid_smooth_blend.csv",
+      "notes": "PRIMARY-1B cycle 255 (demoted cycle 265): sigmoid-smooth schedule ties nb3080"
+    },
+    {
+      "rank": 13,
+      "name": "nb3070_wide_verify_nb3063",
+      "regime": "PRE-unblind",
+      "rae": 0.4477,
+      "honest_rae_est": 0.4477,
+      "rae_kind": "wide_15seed_verified",
+      "predicted_LB": 0.4522,
+      "deploy_csv": "submissions/nb3070_wide_verify_nb3063.csv",
+      "notes": "PRIMARY-1C (cycle 254, demoted cycle 265)"
+    },
+    {
+      "rank": 14,
+      "name": "nb3072_per_fold_q50",
+      "regime": "PRE-unblind",
+      "rae": 0.4477,
+      "honest_rae_est": 0.4477,
+      "rae_kind": "wide_15seed_verified",
+      "predicted_LB": 0.4522,
+      "deploy_csv": "submissions/nb3072_per_fold_q50.csv",
+      "notes": "PRIMARY-1D (cycle 254, demoted cycle 265)"
+    },
+    {
+      "rank": 15,
+      "name": "nb1521",
+      "regime": "PRE-unblind",
+      "rae": 0.5221,
+      "honest_rae_est": null,
+      "rae_kind": "BoB-validated",
+      "predicted_LB": 0.5251,
+      "deploy_csv": "submissions/nb1530_deploy_nb1521_mean.csv",
+      "notes": "Older BoB-validated chemprop_aux candidate, kept as legacy reference"
+    },
+    {
+      "rank": 16,
+      "name": "nb1484_slsqp",
+      "regime": "PRE-unblind",
+      "rae": 0.5231,
+      "honest_rae_est": null,
+      "rae_kind": "honest_crossfit",
+      "predicted_LB": 0.5261,
+      "deploy_csv": "submissions/nb1503_deploy_nb1484_slsqp.csv",
+      "notes": "SLSQP-weighted variant"
+    },
+    {
+      "rank": 17,
+      "name": "nb1500",
+      "regime": "PRE-unblind",
+      "rae": 0.5234,
+      "honest_rae_est": null,
+      "rae_kind": "BoB-validated",
+      "predicted_LB": 0.5264,
+      "deploy_csv": "submissions/nb1510_deploy_nb1500_mean.csv",
+      "notes": "BoB-validated multi-seed chemprop_aux blend"
+    },
+    {
+      "rank": 18,
+      "name": "nb1472",
+      "regime": "PRE-unblind",
+      "rae": 0.533,
+      "honest_rae_est": null,
+      "rae_kind": "honest_crossfit",
+      "predicted_LB": 0.536,
+      "deploy_csv": "submissions/nb1480_deploy_nb1472.csv",
+      "notes": "Honest cross-fit on chemprop_aux anchor"
+    },
+    {
+      "rank": 19,
+      "name": "nb1460",
+      "regime": "PRE-unblind",
+      "rae": 0.555,
+      "honest_rae_est": null,
+      "rae_kind": "honest_crossfit",
+      "predicted_LB": 0.558,
+      "deploy_csv": "submissions/nb1470_deploy_nb1460.csv",
+      "notes": "Honest cross-fit; earliest in chain"
+    },
+    {
+      "rank": 1,
+      "name": "nb1441",
+      "regime": "POST-unblind",
+      "rae": 0.499,
+      "honest_rae_est": null,
+      "rae_kind": "in-sample",
+      "predicted_LB": 0.699,
+      "deploy_csv": "submissions/nb1450_deploy_nb1441_blend.csv",
+      "notes": "In-sample blend on 253 unblind; sub-margin gain vs nb1422"
+    },
+    {
+      "rank": 2,
+      "name": "nb1471",
+      "regime": "POST-unblind",
+      "rae": 0.4995,
+      "honest_rae_est": null,
+      "rae_kind": "in-sample",
+      "predicted_LB": 0.6995,
+      "deploy_csv": "submissions/nb1481_deploy_nb1471.csv",
+      "notes": "In-sample blend; sub-margin gain vs nb1422"
+    },
+    {
+      "rank": 3,
+      "name": "nb1422",
+      "regime": "POST-unblind",
+      "rae": 0.5016,
+      "honest_rae_est": null,
+      "rae_kind": "BoB-validated",
+      "predicted_LB": 0.7016,
+      "deploy_csv": "submissions/nb1430_deploy_nb1422_mean.csv",
+      "notes": "BoB-validated POST-unblind anchor"
+    },
+    {
+      "rank": 4,
+      "name": "nb1373",
+      "regime": "POST-unblind",
+      "rae": 0.5095,
+      "honest_rae_est": null,
+      "rae_kind": "honest_crossfit",
+      "predicted_LB": 0.7095,
+      "deploy_csv": "submissions/nb1380_deploy_nb1373_mean.csv",
+      "notes": "Honest cross-fit on nb1070 anchor"
+    }
+  ]
+}

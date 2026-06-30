@@ -1,0 +1,165 @@
+{
+  "tag": "nb2053",
+  "method": "5-anchor_LOO_ablation_plus_top3_stress",
+  "anchors": [
+    "nb2103_K28",
+    "chemprop_aux",
+    "nb730_honest",
+    "nb503",
+    "nb562"
+  ],
+  "indiv_oof_rae": {
+    "nb2103_K28": 0.47368697777353697,
+    "chemprop_aux": 0.5878769556905485,
+    "nb730_honest": 0.42023345844160853,
+    "nb503": 0.5116212503074237,
+    "nb562": 0.5065400776344995
+  },
+  "n_unb": 253,
+  "n_folds": 5,
+  "seed": 42,
+  "baseline_pooled_rae": 0.4206326222520904,
+  "baseline_deploy_weights": {
+    "nb2103_K28": 0.11293551862971236,
+    "chemprop_aux": 1.048266159658086e-12,
+    "nb730_honest": 0.8870644813686026,
+    "nb503": 3.3986421081510336e-13,
+    "nb562": 2.968780695135247e-13
+  },
+  "loo_results": [
+    {
+      "dropped": "nb2103_K28",
+      "kept": [
+        "chemprop_aux",
+        "nb730_honest",
+        "nb503",
+        "nb562"
+      ],
+      "pooled_rae": 0.4202334584417819,
+      "delta_rae_vs_baseline": -0.00039916381030852266,
+      "deploy_weights": {
+        "chemprop_aux": 9.720358955326899e-14,
+        "nb730_honest": 0.9999999999999027,
+        "nb503": 0.0,
+        "nb562": 0.0
+      }
+    },
+    {
+      "dropped": "chemprop_aux",
+      "kept": [
+        "nb2103_K28",
+        "nb730_honest",
+        "nb503",
+        "nb562"
+      ],
+      "pooled_rae": 0.42063261474305025,
+      "delta_rae_vs_baseline": -7.509040167441583e-09,
+      "deploy_weights": {
+        "nb2103_K28": 0.11293614256305148,
+        "nb730_honest": 0.8870638574362781,
+        "nb503": 2.947297844275174e-13,
+        "nb562": 3.7551529869914985e-13
+      }
+    },
+    {
+      "dropped": "nb730_honest",
+      "kept": [
+        "nb2103_K28",
+        "chemprop_aux",
+        "nb503",
+        "nb562"
+      ],
+      "pooled_rae": 0.47067057667543405,
+      "delta_rae_vs_baseline": 0.050037954423343634,
+      "deploy_weights": {
+        "nb2103_K28": 0.7594058368707609,
+        "chemprop_aux": 0.0,
+        "nb503": 8.239194927051291e-13,
+        "nb562": 0.24059416312841525
+      }
+    },
+    {
+      "dropped": "nb503",
+      "kept": [
+        "nb2103_K28",
+        "chemprop_aux",
+        "nb730_honest",
+        "nb562"
+      ],
+      "pooled_rae": 0.42063268654799213,
+      "delta_rae_vs_baseline": 6.429590171386224e-08,
+      "deploy_weights": {
+        "nb2103_K28": 0.11293609424013218,
+        "chemprop_aux": 0.0,
+        "nb730_honest": 0.8870639057598678,
+        "nb562": 0.0
+      }
+    },
+    {
+      "dropped": "nb562",
+      "kept": [
+        "nb2103_K28",
+        "chemprop_aux",
+        "nb730_honest",
+        "nb503"
+      ],
+      "pooled_rae": 0.420632621830039,
+      "delta_rae_vs_baseline": -4.220513938335557e-10,
+      "deploy_weights": {
+        "nb2103_K28": 0.11293613479966737,
+        "chemprop_aux": 1.2813714686706611e-14,
+        "nb730_honest": 0.8870638652002759,
+        "nb503": 4.402241831496644e-14
+      }
+    }
+  ],
+  "loo_sorted_by_delta_desc": [
+    {
+      "dropped": "nb730_honest",
+      "pooled_rae": 0.47067057667543405,
+      "delta": 0.050037954423343634
+    },
+    {
+      "dropped": "nb503",
+      "pooled_rae": 0.42063268654799213,
+      "delta": 6.429590171386224e-08
+    },
+    {
+      "dropped": "nb562",
+      "pooled_rae": 0.420632621830039,
+      "delta": -4.220513938335557e-10
+    },
+    {
+      "dropped": "chemprop_aux",
+      "pooled_rae": 0.42063261474305025,
+      "delta": -7.509040167441583e-09
+    },
+    {
+      "dropped": "nb2103_K28",
+      "pooled_rae": 0.4202334584417819,
+      "delta": -0.00039916381030852266
+    }
+  ],
+  "dominant_signal_carrier": "nb730_honest",
+  "dominant_delta_rae": 0.050037954423343634,
+  "post_unblind_risk_confirmed": true,
+  "top3_stress": {
+    "dropped_2_weakest": [
+      "nb562",
+      "nb503"
+    ],
+    "kept_top_3": [
+      "nb2103_K28",
+      "chemprop_aux",
+      "nb730_honest"
+    ],
+    "pooled_rae": 0.42063264909918896,
+    "delta_vs_baseline": 2.6847098544280357e-08,
+    "deploy_weights": {
+      "nb2103_K28": 0.11293500380309493,
+      "chemprop_aux": 1.8733845491569245e-12,
+      "nb730_honest": 0.8870649961950317
+    }
+  },
+  "wall_sec": 0.13
+}

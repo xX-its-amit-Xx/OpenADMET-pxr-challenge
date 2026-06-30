@@ -1,0 +1,1651 @@
+{
+  "tag": "nb3402",
+  "method": "meta_analysis_pooled_vs_perfold_lb_faithfulness",
+  "is_meta": true,
+  "writes_submission": false,
+  "n_folds": 5,
+  "kf_seeds": [
+    1311,
+    1312,
+    1313,
+    1314,
+    1315,
+    1316,
+    1317,
+    1318,
+    1319,
+    1320,
+    1321,
+    1322,
+    1323,
+    1324,
+    1325
+  ],
+  "n_seeds": 15,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "D_full_253": 202.0617,
+  "candidates": {
+    "nb3200": {
+      "tag": "nb3200",
+      "kind": "fitted",
+      "desc": "learned per-fold clip on nb3090",
+      "full253_pooled": 0.4416,
+      "leak_eq_truth_frac": 0.0,
+      "pooled_mean": 0.4416,
+      "pooled_std": 0.0,
+      "pooled_invariant": true,
+      "pf_mean": 0.458,
+      "pf_std": 0.0096,
+      "gap_pf_minus_pooled": 0.0164,
+      "recon_max_err": 5.551115123125783e-17,
+      "honest_estimand": "pooled-OOF (varies across seed; pf reported as sidecar)",
+      "te_unb_in_sample_rae": 0.1913,
+      "seed_rows": [
+        {
+          "kf_seed": 1311,
+          "pooled": 0.4416,
+          "pf_mean": 0.4621,
+          "gap_pf_minus_pooled": 0.0205,
+          "fold_den": [
+            43.77,
+            47.61,
+            31.31,
+            33.69,
+            44.87
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1312,
+          "pooled": 0.4416,
+          "pf_mean": 0.4571,
+          "gap_pf_minus_pooled": 0.0155,
+          "fold_den": [
+            37.37,
+            35.62,
+            37.8,
+            36.82,
+            49.62
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1313,
+          "pooled": 0.4416,
+          "pf_mean": 0.4504,
+          "gap_pf_minus_pooled": 0.0088,
+          "fold_den": [
+            35.08,
+            38.4,
+            42.72,
+            44.35,
+            38.33
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1314,
+          "pooled": 0.4416,
+          "pf_mean": 0.4598,
+          "gap_pf_minus_pooled": 0.0182,
+          "fold_den": [
+            37.56,
+            55.03,
+            32.42,
+            37.42,
+            37.72
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1315,
+          "pooled": 0.4416,
+          "pf_mean": 0.4717,
+          "gap_pf_minus_pooled": 0.0301,
+          "fold_den": [
+            30.61,
+            51.42,
+            29.74,
+            38.3,
+            45.71
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1316,
+          "pooled": 0.4416,
+          "pf_mean": 0.4509,
+          "gap_pf_minus_pooled": 0.0093,
+          "fold_den": [
+            43.95,
+            41.42,
+            52.73,
+            30.43,
+            33.89
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1317,
+          "pooled": 0.4416,
+          "pf_mean": 0.457,
+          "gap_pf_minus_pooled": 0.0154,
+          "fold_den": [
+            29.52,
+            43.69,
+            43.4,
+            36.32,
+            47.12
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1318,
+          "pooled": 0.4416,
+          "pf_mean": 0.4614,
+          "gap_pf_minus_pooled": 0.0198,
+          "fold_den": [
+            30.63,
+            33.18,
+            47.3,
+            39.17,
+            46.82
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1319,
+          "pooled": 0.4416,
+          "pf_mean": 0.4583,
+          "gap_pf_minus_pooled": 0.0167,
+          "fold_den": [
+            31.44,
+            41.94,
+            36.82,
+            48.66,
+            39.29
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1320,
+          "pooled": 0.4416,
+          "pf_mean": 0.4535,
+          "gap_pf_minus_pooled": 0.0119,
+          "fold_den": [
+            32.22,
+            55.99,
+            38.27,
+            37.55,
+            36.35
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1321,
+          "pooled": 0.4416,
+          "pf_mean": 0.4424,
+          "gap_pf_minus_pooled": 0.0008,
+          "fold_den": [
+            43.44,
+            32.29,
+            32.96,
+            40.99,
+            52.72
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1322,
+          "pooled": 0.4416,
+          "pf_mean": 0.4487,
+          "gap_pf_minus_pooled": 0.0071,
+          "fold_den": [
+            39.08,
+            45.42,
+            38.68,
+            39.23,
+            37.66
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1323,
+          "pooled": 0.4416,
+          "pf_mean": 0.4825,
+          "gap_pf_minus_pooled": 0.0409,
+          "fold_den": [
+            35.88,
+            60.26,
+            28.16,
+            46.22,
+            27.76
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1324,
+          "pooled": 0.4416,
+          "pf_mean": 0.4544,
+          "gap_pf_minus_pooled": 0.0128,
+          "fold_den": [
+            31.11,
+            44.13,
+            54.75,
+            33.93,
+            32.57
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1325,
+          "pooled": 0.4416,
+          "pf_mean": 0.46,
+          "gap_pf_minus_pooled": 0.0185,
+          "fold_den": [
+            34.68,
+            48.35,
+            29.33,
+            49.39,
+            35.51
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        }
+      ]
+    },
+    "nb3173": {
+      "tag": "nb3173",
+      "kind": "fitted",
+      "desc": "learned per-fold clip on nb3080",
+      "full253_pooled": 0.4423,
+      "leak_eq_truth_frac": 0.0,
+      "pooled_mean": 0.4423,
+      "pooled_std": 0.0,
+      "pooled_invariant": true,
+      "pf_mean": 0.459,
+      "pf_std": 0.0098,
+      "gap_pf_minus_pooled": 0.0167,
+      "recon_max_err": 1.1102230246251565e-16,
+      "honest_estimand": "pooled-OOF (varies across seed; pf reported as sidecar)",
+      "te_unb_in_sample_rae": 0.1923,
+      "seed_rows": [
+        {
+          "kf_seed": 1311,
+          "pooled": 0.4423,
+          "pf_mean": 0.4633,
+          "gap_pf_minus_pooled": 0.0211,
+          "fold_den": [
+            43.77,
+            47.61,
+            31.31,
+            33.69,
+            44.87
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1312,
+          "pooled": 0.4423,
+          "pf_mean": 0.4578,
+          "gap_pf_minus_pooled": 0.0156,
+          "fold_den": [
+            37.37,
+            35.62,
+            37.8,
+            36.82,
+            49.62
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1313,
+          "pooled": 0.4423,
+          "pf_mean": 0.4512,
+          "gap_pf_minus_pooled": 0.0089,
+          "fold_den": [
+            35.08,
+            38.4,
+            42.72,
+            44.35,
+            38.33
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1314,
+          "pooled": 0.4423,
+          "pf_mean": 0.4607,
+          "gap_pf_minus_pooled": 0.0185,
+          "fold_den": [
+            37.56,
+            55.03,
+            32.42,
+            37.42,
+            37.72
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1315,
+          "pooled": 0.4423,
+          "pf_mean": 0.4726,
+          "gap_pf_minus_pooled": 0.0304,
+          "fold_den": [
+            30.61,
+            51.42,
+            29.74,
+            38.3,
+            45.71
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1316,
+          "pooled": 0.4423,
+          "pf_mean": 0.4524,
+          "gap_pf_minus_pooled": 0.0101,
+          "fold_den": [
+            43.95,
+            41.42,
+            52.73,
+            30.43,
+            33.89
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1317,
+          "pooled": 0.4423,
+          "pf_mean": 0.4573,
+          "gap_pf_minus_pooled": 0.0151,
+          "fold_den": [
+            29.52,
+            43.69,
+            43.4,
+            36.32,
+            47.12
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1318,
+          "pooled": 0.4423,
+          "pf_mean": 0.462,
+          "gap_pf_minus_pooled": 0.0197,
+          "fold_den": [
+            30.63,
+            33.18,
+            47.3,
+            39.17,
+            46.82
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1319,
+          "pooled": 0.4423,
+          "pf_mean": 0.4595,
+          "gap_pf_minus_pooled": 0.0172,
+          "fold_den": [
+            31.44,
+            41.94,
+            36.82,
+            48.66,
+            39.29
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1320,
+          "pooled": 0.4423,
+          "pf_mean": 0.4545,
+          "gap_pf_minus_pooled": 0.0122,
+          "fold_den": [
+            32.22,
+            55.99,
+            38.27,
+            37.55,
+            36.35
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1321,
+          "pooled": 0.4423,
+          "pf_mean": 0.4427,
+          "gap_pf_minus_pooled": 0.0005,
+          "fold_den": [
+            43.44,
+            32.29,
+            32.96,
+            40.99,
+            52.72
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1322,
+          "pooled": 0.4423,
+          "pf_mean": 0.4496,
+          "gap_pf_minus_pooled": 0.0073,
+          "fold_den": [
+            39.08,
+            45.42,
+            38.68,
+            39.23,
+            37.66
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1323,
+          "pooled": 0.4423,
+          "pf_mean": 0.484,
+          "gap_pf_minus_pooled": 0.0417,
+          "fold_den": [
+            35.88,
+            60.26,
+            28.16,
+            46.22,
+            27.76
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1324,
+          "pooled": 0.4423,
+          "pf_mean": 0.4558,
+          "gap_pf_minus_pooled": 0.0135,
+          "fold_den": [
+            31.11,
+            44.13,
+            54.75,
+            33.93,
+            32.57
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1325,
+          "pooled": 0.4423,
+          "pf_mean": 0.4617,
+          "gap_pf_minus_pooled": 0.0194,
+          "fold_den": [
+            34.68,
+            48.35,
+            29.33,
+            49.39,
+            35.51
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        }
+      ]
+    },
+    "nb3204": {
+      "tag": "nb3204",
+      "kind": "fixed",
+      "desc": "equal-weight ens of 3 clip winners",
+      "full253_pooled": 0.4418,
+      "leak_eq_truth_frac": 0.0,
+      "pooled_mean": 0.4418,
+      "pooled_std": 0.0,
+      "pooled_invariant": true,
+      "pf_mean": 0.4584,
+      "pf_std": 0.0097,
+      "gap_pf_minus_pooled": 0.0166,
+      "recon_max_err": 5.551115123125783e-17,
+      "honest_estimand": "pooled (single value; pf_std is partition noise only)",
+      "te_unb_in_sample_rae": 0.193,
+      "seed_rows": [
+        {
+          "kf_seed": 1311,
+          "pooled": 0.4418,
+          "pf_mean": 0.4625,
+          "gap_pf_minus_pooled": 0.0207,
+          "fold_den": [
+            43.77,
+            47.61,
+            31.31,
+            33.69,
+            44.87
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1312,
+          "pooled": 0.4418,
+          "pf_mean": 0.4574,
+          "gap_pf_minus_pooled": 0.0156,
+          "fold_den": [
+            37.37,
+            35.62,
+            37.8,
+            36.82,
+            49.62
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1313,
+          "pooled": 0.4418,
+          "pf_mean": 0.4507,
+          "gap_pf_minus_pooled": 0.0088,
+          "fold_den": [
+            35.08,
+            38.4,
+            42.72,
+            44.35,
+            38.33
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1314,
+          "pooled": 0.4418,
+          "pf_mean": 0.4602,
+          "gap_pf_minus_pooled": 0.0183,
+          "fold_den": [
+            37.56,
+            55.03,
+            32.42,
+            37.42,
+            37.72
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1315,
+          "pooled": 0.4418,
+          "pf_mean": 0.472,
+          "gap_pf_minus_pooled": 0.0301,
+          "fold_den": [
+            30.61,
+            51.42,
+            29.74,
+            38.3,
+            45.71
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1316,
+          "pooled": 0.4418,
+          "pf_mean": 0.4515,
+          "gap_pf_minus_pooled": 0.0096,
+          "fold_den": [
+            43.95,
+            41.42,
+            52.73,
+            30.43,
+            33.89
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1317,
+          "pooled": 0.4418,
+          "pf_mean": 0.4571,
+          "gap_pf_minus_pooled": 0.0153,
+          "fold_den": [
+            29.52,
+            43.69,
+            43.4,
+            36.32,
+            47.12
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1318,
+          "pooled": 0.4418,
+          "pf_mean": 0.4615,
+          "gap_pf_minus_pooled": 0.0197,
+          "fold_den": [
+            30.63,
+            33.18,
+            47.3,
+            39.17,
+            46.82
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1319,
+          "pooled": 0.4418,
+          "pf_mean": 0.4587,
+          "gap_pf_minus_pooled": 0.0169,
+          "fold_den": [
+            31.44,
+            41.94,
+            36.82,
+            48.66,
+            39.29
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1320,
+          "pooled": 0.4418,
+          "pf_mean": 0.4539,
+          "gap_pf_minus_pooled": 0.0121,
+          "fold_den": [
+            32.22,
+            55.99,
+            38.27,
+            37.55,
+            36.35
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1321,
+          "pooled": 0.4418,
+          "pf_mean": 0.4425,
+          "gap_pf_minus_pooled": 0.0007,
+          "fold_den": [
+            43.44,
+            32.29,
+            32.96,
+            40.99,
+            52.72
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1322,
+          "pooled": 0.4418,
+          "pf_mean": 0.449,
+          "gap_pf_minus_pooled": 0.0072,
+          "fold_den": [
+            39.08,
+            45.42,
+            38.68,
+            39.23,
+            37.66
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1323,
+          "pooled": 0.4418,
+          "pf_mean": 0.4831,
+          "gap_pf_minus_pooled": 0.0413,
+          "fold_den": [
+            35.88,
+            60.26,
+            28.16,
+            46.22,
+            27.76
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1324,
+          "pooled": 0.4418,
+          "pf_mean": 0.455,
+          "gap_pf_minus_pooled": 0.0132,
+          "fold_den": [
+            31.11,
+            44.13,
+            54.75,
+            33.93,
+            32.57
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1325,
+          "pooled": 0.4418,
+          "pf_mean": 0.4607,
+          "gap_pf_minus_pooled": 0.0189,
+          "fold_den": [
+            34.68,
+            48.35,
+            29.33,
+            49.39,
+            35.51
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        }
+      ]
+    },
+    "nb3214": {
+      "tag": "nb3214",
+      "kind": "fitted",
+      "desc": "SLSQP simplex on 3 clip winners",
+      "full253_pooled": 0.4444,
+      "leak_eq_truth_frac": 0.0,
+      "pooled_mean": 0.4444,
+      "pooled_std": 0.0,
+      "pooled_invariant": true,
+      "pf_mean": 0.4608,
+      "pf_std": 0.0096,
+      "gap_pf_minus_pooled": 0.0164,
+      "recon_max_err": 1.6653345369377348e-16,
+      "honest_estimand": "pooled-OOF (varies across seed; pf reported as sidecar)",
+      "te_unb_in_sample_rae": 0.1932,
+      "seed_rows": [
+        {
+          "kf_seed": 1311,
+          "pooled": 0.4444,
+          "pf_mean": 0.4653,
+          "gap_pf_minus_pooled": 0.0209,
+          "fold_den": [
+            43.77,
+            47.61,
+            31.31,
+            33.69,
+            44.87
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1312,
+          "pooled": 0.4444,
+          "pf_mean": 0.4598,
+          "gap_pf_minus_pooled": 0.0154,
+          "fold_den": [
+            37.37,
+            35.62,
+            37.8,
+            36.82,
+            49.62
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1313,
+          "pooled": 0.4444,
+          "pf_mean": 0.4533,
+          "gap_pf_minus_pooled": 0.0089,
+          "fold_den": [
+            35.08,
+            38.4,
+            42.72,
+            44.35,
+            38.33
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1314,
+          "pooled": 0.4444,
+          "pf_mean": 0.4623,
+          "gap_pf_minus_pooled": 0.018,
+          "fold_den": [
+            37.56,
+            55.03,
+            32.42,
+            37.42,
+            37.72
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1315,
+          "pooled": 0.4444,
+          "pf_mean": 0.4745,
+          "gap_pf_minus_pooled": 0.0301,
+          "fold_den": [
+            30.61,
+            51.42,
+            29.74,
+            38.3,
+            45.71
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1316,
+          "pooled": 0.4444,
+          "pf_mean": 0.4536,
+          "gap_pf_minus_pooled": 0.0092,
+          "fold_den": [
+            43.95,
+            41.42,
+            52.73,
+            30.43,
+            33.89
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1317,
+          "pooled": 0.4444,
+          "pf_mean": 0.4595,
+          "gap_pf_minus_pooled": 0.0151,
+          "fold_den": [
+            29.52,
+            43.69,
+            43.4,
+            36.32,
+            47.12
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1318,
+          "pooled": 0.4444,
+          "pf_mean": 0.4639,
+          "gap_pf_minus_pooled": 0.0195,
+          "fold_den": [
+            30.63,
+            33.18,
+            47.3,
+            39.17,
+            46.82
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1319,
+          "pooled": 0.4444,
+          "pf_mean": 0.4611,
+          "gap_pf_minus_pooled": 0.0167,
+          "fold_den": [
+            31.44,
+            41.94,
+            36.82,
+            48.66,
+            39.29
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1320,
+          "pooled": 0.4444,
+          "pf_mean": 0.4564,
+          "gap_pf_minus_pooled": 0.012,
+          "fold_den": [
+            32.22,
+            55.99,
+            38.27,
+            37.55,
+            36.35
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1321,
+          "pooled": 0.4444,
+          "pf_mean": 0.4447,
+          "gap_pf_minus_pooled": 0.0003,
+          "fold_den": [
+            43.44,
+            32.29,
+            32.96,
+            40.99,
+            52.72
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1322,
+          "pooled": 0.4444,
+          "pf_mean": 0.4516,
+          "gap_pf_minus_pooled": 0.0072,
+          "fold_den": [
+            39.08,
+            45.42,
+            38.68,
+            39.23,
+            37.66
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1323,
+          "pooled": 0.4444,
+          "pf_mean": 0.4849,
+          "gap_pf_minus_pooled": 0.0405,
+          "fold_den": [
+            35.88,
+            60.26,
+            28.16,
+            46.22,
+            27.76
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1324,
+          "pooled": 0.4444,
+          "pf_mean": 0.4575,
+          "gap_pf_minus_pooled": 0.0131,
+          "fold_den": [
+            31.11,
+            44.13,
+            54.75,
+            33.93,
+            32.57
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1325,
+          "pooled": 0.4444,
+          "pf_mean": 0.4631,
+          "gap_pf_minus_pooled": 0.0188,
+          "fold_den": [
+            34.68,
+            48.35,
+            29.33,
+            49.39,
+            35.51
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        }
+      ]
+    },
+    "nb3380": {
+      "tag": "nb3380",
+      "kind": "fixed",
+      "desc": "fresh-chemprop blend w/ nb3200 (fixed 0.3)",
+      "full253_pooled": 0.438,
+      "leak_eq_truth_frac": 0.0,
+      "pooled_mean": 0.438,
+      "pooled_std": 0.0,
+      "pooled_invariant": true,
+      "pf_mean": 0.4541,
+      "pf_std": 0.0092,
+      "gap_pf_minus_pooled": 0.0161,
+      "recon_max_err": 1.1102230246251565e-16,
+      "honest_estimand": "pooled (single value; pf_std is partition noise only)",
+      "te_unb_in_sample_rae": 0.1755,
+      "seed_rows": [
+        {
+          "kf_seed": 1311,
+          "pooled": 0.438,
+          "pf_mean": 0.4574,
+          "gap_pf_minus_pooled": 0.0194,
+          "fold_den": [
+            43.77,
+            47.61,
+            31.31,
+            33.69,
+            44.87
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1312,
+          "pooled": 0.438,
+          "pf_mean": 0.4535,
+          "gap_pf_minus_pooled": 0.0155,
+          "fold_den": [
+            37.37,
+            35.62,
+            37.8,
+            36.82,
+            49.62
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1313,
+          "pooled": 0.438,
+          "pf_mean": 0.4466,
+          "gap_pf_minus_pooled": 0.0086,
+          "fold_den": [
+            35.08,
+            38.4,
+            42.72,
+            44.35,
+            38.33
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1314,
+          "pooled": 0.438,
+          "pf_mean": 0.4563,
+          "gap_pf_minus_pooled": 0.0183,
+          "fold_den": [
+            37.56,
+            55.03,
+            32.42,
+            37.42,
+            37.72
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1315,
+          "pooled": 0.438,
+          "pf_mean": 0.4678,
+          "gap_pf_minus_pooled": 0.0298,
+          "fold_den": [
+            30.61,
+            51.42,
+            29.74,
+            38.3,
+            45.71
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1316,
+          "pooled": 0.438,
+          "pf_mean": 0.4478,
+          "gap_pf_minus_pooled": 0.0098,
+          "fold_den": [
+            43.95,
+            41.42,
+            52.73,
+            30.43,
+            33.89
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1317,
+          "pooled": 0.438,
+          "pf_mean": 0.4532,
+          "gap_pf_minus_pooled": 0.0152,
+          "fold_den": [
+            29.52,
+            43.69,
+            43.4,
+            36.32,
+            47.12
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1318,
+          "pooled": 0.438,
+          "pf_mean": 0.4572,
+          "gap_pf_minus_pooled": 0.0192,
+          "fold_den": [
+            30.63,
+            33.18,
+            47.3,
+            39.17,
+            46.82
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1319,
+          "pooled": 0.438,
+          "pf_mean": 0.454,
+          "gap_pf_minus_pooled": 0.016,
+          "fold_den": [
+            31.44,
+            41.94,
+            36.82,
+            48.66,
+            39.29
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1320,
+          "pooled": 0.438,
+          "pf_mean": 0.4484,
+          "gap_pf_minus_pooled": 0.0104,
+          "fold_den": [
+            32.22,
+            55.99,
+            38.27,
+            37.55,
+            36.35
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1321,
+          "pooled": 0.438,
+          "pf_mean": 0.4399,
+          "gap_pf_minus_pooled": 0.0019,
+          "fold_den": [
+            43.44,
+            32.29,
+            32.96,
+            40.99,
+            52.72
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1322,
+          "pooled": 0.438,
+          "pf_mean": 0.4452,
+          "gap_pf_minus_pooled": 0.0072,
+          "fold_den": [
+            39.08,
+            45.42,
+            38.68,
+            39.23,
+            37.66
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1323,
+          "pooled": 0.438,
+          "pf_mean": 0.4772,
+          "gap_pf_minus_pooled": 0.0392,
+          "fold_den": [
+            35.88,
+            60.26,
+            28.16,
+            46.22,
+            27.76
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1324,
+          "pooled": 0.438,
+          "pf_mean": 0.4507,
+          "gap_pf_minus_pooled": 0.0127,
+          "fold_den": [
+            31.11,
+            44.13,
+            54.75,
+            33.93,
+            32.57
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        },
+        {
+          "kf_seed": 1325,
+          "pooled": 0.438,
+          "pf_mean": 0.456,
+          "gap_pf_minus_pooled": 0.018,
+          "fold_den": [
+            34.68,
+            48.35,
+            29.33,
+            49.39,
+            35.51
+          ],
+          "fold_sz": [
+            51,
+            51,
+            51,
+            50,
+            50
+          ]
+        }
+      ]
+    }
+  },
+  "ranking_pooled": [
+    "nb3380",
+    "nb3200",
+    "nb3204",
+    "nb3173",
+    "nb3214"
+  ],
+  "ranking_per_fold_mean": [
+    "nb3380",
+    "nb3200",
+    "nb3204",
+    "nb3173",
+    "nb3214"
+  ],
+  "pooled_winner": "nb3380",
+  "per_fold_winner": "nb3380",
+  "order_flips": false,
+  "ref": {
+    "nb3200_pooled_deep30": 0.4424,
+    "nb3204_pooled_15": 0.4418,
+    "nb3204_pf_deep30": 0.4563,
+    "nb3173_pooled_15": 0.4422,
+    "nb3214_pooled_15": 0.4448,
+    "nb2171_primary1": 0.4682
+  },
+  "reconciliation_nb3210": "nb3210 switched the gate from pooled to per-fold-mean BECAUSE nb3204's pooled std was 0. But std=0 is the correct behavior of a parameter-free ensemble: with nothing fit on the 253, the single pooled value IS the deploy estimate and there is no estimation variance to measure. The per-fold-mean's non-zero std is partition-sampling noise of a ~50-row subsample, not deploy uncertainty. By switching estimands, nb3210 compared nb3204's pf_mean (0.4563) against a pooled-derived ceiling (0.4426), i.e. it applied a STRICTER, denominator-inflated metric than the LB uses. Under the LB-faithful pooled metric, nb3204 (0.4418) is NOT worse than nb3200 (0.4424); the rejection was a metric-mismatch artifact, not a real failure of the ensemble.",
+  "lb_faithful_metric": "POOLED",
+  "verdict": "POOLED-RAE (single denominator over all rows) is the LB-faithful estimand, because the public LB scores all 513 test rows with ONE RAE denominator. The 253-unblind analog is therefore the pooled RAE over all 253 cross-fit predictions -- one rae() call -- NOT the mean of 5 per-fold ratios. PER-FOLD-MEAN answers a different question (expected RAE on a random ~50-row scaffold fold) and is systematically HIGHER by a denominator-reweighting (Jensen) gap of ~+0.01 driven by fold truth-dispersion geometry, not by prediction quality. Per-fold-mean remains a useful GENERALIZATION-STABILITY sidecar, but it must not be the promotion gate. CAVEAT: pooled must be computed on genuinely out-of-fold predictions; for parameter-free ensembles (nb3204) the stored vector is already non-fitted on the 253 so its single pooled value is honest. The earlier 'pooled std=0 is an artifact' framing was wrong -- std=0 is the truthful estimation variance of a parameter-free deploy vector.",
+  "ladder_implication": "Re-rank the cycle-26x/27x clip cluster under pooled, not per-fold-mean. Under pooled, nb3204 (0.4418) and nb3200 (0.4424) are statistically tied near the ~0.442 PRE-unblind ceiling and both sit ~0.026 below the incumbent nb2171 PRIMARY-1 (0.4682). nb3204 should be RESTORED from its cycle-267 REJECT to at least ALTERNATE/MARGINAL status; its rejection was a metric artifact. HOWEVER this does not by itself crown a new PRIMARY-1: all these candidates are POST-unblind-tuned post-hoc operators on the frozen pre-unblind anchor and remain inside the co-converged 0.4718-band ceiling family; the pooled-vs-pf correction recovers ~0.01 of falsely-charged RAE but does NOT break the substrate ceiling. Action: (1) gate on POOLED going forward; (2) keep pf_mean as a reported stability metric only; (3) un-reject nb3204; (4) LB transfer still pending bulk re-grade -- the pooled number is the honest pre-LB estimate. Note the +0.10 POST-unblind safety shift still applies to any te-based LB projection (te[unb] in-sample ~0.19 is NOT the LB number).",
+  "wall_sec": 0.13
+}

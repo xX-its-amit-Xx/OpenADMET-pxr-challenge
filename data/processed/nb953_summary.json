@@ -1,0 +1,113 @@
+{
+  "tag": "nb953",
+  "method": "refit_nb562_nb503_grandv6b_on_aug_corpus_plus_slsqp_v2_blend",
+  "wall_sec": 119.48,
+  "augmented_corpus": {
+    "train_rows": 4139,
+    "aug_rows": 901,
+    "n_unb": 253,
+    "n_test": 513
+  },
+  "v2_anchors": {
+    "nb950_lite": {
+      "type": "LGBM_combined_train+aug",
+      "rae_crossfit": 0.5870493288272495,
+      "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb950_lite.npy",
+      "oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb950_lite_pred_oof.npy"
+    },
+    "nb951_lite": {
+      "type": "LGBM_morgan2048_train+aug",
+      "rae_crossfit": 0.6879801362415822,
+      "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb951_lite.npy",
+      "oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb951_lite_pred_oof.npy"
+    }
+  },
+  "v2_operators": {
+    "nb562_v2": {
+      "type": "rank_stretch_on_mean(nb950,nb951)",
+      "rae_crossfit": 0.5979528308027405,
+      "deploy_s": 1.15,
+      "deploy_mu": 4.7526334813343745,
+      "per_fold_s": [
+        1.2,
+        1.1,
+        1.1,
+        1.15,
+        1.15
+      ],
+      "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb562_v2.npy"
+    },
+    "nb503_v2": {
+      "type": "SLSQP_{nb950,nb951,nb503_v1}",
+      "pool": [
+        "nb950_lite",
+        "nb951_lite",
+        "nb503_v1"
+      ],
+      "rae_crossfit": 0.5123897758511673,
+      "deploy_weights": {
+        "nb950_lite": 6.938893903907228e-17,
+        "nb951_lite": 0.0,
+        "nb503_v1": 1.0
+      },
+      "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb503_v2.npy"
+    },
+    "grand_v6b_v2": {
+      "type": "SLSQP_wide_pool",
+      "pool": [
+        "nb950_lite",
+        "nb951_lite",
+        "nb562_v2",
+        "nb503_v2",
+        "nb503_v1",
+        "chemprop_aux_v1",
+        "grand_v6b_v1_calib"
+      ],
+      "rae_crossfit": 0.512745936097813,
+      "deploy_weights": {
+        "nb950_lite": 1.6283274994610973e-16,
+        "nb951_lite": 0.0,
+        "nb562_v2": 0.0,
+        "nb503_v2": 1.6653345369377348e-16,
+        "nb503_v1": 0.9999999999999998,
+        "chemprop_aux_v1": 0.0,
+        "grand_v6b_v1_calib": 0.0
+      },
+      "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_grand_v6b_v2.npy"
+    }
+  },
+  "v1_reference_raes": {
+    "nb503_v1_honest": 0.5116212503074237,
+    "nb562_v1_honest": 0.5065400776344995,
+    "chemprop_aux_v1_insample": 0.6215728863514471,
+    "grand_v6b_calib_v1_insample": 0.6408770970494169
+  },
+  "final_blend": {
+    "pool": [
+      "nb950_lite",
+      "nb951_lite",
+      "nb562_v2",
+      "nb503_v2",
+      "grand_v6b_v2"
+    ],
+    "rae_crossfit": 0.5132958576611588,
+    "deploy_weights": {
+      "nb950_lite": 1.8596333628475574e-17,
+      "nb951_lite": 0.0,
+      "nb562_v2": 0.0,
+      "nb503_v2": 1.0,
+      "grand_v6b_v2": 0.0
+    },
+    "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb953.npy"
+  },
+  "decision": {
+    "baseline_nb2112_rae": 0.4698,
+    "nb951_lite_rae": 0.6879801362415822,
+    "best_candidate": "nb503_v2",
+    "best_rae": 0.5123897758511673,
+    "beats_nb2112": false,
+    "beats_nb951_lite": true,
+    "deploy_built": false,
+    "deploy_submission": null
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "variants": [
+    {
+      "variant": "aniso6",
+      "cols": [
+        "pt_alpha_aniso",
+        "pt_frac_aniso",
+        "pt_aniso_ratio",
+        "pt_atom_a_std",
+        "pt_atom_a_max",
+        "pt_planarity"
+      ],
+      "control_rae": 0.4229225332279092,
+      "treatment_rae": 0.42578256639163564,
+      "matched_delta": 0.002860033163726461,
+      "c_raes": [
+        0.4229012624519132,
+        0.4422045190426461,
+        0.40366181818916813
+      ],
+      "t_raes": [
+        0.4257888232891034,
+        0.44809171044959684,
+        0.4034671654362067
+      ],
+      "neg_seeds": 1,
+      "resid_corr_mean": 0.17903842465837747
+    },
+    {
+      "variant": "full8",
+      "cols": [
+        "pt_alpha_iso",
+        "pt_alpha_aniso",
+        "pt_frac_aniso",
+        "pt_aniso_ratio",
+        "pt_alpha_per_heavy",
+        "pt_atom_a_std",
+        "pt_atom_a_max",
+        "pt_planarity"
+      ],
+      "control_rae": 0.4229225332279092,
+      "treatment_rae": 0.425866710806624,
+      "matched_delta": 0.002944177578714846,
+      "c_raes": [
+        0.4229012624519132,
+        0.4422045190426461,
+        0.40366181818916813
+      ],
+      "t_raes": [
+        0.4255590186340422,
+        0.4473519823097041,
+        0.4046891314761258
+      ],
+      "neg_seeds": 0,
+      "resid_corr_mean": 0.046806782460087494
+    }
+  ],
+  "deployed_best": 0.4149,
+  "best_variant": "aniso6",
+  "best_delta": 0.002860033163726461,
+  "deploy": false,
+  "pt_imputed": 0,
+  "feature": "mace_mdp_polar_tensor_anisotropy"
+}

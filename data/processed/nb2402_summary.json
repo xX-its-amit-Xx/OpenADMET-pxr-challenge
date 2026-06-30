@@ -1,0 +1,39 @@
+{
+  "tag": "nb2402",
+  "method": "selective_pose_proxy_shrink_top25pct",
+  "threshold_pred_75pct": 5.299652099609375,
+  "n_high_conf_513": 129,
+  "n_high_conf_in_unb": 70,
+  "base_rae_2240": 0.16570824273473972,
+  "grid": [
+    {
+      "shrink_factor": 0.0,
+      "rae_unb_insample": 0.16570824273473972
+    },
+    {
+      "shrink_factor": 0.05,
+      "rae_unb_insample": 0.17194192450820878
+    },
+    {
+      "shrink_factor": 0.1,
+      "rae_unb_insample": 0.1819608063240056
+    },
+    {
+      "shrink_factor": 0.15,
+      "rae_unb_insample": 0.1938649485887477
+    },
+    {
+      "shrink_factor": 0.2,
+      "rae_unb_insample": 0.20702632489561376
+    },
+    {
+      "shrink_factor": 0.3,
+      "rae_unb_insample": 0.2359632420719142
+    }
+  ],
+  "best": {
+    "shrink_factor": 0.0,
+    "rae_unb_insample": 0.16570824273473972
+  },
+  "verdict": "NO_LIFT"
+}

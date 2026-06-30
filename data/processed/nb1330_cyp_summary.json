@@ -1,0 +1,15 @@
+{
+  "comp": "CYP cross-readout (4 CheMeleon CYP pIC50 scalars in GBM extras)",
+  "ctrl_rae": 0.4147576179656949,
+  "treat_rae": 0.4184089382393883,
+  "delta": 0.0036513202736934147,
+  "n_neg": 0,
+  "deployed_best": 0.4149,
+  "gate_pass": false,
+  "cyp_pec50_corr": {
+    "cyp3a4": 0.372,
+    "cyp2d6": 0.252,
+    "cyp2c9": 0.317,
+    "cyp1a2": 0.288
+  }
+}

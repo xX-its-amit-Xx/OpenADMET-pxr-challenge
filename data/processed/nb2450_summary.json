@@ -1,0 +1,53 @@
+{
+  "tag": "nb2450",
+  "method": "tanimoto_kernel_SVR_on_chemprop_aux_residual",
+  "fp_radius": 2,
+  "fp_bits": 2048,
+  "epsilon": 0.1,
+  "C_grid": [
+    0.1,
+    1.0,
+    10.0
+  ],
+  "n_unb": 253,
+  "n_te": 513,
+  "n_train": 4139,
+  "n_unique_scaffolds": 180,
+  "rae_anchor_chemprop_aux": 0.6215728863514471,
+  "c_grid_results": [
+    {
+      "C": 0.1,
+      "rae_corrected_oof": 0.6169663748326929,
+      "residual_oof_mean": -0.03390013187929527,
+      "residual_oof_std": 0.07652632111004283,
+      "wall_sec": 0.01
+    },
+    {
+      "C": 1.0,
+      "rae_corrected_oof": 0.6362009610409538,
+      "residual_oof_mean": -0.10047993655779161,
+      "residual_oof_std": 0.263068027020438,
+      "wall_sec": 0.01
+    },
+    {
+      "C": 10.0,
+      "rae_corrected_oof": 0.6561857808287389,
+      "residual_oof_mean": -0.17106231564110996,
+      "residual_oof_std": 0.3660575787969202,
+      "wall_sec": 0.01
+    }
+  ],
+  "best_C": 0.1,
+  "standalone_oof_rae": 0.6169663748326929,
+  "nb2240_ref_oof": 0.463,
+  "delta_vs_nb2240": 0.15396637483269288,
+  "te_unb_in_sample_rae": 0.5316649108905818,
+  "kernel_diag_median": 1.0,
+  "kernel_off_median": 0.1325301229953766,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2450_pred_oof.npy",
+  "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2450.npy",
+  "standalone_blend_threshold": 0.55,
+  "blend_triggered": false,
+  "blend_results": null,
+  "wall_sec": 1.29
+}

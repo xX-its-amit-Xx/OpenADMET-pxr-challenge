@@ -1,0 +1,50 @@
+{
+  "tag": "nb968",
+  "method": "isotonic_calibration_per_decile_global_quantile_weighted",
+  "anchor": "nb2103_mean_bag_oof_K28",
+  "n_unb": 253,
+  "n_folds": 5,
+  "n_deciles": 10,
+  "seed": 42,
+  "decision_margin": 0.003,
+  "rae_baseline_mean_bag_oof": 0.47368697777353697,
+  "ref_nb2103_K28_mean_bag": 0.4737,
+  "ref_nb2103_K28_median_bag": 0.4698,
+  "method_results": {
+    "A_global": {
+      "rae_cross_fit": 0.4792865524239662,
+      "delta_vs_baseline_mean_bag": 0.0055995746504292065,
+      "delta_vs_ref_median_bag": 0.009486552423966177,
+      "oof_mean": 4.66218689330908,
+      "oof_std": 0.9297756118506019
+    },
+    "B_per_decile": {
+      "rae_cross_fit": 0.5018262617591005,
+      "delta_vs_baseline_mean_bag": 0.028139283985563535,
+      "delta_vs_ref_median_bag": 0.032026261759100505,
+      "oof_mean": 4.667903198248104,
+      "oof_std": 0.9463447869024556
+    },
+    "C_quantile_shift": {
+      "rae_cross_fit": 0.4978523721417193,
+      "delta_vs_baseline_mean_bag": 0.024165394368182325,
+      "delta_vs_ref_median_bag": 0.028052372141719295,
+      "oof_mean": 4.6938512234442795,
+      "oof_std": 0.8915267634989148
+    },
+    "D_weighted": {
+      "rae_cross_fit": 0.4794075802580624,
+      "delta_vs_baseline_mean_bag": 0.005720602484525439,
+      "delta_vs_ref_median_bag": 0.00960758025806241,
+      "oof_mean": 4.662118389633249,
+      "oof_std": 0.929984415509709
+    }
+  },
+  "best_method": "A_global",
+  "best_rae_cross_fit": 0.4792865524239662,
+  "delta_vs_mean_bag": 0.0055995746504292065,
+  "delta_vs_median_bag": 0.009486552423966177,
+  "beats_mean_bag_by_margin": false,
+  "beats_median_bag_by_margin": false,
+  "deploy": {}
+}

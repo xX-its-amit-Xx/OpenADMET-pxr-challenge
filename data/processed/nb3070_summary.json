@@ -1,0 +1,241 @@
+{
+  "tag": "nb3070",
+  "parent_tag": "nb3063",
+  "method": "wide_seed_verify_quantile_conditional_hard_split_blend_K18_K19_deep30",
+  "anchor_pool": [
+    "K18",
+    "K19"
+  ],
+  "anchor_depth": {
+    "K18": "deep30",
+    "K19": "deep30"
+  },
+  "anchor_pre_unblind": true,
+  "per_K_full_oof_rae": {
+    "K18": 0.4536,
+    "K19": 0.4607
+  },
+  "anchor_leak_eq_truth_frac": {
+    "K18": 0.0,
+    "K19": 0.0
+  },
+  "oof_pairwise_corr": 0.9846,
+  "w_low": {
+    "K18": 0.8,
+    "K19": 0.2
+  },
+  "w_high": {
+    "K18": 0.5,
+    "K19": 0.5
+  },
+  "quantile_cut": 0.5,
+  "n_folds": 5,
+  "kf_seeds": [
+    1096,
+    1097,
+    1098,
+    1099,
+    1100,
+    1101,
+    1102,
+    1103,
+    1104,
+    1105,
+    1106,
+    1107,
+    1108,
+    1109,
+    1110
+  ],
+  "n_seeds": 15,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "seed_records": [
+    {
+      "kf_seed": 1096,
+      "pooled_rae": 0.4476,
+      "per_fold_val_rae_mean": 0.4688,
+      "per_fold_val_rae_std": 0.0757,
+      "fold_q50_mean": 4.8935,
+      "fold_q50_std": 0.0638,
+      "fold_high_share_mean": 0.5089
+    },
+    {
+      "kf_seed": 1097,
+      "pooled_rae": 0.4476,
+      "per_fold_val_rae_mean": 0.4719,
+      "per_fold_val_rae_std": 0.0571,
+      "fold_q50_mean": 4.8846,
+      "fold_q50_std": 0.0246,
+      "fold_high_share_mean": 0.5021
+    },
+    {
+      "kf_seed": 1098,
+      "pooled_rae": 0.448,
+      "per_fold_val_rae_mean": 0.4625,
+      "per_fold_val_rae_std": 0.0827,
+      "fold_q50_mean": 4.887,
+      "fold_q50_std": 0.0216,
+      "fold_high_share_mean": 0.5057
+    },
+    {
+      "kf_seed": 1099,
+      "pooled_rae": 0.448,
+      "per_fold_val_rae_mean": 0.4669,
+      "per_fold_val_rae_std": 0.0389,
+      "fold_q50_mean": 4.886,
+      "fold_q50_std": 0.0398,
+      "fold_high_share_mean": 0.5059
+    },
+    {
+      "kf_seed": 1100,
+      "pooled_rae": 0.4482,
+      "per_fold_val_rae_mean": 0.4683,
+      "per_fold_val_rae_std": 0.0997,
+      "fold_q50_mean": 4.8898,
+      "fold_q50_std": 0.0435,
+      "fold_high_share_mean": 0.5054
+    },
+    {
+      "kf_seed": 1101,
+      "pooled_rae": 0.4479,
+      "per_fold_val_rae_mean": 0.448,
+      "per_fold_val_rae_std": 0.0611,
+      "fold_q50_mean": 4.8849,
+      "fold_q50_std": 0.02,
+      "fold_high_share_mean": 0.4979
+    },
+    {
+      "kf_seed": 1102,
+      "pooled_rae": 0.4478,
+      "per_fold_val_rae_mean": 0.4653,
+      "per_fold_val_rae_std": 0.1057,
+      "fold_q50_mean": 4.8883,
+      "fold_q50_std": 0.0211,
+      "fold_high_share_mean": 0.498
+    },
+    {
+      "kf_seed": 1103,
+      "pooled_rae": 0.4475,
+      "per_fold_val_rae_mean": 0.4647,
+      "per_fold_val_rae_std": 0.0833,
+      "fold_q50_mean": 4.8869,
+      "fold_q50_std": 0.0309,
+      "fold_high_share_mean": 0.5091
+    },
+    {
+      "kf_seed": 1104,
+      "pooled_rae": 0.4479,
+      "per_fold_val_rae_mean": 0.4534,
+      "per_fold_val_rae_std": 0.0538,
+      "fold_q50_mean": 4.8861,
+      "fold_q50_std": 0.0315,
+      "fold_high_share_mean": 0.5095
+    },
+    {
+      "kf_seed": 1105,
+      "pooled_rae": 0.4473,
+      "per_fold_val_rae_mean": 0.4502,
+      "per_fold_val_rae_std": 0.0677,
+      "fold_q50_mean": 4.8955,
+      "fold_q50_std": 0.0568,
+      "fold_high_share_mean": 0.4944
+    },
+    {
+      "kf_seed": 1106,
+      "pooled_rae": 0.4475,
+      "per_fold_val_rae_mean": 0.4541,
+      "per_fold_val_rae_std": 0.0453,
+      "fold_q50_mean": 4.8874,
+      "fold_q50_std": 0.0447,
+      "fold_high_share_mean": 0.509
+    },
+    {
+      "kf_seed": 1107,
+      "pooled_rae": 0.4477,
+      "per_fold_val_rae_mean": 0.4464,
+      "per_fold_val_rae_std": 0.0397,
+      "fold_q50_mean": 4.8862,
+      "fold_q50_std": 0.0216,
+      "fold_high_share_mean": 0.5017
+    },
+    {
+      "kf_seed": 1108,
+      "pooled_rae": 0.4478,
+      "per_fold_val_rae_mean": 0.4473,
+      "per_fold_val_rae_std": 0.0332,
+      "fold_q50_mean": 4.887,
+      "fold_q50_std": 0.0337,
+      "fold_high_share_mean": 0.506
+    },
+    {
+      "kf_seed": 1109,
+      "pooled_rae": 0.4478,
+      "per_fold_val_rae_mean": 0.4608,
+      "per_fold_val_rae_std": 0.0748,
+      "fold_q50_mean": 4.882,
+      "fold_q50_std": 0.0272,
+      "fold_high_share_mean": 0.5172
+    },
+    {
+      "kf_seed": 1110,
+      "pooled_rae": 0.4475,
+      "per_fold_val_rae_mean": 0.455,
+      "per_fold_val_rae_std": 0.0415,
+      "fold_q50_mean": 4.8844,
+      "fold_q50_std": 0.0304,
+      "fold_high_share_mean": 0.513
+    }
+  ],
+  "pooled_rae_array": [
+    0.4476,
+    0.4476,
+    0.448,
+    0.448,
+    0.4482,
+    0.4479,
+    0.4478,
+    0.4475,
+    0.4479,
+    0.4473,
+    0.4475,
+    0.4477,
+    0.4478,
+    0.4478,
+    0.4475
+  ],
+  "mean_rae": 0.4477,
+  "std_rae": 0.0002,
+  "sem_rae": 0.0001,
+  "ci95_low": 0.4476,
+  "ci95_high": 0.4479,
+  "median_rae": 0.4478,
+  "min_rae": 0.4473,
+  "max_rae": 0.4482,
+  "ref_parent_5seed_mean": 0.4477,
+  "ref_parent_5seed_std": 0.0002,
+  "shift_vs_parent_5seed": 0.0,
+  "under_dispersion_ratio_15_over_5": 1.21,
+  "ref_nb3030": 0.4509,
+  "ref_nb3002": 0.4501,
+  "ref_K18_deep30": 0.4536,
+  "ref_K19_deep30": 0.4607,
+  "ref_nb2171": 0.4682,
+  "delta_vs_nb3030": -0.0032,
+  "deploy_q50": 4.8845,
+  "te_low_share": 0.5127,
+  "te_mean": 4.733813285827637,
+  "te_std": 0.7710270285606384,
+  "te_unb_in_sample_rae": 0.1898,
+  "median_seed": 1109,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb3070_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb3070.npy",
+  "submission_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb3070_wide_verify_nb3063.csv",
+  "gate_verified_new_primary1": 0.4509,
+  "gate_verified_marginal": 0.4518,
+  "gate_lucky_seed_shift": 0.005,
+  "verdict": "VERIFIED_NEW_PRIMARY1",
+  "ladder_action": "PROMOTE. nb3070 wide-seed 15-mean 0.4477 beats nb3030 ceiling 0.4509 (-0.0032). Wide-seed shift vs nb3063 5-seed = +0.0000 (within tolerance). nb3063 quantile-conditional blend VERIFIED as new PRIMARY-1 candidate.",
+  "wall_sec": 0.1
+}

@@ -1,0 +1,240 @@
+{
+  "tag": "nb3080",
+  "parent_tag": "nb3073",
+  "method": "wide_seed_verify_quantile_conditional_hard_split_blend_K18_K19_deep30_best_combo",
+  "anchor_pool": [
+    "K18",
+    "K19"
+  ],
+  "anchor_depth": {
+    "K18": "deep30",
+    "K19": "deep30"
+  },
+  "anchor_pre_unblind": true,
+  "per_K_full_oof_rae": {
+    "K18": 0.4536,
+    "K19": 0.4607
+  },
+  "anchor_leak_eq_truth_frac": {
+    "K18": 0.0,
+    "K19": 0.0
+  },
+  "oof_pairwise_corr": 0.9846,
+  "best_combo": {
+    "q_cut": 0.4,
+    "w_K18_low": 0.9,
+    "w_K19_low": 0.09999999999999998,
+    "w_K18_high": 0.5,
+    "w_K19_high": 0.5
+  },
+  "n_folds": 5,
+  "kf_seeds": [
+    1111,
+    1112,
+    1113,
+    1114,
+    1115,
+    1116,
+    1117,
+    1118,
+    1119,
+    1120,
+    1121,
+    1122,
+    1123,
+    1124,
+    1125
+  ],
+  "n_seeds": 15,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "seed_records": [
+    {
+      "kf_seed": 1111,
+      "pooled_rae": 0.4475,
+      "per_fold_val_rae_mean": 0.4787,
+      "per_fold_val_rae_std": 0.0692,
+      "fold_q_thr_mean": 4.6886,
+      "fold_q_thr_std": 0.1011,
+      "fold_high_share_mean": 0.5915
+    },
+    {
+      "kf_seed": 1112,
+      "pooled_rae": 0.4477,
+      "per_fold_val_rae_mean": 0.4605,
+      "per_fold_val_rae_std": 0.1084,
+      "fold_q_thr_mean": 4.6994,
+      "fold_q_thr_std": 0.0346,
+      "fold_high_share_mean": 0.5931
+    },
+    {
+      "kf_seed": 1113,
+      "pooled_rae": 0.4487,
+      "per_fold_val_rae_mean": 0.4528,
+      "per_fold_val_rae_std": 0.0474,
+      "fold_q_thr_mean": 4.691,
+      "fold_q_thr_std": 0.0468,
+      "fold_high_share_mean": 0.5923
+    },
+    {
+      "kf_seed": 1114,
+      "pooled_rae": 0.4466,
+      "per_fold_val_rae_mean": 0.464,
+      "per_fold_val_rae_std": 0.0687,
+      "fold_q_thr_mean": 4.6892,
+      "fold_q_thr_std": 0.0773,
+      "fold_high_share_mean": 0.5877
+    },
+    {
+      "kf_seed": 1115,
+      "pooled_rae": 0.4477,
+      "per_fold_val_rae_mean": 0.4495,
+      "per_fold_val_rae_std": 0.0433,
+      "fold_q_thr_mean": 4.6882,
+      "fold_q_thr_std": 0.0502,
+      "fold_high_share_mean": 0.6046
+    },
+    {
+      "kf_seed": 1116,
+      "pooled_rae": 0.4479,
+      "per_fold_val_rae_mean": 0.4619,
+      "per_fold_val_rae_std": 0.0661,
+      "fold_q_thr_mean": 4.6859,
+      "fold_q_thr_std": 0.0862,
+      "fold_high_share_mean": 0.5884
+    },
+    {
+      "kf_seed": 1117,
+      "pooled_rae": 0.4465,
+      "per_fold_val_rae_mean": 0.4771,
+      "per_fold_val_rae_std": 0.082,
+      "fold_q_thr_mean": 4.6879,
+      "fold_q_thr_std": 0.0808,
+      "fold_high_share_mean": 0.6
+    },
+    {
+      "kf_seed": 1118,
+      "pooled_rae": 0.4467,
+      "per_fold_val_rae_mean": 0.4589,
+      "per_fold_val_rae_std": 0.0291,
+      "fold_q_thr_mean": 4.6884,
+      "fold_q_thr_std": 0.0885,
+      "fold_high_share_mean": 0.5924
+    },
+    {
+      "kf_seed": 1119,
+      "pooled_rae": 0.4477,
+      "per_fold_val_rae_mean": 0.459,
+      "per_fold_val_rae_std": 0.0427,
+      "fold_q_thr_mean": 4.6929,
+      "fold_q_thr_std": 0.0683,
+      "fold_high_share_mean": 0.5854
+    },
+    {
+      "kf_seed": 1120,
+      "pooled_rae": 0.4478,
+      "per_fold_val_rae_mean": 0.4569,
+      "per_fold_val_rae_std": 0.0654,
+      "fold_q_thr_mean": 4.694,
+      "fold_q_thr_std": 0.0385,
+      "fold_high_share_mean": 0.6005
+    },
+    {
+      "kf_seed": 1121,
+      "pooled_rae": 0.4478,
+      "per_fold_val_rae_mean": 0.458,
+      "per_fold_val_rae_std": 0.0442,
+      "fold_q_thr_mean": 4.6855,
+      "fold_q_thr_std": 0.053,
+      "fold_high_share_mean": 0.6005
+    },
+    {
+      "kf_seed": 1122,
+      "pooled_rae": 0.448,
+      "per_fold_val_rae_mean": 0.4539,
+      "per_fold_val_rae_std": 0.0585,
+      "fold_q_thr_mean": 4.6931,
+      "fold_q_thr_std": 0.0537,
+      "fold_high_share_mean": 0.5933
+    },
+    {
+      "kf_seed": 1123,
+      "pooled_rae": 0.4475,
+      "per_fold_val_rae_mean": 0.4547,
+      "per_fold_val_rae_std": 0.0279,
+      "fold_q_thr_mean": 4.6818,
+      "fold_q_thr_std": 0.0563,
+      "fold_high_share_mean": 0.6083
+    },
+    {
+      "kf_seed": 1124,
+      "pooled_rae": 0.4467,
+      "per_fold_val_rae_mean": 0.4703,
+      "per_fold_val_rae_std": 0.078,
+      "fold_q_thr_mean": 4.6992,
+      "fold_q_thr_std": 0.0918,
+      "fold_high_share_mean": 0.5815
+    },
+    {
+      "kf_seed": 1125,
+      "pooled_rae": 0.4477,
+      "per_fold_val_rae_mean": 0.465,
+      "per_fold_val_rae_std": 0.0848,
+      "fold_q_thr_mean": 4.686,
+      "fold_q_thr_std": 0.0522,
+      "fold_high_share_mean": 0.5965
+    }
+  ],
+  "pooled_rae_array": [
+    0.4475,
+    0.4477,
+    0.4487,
+    0.4466,
+    0.4477,
+    0.4479,
+    0.4465,
+    0.4467,
+    0.4477,
+    0.4478,
+    0.4478,
+    0.448,
+    0.4475,
+    0.4467,
+    0.4477
+  ],
+  "mean_rae": 0.4475,
+  "std_rae": 0.0006,
+  "sem_rae": 0.0002,
+  "ci95_low": 0.4472,
+  "ci95_high": 0.4478,
+  "median_rae": 0.4477,
+  "min_rae": 0.4465,
+  "max_rae": 0.4487,
+  "ref_parent_5seed_mean": 0.447,
+  "ref_parent_5seed_std": 0.0009,
+  "shift_vs_parent_5seed": 0.0005,
+  "under_dispersion_ratio_15_over_5": 0.67,
+  "ref_nb3063_5seed": 0.4477,
+  "ref_nb3030": 0.4509,
+  "ref_nb3002": 0.4501,
+  "ref_K18_deep30": 0.4536,
+  "ref_K19_deep30": 0.4607,
+  "ref_nb2171": 0.4682,
+  "delta_vs_nb3030": -0.0034,
+  "deploy_q_thr": 4.7082,
+  "te_low_share": 0.4133,
+  "te_mean": 4.7316670417785645,
+  "te_std": 0.7725290060043335,
+  "te_unb_in_sample_rae": 0.1899,
+  "median_seed": 1112,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb3080_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb3080.npy",
+  "submission_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb3080_verify_nb3073.csv",
+  "gate_verified_new_primary1": 0.4477,
+  "gate_verified_marginal": 0.4509,
+  "gate_lucky_seed_shift": 0.005,
+  "verdict": "VERIFIED_NEW_PRIMARY1",
+  "ladder_action": "PROMOTE. nb3080 wide-seed 15-mean 0.4475 beats nb3063/nb3070 5-seed 0.4477 (-0.0002) and nb3030 ceiling 0.4509 (-0.0034). Wide-seed shift vs nb3073 5-seed = +0.0005 (within tolerance). nb3073 best combo (q_cut=0.4, w_K18_low=0.9, w_K18_high=0.5) VERIFIED as new PRIMARY-1 candidate.",
+  "wall_sec": 0.1
+}

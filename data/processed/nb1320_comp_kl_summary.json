@@ -1,0 +1,21 @@
+{
+  "comp_k": {
+    "best_tag": "k50_aC1000",
+    "ctrl_mean": 0.4213013953017571,
+    "soap_mean": 0.4176923880945347,
+    "chain_mean": 0.425191907966365,
+    "delta_vs_soap": 0.00749951987183034,
+    "neg_vs_soap": 0,
+    "deploy": false
+  },
+  "comp_l": {
+    "best_tag": "depth3",
+    "ctrl_mean": 0.4213013953017571,
+    "soap_mean": 0.4176923880945347,
+    "lgbm_mean": 0.4229165503896972,
+    "delta_vs_soap": 0.005224162295162538,
+    "neg_vs_soap": 0,
+    "deploy": false
+  },
+  "wall_sec": 7084.804449796677
+}

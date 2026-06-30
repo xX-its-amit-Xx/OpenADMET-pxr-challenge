@@ -1,0 +1,90 @@
+{
+  "tag": "nb2183_trajectory",
+  "cycle": 166,
+  "total_cycles": 167,
+  "total_methods_approx": 1070,
+  "reconsideration": {
+    "tag": "nb2171",
+    "kind": "anchor_swap_nb1162",
+    "regime": "PRE-clean",
+    "n_seeds": 5,
+    "mean_rae": 0.4676,
+    "std_rae": 0.0008,
+    "vs_nb2095_delta": -0.0044,
+    "margin_gate": "PASS (delta -0.0044 < -2*sigma -0.0016)",
+    "promote_to_primary1": true,
+    "new_slot": "PRE-NB1191-PYRAMID",
+    "verification_pending": "deep-30 cross-fit re-eval",
+    "lb_estimate": 0.4721,
+    "lb_win_vs_current_best": -0.2934
+  },
+  "honest_floor_new": 0.4676,
+  "honest_floor_status": "PENDING",
+  "current_lb": 0.7655,
+  "pre_delta": 0.0045,
+  "lb_estimate_nb2171": 0.4721,
+  "lb_win_vs_current": -0.2934,
+  "lb_win_pct": -0.3833,
+  "primary1_stack": [
+    {
+      "slot": "AGGRESSIVE-POST",
+      "name": "nb1162",
+      "honest_rae": 0.5142,
+      "regime": "POST"
+    },
+    {
+      "slot": "PRE-NB1191-PYRAMID",
+      "name": "nb2171",
+      "honest_rae": 0.4676,
+      "honest_std": 0.0008,
+      "regime": "PRE",
+      "status": "NEW"
+    },
+    {
+      "slot": "PRE-PYRAMID",
+      "name": "nb2095",
+      "honest_rae": 0.472,
+      "regime": "PRE"
+    },
+    {
+      "slot": "LB-SAFE-DEEP",
+      "name": "nb1191",
+      "honest_rae": 0.5079,
+      "regime": "PRE"
+    },
+    {
+      "slot": "LB-CLEAN-HOLD",
+      "name": "nb2060",
+      "honest_rae": 0.5061,
+      "regime": "PRE"
+    }
+  ],
+  "compounding_wins": {
+    "trajectory": [
+      {
+        "step": "chemprop_aux",
+        "honest_rae": 0.6216,
+        "delta": 0.0
+      },
+      {
+        "step": "nb2103",
+        "honest_rae": 0.5057,
+        "delta": -0.1159
+      },
+      {
+        "step": "nb2095",
+        "honest_rae": 0.472,
+        "delta": -0.0337
+      },
+      {
+        "step": "nb2171",
+        "honest_rae": 0.4676,
+        "delta": -0.0044
+      }
+    ],
+    "headline_delta_pre_honest": -0.2,
+    "headline_pct_pre_honest": -0.32,
+    "anchor_only_delta": -0.154,
+    "anchor_only_pct": -0.2477
+  }
+}

@@ -1,0 +1,1147 @@
+{
+  "tag": "nb3132",
+  "parent_tag": "nb3104",
+  "method": "per_fold_learned_qcut_wlow_whigh_inner_grid_K18_K19_deep30",
+  "anchor_pool": [
+    "K18",
+    "K19"
+  ],
+  "anchor_depth": {
+    "K18": "deep30",
+    "K19": "deep30"
+  },
+  "anchor_pre_unblind": true,
+  "per_K_full_oof_rae": {
+    "K18": 0.4536,
+    "K19": 0.4607
+  },
+  "anchor_leak_eq_truth_frac": {
+    "K18": 0.0,
+    "K19": 0.0
+  },
+  "oof_pairwise_corr": 0.9846,
+  "grid": {
+    "q_cuts": [
+      0.3,
+      0.35,
+      0.4,
+      0.45
+    ],
+    "w_lows": [
+      0.85,
+      0.9,
+      0.95
+    ],
+    "w_highs": [
+      0.4,
+      0.45,
+      0.5
+    ],
+    "n_combos_per_fold": 36
+  },
+  "blend_form": "p_k18 <= q_thr -> w_low*K18 + (1-w_low)*K19; p_k18 >  q_thr -> w_high*K18 + (1-w_high)*K19",
+  "n_folds": 5,
+  "kf_seeds": [
+    1141,
+    1142,
+    1143,
+    1144,
+    1145,
+    1146,
+    1147,
+    1148,
+    1149,
+    1150,
+    1151,
+    1152,
+    1153,
+    1154,
+    1155
+  ],
+  "n_seeds": 15,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "seed_records": [
+    {
+      "kf_seed": 1141,
+      "pooled_rae": 0.4503,
+      "per_fold_val_rae_mean": 0.4596,
+      "fold_picks": [
+        {
+          "fold": 0,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.45,
+          "q_thr": 4.7355,
+          "w_low": 0.95,
+          "w_high": 0.4,
+          "train_rae": 0.4692,
+          "val_rae": 0.367
+        },
+        {
+          "fold": 1,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.45,
+          "q_thr": 4.8382,
+          "w_low": 0.95,
+          "w_high": 0.4,
+          "train_rae": 0.4278,
+          "val_rae": 0.5165
+        },
+        {
+          "fold": 2,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.3,
+          "q_thr": 4.3178,
+          "w_low": 0.9,
+          "w_high": 0.4,
+          "train_rae": 0.4341,
+          "val_rae": 0.5096
+        },
+        {
+          "fold": 3,
+          "n_tr": 203,
+          "n_va": 50,
+          "q_cut": 0.45,
+          "q_thr": 4.8465,
+          "w_low": 0.95,
+          "w_high": 0.5,
+          "train_rae": 0.4654,
+          "val_rae": 0.4109
+        },
+        {
+          "fold": 4,
+          "n_tr": 203,
+          "n_va": 50,
+          "q_cut": 0.4,
+          "q_thr": 4.6795,
+          "w_low": 0.95,
+          "w_high": 0.45,
+          "train_rae": 0.4386,
+          "val_rae": 0.4938
+        }
+      ]
+    },
+    {
+      "kf_seed": 1142,
+      "pooled_rae": 0.4514,
+      "per_fold_val_rae_mean": 0.4542,
+      "fold_picks": [
+        {
+          "fold": 0,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.45,
+          "q_thr": 4.7548,
+          "w_low": 0.95,
+          "w_high": 0.4,
+          "train_rae": 0.4497,
+          "val_rae": 0.439
+        },
+        {
+          "fold": 1,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.3,
+          "q_thr": 4.3148,
+          "w_low": 0.95,
+          "w_high": 0.5,
+          "train_rae": 0.4275,
+          "val_rae": 0.5189
+        },
+        {
+          "fold": 2,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.45,
+          "q_thr": 4.8535,
+          "w_low": 0.95,
+          "w_high": 0.5,
+          "train_rae": 0.4688,
+          "val_rae": 0.3856
+        },
+        {
+          "fold": 3,
+          "n_tr": 203,
+          "n_va": 50,
+          "q_cut": 0.45,
+          "q_thr": 4.8201,
+          "w_low": 0.95,
+          "w_high": 0.4,
+          "train_rae": 0.4388,
+          "val_rae": 0.4722
+        },
+        {
+          "fold": 4,
+          "n_tr": 203,
+          "n_va": 50,
+          "q_cut": 0.4,
+          "q_thr": 4.7265,
+          "w_low": 0.85,
+          "w_high": 0.4,
+          "train_rae": 0.4473,
+          "val_rae": 0.4556
+        }
+      ]
+    },
+    {
+      "kf_seed": 1143,
+      "pooled_rae": 0.4498,
+      "per_fold_val_rae_mean": 0.4833,
+      "fold_picks": [
+        {
+          "fold": 0,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.45,
+          "q_thr": 4.722,
+          "w_low": 0.95,
+          "w_high": 0.4,
+          "train_rae": 0.4416,
+          "val_rae": 0.5436
+        },
+        {
+          "fold": 1,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.45,
+          "q_thr": 4.8286,
+          "w_low": 0.95,
+          "w_high": 0.5,
+          "train_rae": 0.4644,
+          "val_rae": 0.4049
+        },
+        {
+          "fold": 2,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.4,
+          "q_thr": 4.801,
+          "w_low": 0.85,
+          "w_high": 0.4,
+          "train_rae": 0.4332,
+          "val_rae": 0.5204
+        },
+        {
+          "fold": 3,
+          "n_tr": 203,
+          "n_va": 50,
+          "q_cut": 0.4,
+          "q_thr": 4.5855,
+          "w_low": 0.95,
+          "w_high": 0.5,
+          "train_rae": 0.4381,
+          "val_rae": 0.546
+        },
+        {
+          "fold": 4,
+          "n_tr": 203,
+          "n_va": 50,
+          "q_cut": 0.45,
+          "q_thr": 4.836,
+          "w_low": 0.95,
+          "w_high": 0.4,
+          "train_rae": 0.4631,
+          "val_rae": 0.4018
+        }
+      ]
+    },
+    {
+      "kf_seed": 1144,
+      "pooled_rae": 0.4499,
+      "per_fold_val_rae_mean": 0.4658,
+      "fold_picks": [
+        {
+          "fold": 0,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.3,
+          "q_thr": 4.3097,
+          "w_low": 0.95,
+          "w_high": 0.45,
+          "train_rae": 0.4527,
+          "val_rae": 0.4347
+        },
+        {
+          "fold": 1,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.3,
+          "q_thr": 4.3314,
+          "w_low": 0.95,
+          "w_high": 0.5,
+          "train_rae": 0.4555,
+          "val_rae": 0.3996
+        },
+        {
+          "fold": 2,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.35,
+          "q_thr": 4.6151,
+          "w_low": 0.85,
+          "w_high": 0.5,
+          "train_rae": 0.4785,
+          "val_rae": 0.3855
+        },
+        {
+          "fold": 3,
+          "n_tr": 203,
+          "n_va": 50,
+          "q_cut": 0.45,
+          "q_thr": 4.8143,
+          "w_low": 0.95,
+          "w_high": 0.4,
+          "train_rae": 0.4346,
+          "val_rae": 0.5009
+        },
+        {
+          "fold": 4,
+          "n_tr": 203,
+          "n_va": 50,
+          "q_cut": 0.45,
+          "q_thr": 4.7899,
+          "w_low": 0.95,
+          "w_high": 0.5,
+          "train_rae": 0.4155,
+          "val_rae": 0.6082
+        }
+      ]
+    },
+    {
+      "kf_seed": 1145,
+      "pooled_rae": 0.4506,
+      "per_fold_val_rae_mean": 0.4649,
+      "fold_picks": [
+        {
+          "fold": 0,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.4,
+          "q_thr": 4.6657,
+          "w_low": 0.95,
+          "w_high": 0.4,
+          "train_rae": 0.4526,
+          "val_rae": 0.4303
+        },
+        {
+          "fold": 1,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.3,
+          "q_thr": 4.3314,
+          "w_low": 0.95,
+          "w_high": 0.4,
+          "train_rae": 0.453,
+          "val_rae": 0.4292
+        },
+        {
+          "fold": 2,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.45,
+          "q_thr": 4.8778,
+          "w_low": 0.85,
+          "w_high": 0.4,
+          "train_rae": 0.4724,
+          "val_rae": 0.4067
+        },
+        {
+          "fold": 3,
+          "n_tr": 203,
+          "n_va": 50,
+          "q_cut": 0.3,
+          "q_thr": 4.3271,
+          "w_low": 0.95,
+          "w_high": 0.4,
+          "train_rae": 0.4369,
+          "val_rae": 0.4936
+        },
+        {
+          "fold": 4,
+          "n_tr": 203,
+          "n_va": 50,
+          "q_cut": 0.4,
+          "q_thr": 4.68,
+          "w_low": 0.95,
+          "w_high": 0.5,
+          "train_rae": 0.4191,
+          "val_rae": 0.5647
+        }
+      ]
+    },
+    {
+      "kf_seed": 1146,
+      "pooled_rae": 0.4502,
+      "per_fold_val_rae_mean": 0.4533,
+      "fold_picks": [
+        {
+          "fold": 0,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.3,
+          "q_thr": 4.3124,
+          "w_low": 0.95,
+          "w_high": 0.4,
+          "train_rae": 0.4454,
+          "val_rae": 0.4689
+        },
+        {
+          "fold": 1,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.45,
+          "q_thr": 4.789,
+          "w_low": 0.95,
+          "w_high": 0.4,
+          "train_rae": 0.468,
+          "val_rae": 0.3751
+        },
+        {
+          "fold": 2,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.45,
+          "q_thr": 4.8224,
+          "w_low": 0.95,
+          "w_high": 0.4,
+          "train_rae": 0.4472,
+          "val_rae": 0.4405
+        },
+        {
+          "fold": 3,
+          "n_tr": 203,
+          "n_va": 50,
+          "q_cut": 0.45,
+          "q_thr": 4.8208,
+          "w_low": 0.9,
+          "w_high": 0.5,
+          "train_rae": 0.4375,
+          "val_rae": 0.4804
+        },
+        {
+          "fold": 4,
+          "n_tr": 203,
+          "n_va": 50,
+          "q_cut": 0.3,
+          "q_thr": 4.4426,
+          "w_low": 0.95,
+          "w_high": 0.5,
+          "train_rae": 0.4344,
+          "val_rae": 0.5017
+        }
+      ]
+    },
+    {
+      "kf_seed": 1147,
+      "pooled_rae": 0.4506,
+      "per_fold_val_rae_mean": 0.453,
+      "fold_picks": [
+        {
+          "fold": 0,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.45,
+          "q_thr": 4.7548,
+          "w_low": 0.95,
+          "w_high": 0.4,
+          "train_rae": 0.4605,
+          "val_rae": 0.4047
+        },
+        {
+          "fold": 1,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.45,
+          "q_thr": 4.7762,
+          "w_low": 0.9,
+          "w_high": 0.5,
+          "train_rae": 0.4315,
+          "val_rae": 0.5027
+        },
+        {
+          "fold": 2,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.45,
+          "q_thr": 4.8264,
+          "w_low": 0.95,
+          "w_high": 0.4,
+          "train_rae": 0.4346,
+          "val_rae": 0.4912
+        },
+        {
+          "fold": 3,
+          "n_tr": 203,
+          "n_va": 50,
+          "q_cut": 0.3,
+          "q_thr": 4.3624,
+          "w_low": 0.95,
+          "w_high": 0.4,
+          "train_rae": 0.4469,
+          "val_rae": 0.4561
+        },
+        {
+          "fold": 4,
+          "n_tr": 203,
+          "n_va": 50,
+          "q_cut": 0.45,
+          "q_thr": 4.8387,
+          "w_low": 0.95,
+          "w_high": 0.5,
+          "train_rae": 0.4592,
+          "val_rae": 0.4104
+        }
+      ]
+    },
+    {
+      "kf_seed": 1148,
+      "pooled_rae": 0.4493,
+      "per_fold_val_rae_mean": 0.4519,
+      "fold_picks": [
+        {
+          "fold": 0,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.45,
+          "q_thr": 4.815,
+          "w_low": 0.85,
+          "w_high": 0.4,
+          "train_rae": 0.4455,
+          "val_rae": 0.45
+        },
+        {
+          "fold": 1,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.4,
+          "q_thr": 4.7214,
+          "w_low": 0.95,
+          "w_high": 0.4,
+          "train_rae": 0.4666,
+          "val_rae": 0.3842
+        },
+        {
+          "fold": 2,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.45,
+          "q_thr": 4.8264,
+          "w_low": 0.95,
+          "w_high": 0.4,
+          "train_rae": 0.4512,
+          "val_rae": 0.4241
+        },
+        {
+          "fold": 3,
+          "n_tr": 203,
+          "n_va": 50,
+          "q_cut": 0.45,
+          "q_thr": 4.8208,
+          "w_low": 0.95,
+          "w_high": 0.5,
+          "train_rae": 0.4421,
+          "val_rae": 0.466
+        },
+        {
+          "fold": 4,
+          "n_tr": 203,
+          "n_va": 50,
+          "q_cut": 0.45,
+          "q_thr": 4.7604,
+          "w_low": 0.95,
+          "w_high": 0.5,
+          "train_rae": 0.4277,
+          "val_rae": 0.5351
+        }
+      ]
+    },
+    {
+      "kf_seed": 1149,
+      "pooled_rae": 0.4524,
+      "per_fold_val_rae_mean": 0.4574,
+      "fold_picks": [
+        {
+          "fold": 0,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.35,
+          "q_thr": 4.5512,
+          "w_low": 0.95,
+          "w_high": 0.4,
+          "train_rae": 0.4541,
+          "val_rae": 0.4291
+        },
+        {
+          "fold": 1,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.4,
+          "q_thr": 4.6916,
+          "w_low": 0.95,
+          "w_high": 0.5,
+          "train_rae": 0.4334,
+          "val_rae": 0.4878
+        },
+        {
+          "fold": 2,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.45,
+          "q_thr": 4.8601,
+          "w_low": 0.95,
+          "w_high": 0.5,
+          "train_rae": 0.4695,
+          "val_rae": 0.3806
+        },
+        {
+          "fold": 3,
+          "n_tr": 203,
+          "n_va": 50,
+          "q_cut": 0.45,
+          "q_thr": 4.8465,
+          "w_low": 0.85,
+          "w_high": 0.4,
+          "train_rae": 0.4317,
+          "val_rae": 0.5142
+        },
+        {
+          "fold": 4,
+          "n_tr": 203,
+          "n_va": 50,
+          "q_cut": 0.45,
+          "q_thr": 4.716,
+          "w_low": 0.95,
+          "w_high": 0.5,
+          "train_rae": 0.4453,
+          "val_rae": 0.4753
+        }
+      ]
+    },
+    {
+      "kf_seed": 1150,
+      "pooled_rae": 0.4496,
+      "per_fold_val_rae_mean": 0.4701,
+      "fold_picks": [
+        {
+          "fold": 0,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.45,
+          "q_thr": 4.7548,
+          "w_low": 0.95,
+          "w_high": 0.4,
+          "train_rae": 0.4377,
+          "val_rae": 0.4877
+        },
+        {
+          "fold": 1,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.45,
+          "q_thr": 4.7991,
+          "w_low": 0.85,
+          "w_high": 0.4,
+          "train_rae": 0.4608,
+          "val_rae": 0.4099
+        },
+        {
+          "fold": 2,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.45,
+          "q_thr": 4.8132,
+          "w_low": 0.95,
+          "w_high": 0.4,
+          "train_rae": 0.4261,
+          "val_rae": 0.5482
+        },
+        {
+          "fold": 3,
+          "n_tr": 203,
+          "n_va": 50,
+          "q_cut": 0.4,
+          "q_thr": 4.6178,
+          "w_low": 0.95,
+          "w_high": 0.5,
+          "train_rae": 0.449,
+          "val_rae": 0.4524
+        },
+        {
+          "fold": 4,
+          "n_tr": 203,
+          "n_va": 50,
+          "q_cut": 0.45,
+          "q_thr": 4.863,
+          "w_low": 0.95,
+          "w_high": 0.4,
+          "train_rae": 0.4644,
+          "val_rae": 0.4523
+        }
+      ]
+    },
+    {
+      "kf_seed": 1151,
+      "pooled_rae": 0.4492,
+      "per_fold_val_rae_mean": 0.4644,
+      "fold_picks": [
+        {
+          "fold": 0,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.4,
+          "q_thr": 4.6212,
+          "w_low": 0.95,
+          "w_high": 0.45,
+          "train_rae": 0.4582,
+          "val_rae": 0.4023
+        },
+        {
+          "fold": 1,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.45,
+          "q_thr": 4.8023,
+          "w_low": 0.95,
+          "w_high": 0.4,
+          "train_rae": 0.433,
+          "val_rae": 0.5208
+        },
+        {
+          "fold": 2,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.3,
+          "q_thr": 4.4422,
+          "w_low": 0.95,
+          "w_high": 0.5,
+          "train_rae": 0.4464,
+          "val_rae": 0.4697
+        },
+        {
+          "fold": 3,
+          "n_tr": 203,
+          "n_va": 50,
+          "q_cut": 0.45,
+          "q_thr": 4.766,
+          "w_low": 0.95,
+          "w_high": 0.4,
+          "train_rae": 0.4377,
+          "val_rae": 0.5042
+        },
+        {
+          "fold": 4,
+          "n_tr": 203,
+          "n_va": 50,
+          "q_cut": 0.45,
+          "q_thr": 4.8464,
+          "w_low": 0.95,
+          "w_high": 0.4,
+          "train_rae": 0.4615,
+          "val_rae": 0.4252
+        }
+      ]
+    },
+    {
+      "kf_seed": 1152,
+      "pooled_rae": 0.4512,
+      "per_fold_val_rae_mean": 0.4625,
+      "fold_picks": [
+        {
+          "fold": 0,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.35,
+          "q_thr": 4.491,
+          "w_low": 0.95,
+          "w_high": 0.4,
+          "train_rae": 0.4478,
+          "val_rae": 0.4498
+        },
+        {
+          "fold": 1,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.4,
+          "q_thr": 4.632,
+          "w_low": 0.95,
+          "w_high": 0.5,
+          "train_rae": 0.4426,
+          "val_rae": 0.4636
+        },
+        {
+          "fold": 2,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.45,
+          "q_thr": 4.819,
+          "w_low": 0.95,
+          "w_high": 0.4,
+          "train_rae": 0.4639,
+          "val_rae": 0.3896
+        },
+        {
+          "fold": 3,
+          "n_tr": 203,
+          "n_va": 50,
+          "q_cut": 0.3,
+          "q_thr": 4.3317,
+          "w_low": 0.95,
+          "w_high": 0.4,
+          "train_rae": 0.4255,
+          "val_rae": 0.5567
+        },
+        {
+          "fold": 4,
+          "n_tr": 203,
+          "n_va": 50,
+          "q_cut": 0.3,
+          "q_thr": 4.5265,
+          "w_low": 0.85,
+          "w_high": 0.5,
+          "train_rae": 0.456,
+          "val_rae": 0.4529
+        }
+      ]
+    },
+    {
+      "kf_seed": 1153,
+      "pooled_rae": 0.4491,
+      "per_fold_val_rae_mean": 0.4692,
+      "fold_picks": [
+        {
+          "fold": 0,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.4,
+          "q_thr": 4.6343,
+          "w_low": 0.95,
+          "w_high": 0.4,
+          "train_rae": 0.4456,
+          "val_rae": 0.4737
+        },
+        {
+          "fold": 1,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.45,
+          "q_thr": 4.7991,
+          "w_low": 0.95,
+          "w_high": 0.5,
+          "train_rae": 0.4802,
+          "val_rae": 0.3534
+        },
+        {
+          "fold": 2,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.35,
+          "q_thr": 4.6331,
+          "w_low": 0.95,
+          "w_high": 0.5,
+          "train_rae": 0.4501,
+          "val_rae": 0.472
+        },
+        {
+          "fold": 3,
+          "n_tr": 203,
+          "n_va": 50,
+          "q_cut": 0.4,
+          "q_thr": 4.6443,
+          "w_low": 0.95,
+          "w_high": 0.4,
+          "train_rae": 0.4385,
+          "val_rae": 0.4865
+        },
+        {
+          "fold": 4,
+          "n_tr": 203,
+          "n_va": 50,
+          "q_cut": 0.45,
+          "q_thr": 4.836,
+          "w_low": 0.95,
+          "w_high": 0.4,
+          "train_rae": 0.4249,
+          "val_rae": 0.5604
+        }
+      ]
+    },
+    {
+      "kf_seed": 1154,
+      "pooled_rae": 0.4497,
+      "per_fold_val_rae_mean": 0.4666,
+      "fold_picks": [
+        {
+          "fold": 0,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.45,
+          "q_thr": 4.819,
+          "w_low": 0.95,
+          "w_high": 0.4,
+          "train_rae": 0.4769,
+          "val_rae": 0.3545
+        },
+        {
+          "fold": 1,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.45,
+          "q_thr": 4.7528,
+          "w_low": 0.95,
+          "w_high": 0.5,
+          "train_rae": 0.4321,
+          "val_rae": 0.516
+        },
+        {
+          "fold": 2,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.45,
+          "q_thr": 4.789,
+          "w_low": 0.95,
+          "w_high": 0.5,
+          "train_rae": 0.4232,
+          "val_rae": 0.5751
+        },
+        {
+          "fold": 3,
+          "n_tr": 203,
+          "n_va": 50,
+          "q_cut": 0.45,
+          "q_thr": 4.766,
+          "w_low": 0.95,
+          "w_high": 0.5,
+          "train_rae": 0.4816,
+          "val_rae": 0.3239
+        },
+        {
+          "fold": 4,
+          "n_tr": 203,
+          "n_va": 50,
+          "q_cut": 0.35,
+          "q_thr": 4.6418,
+          "w_low": 0.95,
+          "w_high": 0.5,
+          "train_rae": 0.4229,
+          "val_rae": 0.5638
+        }
+      ]
+    },
+    {
+      "kf_seed": 1155,
+      "pooled_rae": 0.4505,
+      "per_fold_val_rae_mean": 0.4645,
+      "fold_picks": [
+        {
+          "fold": 0,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.3,
+          "q_thr": 4.3097,
+          "w_low": 0.95,
+          "w_high": 0.4,
+          "train_rae": 0.4448,
+          "val_rae": 0.4775
+        },
+        {
+          "fold": 1,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.4,
+          "q_thr": 4.6343,
+          "w_low": 0.95,
+          "w_high": 0.5,
+          "train_rae": 0.4502,
+          "val_rae": 0.4405
+        },
+        {
+          "fold": 2,
+          "n_tr": 202,
+          "n_va": 51,
+          "q_cut": 0.45,
+          "q_thr": 4.7762,
+          "w_low": 0.95,
+          "w_high": 0.4,
+          "train_rae": 0.4311,
+          "val_rae": 0.5119
+        },
+        {
+          "fold": 3,
+          "n_tr": 203,
+          "n_va": 50,
+          "q_cut": 0.45,
+          "q_thr": 4.863,
+          "w_low": 0.85,
+          "w_high": 0.4,
+          "train_rae": 0.4615,
+          "val_rae": 0.4428
+        },
+        {
+          "fold": 4,
+          "n_tr": 203,
+          "n_va": 50,
+          "q_cut": 0.45,
+          "q_thr": 4.873,
+          "w_low": 0.95,
+          "w_high": 0.4,
+          "train_rae": 0.4475,
+          "val_rae": 0.4497
+        }
+      ]
+    }
+  ],
+  "pick_tally_top": [
+    {
+      "q_cut": 0.45,
+      "w_low": 0.95,
+      "w_high": 0.4,
+      "count": 23
+    },
+    {
+      "q_cut": 0.45,
+      "w_low": 0.95,
+      "w_high": 0.5,
+      "count": 13
+    },
+    {
+      "q_cut": 0.4,
+      "w_low": 0.95,
+      "w_high": 0.5,
+      "count": 6
+    },
+    {
+      "q_cut": 0.3,
+      "w_low": 0.95,
+      "w_high": 0.4,
+      "count": 6
+    },
+    {
+      "q_cut": 0.45,
+      "w_low": 0.85,
+      "w_high": 0.4,
+      "count": 5
+    },
+    {
+      "q_cut": 0.3,
+      "w_low": 0.95,
+      "w_high": 0.5,
+      "count": 4
+    },
+    {
+      "q_cut": 0.4,
+      "w_low": 0.95,
+      "w_high": 0.4,
+      "count": 4
+    },
+    {
+      "q_cut": 0.4,
+      "w_low": 0.95,
+      "w_high": 0.45,
+      "count": 2
+    },
+    {
+      "q_cut": 0.4,
+      "w_low": 0.85,
+      "w_high": 0.4,
+      "count": 2
+    },
+    {
+      "q_cut": 0.45,
+      "w_low": 0.9,
+      "w_high": 0.5,
+      "count": 2
+    },
+    {
+      "q_cut": 0.35,
+      "w_low": 0.95,
+      "w_high": 0.4,
+      "count": 2
+    },
+    {
+      "q_cut": 0.35,
+      "w_low": 0.95,
+      "w_high": 0.5,
+      "count": 2
+    },
+    {
+      "q_cut": 0.3,
+      "w_low": 0.9,
+      "w_high": 0.4,
+      "count": 1
+    },
+    {
+      "q_cut": 0.3,
+      "w_low": 0.95,
+      "w_high": 0.45,
+      "count": 1
+    },
+    {
+      "q_cut": 0.35,
+      "w_low": 0.85,
+      "w_high": 0.5,
+      "count": 1
+    },
+    {
+      "q_cut": 0.3,
+      "w_low": 0.85,
+      "w_high": 0.5,
+      "count": 1
+    }
+  ],
+  "n_unique_fold_picks": 16,
+  "mean_rae": 0.4503,
+  "std_rae": 0.0009,
+  "sem_rae": 0.0002,
+  "ci95_low": 0.4498,
+  "ci95_high": 0.4508,
+  "median_rae": 0.4502,
+  "min_rae": 0.4491,
+  "max_rae": 0.4524,
+  "median_seed": 1146,
+  "pooled_rae_array": [
+    0.4503,
+    0.4514,
+    0.4498,
+    0.4499,
+    0.4506,
+    0.4502,
+    0.4506,
+    0.4493,
+    0.4524,
+    0.4496,
+    0.4492,
+    0.4512,
+    0.4491,
+    0.4497,
+    0.4505
+  ],
+  "ref_nb3090": 0.4472,
+  "ref_nb3082": 0.4475,
+  "ref_nb3080": 0.4475,
+  "ref_K18_deep30": 0.4536,
+  "ref_K19_deep30": 0.4607,
+  "ref_nb2171": 0.4682,
+  "delta_vs_nb3090": 0.0031,
+  "delta_vs_gate": 0.0028,
+  "deploy_params": {
+    "q_cut": 0.45,
+    "q_thr": 4.8128,
+    "w_low": 0.95,
+    "w_high": 0.4,
+    "train_rae_on_full_unblind": 0.4466
+  },
+  "te_mean": 4.732030868530273,
+  "te_std": 0.772924542427063,
+  "te_unb_in_sample_rae": 0.1893,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb3132_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb3132.npy",
+  "submission_csv": null,
+  "gate_better": 0.4475,
+  "verdict": "FAIL",
+  "ladder_action": "REJECT. nb3132 per-fold learned (q_cut, w_low, w_high) 15-seed mean 0.4503 not below gate 0.4475 (+0.0028). Per-fold inner-grid learning on (q_cut, w_low, w_high) is in-sample optimistic on fold-train and adds variance without translating to val; closes the per-fold fully-adaptive hard-split axis on this anchor pair. Keep nb3090 / prior PRIMARY-1.",
+  "wall_sec": 0.19
+}

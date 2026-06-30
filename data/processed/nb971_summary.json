@@ -1,0 +1,253 @@
+{
+  "tag": "nb971",
+  "cycle": 131,
+  "plan_idx": 5,
+  "method": "stacked_slsqp_6anchor",
+  "n_anchors": 6,
+  "y_unb_n": 253,
+  "y_unb_mean": 4.664110671936759,
+  "y_unb_std": 1.0320053675542649,
+  "y_unb_mtime": 1780293745.768002,
+  "anchor_meta": [
+    {
+      "name": "chemprop_aux",
+      "te_path": "data/processed/te_chemprop_aux.npy",
+      "te_mtime": 1778552032.69725,
+      "pre_unblind_te_by_mtime": true,
+      "unb_source": "data/processed/te_chemprop_aux.npy[unb_idx]",
+      "unb_source_mtime": 1778552032.69725,
+      "honest_rae_on_unb": 0.6216,
+      "reported_rae": 0.6216,
+      "pred_unb_mean": 4.79670719811206,
+      "pred_unb_std": 0.6342383077953444,
+      "pred_unb_sha8": "c84ca06b",
+      "pearson_to_y_unb": 0.7466,
+      "truth_injection_flag": false
+    },
+    {
+      "name": "nb503",
+      "te_path": "data/processed/te_nb503.npy",
+      "te_mtime": 1780291342.5641525,
+      "pre_unblind_te_by_mtime": true,
+      "unb_source": "data/processed/nb503_pred_oof.npy",
+      "unb_source_mtime": 1780291342.56516,
+      "honest_rae_on_unb": 0.5116,
+      "reported_rae": 0.5116,
+      "pred_unb_mean": 4.686190128326416,
+      "pred_unb_std": 0.7557479739189148,
+      "pred_unb_sha8": "b21e41f7",
+      "pearson_to_y_unb": 0.8277,
+      "truth_injection_flag": false
+    },
+    {
+      "name": "nb464",
+      "te_path": "data/processed/te_nb464.npy",
+      "te_mtime": 1780287468.758731,
+      "pre_unblind_te_by_mtime": true,
+      "unb_source": "data/processed/te_nb464.npy[unb_idx]",
+      "unb_source_mtime": 1780287468.758731,
+      "honest_rae_on_unb": 0.5489,
+      "reported_rae": 0.5489,
+      "pred_unb_mean": 4.731312274932861,
+      "pred_unb_std": 0.6999297142028809,
+      "pred_unb_sha8": "b4d1ee35",
+      "pearson_to_y_unb": 0.7899,
+      "truth_injection_flag": false
+    },
+    {
+      "name": "nb471",
+      "te_path": "data/processed/te_nb471.npy",
+      "te_mtime": 1780288211.594035,
+      "pre_unblind_te_by_mtime": true,
+      "unb_source": "data/processed/te_nb471.npy[unb_idx]",
+      "unb_source_mtime": 1780288211.594035,
+      "honest_rae_on_unb": 0.5506,
+      "reported_rae": 0.5506,
+      "pred_unb_mean": 4.76024055480957,
+      "pred_unb_std": 0.6937917470932007,
+      "pred_unb_sha8": "6b7ae73c",
+      "pearson_to_y_unb": 0.7857,
+      "truth_injection_flag": false
+    },
+    {
+      "name": "nb432",
+      "te_path": "data/processed/te_nb432.npy",
+      "te_mtime": 1780283340.7006414,
+      "pre_unblind_te_by_mtime": true,
+      "unb_source": "data/processed/te_nb432.npy[unb_idx]",
+      "unb_source_mtime": 1780283340.7006414,
+      "honest_rae_on_unb": 0.5519,
+      "reported_rae": 0.5519,
+      "pred_unb_mean": 4.721008670405406,
+      "pred_unb_std": 0.6930019694789694,
+      "pred_unb_sha8": "0d673632",
+      "pearson_to_y_unb": 0.7914,
+      "truth_injection_flag": false
+    },
+    {
+      "name": "nb2112",
+      "te_path": "data/processed/te_nb2112.npy",
+      "te_mtime": 1780550288.7364194,
+      "pre_unblind_te_by_mtime": false,
+      "unb_source": "data/processed/nb2103_mean_bag_oof_K28.npy",
+      "unb_source_mtime": 1780550043.4310815,
+      "honest_rae_on_unb": 0.4737,
+      "reported_rae": 0.4737,
+      "pred_unb_mean": 4.668732643127441,
+      "pred_unb_std": 0.8711342811584473,
+      "pred_unb_sha8": "c810a7e9",
+      "pearson_to_y_unb": 0.8599,
+      "truth_injection_flag": false
+    }
+  ],
+  "per_anchor_honest_rae": {
+    "chemprop_aux": 0.6216,
+    "nb503": 0.5116,
+    "nb464": 0.5489,
+    "nb471": 0.5506,
+    "nb432": 0.5519,
+    "nb2112": 0.4737
+  },
+  "slsqp_results": {
+    "slsqp_mae_insample": {
+      "weights": [
+        1.3882539810897085e-17,
+        0.2942234927202888,
+        1.786532798717985e-18,
+        6.88102908821718e-19,
+        6.196793510047056e-19,
+        0.7057765072797111
+      ],
+      "rae_insample": 0.4646
+    },
+    "slsqp_huber_insample": {
+      "weights": [
+        0.0,
+        0.2473439614944373,
+        2.3813546924059754e-17,
+        1.4632595845950656e-17,
+        0.0,
+        0.7526560385055627
+      ],
+      "rae_insample": 0.4649
+    },
+    "slsqp_mae_crossfit": {
+      "mean_fold_weights": [
+        1.31213278866573e-17,
+        0.2962803893015463,
+        7.165866110808755e-18,
+        1.6959425152630183e-17,
+        1.1198901937086046e-17,
+        0.7037196106984536
+      ],
+      "fold_weights": [
+        [
+          6.54149069804542e-18,
+          0.3566970423560592,
+          1.306787628735175e-17,
+          0.0,
+          8.35710503222626e-18,
+          0.6433029576439409
+        ],
+        [
+          3.1079071393269705e-17,
+          0.27445880249903376,
+          4.822855137747504e-18,
+          6.410582113108864e-17,
+          2.52142622847946e-20,
+          0.7255411975009661
+        ],
+        [
+          4.413655135470769e-18,
+          0.29422319568158384,
+          1.652348825556526e-17,
+          1.7488147383879335e-17,
+          2.30239093474195e-17,
+          0.7057768043184162
+        ],
+        [
+          1.5444488966353014e-17,
+          0.18722958944640433,
+          1.2090941298295472e-18,
+          6.057224625342737e-19,
+          2.4076524089079376e-17,
+          0.8127704105535957
+        ],
+        [
+          8.127933240147587e-18,
+          0.36879331652465064,
+          2.060167435497122e-19,
+          2.5974347856486753e-18,
+          5.117569544202985e-19,
+          0.6312066834753495
+        ]
+      ],
+      "rae_crossfit": 0.4675
+    },
+    "slsqp_huber_crossfit": {
+      "mean_fold_weights": [
+        1.1561732310926018e-17,
+        0.24468434228533723,
+        1.891428068490559e-18,
+        2.0621638972286722e-18,
+        3.2256681970023717e-18,
+        0.7553156577146628
+      ],
+      "fold_weights": [
+        [
+          3.4424562690863385e-17,
+          0.2988610457389946,
+          0.0,
+          0.0,
+          7.536348813222876e-18,
+          0.7011389542610055
+        ],
+        [
+          5.929923996676894e-18,
+          0.27699807776574603,
+          5.560975275880221e-19,
+          1.822455012951089e-18,
+          0.0,
+          0.723001922234254
+        ],
+        [
+          0.0,
+          0.1769229919524913,
+          0.0,
+          0.0,
+          2.7057129125619246e-18,
+          0.8230770080475086
+        ],
+        [
+          0.0,
+          0.13943256656200442,
+          8.901042814864773e-18,
+          8.48836447319227e-18,
+          5.886279259227059e-18,
+          0.8605674334379957
+        ],
+        [
+          1.7454174867089805e-17,
+          0.3312070294074498,
+          0.0,
+          0.0,
+          0.0,
+          0.6687929705925503
+        ]
+      ],
+      "rae_crossfit": 0.4685
+    }
+  },
+  "floor": {
+    "id": "nb2112_chemprop_aux_K28_median_bag",
+    "rae": 0.4698
+  },
+  "improvement_delta_required": 0.005,
+  "best_crossfit": {
+    "loss": "mae",
+    "rae": 0.4675,
+    "beats_floor": false,
+    "target_rae": 0.4648
+  },
+  "deploy_csv": null
+}

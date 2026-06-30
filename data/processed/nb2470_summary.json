@@ -1,0 +1,218 @@
+{
+  "tag": "nb2470",
+  "baseline_tag": "nb2464",
+  "method": "tda_mapper_cluster_conditional_4anchor_slsqp_blend_DEEP30",
+  "anchor_pool": [
+    "nb2240",
+    "nb730",
+    "nb562",
+    "chemprop_aux"
+  ],
+  "anchor_oof_files": {
+    "nb2240": "nb2240_mean_bag_oof_K20.npy",
+    "nb730": "nb730_pred_oof.npy",
+    "nb562": "nb562_pred_oof.npy",
+    "chemprop_aux": "nb1133_chemprop_aux_pred_oof.npy"
+  },
+  "anchor_in_rae": {
+    "nb2240": 0.46301757335429367,
+    "nb730": 0.46028859367725855,
+    "nb562": 0.5065400776344995,
+    "chemprop_aux": 0.5878769556905485
+  },
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "n_folds": 5,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    1007,
+    1008,
+    1009,
+    1010,
+    1011,
+    1012,
+    1013,
+    1014,
+    1015,
+    1016,
+    1017,
+    1018,
+    1019,
+    1020,
+    1021,
+    1022,
+    1023,
+    1024,
+    1025,
+    1026,
+    1027,
+    1028,
+    1029,
+    1030
+  ],
+  "per_seed_table": [
+    {
+      "kf_seed": 1001,
+      "pooled_rae": 0.44117794989000414
+    },
+    {
+      "kf_seed": 1002,
+      "pooled_rae": 0.44511853642473975
+    },
+    {
+      "kf_seed": 1003,
+      "pooled_rae": 0.44210979222306074
+    },
+    {
+      "kf_seed": 1004,
+      "pooled_rae": 0.44341067173039916
+    },
+    {
+      "kf_seed": 1005,
+      "pooled_rae": 0.44196181119459466
+    },
+    {
+      "kf_seed": 1006,
+      "pooled_rae": 0.4421541415133171
+    },
+    {
+      "kf_seed": 1007,
+      "pooled_rae": 0.4430664877983755
+    },
+    {
+      "kf_seed": 1008,
+      "pooled_rae": 0.43884868581520725
+    },
+    {
+      "kf_seed": 1009,
+      "pooled_rae": 0.4411656327155689
+    },
+    {
+      "kf_seed": 1010,
+      "pooled_rae": 0.4458545734828997
+    },
+    {
+      "kf_seed": 1011,
+      "pooled_rae": 0.443056580694463
+    },
+    {
+      "kf_seed": 1012,
+      "pooled_rae": 0.4455261878409327
+    },
+    {
+      "kf_seed": 1013,
+      "pooled_rae": 0.4452072787750182
+    },
+    {
+      "kf_seed": 1014,
+      "pooled_rae": 0.4456347498436908
+    },
+    {
+      "kf_seed": 1015,
+      "pooled_rae": 0.4465168711948957
+    },
+    {
+      "kf_seed": 1016,
+      "pooled_rae": 0.44044596875722647
+    },
+    {
+      "kf_seed": 1017,
+      "pooled_rae": 0.4363396705321673
+    },
+    {
+      "kf_seed": 1018,
+      "pooled_rae": 0.44502441508093654
+    },
+    {
+      "kf_seed": 1019,
+      "pooled_rae": 0.4607285464064742
+    },
+    {
+      "kf_seed": 1020,
+      "pooled_rae": 0.4449053880709764
+    },
+    {
+      "kf_seed": 1021,
+      "pooled_rae": 0.445450951952236
+    },
+    {
+      "kf_seed": 1022,
+      "pooled_rae": 0.44396857446677634
+    },
+    {
+      "kf_seed": 1023,
+      "pooled_rae": 0.4437163697843174
+    },
+    {
+      "kf_seed": 1024,
+      "pooled_rae": 0.44416692667310154
+    },
+    {
+      "kf_seed": 1025,
+      "pooled_rae": 0.44352672676221105
+    },
+    {
+      "kf_seed": 1026,
+      "pooled_rae": 0.44394624187533666
+    },
+    {
+      "kf_seed": 1027,
+      "pooled_rae": 0.4417892005358232
+    },
+    {
+      "kf_seed": 1028,
+      "pooled_rae": 0.4443405593311988
+    },
+    {
+      "kf_seed": 1029,
+      "pooled_rae": 0.44332076079060323
+    },
+    {
+      "kf_seed": 1030,
+      "pooled_rae": 0.4403829522482651
+    }
+  ],
+  "mean_30": 0.44376210681349393,
+  "std_30": 0.0038539070017051345,
+  "std_30_unbiased_ddof1": 0.003919790526307434,
+  "min_30": 0.4363396705321673,
+  "max_30": 0.4607285464064742,
+  "subset_5_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "subset_5_mean": 0.44275575229255965,
+  "subset_5_std": 0.0013819360061360978,
+  "subset_5_std_unbiased_ddof1": 0.0015450514251374404,
+  "welch_t_5_vs_25": -1.1051611127691634,
+  "welch_p_5_vs_25": 0.28349468038811776,
+  "under_dispersion_ratio_std30_over_std5": 2.5369968031703203,
+  "gate_mean_threshold": 0.457,
+  "gate_std_threshold": 0.005,
+  "gate_mean_pass": true,
+  "gate_std_pass": true,
+  "gate_pass": true,
+  "verdict": "DEEP30_HOLDS",
+  "lens": {
+    "raw_dim": 1828,
+    "pca_dim": 32,
+    "projection": "l2norm",
+    "resolution": 10,
+    "gain": 0.3,
+    "min_cluster_n": 10
+  },
+  "baseline_reference": {
+    "nb2464_pooled_mean_5seeds": 0.4428,
+    "nb2464_pooled_std_5seeds": 0.0014
+  },
+  "wall_sec": 1.79
+}

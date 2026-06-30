@@ -1,0 +1,582 @@
+{
+  "tag": "nb3374",
+  "parent_tag": "median3+clip",
+  "method": "per_row_median_K18_K19_nb3200_then_per_fold_learned_clip",
+  "paradigm": "robust_median_base_parameter_free_plus_tail_clip",
+  "anchor_pool": [
+    "K18",
+    "K19",
+    "nb3200"
+  ],
+  "anchor_depth": {
+    "K18": "deep30",
+    "K19": "deep30",
+    "nb3200": "deep30-clip"
+  },
+  "anchor_pre_unblind": true,
+  "per_K_full_oof_rae": {
+    "K18": 0.4536,
+    "K19": 0.4607,
+    "nb3200": 0.4416
+  },
+  "anchor_leak_eq_truth_frac": {
+    "K18": 0.0,
+    "K19": 0.0,
+    "nb3200": 0.0
+  },
+  "median_base_oof_rae": 0.4463,
+  "median_supplier_share": {
+    "K18": 0.0277,
+    "K19": 0.0237,
+    "nb3200": 0.9605
+  },
+  "q_low_grid": [
+    0.01,
+    0.05,
+    0.1
+  ],
+  "q_high_grid": [
+    0.9,
+    0.95,
+    0.98
+  ],
+  "n_folds": 5,
+  "kf_seeds": [
+    1216,
+    1217,
+    1218,
+    1219,
+    1220,
+    1221,
+    1222,
+    1223,
+    1224,
+    1225,
+    1226,
+    1227,
+    1228,
+    1229,
+    1230
+  ],
+  "n_seeds": 15,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "seed_records": [
+    {
+      "kf_seed": 1216,
+      "pooled_rae": 0.4416,
+      "per_fold_val_rae_mean": 0.4445,
+      "per_fold_val_rae_std": 0.0587,
+      "per_fold_train_rae_mean": 0.4414,
+      "per_fold_base_val_rae_mean": 0.4487,
+      "fold_ql": [
+        0.05,
+        0.05,
+        0.05,
+        0.05,
+        0.05
+      ],
+      "fold_qh": [
+        0.98,
+        0.98,
+        0.98,
+        0.98,
+        0.98
+      ],
+      "fold_lo_mean": 2.4743,
+      "fold_hi_mean": 6.082,
+      "n_clipped_lo": 8,
+      "n_clipped_hi": 0
+    },
+    {
+      "kf_seed": 1217,
+      "pooled_rae": 0.441,
+      "per_fold_val_rae_mean": 0.4525,
+      "per_fold_val_rae_std": 0.085,
+      "per_fold_train_rae_mean": 0.442,
+      "per_fold_base_val_rae_mean": 0.4577,
+      "fold_ql": [
+        0.05,
+        0.05,
+        0.05,
+        0.05,
+        0.05
+      ],
+      "fold_qh": [
+        0.98,
+        0.98,
+        0.98,
+        0.98,
+        0.98
+      ],
+      "fold_lo_mean": 2.4533,
+      "fold_hi_mean": 6.086,
+      "n_clipped_lo": 10,
+      "n_clipped_hi": 0
+    },
+    {
+      "kf_seed": 1218,
+      "pooled_rae": 0.4463,
+      "per_fold_val_rae_mean": 0.4537,
+      "per_fold_val_rae_std": 0.0338,
+      "per_fold_train_rae_mean": 0.4417,
+      "per_fold_base_val_rae_mean": 0.4537,
+      "fold_ql": [
+        0.05,
+        0.01,
+        0.05,
+        0.05,
+        0.05
+      ],
+      "fold_qh": [
+        0.98,
+        0.95,
+        0.98,
+        0.98,
+        0.98
+      ],
+      "fold_lo_mean": 2.3188,
+      "fold_hi_mean": 6.0635,
+      "n_clipped_lo": 5,
+      "n_clipped_hi": 2
+    },
+    {
+      "kf_seed": 1219,
+      "pooled_rae": 0.4406,
+      "per_fold_val_rae_mean": 0.4528,
+      "per_fold_val_rae_std": 0.0774,
+      "per_fold_train_rae_mean": 0.4418,
+      "per_fold_base_val_rae_mean": 0.4575,
+      "fold_ql": [
+        0.05,
+        0.05,
+        0.05,
+        0.05,
+        0.05
+      ],
+      "fold_qh": [
+        0.98,
+        0.98,
+        0.98,
+        0.98,
+        0.98
+      ],
+      "fold_lo_mean": 2.4912,
+      "fold_hi_mean": 6.0783,
+      "n_clipped_lo": 9,
+      "n_clipped_hi": 0
+    },
+    {
+      "kf_seed": 1220,
+      "pooled_rae": 0.4423,
+      "per_fold_val_rae_mean": 0.4475,
+      "per_fold_val_rae_std": 0.0529,
+      "per_fold_train_rae_mean": 0.4411,
+      "per_fold_base_val_rae_mean": 0.4514,
+      "fold_ql": [
+        0.05,
+        0.05,
+        0.05,
+        0.05,
+        0.05
+      ],
+      "fold_qh": [
+        0.98,
+        0.95,
+        0.98,
+        0.98,
+        0.98
+      ],
+      "fold_lo_mean": 2.4853,
+      "fold_hi_mean": 6.0451,
+      "n_clipped_lo": 8,
+      "n_clipped_hi": 4
+    },
+    {
+      "kf_seed": 1221,
+      "pooled_rae": 0.4423,
+      "per_fold_val_rae_mean": 0.4494,
+      "per_fold_val_rae_std": 0.0563,
+      "per_fold_train_rae_mean": 0.4417,
+      "per_fold_base_val_rae_mean": 0.4532,
+      "fold_ql": [
+        0.05,
+        0.05,
+        0.05,
+        0.05,
+        0.05
+      ],
+      "fold_qh": [
+        0.98,
+        0.95,
+        0.98,
+        0.98,
+        0.98
+      ],
+      "fold_lo_mean": 2.4567,
+      "fold_hi_mean": 6.0471,
+      "n_clipped_lo": 8,
+      "n_clipped_hi": 2
+    },
+    {
+      "kf_seed": 1222,
+      "pooled_rae": 0.4457,
+      "per_fold_val_rae_mean": 0.4665,
+      "per_fold_val_rae_std": 0.0828,
+      "per_fold_train_rae_mean": 0.4428,
+      "per_fold_base_val_rae_mean": 0.4673,
+      "fold_ql": [
+        0.05,
+        0.05,
+        0.05,
+        0.05,
+        0.01
+      ],
+      "fold_qh": [
+        0.98,
+        0.98,
+        0.98,
+        0.98,
+        0.98
+      ],
+      "fold_lo_mean": 2.3378,
+      "fold_hi_mean": 6.0761,
+      "n_clipped_lo": 7,
+      "n_clipped_hi": 0
+    },
+    {
+      "kf_seed": 1223,
+      "pooled_rae": 0.4416,
+      "per_fold_val_rae_mean": 0.4545,
+      "per_fold_val_rae_std": 0.0981,
+      "per_fold_train_rae_mean": 0.442,
+      "per_fold_base_val_rae_mean": 0.4584,
+      "fold_ql": [
+        0.05,
+        0.05,
+        0.05,
+        0.05,
+        0.05
+      ],
+      "fold_qh": [
+        0.98,
+        0.98,
+        0.98,
+        0.98,
+        0.98
+      ],
+      "fold_lo_mean": 2.4628,
+      "fold_hi_mean": 6.0905,
+      "n_clipped_lo": 8,
+      "n_clipped_hi": 1
+    },
+    {
+      "kf_seed": 1224,
+      "pooled_rae": 0.4428,
+      "per_fold_val_rae_mean": 0.4593,
+      "per_fold_val_rae_std": 0.0971,
+      "per_fold_train_rae_mean": 0.4418,
+      "per_fold_base_val_rae_mean": 0.4631,
+      "fold_ql": [
+        0.05,
+        0.05,
+        0.05,
+        0.05,
+        0.05
+      ],
+      "fold_qh": [
+        0.98,
+        0.95,
+        0.98,
+        0.98,
+        0.98
+      ],
+      "fold_lo_mean": 2.4668,
+      "fold_hi_mean": 6.0598,
+      "n_clipped_lo": 10,
+      "n_clipped_hi": 2
+    },
+    {
+      "kf_seed": 1225,
+      "pooled_rae": 0.4408,
+      "per_fold_val_rae_mean": 0.445,
+      "per_fold_val_rae_std": 0.0433,
+      "per_fold_train_rae_mean": 0.4416,
+      "per_fold_base_val_rae_mean": 0.4511,
+      "fold_ql": [
+        0.05,
+        0.05,
+        0.05,
+        0.05,
+        0.05
+      ],
+      "fold_qh": [
+        0.98,
+        0.98,
+        0.98,
+        0.98,
+        0.98
+      ],
+      "fold_lo_mean": 2.4722,
+      "fold_hi_mean": 6.0782,
+      "n_clipped_lo": 8,
+      "n_clipped_hi": 0
+    },
+    {
+      "kf_seed": 1226,
+      "pooled_rae": 0.4413,
+      "per_fold_val_rae_mean": 0.4629,
+      "per_fold_val_rae_std": 0.0794,
+      "per_fold_train_rae_mean": 0.4426,
+      "per_fold_base_val_rae_mean": 0.4672,
+      "fold_ql": [
+        0.05,
+        0.05,
+        0.05,
+        0.05,
+        0.05
+      ],
+      "fold_qh": [
+        0.98,
+        0.98,
+        0.98,
+        0.98,
+        0.98
+      ],
+      "fold_lo_mean": 2.4569,
+      "fold_hi_mean": 6.081,
+      "n_clipped_lo": 9,
+      "n_clipped_hi": 0
+    },
+    {
+      "kf_seed": 1227,
+      "pooled_rae": 0.4422,
+      "per_fold_val_rae_mean": 0.4547,
+      "per_fold_val_rae_std": 0.0771,
+      "per_fold_train_rae_mean": 0.442,
+      "per_fold_base_val_rae_mean": 0.4581,
+      "fold_ql": [
+        0.05,
+        0.05,
+        0.05,
+        0.05,
+        0.05
+      ],
+      "fold_qh": [
+        0.98,
+        0.95,
+        0.98,
+        0.98,
+        0.98
+      ],
+      "fold_lo_mean": 2.4724,
+      "fold_hi_mean": 6.0522,
+      "n_clipped_lo": 9,
+      "n_clipped_hi": 2
+    },
+    {
+      "kf_seed": 1228,
+      "pooled_rae": 0.4457,
+      "per_fold_val_rae_mean": 0.4579,
+      "per_fold_val_rae_std": 0.033,
+      "per_fold_train_rae_mean": 0.4427,
+      "per_fold_base_val_rae_mean": 0.4604,
+      "fold_ql": [
+        0.05,
+        0.05,
+        0.05,
+        0.05,
+        0.05
+      ],
+      "fold_qh": [
+        0.98,
+        0.98,
+        0.98,
+        0.98,
+        0.98
+      ],
+      "fold_lo_mean": 2.5107,
+      "fold_hi_mean": 6.0783,
+      "n_clipped_lo": 8,
+      "n_clipped_hi": 0
+    },
+    {
+      "kf_seed": 1229,
+      "pooled_rae": 0.4422,
+      "per_fold_val_rae_mean": 0.453,
+      "per_fold_val_rae_std": 0.1125,
+      "per_fold_train_rae_mean": 0.4416,
+      "per_fold_base_val_rae_mean": 0.4575,
+      "fold_ql": [
+        0.05,
+        0.05,
+        0.05,
+        0.05,
+        0.05
+      ],
+      "fold_qh": [
+        0.98,
+        0.98,
+        0.98,
+        0.98,
+        0.98
+      ],
+      "fold_lo_mean": 2.4695,
+      "fold_hi_mean": 6.082,
+      "n_clipped_lo": 8,
+      "n_clipped_hi": 0
+    },
+    {
+      "kf_seed": 1230,
+      "pooled_rae": 0.4423,
+      "per_fold_val_rae_mean": 0.4472,
+      "per_fold_val_rae_std": 0.0591,
+      "per_fold_train_rae_mean": 0.4412,
+      "per_fold_base_val_rae_mean": 0.4512,
+      "fold_ql": [
+        0.05,
+        0.05,
+        0.05,
+        0.05,
+        0.05
+      ],
+      "fold_qh": [
+        0.98,
+        0.98,
+        0.98,
+        0.98,
+        0.98
+      ],
+      "fold_lo_mean": 2.4744,
+      "fold_hi_mean": 6.0857,
+      "n_clipped_lo": 9,
+      "n_clipped_hi": 0
+    }
+  ],
+  "pooled_rae_array": [
+    0.4416,
+    0.441,
+    0.4463,
+    0.4406,
+    0.4423,
+    0.4423,
+    0.4457,
+    0.4416,
+    0.4428,
+    0.4408,
+    0.4413,
+    0.4422,
+    0.4457,
+    0.4422,
+    0.4423
+  ],
+  "per_fold_val_rae_means_array": [
+    0.4445,
+    0.4525,
+    0.4537,
+    0.4528,
+    0.4475,
+    0.4494,
+    0.4665,
+    0.4545,
+    0.4593,
+    0.445,
+    0.4629,
+    0.4547,
+    0.4579,
+    0.453,
+    0.4472
+  ],
+  "per_fold_val_rae_stds_array": [
+    0.0587,
+    0.085,
+    0.0338,
+    0.0774,
+    0.0529,
+    0.0563,
+    0.0828,
+    0.0981,
+    0.0971,
+    0.0433,
+    0.0794,
+    0.0771,
+    0.033,
+    0.1125,
+    0.0591
+  ],
+  "base_per_fold_means_array": [
+    0.4487,
+    0.4577,
+    0.4537,
+    0.4575,
+    0.4514,
+    0.4532,
+    0.4673,
+    0.4584,
+    0.4631,
+    0.4511,
+    0.4672,
+    0.4581,
+    0.4604,
+    0.4575,
+    0.4512
+  ],
+  "pf_mean": 0.4534,
+  "pf_std": 0.0063,
+  "pf_sem": 0.0016,
+  "pf_ci95_low": 0.4499,
+  "pf_ci95_high": 0.4569,
+  "pf_median": 0.453,
+  "pf_min": 0.4445,
+  "pf_max": 0.4665,
+  "base_pf_mean": 0.4571,
+  "clip_lift_vs_base": -0.0037,
+  "mean_rae": 0.4534,
+  "std_rae": 0.0063,
+  "pooled_mean": 0.4426,
+  "pooled_std": 0.0018,
+  "pooled_min": 0.4406,
+  "pooled_max": 0.4463,
+  "ql_distribution": {
+    "0.05": 73,
+    "0.01": 2
+  },
+  "qh_distribution": {
+    "0.98": 70,
+    "0.95": 5
+  },
+  "ql_mode": 0.05,
+  "qh_mode": 0.98,
+  "deploy_ql": 0.05,
+  "deploy_qh": 0.98,
+  "deploy_lo": 2.484,
+  "deploy_hi": 6.0792,
+  "n_te_clipped_lo": 12,
+  "n_te_clipped_hi": 4,
+  "te_mean": 4.7136125564575195,
+  "te_std": 0.8135653734207153,
+  "te_min": 2.4839999675750732,
+  "te_max": 6.07919979095459,
+  "te_unb_in_sample_rae": 0.1527,
+  "median_seed": 1229,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb3374_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb3374.npy",
+  "submission_csv": null,
+  "ref_K18_deep30": 0.4536,
+  "ref_K19_deep30": 0.4607,
+  "ref_nb3200_strongest_member": 0.4416,
+  "ref_nb3002_simplex_K18_K19": 0.4501,
+  "ref_nb3173_best_clip_winner": 0.4422,
+  "ref_nb3214_slsqp_clip_3": 0.4418,
+  "ref_nb2171": 0.4682,
+  "delta_vs_K18": -0.0002,
+  "delta_vs_K19": -0.0073,
+  "delta_vs_nb3200": 0.0118,
+  "delta_vs_nb3002_raw_simplex": 0.0033,
+  "delta_vs_nb3173_best_clip": 0.0112,
+  "gate_better": 0.4423,
+  "verdict": "FAIL",
+  "ladder_action": "REJECT. nb3374 15-seed per-fold-mean 0.4534 fails BETTER gate 0.4423 (+0.0111). Per-row median of ['K18', 'K19', 'nb3200'] + learned clip does NOT beat the clip-winner ladder. The median caps each row at the middle member, discarding the strong tails nb3200 already learned, and the raw-median base (base_pf 0.4571) leaves the clip operator less decompression headroom than the smoother wide-bag (nb3173 0.4422). Keep current clip-winner ladder (nb3173 best single 0.4422, nb3214/nb3210 ensembles). Modal clip = (q0.05, q0.98).",
+  "wall_sec": 0.16
+}

@@ -1,0 +1,91 @@
+{
+  "tag": "nb1344",
+  "anchor": "nb1070",
+  "data_source": "local_chembl_caches_union (same as nb1242)",
+  "n_chembl_pool": 945,
+  "test_inchikeys_in_pool_dropped": 0,
+  "pool_pec50_mean": 5.604257106781006,
+  "pool_pec50_std": 0.8229497075080872,
+  "pool_pec50_median": 5.519999980926514,
+  "knn_k": 5,
+  "n_zero_neighbor_rows": 0,
+  "top1_sim_p50": 0.25925925374031067,
+  "top1_sim_p90": 0.32640329003334045,
+  "n_unb": 253,
+  "resid_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "resid_folds": 5,
+  "feature_dim": 169,
+  "lgbm_max_depth": 1,
+  "lgbm_num_leaves": 2,
+  "lgbm_n_estimators": 200,
+  "lgbm_learning_rate": 0.03,
+  "lgbm_min_child_samples": 20,
+  "lgbm_huber_alpha": 1.0,
+  "rae_anchor_nb1070": 0.5771305166381785,
+  "residual_mean": -0.1019658057365929,
+  "residual_std": 0.6666145784833671,
+  "per_seed_rae": [
+    0.5792294527088055,
+    0.5780324914190705,
+    0.5783799068222581,
+    0.5675655746265449,
+    0.5812174029729031
+  ],
+  "per_seed_records": [
+    {
+      "seed": 0,
+      "rae_corrected": 0.5792294527088055,
+      "delta_vs_nb1070": 0.0020989360706270555,
+      "resid_oof_std": 0.13894184728577794,
+      "resid_oof_mean": -0.07064919288031993
+    },
+    {
+      "seed": 1,
+      "rae_corrected": 0.5780324914190705,
+      "delta_vs_nb1070": 0.0009019747808920453,
+      "resid_oof_std": 0.1406873015610564,
+      "resid_oof_mean": -0.07065587672905545
+    },
+    {
+      "seed": 7,
+      "rae_corrected": 0.5783799068222581,
+      "delta_vs_nb1070": 0.0012493901840796573,
+      "resid_oof_std": 0.1514276640652739,
+      "resid_oof_mean": -0.07319780125732311
+    },
+    {
+      "seed": 42,
+      "rae_corrected": 0.5675655746265449,
+      "delta_vs_nb1070": -0.009564942011633604,
+      "resid_oof_std": 0.13938075696384222,
+      "resid_oof_mean": -0.0813393360909451
+    },
+    {
+      "seed": 137,
+      "rae_corrected": 0.5812174029729031,
+      "delta_vs_nb1070": 0.004086886334724649,
+      "resid_oof_std": 0.14941102058786138,
+      "resid_oof_mean": -0.06801214700036548
+    }
+  ],
+  "rae_per_seed_mean": 0.5768849657099164,
+  "rae_per_seed_std": 0.004788931953432623,
+  "rae_mean_bag": 0.5721607702348558,
+  "rae_median_bag": 0.5754547770680954,
+  "delta_mean_bag_vs_nb1070": -0.004969746403322706,
+  "delta_mean_bag_vs_nb1242": 0.02906077023485576,
+  "pearson_vs_nb1242": 0.9879898625790646,
+  "beats_nb1070": true,
+  "beats_nb1242": false,
+  "verdict": "STUMPS_HELP_NB1070_BUT_WORSE_THAN_DEPTH3",
+  "nb1070_ref_pooled": 0.5771,
+  "nb1242_ref": 0.5431,
+  "decision_margin": 0.003,
+  "wall_sec": 4.53
+}

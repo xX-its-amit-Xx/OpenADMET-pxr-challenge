@@ -4,8 +4,10 @@ Usage:
     python scripts/log_lb_scores.py            # scrape both tracks and append a row each
     python scripts/log_lb_scores.py latest     # just print current LB best per track
 
-Appends rows to data/processed/leaderboard_log.csv with columns:
-    timestamp_utc, track, user_rank, lb_score, n_submissions_visible
+Appends rows to data/processed/leaderboard_log.csv. New columns (nb1670):
+    mae, rae, r2, spearman, kendall, submitted_utc_on_lb,
+    lddt_pli, bisyrmsd, lddt_lp, coverage
+Existing rows retain prior schema; missing cells become NaN.
 
 The Gradio space typically only shows best-per-user; we still try the HF Spaces
 queue API as a fallback to recover per-submission scores by ID.
@@ -13,7 +15,6 @@ queue API as a fallback to recover per-submission scores by ID.
 from __future__ import annotations
 
 import json
-import re
 import sys
 import urllib.request
 from datetime import datetime, timezone
@@ -30,31 +31,85 @@ TRACK_API = {
     "activity": "/load_activity_leaderboard",
     "structure": "/load_structure_leaderboard",
 }
-NEW_COLS = ["timestamp_utc", "track", "user_rank", "lb_score", "n_submissions_visible"]
+
+# Column name mapping: Gradio header -> our snake_case log column.
+# Headers vary slightly with unicode (rho/tau) so we normalise on a lowercase
+# ASCII-folded prefix match. Activity columns first, then structure.
+HEADER_TO_LOG = {
+    "rank": "user_rank",
+    "submitted": "submitted_utc_on_lb",
+    "mae": "mae",
+    "rae": "rae",
+    "r2": "r2",
+    "spearman": "spearman",
+    "kendall": "kendall",
+    # structure track
+    "lddt-pli": "lddt_pli",
+    "bisyrmsd": "bisyrmsd",
+    "lddt-lp": "lddt_lp",
+    "coverage": "coverage",
+}
+
+# Primary score for each track (used to populate legacy lb_score column).
+TRACK_PRIMARY_HEADER = {
+    "activity": "rae",
+    "structure": "lddt-pli",
+}
+
+LEGACY_COLS = [
+    "submitted_at", "model_stem", "local_oof_rae", "local_ratio",
+    "leaderboard_rae", "leaderboard_rank", "note",
+]
+META_COLS = ["timestamp_utc", "track", "user_rank", "lb_score", "n_submissions_visible"]
+NEW_COLS = [
+    "mae", "rae", "r2", "spearman", "kendall", "submitted_utc_on_lb",
+    "lddt_pli", "bisyrmsd", "lddt_lp", "coverage",
+]
+ALL_COLS = LEGACY_COLS + META_COLS + NEW_COLS
 
 
 def utc_now() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
 
 
-def _rows_from_payload(payload) -> list[list]:
-    """Pull a list-of-rows table out of whatever Gradio returns."""
+def _normalise_header(h: str) -> str:
+    """Lowercase + strip unicode greek so 'Spearman ρ' -> 'spearman'."""
+    s = str(h).strip().lower()
+    # drop everything after the first space (handles 'spearman p', "kendall's t")
+    s = s.split()[0] if s else s
+    # strip trailing apostrophe-s
+    if s.endswith("'s"):
+        s = s[:-2]
+    return s
+
+
+def _rows_and_headers_from_payload(payload):
+    """Return (headers, rows) where rows is list-of-lists.
+
+    Handles the {'headers': [...], 'data': [...]} dict shape used by the
+    OpenADMET space, plus a couple of older fallbacks.
+    """
     if payload is None:
-        return []
+        return [], []
     if isinstance(payload, dict):
+        headers = payload.get("headers") or []
         for key in ("data", "value", "rows", "records"):
             if key in payload:
-                return _rows_from_payload(payload[key])
-        return []
+                rows = payload[key]
+                if isinstance(rows, list) and rows and isinstance(rows[0], dict):
+                    headers = headers or list(rows[0].keys())
+                    rows = [list(r.values()) for r in rows]
+                return list(headers), list(rows or [])
+        return list(headers), []
     if isinstance(payload, list):
-        if payload and isinstance(payload[0], list):
-            return payload
         if payload and isinstance(payload[0], dict):
-            return [list(r.values()) for r in payload]
-    return []
+            headers = list(payload[0].keys())
+            return headers, [list(r.values()) for r in payload]
+        return [], payload
+    return [], []
 
 
-def fetch_leaderboard(track: str) -> list[list]:
+def fetch_leaderboard(track: str):
     """Use gradio_client to hit the leaderboard endpoint for a track."""
     from gradio_client import Client
 
@@ -64,37 +119,56 @@ def fetch_leaderboard(track: str) -> list[list]:
         result = client.predict(api_name=api)
     except Exception as e:
         print(f"[{track}] endpoint {api} failed: {e}")
-        return []
-    return _rows_from_payload(result)
+        return [], []
+    return _rows_and_headers_from_payload(result)
 
 
-def find_user_row(rows: list[list], handle: str = USER_HANDLE):
-    """Return (rank, score) or (None, None) — Gradio sometimes orders columns
-    [rank, user, score] or [user, score] or [user, n_subs, best_score]."""
+def _to_float(v):
+    try:
+        if v is None or v == "":
+            return None
+        return float(v)
+    except (TypeError, ValueError):
+        return None
+
+
+def find_user_row(headers, rows, handle: str = USER_HANDLE):
+    """Return dict of {log_col: value} pulled by header name. Rank falls back
+    to row index + 1 if the header lookup fails."""
+    if not rows:
+        return None
+    # Build normalised header -> column index
+    norm_headers = [_normalise_header(h) for h in headers]
+    col_idx = {nh: i for i, nh in enumerate(norm_headers)}
+
     for i, row in enumerate(rows):
         cells = [str(c) for c in row]
-        if any(handle.lower() in c.lower() for c in cells):
-            score = None
-            rank = None
-            for c in cells:
+        if not any(handle.lower() in c.lower() for c in cells):
+            continue
+
+        out: dict = {}
+        for norm_h, log_col in HEADER_TO_LOG.items():
+            idx = col_idx.get(norm_h)
+            if idx is None or idx >= len(row):
+                continue
+            val = row[idx]
+            if log_col in ("user_rank",):
                 try:
-                    v = float(c)
+                    out[log_col] = int(val)
                 except (TypeError, ValueError):
-                    continue
-                if 0.0 < v < 5.0 and score is None:
-                    score = v
-                elif v.is_integer() and rank is None and 0 < v < 1000:
-                    rank = int(v)
-            if rank is None:
-                rank = i + 1
-            return rank, score
-    return None, None
+                    out[log_col] = None
+            elif log_col == "submitted_utc_on_lb":
+                out[log_col] = str(val) if val is not None else None
+            else:
+                out[log_col] = _to_float(val)
+        if out.get("user_rank") is None:
+            out["user_rank"] = i + 1
+        return out
+    return None
 
 
 def try_queue_api(submission_id: str | None = None) -> dict | None:
-    """Fallback: hit HF Spaces queue API for our own submission record.
-    Returns parsed JSON or None.
-    """
+    """Fallback: hit HF Spaces queue API for our own submission record."""
     if not submission_id:
         return None
     url = f"{SPACE_URL}/api/submissions/{submission_id}"
@@ -106,26 +180,31 @@ def try_queue_api(submission_id: str | None = None) -> dict | None:
 
 
 def ensure_columns(df: pd.DataFrame) -> pd.DataFrame:
-    for c in NEW_COLS:
+    for c in ALL_COLS:
         if c not in df.columns:
-            df[c] = None
+            df[c] = pd.NA
     return df
 
 
-def append_row(track: str, rank, score, n_visible: int) -> None:
+def append_row(track: str, user_row: dict | None, n_visible: int) -> None:
     if LOG_PATH.exists():
         df = pd.read_csv(LOG_PATH)
     else:
-        df = pd.DataFrame(columns=NEW_COLS)
+        df = pd.DataFrame(columns=ALL_COLS)
     df = ensure_columns(df)
+
     new_row = {c: None for c in df.columns}
-    new_row.update({
-        "timestamp_utc": utc_now(),
-        "track": track,
-        "user_rank": rank,
-        "lb_score": score,
-        "n_submissions_visible": n_visible,
-    })
+    new_row["timestamp_utc"] = utc_now()
+    new_row["track"] = track
+    new_row["n_submissions_visible"] = n_visible
+
+    if user_row:
+        for k, v in user_row.items():
+            if k in df.columns:
+                new_row[k] = v
+        # populate legacy lb_score from the track's primary metric
+        primary_log_col = HEADER_TO_LOG[TRACK_PRIMARY_HEADER[track]]
+        new_row["lb_score"] = user_row.get(primary_log_col)
     df = pd.concat([df, pd.DataFrame([new_row])], ignore_index=True)
     df.to_csv(LOG_PATH, index=False)
 
@@ -133,18 +212,27 @@ def append_row(track: str, rank, score, n_visible: int) -> None:
 def scrape_and_log() -> dict:
     out = {}
     for track in TRACKS:
-        rows = fetch_leaderboard(track)
-        rank, score = find_user_row(rows)
-        append_row(track, rank, score, len(rows))
-        out[track] = {"rank": rank, "score": score, "n_visible": len(rows)}
-        print(f"[{track:9s}] rank={rank} score={score} visible={len(rows)}")
+        headers, rows = fetch_leaderboard(track)
+        user_row = find_user_row(headers, rows)
+        append_row(track, user_row, len(rows))
+        if user_row:
+            primary = HEADER_TO_LOG[TRACK_PRIMARY_HEADER[track]]
+            print(
+                f"[{track:9s}] rank={user_row.get('user_rank')} "
+                f"{primary}={user_row.get(primary)} "
+                f"submitted={user_row.get('submitted_utc_on_lb')} "
+                f"visible={len(rows)}"
+            )
+        else:
+            print(f"[{track:9s}] user not found; visible={len(rows)}")
+        out[track] = {"row": user_row, "n_visible": len(rows)}
     return out
 
 
 def latest() -> None:
     """Print the most recent best per track from the log."""
     if not LOG_PATH.exists():
-        print("No leaderboard_log.csv yet — run without args first.")
+        print("No leaderboard_log.csv yet -- run without args first.")
         return
     df = pd.read_csv(LOG_PATH)
     df = ensure_columns(df)
@@ -156,8 +244,11 @@ def latest() -> None:
         if sub.empty:
             print(f"[{track:9s}] no entries"); continue
         r = sub.iloc[0]
-        print(f"[{track:9s}] rank={r['user_rank']} score={r['lb_score']} "
-              f"as_of={r['timestamp_utc']} (visible={r['n_submissions_visible']})")
+        primary = HEADER_TO_LOG[TRACK_PRIMARY_HEADER[track]]
+        print(
+            f"[{track:9s}] rank={r['user_rank']} {primary}={r.get(primary)} "
+            f"as_of={r['timestamp_utc']} (visible={r['n_submissions_visible']})"
+        )
 
 
 if __name__ == "__main__":

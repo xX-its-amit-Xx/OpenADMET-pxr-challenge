@@ -1,0 +1,247 @@
+{
+  "tag": "nb2884",
+  "method": "hit_class_sample_weighted_K20_LGBM_chemprop_aux_residual",
+  "rationale": "Per-row hit-class sample weights: w = multiplier if y >= 5.5 else 1.0. Sweep multipliers in {1.5, 2.0, 3.0, 5.0} on K=20 LGBM residual (chemprop_aux anchor). UP-weights rare hit class to balance the gradient, which is otherwise dominated by the ~98% non-hit majority. Distinct from nb2800 (per-row exp(|resid|) weight, anchor-relative) and nb2830 (hit-stratified scaffold folds, partition-side fix).",
+  "anchor": "chemprop_aux",
+  "anchor_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb1133_chemprop_aux_pred_oof.npy",
+  "anchor_te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+  "anchor_pre_unblind": true,
+  "rae_anchor_chemprop_aux": 0.5878769556905485,
+  "hit_threshold": 5.5,
+  "multipliers": [
+    1.5,
+    2.0,
+    3.0,
+    5.0
+  ],
+  "n_hit_unb": 42,
+  "hit_rate_unb": 0.16600790513833993,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "resid_seeds": [
+    0,
+    1,
+    7,
+    13,
+    23,
+    42,
+    53,
+    67,
+    89,
+    101,
+    137,
+    199,
+    211,
+    251,
+    313,
+    401,
+    503,
+    617,
+    727,
+    911
+  ],
+  "n_resid_seeds": 20,
+  "n_folds": 5,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "k20_surviving_idx_in_117": [
+    45,
+    67,
+    66,
+    68,
+    65,
+    92,
+    27,
+    77,
+    81,
+    56,
+    1,
+    7,
+    115,
+    93,
+    80,
+    11,
+    70,
+    54,
+    8,
+    57
+  ],
+  "feat_dim": 20,
+  "model_class": "lightgbm.LGBMRegressor",
+  "lgbm_params_sample": {
+    "objective": "regression",
+    "max_depth": 4,
+    "num_leaves": 15,
+    "n_estimators": 300,
+    "learning_rate": 0.03,
+    "min_child_samples": 5,
+    "reg_lambda": 2.0,
+    "random_state": 1001,
+    "n_jobs": 2,
+    "verbosity": -1
+  },
+  "per_multiplier_results": [
+    {
+      "multiplier": 1.5,
+      "weight_hit_mean": 1.5,
+      "weight_nonhit_mean": 1.0,
+      "per_seed_results": [
+        {
+          "kf_seed": 1001,
+          "pooled_rae": 0.5932614252306333,
+          "wall_sec": 4.9
+        },
+        {
+          "kf_seed": 1002,
+          "pooled_rae": 0.6122640591792365,
+          "wall_sec": 5.2
+        },
+        {
+          "kf_seed": 1003,
+          "pooled_rae": 0.6005878839025808,
+          "wall_sec": 5.0
+        },
+        {
+          "kf_seed": 1004,
+          "pooled_rae": 0.5863321903468176,
+          "wall_sec": 5.3
+        },
+        {
+          "kf_seed": 1005,
+          "pooled_rae": 0.5860617688223847,
+          "wall_sec": 5.2
+        }
+      ],
+      "mean_rae": 0.5957014654963306,
+      "std_rae": 0.009847410417334763
+    },
+    {
+      "multiplier": 2.0,
+      "weight_hit_mean": 2.0,
+      "weight_nonhit_mean": 1.0,
+      "per_seed_results": [
+        {
+          "kf_seed": 1001,
+          "pooled_rae": 0.5927933951139917,
+          "wall_sec": 5.1
+        },
+        {
+          "kf_seed": 1002,
+          "pooled_rae": 0.588528392543748,
+          "wall_sec": 5.4
+        },
+        {
+          "kf_seed": 1003,
+          "pooled_rae": 0.5974218196597838,
+          "wall_sec": 5.1
+        },
+        {
+          "kf_seed": 1004,
+          "pooled_rae": 0.599311363450299,
+          "wall_sec": 5.1
+        },
+        {
+          "kf_seed": 1005,
+          "pooled_rae": 0.5859737085472033,
+          "wall_sec": 5.0
+        }
+      ],
+      "mean_rae": 0.5928057358630051,
+      "std_rae": 0.005071564558046829
+    },
+    {
+      "multiplier": 3.0,
+      "weight_hit_mean": 3.0,
+      "weight_nonhit_mean": 1.0,
+      "per_seed_results": [
+        {
+          "kf_seed": 1001,
+          "pooled_rae": 0.6112889737433251,
+          "wall_sec": 4.8
+        },
+        {
+          "kf_seed": 1002,
+          "pooled_rae": 0.5792018604380756,
+          "wall_sec": 4.6
+        },
+        {
+          "kf_seed": 1003,
+          "pooled_rae": 0.6150972907991294,
+          "wall_sec": 5.1
+        },
+        {
+          "kf_seed": 1004,
+          "pooled_rae": 0.6016616593357828,
+          "wall_sec": 4.7
+        },
+        {
+          "kf_seed": 1005,
+          "pooled_rae": 0.5778227555762286,
+          "wall_sec": 4.6
+        }
+      ],
+      "mean_rae": 0.5970145079785083,
+      "std_rae": 0.01573503858156176
+    },
+    {
+      "multiplier": 5.0,
+      "weight_hit_mean": 5.0,
+      "weight_nonhit_mean": 1.0,
+      "per_seed_results": [
+        {
+          "kf_seed": 1001,
+          "pooled_rae": 0.5968130930169696,
+          "wall_sec": 5.1
+        },
+        {
+          "kf_seed": 1002,
+          "pooled_rae": 0.5937769178628803,
+          "wall_sec": 5.1
+        },
+        {
+          "kf_seed": 1003,
+          "pooled_rae": 0.6114651866781013,
+          "wall_sec": 5.1
+        },
+        {
+          "kf_seed": 1004,
+          "pooled_rae": 0.5905131176394474,
+          "wall_sec": 4.9
+        },
+        {
+          "kf_seed": 1005,
+          "pooled_rae": 0.6048932334712334,
+          "wall_sec": 4.9
+        }
+      ],
+      "mean_rae": 0.5994923097337264,
+      "std_rae": 0.007654927258467671
+    }
+  ],
+  "best_multiplier": 2.0,
+  "best_mean_rae": 0.5928057358630051,
+  "best_std_rae": 0.005071564558046829,
+  "best_delta_vs_anchor": 0.0049287801724565705,
+  "te_unb_in_sample_rae": 0.2985759499708016,
+  "te_deploy_mean": 4.8345537185668945,
+  "te_deploy_std": 0.7361729741096497,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2884_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2884.npy",
+  "submission_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb2884_hit_stratified_weights.csv",
+  "gate_promote_threshold": 0.457,
+  "gate_marginal_threshold": 0.4598,
+  "verdict": "FAIL",
+  "wall_sec": 105.87,
+  "mean_rae_by_multiplier": {
+    "1.5": 0.5957014654963306,
+    "2.0": 0.5928057358630051,
+    "3.0": 0.5970145079785083,
+    "5.0": 0.5994923097337264
+  }
+}

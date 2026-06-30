@@ -1,0 +1,324 @@
+{
+  "tag": "nb2534",
+  "method": "isotonic_plus_polynomial_ridge_residual_on_nb2240_K20",
+  "anchor": "nb2240_mean_bag_oof_K20",
+  "anchor_te": "te_nb2240",
+  "iso_y_min": 3.0,
+  "iso_y_max": 8.0,
+  "poly_degree": 2,
+  "poly_include_bias": false,
+  "ridge_alpha": 0.1,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "rae_anchor_unb_oof": 0.46301757335429367,
+  "rae_anchor_te_unb_insample": 0.16570824273473972,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "n_folds": 5,
+  "per_seed": [
+    {
+      "kf_seed": 1001,
+      "pooled_rae": 0.4951272290642718,
+      "folds": [
+        {
+          "fold": 0,
+          "n_tr": 202,
+          "n_va": 51,
+          "ridge_intercept": -2.0507477882759177,
+          "ridge_coef": [
+            0.8282352625371505,
+            -0.08255312989491956
+          ]
+        },
+        {
+          "fold": 1,
+          "n_tr": 202,
+          "n_va": 51,
+          "ridge_intercept": -2.2747744490102666,
+          "ridge_coef": [
+            0.9374226845253613,
+            -0.09540420681535433
+          ]
+        },
+        {
+          "fold": 2,
+          "n_tr": 202,
+          "n_va": 51,
+          "ridge_intercept": -1.8710271919778105,
+          "ridge_coef": [
+            0.7603529270198396,
+            -0.07623058224693827
+          ]
+        },
+        {
+          "fold": 3,
+          "n_tr": 203,
+          "n_va": 50,
+          "ridge_intercept": -2.2511209851893947,
+          "ridge_coef": [
+            0.9166179816384792,
+            -0.09206879512048687
+          ]
+        },
+        {
+          "fold": 4,
+          "n_tr": 203,
+          "n_va": 50,
+          "ridge_intercept": -1.694030802884241,
+          "ridge_coef": [
+            0.6927236929582964,
+            -0.0698776560820953
+          ]
+        }
+      ]
+    },
+    {
+      "kf_seed": 1002,
+      "pooled_rae": 0.5003332585120372,
+      "folds": [
+        {
+          "fold": 0,
+          "n_tr": 202,
+          "n_va": 51,
+          "ridge_intercept": -2.270805793670466,
+          "ridge_coef": [
+            0.9285377503970355,
+            -0.09358316059548435
+          ]
+        },
+        {
+          "fold": 1,
+          "n_tr": 202,
+          "n_va": 51,
+          "ridge_intercept": -1.8209815644743856,
+          "ridge_coef": [
+            0.7601966502758547,
+            -0.07844382651751793
+          ]
+        },
+        {
+          "fold": 2,
+          "n_tr": 202,
+          "n_va": 51,
+          "ridge_intercept": -2.057714168153594,
+          "ridge_coef": [
+            0.8386334786361186,
+            -0.08431128133089327
+          ]
+        },
+        {
+          "fold": 3,
+          "n_tr": 203,
+          "n_va": 50,
+          "ridge_intercept": -1.9886643002054663,
+          "ridge_coef": [
+            0.8108620901090589,
+            -0.08146500937902736
+          ]
+        },
+        {
+          "fold": 4,
+          "n_tr": 203,
+          "n_va": 50,
+          "ridge_intercept": -2.0164245267834646,
+          "ridge_coef": [
+            0.8083186463296513,
+            -0.08003662658328378
+          ]
+        }
+      ]
+    },
+    {
+      "kf_seed": 1003,
+      "pooled_rae": 0.5000579438443475,
+      "folds": [
+        {
+          "fold": 0,
+          "n_tr": 202,
+          "n_va": 51,
+          "ridge_intercept": -1.4902746851134725,
+          "ridge_coef": [
+            0.6087704835239638,
+            -0.06135486711515837
+          ]
+        },
+        {
+          "fold": 1,
+          "n_tr": 202,
+          "n_va": 51,
+          "ridge_intercept": -2.516758910956648,
+          "ridge_coef": [
+            1.0344701912011727,
+            -0.10518868459335728
+          ]
+        },
+        {
+          "fold": 2,
+          "n_tr": 202,
+          "n_va": 51,
+          "ridge_intercept": -2.0988873104978256,
+          "ridge_coef": [
+            0.8522365056701734,
+            -0.08535152048320754
+          ]
+        },
+        {
+          "fold": 3,
+          "n_tr": 203,
+          "n_va": 50,
+          "ridge_intercept": -2.116207524242049,
+          "ridge_coef": [
+            0.8619461100177643,
+            -0.08654860145205731
+          ]
+        },
+        {
+          "fold": 4,
+          "n_tr": 203,
+          "n_va": 50,
+          "ridge_intercept": -1.9307362297823774,
+          "ridge_coef": [
+            0.7852487511965001,
+            -0.0787370448235903
+          ]
+        }
+      ]
+    },
+    {
+      "kf_seed": 1004,
+      "pooled_rae": 0.49786136796110264,
+      "folds": [
+        {
+          "fold": 0,
+          "n_tr": 202,
+          "n_va": 51,
+          "ridge_intercept": -2.0320821608118775,
+          "ridge_coef": [
+            0.8287651102426109,
+            -0.08338227093542283
+          ]
+        },
+        {
+          "fold": 1,
+          "n_tr": 202,
+          "n_va": 51,
+          "ridge_intercept": -1.9913721149675785,
+          "ridge_coef": [
+            0.8268392041915661,
+            -0.08471195165093291
+          ]
+        },
+        {
+          "fold": 2,
+          "n_tr": 202,
+          "n_va": 51,
+          "ridge_intercept": -1.7665583645103546,
+          "ridge_coef": [
+            0.7181277172273614,
+            -0.07200732159966011
+          ]
+        },
+        {
+          "fold": 3,
+          "n_tr": 203,
+          "n_va": 50,
+          "ridge_intercept": -1.9903207759029964,
+          "ridge_coef": [
+            0.8036318810025022,
+            -0.0800682303788706
+          ]
+        },
+        {
+          "fold": 4,
+          "n_tr": 203,
+          "n_va": 50,
+          "ridge_intercept": -2.269099366030103,
+          "ridge_coef": [
+            0.9170266508203713,
+            -0.09156211594201161
+          ]
+        }
+      ]
+    },
+    {
+      "kf_seed": 1005,
+      "pooled_rae": 0.4934289331851556,
+      "folds": [
+        {
+          "fold": 0,
+          "n_tr": 202,
+          "n_va": 51,
+          "ridge_intercept": -1.8113946567540142,
+          "ridge_coef": [
+            0.7330692502917101,
+            -0.07323912502189699
+          ]
+        },
+        {
+          "fold": 1,
+          "n_tr": 202,
+          "n_va": 51,
+          "ridge_intercept": -2.549582444490936,
+          "ridge_coef": [
+            1.0601212902353063,
+            -0.10884070174694074
+          ]
+        },
+        {
+          "fold": 2,
+          "n_tr": 202,
+          "n_va": 51,
+          "ridge_intercept": -1.967007928884939,
+          "ridge_coef": [
+            0.7925110251222334,
+            -0.07886729395129892
+          ]
+        },
+        {
+          "fold": 3,
+          "n_tr": 203,
+          "n_va": 50,
+          "ridge_intercept": -1.4163203961128374,
+          "ridge_coef": [
+            0.5769008873036883,
+            -0.057948069789254084
+          ]
+        },
+        {
+          "fold": 4,
+          "n_tr": 203,
+          "n_va": 50,
+          "ridge_intercept": -2.414184847913064,
+          "ridge_coef": [
+            0.9833551043298525,
+            -0.09873716810554874
+          ]
+        }
+      ]
+    }
+  ],
+  "pooled_rae_mean_seeds": 0.497361746513383,
+  "pooled_rae_std_seeds": 0.0027132664484614552,
+  "rae_of_mean_of_seed_oofs": 0.49383318485357125,
+  "deploy_ridge_intercept": -2.0614330362611337,
+  "deploy_ridge_coef": [
+    0.8423779285863626,
+    -0.08492970788618118
+  ],
+  "deploy_te_mean": 4.742115020751953,
+  "deploy_te_std": 0.8244001865386963,
+  "te_unb_in_rae": 0.26434507393371715,
+  "delta_vs_anchor_oof": 0.03434417315908933,
+  "gate_promote": 0.457,
+  "gate_marginal": 0.4601,
+  "verdict": "FAIL",
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2534_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2534.npy",
+  "wall_sec": 0.13
+}

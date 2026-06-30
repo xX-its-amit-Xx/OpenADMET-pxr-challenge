@@ -1,0 +1,1283 @@
+{
+  "tag": "nb2993",
+  "parent_tag": "nb2982",
+  "method": "per_fold_slsqp_simplex_K18_K20_5seed_cached_sensitivity",
+  "paradigm": "5seed_cached_anchors_vs_nb2982_deep30",
+  "anchor_pool": [
+    "K18",
+    "K20"
+  ],
+  "anchor_sources": {
+    "K18": "nb2604",
+    "K20": "nb2240"
+  },
+  "anchor_pre_unblind": true,
+  "per_K_full_oof_rae": {
+    "K18": 0.4619,
+    "K20": 0.463
+  },
+  "anchor_leak_eq_truth_frac": {
+    "K18": 0.0,
+    "K20": 0.0
+  },
+  "oof_corr_matrix": [
+    [
+      0.9999999999999999,
+      0.9835426248047789
+    ],
+    [
+      0.9835426248047788,
+      1.0
+    ]
+  ],
+  "oof_corr_labels": [
+    "K18",
+    "K20"
+  ],
+  "n_folds": 5,
+  "kf_seeds": [
+    1021,
+    1022,
+    1023,
+    1024,
+    1025,
+    1026,
+    1027,
+    1028,
+    1029,
+    1030,
+    1031,
+    1032,
+    1033,
+    1034,
+    1035
+  ],
+  "n_kf_seeds": 15,
+  "n_starts_fold": 8,
+  "n_starts_full": 12,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "K_anchors": 2,
+  "seed_records": [
+    {
+      "kf_seed": 1021,
+      "pooled_rae": 0.4553,
+      "per_fold_mean": 0.4819,
+      "per_fold_std": 0.0845,
+      "mean_w": {
+        "K18": 0.6232,
+        "K20": 0.3768
+      },
+      "any_degenerate": false,
+      "fold_records": [
+        {
+          "fold": 0,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.6541,
+            "K20": 0.3459
+          },
+          "train_rae": 0.4513,
+          "val_rae": 0.5574,
+          "max_w": 0.6541,
+          "degenerate": false
+        },
+        {
+          "fold": 1,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.6488,
+            "K20": 0.3512
+          },
+          "train_rae": 0.4541,
+          "val_rae": 0.4521,
+          "max_w": 0.6488,
+          "degenerate": false
+        },
+        {
+          "fold": 2,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.5104,
+            "K20": 0.4896
+          },
+          "train_rae": 0.4512,
+          "val_rae": 0.4881,
+          "max_w": 0.5104,
+          "degenerate": false
+        },
+        {
+          "fold": 3,
+          "n_train": 203,
+          "n_val": 50,
+          "weights": {
+            "K18": 0.6541,
+            "K20": 0.3459
+          },
+          "train_rae": 0.488,
+          "val_rae": 0.3545,
+          "max_w": 0.6541,
+          "degenerate": false
+        },
+        {
+          "fold": 4,
+          "n_train": 203,
+          "n_val": 50,
+          "weights": {
+            "K18": 0.6488,
+            "K20": 0.3512
+          },
+          "train_rae": 0.4338,
+          "val_rae": 0.5575,
+          "max_w": 0.6488,
+          "degenerate": false
+        }
+      ]
+    },
+    {
+      "kf_seed": 1022,
+      "pooled_rae": 0.4554,
+      "per_fold_mean": 0.465,
+      "per_fold_std": 0.064,
+      "mean_w": {
+        "K18": 0.6123,
+        "K20": 0.3877
+      },
+      "any_degenerate": false,
+      "fold_records": [
+        {
+          "fold": 0,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.5104,
+            "K20": 0.4896
+          },
+          "train_rae": 0.4584,
+          "val_rae": 0.4501,
+          "max_w": 0.5104,
+          "degenerate": false
+        },
+        {
+          "fold": 1,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.6488,
+            "K20": 0.3512
+          },
+          "train_rae": 0.4438,
+          "val_rae": 0.4991,
+          "max_w": 0.6488,
+          "degenerate": false
+        },
+        {
+          "fold": 2,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.6488,
+            "K20": 0.3512
+          },
+          "train_rae": 0.4361,
+          "val_rae": 0.553,
+          "max_w": 0.6488,
+          "degenerate": false
+        },
+        {
+          "fold": 3,
+          "n_train": 203,
+          "n_val": 50,
+          "weights": {
+            "K18": 0.6655,
+            "K20": 0.3345
+          },
+          "train_rae": 0.4734,
+          "val_rae": 0.3839,
+          "max_w": 0.6655,
+          "degenerate": false
+        },
+        {
+          "fold": 4,
+          "n_train": 203,
+          "n_val": 50,
+          "weights": {
+            "K18": 0.5877,
+            "K20": 0.4123
+          },
+          "train_rae": 0.4636,
+          "val_rae": 0.4388,
+          "max_w": 0.5877,
+          "degenerate": false
+        }
+      ]
+    },
+    {
+      "kf_seed": 1023,
+      "pooled_rae": 0.4587,
+      "per_fold_mean": 0.4688,
+      "per_fold_std": 0.031,
+      "mean_w": {
+        "K18": 0.5658,
+        "K20": 0.4342
+      },
+      "any_degenerate": false,
+      "fold_records": [
+        {
+          "fold": 0,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.6655,
+            "K20": 0.3345
+          },
+          "train_rae": 0.4464,
+          "val_rae": 0.5145,
+          "max_w": 0.6655,
+          "degenerate": false
+        },
+        {
+          "fold": 1,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.244,
+            "K20": 0.756
+          },
+          "train_rae": 0.4547,
+          "val_rae": 0.4625,
+          "max_w": 0.756,
+          "degenerate": false
+        },
+        {
+          "fold": 2,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.6828,
+            "K20": 0.3172
+          },
+          "train_rae": 0.4462,
+          "val_rae": 0.4831,
+          "max_w": 0.6828,
+          "degenerate": false
+        },
+        {
+          "fold": 3,
+          "n_train": 203,
+          "n_val": 50,
+          "weights": {
+            "K18": 0.6488,
+            "K20": 0.3512
+          },
+          "train_rae": 0.4588,
+          "val_rae": 0.4361,
+          "max_w": 0.6488,
+          "degenerate": false
+        },
+        {
+          "fold": 4,
+          "n_train": 203,
+          "n_val": 50,
+          "weights": {
+            "K18": 0.5877,
+            "K20": 0.4123
+          },
+          "train_rae": 0.468,
+          "val_rae": 0.4478,
+          "max_w": 0.5877,
+          "degenerate": false
+        }
+      ]
+    },
+    {
+      "kf_seed": 1024,
+      "pooled_rae": 0.457,
+      "per_fold_mean": 0.4752,
+      "per_fold_std": 0.038,
+      "mean_w": {
+        "K18": 0.5888,
+        "K20": 0.4112
+      },
+      "any_degenerate": false,
+      "fold_records": [
+        {
+          "fold": 0,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.6655,
+            "K20": 0.3345
+          },
+          "train_rae": 0.4492,
+          "val_rae": 0.5015,
+          "max_w": 0.6655,
+          "degenerate": false
+        },
+        {
+          "fold": 1,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.4364,
+            "K20": 0.5636
+          },
+          "train_rae": 0.4445,
+          "val_rae": 0.5021,
+          "max_w": 0.5636,
+          "degenerate": false
+        },
+        {
+          "fold": 2,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.6488,
+            "K20": 0.3512
+          },
+          "train_rae": 0.4721,
+          "val_rae": 0.4125,
+          "max_w": 0.6488,
+          "degenerate": false
+        },
+        {
+          "fold": 3,
+          "n_train": 203,
+          "n_val": 50,
+          "weights": {
+            "K18": 0.5104,
+            "K20": 0.4896
+          },
+          "train_rae": 0.4622,
+          "val_rae": 0.4661,
+          "max_w": 0.5104,
+          "degenerate": false
+        },
+        {
+          "fold": 4,
+          "n_train": 203,
+          "n_val": 50,
+          "weights": {
+            "K18": 0.6828,
+            "K20": 0.3172
+          },
+          "train_rae": 0.4488,
+          "val_rae": 0.4938,
+          "max_w": 0.6828,
+          "degenerate": false
+        }
+      ]
+    },
+    {
+      "kf_seed": 1025,
+      "pooled_rae": 0.4597,
+      "per_fold_mean": 0.4762,
+      "per_fold_std": 0.0689,
+      "mean_w": {
+        "K18": 0.5655,
+        "K20": 0.4345
+      },
+      "any_degenerate": false,
+      "fold_records": [
+        {
+          "fold": 0,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.7008,
+            "K20": 0.2992
+          },
+          "train_rae": 0.4464,
+          "val_rae": 0.4981,
+          "max_w": 0.7008,
+          "degenerate": false
+        },
+        {
+          "fold": 1,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.6488,
+            "K20": 0.3512
+          },
+          "train_rae": 0.4352,
+          "val_rae": 0.5787,
+          "max_w": 0.6488,
+          "degenerate": false
+        },
+        {
+          "fold": 2,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.5877,
+            "K20": 0.4123
+          },
+          "train_rae": 0.4755,
+          "val_rae": 0.3915,
+          "max_w": 0.5877,
+          "degenerate": false
+        },
+        {
+          "fold": 3,
+          "n_train": 203,
+          "n_val": 50,
+          "weights": {
+            "K18": 0.2247,
+            "K20": 0.7753
+          },
+          "train_rae": 0.4644,
+          "val_rae": 0.4529,
+          "max_w": 0.7753,
+          "degenerate": false
+        },
+        {
+          "fold": 4,
+          "n_train": 203,
+          "n_val": 50,
+          "weights": {
+            "K18": 0.6655,
+            "K20": 0.3345
+          },
+          "train_rae": 0.4535,
+          "val_rae": 0.4596,
+          "max_w": 0.6655,
+          "degenerate": false
+        }
+      ]
+    },
+    {
+      "kf_seed": 1026,
+      "pooled_rae": 0.4599,
+      "per_fold_mean": 0.4797,
+      "per_fold_std": 0.0908,
+      "mean_w": {
+        "K18": 0.5316,
+        "K20": 0.4684
+      },
+      "any_degenerate": false,
+      "fold_records": [
+        {
+          "fold": 0,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.4364,
+            "K20": 0.5636
+          },
+          "train_rae": 0.4706,
+          "val_rae": 0.3984,
+          "max_w": 0.5636,
+          "degenerate": false
+        },
+        {
+          "fold": 1,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.6488,
+            "K20": 0.3512
+          },
+          "train_rae": 0.4537,
+          "val_rae": 0.4763,
+          "max_w": 0.6488,
+          "degenerate": false
+        },
+        {
+          "fold": 2,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.2247,
+            "K20": 0.7753
+          },
+          "train_rae": 0.4471,
+          "val_rae": 0.5335,
+          "max_w": 0.7753,
+          "degenerate": false
+        },
+        {
+          "fold": 3,
+          "n_train": 203,
+          "n_val": 50,
+          "weights": {
+            "K18": 0.6655,
+            "K20": 0.3345
+          },
+          "train_rae": 0.4318,
+          "val_rae": 0.6023,
+          "max_w": 0.6655,
+          "degenerate": false
+        },
+        {
+          "fold": 4,
+          "n_train": 203,
+          "n_val": 50,
+          "weights": {
+            "K18": 0.6828,
+            "K20": 0.3172
+          },
+          "train_rae": 0.4734,
+          "val_rae": 0.3879,
+          "max_w": 0.6828,
+          "degenerate": false
+        }
+      ]
+    },
+    {
+      "kf_seed": 1027,
+      "pooled_rae": 0.4638,
+      "per_fold_mean": 0.47,
+      "per_fold_std": 0.0154,
+      "mean_w": {
+        "K18": 0.49,
+        "K20": 0.51
+      },
+      "any_degenerate": false,
+      "fold_records": [
+        {
+          "fold": 0,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.2238,
+            "K20": 0.7762
+          },
+          "train_rae": 0.4531,
+          "val_rae": 0.4819,
+          "max_w": 0.7762,
+          "degenerate": false
+        },
+        {
+          "fold": 1,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.2238,
+            "K20": 0.7762
+          },
+          "train_rae": 0.4567,
+          "val_rae": 0.4625,
+          "max_w": 0.7762,
+          "degenerate": false
+        },
+        {
+          "fold": 2,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.6541,
+            "K20": 0.3459
+          },
+          "train_rae": 0.4568,
+          "val_rae": 0.4525,
+          "max_w": 0.6541,
+          "degenerate": false
+        },
+        {
+          "fold": 3,
+          "n_train": 203,
+          "n_val": 50,
+          "weights": {
+            "K18": 0.6655,
+            "K20": 0.3345
+          },
+          "train_rae": 0.4493,
+          "val_rae": 0.4899,
+          "max_w": 0.6655,
+          "degenerate": false
+        },
+        {
+          "fold": 4,
+          "n_train": 203,
+          "n_val": 50,
+          "weights": {
+            "K18": 0.6828,
+            "K20": 0.3172
+          },
+          "train_rae": 0.4539,
+          "val_rae": 0.4632,
+          "max_w": 0.6828,
+          "degenerate": false
+        }
+      ]
+    },
+    {
+      "kf_seed": 1028,
+      "pooled_rae": 0.4561,
+      "per_fold_mean": 0.4747,
+      "per_fold_std": 0.0788,
+      "mean_w": {
+        "K18": 0.6011,
+        "K20": 0.3989
+      },
+      "any_degenerate": false,
+      "fold_records": [
+        {
+          "fold": 0,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.6503,
+            "K20": 0.3497
+          },
+          "train_rae": 0.463,
+          "val_rae": 0.4386,
+          "max_w": 0.6503,
+          "degenerate": false
+        },
+        {
+          "fold": 1,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.4364,
+            "K20": 0.5636
+          },
+          "train_rae": 0.4481,
+          "val_rae": 0.4825,
+          "max_w": 0.5636,
+          "degenerate": false
+        },
+        {
+          "fold": 2,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.6655,
+            "K20": 0.3345
+          },
+          "train_rae": 0.4301,
+          "val_rae": 0.5944,
+          "max_w": 0.6655,
+          "degenerate": false
+        },
+        {
+          "fold": 3,
+          "n_train": 203,
+          "n_val": 50,
+          "weights": {
+            "K18": 0.6655,
+            "K20": 0.3345
+          },
+          "train_rae": 0.449,
+          "val_rae": 0.4788,
+          "max_w": 0.6655,
+          "degenerate": false
+        },
+        {
+          "fold": 4,
+          "n_train": 203,
+          "n_val": 50,
+          "weights": {
+            "K18": 0.5877,
+            "K20": 0.4123
+          },
+          "train_rae": 0.4878,
+          "val_rae": 0.3792,
+          "max_w": 0.5877,
+          "degenerate": false
+        }
+      ]
+    },
+    {
+      "kf_seed": 1029,
+      "pooled_rae": 0.4578,
+      "per_fold_mean": 0.4629,
+      "per_fold_std": 0.0645,
+      "mean_w": {
+        "K18": 0.5774,
+        "K20": 0.4226
+      },
+      "any_degenerate": false,
+      "fold_records": [
+        {
+          "fold": 0,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.6828,
+            "K20": 0.3172
+          },
+          "train_rae": 0.4458,
+          "val_rae": 0.4958,
+          "max_w": 0.6828,
+          "degenerate": false
+        },
+        {
+          "fold": 1,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.6828,
+            "K20": 0.3172
+          },
+          "train_rae": 0.4749,
+          "val_rae": 0.3721,
+          "max_w": 0.6828,
+          "degenerate": false
+        },
+        {
+          "fold": 2,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.6488,
+            "K20": 0.3512
+          },
+          "train_rae": 0.4348,
+          "val_rae": 0.5355,
+          "max_w": 0.6488,
+          "degenerate": false
+        },
+        {
+          "fold": 3,
+          "n_train": 203,
+          "n_val": 50,
+          "weights": {
+            "K18": 0.4364,
+            "K20": 0.5636
+          },
+          "train_rae": 0.4689,
+          "val_rae": 0.4243,
+          "max_w": 0.5636,
+          "degenerate": false
+        },
+        {
+          "fold": 4,
+          "n_train": 203,
+          "n_val": 50,
+          "weights": {
+            "K18": 0.4364,
+            "K20": 0.5636
+          },
+          "train_rae": 0.4485,
+          "val_rae": 0.4866,
+          "max_w": 0.5636,
+          "degenerate": false
+        }
+      ]
+    },
+    {
+      "kf_seed": 1030,
+      "pooled_rae": 0.455,
+      "per_fold_mean": 0.4701,
+      "per_fold_std": 0.0855,
+      "mean_w": {
+        "K18": 0.6387,
+        "K20": 0.3613
+      },
+      "any_degenerate": false,
+      "fold_records": [
+        {
+          "fold": 0,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.6541,
+            "K20": 0.3459
+          },
+          "train_rae": 0.4614,
+          "val_rae": 0.4252,
+          "max_w": 0.6541,
+          "degenerate": false
+        },
+        {
+          "fold": 1,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.6488,
+            "K20": 0.3512
+          },
+          "train_rae": 0.4352,
+          "val_rae": 0.5153,
+          "max_w": 0.6488,
+          "degenerate": false
+        },
+        {
+          "fold": 2,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.6541,
+            "K20": 0.3459
+          },
+          "train_rae": 0.4576,
+          "val_rae": 0.4446,
+          "max_w": 0.6541,
+          "degenerate": false
+        },
+        {
+          "fold": 3,
+          "n_train": 203,
+          "n_val": 50,
+          "weights": {
+            "K18": 0.6488,
+            "K20": 0.3512
+          },
+          "train_rae": 0.4353,
+          "val_rae": 0.5928,
+          "max_w": 0.6488,
+          "degenerate": false
+        },
+        {
+          "fold": 4,
+          "n_train": 203,
+          "n_val": 50,
+          "weights": {
+            "K18": 0.5877,
+            "K20": 0.4123
+          },
+          "train_rae": 0.4877,
+          "val_rae": 0.3727,
+          "max_w": 0.5877,
+          "degenerate": false
+        }
+      ]
+    },
+    {
+      "kf_seed": 1031,
+      "pooled_rae": 0.4561,
+      "per_fold_mean": 0.4724,
+      "per_fold_std": 0.0681,
+      "mean_w": {
+        "K18": 0.6079,
+        "K20": 0.3921
+      },
+      "any_degenerate": false,
+      "fold_records": [
+        {
+          "fold": 0,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.4364,
+            "K20": 0.5636
+          },
+          "train_rae": 0.451,
+          "val_rae": 0.5178,
+          "max_w": 0.5636,
+          "degenerate": false
+        },
+        {
+          "fold": 1,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.6488,
+            "K20": 0.3512
+          },
+          "train_rae": 0.4682,
+          "val_rae": 0.3924,
+          "max_w": 0.6488,
+          "degenerate": false
+        },
+        {
+          "fold": 2,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.6514,
+            "K20": 0.3486
+          },
+          "train_rae": 0.4413,
+          "val_rae": 0.5082,
+          "max_w": 0.6514,
+          "degenerate": false
+        },
+        {
+          "fold": 3,
+          "n_train": 203,
+          "n_val": 50,
+          "weights": {
+            "K18": 0.6541,
+            "K20": 0.3459
+          },
+          "train_rae": 0.4799,
+          "val_rae": 0.4054,
+          "max_w": 0.6541,
+          "degenerate": false
+        },
+        {
+          "fold": 4,
+          "n_train": 203,
+          "n_val": 50,
+          "weights": {
+            "K18": 0.6488,
+            "K20": 0.3512
+          },
+          "train_rae": 0.435,
+          "val_rae": 0.538,
+          "max_w": 0.6488,
+          "degenerate": false
+        }
+      ]
+    },
+    {
+      "kf_seed": 1032,
+      "pooled_rae": 0.4596,
+      "per_fold_mean": 0.4768,
+      "per_fold_std": 0.0479,
+      "mean_w": {
+        "K18": 0.5712,
+        "K20": 0.4288
+      },
+      "any_degenerate": false,
+      "fold_records": [
+        {
+          "fold": 0,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.6655,
+            "K20": 0.3345
+          },
+          "train_rae": 0.4539,
+          "val_rae": 0.471,
+          "max_w": 0.6655,
+          "degenerate": false
+        },
+        {
+          "fold": 1,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.2219,
+            "K20": 0.7781
+          },
+          "train_rae": 0.4444,
+          "val_rae": 0.5146,
+          "max_w": 0.7781,
+          "degenerate": false
+        },
+        {
+          "fold": 2,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.6488,
+            "K20": 0.3512
+          },
+          "train_rae": 0.4399,
+          "val_rae": 0.5276,
+          "max_w": 0.6488,
+          "degenerate": false
+        },
+        {
+          "fold": 3,
+          "n_train": 203,
+          "n_val": 50,
+          "weights": {
+            "K18": 0.6541,
+            "K20": 0.3459
+          },
+          "train_rae": 0.4684,
+          "val_rae": 0.4644,
+          "max_w": 0.6541,
+          "degenerate": false
+        },
+        {
+          "fold": 4,
+          "n_train": 203,
+          "n_val": 50,
+          "weights": {
+            "K18": 0.6655,
+            "K20": 0.3345
+          },
+          "train_rae": 0.4684,
+          "val_rae": 0.4063,
+          "max_w": 0.6655,
+          "degenerate": false
+        }
+      ]
+    },
+    {
+      "kf_seed": 1033,
+      "pooled_rae": 0.4604,
+      "per_fold_mean": 0.4651,
+      "per_fold_std": 0.028,
+      "mean_w": {
+        "K18": 0.5427,
+        "K20": 0.4573
+      },
+      "any_degenerate": false,
+      "fold_records": [
+        {
+          "fold": 0,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.2219,
+            "K20": 0.7781
+          },
+          "train_rae": 0.4632,
+          "val_rae": 0.4482,
+          "max_w": 0.7781,
+          "degenerate": false
+        },
+        {
+          "fold": 1,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.5104,
+            "K20": 0.4896
+          },
+          "train_rae": 0.4494,
+          "val_rae": 0.4691,
+          "max_w": 0.5104,
+          "degenerate": false
+        },
+        {
+          "fold": 2,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.6655,
+            "K20": 0.3345
+          },
+          "train_rae": 0.443,
+          "val_rae": 0.5061,
+          "max_w": 0.6655,
+          "degenerate": false
+        },
+        {
+          "fold": 3,
+          "n_train": 203,
+          "n_val": 50,
+          "weights": {
+            "K18": 0.6503,
+            "K20": 0.3497
+          },
+          "train_rae": 0.4608,
+          "val_rae": 0.4315,
+          "max_w": 0.6503,
+          "degenerate": false
+        },
+        {
+          "fold": 4,
+          "n_train": 203,
+          "n_val": 50,
+          "weights": {
+            "K18": 0.6655,
+            "K20": 0.3345
+          },
+          "train_rae": 0.4549,
+          "val_rae": 0.4707,
+          "max_w": 0.6655,
+          "degenerate": false
+        }
+      ]
+    },
+    {
+      "kf_seed": 1034,
+      "pooled_rae": 0.4576,
+      "per_fold_mean": 0.4661,
+      "per_fold_std": 0.0445,
+      "mean_w": {
+        "K18": 0.609,
+        "K20": 0.391
+      },
+      "any_degenerate": false,
+      "fold_records": [
+        {
+          "fold": 0,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.7233,
+            "K20": 0.2767
+          },
+          "train_rae": 0.4505,
+          "val_rae": 0.4741,
+          "max_w": 0.7233,
+          "degenerate": false
+        },
+        {
+          "fold": 1,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.6488,
+            "K20": 0.3512
+          },
+          "train_rae": 0.4541,
+          "val_rae": 0.459,
+          "max_w": 0.6488,
+          "degenerate": false
+        },
+        {
+          "fold": 2,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.5877,
+            "K20": 0.4123
+          },
+          "train_rae": 0.454,
+          "val_rae": 0.4763,
+          "max_w": 0.5877,
+          "degenerate": false
+        },
+        {
+          "fold": 3,
+          "n_train": 203,
+          "n_val": 50,
+          "weights": {
+            "K18": 0.6488,
+            "K20": 0.3512
+          },
+          "train_rae": 0.4706,
+          "val_rae": 0.3988,
+          "max_w": 0.6488,
+          "degenerate": false
+        },
+        {
+          "fold": 4,
+          "n_train": 203,
+          "n_val": 50,
+          "weights": {
+            "K18": 0.4364,
+            "K20": 0.5636
+          },
+          "train_rae": 0.4441,
+          "val_rae": 0.5223,
+          "max_w": 0.5636,
+          "degenerate": false
+        }
+      ]
+    },
+    {
+      "kf_seed": 1035,
+      "pooled_rae": 0.4568,
+      "per_fold_mean": 0.4798,
+      "per_fold_std": 0.0441,
+      "mean_w": {
+        "K18": 0.5921,
+        "K20": 0.4079
+      },
+      "any_degenerate": false,
+      "fold_records": [
+        {
+          "fold": 0,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.6828,
+            "K20": 0.3172
+          },
+          "train_rae": 0.4491,
+          "val_rae": 0.5237,
+          "max_w": 0.6828,
+          "degenerate": false
+        },
+        {
+          "fold": 1,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.4364,
+            "K20": 0.5636
+          },
+          "train_rae": 0.4509,
+          "val_rae": 0.4995,
+          "max_w": 0.5636,
+          "degenerate": false
+        },
+        {
+          "fold": 2,
+          "n_train": 202,
+          "n_val": 51,
+          "weights": {
+            "K18": 0.6655,
+            "K20": 0.3345
+          },
+          "train_rae": 0.4592,
+          "val_rae": 0.4341,
+          "max_w": 0.6655,
+          "degenerate": false
+        },
+        {
+          "fold": 3,
+          "n_train": 203,
+          "n_val": 50,
+          "weights": {
+            "K18": 0.5104,
+            "K20": 0.4896
+          },
+          "train_rae": 0.479,
+          "val_rae": 0.4308,
+          "max_w": 0.5104,
+          "degenerate": false
+        },
+        {
+          "fold": 4,
+          "n_train": 203,
+          "n_val": 50,
+          "weights": {
+            "K18": 0.6655,
+            "K20": 0.3345
+          },
+          "train_rae": 0.4408,
+          "val_rae": 0.5108,
+          "max_w": 0.6655,
+          "degenerate": false
+        }
+      ]
+    }
+  ],
+  "pooled_per_seed": [
+    0.4553,
+    0.4554,
+    0.4587,
+    0.457,
+    0.4597,
+    0.4599,
+    0.4638,
+    0.4561,
+    0.4578,
+    0.455,
+    0.4561,
+    0.4596,
+    0.4604,
+    0.4576,
+    0.4568
+  ],
+  "mean_rae": 0.4579502887581655,
+  "std_rae": 0.0024190263722418314,
+  "min_rae": 0.45495704896945877,
+  "max_rae": 0.4638288882952883,
+  "best_kf_seed": 1030,
+  "best_kf_seed_pooled": 0.455,
+  "any_seed_degenerate": false,
+  "full_pool_slsqp": {
+    "weights": {
+      "K18": 0.6488,
+      "K20": 0.3512
+    },
+    "rae_in_sample": 0.4547,
+    "max_w": 0.6488,
+    "degenerate": false
+  },
+  "te_unb_in_sample_rae_full_pool": 0.1903,
+  "te_mean": 4.73591423034668,
+  "te_std": 0.7692484855651855,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2993_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2993.npy",
+  "submission_csv": null,
+  "ref_nb2982_deep30": 0.4505,
+  "ref_nb2973_deep30": 0.4535,
+  "ref_nb2171": 0.4682,
+  "delta_vs_nb2982": 0.007450288758165502,
+  "delta_vs_nb2973": 0.004450288758165499,
+  "delta_vs_nb2171": -0.010249711241834492,
+  "gate_matches_deep30": 0.4505,
+  "gate_better_than_nb2973": 0.4535,
+  "verdict": "FAIL_SENSITIVITY",
+  "wall_sec": 2.61
+}

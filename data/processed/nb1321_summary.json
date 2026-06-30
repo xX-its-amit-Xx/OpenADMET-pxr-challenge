@@ -1,0 +1,55 @@
+{
+  "tag": "nb1321",
+  "recipe": "row-wise mean of 5 deploys (uniform 1/5 weight)",
+  "components": [
+    "te_nb1260",
+    "te_nb1261",
+    "te_nb1320",
+    "te_nb1250",
+    "te_nb1220"
+  ],
+  "component_anchors": {
+    "te_nb1260": 0.5394,
+    "te_nb1261": 0.5407,
+    "te_nb1320": 0.539,
+    "te_nb1250": 0.5431,
+    "te_nb1220": 0.5451
+  },
+  "component_in_rae_unb": {
+    "te_nb1260": 0.4116825311424762,
+    "te_nb1261": 0.41005141492634944,
+    "te_nb1320": 0.39801828238393705,
+    "te_nb1250": 0.42866577874601797,
+    "te_nb1220": 0.3965134865982726
+  },
+  "nb1320_inline": {
+    "built": false,
+    "path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb1320.npy"
+  },
+  "n_test": 513,
+  "n_unb": 253,
+  "te_nb1321_stats": {
+    "mean": 4.723354852966398,
+    "std": 0.7685286195982549,
+    "min": 2.047139120101929,
+    "max": 5.9261016845703125
+  },
+  "in_rae_nb1321_unb": 0.4079074666661009,
+  "pairwise_pred_pearson": {
+    "te_nb1260__te_nb1261": 0.9999261757438695,
+    "te_nb1260__te_nb1320": 0.9994475144707398,
+    "te_nb1260__te_nb1250": 0.9977978060574492,
+    "te_nb1260__te_nb1220": 0.996701456817554,
+    "te_nb1261__te_nb1320": 0.9994772476784952,
+    "te_nb1261__te_nb1250": 0.9971906749472265,
+    "te_nb1261__te_nb1220": 0.9972805911144087,
+    "te_nb1320__te_nb1250": 0.996561936486434,
+    "te_nb1320__te_nb1220": 0.9969884222693335,
+    "te_nb1250__te_nb1220": 0.9891235662930745
+  },
+  "expected_lb_anchor": 0.54146,
+  "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb1321.npy",
+  "csv_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1321_mega_deploy_ensemble.csv",
+  "wall_sec": 0.01,
+  "note": "POST-unblind deploy-level ensemble; each component was trained on ALL 253 unblind rows, so in_RAE on te[unb_idx] is in-sample optimistic. Honest cross-fit RAE for a naive uniform 5-way mean is NOT determined by 5-way OOF blending; it's approximately the mean of the 5 honest anchors (~0.5415) modulo variance-reduction gains."
+}

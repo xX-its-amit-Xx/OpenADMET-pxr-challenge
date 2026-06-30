@@ -1,0 +1,53 @@
+{
+  "tag": "nb1480",
+  "anchor": "chemprop_aux",
+  "anchor_kind": "PRE_unblind_te",
+  "deploy_of": "nb1472",
+  "seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "n_test": 513,
+  "n_unb": 253,
+  "rae_anchor_chemprop_aux_in_RAE_unb": 0.6215728863514471,
+  "per_family_top_k": {
+    "AtomPair": 30,
+    "MACCS": 20,
+    "Mordred": 30
+  },
+  "per_family_diag": {
+    "AtomPair": {
+      "in_RAE_unb_deploy_in_sample": 0.43755458624782595,
+      "resid_513_mean": -0.12755547191562894,
+      "resid_513_std": 0.2750430970306205
+    },
+    "MACCS": {
+      "in_RAE_unb_deploy_in_sample": 0.46390692584336607,
+      "resid_513_mean": -0.11793936710996722,
+      "resid_513_std": 0.25069824423908693
+    },
+    "Mordred": {
+      "in_RAE_unb_deploy_in_sample": 0.384899889811768,
+      "resid_513_mean": -0.12362755491916338,
+      "resid_513_std": 0.30724371831538944
+    }
+  },
+  "per_family_crossfit_RAE_from_nb1472": {
+    "AtomPair": 0.5550257746034677,
+    "MACCS": 0.5704199812350799,
+    "Mordred": 0.538378253439026
+  },
+  "te_mean": 4.708233093878263,
+  "te_std": 0.6952557696508337,
+  "te_min": 1.9786278113993532,
+  "te_max": 5.973671280900891,
+  "in_RAE_unb_deploy_in_sample": 0.4088172596370461,
+  "honest_crossfit_RAE_nb1472": 0.532979455536528,
+  "predicted_LB": 0.535979455536528,
+  "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb1480.npy",
+  "csv_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1480_deploy_nb1472.csv",
+  "wall_sec": 0.26
+}

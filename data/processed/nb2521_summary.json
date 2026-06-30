@@ -1,0 +1,102 @@
+{
+  "tag": "nb2521",
+  "method": "heteroscedastic_quantile_lgbm_confidence_blend_nb2240",
+  "anchor": "nb2240_K20",
+  "n_unb": 253,
+  "n_te": 513,
+  "n_folds": 5,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "quantiles": [
+    0.16,
+    0.5,
+    0.84
+  ],
+  "sigma_eps": 0.001,
+  "k20_surviving_idx_in_117": [
+    45,
+    67,
+    66,
+    68,
+    65,
+    92,
+    27,
+    77,
+    81,
+    56,
+    1,
+    7,
+    115,
+    93,
+    80,
+    11,
+    70,
+    54,
+    8,
+    57
+  ],
+  "rae_anchor_nb2240": 0.46301757335429367,
+  "per_seed_results": [
+    {
+      "kf_seed": 1001,
+      "pooled_rae": 0.549071480319324,
+      "rae_p50_only": 0.612989068941824,
+      "mean_sigma": 0.3934971809890954,
+      "mean_w_anchor": 0.248873924225059,
+      "wall_sec": 0.85
+    },
+    {
+      "kf_seed": 1002,
+      "pooled_rae": 0.5468990045135589,
+      "rae_p50_only": 0.6145535631364162,
+      "mean_sigma": 0.3981444112871699,
+      "mean_w_anchor": 0.3514254784514873,
+      "wall_sec": 0.88
+    },
+    {
+      "kf_seed": 1003,
+      "pooled_rae": 0.5436312132169208,
+      "rae_p50_only": 0.5968733689527224,
+      "mean_sigma": 0.397566980487558,
+      "mean_w_anchor": 0.2428044469166867,
+      "wall_sec": 0.89
+    },
+    {
+      "kf_seed": 1004,
+      "pooled_rae": 0.5477896122964151,
+      "rae_p50_only": 0.6096021136155927,
+      "mean_sigma": 0.38867502894013006,
+      "mean_w_anchor": 0.3269002476762593,
+      "wall_sec": 0.89
+    },
+    {
+      "kf_seed": 1005,
+      "pooled_rae": 0.5483355169007955,
+      "rae_p50_only": 0.6296341040909815,
+      "mean_sigma": 0.4044638063576668,
+      "mean_w_anchor": 0.374787253023872,
+      "wall_sec": 0.9
+    }
+  ],
+  "mean_rae": 0.547145365449403,
+  "std_rae": 0.0018948030289735796,
+  "rae_of_mean_of_seed_oofs": 0.5346653539567084,
+  "gate_promote_threshold": 0.457,
+  "gate_marginal_threshold": 0.4601,
+  "verdict": "FAIL",
+  "te_unb_rae_in_sample": 0.23540556185222292,
+  "te_mean": 4.767143334473649,
+  "te_std": 0.6930486510286109,
+  "te_sigma_mean": 0.3988480301612587,
+  "te_w_anchor_mean": 0.05570181680704513,
+  "oof_sigma_mean": 0.3964694816123241,
+  "oof_w_anchor_mean": 0.3089582700586729,
+  "oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2521_pred_oof.npy",
+  "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2521.npy",
+  "wall_sec": 9.07
+}

@@ -1,0 +1,681 @@
+aid,n_cid,n_active,name
+1346982,7671,1888,"Human pregnane X receptor (PXR) small molecule agonists, qHTS assay"
+1346985,2408,229,"Human pregnane X receptor (PXR) activation by small molecules, qHTS as"
+720659,2327,238,qHTS assay for small molecule activators of the human pregnane X recep
+1961803,841,100,Binding affinity towards human NR1I2 in an in vitro cell free assay me
+1961801,576,41,Agonist activity at human NR1I2 in an in vitro cell free assay measure
+1961802,518,14,Antagonist activity at human NR1I2 in an in vitro cell free assay meas
+1920058,209,1,Dual reporter qHTS for agonist of Pregnane X Receptor (hPXR) against t
+1920059,209,9,Dual reporter qHTS for agonist of Pregnane X Receptor (hPXR) against t
+1920060,209,0,Dual reporter qHTS for antagonist of Pregnane X Receptor (hPXR) agains
+1920061,209,0,Dual reporter qHTS for antagonist of Pregnane X Receptor (hPXR) agains
+1805345,88,87,"PXR BINDING ASSAY from US Patent US10947203: ""1,4,5-substituted 1,2,3-"
+1805346,88,85,"hPXR Tranxactivation Assays from US Patent US10947203: ""1,4,5-substitu"
+1804137,87,86,"PXR Binding Assay from US Patent US10550091: ""1,4,5-substituted 1,2,3-"
+1804138,87,85,"hPXR Tranxactivation Assays from US Patent US10550091: ""1,4,5-substitu"
+1775046,83,80,Displacement of BODIPY FL vindoline from GST-tagged human PXR LBD incu
+1775048,83,65,Agonist activity at human PXR expressed in HepG2 cells co-expressing l
+1775050,83,6,Inverse agonist activity at human PXR expressed in HepG2 cells co-expr
+1775052,83,30,Antagonist activity at human PXR expressed in HepG2 cells co-expressin
+1936347,78,0,Inhibition of BODIPY FL vindoline binding to recombinant human GST-tag
+1775047,77,0,Displacement of BODIPY FL vindoline from GST-tagged human PXR LBD at 1
+1775049,66,0,Agonist activity at human PXR expressed in HepG2 cells co-expressing l
+1660043,62,0,Activation of PXR (unknown origin) at 1 uM relative to control
+1936352,60,54,Antagonist activity at human PXR in human HepG2 cells co-expressing lu
+1936353,60,0,Antagonist activity at human PXR in human HepG2 cells co-expressing lu
+1215094,59,36,Competitive binding affinity to human PXR LBD (111 to 434) by TR-FRET 
+1215095,58,0,Competitive binding affinity to human PXR LBD (111 to 434) by TR-FRET 
+1660044,56,0,Activation of PXR (unknown origin) at 5 uM relative to control
+1215087,53,23,Activation of human PXR expressed in human HepG2 (DPX-2) cells assesse
+1215086,52,17,Activation of human PXR expressed in human HepG2 (DPX-2) cells after 2
+1528150,50,31,Transactivation of human PXR receptor expressed in HEPG2 or DPX2 cells
+1215089,48,0,Activation of human PXR expressed in human HepG2 (DPX-2) cells assesse
+1215096,46,0,Activation of human PXR expressed in human HepG2 (DPX-2) cells after 2
+1678256,45,23,Activation of human PXR expressed in human HepG2 cells
+1780035,45,7,Agonist activity at human PXR-gamma expressed in HEK293 cells assessed
+590402,43,7,Agonist activity at PXR
+590403,43,0,Agonist activity at PXR at 10 uM
+1215093,41,0,Activation of rat PXR expressed in human HepG2 cells up to 46 uM after
+1936350,40,38,Inverse agonist activity at human PXR in human HepG2 cells co-expressi
+1936351,40,0,Inverse agonist activity at human PXR in human HepG2 cells co-expressi
+1494622,39,0,Inverse agonist activity at PXR LBD (unknown origin) expressed in HEK2
+1215090,36,19,Activation of rat PXR expressed in human HepG2 cells after 24 hrs by l
+1696446,36,19,Transactivation of PXR in human HepG2 cells
+466834,34,0,Transactivation activity at human PXR assessed as induction of CYP3A4 
+1775053,34,0,Inhibition of human PXR expressed in HepG2 cells co-expressing lucifer
+1542613,32,15,Transactivation of PXR in human HepG2 cells
+1542614,32,0,Transactivation of PXR in human HepG2 cells relative to rifampicin
+2011616,32,0,Agonist activity at PXR (unknown origin) assessed as maximal efficacy 
+1215097,31,0,Activation of rat PXR expressed in human HepG2 cells after 24 hrs by l
+1591817,31,3,Transactivation of PXR (unknown origin) expressed in human HepG2 cells
+1591818,31,0,Transactivation of PXR (unknown origin) expressed in human HepG2 cells
+2011612,31,12,Agonist activity at PXR (unknown origin)
+381941,30,27,Agonist activity at human pregnane X receptor expressed in HGPXR repor
+161437,29,27,Minimum effective concentration required to inhibit pregnane X recepto
+1430940,29,0,Activation of PXR in human LS180 cells assessed as P-gp induction by m
+1543102,29,0,Agonist activity at PXR (unknown origin) at 20 uM by AlphaScreen assay
+1721669,28,27,Activation of PXR (unknown origin)
+1721670,28,0,Activation of PXR (unknown origin) relative to rifampicin
+493692,27,0,Activation of human PXR expressed in HepG2 cells assessed as luciferas
+1073846,27,6,Transactivation of human PXR expressed in human HepG2 cells by lucifer
+1368956,26,21,Transactivation of PXR in human HepG2 cells by receptor transactivatio
+1368957,26,0,Transactivation of PXR in human HepG2 cells by receptor transactivatio
+1444661,26,0,Activation of human PXR at 10 uM relative to rifampicin
+352636,25,0,Activity at PXR in human hepatocytes assessed as induction of CYP3A4 a
+1541068,25,0,Activity at PXR (unknown origin)
+1936348,25,23,Agonist activity at human PXR in human HepG2 cells co-expressing lucif
+1936349,25,0,Agonist activity at human PXR in human HepG2 cells co-expressing lucif
+1444524,24,0,Activation of human PXR at 10 uM in presence of rifampicin
+579241,23,0,Activation of human PXR at 10 uM relative to rifampicin
+1215091,23,0,Activation of human PXR expressed in human HepG2 (DPX-2) cells up to 4
+1494829,23,0,Inverse agonist activity at PXR LBD (unknown origin) expressed in HEK2
+1215092,21,0,Activation of human PXR expressed in human HepG2 (DPX-2) cells assesse
+501733,20,0,Inhibition of PXR activation at 10 uM
+1128412,20,0,Activation of human PXR at 2 uM relative to rifampin
+1185113,20,18,Activation of PXR (unknown origin)
+1696447,20,0,Transactivation of PXR in human HepG2 cells relative to rifampicin
+2005898,20,5,Activation of PXR (unknown origin)
+315803,19,0,Reduction of PXR activation at 10 uM relative to rifampicin
+427349,19,0,Activation of full length human liver PXR expressed in human HepG2/C3A
+1693470,19,3,Activation of human PXR ligand binding domain incubated for 1 hr by TR
+276400,18,0,Increase in activation of human PXR expressed in HepG2 cells relative 
+755445,18,7,Agonist activity at PXR (unknown origin) expressed in human HepG2 cell
+1192866,18,0,Activation of human PXR at 2 uM relative to rifampicin
+1892358,18,9,Transactivation of PXR (unknown origin)
+1892359,18,3,Transactivation of PXR (unknown origin) relative to refampicin
+2005899,18,0,Activation of PXR (unknown origin) assessed as maximal efficacy relati
+395460,17,0,Activation of human PXR expressed in human HepG2 cells at 2 uM by luci
+1153245,17,11,Antagonist activity at human PXR transfected in human HepG2 cells co-t
+1186892,17,8,Transactivation of human full-length PXR transfected in human HepG2 ce
+1628660,17,0,Activation of human PXR assessed as remaining activity at 2 uM relativ
+1628661,17,0,Activation of human PXR assessed as remaining activity at 10 uM relati
+1850933,17,0,Activation of human PXR assessed as induction of PXR activity at 10 uM
+1850934,17,0,Activation of rat PXR assessed as induction of PXR activity at 10 uM r
+276423,16,0,Increase in human PXR activation expressed in CHO cells relative to ri
+1494830,16,0,Inverse agonist activity at PXR LBD (unknown origin) expressed in HEK2
+404232,15,9,Agonist activity at human PXR
+413206,15,0,Transactivation of human PXR transfected in HEK cells at 20 uM by luci
+1056308,15,9,Activation of PXR (unknown origin)
+1073845,15,0,Transactivation of human PXR expressed in human HepG2 cells by lucifer
+1616316,15,12,Agonist activity at PXR in human DPX2 cells after 24 hrs by luciferase
+404233,14,0,Agonist activity at human PXR at 10 uM
+696985,14,0,Activation of PXR at 10 uM
+696986,14,8,Activation of PXR
+1153244,14,2,Agonist activity at human PXR transfected in human HepG2 cells co-tran
+1312390,14,1,Activation of human PXR
+1398739,14,10,Agonist activity at VP16-fused human PXR expressed in HEK293 cells aft
+1955440,14,8,Transactivation of PXR (unknown origin)
+551915,13,6,Activity at PXR by induction assay
+703229,13,0,Inhibition of human PXR assessed as activity remaining at 2 uM relativ
+730773,13,10,Transactivation of PXR (unknown origin)
+1237149,13,9,Activation of PXR (unknown origin)
+1400097,13,0,Transactivation of PXR in human hepatocytes assessed as upregulation o
+1616315,13,0,Agonist activity at PXR in human DPX2 cells at 10 uM after 24 hrs by l
+1783834,13,5,Transactivation of PXR (unknown origin)
+1873300,13,0,Induction of PXR (unknown origin) at 10 uM relative to control
+1899925,13,6,Transactivation of Gal4-tagged human PXR transfected in human HeLa cel
+1905163,13,0,Transactivation of human PXR transfected in HepG2 cells assessed as CY
+293510,12,12,Displacement of [N-methyl-3H]GW0438X from human PXR
+293511,12,12,Antagonist activity at human PXR by transient transfection assay
+352655,12,0,Activity at human PXR assessed as induction of CYP3A4 activity in huma
+755587,12,8,Induction of PXR (unknown origin)
+1255419,12,4,Transactivation of full length human PXR (unknown origin) transfected 
+1400098,12,0,Transactivation of PXR in human hepatocytes assessed as upregulation o
+1798107,12,12,Competition Ligand Binding Assay and Transient Transfection Assay from
+1943416,12,6,Activation of PXR (unknown origin)
+1943418,12,0,Activation of PXR (unknown origin) relative to control
+2014592,12,10,Binding affinity to PXR (unknown origin) by Lanthascreen TR-FRET assay
+1181965,11,0,Activation of PXR (unknown origin) at 10 uM by reporter gene assay rel
+1215088,11,0,Competitive binding affinity to human PXR LBD (111 to 434) up to 46 uM
+1558113,11,0,Activation of PXR (unknown origin) assessed as CYP3A4 induction
+364770,10,1,Induction of PXR transactivation
+414272,10,0,Activity at human PXR receptor transfected in human HepG2 cells assess
+516546,10,4,Inhibition of human PXR induction
+516547,10,0,Inhibition of human PXR induction at 10 uM
+605759,10,7,Binding affinity to human SXR transfected in human HepG2 cells coexpre
+608159,10,6,Agonist activity at human FLAG-tagged SXR ligand binding domain expres
+1481046,10,0,Inhibition of PXR (unknown origin)
+1660045,10,0,Activation of PXR (unknown origin) at 10 uM relative to control
+1678267,10,0,Activation of human PXR human hepatocytes assessed as induction of CYP
+1783835,10,0,Transactivation of PXR (unknown origin) at 10 uM relative to control
+1955444,10,0,Transactivation of PXR (unknown origin) relative to control
+550530,9,0,Activation of PXR relative to control
+599240,9,9,Agonist activity at human PXR expressed in human HepG2 cells assessed 
+605758,9,9,Agonist activity at human SXR transfected in human HepG2 cells coexpre
+659459,9,5,Induction of human SXR transcriptional activity expressed in human Hep
+659460,9,9,Induction of human SXR transcriptional activity expressed in human Hep
+1069007,9,0,Activation of human PXR by cell based luciferase reporter gene assay
+1448530,9,1,Activation of PXR (unknown origin)
+2028251,9,5,Activation of PXR in human HepG2 cells incubated for 24 hrs by dual lu
+339352,8,0,Activation of PXR at 10 uM relative to rifampicin
+481474,8,1,Activation of PXR
+589025,8,0,Pregnane X receptor agonist
+607479,8,7,Transactivation of PXR
+755449,8,0,Agonist activity at PXR (unknown origin) expressed in human HepG2 cell
+1069360,8,2,Activation of PXR (unknown origin)
+1069361,8,0,Activation of PXR (unknown origin) relative to rifampicin
+1255422,8,4,Antagonist activity at full length human PXR transfected in human HepG
+1532965,8,2,Activation of PXR (unknown origin)
+1556518,8,8,Agonist activity at human PXR expressed in HepG2 cells co-expressing C
+1600409,8,7,Agonist activity at human PXR transfected in human HepG2 cells cotrans
+1600410,8,0,Agonist activity at human PXR transfected in human HepG2 cells cotrans
+1600411,8,0,Ratio of Emax to EC50 for agonist activity at human PXR transfected in
+1780156,8,0,Activation of full length human PXR expressed in human HepG2 cells co-
+1780157,8,5,Activation of full length human PXR expressed in human HepG2 cells co-
+1785401,8,0,Transactivation of human PXR transfected in DPX2 cells assessed as CYP
+1899924,8,0,Binding affinity to human PXR-LBD assessed as change in melting temper
+1069068,7,0,Activation of human PXR by cell based luciferase reporter gene assay
+1241593,7,0,Activation of human PXR expressed in human HepG2 cells co-expressing C
+1362396,7,0,Activation of human full length PXR expressed in human HepG2 cells at 
+1362397,7,0,Activation of human full length PXR expressed in human HepG2 cells at 
+1420346,7,0,Induction of PXR in human primary hepatocytes assessed as upregulation
+1420347,7,0,Induction of PXR in human primary hepatocytes assessed as upregulation
+1420348,7,0,Induction of PXR in human primary hepatocytes assessed as upregulation
+1420349,7,0,Induction of PXR in human primary hepatocytes assessed as upregulation
+1486778,7,2,Activation of PXR in human hepatocytes assessed as induction of CYP450
+1528463,7,0,Activation of human PXR upto 30 uM
+1543103,7,7,Agonist activity at PXR (unknown origin) by AlphaScreen assay
+1605741,7,2,Agonist activity at His-tagged PXR-LBD/SRC-1p (unknown origin) express
+1605742,7,6,Agonist activity at His-tagged PXR-LBD/SRC-1p (unknown origin) express
+1719801,7,6,Transactivation of PXR (unknown origin) assessed as CYP450 induction
+1719827,7,0,Transactivation of PXR (unknown origin) assessed as CYP450 induction r
+1759723,7,4,Activation of PXR (unknown origin) expressed in human DPX2 cells co-ex
+251901,6,0,Inhibition of pregnane X receptor mediated activation of alkaline phos
+666461,6,0,Inhibition of PXR
+1173412,6,0,Inverse agonist activity at GAL4-fused human PXR expressed in HEK293T 
+1195728,6,0,Activation of human PXR at 2 uM relative to control
+1215085,6,6,Activation of PXR in human cryopreserved hepatocytes assessed as induc
+1237239,6,0,Agonist activity at GAL4-fused human PXR expressed in HEK293T cells as
+1237243,6,0,Antagonist activity at GAL4-fused human PXR expressed in HEK293T cells
+1346802,6,6,Mouse Pregnane X receptor (1I. Vitamin D receptor-like receptors)
+1391036,6,2,Activation of PXR (unknown origin)
+1543104,6,0,Agonist activity at PXR (unknown origin) assessed as maximum receptor 
+1605743,6,0,Agonist activity at His-tagged PXR-LBD/SRC-1p (unknown origin) express
+1618157,6,0,Activation of human PXR at 10 nM to 10 uM
+1775051,6,0,Inhibition of human PXR expressed in HepG2 cells co-expressing lucifer
+1943410,6,6,Activation of human PXR
+1966153,6,2,Activation of PXR (unknown origin) assessed as CYP3A4 induction
+2015139,6,3,Transactivation of PXR in human HepG2 cells co-expressing luciferase g
+2015165,6,0,Transactivation of PXR in human HepG2 cells co-expressing luciferase g
+413205,5,0,Transactivation of human PXR transfected in HEK cells at 2 uM by lucif
+551283,5,0,Induction of pregnane X receptor
+692293,5,0,Activity at PXR at 10 uM relative to rifampicin
+1071343,5,3,Transactivation of human full-length PXR transfected in human HepG2 ce
+1183421,5,1,Agonist activity at GAL4-fused human PXR expressed in HEK293T cells as
+1267478,5,2,Activation of PXR (unknown origin)
+1410248,5,0,Activation of human PXR assessed as CYP3A4 induction at 1 uM relative 
+1410249,5,0,Activation of human PXR assessed as CYP3A4 induction at 10 uM relative
+1420350,5,0,Activation of full length PXR (unknown origin) transfected in HepG2 ce
+1662522,5,0,Activation of PXR (unknown origin) at 5 uM
+1696894,5,2,Transactivation of human PXR transfected in human HepG2 cells co-trans
+303492,4,3,Activation of human PXR expressed in HEK293 cells at 20 uM by GAL4 act
+303493,4,3,Activation of human PXR expressed in HEK293 cells at 50 uM by GAL4 act
+340015,4,0,Induction of PXR transactivation in HepG2 cells
+340016,4,0,Inhibition of refampicin-mediated PXR activation in HepG2 cells
+381942,4,4,Protection of human pregnane X receptor against proteolytic digestion 
+626613,4,3,Inhibition of PXR
+682387,4,1,Activation of PXR
+748595,4,0,Induction of PXR-mediated CYP3A4 expression in human DPX2 cells after 
+755448,4,0,Agonist activity at PXR (unknown origin) expressed in human HepG2 cell
+1059090,4,0,Agonist activity at GAL4-fused human PXR expressed in HEK293T cells as
+1059091,4,4,Agonist activity at GAL4-fused human PXR expressed in HEK293T cells as
+1247821,4,4,Antagonist activity at GAL4-fused human PXR expressed in HEK293 cells 
+1247825,4,0,Agonist activity at GAL4-fused human PXR expressed in HEK293 cells ass
+1277929,4,1,Activation of PXR (unknown origin) assessed as upregulation of CYP3A4 
+1279188,4,1,Transactivation of human PXR expressed in human HepG2 cells after 15 m
+1287454,4,3,Agonist activity at human PXR transfected in HEK293 cells after 24 hrs
+1310890,4,2,Agonist activity at PXR expressed in human HepG2 cells after 24 hrs by
+1400128,4,0,Transactivation of PXR in human hepatocytes assessed as upregulation o
+1423710,4,0,Activation of PXR (unknown origin)
+1430943,4,4,Activation of PXR in human LS180 cells assessed as P-gp induction by m
+1515801,4,0,Transactivation of PXR (unknown origin)
+1669512,4,0,Inhibition of PXR (unknown origin)
+1744482,4,0,Activation of PXR (unknown origin) at 10 uM by CYP450 induction assay 
+1777208,4,0,Agonist activity at human PXR transfected in human HEK293T cells co-tr
+1777209,4,0,Agonist activity at human PXR transfected in human HEK293T cells co-tr
+1943412,4,0,Activation of PXR in human HepG2 cells at 1 uM incubated for 48 hrs re
+1943413,4,0,Activation of PXR in human HepG2 cells at 10 uM incubated for 48 hrs r
+1957195,4,0,Activation of human PXR expressed in human DPX2 co-expressing lucifera
+1957196,4,0,Activation of human PXR expressed in human DPX2 co-expressing lucifera
+1957197,4,0,Activation of human PXR expressed in human DPX2 co-expressing lucifera
+271510,3,3,Transactivation of PXR by luciferase reporter gene assay
+437786,3,1,Binding affinity to PXR by scintillation proximity binding assay
+465690,3,0,Activity at human PXR receptor expressed in HepG2 cells at 2 uM after 
+494916,3,0,Agonist activity at PXR-LBD expressed in HEK293 cells assessed as Gal4
+494933,3,0,Agonist activity at PXR-LBD expressed in HEK293 cells assessed as Gal4
+589026,3,0,Pregnane X receptor agonist
+626877,3,3,Activation of human PXR in DPX2 cells after 24 hrs by microplate reade
+706612,3,0,Activation of human PXR at 2 uM relative to control
+748235,3,0,Activation of rat PXR at 10 uM relative to control
+750365,3,3,Agonist activity at PXR LBD (unknown origin) transfected in human HepG
+755446,3,0,Agonist activity at PXR (unknown origin) expressed in human HepG2 cell
+1071337,3,3,Partial agonist activity at human full-length PXR transfected in human
+1071341,3,1,Agonist activity at human full-length PXR transfected in human HepG2 c
+1075186,3,3,Induction of PXR (unknown origin)
+1165593,3,3,Agonist activity at PXR (unknown origin) in human HepG2 cells co-trans
+1211695,3,0,Transactivation of human PXR transfected in human HepG2 cells assessed
+1211696,3,0,Transactivation of rat PXR at 0.1 to 30 uM after 24 to 48 hrs by cell-
+1310901,3,3,Agonist activity at PXR in human primary hepatocytes assessed as upreg
+1310902,3,3,Agonist activity at PXR in human primary hepatocytes assessed as upreg
+1310903,3,3,Agonist activity at PXR in human primary hepatocytes assessed as upreg
+1310904,3,3,Agonist activity at PXR in human primary hepatocytes assessed as upreg
+1310913,3,3,Agonist activity at PXR in human HepaRG cells assessed as upregulation
+1310914,3,3,Agonist activity at PXR in human primary hepatocytes assessed as upreg
+1390332,3,0,Activation of human PXR at 10 uM relative to rifampicin
+1410621,3,0,Induction of human PXR expressed in human DPX2 cells at 10 uM after 24
+1432653,3,3,Inhibition of PXR (unknown origin)
+1447784,3,1,Transactivation of PXR (unknown origin)
+1458211,3,3,Activation of GAL4 fused human PXR expressed in HEK293 cells at 10 uM 
+1535296,3,0,Transactivation of PXR (unknown origin) assessed as CYP450 induction a
+1535297,3,0,Transactivation of PXR (unknown origin) assessed as increase in CYP3A4
+1725484,3,0,Induction of human PXR at 10 uM relative to control
+1775043,3,0,Antagonist activity at mouse PXR in presence of PCN by luciferase repo
+1775044,3,0,Agonist activity at mouse PXR by luciferase reporter assay
+1937062,3,0,Transactivation of human PXR in human HepG2 cells co-expressing lucife
+1943417,3,0,Activation of PXR (unknown origin) at 10 uM relative to control
+254776,2,2,Inhibitory concentration against Pregnane X receptor
+345480,2,2,Displacement of radiolabeled TO901317 from human PXR by scintillation 
+502591,2,0,Induction of human PXR by induction assay
+554045,2,0,Transactivation of PXR in human HepG2 cells assessed as induction of b
+554047,2,2,Induction of PXR-mediated CYP3A4 gene expression in human HepG2 cells 
+554048,2,2,Induction of PXR-mediated MDR1 gene expression in human HepG2 cells at
+569952,2,1,Activation of human PXR
+589027,2,0,Pregnane X receptor antagonist
+606749,2,2,Transactivation of human PXR expressed in HepG2 cells after 18 hrs by 
+622607,2,1,Activation of human PXR expressed in african green monkey CV1 cells tr
+622676,2,0,Activation of human PXR expressed in african green monkey CV1 cells tr
+645568,2,2,Agonist activity at PXR expressed in human HepG2 cells assessed as tra
+646587,2,0,Induction of human PXR-mediated CYP3A activity at 10 uM
+651509,2,0,Effect on PXR(NR1I2) dependent reporter activity in HEK293 cells at 20
+655679,2,2,Activity at PXR at 2.5 uM
+658362,2,0,Induction of PXR at 100 uM
+669188,2,2,Activation of PXR in human DPX2 cells after 24 hrs by luciferase repor
+669189,2,0,Activation of PXR in human DPX2 cells after 24 hrs by luciferase repor
+669194,2,0,Activation of PXR in human DPX2 cells at 6.25 uM after 24 hrs by lucif
+733045,2,0,Agonist activity at human PXR at < 10 uM
+735961,2,0,Inhibition of PXR (unknown origin)
+1071338,2,2,Agonist activity at PXR in human HepG2 cells assessed as induction of 
+1071339,2,2,Agonist activity at PXR in human HepG2 cells assessed as induction of 
+1071340,2,2,Agonist activity at PXR in human HepG2 cells assessed as induction of 
+1141150,2,0,Transactivation of PXR (unknown origin)
+1153246,2,0,Antagonist activity at human PXR transfected in human HepG2 cells co-t
+1153249,2,2,Antagonist activity at PXR in human HepG2 cells assessed as inhibition
+1163529,2,0,Activation of PXR (unknown origin)
+1168718,2,2,Agonist activity at human pregnane X receptor expressed in HEK293 cell
+1177755,2,2,Agonist activity at PXR (unknown origin) expressed in HEK293 cells ass
+1190161,2,1,Transactivation of human PXR expressed in in human HepG2 cells co-expr
+1209529,2,0,Activation of rat PXR expressed in rat hepatocytes coexpressing CYP3A4
+1209531,2,0,Activation of rat PXR expressed in human HepG2 cells coexpressing CYP3
+1209534,2,0,Activation of human PXR expressed in rat hepatocytes coexpressing CYP3
+1209535,2,0,Activation of human PXR expressed in human HepG2 cells coexpressing CY
+1255423,2,0,Transactivation of full length human PXR transfected in human HepG2 ce
+1255424,2,0,Antagonist activity at full length human PXR transfected in human HepG
+1255427,2,2,Activity at PXR in human HepG2 cells assessed as up regulation of rifa
+1255428,2,2,Antagonist activity against PXR in human HepG2 cells assessed as inhib
+1260973,2,0,Activation of human recombinant PXR up to 10 uM by alphascreen method
+1287460,2,0,Agonist activity at human PXR transfected in HEK293 cells after 24 hrs
+1295298,2,0,Agonist activity at PXR (unknown origin) at 10 uM
+1311163,2,0,Agonist activity at PXR (unknown origin) up to 5 uM
+1328905,2,2,Agonist activity at human PXR expressed in human HepG2 cells assessed 
+1328916,2,0,Agonist activity at human PXR expressed in human HepG2 cells assessed 
+1351289,2,0,Agonist activity at PXR (unknown origin) assessed as co-activator recr
+1351293,2,0,Antagonist activity at PXR (unknown origin) assessed as reduction in c
+1410777,2,1,Agonist activity at human PXR LBD expressed HEK293T cells at 10 uM aft
+1430762,2,1,Activation of PXR (unknown origin)
+1430942,2,0,Activation of PXR in human LS180 cells assessed as induction of P-gp e
+1448531,2,0,Activation of PXR (unknown origin) relative to control
+1449891,2,1,Activation of PXR (unknown origin)
+1473537,2,0,Activity at PXR (unknown origin)
+1483853,2,2,Antagonist activity at PXR (unknown origin)
+1494946,2,1,Activation of of PXR (unknown origin)
+1494947,2,1,Activation of of PXR in human hepatocytes assessed as induction of CPY
+1494992,2,0,Activation of of PXR (unknown origin) relative to rifampicin
+1509108,2,0,Activation of PXR in human DPX2 cells assessed as CYP induction
+1512789,2,2,Activation of PXR (unknown origin) assessed as CYP induction
+1574139,2,0,Activation of human PXR
+1575114,2,0,Inhibition of PXR (unknown origin)
+1600413,2,2,Agonist activity at human PXR in human primary hepatocytes assessed as
+1605748,2,0,Binding affinity to His-tagged PXR-LBD (unknown origin) expressed in E
+1605756,2,2,Agonist activity at PXR in human HepaRG cells assessed as increase in 
+1605757,2,2,Agonist activity at PXR in human HepaRG cells assessed as increase in 
+1623157,2,0,Activation of PXR in human HepG2 cells assessed as induction of CYP3A4
+1623158,2,0,Activation of PXR in human HepG2 cells assessed as induction of CYP3A4
+1633492,2,0,Agonist activity at human PXR transfected in HepG2 at 10 uM by lucifer
+1633496,2,0,Antagonist activity at human PXR transfected in HepG2 at 5 uM in prese
+1657026,2,0,Agonist activity at PXR (unknown origin)
+1662544,2,0,Activation of PXR (unknown origin) at 1 uM
+1676285,2,0,Activation of PXR (unknown origin) up to 10 uM relative to control
+1686024,2,1,Agonist activity at human PXR
+1686491,2,0,Activation of PXR (unknown origin) at 10 uM relative to rifampicin
+1696895,2,0,Transactivation of human PXR transfected in human HepG2 cells co-trans
+1761821,2,0,Inverse agonist activity at PXR (unknown origin)
+1776821,2,0,Inhibition of human PXR at 10 uM
+1811768,2,1,Activation of PXR (unknown origin)
+1827341,2,0,Transactivation of PXR (unknown origin) expressed in human DPX2 cells 
+1827835,2,1,Inhibition of PXR (unknown origin)
+1858216,2,0,Inverse agonist activity at human PXR expressed in HepG2 cells measure
+1873298,2,0,Induction of PXR (unknown origin) at 3 uM relative to control
+1892474,2,0,Agonist activity at PXR (unknown origin)
+1923023,2,0,Activation of PXR (unknown origin)
+1943523,2,0,Activation of PXR (unknown origin) in human DPX2 cells assessed as max
+1949755,2,1,Inhibition of PXR (unknown origin)
+1964485,2,0,Agonist activity at human GAL4-fused PXR LBD expressed in human HEK293
+2016383,2,0,Activation of PXR (unknown origin) at 30 uM relative to control
+2036825,2,0,Transactivation of human PXR in human HepG2 cells coexpressing firefly
+259692,1,1,Effect on PXR activity
+266381,1,0,Inhibition of PXR
+297225,1,0,Activity at PXR by cell based assay
+338905,1,1,Displacement of [3H]SR12813 from human PXR by scintillation proximity 
+342303,1,1,Agonist activity at PXR by SPA assay
+342309,1,0,Agonist activity at PXR by SPA assay relative to GW-4064
+352529,1,0,Inhibition of human PXR
+352777,1,1,Activity at PXR assessed as coactivator peptide interaction with recep
+352782,1,0,Activity at PXR assessed as coactivator peptide interaction with recep
+365251,1,0,Induction of PXR transactivation at 10 uM relative to rifampicin
+368033,1,0,Activity at human PXR at 10 uM by reporter gene assay
+371101,1,0,Agonist activity at SXR expressed in african green monkey CV1 cells co
+371379,1,0,Agonist activity at SXR expressed in african green monkey CV1 cells co
+375380,1,0,Activity at human PXR
+391705,1,1,Inhibition of human PXR
+391813,1,0,Activation of human PXR
+421064,1,0,Binding affinity to PXR up to 10 uM
+421073,1,0,Activity at PXR receptor up to 10 uM by transactivation assay
+428502,1,0,Activity at PXR
+444375,1,0,Inhibition of PXR
+446741,1,0,Activation of PXR receptor at 2 uM by luciferase reporter gene assay r
+463609,1,0,inhibition of human PXR at 10 uM
+472489,1,0,Binding affinity to PXR
+473702,1,0,Induction of human PXR
+476148,1,0,Transactivation of human PXR expressed in HepG2 cells after 24 hrs by 
+476184,1,0,Transactivation of human PXR expressed in HepG2 cells at 2 uM after 24
+476185,1,0,Transactivation of human PXR expressed in HepG2 cells at 10 uM after 2
+476597,1,0,Agonist activity at human PXR up to 50 uM by transactivation assay
+478703,1,1,Binding affinity to pregnane receptor in human hepatocytes
+480149,1,1,Activation of human PXR
+480150,1,0,Activation of human PXR at 5 uM
+483047,1,0,Activation of PXR at 10 uM relative to rifampicin
+497453,1,0,Activation of rat PXR
+497454,1,0,Activation of human PXR
+527579,1,0,Inhibition of human PXR at 10 uM
+549422,1,0,Induction of PXR
+552633,1,0,Activity at human PXR
+552906,1,0,Inhibition of PXR activation up to 50 uM
+554046,1,1,Transactivation of PXR in human HepG2 cells assessed as induction of b
+568125,1,0,Activation of human PXR
+568126,1,0,Activation of human Aryl hydrocarbon receptor
+569953,1,0,Activation of human PXR relative to control
+570202,1,0,Activation of human PXR assessed as induction of CYP3A4 up to 10 uM
+590820,1,0,Activation of human PXR at 10 uM
+590824,1,1,Activation of PXR
+597707,1,0,Inhibition of human PXR transfected in HepG2 cells at 10 uM
+598791,1,0,Activation of human PXR at 10 uM relative to rifampicin
+599243,1,1,Agonist activity at human PXR expressed in human HepG2 cells assessed 
+599244,1,1,Agonist activity at human PXR expressed in human HepG2 cells assessed 
+625875,1,0,Transactivation of PXR
+626878,1,0,Activation of human PXR in DPX2 cells up to 100 uM after 24 hrs by mic
+639864,1,0,Induction of human PXR at 1 uM relative to refampicin
+642956,1,0,Induction of PXR up to 10 uM
+645571,1,1,Agonist activity at PXR expressed in human HepG2 cells assessed as inc
+645575,1,0,Antagonist activity at PXR expressed in human HepG2 cells assessed as 
+647503,1,0,Induction of human PXR
+653984,1,0,Induction of human PXR activity at 10 uM
+655651,1,0,Induction of human PXR at 10 uM relative to control
+655690,1,1,Activity at PXR at 1 uM
+663686,1,0,Activity at human PXR assessed as induction of CYP3A4 activity up to 1
+669190,1,0,Activation of PXR in human DPX2 cells at <100 uM after 24 hrs by lucif
+669191,1,0,Activation of PXR in human DPX2 cells at 100 uM after 24 hrs by lucife
+704601,1,0,Activation of human PXR at 10 uM relative to control
+704602,1,1,Activation of human PXR
+704631,1,0,Induction of PXR
+707206,1,0,Induction of human PXR at 10 uM relative to rifampicin
+710644,1,0,Activation of PXR at 10 uM relative to control
+710645,1,1,Activation of PXR
+715556,1,0,Activation of PXR
+724008,1,0,Activation of PXR (unknown origin) assessed as induction of CYP2B1/2 e
+724009,1,0,Activation of PXR (unknown origin) assessed as induction of CYP3A1 exp
+724010,1,0,Activation of PXR (unknown origin) assessed as induction of CYP1A1 exp
+736575,1,0,Activation of PXR (unknown origin)
+755444,1,0,Agonist activity at PXR (unknown origin) expressed in human HepG2 cell
+755447,1,0,Agonist activity at PXR (unknown origin) expressed in human HepG2 cell
+759611,1,0,Agonist activity at human PXR at 3.4 uM relative to rifampicin
+772126,1,0,Induction of human PXR activity
+1055045,1,0,Agonist activity at human PXR
+1063138,1,0,Activation of human PXR
+1063529,1,0,Transactivation of PXR (unknown origin)
+1071336,1,0,Antagonist activity at human full-length PXR transfected in human HepG
+1071342,1,1,Antagonist activity at human full-length PXR transfected in human HepG
+1073791,1,0,Transactivation of human PXR expressed in human HepG2 cells at 5.56 uM
+1074450,1,0,Activation of PXR in human HepG2 cells at 10 uM after 72 hrs by steady
+1129975,1,0,Activation of PXR (unknown origin) at 10 uM
+1138874,1,0,Binding affinity to SXR (unknown origin) at 10 uM
+1153243,1,1,Antagonist activity at PXR (unknown origin) transfected in human HepG2
+1153247,1,0,Antagonist activity at human PXR transfected in African green monkey C
+1165837,1,0,Activation of PXR (unknown origin)
+1165838,1,0,Activation of PXR (unknown origin) at 30 uM relative to rifampicin
+1168719,1,0,Agonist activity at human pregnane X receptor expressed in HEK293 cell
+1170766,1,0,Activation of PXR (unknown origin)
+1183443,1,0,Ratio of T0901317 EC50 to compound EC50 for GAL4-fused human PXR expre
+1190160,1,0,Transactivation of human PXR expressed in in human HepG2 cells co-expr
+1190240,1,0,Activity at PXR in human hepatocytes assessed as induction of CYP3A4 m
+1193315,1,0,Inhibition of PXR (unknown origin)
+1209476,1,0,Activation of PXR in rat hepatocytes assessed as increase in CYP3A-med
+1209477,1,0,Activation of PXR in human Hu1043 hepatocytes assessed as effect on CY
+1209478,1,0,Activation of PXR in human Hu1108 hepatocytes assessed as effect on CY
+1209479,1,0,Activation of PXR in human Hu1043 hepatocytes assessed as effect on CY
+1209480,1,0,Activation of PXR in human Hu1108 hepatocytes assessed as effect on CY
+1209481,1,0,Activation of PXR in human Hu1043 hepatocytes assessed as upregulation
+1209482,1,0,Activation of PXR in human Hu1108 hepatocytes assessed as upregulation
+1209483,1,0,Activation of PXR in human Hu1043 hepatocytes assessed as increase in 
+1209484,1,0,Activation of PXR in human Hu1108 hepatocytes assessed as increase in 
+1209486,1,0,Antagonist activity at rat PXR expressed in human HepG2 cells coexpres
+1209487,1,0,Antagonist activity at human PXR expressed in human HepG2 cells coexpr
+1209489,1,1,Antagonist activity at rat PXR expressed in human HepG2 cells coexpres
+1209490,1,1,Antagonist activity at human PXR expressed in human HepG2 cells coexpr
+1209528,1,0,Activation of rat PXR expressed in rat hepatocytes coexpressing CYP3A4
+1209530,1,0,Activation of rat PXR expressed in human HepG2 cells coexpressing CYP3
+1209532,1,0,Activation of human PXR expressed in rat hepatocytes coexpressing CYP3
+1209533,1,0,Activation of human PXR expressed in human HepG2 cells coexpressing CY
+1209536,1,0,Activation of PXR in rat hepatocytes assessed as upregulation of CYP3A
+1209537,1,0,Activation of PXR in rat hepatocytes assessed as upregulation of CYP3A
+1209538,1,0,Activation of PXR in rat hepatocytes assessed as effect on CYP3A-media
+1210060,1,1,Competitive binding affinity to PXR in human HepG2 cells at 0.01 to 50
+1212131,1,0,Activation of human PXR expressed in human LS174T cells
+1223013,1,0,Activation of mouse PXR expressed in human HepG2 cells at 50 uM after 
+1223014,1,0,Activation of mouse PXR expressed in human HepG2 cells at 2.5 uM after
+1223015,1,0,Activation of mouse PXR expressed in human HepG2 cells at 10 uM after 
+1228146,1,0,Agonist activity at GAL4-fused human PXR expressed in HEK293T cells as
+1229199,1,0,Inhibition of PXR (unknown origin)
+1233871,1,0,Activation of PXR (unknown origin) assessed as induction of CYP3A4
+1235559,1,0,Activation of human PXR
+1237362,1,0,Antagonist activity at Gal4 DNA binding domain-tagged human PXR ligand
+1237384,1,0,Agonist activity at Gal4 DNA binding domain-tagged human PXR ligand bi
+1238422,1,0,Activation of PXR (unknown origin) at 10 uM relative to rifampicin
+1242423,1,0,Activation of PXR (unknown origin) by receptor transactivation assay
+1242791,1,0,Activation of PXR (unknown origin)
+1249792,1,0,Activation of PXR (unknown origin)
+1249852,1,0,Activation of PXR (unknown origin)
+1250009,1,0,Transactivation of human PXR
+1250095,1,0,Activation of human PXR
+1250096,1,0,Activation of human PXR relative to control
+1255426,1,1,Transactivation of PXR in human HepG2 cells assessed as up regulation 
+1255433,1,1,Antagonist activity at PXR (unknown origin)
+1255849,1,0,Induction of human PXR
+1276848,1,0,Activation of human PX receptor
+1278595,1,1,Activation of PXR (unknown origin)
+1279896,1,0,Agonist activity at human PXR at <5 uM by luciferase reporter gene ass
+1295297,1,1,Agonist activity at PXR (unknown origin)
+1304692,1,0,Inhibition of PXR (unknown origin)
+1305322,1,0,Inhibition of PXR (unknown origin) assessed as induction of CYP3A4 gen
+1307951,1,0,Activation of pregnane X receptor (unknown origin)
+1313504,1,0,Activation of PXR (unknown origin)
+1315261,1,0,Activation of human PXR expressed in human DPX2 cells assessed as indu
+1315262,1,0,Activation of human PXR expressed in human DPX2 cells assessed as indu
+1315263,1,0,Activation of human PXR expressed in human DPX2 cells assessed as indu
+1315264,1,0,Activation of human PXR expressed in human DPX2 cells assessed as indu
+1315265,1,0,Activation of human PXR expressed in human DPX2 cells assessed as indu
+1315266,1,0,Activation of human PXR expressed in human DPX2 cells assessed as indu
+1315267,1,0,Activation of human PXR expressed in human DPX2 cells assessed as indu
+1315268,1,0,Activation of human PXR expressed in human DPX2 cells assessed as indu
+1315269,1,0,Activation of human PXR expressed in human DPX2 cells assessed as indu
+1315270,1,0,Activation of human PXR expressed in human DPX2 cells assessed as indu
+1315271,1,0,Activation of human PXR expressed in human DPX2 cells assessed as indu
+1315272,1,0,Activation of human PXR expressed in human DPX2 cells assessed as indu
+1350340,1,0,Activation at PXR (unknown origin)
+1355454,1,0,Transactivation of human Gal4-fused PXR LBD expressed in HEK293T cells
+1379328,1,0,Transactivation of recombinant human PXR expressed in HepG2 cells afte
+1385045,1,0,Activation of PXR (unknown origin)
+1390331,1,1,Activation of human PXR
+1391024,1,0,Activation of PXR (unknown origin) at 10 uM relative to control
+1423656,1,0,Activation of human PXR
+1428192,1,0,Agonist activity at recombinant human PXR at 3.16 uM by co-factor recr
+1430363,1,0,Activity at human PXR
+1432190,1,0,Activation of human PXR
+1432911,1,0,Induction of PXR (unknown origin) expressed in human HepG2 cells after
+1433062,1,0,Activation of PXR (unknown origin) assessed as CYP3A4 induction
+1446806,1,0,Activation of human PXR expressed in DPX2 cells assessed as CYP3A4 ind
+1451581,1,0,Transactivation of human GAL4-fused PXR ligand binding domain expresse
+1453870,1,0,Inhibition of PXR (unknown origin)
+1458353,1,0,Transactivation of GAL4-tagged human PXR isoform 1 ligand binding doma
+1458368,1,0,Antagonist activity at GAL4-tagged human PXR isoform 1 ligand binding 
+1466773,1,0,Activity at PXR (unknown origin)
+1471630,1,0,Activation of human PXR transfected in human hepatoma cells assessed a
+1474858,1,0,Activity at PXR (unknown origin) assessed as CYP induction
+1478258,1,0,Activation of human PXR at 10 uM relative to rifampicin
+1485478,1,0,Activation of PXR (unknown origin)
+1496934,1,0,Transactivation of human PXR
+1502457,1,0,Activation of PXR (unknown origin) at 5 uM relative to control
+1505653,1,0,Activation of PXR (unknown origin)
+1506268,1,0,Agonist activity at PXR (unknown origin) by cell based GAL4 reporter g
+1506277,1,0,Antagonist activity at PXR (unknown origin) by cell based GAL4 reporte
+1506287,1,0,Agonist activity at PXR (unknown origin) by TR-FRET assay
+1506297,1,0,Antagonist activity at PXR (unknown origin) by TR-FRET assay
+1527895,1,0,Inhibition of Gal4-tagged PXR LBD (unknown origin) by cell based lucif
+1533148,1,0,Activation of human PXR
+1535317,1,0,Transactivation of PXR (unknown origin) at 10 uM relative to rifampici
+1535318,1,0,Transactivation of PXR (unknown origin) at 1 uM
+1541080,1,0,Agonist activity at PXR (unknown origin) by Gal4-Luc reporter gene ass
+1542061,1,0,Activation of PXR (unknown origin)
+1542062,1,0,Activation of PXR (unknown origin) relative to control
+1547886,1,0,Activation of human PXR at 15 uM
+1551384,1,0,Activation of PXR (unknown origin)
+1560816,1,0,Transactivation of PXR (unknown origin) assessed as induction of CYP3A
+1560817,1,0,Transactivation of PXR (unknown origin) assessed as induction of CYP3A
+1562507,1,0,Activation of PXR (unknown origin) stably expressed in human HepG2 cel
+1569346,1,1,Transactivation of PXR (unknown origin) assessed as CYP450 induction a
+1576230,1,1,Agonist activity at PXR (unknown origin) by Alpha Screen assay
+1576231,1,0,Antagonist activity at PXR (unknown origin) by Alpha Screen assay
+1576247,1,0,Agonist activity at PXR (unknown origin) by Alpha Screen assay relativ
+1600415,1,1,Agonist activity at human PXR in human primary hepatocytes assessed as
+1600418,1,1,Agonist activity at human PXR in human primary hepatocytes assessed as
+1600419,1,1,Agonist activity at human PXR in human primary hepatocytes assessed as
+1601571,1,0,Agonist activity at recombinant human PXR assessed as induction of CYP
+1603200,1,0,Inhibition of PXR (unknown origin) up to 10000 nM
+1604959,1,0,Agonist activity at PXR (unknown origin) incubated for 2 hrs by TR-FRE
+1605745,1,0,Agonist activity at PXR in human HepG2 cells transfected with PXR siRN
+1605746,1,0,Agonist activity at PXR in human HepG2 cells transfected with PXR siRN
+1605747,1,1,Binding affinity to His-tagged PXR-LBD (unknown origin) expressed in E
+1605749,1,0,Agonist activity at PXR in human HepG2 cells assessed as increase in P
+1605750,1,0,Agonist activity at PXR in human HepG2 cells assessed as increase in C
+1605751,1,0,Agonist activity at PXR in human HepG2 cells assessed as increase in C
+1605752,1,0,Agonist activity at PXR in human HepG2 cells assessed as increase in M
+1605753,1,0,Agonist activity at PXR in human HepG2 cells assessed as increase reco
+1605754,1,1,Agonist activity at PXR in human HepaRG cells assessed as increase in 
+1605755,1,1,Agonist activity at PXR in human HepaRG cells assessed as increase in 
+1605758,1,1,Agonist activity at PXR in human HepaRG cells assessed as reversion of
+1605759,1,1,Agonist activity at PXR in human HepaRG cells assessed as reversion of
+1605760,1,1,Agonist activity at PXR in human HepaRG cells assessed as reversion of
+1605762,1,1,Agonist activity at PXR in human HepG2 cells assessed as stimulation o
+1605763,1,1,Agonist activity at PXR in human HepG2 cells assessed as stimulation o
+1605764,1,1,Agonist activity at PXR in human HT29 cells assessed as increase in PX
+1605765,1,1,Agonist activity at PXR in human HT29 cells assessed as increase in CY
+1605766,1,1,Agonist activity at PXR in human HT29-MTX cells assessed as increase i
+1605767,1,1,Agonist activity at PXR in human HT29-MTX cells assessed as increase i
+1607820,1,0,Activation of human PXR
+1611537,1,0,Activation of PXR (unknown origin)
+1616634,1,0,Agonist activity at human PXR
+1627318,1,0,Induction of human PXR assessed as CYP450 activation
+1628870,1,0,Induction of human PXR at 10 uM
+1635723,1,0,Transactivation of PXR (unknown origin) assessed as upregulation of CY
+1635726,1,1,Transactivation of PXR (unknown origin) assessed as upregulation of CY
+1635729,1,1,Transactivation of PXR (unknown origin) assessed as upregulation of CY
+1635855,1,0,Activation of human PXR assessed as induction of CYP3A4 gene expressio
+1636196,1,0,Induction of PXR (unknown origin)-mediated gene activation in hepatocy
+1646409,1,0,Inhibition of PXR (unknown origin)
+1652750,1,0,Transactivation of PXR (unknown origin) assessed as induction of CYP45
+1658439,1,0,Inverse agonist activity at PXR (unknown origin)
+1659464,1,0,Modulating activity at PXR (unknown origin)
+1661753,1,0,Activation of PXR (unknown origin)
+1674267,1,0,Activation of PXR (unknown origin) by reporter gene assay
+1678704,1,0,Inverse agonist activity at PXR (unknown origin)
+1681136,1,0,Inhibition of PXR (unknown origin)
+1685324,1,0,Transactivation of PXR (unknown origin)
+1686137,1,0,Transactivation of PXR (unknown origin)
+1695972,1,0,Transactivation of PXR (unknown origin) assessed as CYP450 induction
+1695973,1,0,Transactivation of PXR (unknown origin) assessed as CYP450 induction r
+1696761,1,1,Inverse agonist activity of PXR (unknown origin)
+1696814,1,0,Inhibition of PXR (unknown origin) relative to control
+1710058,1,0,Inhibition of PXR (unknown origin)
+1710521,1,1,Activation of PXR (unknown origin)
+1710545,1,0,Activation of PXR (unknown origin) relative to control
+1715883,1,0,Inhibition of human PXR
+1723248,1,0,Activation of human PXR expressed in human DPX2 cells assessed as indu
+1765804,1,1,Transactivation of PXR (unknown origin)
+1776079,1,0,Transactivation of PXR in human HepG2 cells relative to control
+1776080,1,0,Transactivation of PXR in human HepG2 cells relative to rifampicin
+1777210,1,1,Agonist activity at PXR in human HepaRG cells assessed as upregulation
+1777211,1,1,Agonist activity at PXR in human HepaRG cells assessed as upregulation
+1777212,1,1,Agonist activity at PXR in human HepaRG cells assessed as upregulation
+1787201,1,0,PXR Indigo Bioscience nuclear receptor screen
+1802691,1,1,"HMT Assay from Article 10.1038/nchembio.2304: ""An allosteric PRC2 inhi"
+1822822,1,0,Transactivation of PXR (unknown origin)
+1823945,1,0,Activation of PXR in human DPX2 cells at 10 uM incubated for 24 hrs re
+1828686,1,0,Activation of human pregnane X receptor at 10 uM relative to control
+1828687,1,0,Activation of rat pregnane X receptor at 10 uM relative to control
+1851130,1,0,Activation of human PXR at 10 uM relative to control
+1873301,1,0,Induction of PXR (unknown origin) at 30 uM relative to control
+1877587,1,0,Induction of PXR (unknown origin) at > 30000 uM
+1893678,1,1,Induction of PXR degradation in PXR knock in human SNU-C4 cells measur
+1893679,1,0,Induction of PXR degradation in PXR knock in human SNU-C4 cells at 10 
+1893682,1,0,Displacement of BODIPY FL vindoline from recombinant human GST-tagged 
+1893683,1,0,Induction of PXR degradation in PXR knock in human SNU-C4 cells at 5 u
+1898687,1,0,Activation of PXR (unknown origin) at 10 uM
+1899927,1,1,Agonist activity at PXR (unknown origin)
+1900758,1,0,Agonist activity at PXR (unknown origin)
+1907904,1,0,Displacement of fluorescence labeled ligand from human PXR ligand bind
+1907906,1,0,Agonist activity at human PXR transfected in human LS180 cells cotrans
+1921687,1,0,Inhibition of PXR (unknown origin)
+1923056,1,0,Agonist activity at PXR in human HeLa cells assessed as increase in NR
+1936225,1,0,Inhibition of human PXR
+1936226,1,0,Inhibition of human PXR at 30 uM relative to control
+1943411,1,1,Binding affinity to human PXR
+1963171,1,0,Cross screening panel
+1963219,1,0,Cross screening panel
+1963268,1,0,Cross screening panel
+1964471,1,0,Agonist activity at human GAL4-fused PXR LBD expressed in human HEK293
+1975478,1,0,Activation of PXR (unknown origin) assessed as induction of PXR activi
+1983954,1,0,Activation of GST-tagged PXR (unknown origin) by luminescence based as
+1983955,1,0,Activation of GST-tagged PXR (unknown origin) by luminescence based as
+2006846,1,0,Transactivation of PXR (unknown origin)
+2011575,1,0,Induction of PXR (unknown origin) relative to control
+2011989,1,0,Activity at PXR (unknown origin)
+2028250,1,0,Activation of PXR in human HepG2 cells at 1 uM incubated for 24 hrs by
+2051745,1,0,"Selectivity interaction (Pregnane X Receptor (PXR, SXR) binding, human"
+2051746,1,0,Selectivity interaction (PXR Receptor agonist/antagonist assay: TR-FRE
+2053856,1,0,"Selectivity interaction (Panel of kinases, GPCRs, ion channels and tra"
+2053906,1,0,"Selectivity interaction (Panel of kinases, GPCRs, ion channels and tra"
+1904,0,0,siRNA Circadian Assay
+624099,0,0,An siRNA screen for human genes that are involved in human papilloma v
+651810,0,0,Genome-wide high-content siRNA screens for regulators of Parkin transl
+651811,0,0,Genome-wide high-content siRNA screens for regulators of Parkin transl
+743121,0,0,Druggable Genome siRNA Screen for Enhancers of Camptothecin in MDA-MB-
+743454,0,0,RNAi screen for vorinostat resistance genes - Primary Screen
+1053208,0,0,A screen to identify the genes that modify the response of osteosarcom
+1117281,0,0,A whole genome RNAi screen highlights components of the ER/Golgi as a 
+1117357,0,0,InfectX: Pathogen infection siRNA screens
+1159506,0,0,Identification of proteins required for the processing of the EWS-FLI1
+1159578,0,0,A screen to identify genes that regulate lymphatic endothelial cell mi
+1159584,0,0,A screen to identify synthetic lethal interactions with E-cadherin in 
+1224826,0,0,Genome-wide siRNA screen of genes regulating the Lipopolysaccharide-in
+1224828,0,0,Genome-wide siRNA screen of genes regulating the Lipopolysaccharide-in
+1224830,0,0,Genome-wide siRNA screen of genes regulating the Lipopolysaccharide-in
+1508588,0,0,RNAi screen for vemurafenib enhancer genes in BRAFV600 melanoma - Prim

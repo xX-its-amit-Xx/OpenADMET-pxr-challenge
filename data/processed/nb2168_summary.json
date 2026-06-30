@@ -1,0 +1,225 @@
+{
+  "tag": "nb2168",
+  "method": "cycle_122_trajectory_snapshot_full_history_walk",
+  "lb_current_best": 0.7655,
+  "lucky_seed_flagged_by_nb2156": [
+    "nb2144",
+    "nb2154"
+  ],
+  "n_summary_files_total": 430,
+  "n_summary_files_parsed": 430,
+  "n_summary_files_skipped": 0,
+  "n_with_honest_rae": 181,
+  "n_methods_distinct": 430,
+  "n_cycle_buckets": 119,
+  "n_paradigms": 8,
+  "paradigms": [
+    "catboost_ordered",
+    "dart",
+    "knn_tanimoto",
+    "ordinal_quantile",
+    "other",
+    "shap_subset",
+    "slsqp_blend",
+    "trajectory_bag"
+  ],
+  "top10_honest_rae_lucky_seed_excluded": [
+    {
+      "rank": 1,
+      "rae": 0.380113,
+      "tag": "nb984",
+      "rae_key": "oof_rae"
+    },
+    {
+      "rank": 2,
+      "rae": 0.382926,
+      "tag": "nb801",
+      "rae_key": "oof_rae"
+    },
+    {
+      "rank": 3,
+      "rae": 0.469779,
+      "tag": "nb2159",
+      "rae_key": "rae_median_bag"
+    },
+    {
+      "rank": 4,
+      "rae": 0.47305,
+      "tag": "nb2142",
+      "rae_key": "rae_median_bag"
+    },
+    {
+      "rank": 5,
+      "rae": 0.476547,
+      "tag": "nb2163",
+      "rae_key": "rae_pooled_median_120"
+    },
+    {
+      "rank": 6,
+      "rae": 0.477451,
+      "tag": "nb2084",
+      "rae_key": "best_rae"
+    },
+    {
+      "rank": 7,
+      "rae": 0.488514,
+      "tag": "nb2074",
+      "rae_key": "rae_pooled_median"
+    },
+    {
+      "rank": 8,
+      "rae": 0.494352,
+      "tag": "nb2063",
+      "rae_key": "rae_median_bag"
+    },
+    {
+      "rank": 9,
+      "rae": 0.499003,
+      "tag": "nb1431",
+      "rae_key": "best_rae"
+    },
+    {
+      "rank": 10,
+      "rae": 0.499502,
+      "tag": "nb1471",
+      "rae_key": "best_rae"
+    }
+  ],
+  "lucky_seed_excluded_records": [
+    {
+      "rae": 0.462022,
+      "tag": "nb2154",
+      "rae_key": "best_rae"
+    },
+    {
+      "rae": 0.465496,
+      "tag": "nb2144",
+      "rae_key": "best_rae"
+    }
+  ],
+  "honest_floor": 0.3801129655557607,
+  "honest_floor_tag": "nb984",
+  "gap_floor_vs_lb_best": 0.3853870344442393,
+  "cycle_122": {
+    "cycle_idx": 122,
+    "methods": [
+      {
+        "tag": "nb2162",
+        "kind": "lb_poll",
+        "desc": "leaderboard poll & state snapshot post-nb2161 decision",
+        "rae": null,
+        "status": "PENDING_SUMMARY"
+      },
+      {
+        "tag": "nb2163",
+        "kind": "pooled_120_trajectory",
+        "desc": "pooled-120 trajectory bag at L-lock for floor reproducibility",
+        "rae": 0.47654711788143167,
+        "status": "RECORDED"
+      },
+      {
+        "tag": "nb2165",
+        "kind": "xgb_shap",
+        "desc": "XGBoost on K=28 SHAP substrate (cross-paradigm SHAP-tied model)",
+        "rae": null,
+        "status": "PENDING_SUMMARY"
+      },
+      {
+        "tag": "nb2166",
+        "kind": "row_bootstrap",
+        "desc": "row-bootstrap perturbation -- bagging across resampled rows, tests substrate-vs-data variance separation",
+        "rae": null,
+        "status": "PENDING_SUMMARY"
+      },
+      {
+        "tag": "nb2167",
+        "kind": "sklearn_stack",
+        "desc": "sklearn StackingRegressor on top-K substrate (cross-paradigm meta-learner)",
+        "rae": null,
+        "status": "PENDING_SUMMARY"
+      }
+    ]
+  },
+  "closed_axes": [
+    {
+      "axis": "num_leaves_grid",
+      "probe_tag": "nb2103",
+      "result": "L in {6..32} grid; plateau at L=12..16; |delta| <= 0.003"
+    },
+    {
+      "axis": "learning_rate_grid",
+      "probe_tag": "nb2121",
+      "result": "lr in {0.01..0.1}; lr=0.03 marginally best; |delta| <= 0.003"
+    },
+    {
+      "axis": "min_child_grid",
+      "probe_tag": "nb2151",
+      "result": "min_child_samples in {3..30}; mc=5 marginally best; |delta| <= 0.003"
+    },
+    {
+      "axis": "feature_fraction_grid",
+      "probe_tag": "nb2153",
+      "result": "ff in {0.6..1.0}; ff=1.0 marginally best; |delta| <= 0.003"
+    },
+    {
+      "axis": "monotone_constraint",
+      "probe_tag": "nb2158",
+      "result": "monotone constraints on top-SHAP features; delta within bag noise (<= 0.003)"
+    },
+    {
+      "axis": "shap_seed_perturbation",
+      "probe_tag": "nb2159",
+      "result": "SHAP-top-K intersect across leaf-locks stable; K=28 substrate confirmed; |delta| <= 0.003"
+    },
+    {
+      "axis": "dart_boosting",
+      "probe_tag": "nb2160",
+      "result": "DART dropout boosting; |delta| <= 0.003 vs gbdt baseline"
+    },
+    {
+      "axis": "trajectory_pooled_120",
+      "probe_tag": "nb2163",
+      "result": "pooled-120-cycle bag at L-lock confirms mean-bag floor 0.4737 +/- bag noise; lucky-seed 0.4620 not reproducible"
+    }
+  ],
+  "open_axes": [
+    {
+      "axis": "row_bootstrap_perturbation",
+      "rationale": "Bagging across resampled rows separates substrate-driven variance from data-driven variance; orthogonal to SHAP/leaf-config grids; -0.003 to -0.005 expected",
+      "probe_tag_cycle122": "nb2166"
+    },
+    {
+      "axis": "cross_paradigm_shap_substrate",
+      "rationale": "K=28 SHAP basis was selected by LGBM; an XGB SHAP basis may select different features (gradient-vs-leaf scoring); probe via XGB on the K=28 substrate (nb2165) then compare XGB-derived SHAP top-K",
+      "probe_tag_cycle122": "nb2165"
+    },
+    {
+      "axis": "cross_paradigm_models",
+      "rationale": "All trajectory bags are LGBM-only. sklearn Stacking with ElasticNet+RF+XGB heads on K=28 substrate may extract model-diversity orthogonal to seed/leaf bagging",
+      "probe_tag_cycle122": "nb2167"
+    },
+    {
+      "axis": "abstention_conformal",
+      "rationale": "Per-row conformal scoring on novel-scaffold tail (feedback_failure_mode_quantile_compression: 90% of worst errors are novel-scaffold); abstain on top-decile uncertainty, predict identity (truth ~= mean)"
+    },
+    {
+      "axis": "external_scaffold_diverse_data",
+      "rationale": "feedback_unblind_augmentation closed in-distribution augmentation; OOD wall set by scaffold support; need ChEMBL PXR analog block / external nuclear-receptor actives outside the 4139-train scaffold support"
+    },
+    {
+      "axis": "novel_anchor_not_chemprop_aux",
+      "rationale": "All best models residualize chemprop_aux; the residual tail correlates with anchor's failure mode. A novel anchor (Boltz-2 pose features, ESM-2 protein-context embedding, or grover-pretrain) may decorrelate residual"
+    }
+  ],
+  "decision": {
+    "highest_EV_next_axis": "abstention_conformal",
+    "rationale": "Per feedback_failure_mode_quantile_compression: 90% of worst-50 errors are novel-scaffold (scaf_train_freq=0) with 2-sided variance compression. RAE is dominated by sum-of-absolute-errors in numerator; tail trimming via conformal abstention (predict global mean on top-5% conformal-score rows) directly attacks the loss. No external data required, no anchor swap. EV est -0.005 to -0.010 RAE.",
+    "fallback_axis_external_data": "If abstention_conformal underdelivers on 253-unblind cross-fit (< -0.003), pivot to external_scaffold_diverse_data: curate ChEMBL PXR analogs outside train scaffold support, re-train chemprop_aux anchor with augmented set. EV ceiling -0.020 but 3-5 day engineering cost.",
+    "skip_for_now": [
+      "cross_paradigm_shap_substrate (low EV; basis only)",
+      "novel_anchor (high cost, retrain chemprop is multi-day)"
+    ]
+  },
+  "pre_unblind_clean": true,
+  "wall_sec": 0.06
+}

@@ -1,0 +1,356 @@
+{
+  "tag": "nb2852",
+  "method": "IsolationForest pre-filter on K=20: per fold/seed, fit IForest on TR features only (no labels), drop anomalous rows, then fit LGBM(K=20) on kept rows for chemprop_aux residual. Sweep contamination in [0.02, 0.05, 0.1], pick best by wide-seed mean.",
+  "paradigm": "isolation_forest_row_filter_lgbm_residual_K20_chemprop_aux",
+  "anchor_name": "chemprop_aux (PRE-unblind, verified clean)",
+  "rae_anchor_unb": 0.6215728863514471,
+  "contamination_grid": [
+    0.02,
+    0.05,
+    0.1
+  ],
+  "best_contamination": 0.02,
+  "best_mean_pooled_rae": 0.5396973620193836,
+  "best_std_pooled_rae": 0.01049878235802553,
+  "iforest_random_state": 42,
+  "iforest_n_estimators": 100,
+  "lgbm_hparams": {
+    "objective": "regression",
+    "max_depth": 4,
+    "num_leaves": 15,
+    "n_estimators": 300,
+    "learning_rate": 0.03,
+    "min_child_samples": 5,
+    "reg_lambda": 2.0
+  },
+  "n_folds": 5,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "feat_dim_substrate": 20,
+  "k_slice_first_n_of_117": 20,
+  "clip_lo": 3.0,
+  "clip_hi": 8.0,
+  "per_contamination_results": {
+    "0.02": {
+      "contamination": 0.02,
+      "mean_pooled_rae": 0.5396973620193836,
+      "std_pooled_rae": 0.01049878235802553,
+      "per_seed_pooled": [
+        0.5541670971277245,
+        0.5451692262949022,
+        0.5392780591763593,
+        0.5377166949764471,
+        0.522155732521485
+      ],
+      "per_seed_mean_fold": [
+        0.5629616205086154,
+        0.5585174490615119,
+        0.5421981759745159,
+        0.5482682431081873,
+        0.5358695542989041
+      ],
+      "per_seed_drop_counts": [
+        25,
+        25,
+        25,
+        25,
+        25
+      ],
+      "per_seed_summary": [
+        {
+          "kf_seed": 1001,
+          "pooled_rae": 0.5541670971277245,
+          "mean_fold_rae": 0.5629616205086154,
+          "total_dropped_rows": 25,
+          "per_fold_drops": [
+            5,
+            5,
+            5,
+            5,
+            5
+          ],
+          "wall_sec": 0.91
+        },
+        {
+          "kf_seed": 1002,
+          "pooled_rae": 0.5451692262949022,
+          "mean_fold_rae": 0.5585174490615119,
+          "total_dropped_rows": 25,
+          "per_fold_drops": [
+            5,
+            5,
+            5,
+            5,
+            5
+          ],
+          "wall_sec": 0.84
+        },
+        {
+          "kf_seed": 1003,
+          "pooled_rae": 0.5392780591763593,
+          "mean_fold_rae": 0.5421981759745159,
+          "total_dropped_rows": 25,
+          "per_fold_drops": [
+            5,
+            5,
+            5,
+            5,
+            5
+          ],
+          "wall_sec": 0.84
+        },
+        {
+          "kf_seed": 1004,
+          "pooled_rae": 0.5377166949764471,
+          "mean_fold_rae": 0.5482682431081873,
+          "total_dropped_rows": 25,
+          "per_fold_drops": [
+            5,
+            5,
+            5,
+            5,
+            5
+          ],
+          "wall_sec": 0.82
+        },
+        {
+          "kf_seed": 1005,
+          "pooled_rae": 0.522155732521485,
+          "mean_fold_rae": 0.5358695542989041,
+          "total_dropped_rows": 25,
+          "per_fold_drops": [
+            5,
+            5,
+            5,
+            5,
+            5
+          ],
+          "wall_sec": 0.82
+        }
+      ],
+      "wall_sec": 4.23
+    },
+    "0.05": {
+      "contamination": 0.05,
+      "mean_pooled_rae": 0.5494433749050742,
+      "std_pooled_rae": 0.015308524255400866,
+      "per_seed_pooled": [
+        0.574245443165312,
+        0.549415697994659,
+        0.5561548182286236,
+        0.5365190435941692,
+        0.5308818715426075
+      ],
+      "per_seed_mean_fold": [
+        0.582435727505928,
+        0.5606688435634822,
+        0.5605688287847771,
+        0.5470631116376714,
+        0.5448088103987608
+      ],
+      "per_seed_drop_counts": [
+        55,
+        55,
+        55,
+        55,
+        55
+      ],
+      "per_seed_summary": [
+        {
+          "kf_seed": 1001,
+          "pooled_rae": 0.574245443165312,
+          "mean_fold_rae": 0.582435727505928,
+          "total_dropped_rows": 55,
+          "per_fold_drops": [
+            11,
+            11,
+            11,
+            11,
+            11
+          ],
+          "wall_sec": 0.82
+        },
+        {
+          "kf_seed": 1002,
+          "pooled_rae": 0.549415697994659,
+          "mean_fold_rae": 0.5606688435634822,
+          "total_dropped_rows": 55,
+          "per_fold_drops": [
+            11,
+            11,
+            11,
+            11,
+            11
+          ],
+          "wall_sec": 0.82
+        },
+        {
+          "kf_seed": 1003,
+          "pooled_rae": 0.5561548182286236,
+          "mean_fold_rae": 0.5605688287847771,
+          "total_dropped_rows": 55,
+          "per_fold_drops": [
+            11,
+            11,
+            11,
+            11,
+            11
+          ],
+          "wall_sec": 0.82
+        },
+        {
+          "kf_seed": 1004,
+          "pooled_rae": 0.5365190435941692,
+          "mean_fold_rae": 0.5470631116376714,
+          "total_dropped_rows": 55,
+          "per_fold_drops": [
+            11,
+            11,
+            11,
+            11,
+            11
+          ],
+          "wall_sec": 0.85
+        },
+        {
+          "kf_seed": 1005,
+          "pooled_rae": 0.5308818715426075,
+          "mean_fold_rae": 0.5448088103987608,
+          "total_dropped_rows": 55,
+          "per_fold_drops": [
+            11,
+            11,
+            11,
+            11,
+            11
+          ],
+          "wall_sec": 0.86
+        }
+      ],
+      "wall_sec": 4.16
+    },
+    "0.1": {
+      "contamination": 0.1,
+      "mean_pooled_rae": 0.5607925170868683,
+      "std_pooled_rae": 0.015833452791956186,
+      "per_seed_pooled": [
+        0.587812793192588,
+        0.5627993565368496,
+        0.5473974689087668,
+        0.5634110492784882,
+        0.5425419175176489
+      ],
+      "per_seed_mean_fold": [
+        0.5973571046646431,
+        0.5753573482314399,
+        0.5507649537847285,
+        0.5750197413026426,
+        0.5534664718540796
+      ],
+      "per_seed_drop_counts": [
+        105,
+        105,
+        105,
+        105,
+        105
+      ],
+      "per_seed_summary": [
+        {
+          "kf_seed": 1001,
+          "pooled_rae": 0.587812793192588,
+          "mean_fold_rae": 0.5973571046646431,
+          "total_dropped_rows": 105,
+          "per_fold_drops": [
+            21,
+            21,
+            21,
+            21,
+            21
+          ],
+          "wall_sec": 0.87
+        },
+        {
+          "kf_seed": 1002,
+          "pooled_rae": 0.5627993565368496,
+          "mean_fold_rae": 0.5753573482314399,
+          "total_dropped_rows": 105,
+          "per_fold_drops": [
+            21,
+            21,
+            21,
+            21,
+            21
+          ],
+          "wall_sec": 0.85
+        },
+        {
+          "kf_seed": 1003,
+          "pooled_rae": 0.5473974689087668,
+          "mean_fold_rae": 0.5507649537847285,
+          "total_dropped_rows": 105,
+          "per_fold_drops": [
+            21,
+            21,
+            21,
+            21,
+            21
+          ],
+          "wall_sec": 0.85
+        },
+        {
+          "kf_seed": 1004,
+          "pooled_rae": 0.5634110492784882,
+          "mean_fold_rae": 0.5750197413026426,
+          "total_dropped_rows": 105,
+          "per_fold_drops": [
+            21,
+            21,
+            21,
+            21,
+            21
+          ],
+          "wall_sec": 0.86
+        },
+        {
+          "kf_seed": 1005,
+          "pooled_rae": 0.5425419175176489,
+          "mean_fold_rae": 0.5534664718540796,
+          "total_dropped_rows": 105,
+          "per_fold_drops": [
+            21,
+            21,
+            21,
+            21,
+            21
+          ],
+          "wall_sec": 0.84
+        }
+      ],
+      "wall_sec": 4.26
+    }
+  },
+  "deploy_n_dropped": 6,
+  "deploy_n_kept": 247,
+  "te_unb_in_sample_rae": 0.355472895215972,
+  "te_mean": 4.677566051483154,
+  "te_std": 0.75371915102005,
+  "mean_rae": 0.5396973620193836,
+  "delta_vs_anchor": -0.08187552433206358,
+  "gate_promote": 0.457,
+  "gate_marginal": 0.4598,
+  "verdict": "FAIL",
+  "promote": false,
+  "marginal_beat": false,
+  "oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2852_pred_oof.npy",
+  "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2852.npy",
+  "submission_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb2852_isolation_forest_filter.csv",
+  "wall_sec": 12.91
+}

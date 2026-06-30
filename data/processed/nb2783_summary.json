@@ -1,0 +1,278 @@
+{
+  "tag": "nb2783",
+  "method": "Ensemble distillation with temperature scaling on K=20 substrate. 5 LGBM K=20 teachers (seeds {0,1,7,42,137}) on chemprop_aux residual; per-row teacher average serves as soft target. Single LGBM K=20 student fit on temperature-mixed target (1-T)*y_residual + T*teacher_avg with T in {0.0, 0.2, 0.5, 0.8}. Per-fold teacher_avg on tr computed via 5-fold inner CV to avoid label leakage. 5-fold scaffold CV outer with kf_seed=1001. Best T selected by minimum corr_OOF_RAE; deploy refits teachers + student on full 253 using OOF teacher_avg as soft component.",
+  "paradigm": "knowledge_distillation_temperature_scaling",
+  "novelty": "Target-softening paradigm distinct from loss-shape (nb2762/2754), tree-structure (nb2774), feature-subsampling (nb2152/2166), and stack (nb2752) attempts on the K=20 substrate. Distillation here transfers ensemble 'dark knowledge' (the inter-teacher consensus implicit in their mean prediction) into a single student via a mixed target, regularizing the student toward the bagged manifold without inflating model count at deploy time.",
+  "anchor": "chemprop_aux",
+  "anchor_pre_unblind": true,
+  "anchor_in_rae": 0.6215728863514471,
+  "chemprop_aux_ref": 0.6216,
+  "nb2240_k20_ref": 0.463,
+  "nb2171_ref": 0.4682,
+  "n_test": 513,
+  "n_unb": 253,
+  "n_unique_scaffolds_unb": 180,
+  "K20_cols": [
+    45,
+    67,
+    66,
+    68,
+    65,
+    92,
+    27,
+    77,
+    81,
+    56,
+    1,
+    7,
+    115,
+    93,
+    80,
+    11,
+    70,
+    54,
+    8,
+    57
+  ],
+  "feat_dim_K20": 20,
+  "n_folds": 5,
+  "kf_seed": 1001,
+  "teacher_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "student_seed": 0,
+  "temperatures": [
+    0.0,
+    0.2,
+    0.5,
+    0.8
+  ],
+  "lgbm_max_depth": 4,
+  "lgbm_num_leaves": 15,
+  "lgbm_n_estimators": 300,
+  "lgbm_learning_rate": 0.03,
+  "lgbm_min_child_samples": 5,
+  "lgbm_reg_lambda": 2.0,
+  "rae_teacher_only_corr_oof": 0.4829981546116635,
+  "per_T_records": [
+    {
+      "T": 0.0,
+      "rae_corrected_oof": 0.4829981546116635,
+      "rae_residual_oof": 0.7592939441436392,
+      "delta_vs_anchor": -0.13857473173978363,
+      "delta_vs_teacher_only": 0.0,
+      "oof_resid_std": 0.4533058794346142,
+      "oof_resid_mean": -0.14055599608163555
+    },
+    {
+      "T": 0.2,
+      "rae_corrected_oof": 0.4943864511177129,
+      "rae_residual_oof": 0.7771968377439424,
+      "delta_vs_anchor": -0.12718643523373424,
+      "delta_vs_teacher_only": 0.011388296506049389,
+      "oof_resid_std": 0.40987251941227903,
+      "oof_resid_mean": -0.1292902370198372
+    },
+    {
+      "T": 0.5,
+      "rae_corrected_oof": 0.5086852624489677,
+      "rae_residual_oof": 0.7996751862606224,
+      "delta_vs_anchor": -0.11288762390247942,
+      "delta_vs_teacher_only": 0.025687107837304213,
+      "oof_resid_std": 0.35381311882109706,
+      "oof_resid_mean": -0.12635915107160983
+    },
+    {
+      "T": 0.8,
+      "rae_corrected_oof": 0.5429346002848412,
+      "rae_residual_oof": 0.8535166234615925,
+      "delta_vs_anchor": -0.07863828606660594,
+      "delta_vs_teacher_only": 0.059936445673177685,
+      "oof_resid_std": 0.3229709843213291,
+      "oof_resid_mean": -0.11866051665222825
+    }
+  ],
+  "per_fold_diag": [
+    {
+      "fold": 0,
+      "n_tr": 202,
+      "n_va": 51,
+      "teacher_avg_va_mean": -0.11338140702285678,
+      "teacher_avg_va_std": 0.41547481922558194,
+      "teacher_avg_tr_oof_mean": -0.12632637743884012,
+      "teacher_avg_tr_oof_std": 0.48157003047892233,
+      "T_records": {
+        "T=0.0": {
+          "target_mean": -0.11975141460424986,
+          "target_std": 0.7005894061232844,
+          "pred_va_std": 0.41547481922558194
+        },
+        "T=0.2": {
+          "target_mean": -0.12106640717116793,
+          "target_std": 0.6152734314033871,
+          "pred_va_std": 0.3879813083738088
+        },
+        "T=0.5": {
+          "target_mean": -0.12303889602154498,
+          "target_std": 0.5165908545377543,
+          "pred_va_std": 0.3442952371556896
+        },
+        "T=0.8": {
+          "target_mean": -0.12501138487192207,
+          "target_std": 0.4724530689506364,
+          "pred_va_std": 0.32943179738619244
+        }
+      },
+      "wall_sec": 1.45
+    },
+    {
+      "fold": 1,
+      "n_tr": 202,
+      "n_va": 51,
+      "teacher_avg_va_mean": -0.26823708504042565,
+      "teacher_avg_va_std": 0.5839826900824575,
+      "teacher_avg_tr_oof_mean": -0.13070639665707845,
+      "teacher_avg_tr_oof_std": 0.37790378851765205,
+      "T_records": {
+        "T=0.0": {
+          "target_mean": -0.13700541925146395,
+          "target_std": 0.6222556589138141,
+          "pred_va_std": 0.5839826900824575
+        },
+        "T=0.2": {
+          "target_mean": -0.13574561473258684,
+          "target_std": 0.5464495938278678,
+          "pred_va_std": 0.5060865895993982
+        },
+        "T=0.5": {
+          "target_mean": -0.13385590795427119,
+          "target_std": 0.45049885712888116,
+          "pred_va_std": 0.4219123275144184
+        },
+        "T=0.8": {
+          "target_mean": -0.13196620117595553,
+          "target_std": 0.38983670887960176,
+          "pred_va_std": 0.37775637298748665
+        }
+      },
+      "wall_sec": 1.5
+    },
+    {
+      "fold": 2,
+      "n_tr": 202,
+      "n_va": 51,
+      "teacher_avg_va_mean": -0.14987632322298566,
+      "teacher_avg_va_std": 0.4006059626625848,
+      "teacher_avg_tr_oof_mean": -0.11548816879289102,
+      "teacher_avg_tr_oof_std": 0.45949297136514133,
+      "T_records": {
+        "T=0.0": {
+          "target_mean": -0.13781846051819993,
+          "target_std": 0.7130567658705269,
+          "pred_va_std": 0.4006059626625848
+        },
+        "T=0.2": {
+          "target_mean": -0.13335240217313812,
+          "target_std": 0.6290299797391424,
+          "pred_va_std": 0.35891945460169455
+        },
+        "T=0.5": {
+          "target_mean": -0.12665331465554547,
+          "target_std": 0.5258308806797296,
+          "pred_va_std": 0.3374953953680223
+        },
+        "T=0.8": {
+          "target_mean": -0.11995422713795278,
+          "target_std": 0.4661427024407488,
+          "pred_va_std": 0.3085124883060494
+        }
+      },
+      "wall_sec": 1.5
+    },
+    {
+      "fold": 3,
+      "n_tr": 203,
+      "n_va": 50,
+      "teacher_avg_va_mean": -0.11920485662354663,
+      "teacher_avg_va_std": 0.4334940947000357,
+      "teacher_avg_tr_oof_mean": -0.11714498704862149,
+      "teacher_avg_tr_oof_std": 0.4714303954965067,
+      "T_records": {
+        "T=0.0": {
+          "target_mean": -0.13726045949894786,
+          "target_std": 0.7432969791001843,
+          "pred_va_std": 0.4334940947000357
+        },
+        "T=0.2": {
+          "target_mean": -0.13323736500888256,
+          "target_std": 0.6531809292944385,
+          "pred_va_std": 0.39403547414102597
+        },
+        "T=0.5": {
+          "target_mean": -0.12720272327378465,
+          "target_std": 0.542159352933314,
+          "pred_va_std": 0.3145483212504889
+        },
+        "T=0.8": {
+          "target_mean": -0.12116808153868674,
+          "target_std": 0.4780157503566864,
+          "pred_va_std": 0.2837867111422041
+        }
+      },
+      "wall_sec": 1.48
+    },
+    {
+      "fold": 4,
+      "n_tr": 203,
+      "n_va": 50,
+      "teacher_avg_va_mean": -0.04988377195753579,
+      "teacher_avg_va_std": 0.37158098496340325,
+      "teacher_avg_tr_oof_mean": -0.1390305541441152,
+      "teacher_avg_tr_oof_std": 0.472315219829128,
+      "T_records": {
+        "T=0.0": {
+          "target_mean": -0.13113104309156007,
+          "target_std": 0.7139956650868033,
+          "pred_va_std": 0.37158098496340325
+        },
+        "T=0.2": {
+          "target_mean": -0.13271094530207111,
+          "target_std": 0.6278115261535625,
+          "pred_va_std": 0.3499357164132134
+        },
+        "T=0.5": {
+          "target_mean": -0.13508079861783764,
+          "target_std": 0.5247291022979969,
+          "pred_va_std": 0.311369441292966
+        },
+        "T=0.8": {
+          "target_mean": -0.13745065193360415,
+          "target_std": 0.4712986597084271,
+          "pred_va_std": 0.291284902277716
+        }
+      },
+      "wall_sec": 1.48
+    }
+  ],
+  "best_T": 0.0,
+  "best_T_rae": 0.4829981546116635,
+  "mean_rae": 0.4829981546116635,
+  "delta_vs_anchor": -0.13857473173978363,
+  "delta_vs_nb2240_k20": 0.019998154611663488,
+  "delta_vs_nb2171": 0.014798154611663505,
+  "rae_te_at_unb_in_sample": 0.1254111192785221,
+  "te_deploy_mean": 4.71310567855835,
+  "te_deploy_std": 0.8433264493942261,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2783_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2783.npy",
+  "submission_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb2783_distill_temperature.csv",
+  "chembl_pool_size": 945,
+  "gate_promote_threshold": 0.457,
+  "gate_marginal_threshold": 0.4598,
+  "verdict": "FAIL",
+  "wall_sec": 11.17
+}

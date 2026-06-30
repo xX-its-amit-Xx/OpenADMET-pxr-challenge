@@ -1,0 +1,145 @@
+{
+  "cycle": 171,
+  "total_cycles": 171,
+  "total_methods": 1105,
+  "top10_honest_scaffold_cv_rae": [
+    {
+      "rank": 1,
+      "candidate": "nb2171",
+      "honest_rae": 0.4682,
+      "family": "blend"
+    },
+    {
+      "rank": 2,
+      "candidate": "nb2095",
+      "honest_rae": 0.472,
+      "family": "blend"
+    },
+    {
+      "rank": 3,
+      "candidate": "nb2103",
+      "honest_rae": 0.5057,
+      "family": "stack"
+    },
+    {
+      "rank": 4,
+      "candidate": "nb2060",
+      "honest_rae": 0.5074,
+      "family": "calib"
+    },
+    {
+      "rank": 5,
+      "candidate": "nb1191",
+      "honest_rae": 0.5089,
+      "family": "stack"
+    },
+    {
+      "rank": 6,
+      "candidate": "nb1162",
+      "honest_rae": 0.5102,
+      "family": "blend"
+    },
+    {
+      "rank": 7,
+      "candidate": "nb730",
+      "honest_rae": 0.4603,
+      "family": "post-unblind"
+    },
+    {
+      "rank": 8,
+      "candidate": "nb703",
+      "honest_rae": 0.4928,
+      "family": "post-unblind"
+    },
+    {
+      "rank": 9,
+      "candidate": "nb562",
+      "honest_rae": 0.5065,
+      "family": "post-unblind"
+    },
+    {
+      "rank": 10,
+      "candidate": "chemprop_aux",
+      "honest_rae": 0.6216,
+      "family": "PRE-anchor"
+    }
+  ],
+  "compounding_wins": [
+    {
+      "step": 1,
+      "candidate": "chemprop_aux",
+      "rae": 0.6216,
+      "delta": 0.0
+    },
+    {
+      "step": 2,
+      "candidate": "nb2103",
+      "rae": 0.5057,
+      "delta": -0.1159
+    },
+    {
+      "step": 3,
+      "candidate": "nb2095",
+      "rae": 0.472,
+      "delta": -0.0337
+    },
+    {
+      "step": 4,
+      "candidate": "nb2171",
+      "rae": 0.4682,
+      "delta": -0.0038
+    }
+  ],
+  "net_delta_rae": -0.1534,
+  "net_pct_change": -24.7,
+  "primary1_stack": [
+    "nb1162",
+    "nb2171",
+    "nb2095",
+    "nb1191",
+    "nb2060"
+  ],
+  "lb_transfer": {
+    "best_honest_rae": 0.4682,
+    "pre_delta": 0.0045,
+    "predicted_lb": 0.4727,
+    "current_best_lb": 0.7655,
+    "predicted_lb_win": 0.2928
+  },
+  "closed_axes": {
+    "count": 50,
+    "categories": [
+      "all post-hoc calibration (rank-stretch, isotonic, Platt, conformal, quantile)",
+      "all model paradigms (LGBM, Chemprop, MPNN, ChemBERTa, GP, RF, CatBoost, SchNet, MoE, SSL)",
+      "all calibration variants (BMA, SLSQP, Huber, pinball, tail-weight, PCHIP CDF)",
+      "structure pose (pose-veto fires 0/513; LDDT-PLI ~0.46)",
+      "Kaggle chemprop (T4/P100 ensembles plateau)",
+      "augmentation (unblind augmentation 6.1% data, no OOD wall move)",
+      "delta-ML tiers (VERY_LOW dead-end)",
+      "loss-level decompression (asymmetric penalty closed)",
+      "off-manifold neg-mine, pose-veto, promiscuity-discount (P1/P2/P3)",
+      "foundation embeddings (ChemBERTa-77M-MTR 0-weight in SLSQP)"
+    ]
+  },
+  "still_open": [
+    {
+      "lever": "structure pose",
+      "status": "regressed",
+      "note": "v4 0.4583 vs v1 baseline"
+    },
+    {
+      "lever": "substrate change",
+      "status": "open",
+      "note": "only remaining lever \u2014 external scaffold-diverse data, abstention on novel scaffolds, route foundation embeddings on counter-assay axis"
+    }
+  ],
+  "cycle172_teaser": {
+    "focus": "substrate-change levers \u2014 pull external scaffold-diverse data (ChEMBL PXR off-target proxies) and gated abstention on novel-scaffold tail",
+    "candidates": [
+      "ChEMBL PXR-adjacent NR1 family bioactivity (CYP3A4/PXR off-targets) for scaffold expansion",
+      "abstain-and-impute on rare-scaffold tail (scaf_train_freq==0, ~90% of 50 worst nb503 errors)",
+      "counter-assay-routed foundation embeddings (ChemBERTa on pEC50_null axis, not pEC50)",
+      "honest cross-fit gate at <=0.460 RAE before ladder promotion"
+    ]
+  }
+}

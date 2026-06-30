@@ -1,0 +1,10 @@
+{
+  "single_conc_unique": 10870,
+  "novel_test_scaffolds": 334,
+  "novel_covered_by_single_conc": 16,
+  "novel_covered_frac": 0.0479,
+  "proximity_median": 0.5074,
+  "proximity_frac_ge_0.4": 0.8317,
+  "proximity_frac_ge_0.5": 0.5505,
+  "proximity_frac_ge_0.7": 0.0096
+}

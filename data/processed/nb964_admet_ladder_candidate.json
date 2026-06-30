@@ -1,0 +1,52 @@
+{
+  "base_tag": "combined+chempropembed",
+  "rows": [
+    {
+      "seed": 42,
+      "base": 0.6035,
+      "base_admet": 0.5829,
+      "delta": -0.02059
+    },
+    {
+      "seed": 101,
+      "base": 0.6385,
+      "base_admet": 0.6479,
+      "delta": 0.0094
+    },
+    {
+      "seed": 202,
+      "base": 0.6336,
+      "base_admet": 0.6384,
+      "delta": 0.0048
+    },
+    {
+      "seed": 303,
+      "base": 0.6705,
+      "base_admet": 0.6688,
+      "delta": -0.00176
+    },
+    {
+      "seed": 404,
+      "base": 0.6221,
+      "base_admet": 0.6092,
+      "delta": -0.01283
+    },
+    {
+      "seed": 505,
+      "base": 0.6595,
+      "base_admet": 0.6385,
+      "delta": -0.02097
+    },
+    {
+      "seed": 606,
+      "base": 0.6409,
+      "base_admet": 0.6445,
+      "delta": 0.00357
+    }
+  ],
+  "delta_mean": -0.0054828571428571435,
+  "delta_std": 0.011619616067281242,
+  "stable": false,
+  "base_mean_rae": 0.6383714285714286,
+  "admet_mean_rae": 0.6328857142857143
+}

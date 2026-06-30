@@ -1,0 +1,26 @@
+{
+  "method": "nb2096_bayesian_dirichlet_blend",
+  "candidates": [
+    "nb1191",
+    "nb2060",
+    "nb1162"
+  ],
+  "alpha_prior": [
+    42.390843577787194,
+    42.37288135593221,
+    23.80952380952381
+  ],
+  "w_map": {
+    "nb1191": 0.37399970113491454,
+    "nb2060": 0.47289989099461155,
+    "nb1162": 0.1531004078704738
+  },
+  "blend_rae_in_sample": 0.23143702982657896,
+  "posterior_rae_q05": 0.23529152662479091,
+  "posterior_rae_q50": 0.2503667854299769,
+  "posterior_rae_q95": 0.2665592308616959,
+  "p_better_than_nb1191": 1.0,
+  "conservative_lb_mid": 0.33143702982657897,
+  "csv": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb2096_bayes_blend.csv",
+  "ladder_verdict": "QUEUE_IF_BEATS_nb1191"
+}

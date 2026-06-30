@@ -1,0 +1,21 @@
+{
+  "id": "knowledgegraphlover/pxr-chemprop-aux-v2",
+  "id_no": 122018050,
+  "title": "PXR chemprop aux v2",
+  "code_file": "pxr-chemprop-aux-v2.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "keywords": [],
+  "dataset_sources": [
+    "knowledgegraphlover/pxr-challenge-data"
+  ],
+  "kernel_sources": [],
+  "competition_sources": [],
+  "model_sources": [],
+  "docker_image": "gcr.io/kaggle-images/python@sha256:e5452ce6268c2e8345cfe5141f31ca7ff47032aca46a7ea532bbb87481281d0c",
+  "machine_shape": "None"
+}

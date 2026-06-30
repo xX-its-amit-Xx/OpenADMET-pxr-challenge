@@ -1,0 +1,10 @@
+{
+  "comp": "COMP-M: SOAP_PCA24 + PMapper_PCA24 Ridge residual chain",
+  "ctrl_rae": 0.4230723892117627,
+  "treat_rae": 0.41486977800169605,
+  "delta": -0.008202611210066657,
+  "n_neg": 3,
+  "deployed_best": 0.4161,
+  "gate_pass": true,
+  "pmapper_var_explained": 0.24928057736960502
+}

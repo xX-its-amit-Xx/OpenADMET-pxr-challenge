@@ -1,0 +1,27 @@
+{
+  "pxr_pep(AF2)": {
+    "corr": 0.06700144208550565,
+    "blend_delta": -0.0009499268181699771,
+    "frac_seeds_improved": 0.8
+  },
+  "lig_pxr(coact)": {
+    "corr": 0.0812107560089538,
+    "blend_delta": -0.0018593570179323005,
+    "frac_seeds_improved": 0.9
+  },
+  "lig_pep": {
+    "corr": 0.01134114564105243,
+    "blend_delta": -0.000690480530133523,
+    "frac_seeds_improved": 0.6
+  },
+  "d_ligpxr(diff)": {
+    "corr": -0.002450771655728395,
+    "blend_delta": -5.3548620301065625e-06,
+    "frac_seeds_improved": 0.03333333333333333
+  },
+  "all_concat": {
+    "corr": 0.04722711917291165,
+    "blend_delta": -0.0007965811469438348,
+    "frac_seeds_improved": 0.8666666666666667
+  }
+}

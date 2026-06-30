@@ -1,0 +1,368 @@
+{
+  "tag": "nb2012",
+  "method": "lgbm_mse_on_top28_shap_of_4fp_mix_5283_(morgan2048+avalon1024+atompair2048+maccs167)",
+  "anchor": "chemprop_aux",
+  "anchor_kind": "PRE_unblind_te_slice_to_unb_idx",
+  "anchor_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+  "data_source": "4-FP mix on standardized test SMILES (Morgan-2048 + Avalon-1024 + AtomPair-2048 + MACCS-167)",
+  "model_family": "LightGBM",
+  "lgbm_objective": "regression",
+  "lgbm_max_depth": 4,
+  "lgbm_num_leaves": 15,
+  "lgbm_n_estimators": 300,
+  "lgbm_learning_rate": 0.03,
+  "lgbm_min_child_samples": 5,
+  "lgbm_reg_lambda": 2.0,
+  "feat_dim_full": 5287,
+  "feat_dim_active_in_test": 4277,
+  "feat_dim_topK": 28,
+  "feat_breakdown_full": {
+    "morgan": 2048,
+    "avalon": 1024,
+    "atompair": 2048,
+    "maccs": 167,
+    "total": 5287
+  },
+  "fp_matrix_sparsity_test": 0.10916732387469946,
+  "fp_on_bits_per_cpd_mean": 577.1676635742188,
+  "fp_on_bits_per_cpd_min": 263,
+  "fp_on_bits_per_cpd_max": 867,
+  "topK_family_counts": {
+    "AtomPair": 17,
+    "Morgan": 4,
+    "Avalon": 6,
+    "MACCS": 1
+  },
+  "topK_records": [
+    {
+      "rank": 1,
+      "feat_idx_in_5283": 4049,
+      "feat_family": "AtomPair",
+      "bit_id": 977,
+      "feat_name": "AtomPair_bit_977",
+      "mean_abs_shap": 0.05073301121592522
+    },
+    {
+      "rank": 2,
+      "feat_idx_in_5283": 1795,
+      "feat_family": "Morgan",
+      "bit_id": 1795,
+      "feat_name": "Morgan_bit_1795",
+      "mean_abs_shap": 0.035103149712085724
+    },
+    {
+      "rank": 3,
+      "feat_idx_in_5283": 4158,
+      "feat_family": "AtomPair",
+      "bit_id": 1086,
+      "feat_name": "AtomPair_bit_1086",
+      "mean_abs_shap": 0.034096796065568924
+    },
+    {
+      "rank": 4,
+      "feat_idx_in_5283": 695,
+      "feat_family": "Morgan",
+      "bit_id": 695,
+      "feat_name": "Morgan_bit_695",
+      "mean_abs_shap": 0.03278627619147301
+    },
+    {
+      "rank": 5,
+      "feat_idx_in_5283": 4091,
+      "feat_family": "AtomPair",
+      "bit_id": 1019,
+      "feat_name": "AtomPair_bit_1019",
+      "mean_abs_shap": 0.029099762439727783
+    },
+    {
+      "rank": 6,
+      "feat_idx_in_5283": 5061,
+      "feat_family": "AtomPair",
+      "bit_id": 1989,
+      "feat_name": "AtomPair_bit_1989",
+      "mean_abs_shap": 0.028974691405892372
+    },
+    {
+      "rank": 7,
+      "feat_idx_in_5283": 4376,
+      "feat_family": "AtomPair",
+      "bit_id": 1304,
+      "feat_name": "AtomPair_bit_1304",
+      "mean_abs_shap": 0.0267828069627285
+    },
+    {
+      "rank": 8,
+      "feat_idx_in_5283": 2165,
+      "feat_family": "Avalon",
+      "bit_id": 117,
+      "feat_name": "Avalon_bit_117",
+      "mean_abs_shap": 0.026640919968485832
+    },
+    {
+      "rank": 9,
+      "feat_idx_in_5283": 4801,
+      "feat_family": "AtomPair",
+      "bit_id": 1729,
+      "feat_name": "AtomPair_bit_1729",
+      "mean_abs_shap": 0.026272090151906013
+    },
+    {
+      "rank": 10,
+      "feat_idx_in_5283": 45,
+      "feat_family": "Morgan",
+      "bit_id": 45,
+      "feat_name": "Morgan_bit_45",
+      "mean_abs_shap": 0.025710953399538994
+    },
+    {
+      "rank": 11,
+      "feat_idx_in_5283": 3616,
+      "feat_family": "AtomPair",
+      "bit_id": 544,
+      "feat_name": "AtomPair_bit_544",
+      "mean_abs_shap": 0.022663727402687073
+    },
+    {
+      "rank": 12,
+      "feat_idx_in_5283": 4876,
+      "feat_family": "AtomPair",
+      "bit_id": 1804,
+      "feat_name": "AtomPair_bit_1804",
+      "mean_abs_shap": 0.018289750441908836
+    },
+    {
+      "rank": 13,
+      "feat_idx_in_5283": 4633,
+      "feat_family": "AtomPair",
+      "bit_id": 1561,
+      "feat_name": "AtomPair_bit_1561",
+      "mean_abs_shap": 0.01824653148651123
+    },
+    {
+      "rank": 14,
+      "feat_idx_in_5283": 2878,
+      "feat_family": "Avalon",
+      "bit_id": 830,
+      "feat_name": "Avalon_bit_830",
+      "mean_abs_shap": 0.01787198893725872
+    },
+    {
+      "rank": 15,
+      "feat_idx_in_5283": 5235,
+      "feat_family": "MACCS",
+      "bit_id": 115,
+      "feat_name": "MACCS_bit_115",
+      "mean_abs_shap": 0.017627740278840065
+    },
+    {
+      "rank": 16,
+      "feat_idx_in_5283": 2805,
+      "feat_family": "Avalon",
+      "bit_id": 757,
+      "feat_name": "Avalon_bit_757",
+      "mean_abs_shap": 0.017540553584694862
+    },
+    {
+      "rank": 17,
+      "feat_idx_in_5283": 4465,
+      "feat_family": "AtomPair",
+      "bit_id": 1393,
+      "feat_name": "AtomPair_bit_1393",
+      "mean_abs_shap": 0.017177190631628036
+    },
+    {
+      "rank": 18,
+      "feat_idx_in_5283": 5066,
+      "feat_family": "AtomPair",
+      "bit_id": 1994,
+      "feat_name": "AtomPair_bit_1994",
+      "mean_abs_shap": 0.016826851293444633
+    },
+    {
+      "rank": 19,
+      "feat_idx_in_5283": 743,
+      "feat_family": "Morgan",
+      "bit_id": 743,
+      "feat_name": "Morgan_bit_743",
+      "mean_abs_shap": 0.01641579531133175
+    },
+    {
+      "rank": 20,
+      "feat_idx_in_5283": 4484,
+      "feat_family": "AtomPair",
+      "bit_id": 1412,
+      "feat_name": "AtomPair_bit_1412",
+      "mean_abs_shap": 0.016072027385234833
+    },
+    {
+      "rank": 21,
+      "feat_idx_in_5283": 2190,
+      "feat_family": "Avalon",
+      "bit_id": 142,
+      "feat_name": "Avalon_bit_142",
+      "mean_abs_shap": 0.016004374250769615
+    },
+    {
+      "rank": 22,
+      "feat_idx_in_5283": 3869,
+      "feat_family": "AtomPair",
+      "bit_id": 797,
+      "feat_name": "AtomPair_bit_797",
+      "mean_abs_shap": 0.015895457938313484
+    },
+    {
+      "rank": 23,
+      "feat_idx_in_5283": 4856,
+      "feat_family": "AtomPair",
+      "bit_id": 1784,
+      "feat_name": "AtomPair_bit_1784",
+      "mean_abs_shap": 0.015733500942587852
+    },
+    {
+      "rank": 24,
+      "feat_idx_in_5283": 3089,
+      "feat_family": "AtomPair",
+      "bit_id": 17,
+      "feat_name": "AtomPair_bit_17",
+      "mean_abs_shap": 0.015028955414891243
+    },
+    {
+      "rank": 25,
+      "feat_idx_in_5283": 2654,
+      "feat_family": "Avalon",
+      "bit_id": 606,
+      "feat_name": "Avalon_bit_606",
+      "mean_abs_shap": 0.014386646449565887
+    },
+    {
+      "rank": 26,
+      "feat_idx_in_5283": 2283,
+      "feat_family": "Avalon",
+      "bit_id": 235,
+      "feat_name": "Avalon_bit_235",
+      "mean_abs_shap": 0.014287895523011684
+    },
+    {
+      "rank": 27,
+      "feat_idx_in_5283": 3870,
+      "feat_family": "AtomPair",
+      "bit_id": 798,
+      "feat_name": "AtomPair_bit_798",
+      "mean_abs_shap": 0.012236619368195534
+    },
+    {
+      "rank": 28,
+      "feat_idx_in_5283": 4805,
+      "feat_family": "AtomPair",
+      "bit_id": 1733,
+      "feat_name": "AtomPair_bit_1733",
+      "mean_abs_shap": 0.011733884923160076
+    }
+  ],
+  "overlap_vs_nb2063_top28": {
+    "n_overlap": 4,
+    "n_nb2063_compatible": 8,
+    "n_nb2063_excluded_namespaces": 20,
+    "overlap_frac_vs_nb2063_compatible": 0.5,
+    "overlap_frac_vs_nb2012_top28": 0.14285714285714285,
+    "overlap_list": [
+      {
+        "family": "AtomPair",
+        "bit": 977
+      },
+      {
+        "family": "AtomPair",
+        "bit": 1086
+      },
+      {
+        "family": "AtomPair",
+        "bit": 1729
+      },
+      {
+        "family": "AtomPair",
+        "bit": 1733
+      }
+    ]
+  },
+  "n_unb": 253,
+  "resid_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "resid_folds": 5,
+  "rae_anchor_chemprop_aux": 0.6215728863514471,
+  "residual_mean": -0.1325965261753001,
+  "residual_std": 0.6999145683913596,
+  "per_seed_rae": [
+    0.5379485487751205,
+    0.540455081169266,
+    0.5386509648637486,
+    0.5445785664386164,
+    0.554364293529398
+  ],
+  "per_seed_records": [
+    {
+      "seed": 0,
+      "rae_corrected": 0.5379485487751205,
+      "delta_vs_chemprop_aux": -0.08362433757632659,
+      "resid_oof_std": 0.4869525647202903,
+      "resid_oof_mean": -0.12391156996643447,
+      "wall_sec": 0.17
+    },
+    {
+      "seed": 1,
+      "rae_corrected": 0.540455081169266,
+      "delta_vs_chemprop_aux": -0.08111780518218115,
+      "resid_oof_std": 0.4763974179524937,
+      "resid_oof_mean": -0.12090040915507992,
+      "wall_sec": 0.17
+    },
+    {
+      "seed": 7,
+      "rae_corrected": 0.5386509648637486,
+      "delta_vs_chemprop_aux": -0.0829219214876985,
+      "resid_oof_std": 0.47630309978810015,
+      "resid_oof_mean": -0.13528848616102618,
+      "wall_sec": 0.16
+    },
+    {
+      "seed": 42,
+      "rae_corrected": 0.5445785664386164,
+      "delta_vs_chemprop_aux": -0.07699431991283079,
+      "resid_oof_std": 0.5037640046865758,
+      "resid_oof_mean": -0.14027022197953048,
+      "wall_sec": 0.18
+    },
+    {
+      "seed": 137,
+      "rae_corrected": 0.554364293529398,
+      "delta_vs_chemprop_aux": -0.06720859282204916,
+      "resid_oof_std": 0.5005870700469208,
+      "resid_oof_mean": -0.14038062542988422,
+      "wall_sec": 0.18
+    }
+  ],
+  "rae_per_seed_mean": 0.54319949095523,
+  "rae_per_seed_median": 0.540455081169266,
+  "rae_per_seed_std": 0.006039005450669167,
+  "rae_per_seed_min": 0.5379485487751205,
+  "rae_per_seed_max": 0.554364293529398,
+  "rae_mean_bag": 0.5310276182354954,
+  "rae_median_bag": 0.5386856224493701,
+  "delta_mean_bag_vs_chemprop_aux": -0.09054526811595176,
+  "delta_mean_bag_vs_nb2103_K28": 0.05734061899923526,
+  "beats_chemprop_aux": true,
+  "beats_nb2103_K28": false,
+  "flat_vs_nb2103_K28": false,
+  "verdict": "FP_MIX_BEATS_ANCHOR_BUT_WORSE_THAN_NB2103_K28",
+  "pre_unblind_clean": true,
+  "chemprop_aux_ref": 0.6216,
+  "nb2103_K28_mean_bag_ref": 0.4736869992362601,
+  "nb2103_K28_median_bag_ref": 0.4697789387514748,
+  "decision_margin": 0.003,
+  "deploy_csv_path": null,
+  "wall_sec": 2.77
+}

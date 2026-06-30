@@ -1,0 +1,42 @@
+{
+  "script": "nb950_chemprop_aux_v2_kaggle",
+  "tier_weights": {
+    "original": 1.0,
+    "semi_pure": 0.7,
+    "crudes": 0.4
+  },
+  "cad_cv_penalty": 0.5,
+  "corpus_total": 4574,
+  "corpus_by_source": {
+    "original": 4139,
+    "crudes": 347,
+    "semi_pure": 88
+  },
+  "n_test_513": 513,
+  "n_phase1_unblinded": 253,
+  "null_head_n_labels": 2647,
+  "leaked_sp_dropped": 1,
+  "dirty_rows_dropped": {
+    "train": 0,
+    "semi_pure": 2,
+    "crudes": 109,
+    "counter": 212,
+    "phase1": 0
+  },
+  "fallback_used": false,
+  "model": "chemprop_aux_v2",
+  "accel": "cpu",
+  "fit_main_minutes": 5.704339659214019,
+  "fit_null_minutes": 1.5660690506299337,
+  "best_epoch_main": 37,
+  "best_epoch_null": 17,
+  "null_head_used": true,
+  "null_head_n_rows": 2647,
+  "phase1_unblinded_RAE": 0.9588779247671331,
+  "phase1_unblinded_n": 253,
+  "phase1_unblinded_pred_mean": 4.143836498260498,
+  "phase1_unblinded_pred_std": 0.6172159910202026,
+  "phase1_unblinded_true_mean": 4.6641106605529785,
+  "phase1_unblinded_true_std": 1.0320053100585938,
+  "wall_time_min": 7.327036770184835
+}

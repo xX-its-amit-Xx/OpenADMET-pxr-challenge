@@ -1,0 +1,136 @@
+{
+  "tag": "nb2620",
+  "method": "per_row_MEDIAN_ensemble_K18_K20_K24_K28_LGBM_no_SLSQP",
+  "paradigm": "plain_median_no_learning_df_zero",
+  "dual_of": "nb2604_mean_ensemble",
+  "anchor_base": "chemprop_aux",
+  "anchor_in_rae": 0.6215728863514471,
+  "anchor_pre_unblind": true,
+  "k18_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2604_mean_bag_oof_K18.npy",
+  "k18_te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2604_K18.npy",
+  "k20_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2240_mean_bag_oof_K20.npy",
+  "k20_te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2240_K20.npy",
+  "k24_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2310_mean_bag_oof_K24.npy",
+  "k24_te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2310_K24.npy",
+  "k28_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2103_mean_bag_oof_K28.npy",
+  "k28_te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2112.npy",
+  "per_anchor_rae_in_sample": {
+    "K18": 0.4618957917529802,
+    "K20": 0.46301757335429367,
+    "K24": 0.4673847310316789,
+    "K28": 0.47368697777353697
+  },
+  "oof_corr_matrix": [
+    [
+      0.9999999999999999,
+      0.9835426248047789,
+      0.9790607385320926,
+      0.9824962753468633
+    ],
+    [
+      0.9835426248047788,
+      1.0,
+      0.9927690117084048,
+      0.9858339546138429
+    ],
+    [
+      0.9790607385320926,
+      0.9927690117084047,
+      0.9999999999999999,
+      0.9826879622150074
+    ],
+    [
+      0.9824962753468633,
+      0.9858339546138428,
+      0.9826879622150074,
+      1.0
+    ]
+  ],
+  "oof_corr_labels": [
+    "K18",
+    "K20",
+    "K24",
+    "K28"
+  ],
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "n_folds": 5,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "rae_mean_single_shot": 0.4580182798247425,
+  "rae_median_single_shot": 0.4589344064293856,
+  "median_minus_mean_pooled": 0.0009161266046430749,
+  "median_vs_mean_row_disagreement": {
+    "max_abs_diff": 0.09110933542251587,
+    "mean_abs_diff": 0.016813647487889164,
+    "n_rows_diff_gt_005": 15,
+    "n_rows_diff_gt_010": 0,
+    "n_unb": 253
+  },
+  "per_seed_pooled_rae": [
+    0.4589344064293856,
+    0.4589344064293856,
+    0.4589344064293856,
+    0.4589344064293856,
+    0.4589344064293856
+  ],
+  "per_seed_fold_rae": [
+    [
+      0.4507401021619469,
+      0.47622976537230144,
+      0.5317589771864508,
+      0.4179495342473237,
+      0.4327130115295723
+    ],
+    [
+      0.4998619722777235,
+      0.39232288294752476,
+      0.48042993534269196,
+      0.5764226030609105,
+      0.4130248403744888
+    ],
+    [
+      0.3774890224005885,
+      0.4302839490289136,
+      0.48155905952660594,
+      0.49242185097923646,
+      0.5389626188726622
+    ],
+    [
+      0.45128295183090394,
+      0.4614855582658803,
+      0.5008148812429183,
+      0.4345456989013883,
+      0.4766846572819568
+    ],
+    [
+      0.5527855097116947,
+      0.38637618390787604,
+      0.48066531316225564,
+      0.405729391473368,
+      0.5323559656885827
+    ]
+  ],
+  "mean_rae": 0.4589344064293856,
+  "std_rae": 0.0,
+  "gate_promote": 0.457,
+  "gate_better": 0.458,
+  "verdict": "FAIL",
+  "delta_vs_nb2604_mean": 0.0009344064293855814,
+  "nb2604_ref": 0.458,
+  "delta_vs_nb2171": -0.009265593570614405,
+  "nb2171_ref": 0.4682,
+  "te_mean": 4.706139412539744,
+  "te_std": 0.8409626405366573,
+  "te_unb_in_sample_rae": 0.11183885886943996,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2620_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2620.npy",
+  "submission_csv": null,
+  "wall_sec": 0.1
+}

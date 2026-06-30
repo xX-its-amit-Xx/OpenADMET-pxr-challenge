@@ -1,0 +1,49 @@
+{
+  "tag": "nb2005",
+  "method": "top_decile_counter_assay_shrink_on_nb1191",
+  "anchor": "nb1191",
+  "anchor_te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb1191.npy",
+  "counter_te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb702_null_hat_te.npy",
+  "n_te": 513,
+  "n_unb": 253,
+  "lambda_grid": [
+    0.05,
+    0.1,
+    0.2
+  ],
+  "top_decile_quantile": 0.9,
+  "counter_q90": 3.6788679122924806,
+  "corpus_mean_counter": 3.0703392874660085,
+  "n_gated_513": 52,
+  "n_gated_253": 30,
+  "kf_seed": 1001,
+  "n_folds": 5,
+  "nb1191_unblind_insample_rae": 0.26310103031697585,
+  "nb1191_oof_reference": 0.4703,
+  "pooled_lambda_sweep": {
+    "0.05": 0.263151598807355,
+    "0.10": 0.26491793910488204,
+    "0.20": 0.2704891614148642
+  },
+  "best_pooled_lambda": 0.05,
+  "best_pooled_rae": 0.263151598807355,
+  "cross_fit_chosen_lambdas": [
+    0.05,
+    0.05,
+    0.05,
+    0.05,
+    0.05
+  ],
+  "honest_cross_fit_rae": 0.263151598807355,
+  "delta_vs_nb1191": -0.207148401192645,
+  "gate_target_rae": 0.468,
+  "gate_pass": true,
+  "deploy_lambda": 0.05,
+  "deploy_te_mean": 4.705965995788574,
+  "deploy_te_std": 0.8026570081710815,
+  "deploy_delta_mean_vs_nb1191": -0.0045591734538533765,
+  "deploy_max_suppression": 0.09484004974365234,
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2005.npy",
+  "submission_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb2005_counter_filter.csv",
+  "wall_sec": 0.08
+}

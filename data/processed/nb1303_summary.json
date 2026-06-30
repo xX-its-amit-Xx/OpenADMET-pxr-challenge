@@ -1,0 +1,166 @@
+{
+  "tag": "nb1303",
+  "anchor": "nb1070",
+  "seed": 42,
+  "folds": 5,
+  "feature_dim": 169,
+  "objectives": [
+    "huber",
+    "regression_l1",
+    "fair",
+    "tweedie",
+    "quantile"
+  ],
+  "per_obj_records": [
+    {
+      "objective": "huber",
+      "params": {
+        "objective": "huber",
+        "alpha": 1.0
+      },
+      "tweedie_shift": 0.0,
+      "rae": 0.5470875358302952,
+      "delta_vs_nb1070": -0.030042980807883257,
+      "delta_vs_nb1242": 0.003987535830295208,
+      "resid_oof_mean": -0.07426795307377439,
+      "resid_oof_std": 0.22455043336643685,
+      "error": null
+    },
+    {
+      "objective": "regression_l1",
+      "params": {
+        "objective": "regression_l1"
+      },
+      "tweedie_shift": 0.0,
+      "rae": 0.5570151504766031,
+      "delta_vs_nb1070": -0.020115366161575388,
+      "delta_vs_nb1242": 0.013915150476603078,
+      "resid_oof_mean": -0.025786434407497217,
+      "resid_oof_std": 0.13628018148425788,
+      "error": null
+    },
+    {
+      "objective": "fair",
+      "params": {
+        "objective": "fair",
+        "fair_c": 1.0
+      },
+      "tweedie_shift": 0.0,
+      "rae": 0.5477681890825972,
+      "delta_vs_nb1070": -0.029362327555581325,
+      "delta_vs_nb1242": 0.004668189082597141,
+      "resid_oof_mean": -0.07450009104623605,
+      "resid_oof_std": 0.22152461151996522,
+      "error": null
+    },
+    {
+      "objective": "tweedie",
+      "params": {
+        "objective": "tweedie",
+        "tweedie_variance_power": 1.5
+      },
+      "tweedie_shift": 2.5976568130254747,
+      "rae": 0.5698577656062511,
+      "delta_vs_nb1070": -0.007272751031927371,
+      "delta_vs_nb1242": 0.026757765606251094,
+      "resid_oof_mean": -0.12419078681370628,
+      "resid_oof_std": 0.26131159185704916,
+      "error": null
+    },
+    {
+      "objective": "quantile",
+      "params": {
+        "objective": "quantile",
+        "alpha": 0.5
+      },
+      "tweedie_shift": 0.0,
+      "rae": 0.5570151504766031,
+      "delta_vs_nb1070": -0.020115366161575388,
+      "delta_vs_nb1242": 0.013915150476603078,
+      "resid_oof_mean": -0.025786434407497217,
+      "resid_oof_std": 0.13628018148425788,
+      "error": null
+    }
+  ],
+  "per_obj_rae": [
+    0.5470875358302952,
+    0.5570151504766031,
+    0.5477681890825972,
+    0.5698577656062511,
+    0.5570151504766031
+  ],
+  "per_obj_rae_mean": 0.55574875829447,
+  "per_obj_rae_std": 0.008258060851813178,
+  "per_obj_rae_min": 0.5470875358302952,
+  "per_obj_rae_max": 0.5698577656062511,
+  "rae_mean_bag": 0.5466152636605607,
+  "rae_median_bag": 0.5417175985098455,
+  "rae_anchor_nb1070": 0.5771305166381785,
+  "delta_mean_bag_vs_nb1070": -0.030515252977617813,
+  "delta_mean_bag_vs_nb1242": 0.0035152636605606524,
+  "pearson_pairs": [
+    {
+      "obj_a": "huber",
+      "obj_b": "regression_l1",
+      "pearson": 0.9850321666043764
+    },
+    {
+      "obj_a": "huber",
+      "obj_b": "fair",
+      "pearson": 0.9979366964612005
+    },
+    {
+      "obj_a": "huber",
+      "obj_b": "tweedie",
+      "pearson": 0.9941017394427865
+    },
+    {
+      "obj_a": "huber",
+      "obj_b": "quantile",
+      "pearson": 0.9850321666043764
+    },
+    {
+      "obj_a": "regression_l1",
+      "obj_b": "fair",
+      "pearson": 0.9861964099219508
+    },
+    {
+      "obj_a": "regression_l1",
+      "obj_b": "tweedie",
+      "pearson": 0.9741632897792478
+    },
+    {
+      "obj_a": "regression_l1",
+      "obj_b": "quantile",
+      "pearson": 1.0
+    },
+    {
+      "obj_a": "fair",
+      "obj_b": "tweedie",
+      "pearson": 0.9948316781304254
+    },
+    {
+      "obj_a": "fair",
+      "obj_b": "quantile",
+      "pearson": 0.9861964099219508
+    },
+    {
+      "obj_a": "tweedie",
+      "obj_b": "quantile",
+      "pearson": 0.9741632897792478
+    }
+  ],
+  "pearson_off_diag_mean": 0.9877653846645563,
+  "pearson_off_diag_min": 0.9741632897792478,
+  "pearson_off_diag_max": 1.0,
+  "n_chembl_pool": 945,
+  "n_unb": 253,
+  "nb1070_ref_pooled": 0.5771,
+  "nb1242_ref": 0.5431,
+  "decision_margin": 0.003,
+  "beats_nb1070": true,
+  "beats_nb1242": false,
+  "ties_nb1242": false,
+  "verdict": "ALT_OBJ_BAG_HELPS_NB1070_BUT_NOT_NB1242",
+  "wall_sec": 4.42
+}

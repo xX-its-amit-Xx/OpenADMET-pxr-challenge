@@ -1,0 +1,194 @@
+{
+  "tag": "nb2171",
+  "method": "nb1162_anchor_swap_nb730_to_nb1191_SLSQP_then_rank_stretch_seedavg",
+  "anchors": [
+    "nb2103_K28",
+    "chemprop_aux",
+    "nb1191",
+    "nb503",
+    "nb562"
+  ],
+  "anchor_oof_paths": [
+    "nb2103_mean_bag_oof_K28.npy",
+    "nb1133_chemprop_aux_pred_oof.npy",
+    "_RECONSTRUCT_nb1191_oof",
+    "nb503_pred_oof.npy",
+    "nb562_pred_oof.npy"
+  ],
+  "anchor_te_paths": [
+    "te_chemprop_aux.npy",
+    "te_chemprop_aux.npy",
+    "te_nb1191.npy",
+    "te_nb503.npy",
+    "te_nb562.npy"
+  ],
+  "indiv_oof_rae_unb": {
+    "nb2103_K28": 0.47368697777353697,
+    "chemprop_aux": 0.5878769556905485,
+    "nb1191": 0.4647519472474954,
+    "nb503": 0.5116212503074237,
+    "nb562": 0.5065400776344995
+  },
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "n_folds": 5,
+  "stretch_grid": [
+    1.0,
+    1.025,
+    1.05,
+    1.075,
+    1.1,
+    1.125,
+    1.15
+  ],
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "per_seed_results": [
+    {
+      "kf_seed": 1001,
+      "pooled_rae": 0.46635174148711983,
+      "fold_s": [
+        1.0,
+        1.0,
+        1.0,
+        1.025,
+        1.0
+      ],
+      "fold_w_mean": [
+        0.062338052821921695,
+        7.955046918631775e-13,
+        0.8565901150603654,
+        7.161306966864837e-14,
+        0.08107183211684564
+      ]
+    },
+    {
+      "kf_seed": 1002,
+      "pooled_rae": 0.468285974994591,
+      "fold_s": [
+        1.05,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fold_w_mean": [
+        0.11270130833787488,
+        0.0,
+        0.7969798550123195,
+        2.2679392655522542e-13,
+        0.0903188366495788
+      ]
+    },
+    {
+      "kf_seed": 1003,
+      "pooled_rae": 0.46753917607123413,
+      "fold_s": [
+        1.0,
+        1.0,
+        1.025,
+        1.025,
+        1.0
+      ],
+      "fold_w_mean": [
+        0.10269748998836085,
+        2.998856534311561e-13,
+        0.8096620269895325,
+        4.292158598914284e-14,
+        0.08764048302176373
+      ]
+    },
+    {
+      "kf_seed": 1004,
+      "pooled_rae": 0.4672475565103621,
+      "fold_s": [
+        1.0,
+        1.0,
+        1.05,
+        1.0,
+        1.0
+      ],
+      "fold_w_mean": [
+        0.03595194087511154,
+        1.8516652068501003e-13,
+        0.8814480697843445,
+        2.3933025287864664e-13,
+        0.08259998934011956
+      ]
+    },
+    {
+      "kf_seed": 1005,
+      "pooled_rae": 0.4687051032066101,
+      "fold_s": [
+        1.0,
+        1.0,
+        1.025,
+        1.0,
+        1.025
+      ],
+      "fold_w_mean": [
+        0.04110382926563714,
+        2.6246279791668164e-13,
+        0.8825018588785996,
+        8.402180912077599e-14,
+        0.07639431185541692
+      ]
+    }
+  ],
+  "pooled_rae_mean_seeds": 0.46762591045398344,
+  "pooled_rae_std_seeds": 0.0008215258134729968,
+  "rae_of_mean_of_seed_oofs": 0.4673475657028138,
+  "deploy_weights": [
+    {
+      "name": "nb2103_K28",
+      "w": 0.0
+    },
+    {
+      "name": "chemprop_aux",
+      "w": 1.8510903813157475e-12
+    },
+    {
+      "name": "nb1191",
+      "w": 0.9360891805838886
+    },
+    {
+      "name": "nb503",
+      "w": 0.0
+    },
+    {
+      "name": "nb562",
+      "w": 0.06391081941426041
+    }
+  ],
+  "deploy_mu_blend": 4.666466888212638,
+  "deploy_s": 1.009,
+  "in_sample_rae_overfit_bound": 0.46402771694355244,
+  "te_unb_rae_in_sample": 0.2694833508096347,
+  "lb_band_estimate": 0.3705360562282526,
+  "lb_band_low": 0.3205360562282526,
+  "lb_band_high": 0.4205360562282526,
+  "lb_band_w_oof": 0.51,
+  "lb_band_w_te": 0.49,
+  "compare_nb1162_oof": 0.4206,
+  "compare_nb2095_oof": 0.472,
+  "delta_vs_nb1162": 0.047025910453983466,
+  "delta_vs_nb2095": -0.004374089546016535,
+  "w_nb1191_deploy": 0.9360891805838886,
+  "gate_oof_target": 0.45,
+  "gate_w_nb1191_target": 0.3,
+  "gate_a_oof_le_target": false,
+  "gate_b_w_nb1191_ge_target": true,
+  "gate_pass": false,
+  "deep_30_verify": null,
+  "deploy_te_mean": 4.7121262550354,
+  "deploy_te_std": 0.8084282279014587,
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2171.npy",
+  "submission_csv": null,
+  "wall_sec": 0.14
+}

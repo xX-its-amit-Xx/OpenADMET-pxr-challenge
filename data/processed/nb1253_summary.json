@@ -1,0 +1,169 @@
+{
+  "tag": "nb1253",
+  "anchor": "nb1070",
+  "data_source": "local_chembl_caches_union",
+  "n_chembl_pool": 945,
+  "knn_k_max": 10,
+  "chembl_feature_names": [
+    "top1_sim",
+    "top1_pec50",
+    "mean_3_pec50",
+    "mean_3_sim",
+    "std_3_pec50",
+    "mean_5_pec50",
+    "mean_5_sim",
+    "std_5_pec50",
+    "max_5_pec50",
+    "min_5_pec50",
+    "mean_10_pec50",
+    "mean_10_sim",
+    "std_10_pec50"
+  ],
+  "n_chembl_features": 13,
+  "feature_dim": 180,
+  "top1_sim_p10": 0.21799534559249878,
+  "top1_sim_p50": 0.25925925374031067,
+  "top1_sim_p90": 0.32640329003334045,
+  "top1_sim_max": 0.4545454680919647,
+  "n_zero_neighbor_rows": 0,
+  "n_unb": 253,
+  "resid_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "resid_folds": 5,
+  "lgbm_max_depth": 3,
+  "lgbm_num_leaves": 7,
+  "lgbm_n_estimators": 80,
+  "lgbm_learning_rate": 0.05,
+  "lgbm_min_child_samples": 20,
+  "lgbm_huber_alpha": 1.0,
+  "rae_anchor_nb1070": 0.5771305166381785,
+  "residual_mean": -0.1019658057365929,
+  "residual_std": 0.6666145784833671,
+  "per_seed_rae": [
+    0.5672092590107436,
+    0.5563976475832293,
+    0.5637509930163609,
+    0.5740599672880007,
+    0.5602517462643214
+  ],
+  "per_seed_records": [
+    {
+      "seed": 0,
+      "rae_corrected": 0.5672092590107436,
+      "delta_vs_nb1070": -0.009921257627434898,
+      "resid_oof_std": 0.21731162557698758,
+      "resid_oof_mean": -0.07375307526848893
+    },
+    {
+      "seed": 1,
+      "rae_corrected": 0.5563976475832293,
+      "delta_vs_nb1070": -0.0207328690549492,
+      "resid_oof_std": 0.21750248711156017,
+      "resid_oof_mean": -0.066967669211885
+    },
+    {
+      "seed": 7,
+      "rae_corrected": 0.5637509930163609,
+      "delta_vs_nb1070": -0.013379523621817602,
+      "resid_oof_std": 0.21772300724442362,
+      "resid_oof_mean": -0.0990467498315036
+    },
+    {
+      "seed": 42,
+      "rae_corrected": 0.5740599672880007,
+      "delta_vs_nb1070": -0.003070549350177809,
+      "resid_oof_std": 0.22640356176967125,
+      "resid_oof_mean": -0.0867460107980925
+    },
+    {
+      "seed": 137,
+      "rae_corrected": 0.5602517462643214,
+      "delta_vs_nb1070": -0.0168787703738571,
+      "resid_oof_std": 0.22235341009860984,
+      "resid_oof_mean": -0.07467946174101336
+    }
+  ],
+  "rae_per_seed_mean": 0.5643339226325311,
+  "rae_per_seed_median": 0.5637509930163609,
+  "rae_per_seed_std": 0.00604734547425247,
+  "rae_mean_bag": 0.5569659968344516,
+  "rae_median_bag": 0.5606688947939112,
+  "delta_mean_bag_vs_nb1070": -0.02016451980372691,
+  "delta_mean_bag_vs_nb1242": 0.013865996834451555,
+  "beats_nb1070": true,
+  "beats_nb1242": false,
+  "verdict": "EXT_CHEMBL_FEATS_HELP_NB1070_BUT_HURT_VS_NB1242",
+  "feature_importance_top5": [
+    {
+      "rank": 1,
+      "feature": "maccs_131",
+      "gain_fraction": 0.08268996828089362,
+      "raw_gain_sum": 798.6163170933723
+    },
+    {
+      "rank": 2,
+      "feature": "mean_10_pec50",
+      "gain_fraction": 0.07457550359365295,
+      "raw_gain_sum": 720.2471504528075
+    },
+    {
+      "rank": 3,
+      "feature": "top1_sim",
+      "gain_fraction": 0.06783489106516134,
+      "raw_gain_sum": 655.1465915292501
+    },
+    {
+      "rank": 4,
+      "feature": "top1_pec50",
+      "gain_fraction": 0.05801291506250975,
+      "raw_gain_sum": 560.2863507419825
+    },
+    {
+      "rank": 5,
+      "feature": "std_10_pec50",
+      "gain_fraction": 0.054034325415717406,
+      "raw_gain_sum": 521.8612953573465
+    }
+  ],
+  "feature_importance_top5_chembl_only": [
+    {
+      "rank": 1,
+      "feature": "mean_10_pec50",
+      "gain_fraction": 0.07457550359365295,
+      "raw_gain_sum": 720.2471504528075
+    },
+    {
+      "rank": 2,
+      "feature": "top1_sim",
+      "gain_fraction": 0.06783489106516134,
+      "raw_gain_sum": 655.1465915292501
+    },
+    {
+      "rank": 3,
+      "feature": "top1_pec50",
+      "gain_fraction": 0.05801291506250975,
+      "raw_gain_sum": 560.2863507419825
+    },
+    {
+      "rank": 4,
+      "feature": "std_10_pec50",
+      "gain_fraction": 0.054034325415717406,
+      "raw_gain_sum": 521.8612953573465
+    },
+    {
+      "rank": 5,
+      "feature": "std_3_pec50",
+      "gain_fraction": 0.05331097551445069,
+      "raw_gain_sum": 514.8752117231488
+    }
+  ],
+  "nb1070_ref_pooled": 0.5771,
+  "nb1242_ref": 0.5431,
+  "decision_margin": 0.003,
+  "wall_sec": 4.59
+}

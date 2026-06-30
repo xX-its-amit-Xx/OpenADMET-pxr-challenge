@@ -1,0 +1,18 @@
+You are the VISUALIZATION/DOCUMENTATION tick for the OpenADMET PXR ACTIVITY-track project. Working dir = project root. Your job: ensure EVERY approach we've done (past + ongoing) has a standardized visualization + documentation panel. Cap ~3-5 approaches per tick. Resumable + load-aware.
+
+SETUP:
+- Maintain C:/pxr_work/viz/_index.md (CREATE if absent): one row per approach -> {slug, source (submission/ledger-row/notebook), artifacts used, viz status DONE/SKIP, key metrics}.
+- An approach already has viz if C:/pxr_work/viz/<slug>/metrics.json exists -> SKIP it (idempotent).
+
+DISCOVER un-visualized approaches (RETROACTIVE backlog first, then any new):
+- submissions/*.csv (each nbNNNN_*.csv = a deployed approach) — map to its OOF/feature artifacts if findable (C:/pxr_work/search/*_oof.npy, data/processed/*.npy, qm caches). Slug = the nb name.
+- Ledger DONE rows in data/processed/research_swarm_ledger.md (each tested approach, win or negative).
+- Notebook scripts scripts/nb1126..nb12xx that produced an OOF/cache.
+
+For each (cap 3-5/tick), run:
+  `python scripts/viz_approach.py --name <slug> [--oof ...] [--feats ...] [--members a,b,c --member-names ...] [--submission submissions/<f>.csv] [--title "..."]`
+Supply whatever artifacts exist (the script plots only what it can: pred-vs-actual, residuals, feature-correlation, feature-importance, member-correlation, before/after data-prep, coverage). For approaches where the OOF isn't cached, at minimum produce the submission-distribution + coverage panel and note "OOF not cached" in _index.md.
+
+DOCUMENT:
+- After generating, append/update the approach's row in C:/pxr_work/viz/_index.md with its slug, metrics (RAE/corr/coverage/member-corr from metrics.json), and a 1-line interpretation (what the viz shows — e.g., "QM block decorrelates from CheMeleon, member-corr 0.71" or "over-predicts weak tail, residual bias +0.3").
+RULES: idempotent (never redo an approach with existing metrics.json); cheap (cap 3-5/tick, the launcher load-guards you); future approaches are auto-visualized live by the worker/combinator, so you mainly drain the RETROACTIVE backlog then catch stragglers. Final reply 2-3 lines: # approaches visualized this tick + total in _index + any notable interpretability finding.

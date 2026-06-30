@@ -1,0 +1,13 @@
+{
+  "baseline": 0.5977,
+  "sc_shift": 0.5883,
+  "final": 0.5799,
+  "gate_params": {
+    "pthr": 0.15,
+    "bthr": 3.2,
+    "floor": 3.0,
+    "margin": 0.3
+  },
+  "n_flagged": 11,
+  "target_lb1": 0.528
+}

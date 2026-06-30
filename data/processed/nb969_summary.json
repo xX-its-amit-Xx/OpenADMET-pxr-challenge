@@ -1,0 +1,178 @@
+{
+  "tag": "nb969",
+  "method": "pu_framing_21k_single_conc",
+  "anchor_kind": "PRE_unblind_te_slice_to_unb_idx",
+  "data_source": "data/raw/pxr-challenge_single_concentration_TRAIN.csv (21003 rows) -- PU labels on log2_fc_estimate + fdr_bh",
+  "model_family": "LightGBM",
+  "lgbm_objective": "regression",
+  "lgbm_max_depth": 4,
+  "lgbm_num_leaves": 15,
+  "lgbm_n_estimators": 300,
+  "lgbm_learning_rate": 0.03,
+  "lgbm_min_child_samples": 5,
+  "lgbm_reg_lambda": 2.0,
+  "feat_dim": 2265,
+  "feat_source": "combined (Morgan 2048 + RDKit ~217)",
+  "seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "folds": 5,
+  "n_unb": 253,
+  "n_train": 4139,
+  "n_pu": 4390,
+  "n_pu_pos": 2796,
+  "n_pu_neg": 1594,
+  "n_aug_method_A": 8529,
+  "pseudo_pec50_positive": 5.5,
+  "pseudo_pec50_negative": 4.0,
+  "pu_sample_weight": 0.3,
+  "pu_thresholds": {
+    "positive_log2fc_min": 0.5,
+    "positive_fdr_max": 0.05,
+    "negative_log2fc_max": 0.1
+  },
+  "nb2103_K28_mean_bag_ref": 0.4737,
+  "nb2103_K28_median_bag_ref": 0.4698,
+  "decision_margin": 0.003,
+  "method_A_PU_aug": {
+    "per_seed_rae": [
+      0.7009661612700703,
+      0.6999215220837279,
+      0.6997900818347317,
+      0.6992743600195852,
+      0.7006312822778435
+    ],
+    "per_seed_rae_mean": 0.7001166814971918,
+    "per_seed_rae_std": 0.0006067437442276658,
+    "rae_mean_bag": 0.6992404160641764,
+    "rae_median_bag": 0.698742221451084,
+    "delta_vs_baseline_C": 0.042765418617744966,
+    "delta_vs_nb2103_K28": 0.2255404160641764,
+    "verdict": "A_PU_AUG_HURTS_VS_BASELINE_C",
+    "per_seed_records": [
+      {
+        "seed": 0,
+        "rae": 0.7009661612700703,
+        "wall_sec": 7.26
+      },
+      {
+        "seed": 1,
+        "rae": 0.6999215220837279,
+        "wall_sec": 7.96
+      },
+      {
+        "seed": 7,
+        "rae": 0.6997900818347317,
+        "wall_sec": 8.26
+      },
+      {
+        "seed": 42,
+        "rae": 0.6992743600195852,
+        "wall_sec": 8.59
+      },
+      {
+        "seed": 137,
+        "rae": 0.7006312822778435,
+        "wall_sec": 8.79
+      }
+    ]
+  },
+  "method_B_PU_aux": {
+    "per_seed_rae": [
+      0.6417410932957444,
+      0.6404855048496491,
+      0.6469406852216439,
+      0.653615367330205,
+      0.6455107645844701
+    ],
+    "per_seed_rae_mean": 0.6456586830563424,
+    "per_seed_rae_std": 0.004627818413694308,
+    "rae_mean_bag": 0.6445904044824925,
+    "rae_median_bag": 0.6428727988174019,
+    "delta_vs_baseline_C": -0.011884592963938956,
+    "delta_vs_nb2103_K28": 0.1708904044824925,
+    "verdict": "B_PU_AUX_BEATS_BASELINE_C_BUT_WORSE_THAN_NB2103",
+    "aux_pred_train_mean": 5.095080852508545,
+    "aux_pred_train_std": 0.41263771057128906,
+    "aux_pred_unb_mean": 5.132518291473389,
+    "aux_pred_unb_std": 0.33398038148880005,
+    "per_seed_records": [
+      {
+        "seed": 0,
+        "rae": 0.6417410932957444,
+        "wall_sec": 6.44
+      },
+      {
+        "seed": 1,
+        "rae": 0.6404855048496491,
+        "wall_sec": 6.12
+      },
+      {
+        "seed": 7,
+        "rae": 0.6469406852216439,
+        "wall_sec": 6.0
+      },
+      {
+        "seed": 42,
+        "rae": 0.653615367330205,
+        "wall_sec": 6.1
+      },
+      {
+        "seed": 137,
+        "rae": 0.6455107645844701,
+        "wall_sec": 6.84
+      }
+    ]
+  },
+  "method_C_baseline": {
+    "per_seed_rae": [
+      0.6590433649740288,
+      0.656695180291587,
+      0.6607582441430122,
+      0.6596448197391557,
+      0.6575469735600915
+    ],
+    "per_seed_rae_mean": 0.6587377165415751,
+    "per_seed_rae_std": 0.001455239646515948,
+    "rae_mean_bag": 0.6564749974464315,
+    "rae_median_bag": 0.6547684652654029,
+    "delta_vs_nb2103_K28": 0.18277499744643144,
+    "verdict": "C_BASELINE_FLAT_VS_BASELINE_C",
+    "per_seed_records": [
+      {
+        "seed": 0,
+        "rae": 0.6590433649740288,
+        "wall_sec": 5.33
+      },
+      {
+        "seed": 1,
+        "rae": 0.656695180291587,
+        "wall_sec": 5.34
+      },
+      {
+        "seed": 7,
+        "rae": 0.6607582441430122,
+        "wall_sec": 5.5
+      },
+      {
+        "seed": 42,
+        "rae": 0.6596448197391557,
+        "wall_sec": 5.15
+      },
+      {
+        "seed": 137,
+        "rae": 0.6575469735600915,
+        "wall_sec": 5.4
+      }
+    ]
+  },
+  "best_method": "B_PU_AUX",
+  "best_rae_mean_bag": 0.6445904044824925,
+  "global_verdict": "PU_DOES_NOT_BEAT_NB2103_K28_BEST_B_PU_AUX_0.6446",
+  "pre_unblind_clean": true,
+  "wall_sec": 187.39
+}

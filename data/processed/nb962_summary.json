@@ -1,0 +1,230 @@
+{
+  "tag": "nb962",
+  "generated_at": "2026-06-08T02:44:29",
+  "elapsed_sec": 39.29,
+  "method": "lgbm_mse_train_aug_chembl_5seed_bag",
+  "data_source_note": "cycle-129-support chembl_pxr_nr_kb.parquet NOT present; fell back to local CHEMBL3401 + nr_extended PXR + pxr_all_types union",
+  "chembl_filters": {
+    "pec50_lo": 4.0,
+    "pec50_hi": 7.0,
+    "pchembl_min": 7.0,
+    "sim_to_test_min": 0.3,
+    "keep_types": [
+      "AC50",
+      "EC50",
+      "IC50",
+      "Kd",
+      "Ki",
+      "Potency"
+    ],
+    "keep_relations": [
+      "=",
+      "==",
+      "~"
+    ]
+  },
+  "augmentation": {
+    "n_train": 4139,
+    "n_chembl_kept": 651,
+    "n_chembl_kept_pxr_direct": 79,
+    "n_chembl_kept_nr_sister": 572,
+    "n_aug_total": 4790,
+    "train_weight": 1.0,
+    "chembl_weight_pxr_direct": 0.5,
+    "chembl_weight_nr_sister": 0.25
+  },
+  "feature": {
+    "kind": "combined_morgan2048_rdkit",
+    "dim": 2265,
+    "morgan_n_bits": 2048,
+    "rdkit_n_desc": 217
+  },
+  "lgbm": {
+    "objective": "regression",
+    "max_depth": 4,
+    "num_leaves": 15,
+    "n_estimators": 300,
+    "learning_rate": 0.03,
+    "min_child_samples": 5,
+    "reg_lambda": 2.0
+  },
+  "seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "anchors": {
+    "chemprop_aux_te_unb_rae": 0.6215728863514471,
+    "nb2103_K28_mean_bag_oof_rae": 0.47368697777353697,
+    "nb2103_K28_mean_bag_ref": 0.4737,
+    "nb2103_K28_median_bag_ref": 0.4698
+  },
+  "lgbm_no_aug_baseline": {
+    "rae_mean_bag": 0.7423871596781335,
+    "per_seed_rae": [
+      0.7546233685215052,
+      0.7328956259759069,
+      0.7407538583339638,
+      0.7459799320575728,
+      0.7515519180746328
+    ],
+    "per_seed_std": 0.007757747085154657,
+    "note": "same LGBM family on 4139-only train (no ChEMBL aug); isolates whether augmentation moves the needle vs raw LGBM"
+  },
+  "standalone_results": {
+    "per_seed_records": [
+      {
+        "seed": 0,
+        "rae_unb": 0.757484862739048,
+        "delta_vs_nb2103_K28": 0.28379788496551106,
+        "delta_vs_no_aug": 0.015097703060914514,
+        "wall_sec": 1.88
+      },
+      {
+        "seed": 1,
+        "rae_unb": 0.7477698800224882,
+        "delta_vs_nb2103_K28": 0.27408290224895127,
+        "delta_vs_no_aug": 0.005382720344354719,
+        "wall_sec": 1.91
+      },
+      {
+        "seed": 7,
+        "rae_unb": 0.7527662740276206,
+        "delta_vs_nb2103_K28": 0.2790792962540837,
+        "delta_vs_no_aug": 0.010379114349487129,
+        "wall_sec": 1.8
+      },
+      {
+        "seed": 42,
+        "rae_unb": 0.748092145116928,
+        "delta_vs_nb2103_K28": 0.27440516734339104,
+        "delta_vs_no_aug": 0.0057049854387944965,
+        "wall_sec": 1.78
+      },
+      {
+        "seed": 137,
+        "rae_unb": 0.7461256486558417,
+        "delta_vs_nb2103_K28": 0.2724386708823048,
+        "delta_vs_no_aug": 0.003738488977708232,
+        "wall_sec": 1.83
+      }
+    ],
+    "per_seed_rae_mean": 0.7504477621123853,
+    "per_seed_rae_std": 0.004154441752601155,
+    "per_seed_rae_median": 0.748092145116928,
+    "rae_mean_bag": 0.7486811817754875,
+    "rae_median_bag": 0.7538519967664876,
+    "delta_mean_bag_vs_nb2103": 0.2749942040019505,
+    "delta_median_bag_vs_nb2103": 0.28016501899295065,
+    "delta_mean_bag_vs_no_aug_baseline": 0.0062940220973539684,
+    "beats_nb2103_mean_bag": false,
+    "beats_no_aug_baseline": false
+  },
+  "blend_with_nb2103_K28_oof_on_unb": [
+    {
+      "w_chembl_aug": 0.0,
+      "rae": 0.47368697777353697
+    },
+    {
+      "w_chembl_aug": 0.1,
+      "rae": 0.47727357382506597
+    },
+    {
+      "w_chembl_aug": 0.2,
+      "rae": 0.48854322871438416
+    },
+    {
+      "w_chembl_aug": 0.3,
+      "rae": 0.5063703173475117
+    },
+    {
+      "w_chembl_aug": 0.4,
+      "rae": 0.5294882782469505
+    },
+    {
+      "w_chembl_aug": 0.5,
+      "rae": 0.557358956018744
+    },
+    {
+      "w_chembl_aug": 0.6,
+      "rae": 0.5904942720001971
+    },
+    {
+      "w_chembl_aug": 0.7,
+      "rae": 0.6259605630228842
+    },
+    {
+      "w_chembl_aug": 0.8,
+      "rae": 0.6638522625873187
+    },
+    {
+      "w_chembl_aug": 0.9,
+      "rae": 0.7054223381937483
+    },
+    {
+      "w_chembl_aug": 1.0,
+      "rae": 0.7486811817754875
+    }
+  ],
+  "blend_with_chemprop_aux_anchor_on_unb": [
+    {
+      "w_chembl_aug": 0.0,
+      "rae": 0.6215728863514471
+    },
+    {
+      "w_chembl_aug": 0.1,
+      "rae": 0.6185837452232307
+    },
+    {
+      "w_chembl_aug": 0.2,
+      "rae": 0.6212108817115822
+    },
+    {
+      "w_chembl_aug": 0.3,
+      "rae": 0.629170915072259
+    },
+    {
+      "w_chembl_aug": 0.4,
+      "rae": 0.6390771130572451
+    },
+    {
+      "w_chembl_aug": 0.5,
+      "rae": 0.6522568318733605
+    },
+    {
+      "w_chembl_aug": 0.6,
+      "rae": 0.6678576851286474
+    },
+    {
+      "w_chembl_aug": 0.7,
+      "rae": 0.6845664944140039
+    },
+    {
+      "w_chembl_aug": 0.8,
+      "rae": 0.7030140026110923
+    },
+    {
+      "w_chembl_aug": 0.9,
+      "rae": 0.7253211509684175
+    },
+    {
+      "w_chembl_aug": 1.0,
+      "rae": 0.7486811817754875
+    }
+  ],
+  "best_blend_vs_nb2103": {
+    "w_chembl_aug": 0.0,
+    "rae": 0.47368697777353697
+  },
+  "best_blend_vs_anchor": {
+    "w_chembl_aug": 0.1,
+    "rae": 0.6185837452232307
+  },
+  "verdict": "WORSE_THAN_NB2103_K28 (d=+0.2750)",
+  "deploy_built": false,
+  "deploy_csv_path": null,
+  "chemprop_multihead_status": "SKIPPED -- chemprop refit is heavy; LGBM-only path is the M3 deliverable. If LGBM-aug shows promise, queue chemprop multi-head as a follow-up.",
+  "decision_margin": 0.003
+}

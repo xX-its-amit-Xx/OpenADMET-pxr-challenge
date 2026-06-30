@@ -1,0 +1,42 @@
+{
+  "script": "nb2001_chemprop_refit",
+  "tier_weights": {
+    "original": 1.0,
+    "semi_pure": 0.7,
+    "crudes": 0.4
+  },
+  "cad_cv_penalty": 0.5,
+  "gate_phase1_in_RAE": 0.6216,
+  "fallback_used": true,
+  "model": "nb2001b_lgbm_combined_refit",
+  "corpus_total": 4574,
+  "corpus_by_source": {
+    "original": 4139,
+    "crudes": 347,
+    "semi_pure": 88
+  },
+  "null_head_n_labels": 2647,
+  "n_test_513": 513,
+  "n_phase1_unblinded": 253,
+  "dirty_dropped_per_source": {
+    "train": 0,
+    "semi_pure": 2,
+    "crudes": 109
+  },
+  "lgbm_fit_seconds": 4.721273183822632,
+  "phase1_unblinded_RAE": 0.7240651845932007,
+  "phase1_unblinded_n": 253,
+  "phase1_pred_mean": 4.680286884307861,
+  "phase1_pred_std": 0.7252025008201599,
+  "phase1_true_mean": 4.6641106605529785,
+  "phase1_true_std": 1.0320053100585938,
+  "test513_pred_mean": 4.7980570793151855,
+  "test513_pred_std": 0.6796742081642151,
+  "chemprop_attempted": false,
+  "chemprop_error": null,
+  "gate_passed": false,
+  "delta_vs_anchor_v1": -0.10246518459320064,
+  "submission_path": null,
+  "pre_unblind_status": "GATE_FAILED_no_promote",
+  "wall_time_min": 0.9327178796132406
+}

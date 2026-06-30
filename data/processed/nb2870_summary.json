@@ -1,0 +1,90 @@
+{
+  "tag": "nb2870",
+  "method": "james_stein_correct_polarity_tau2_over_sum",
+  "fix_of": "nb2840",
+  "polarity_formula": "shrink = tau^2 / (sigma^2 + tau^2)",
+  "pred_formula": "chemprop_aux + shrink * (nb2240 - chemprop_aux)",
+  "anchor_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2240_mean_bag_oof_K20.npy",
+  "anchor_te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2240_K20.npy",
+  "chemprop_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb1133_chemprop_aux_pred_oof.npy",
+  "chemprop_te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+  "anchor_pre_unblind": false,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "kf_seed": 1001,
+  "n_folds": 5,
+  "rae_anchor_K20_oof": 0.46301757335429367,
+  "rae_chemprop_oof": 0.5878769556905485,
+  "anchor_oof_std": 0.8839798635289088,
+  "anchor_te_std": 0.8433264363943958,
+  "chemprop_oof_std": 0.810579906487106,
+  "chemprop_te_std": 0.5832170833108092,
+  "truth_mean": 4.664110671936759,
+  "truth_std": 1.0320053675542649,
+  "pooled_rae_outer": 0.5429891021585181,
+  "mean_rae": 0.5429891021585181,
+  "std_rae": 0.0,
+  "mean_oof_std": 0.8140012355964908,
+  "fold_records": [
+    {
+      "fold": 0,
+      "n_train": 202,
+      "n_val": 51,
+      "tau2_tr": 0.1371792421912815,
+      "sigma2_tr": 0.43822304630536624,
+      "shrink": 0.23840579874940954,
+      "rae_va": 0.548051635407566
+    },
+    {
+      "fold": 1,
+      "n_train": 202,
+      "n_val": 51,
+      "tau2_tr": 0.11212239144893223,
+      "sigma2_tr": 0.3464984794527165,
+      "shrink": 0.24447729827144496,
+      "rae_va": 0.5510694642879723
+    },
+    {
+      "fold": 2,
+      "n_train": 202,
+      "n_val": 51,
+      "tau2_tr": 0.13102164304184544,
+      "sigma2_tr": 0.4450045418517788,
+      "shrink": 0.22745779007605607,
+      "rae_va": 0.6228974301746155
+    },
+    {
+      "fold": 3,
+      "n_train": 203,
+      "n_val": 50,
+      "tau2_tr": 0.14666129665108563,
+      "sigma2_tr": 0.4833928557077032,
+      "shrink": 0.23277570047275606,
+      "rae_va": 0.5425942337987497
+    },
+    {
+      "fold": 4,
+      "n_train": 203,
+      "n_val": 50,
+      "tau2_tr": 0.14451251913114682,
+      "sigma2_tr": 0.4759674678684398,
+      "shrink": 0.23290440007574828,
+      "rae_va": 0.47902305170506493
+    }
+  ],
+  "deploy_diag": {
+    "tau2_full": 0.13444050077847303,
+    "sigma2_full": 0.43806158634136594,
+    "shrink_full": 0.2348297129444897
+  },
+  "deploy_te_mean": 4.803524494171143,
+  "deploy_te_std": 0.614897608757019,
+  "te_unb_rae_in_sample": 0.49510385268902224,
+  "gate_promote_below": 0.457,
+  "gate_marginal_below": 0.4598,
+  "verdict": "FAIL",
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2870_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2870.npy",
+  "wall_sec": 0.08
+}

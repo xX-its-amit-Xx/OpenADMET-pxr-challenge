@@ -1,0 +1,100 @@
+{
+  "tag": "nb2451",
+  "method": "quantile_abstention_stack_on_nb2240__lgbm_quantile_p10_p50_p90__width_threshold__abstain_to_train_median_4_32",
+  "nb2240_ref_rae": 0.4601,
+  "nb2240_recomputed_rae": 0.46301757335429367,
+  "nb2240_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2240_mean_bag_oof_K20.npy",
+  "n_unb": 253,
+  "n_train": 4139,
+  "n_unique_scaffolds_unb": 180,
+  "n_folds": 5,
+  "kf_seed": 42,
+  "lgbm_seed": 7,
+  "quantile_alphas": [
+    0.1,
+    0.5,
+    0.9
+  ],
+  "tau_grid": [
+    0.5,
+    1.0,
+    1.5,
+    2.0
+  ],
+  "train_median_spec": 4.32,
+  "train_median_empirical": 4.65,
+  "width_stats": {
+    "mean": 1.2900984970437868,
+    "median": 1.2456009026917334,
+    "std": 0.32661441901275357,
+    "min": 0.6806592391658852,
+    "max": 2.309615733487864,
+    "n_inverted_pre_clip": 0
+  },
+  "p50_only_rae": 0.7563292229876697,
+  "sweep_spec_median": [
+    {
+      "tau": 0.5,
+      "n_abstain": 253,
+      "pct_abstain": 1.0,
+      "rae_overall": 1.1605366106427395,
+      "rae_fold_mean": 1.1725363814854088,
+      "delta_vs_nb2240": 0.6975190372884459
+    },
+    {
+      "tau": 1.0,
+      "n_abstain": 206,
+      "pct_abstain": 0.8142292490118577,
+      "rae_overall": 1.0537861511846045,
+      "rae_fold_mean": 1.0641763847609356,
+      "delta_vs_nb2240": 0.5907685778303109
+    },
+    {
+      "tau": 1.5,
+      "n_abstain": 60,
+      "pct_abstain": 0.23715415019762845,
+      "rae_overall": 0.662368338877145,
+      "rae_fold_mean": 0.6611037456252479,
+      "delta_vs_nb2240": 0.1993507655228513
+    },
+    {
+      "tau": 2.0,
+      "n_abstain": 8,
+      "pct_abstain": 0.03162055335968379,
+      "rae_overall": 0.47478676654916185,
+      "rae_fold_mean": 0.4761300680280084,
+      "delta_vs_nb2240": 0.011769193194868188
+    }
+  ],
+  "sweep_empirical_median": [
+    {
+      "tau": 0.5,
+      "n_abstain": 253,
+      "rae_overall": 1.0053859806058532,
+      "delta_vs_nb2240": 0.5423684072515595
+    },
+    {
+      "tau": 1.0,
+      "n_abstain": 206,
+      "rae_overall": 0.9544600540605116,
+      "delta_vs_nb2240": 0.49144248070621793
+    },
+    {
+      "tau": 1.5,
+      "n_abstain": 60,
+      "rae_overall": 0.6936459140552349,
+      "delta_vs_nb2240": 0.23062834070094124
+    },
+    {
+      "tau": 2.0,
+      "n_abstain": 8,
+      "rae_overall": 0.4813194246559781,
+      "delta_vs_nb2240": 0.018301851301684435
+    }
+  ],
+  "best_tau": 2.0,
+  "best_rae": 0.47478676654916185,
+  "best_delta_vs_nb2240": 0.011769193194868188,
+  "verdict": "NO_TAU_BEATS_NB2240_BEST_DELTA_+0.0118",
+  "wall_sec": 75.02
+}

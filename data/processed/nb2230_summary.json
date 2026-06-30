@@ -1,0 +1,78 @@
+{
+  "tag": "nb2230",
+  "generated_at": "2026-06-08T02:46:47",
+  "elapsed_sec": 4.38,
+  "kb_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\external\\chembl_pxr_nr_kb.parquet",
+  "kb_raw_rows": 11185,
+  "kb_src_breakdown_raw": {
+    "NR_PPARg": 4220,
+    "NR_FXR": 3135,
+    "NR_RXRa": 1315,
+    "NR_LXRa": 1137,
+    "PXR_CHEMBL3401": 726,
+    "NR_VDR": 491,
+    "NR_PXR": 157,
+    "NR_PPARa": 4
+  },
+  "pxr_direct_sources": [
+    "NR_PXR",
+    "PXR_CHEMBL3401"
+  ],
+  "n_pxr_direct_raw": 883,
+  "n_pxr_direct_after_std": 883,
+  "n_pxr_direct_unique_dedup": 883,
+  "n_train_inchikey_overlap_dropped": 0,
+  "n_pxr_direct_used": 883,
+  "knn_k": 3,
+  "sim_gate": 0.4,
+  "w_cap": 0.3,
+  "n_te_gated": 2,
+  "n_unb_gated": 1,
+  "max_sim_te_summary": {
+    "mean": 0.26511281728744507,
+    "median": 0.25882354378700256,
+    "p25": 0.23456789553165436,
+    "p75": 0.29032257199287415
+  },
+  "max_sim_unb_summary": {
+    "mean": 0.2712721526622772,
+    "median": 0.2631579041481018,
+    "p25": 0.23655913770198822,
+    "p75": 0.29729729890823364
+  },
+  "anchor_te_unb_rae_in_sample": 0.2694833508096347,
+  "blend_te_unb_rae_in_sample": 0.27026598945372204,
+  "delta_insample": -0.0007826386440873412,
+  "nb2171_oof_ref": 0.4682,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "n_folds": 5,
+  "n_unique_unb_scaffolds": 180,
+  "per_seed_blend_rae": [
+    0.27026598945372204,
+    0.27026598945372204,
+    0.27026598945372204,
+    0.27026598945372204,
+    0.27026598945372204
+  ],
+  "per_seed_anchor_rae": [
+    0.2694833508096347,
+    0.2694833508096347,
+    0.2694833508096347,
+    0.2694833508096347,
+    0.2694833508096347
+  ],
+  "cv_mean_blend_rae": 0.27026598945372204,
+  "cv_std_blend_rae": 0.0,
+  "cv_mean_anchor_rae": 0.2694833508096347,
+  "delta_cv_vs_anchor": -0.0007826386440873412,
+  "delta_cv_vs_nb2171_ref": 0.19793401054627796,
+  "gate_delta": 0.003,
+  "gate_pass": true,
+  "verdict": "PXR_DIRECT_KNN_BEATS_NB2171  delta=+0.1979 >= 0.003  -> consider integration"
+}

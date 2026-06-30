@@ -1,0 +1,143 @@
+{
+  "tag": "nb2440",
+  "method": "honest_pseudo_label_per_fold_seed_diverse",
+  "anchor": "chemprop_aux",
+  "anchor_in_rae": 0.6215728863514471,
+  "n_unb": 253,
+  "n_te": 513,
+  "k20_feature_dim": 20,
+  "resid_folds": 5,
+  "resid_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "splits": "scaffold_kfold",
+  "lgbm_diversity_params": {
+    "feature_fraction": 0.8,
+    "bagging_fraction": 0.8,
+    "bagging_freq": 1
+  },
+  "std_gate": 0.05,
+  "min_real_bag_std": 0.01,
+  "high_conf_band": [
+    0.1,
+    0.5
+  ],
+  "audit_full_bag_std_summary": {
+    "min": 0.0032123013484480125,
+    "median": 0.024267595994888147,
+    "max": 0.10792510048814191,
+    "mean": 0.03093497297456287
+  },
+  "seed_diversity_ok": true,
+  "pseudo_weights": [
+    0.1,
+    0.3,
+    0.5
+  ],
+  "per_weight_results": [
+    {
+      "pseudo_w": 0.1,
+      "cross_fit_rae": 0.5098928384289282,
+      "delta_vs_nb2240": 0.04979283842892818,
+      "gate_beat_nb2240": false,
+      "n_pseudo_per_fold": [
+        383,
+        403,
+        395,
+        390,
+        396
+      ],
+      "n_pseudo_mean_per_fold": 393.4,
+      "fire_rate_mean_per_fold": 0.7668615984405458,
+      "fire_rate_in_band": false,
+      "bag_std_med_per_fold": [
+        0.02986126411578215,
+        0.03035425826279953,
+        0.029342775739329186,
+        0.02822966695812523,
+        0.028611416694035715
+      ],
+      "bag_std_med_overall": 0.02944534739178904,
+      "deploy_n_pseudo_25vote": 42,
+      "deploy_bag_std_med": 0.11540643940690994,
+      "oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2440_oof_w0.1.npy",
+      "wall_sec": 5.28
+    },
+    {
+      "pseudo_w": 0.3,
+      "cross_fit_rae": 0.5093559574217819,
+      "delta_vs_nb2240": 0.04925595742178185,
+      "gate_beat_nb2240": false,
+      "n_pseudo_per_fold": [
+        383,
+        403,
+        395,
+        390,
+        396
+      ],
+      "n_pseudo_mean_per_fold": 393.4,
+      "fire_rate_mean_per_fold": 0.7668615984405458,
+      "fire_rate_in_band": false,
+      "bag_std_med_per_fold": [
+        0.02986126411578215,
+        0.03035425826279953,
+        0.029342775739329186,
+        0.02822966695812523,
+        0.028611416694035715
+      ],
+      "bag_std_med_overall": 0.02944534739178904,
+      "deploy_n_pseudo_25vote": 42,
+      "deploy_bag_std_med": 0.11540643940690994,
+      "oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2440_oof_w0.3.npy",
+      "wall_sec": 5.31
+    },
+    {
+      "pseudo_w": 0.5,
+      "cross_fit_rae": 0.5091444955004104,
+      "delta_vs_nb2240": 0.0490444955004104,
+      "gate_beat_nb2240": false,
+      "n_pseudo_per_fold": [
+        383,
+        403,
+        395,
+        390,
+        396
+      ],
+      "n_pseudo_mean_per_fold": 393.4,
+      "fire_rate_mean_per_fold": 0.7668615984405458,
+      "fire_rate_in_band": false,
+      "bag_std_med_per_fold": [
+        0.02986126411578215,
+        0.03035425826279953,
+        0.029342775739329186,
+        0.02822966695812523,
+        0.028611416694035715
+      ],
+      "bag_std_med_overall": 0.02944534739178904,
+      "deploy_n_pseudo_25vote": 42,
+      "deploy_bag_std_med": 0.11540643940690994,
+      "oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2440_oof_w0.5.npy",
+      "wall_sec": 5.41
+    }
+  ],
+  "best_pseudo_w": 0.5,
+  "best_cross_fit_rae": 0.5091444955004104,
+  "best_delta_vs_nb2240": 0.0490444955004104,
+  "best_gate_beat_nb2240": false,
+  "audit_pass": false,
+  "nb2240_ref_oof": 0.4601,
+  "gate_margin": 0.003,
+  "verdict_vs_nb2240": "WORSE_THAN_NB2240",
+  "oof_paths_by_weight": {
+    "0.1": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2440_oof_w0.1.npy",
+    "0.3": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2440_oof_w0.3.npy",
+    "0.5": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2440_oof_w0.5.npy"
+  },
+  "te_npy_path": null,
+  "submission_csv": null,
+  "wall_sec": 20.36
+}

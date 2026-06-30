@@ -1,0 +1,93 @@
+{
+  "tag": "nb2033",
+  "anchor": "chemprop_aux",
+  "anchor_kind": "PRE_unblind_te_slice_to_unb_idx",
+  "anchor_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+  "data_source": "AtomPair-cache + MACCS-cache + Mordred-cached_nb1030 + ChempropEmbed-cache + Avalon-cache + local_chembl_caches_union",
+  "model_family": "XGBoost",
+  "xgb_objective": "reg:squarederror",
+  "xgb_max_depth": 4,
+  "xgb_n_estimators": 300,
+  "xgb_learning_rate": 0.03,
+  "xgb_reg_lambda": 2.0,
+  "xgb_tree_method": "hist",
+  "bag_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "resid_folds": 5,
+  "K_AP_best": 25,
+  "K_Mord_best": 20,
+  "K_Embed_best": 20,
+  "K_Avalon_used": 30,
+  "K_MACCS_fixed": 20,
+  "n_chembl_pool": 945,
+  "n_unb": 253,
+  "feat_dim": 117,
+  "feat_breakdown": {
+    "atompair": 25,
+    "maccs": 20,
+    "mordred": 20,
+    "chemprop_embed": 20,
+    "avalon": 30,
+    "pred_chembl_pec50": 1,
+    "mean_sim": 1,
+    "total": 117
+  },
+  "rae_anchor_chemprop_aux": 0.6215728863514471,
+  "residual_mean": -0.1325965261753001,
+  "residual_std": 0.6999145683913596,
+  "per_seed_rae": [
+    0.5354869305618283,
+    0.5714627107977904,
+    0.531349487485582,
+    0.5265282017790155,
+    0.5346789544912397
+  ],
+  "per_seed_records": [
+    {
+      "seed": 0,
+      "rae": 0.5354869305618283,
+      "wall_sec": 1.79
+    },
+    {
+      "seed": 1,
+      "rae": 0.5714627107977904,
+      "wall_sec": 1.85
+    },
+    {
+      "seed": 7,
+      "rae": 0.531349487485582,
+      "wall_sec": 1.74
+    },
+    {
+      "seed": 42,
+      "rae": 0.5265282017790155,
+      "wall_sec": 1.84
+    },
+    {
+      "seed": 137,
+      "rae": 0.5346789544912397,
+      "wall_sec": 1.83
+    }
+  ],
+  "per_seed_mean_rae": 0.5399012570230912,
+  "per_seed_median_rae": 0.5346789544912397,
+  "per_seed_std_rae": 0.01609257875542038,
+  "per_seed_min_rae": 0.5265282017790155,
+  "per_seed_max_rae": 0.5714627107977904,
+  "rae_mean_bag": 0.5137203546806514,
+  "delta_mean_bag_vs_anchor": -0.10785253167079578,
+  "delta_mean_bag_vs_nb1861": 0.00594263849486476,
+  "delta_mean_bag_vs_nb1852": 0.007526469283846038,
+  "verdict": "XGBOOST_WORSE_THAN_LGBM_nb1861",
+  "pre_unblind_clean": true,
+  "chemprop_aux_ref": 0.6216,
+  "nb1861_ref": 0.5077777161857866,
+  "nb1852_ref": 0.5061938853968053,
+  "decision_margin": 0.003,
+  "wall_sec": 13.03
+}

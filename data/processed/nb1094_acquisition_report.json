@@ -1,0 +1,22 @@
+{
+  "before": {
+    "median": 0.5230769515037537,
+    "worst_decile": 0.44806402921676636,
+    "frac_below_0p4": 0.017543859649122806
+  },
+  "after": {
+    "52": {
+      "median_cov": 0.5333333611488342,
+      "worst_decile": 0.46387162804603577,
+      "frac_test_below_0p4": 0.007797270955165692
+    }
+  },
+  "n_picks": 52,
+  "source_top250": {
+    "single_conc": 38,
+    "crc": 8,
+    "ext_tox21": 3,
+    "ext_papyrus": 2,
+    "ext_ncats": 1
+  }
+}

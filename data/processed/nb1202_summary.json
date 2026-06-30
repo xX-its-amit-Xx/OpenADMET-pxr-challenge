@@ -1,0 +1,47 @@
+{
+  "tag": "nb1202",
+  "purpose": "Counter-assay-only LGBM as orthogonal anchor (nb1181 prescription)",
+  "lgbm_num_leaves": 28,
+  "seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "n_folds": 5,
+  "nb2103_K28_ref": 0.5057,
+  "nb1150_ref": 0.471,
+  "decision_margin": 0.003,
+  "ortho_corr_thresh": 0.7,
+  "n_join": 2647,
+  "n_train_only": 1492,
+  "feat_dim_aug": 2266,
+  "n_test": 513,
+  "counter_rae_oof_meanbag": 0.9435906821882116,
+  "main_oof_rae_full_train": 0.5638436095451836,
+  "rae_chemprop_aux_unb": 0.6215728863514471,
+  "rae_this_alone_unb": 0.7444039918133494,
+  "rae_eqw_blend_unb": 0.6475524961290813,
+  "rae_2way_slsqp_insample": 0.6178390873658957,
+  "w2_slsqp": [
+    0.8953200524507023,
+    0.10467994754929773
+  ],
+  "rae_nb2103_K28_unb": 0.47368697777353697,
+  "delta_this_vs_nb2103": 0.2707170140398124,
+  "decision_vs_nb2103": "WORSE_THAN_NB2103",
+  "rae_nb1150_reconstructed": 0.47099262483044735,
+  "pearson_resid_this_vs_nb1150": 0.7711457527134584,
+  "pearson_resid_blend_vs_nb1150": 0.8504893376970207,
+  "ortho_pass": false,
+  "blend_with_nb1150": {
+    "skipped": true,
+    "reasons": [
+      "does_not_beat_nb2103",
+      "corr_high(|0.771|>=0.7)"
+    ]
+  },
+  "out_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb1202_mean_bag_oof.npy",
+  "wall_sec": 103.19
+}

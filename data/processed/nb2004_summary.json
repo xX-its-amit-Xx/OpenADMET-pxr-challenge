@@ -1,0 +1,56 @@
+{
+  "tag": "nb2004",
+  "method": "smiles_tta_median_chemprop_aux_and_lgbm_morgan_control",
+  "n_tta": 5,
+  "tta_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "decision_margin": 0.003,
+  "anchor_target_rae": 0.6216,
+  "real_chemprop_aux_anchor_rae": 0.6215728863514471,
+  "chemprop_proxy_section": {
+    "source": "nb1067_proxy_5fold_8task",
+    "note": "real chemprop_aux 6-head model NOT persisted; proxy ensemble",
+    "proxy_canonical_rae": 0.6848244979025674,
+    "proxy_tta_mean_rae": 0.685131304375431,
+    "proxy_tta_median_rae": 0.6875897905264097,
+    "delta_median_vs_canonical": 0.002765292623842286,
+    "delta_median_vs_mean": 0.002458486150978656,
+    "median_beats_canonical_by_margin": false
+  },
+  "lgbm_morgan_control_section": {
+    "source": "fresh_lgbm_morgan_2048",
+    "canonical_rae": 0.8012378772651816,
+    "tta_mean_rae": 0.8012378772651816,
+    "tta_median_rae": 0.8012378772651816,
+    "delta_median_vs_canonical": 0.0,
+    "delta_median_vs_mean": 0.0,
+    "median_beats_canonical_by_margin": false,
+    "morgan_invariant_to_atom_order": "Morgan FP is invariant to SMILES atom order at the canonical-atom-ranking step inside RDKit, so Morgan TTA should equal canonical exactly. Any RAE delta is a noise floor, not signal."
+  },
+  "anchor_uplift_section": {
+    "chemprop_tta_median_proxy_rae": 0.6875897905264097,
+    "proxy_to_real_offset": 0.06325161155112025,
+    "chemprop_tta_median_real_anchor_estimate": 0.6243381789752894,
+    "anchor_target": 0.6216,
+    "passes_margin": false
+  },
+  "pyramid_section": {
+    "chemprop_aux_weight_in_nb1191": 0.0,
+    "implication": "nb1191 pyramid weight for chemprop_aux is already 0.0; replacing chemprop_aux with TTA-median cannot move the pyramid output unless TTA-median is added as a NEW anchor (would require re-running nb1191 SLSQP with 5-anchor setup, which is OOS-overfit-risk per nb572-583 memory).",
+    "skipped": true
+  },
+  "decision": {
+    "gate_chemprop_proxy_median_beats_canon": false,
+    "gate_lgbm_morgan_median_beats_canon": false,
+    "gate_anchor_uplift_pass": false,
+    "deploy_written": false,
+    "deploy_path": null,
+    "verdict": "CONFIRM_NB1067: SMILES TTA-median does NOT help -- MPNN graph permutation invariance + Morgan canonical ranking neutralize the TTA variance source on this dataset.  No deploy."
+  },
+  "wall_sec": 5.0
+}

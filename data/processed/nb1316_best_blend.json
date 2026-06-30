@@ -1,0 +1,21 @@
+{
+  "best_blend_rae": 0.5977,
+  "triple_blend_rae": 0.5985,
+  "meta_loocv_rae": 0.6142,
+  "knn_loocv_rae": 0.63,
+  "boltz_loocv_rae": 0.6079,
+  "best_weights": {
+    "meta_loocv": 0.4,
+    "knn_loocv": 0.2,
+    "combined_corrected": 0.1,
+    "boltz_loocv_F5": 0.3
+  },
+  "noise_floor": 0.174,
+  "n_compounds": 253,
+  "error_correlation": {
+    "meta_knn": 0.8580208644593776,
+    "meta_comb": 0.8072930296285665,
+    "meta_boltz": 0.9090701575958684,
+    "knn_comb": 0.9207938348067204
+  }
+}

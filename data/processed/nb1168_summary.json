@@ -1,0 +1,24 @@
+{
+  "5arch": {
+    "means": {
+      "control": 0.4472,
+      "sn": 0.4455
+    },
+    "std": {
+      "control": 0.0127,
+      "sn": 0.0139
+    },
+    "sn_minus_control": -0.0017
+  },
+  "4gbm_deployed": {
+    "means": {
+      "control": 0.438,
+      "sn": 0.4361
+    },
+    "std": {
+      "control": 0.0133,
+      "sn": 0.0154
+    },
+    "sn_minus_control": -0.0019
+  }
+}

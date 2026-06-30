@@ -1,0 +1,81 @@
+{
+  "tag": "nb2464",
+  "method": "tda_mapper_cluster_conditional_5anchor_slsqp_blend",
+  "anchor_pool": [
+    "nb2240",
+    "nb730",
+    "nb562",
+    "chemprop_aux"
+  ],
+  "spec_anchor_dropped": "nb1191 (nb1191_oof.npy absent; only te_nb1191[unb_idx] in-sample leak available)",
+  "anchor_oof_files": {
+    "nb2240": "nb2240_mean_bag_oof_K20.npy",
+    "nb730": "nb730_pred_oof.npy",
+    "nb562": "nb562_pred_oof.npy",
+    "chemprop_aux": "nb1133_chemprop_aux_pred_oof.npy"
+  },
+  "lens": {
+    "raw_dim": 1828,
+    "pca_dim": 32,
+    "projection": "l2norm",
+    "resolution": 10,
+    "gain": 0.3,
+    "min_cluster_n": 10,
+    "n_clusters_unb_full": 9,
+    "n_clusters_te_full": 9,
+    "n_clusters_deploy": 9
+  },
+  "anchor_in_rae": {
+    "nb2240": 0.46301757335429367,
+    "nb730": 0.46028859367725855,
+    "nb562": 0.5065400776344995,
+    "chemprop_aux": 0.5878769556905485
+  },
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "n_folds": 5,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "per_seed_pooled": [
+    {
+      "kf_seed": 1001,
+      "pooled_rae": 0.44117794989000414
+    },
+    {
+      "kf_seed": 1002,
+      "pooled_rae": 0.44511853642473975
+    },
+    {
+      "kf_seed": 1003,
+      "pooled_rae": 0.44210979222306074
+    },
+    {
+      "kf_seed": 1004,
+      "pooled_rae": 0.44341067173039916
+    },
+    {
+      "kf_seed": 1005,
+      "pooled_rae": 0.44196181119459466
+    }
+  ],
+  "pooled_rae_mean_seeds": 0.44275575229255965,
+  "pooled_rae_std_seeds": 0.0013819360061360978,
+  "rae_standalone_bag": 0.4419612405762306,
+  "gate_promote_threshold": 0.457,
+  "gate_pass": true,
+  "verdict": "PROMOTE",
+  "te_unb_in_sample_rae": 0.34764895760697884,
+  "te_coverage_any_cluster": 0.9824561403508771,
+  "deploy_te_mean": 4.645982265472412,
+  "deploy_te_std": 0.7581388354301453,
+  "oof_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2464_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2464.npy",
+  "submission_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb2464_mapper_blend.csv",
+  "wall_sec": 1.07
+}

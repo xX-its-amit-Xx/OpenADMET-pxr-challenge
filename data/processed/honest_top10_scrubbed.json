@@ -1,0 +1,170 @@
+{
+  "schema_version": "1.0",
+  "generated_utc": "2026-06-08",
+  "scrub_rationale": "nb2156 audit (data/processed/nb2156_summary.json) verified nb2154 cycle-min 0.4620 was a LUCKY KF-SEED: fresh kf-seeds {1001..1005} gave mean 0.5050 (+0.043 above the 0.4698 floor); 8/120 cycles sub-floor (6.7%) is multiple-testing tail. Per-cycle sigma 0.0070 means picking the cycle-min from N>=100 cycles is unreliable. Floor must therefore be sourced from (a) submission_log-verified anchors, (b) pooled-N cycle-aggregates (not cycle-min), or (c) single-config sha256-verified bags whose seed variance is documented inside the seed bag (not across kf-seeds).",
+  "exclusion_rules": {
+    "rule_a_cycle_min_trajectories": {
+      "applies_to": ["nb2154", "nb2156", "nb2144"],
+      "reason": "Trajectory cycle-min values are lucky-seed picks; pooled-N is the honest aggregate (nb2154 pooled-120 median 0.4765, mean 0.4773 -- both WORSE than nb2103 K=28 floor 0.4698). nb2156 explicitly verifies non-reproducibility: kf_seeds 1001-1005 gave mean 0.5050."
+    },
+    "rule_b_unsigma_stable_within_grid": {
+      "applies_to": ["nb2123", "nb2167"],
+      "reason": "User flagged in audit. nb2123 (num_leaves grid 12/14/16/18 on K=28) reports 0.4681 best in-grid -- single-cycle pick across L values, not honest pooled. nb2167 (HistGB stack) reports 0.4697 -- tie within 1e-4 of nb2103 LGBM K=28 (delta 1e-5), inside per-seed sigma 0.0096, so the ostensible improvement is sub-noise."
+    },
+    "rule_c_post_unblind_contamination": {
+      "applies_to": ["nb2170", "nb2178", "nb2184", "nb2189"],
+      "reason": "Anchored on nb730 / nb562 pred_oof (POST-unblind, stretch-calibrated on 253). Reported RAE 0.3810-0.4556 but transfer-sim (nb2203) shows +0.21-0.31 RAE gap on held-out scaffolds. Per nb730 LB rule (te trained on 253 leaked): in_RAE unreliable."
+    }
+  },
+  "lucky_seed_audit_summary": {
+    "audited_tag": "nb2154",
+    "verifier_tag": "nb2156",
+    "audit_artifact": "data/processed/nb2156_summary.json",
+    "claimed_best_rae": 0.462,
+    "repro_kf_seeds": [1001, 1002, 1003, 1004, 1005],
+    "repro_mean_bag_mean": 0.5050,
+    "repro_mean_bag_min": 0.4889,
+    "repro_mean_bag_max": 0.5258,
+    "gap_above_floor": 0.0352,
+    "cycle_floor_hit_rate_120": "8/120 = 6.7% (multiple-testing tail)",
+    "per_cycle_sigma": 0.0070,
+    "verdict": "LUCKY_SEED_NOT_REPRODUCIBLE"
+  },
+  "candidates_removed_from_top10": [
+    {"tag": "nb2154", "removed_rae": 0.4620, "removed_rank_prior": 1, "reason": "trajectory cycle-min, kf-seed-lucky"},
+    {"tag": "nb2156", "removed_rae": 0.4620, "removed_rank_prior": 2, "reason": "verification of same lucky-seed cycle"},
+    {"tag": "nb2144", "removed_rae": 0.4655, "removed_rank_prior": 3, "reason": "L=12 trajectory cycle-min, kf-seed-lucky"},
+    {"tag": "nb2123", "removed_rae": 0.4681, "removed_rank_prior": 4, "reason": "best-in-grid pick across num_leaves; sub-sigma against L=15 baseline"},
+    {"tag": "nb2167", "removed_rae": 0.4697, "removed_rank_prior": 5, "reason": "tie 1e-4 vs nb2103 K=28; HistGB blend collapses to ~100% LGBM"}
+  ],
+  "honest_top10_scrubbed": [
+    {
+      "rank": 1,
+      "tag": "nb2112",
+      "rae_mean_bag": 0.4737,
+      "rae_median_bag": 0.4698,
+      "method": "deploy_nb2103_K28_25bag_median",
+      "anchor": "chemprop_aux",
+      "anchor_kind": "PRE_unblind_te",
+      "verification": "submission_log_verified (submissions/nb2112_deploy_shap28.csv submitted 2026-06-04 12:25 UTC); te artifact data/processed/te_nb2112.npy",
+      "honesty_class": "submission_log_anchor"
+    },
+    {
+      "rank": 2,
+      "tag": "nb2103",
+      "rae_mean_bag": 0.4737,
+      "rae_median_bag": 0.4698,
+      "method": "lgbm_mse_shap_K_fine_K28_5way_117col_5seed_bag",
+      "anchor": "chemprop_aux",
+      "anchor_kind": "PRE_unblind_te",
+      "verification": "single-config 5-seed bag (seeds {0,1,7,42,137}); per-seed sigma 0.0096; rebuilt clean by nb2202 with delta 1e-5",
+      "honesty_class": "single_config_seed_bag_sha256_verified"
+    },
+    {
+      "rank": 3,
+      "tag": "nb2202",
+      "rae_mean_bag": 0.4737,
+      "rae_median_bag": 0.4698,
+      "method": "clean_rebuild_same_anchor_K28_refresh_SHAP",
+      "anchor": "chemprop_aux",
+      "anchor_kind": "PRE_unblind_te",
+      "verification": "audit-rebuild of nb2103; sha256_anchor_unb 0af952e..., sha256_y_unb 48fe339...; anchor_is_distinct_from_truth=true; matches nb2103 K=28 within 1e-5",
+      "honesty_class": "sha256_audit_rebuild"
+    },
+    {
+      "rank": 4,
+      "tag": "nb2159",
+      "rae_mean_bag": 0.4737,
+      "rae_median_bag": 0.4698,
+      "method": "shap_top50_3seed_intersect_K28_5way_117col",
+      "anchor": "chemprop_aux",
+      "anchor_kind": "PRE_unblind_te",
+      "verification": "SHAP-stability robustness check on K=28; same K=28 floor under feature-selection perturbation",
+      "honesty_class": "single_config_robustness_replicate"
+    },
+    {
+      "rank": 5,
+      "tag": "nb2163",
+      "rae_pooled_mean_120": 0.4773,
+      "rae_pooled_median_120": 0.4765,
+      "method": "pooled_aggregate_120cycles_nb2154_substrate",
+      "anchor": "chemprop_aux",
+      "anchor_kind": "PRE_unblind_te",
+      "verification": "honest pooled-N aggregate (NOT cycle-min) over 120 trajectory cycles; explicitly worse than K=28 floor by delta +0.0036 (mean) / +0.0067 (median); proves nb2154 cycle-min was lucky",
+      "honesty_class": "pooled_cycle_aggregate_lucky_seed_neutralized"
+    },
+    {
+      "rank": 6,
+      "tag": "chemprop_aux",
+      "rae_unb": 0.6216,
+      "method": "chemprop_multitask_aux_heads",
+      "anchor_kind": "PRE_unblind_te (PRIMARY anchor for all nb21xx residual stacks)",
+      "verification": "submission_log_verified (submitted 2026-06-01 20:25 UTC; in_RAE 0.6216); PRE-unblind so LB-faithful per two-regime calibration rule",
+      "honesty_class": "anchor_LB_faithful_PRE_unblind"
+    },
+    {
+      "rank": 7,
+      "tag": "nb1660",
+      "rae_cross_fit_5fold": 0.5107,
+      "method": "deploy_nb1632_mean_blend",
+      "anchor_kind": "PRE_unblind_te",
+      "verification": "submission_log_verified (submitted 2026-06-04 02:07 UTC; honest 5-fold cross-fit RAE 0.5107; predicted LB ~0.514)",
+      "honesty_class": "submission_log_anchor_cross_fit"
+    },
+    {
+      "rank": 8,
+      "tag": "nb464",
+      "rae_cross_fit_5fold": 0.5496,
+      "rae_unb": 0.5489,
+      "method": "SLSQP_blend_nb432_nb460_nb463",
+      "anchor_kind": "PRE_unblind_te",
+      "verification": "submission_log_verified (submitted 2026-06-01 04:35 UTC; 92% nb463 + 8% nb432; LB-honest cross-fit)",
+      "honesty_class": "submission_log_anchor_cross_fit"
+    },
+    {
+      "rank": 9,
+      "tag": "nb463",
+      "rae_cross_fit_5fold": 0.5594,
+      "rae_unb": 0.5489,
+      "method": "residual_LGBM_anchor_disagreement_features",
+      "anchor_kind": "PRE_unblind_te",
+      "verification": "structure-aware residual stack; honest 5-fold cross-fit per project memory feedback_curriculum_real_gain (the first move past 0.5496 SLSQP ceiling)",
+      "honesty_class": "submission_log_anchor_cross_fit"
+    },
+    {
+      "rank": 10,
+      "tag": "nb432",
+      "rae_cross_fit_5fold": 0.5519,
+      "method": "stacked_anchor_chemprop_aux_residual",
+      "anchor_kind": "PRE_unblind_te",
+      "verification": "audited PRIMARY-tier candidate per data/processed/cycle_134_inventory.json contamination audit (max delta 0.0025)",
+      "honesty_class": "audit_ladder_clean"
+    }
+  ],
+  "genuine_top5": [
+    {"rank": 1, "tag": "nb2112", "rae": 0.4698, "note": "PRIMARY-1, deploy of nb2103 K=28 25-bag"},
+    {"rank": 2, "tag": "nb2103", "rae": 0.4698, "note": "REFERENCE K=28 single-config bag"},
+    {"rank": 3, "tag": "nb2202", "rae": 0.4698, "note": "sha256 audit-rebuild of nb2103"},
+    {"rank": 4, "tag": "nb2159", "rae": 0.4698, "note": "SHAP-stability replicate of K=28"},
+    {"rank": 5, "tag": "nb2163", "rae": 0.4765, "note": "honest pooled-120 aggregate (lucky-seed-neutralized)"}
+  ],
+  "corrected_honest_floor": {
+    "value": 0.4698,
+    "metric": "rae_median_bag",
+    "evidence": "K=28 single-config 5-seed median-bag, replicated by nb2103/nb2112/nb2202/nb2159 within 1e-5",
+    "alternative_metric": {"rae_mean_bag": 0.4737, "evidence": "same K=28 single-config 5-seed mean-bag"},
+    "previously_claimed_floor": 0.4620,
+    "previously_claimed_source": "nb2154 cycle-min (LUCKY KF-SEED 1004 of trajectory cycle 78)",
+    "correction_magnitude": "+0.0078 RAE upward correction; honest floor is 0.4698 not 0.4620",
+    "lb_transfer_band": [0.4698, 0.4737],
+    "consistency_check": "pooled-N nb2163 (mean 0.4773, median 0.4765) sits ~0.005-0.008 ABOVE the K=28 single-config bag, confirming K=28 single-config is the genuine local minimum and trajectory pooling injects hparam-perturbation variance that does not average out"
+  },
+  "audit_provenance": [
+    "data/processed/cycle_134_inventory.json (meta-finalize)",
+    "data/processed/nb2156_summary.json (lucky-seed verifier; kf_seeds 1001-1005 mean 0.5050)",
+    "data/processed/nb2163_summary.json (pooled-120 cycle aggregate; INFERIOR_TO_K28_DO_NOT_DEPLOY)",
+    "data/processed/nb2103_summary.json (K=28 reference, per-K SHAP fine grid)",
+    "data/processed/nb2202_summary.json (audit rebuild; sha256 distinct from truth)",
+    "data/processed/submission_log.csv (submission_log_verified rows for nb2112/chemprop_aux/nb1660/nb464)"
+  ]
+}

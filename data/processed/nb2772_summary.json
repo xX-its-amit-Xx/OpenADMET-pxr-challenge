@@ -1,0 +1,91 @@
+{
+  "tag": "nb2772",
+  "method": "Hierarchical Bayesian linear regression with horseshoe prior (tau~HalfCauchy(1), lam_j~HalfCauchy(1), beta_j~Normal(0, lam_j*tau)) on chemprop_aux residual over first-K=20 cols of X_117. NUTS draws=200 tune=200 chains=2. n=253 unblind.",
+  "paradigm": "bayesian_sparse_shrinkage_horseshoe_prior_k20_residual",
+  "anchor_name": "chemprop_aux (PRE-unblind, verified clean)",
+  "rae_anchor_unb": 0.6215728863514471,
+  "n_tune": 200,
+  "n_draws": 200,
+  "n_chains": 2,
+  "n_cores": 2,
+  "pymc_random_seed": 42,
+  "n_folds": 5,
+  "kf_seed": 1001,
+  "single_seed_reason": "MCMC slow -- single seed per spec",
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "feat_dim_raw": 20,
+  "k_slice_first_n_of_117": 20,
+  "fold_results": [
+    {
+      "fold": 0,
+      "n_tr": 202,
+      "n_va": 51,
+      "n_effective_features": 20,
+      "beta_l2": 0.33428200709629674,
+      "intercept": -0.11813190831069247,
+      "wall_sec": 15.26
+    },
+    {
+      "fold": 1,
+      "n_tr": 202,
+      "n_va": 51,
+      "n_effective_features": 20,
+      "beta_l2": 0.3480334920806227,
+      "intercept": -0.13635397061510562,
+      "wall_sec": 8.69
+    },
+    {
+      "fold": 2,
+      "n_tr": 202,
+      "n_va": 51,
+      "n_effective_features": 20,
+      "beta_l2": 0.316616893322175,
+      "intercept": -0.1387904637284189,
+      "wall_sec": 10.07
+    },
+    {
+      "fold": 3,
+      "n_tr": 203,
+      "n_va": 50,
+      "n_effective_features": 20,
+      "beta_l2": 0.37178326782154864,
+      "intercept": -0.13562878260252093,
+      "wall_sec": 9.13
+    },
+    {
+      "fold": 4,
+      "n_tr": 203,
+      "n_va": 50,
+      "n_effective_features": 20,
+      "beta_l2": 0.36451661279576036,
+      "intercept": -0.12961806089856823,
+      "wall_sec": 8.93
+    }
+  ],
+  "mean_rae": 0.5567028245512257,
+  "pooled_scaffold_cv_rae": 0.5567028245512257,
+  "delta_vs_anchor": -0.06487006180022148,
+  "deploy_intercept": -0.1332451609051423,
+  "deploy_n_effective_features": 20,
+  "deploy_beta_l2": 0.3521775243206028,
+  "deploy_beta_abs_top5": [
+    0.14391707237104867,
+    0.12579213195818542,
+    0.10229691290220373,
+    0.10013942834567058,
+    0.09597458885233982
+  ],
+  "te_unb_rae_in_sample": 0.49403200851634343,
+  "te_deploy_mean": 4.684432506561279,
+  "te_deploy_std": 0.7027813792228699,
+  "gate_promote_threshold": 0.457,
+  "gate_marginal_threshold": 0.4598,
+  "verdict": "FAIL",
+  "promote": false,
+  "marginal_beat": false,
+  "oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2772_pred_oof.npy",
+  "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2772.npy",
+  "wall_sec": 61.88
+}

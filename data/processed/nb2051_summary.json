@@ -1,0 +1,46 @@
+{
+  "tag": "nb2051",
+  "inputs": {
+    "nb1162_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1162_deploy_nb1153.csv",
+    "nb1191_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1191_deploy_pre_pyramid.csv"
+  },
+  "n_rows": 513,
+  "alignment_ok": true,
+  "blend_weights": {
+    "nb1162": 0.5,
+    "nb1191": 0.5
+  },
+  "pred_stats_513": {
+    "nb1162": {
+      "mean": 4.720591178829217,
+      "std": 0.7863752989308114,
+      "min": 2.127533799578774,
+      "max": 6.082952404442424
+    },
+    "nb1191": {
+      "mean": 4.710525172709552,
+      "std": 0.8029069883606085,
+      "min": 2.104069,
+      "max": 6.3112707
+    },
+    "blend": {
+      "mean": 4.7155581757693845,
+      "std": 0.7910902882746724,
+      "min": 2.1628768644178287,
+      "max": 6.197111552221212
+    }
+  },
+  "pearson_r_513": 0.9821639979870612,
+  "diversity_gate": 0.92,
+  "pass_gate": false,
+  "in_sample_253_unblind": {
+    "in_rae_nb1162": 0.32538825597534354,
+    "in_rae_nb1191": 0.2631010305465731,
+    "in_rae_blend": 0.2897731045833548,
+    "delta_blend_vs_best_input": 0.026672074036781734
+  },
+  "decision": "SKIP_DUPLICATE",
+  "ladder_action": "NONE",
+  "csv_written": null,
+  "caveat": "in_rae on te[unb_idx] is in-sample for POST-unblind anchors; use as diagnostic only. LB-faithful blend RAE requires cross-fit OOFs."
+}

@@ -1,0 +1,114 @@
+{
+  "tag": "nb2503",
+  "method": "ResNet-style 3-level residual stacking on X_117 with K=20 LGBM mean-bag per level + SLSQP monotonic-simplex blend",
+  "anchor_name": "nb2240_mean_bag_oof_K20",
+  "rae_anchor": 0.46301757335429367,
+  "n_levels_after_anchor": 3,
+  "n_components_total": 4,
+  "bag_seeds": [
+    0,
+    1,
+    7,
+    13,
+    17,
+    21,
+    29,
+    33,
+    37,
+    41,
+    42,
+    47,
+    53,
+    59,
+    61,
+    67,
+    71,
+    79,
+    83,
+    137
+  ],
+  "K_bag": 20,
+  "inner_folds": 5,
+  "n_folds": 5,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "feat_dim": 117,
+  "per_seed": [
+    {
+      "kf_seed": 1001,
+      "pooled_rae": 0.4630175733539557,
+      "fold_w_mean": [
+        0.9999999999916642,
+        8.335696705020627e-12,
+        3.3521282382826747e-18,
+        0.0
+      ],
+      "wall_sec": 147.75
+    },
+    {
+      "kf_seed": 1002,
+      "pooled_rae": 0.46301757335454513,
+      "fold_w_mean": [
+        0.9999999999916602,
+        8.09702366573733e-12,
+        2.428127667889913e-13,
+        0.0
+      ],
+      "wall_sec": 149.42
+    },
+    {
+      "kf_seed": 1003,
+      "pooled_rae": 0.4630175733542315,
+      "fold_w_mean": [
+        0.9999999999965208,
+        3.034354348471649e-12,
+        4.448547948341459e-13,
+        0.0
+      ],
+      "wall_sec": 148.14
+    },
+    {
+      "kf_seed": 1004,
+      "pooled_rae": 0.4630175733530863,
+      "fold_w_mean": [
+        0.9999999999704523,
+        2.911684067283884e-11,
+        4.3093470119789293e-13,
+        0.0
+      ],
+      "wall_sec": 152.38
+    },
+    {
+      "kf_seed": 1005,
+      "pooled_rae": 0.463017573354343,
+      "fold_w_mean": [
+        0.9999999999924583,
+        7.099949097992639e-12,
+        4.416929734690065e-13,
+        0.0
+      ],
+      "wall_sec": 149.45
+    }
+  ],
+  "mean_rae": 0.4630175733540323,
+  "pooled_rae_std_seeds": 5.09902459747618e-13,
+  "rae_of_mean_of_seed_oofs": 0.4630175733540323,
+  "delta_vs_anchor": -2.6134649999676185e-13,
+  "te_unb_rae_in_sample": 0.16570824273473972,
+  "te_deploy_mean": 4.716782569885254,
+  "te_deploy_std": 0.8299917578697205,
+  "gate_promote_threshold": 0.457,
+  "gate_marginal_threshold": 0.4601,
+  "verdict": "FAIL",
+  "oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2503_pred_oof.npy",
+  "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2503.npy",
+  "wall_sec": 747.21
+}

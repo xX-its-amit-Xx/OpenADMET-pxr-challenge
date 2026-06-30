@@ -1,0 +1,91 @@
+{
+  "tag": "nb2120",
+  "method": "chemberta_77m_mtr_residual_ridge_anchor_then_nb2095_blend",
+  "n_unb": 253,
+  "n_te": 513,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "n_folds": 5,
+  "alpha_grid": [
+    0.1,
+    1.0,
+    10.0
+  ],
+  "stretch_grid": [
+    1.0,
+    1.025,
+    1.05,
+    1.075,
+    1.1,
+    1.125,
+    1.15
+  ],
+  "chemprop_aux_oof_rae": 0.5878769556905485,
+  "alpha_results": [
+    {
+      "alpha": 0.1,
+      "rae_seeds": [
+        0.8564654556236149,
+        0.9067073190092783,
+        0.870160054241875,
+        0.8628416916717494,
+        0.8788138498613457
+      ],
+      "mean_rae": 0.8749976740815727,
+      "std_rae": 0.017519579755565666,
+      "rae_of_mean_of_oofs": 0.7926397096567325,
+      "mean_oof": null,
+      "mean_r_hat": null
+    },
+    {
+      "alpha": 1.0,
+      "rae_seeds": [
+        0.7009334757359008,
+        0.7175566532972946,
+        0.7346834851305721,
+        0.721925737434722,
+        0.7236220842989557
+      ],
+      "mean_rae": 0.719744287179489,
+      "std_rae": 0.010969120660346483,
+      "rae_of_mean_of_oofs": 0.6913834074695417,
+      "mean_oof": null,
+      "mean_r_hat": null
+    },
+    {
+      "alpha": 10.0,
+      "rae_seeds": [
+        0.6339220794104987,
+        0.6391578258733089,
+        0.6453678221212099,
+        0.6520733632571031,
+        0.6430436734826783
+      ],
+      "mean_rae": 0.6427129528289598,
+      "std_rae": 0.0060777195332332185,
+      "rae_of_mean_of_oofs": 0.635555696190783,
+      "mean_oof": null,
+      "mean_r_hat": null
+    }
+  ],
+  "best_alpha": 10.0,
+  "anchor_oof_rae": 0.635555696190783,
+  "anchor_in_sample_rae_on_513unb": 0.5642824185517263,
+  "nb2095_oof_rae_reconstructed": 0.469729099307945,
+  "pearson_resid_anchor_vs_nb2095": 0.8984861488160358,
+  "ortho_gate": 0.85,
+  "ortho_pass": false,
+  "anchor_baseline_gate": 0.5057,
+  "anchor_baseline_pass": false,
+  "blend_gate_oof": 0.472,
+  "blend_attempted": false,
+  "blend_promoted": false,
+  "blend": null,
+  "te_anchor_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2120_berta_anchor.npy",
+  "wall_sec": 0.78
+}

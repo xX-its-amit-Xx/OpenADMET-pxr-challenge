@@ -1,0 +1,39 @@
+{
+  "tag": "nb2500",
+  "method": "rank-aligned hybrid (counter-rank ordering, nb2240 magnitudes via quantile-mapping)",
+  "anchors": {
+    "magnitude_src": "nb2240_mean_bag_oof_K20",
+    "order_src": "nb2490 (counter-clean cycle-199)"
+  },
+  "n_unb": 253,
+  "n_test": 513,
+  "n_unique_scaffolds": 180,
+  "n_folds": 5,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "per_seed_rae": {
+    "1001": 0.5369669905483904,
+    "1002": 0.5413570256918778,
+    "1003": 0.5360434068418125,
+    "1004": 0.5315062923417475,
+    "1005": 0.5398088703254786
+  },
+  "mean_rae": 0.5371365171498613,
+  "std_rae": 0.003402270555159754,
+  "rae_of_mean_of_seed_oofs": 0.536450248123201,
+  "rae_anchor_nb2240": 0.46301757335429367,
+  "rae_anchor_nb2490": 0.5382385733206709,
+  "rae_in_sample_full_align": 0.5293753270828035,
+  "delta_vs_nb2240": 0.07411894379556766,
+  "gate_promote_threshold": 0.457,
+  "gate_marginal_threshold": 0.4601,
+  "status": "FAIL",
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2500_pred_oof.npy",
+  "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2500.npy",
+  "elapsed_s": 0.11
+}

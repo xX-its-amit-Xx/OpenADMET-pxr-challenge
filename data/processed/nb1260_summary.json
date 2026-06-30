@@ -1,0 +1,39 @@
+{
+  "tag": "nb1260",
+  "recipe": "0.55*te_nb1250 + 0.45*te_nb1220",
+  "components": [
+    "te_nb1250 (nb1242 deploy)",
+    "te_nb1220 (nb1211 deploy)"
+  ],
+  "w_nb1242": 0.55,
+  "w_nb1211": 0.45,
+  "n_test": 513,
+  "n_unb": 253,
+  "te_nb1250_stats": {
+    "mean": 4.7284555002959845,
+    "std": 0.7720329589775503,
+    "min": 2.0580458641052246,
+    "max": 5.935160160064697
+  },
+  "te_nb1220_stats": {
+    "mean": 4.717210570274041,
+    "std": 0.7712083969803488,
+    "min": 2.0221917629241943,
+    "max": 5.960935592651367
+  },
+  "te_nb1260_stats": {
+    "mean": 4.723395281786111,
+    "std": 0.7695820757206324,
+    "min": 2.041911518573761,
+    "max": 5.924965405464173
+  },
+  "in_rae_nb1250_unb": 0.42866577874601797,
+  "in_rae_nb1220_unb": 0.3965134865982726,
+  "in_rae_nb1260_unb": 0.4116825343872826,
+  "pred_corr_nb1250_nb1220": 0.9891235662930745,
+  "nb1251_honest_crossfit_anchor": 0.5394,
+  "te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb1260.npy",
+  "csv_path": "d:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb1260_deploy_nb1251.csv",
+  "wall_sec": 0.01,
+  "note": "POST-unblind deploy blend; both components were trained on ALL 253 unblind rows, so in_RAE on te[unb_idx] is in-sample optimistic. LB-faithful anchor is nb1251 best_fixed_w cross-fit RAE 0.5394."
+}

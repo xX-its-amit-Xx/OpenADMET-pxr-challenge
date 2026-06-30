@@ -1,0 +1,272 @@
+{
+  "tag": "nb2611",
+  "method": "extended_K_ensemble_equal_weight_9anchors",
+  "paradigm": "plain_mean_no_learning_df_zero",
+  "anchor_base": "chemprop_aux",
+  "anchor_in_rae": 0.6215728863514471,
+  "anchor_pre_unblind": true,
+  "all_Ks": [
+    14,
+    16,
+    18,
+    20,
+    22,
+    24,
+    28,
+    32,
+    36
+  ],
+  "new_Ks": [
+    14,
+    16,
+    32,
+    36
+  ],
+  "new_K_idx_used": {
+    "14": [
+      45,
+      67,
+      66,
+      65,
+      92,
+      27,
+      77,
+      81,
+      56,
+      7,
+      115,
+      80,
+      11,
+      70
+    ],
+    "16": [
+      45,
+      67,
+      66,
+      65,
+      92,
+      27,
+      77,
+      81,
+      56,
+      7,
+      115,
+      93,
+      80,
+      11,
+      70,
+      8
+    ],
+    "32": [
+      45,
+      67,
+      48,
+      0,
+      66,
+      68,
+      65,
+      92,
+      50,
+      27,
+      77,
+      47,
+      63,
+      81,
+      56,
+      1,
+      52,
+      7,
+      53,
+      115,
+      93,
+      46,
+      80,
+      11,
+      70,
+      54,
+      8,
+      57,
+      83,
+      62,
+      73,
+      6
+    ],
+    "36": [
+      45,
+      67,
+      48,
+      0,
+      66,
+      68,
+      65,
+      92,
+      50,
+      27,
+      77,
+      47,
+      63,
+      81,
+      56,
+      1,
+      52,
+      7,
+      53,
+      115,
+      93,
+      46,
+      80,
+      11,
+      70,
+      54,
+      8,
+      57,
+      83,
+      62,
+      73,
+      6,
+      60,
+      72,
+      108,
+      69
+    ]
+  },
+  "cache_paths_oof": {
+    "18": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2604_mean_bag_oof_K18.npy",
+    "20": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2240_mean_bag_oof_K20.npy",
+    "22": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2261_mean_bag_oof_K22.npy",
+    "24": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2310_mean_bag_oof_K24.npy",
+    "28": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2103_mean_bag_oof_K28.npy"
+  },
+  "cache_paths_te": {
+    "18": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2604_K18.npy",
+    "20": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2240_K20.npy",
+    "22": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2261_K22.npy",
+    "24": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2310_K24.npy",
+    "28": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2112.npy"
+  },
+  "per_K_oof_rae": {
+    "14": 0.487092662472036,
+    "16": 0.47721058850940073,
+    "18": 0.4618957917529802,
+    "20": 0.46301757335429367,
+    "22": 0.47320469972305895,
+    "24": 0.4673847310316789,
+    "28": 0.47368697777353697,
+    "32": 0.4848156410622469,
+    "36": 0.4761891044083564
+  },
+  "combos": {
+    "ALL9": {
+      "Ks": [
+        14,
+        16,
+        18,
+        20,
+        22,
+        24,
+        28,
+        32,
+        36
+      ],
+      "n_anchors": 9,
+      "rae_oof_singleshot": 0.4621523338755117,
+      "mean_rae": 0.4621523338755117,
+      "per_fold_rae": [
+        0.45255953175049163,
+        0.48540771663920573,
+        0.5338751312927102,
+        0.4278953670199196,
+        0.42443363492436675
+      ]
+    },
+    "LOW_14_16_18_20": {
+      "Ks": [
+        14,
+        16,
+        18,
+        20
+      ],
+      "n_anchors": 4,
+      "rae_oof_singleshot": 0.4625435187518159,
+      "mean_rae": 0.4625435187518159,
+      "per_fold_rae": [
+        0.44298028883924356,
+        0.48967458152261545,
+        0.5256792642605514,
+        0.4230762669835566,
+        0.4414161320706644
+      ]
+    },
+    "MID_18_20_22_24": {
+      "Ks": [
+        18,
+        20,
+        22,
+        24
+      ],
+      "n_anchors": 4,
+      "rae_oof_singleshot": 0.4594299724752691,
+      "mean_rae": 0.4594299724752691,
+      "per_fold_rae": [
+        0.4464792303677515,
+        0.47358881027931693,
+        0.5246830166407992,
+        0.44199448402886893,
+        0.42898194677998414
+      ]
+    },
+    "HIGH_20_24_28_32": {
+      "Ks": [
+        20,
+        24,
+        28,
+        32
+      ],
+      "n_anchors": 4,
+      "rae_oof_singleshot": 0.46408775286803605,
+      "mean_rae": 0.46408775286803605,
+      "per_fold_rae": [
+        0.45475312429758863,
+        0.48305370456619773,
+        0.5500473279072917,
+        0.4287005041909676,
+        0.42057038974333744
+      ]
+    }
+  },
+  "best_combo": "MID_18_20_22_24",
+  "best_combo_Ks": [
+    18,
+    20,
+    22,
+    24
+  ],
+  "best_mean_rae": 0.4594299724752691,
+  "resid_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "resid_folds": 5,
+  "kf_seed": 1001,
+  "n_folds": 5,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "gate_promote": 0.457,
+  "gate_beat_nb2604": 0.458,
+  "verdict": "FAIL",
+  "delta_vs_nb2604": 0.0014299724752691034,
+  "nb2604_ref": 0.458,
+  "delta_vs_nb2171": -0.008770027524730883,
+  "nb2171_ref": 0.4682,
+  "te_mean": 4.707829785161083,
+  "te_std": 0.8410950609985968,
+  "te_unb_in_sample_rae": 0.11914409705741763,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2611_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2611.npy",
+  "submission_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb2611_extended_k_ensemble.csv",
+  "wall_sec": 11.85
+}

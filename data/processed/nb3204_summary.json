@@ -1,0 +1,208 @@
+{
+  "tag": "nb3204",
+  "method": "equal_weight_mean_of_3_clip_winners",
+  "components": [
+    "nb3190",
+    "nb3173",
+    "nb3174"
+  ],
+  "weights": [
+    0.333333,
+    0.333333,
+    0.333333
+  ],
+  "component_oof_rae": {
+    "nb3190": 0.4422,
+    "nb3173": 0.4423,
+    "nb3174": 0.443
+  },
+  "component_oof_rae_mean": 0.4425,
+  "component_oof_rae_min": 0.4422,
+  "pairwise_corr": {
+    "nb3190_nb3173": 0.9996,
+    "nb3190_nb3174": 0.9992,
+    "nb3173_nb3174": 0.9989
+  },
+  "anchor_pre_unblind": true,
+  "ens_full_oof_rae": 0.4418,
+  "ens_leak_eq_truth_frac": 0.0,
+  "delta_vs_best_component": -0.0004,
+  "delta_vs_mean_components": -0.0007,
+  "n_folds": 5,
+  "kf_seeds": [
+    1186,
+    1187,
+    1188,
+    1189,
+    1190,
+    1191,
+    1192,
+    1193,
+    1194,
+    1195,
+    1196,
+    1197,
+    1198,
+    1199,
+    1200
+  ],
+  "n_seeds": 15,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "seed_records": [
+    {
+      "kf_seed": 1186,
+      "pooled_rae": 0.4418,
+      "per_fold_val_rae_mean": 0.4677,
+      "per_fold_val_rae_std": 0.1002
+    },
+    {
+      "kf_seed": 1187,
+      "pooled_rae": 0.4418,
+      "per_fold_val_rae_mean": 0.4543,
+      "per_fold_val_rae_std": 0.0865
+    },
+    {
+      "kf_seed": 1188,
+      "pooled_rae": 0.4418,
+      "per_fold_val_rae_mean": 0.4445,
+      "per_fold_val_rae_std": 0.0341
+    },
+    {
+      "kf_seed": 1189,
+      "pooled_rae": 0.4418,
+      "per_fold_val_rae_mean": 0.4483,
+      "per_fold_val_rae_std": 0.0807
+    },
+    {
+      "kf_seed": 1190,
+      "pooled_rae": 0.4418,
+      "per_fold_val_rae_mean": 0.4638,
+      "per_fold_val_rae_std": 0.1238
+    },
+    {
+      "kf_seed": 1191,
+      "pooled_rae": 0.4418,
+      "per_fold_val_rae_mean": 0.4403,
+      "per_fold_val_rae_std": 0.0586
+    },
+    {
+      "kf_seed": 1192,
+      "pooled_rae": 0.4418,
+      "per_fold_val_rae_mean": 0.4609,
+      "per_fold_val_rae_std": 0.0816
+    },
+    {
+      "kf_seed": 1193,
+      "pooled_rae": 0.4418,
+      "per_fold_val_rae_mean": 0.4668,
+      "per_fold_val_rae_std": 0.0888
+    },
+    {
+      "kf_seed": 1194,
+      "pooled_rae": 0.4418,
+      "per_fold_val_rae_mean": 0.4568,
+      "per_fold_val_rae_std": 0.0692
+    },
+    {
+      "kf_seed": 1195,
+      "pooled_rae": 0.4418,
+      "per_fold_val_rae_mean": 0.4447,
+      "per_fold_val_rae_std": 0.0367
+    },
+    {
+      "kf_seed": 1196,
+      "pooled_rae": 0.4418,
+      "per_fold_val_rae_mean": 0.4399,
+      "per_fold_val_rae_std": 0.0588
+    },
+    {
+      "kf_seed": 1197,
+      "pooled_rae": 0.4418,
+      "per_fold_val_rae_mean": 0.4774,
+      "per_fold_val_rae_std": 0.1119
+    },
+    {
+      "kf_seed": 1198,
+      "pooled_rae": 0.4418,
+      "per_fold_val_rae_mean": 0.4524,
+      "per_fold_val_rae_std": 0.0743
+    },
+    {
+      "kf_seed": 1199,
+      "pooled_rae": 0.4418,
+      "per_fold_val_rae_mean": 0.454,
+      "per_fold_val_rae_std": 0.0609
+    },
+    {
+      "kf_seed": 1200,
+      "pooled_rae": 0.4418,
+      "per_fold_val_rae_mean": 0.4497,
+      "per_fold_val_rae_std": 0.0401
+    }
+  ],
+  "pooled_rae_array": [
+    0.4418,
+    0.4418,
+    0.4418,
+    0.4418,
+    0.4418,
+    0.4418,
+    0.4418,
+    0.4418,
+    0.4418,
+    0.4418,
+    0.4418,
+    0.4418,
+    0.4418,
+    0.4418,
+    0.4418
+  ],
+  "per_fold_val_rae_means_array": [
+    0.4677,
+    0.4543,
+    0.4445,
+    0.4483,
+    0.4638,
+    0.4403,
+    0.4609,
+    0.4668,
+    0.4568,
+    0.4447,
+    0.4399,
+    0.4774,
+    0.4524,
+    0.454,
+    0.4497
+  ],
+  "mean_rae": 0.4418,
+  "std_rae": 0.0,
+  "sem_rae": 0.0,
+  "ci95_low": 0.4418,
+  "ci95_high": 0.4418,
+  "median_rae": 0.4418,
+  "min_rae": 0.4418,
+  "max_rae": 0.4418,
+  "per_fold_mean_rae_mean": 0.4548,
+  "per_fold_mean_rae_std": 0.0109,
+  "ref_nb3190": 0.4426,
+  "ref_nb3173": 0.4422,
+  "ref_nb3174": 0.4433,
+  "ref_nb2171": 0.4682,
+  "shift_vs_nb3190": -0.0008,
+  "shift_vs_nb3173": -0.0004,
+  "shift_vs_nb3174": -0.0015,
+  "gain_vs_nb2171": 0.0264,
+  "te_mean": 4.7292799949646,
+  "te_std": 0.7693082690238953,
+  "te_min": 3.0,
+  "te_max": 6.02513313293457,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb3204_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb3204.npy",
+  "submission_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb3204_ensemble_clip_winners.csv",
+  "gate_better": 0.4426,
+  "verdict": "BETTER",
+  "ladder_action": "BETTER. nb3204 equal-weight ensemble of (nb3190, nb3173, nb3174) 15-seed mean 0.4418 +/- 0.0000 clears strict gate 0.4426. Variance-reduction over near-correlated (>0.999) clip winners delivers delta -0.0004 vs best component and -0.0007 vs mean. PROMOTE nb3204 to PRIMARY-1 candidate (displaces nb2171 0.4682 by -0.0264 RAE). Deep-30 verification recommended before LB fire per cycle-160 rule (15-seed std likely under-dispersed at this near-correlated ensemble level). Watch dispersion against deep-30 in followup.",
+  "wall_sec": 0.11
+}

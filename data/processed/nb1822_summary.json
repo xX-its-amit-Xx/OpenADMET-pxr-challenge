@@ -1,0 +1,179 @@
+{
+  "tag": "nb1822",
+  "anchor": "chemprop_aux",
+  "anchor_kind": "PRE_unblind_te_slice_to_unb_idx",
+  "anchor_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+  "data_source": "AtomPair-cache + MACCS-cache + Mordred-cached_nb1030 + ChempropEmbed-cache + Avalon-cache + local_chembl_caches_union",
+  "model_family": "LightGBM",
+  "lgbm_objective": "huber",
+  "lgbm_alpha": 1.0,
+  "lgbm_max_depth": 4,
+  "lgbm_num_leaves": 15,
+  "lgbm_n_estimators": 300,
+  "lgbm_learning_rate": 0.03,
+  "lgbm_min_child_samples": 5,
+  "lgbm_reg_lambda": 2.0,
+  "lgbm_feature_fraction": 0.7,
+  "lgbm_bagging_fraction": 0.8,
+  "lgbm_bagging_freq": 5,
+  "K_AP_best": 25,
+  "K_Mord_best": 20,
+  "K_Embed_best": 20,
+  "K_Avalon_used": 30,
+  "K_MACCS_fixed": 20,
+  "n_chembl_pool": 945,
+  "n_unb": 253,
+  "n_top_atompair": 25,
+  "n_top_maccs": 20,
+  "n_top_mordred": 20,
+  "n_top_chemprop_embed": 20,
+  "n_top_avalon": 30,
+  "feat_dim": 117,
+  "feat_breakdown": {
+    "atompair": 25,
+    "maccs": 20,
+    "mordred": 20,
+    "chemprop_embed": 20,
+    "avalon": 30,
+    "pred_chembl_pec50": 1,
+    "mean_sim": 1,
+    "total": 117
+  },
+  "outer_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "inner_base_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "inner_seed_rule": "inner_seeds = [o*1000 + s for s in INNER_BASE]",
+  "resid_folds": 5,
+  "rae_anchor_chemprop_aux": 0.6215728863514471,
+  "residual_mean": -0.1325965261753001,
+  "residual_std": 0.6999145683913596,
+  "per_outer_rae": [
+    0.5072430301483106,
+    0.518366375738385,
+    0.5078806746038825,
+    0.5039102886111894,
+    0.5043574847504001
+  ],
+  "per_outer_records": [
+    {
+      "outer_seed": 0,
+      "inner_seeds": [
+        0,
+        1,
+        7,
+        42,
+        137
+      ],
+      "per_inner_rae": [
+        0.5293097337006273,
+        0.5280442254258834,
+        0.5191149095422604,
+        0.5186590513037647,
+        0.5259948253750816
+      ],
+      "rae_pooled_mean_bag": 0.5072430301483106,
+      "wall_sec": 2.29
+    },
+    {
+      "outer_seed": 1,
+      "inner_seeds": [
+        1000,
+        1001,
+        1007,
+        1042,
+        1137
+      ],
+      "per_inner_rae": [
+        0.5383283951239058,
+        0.502613625119104,
+        0.5474735509656816,
+        0.5172754885186743,
+        0.5529949681713037
+      ],
+      "rae_pooled_mean_bag": 0.518366375738385,
+      "wall_sec": 2.25
+    },
+    {
+      "outer_seed": 7,
+      "inner_seeds": [
+        7000,
+        7001,
+        7007,
+        7042,
+        7137
+      ],
+      "per_inner_rae": [
+        0.5061970344130934,
+        0.5359138979438581,
+        0.5264347920728025,
+        0.520273616787869,
+        0.5395459275329958
+      ],
+      "rae_pooled_mean_bag": 0.5078806746038825,
+      "wall_sec": 2.17
+    },
+    {
+      "outer_seed": 42,
+      "inner_seeds": [
+        42000,
+        42001,
+        42007,
+        42042,
+        42137
+      ],
+      "per_inner_rae": [
+        0.5131221163066475,
+        0.5243660851613392,
+        0.5291383759156126,
+        0.520504588224856,
+        0.504802085740971
+      ],
+      "rae_pooled_mean_bag": 0.5039102886111894,
+      "wall_sec": 2.19
+    },
+    {
+      "outer_seed": 137,
+      "inner_seeds": [
+        137000,
+        137001,
+        137007,
+        137042,
+        137137
+      ],
+      "per_inner_rae": [
+        0.5296971487974882,
+        0.5098843185181622,
+        0.5411760162969514,
+        0.505807898663843,
+        0.5192564473735373
+      ],
+      "rae_pooled_mean_bag": 0.5043574847504001,
+      "wall_sec": 2.18
+    }
+  ],
+  "rae_per_outer_mean": 0.5083515707704336,
+  "rae_per_outer_median": 0.5072430301483106,
+  "rae_per_outer_std": 0.005242606878455043,
+  "rae_per_outer_min": 0.5039102886111894,
+  "rae_per_outer_max": 0.518366375738385,
+  "rae_bob_mean": 0.5045535444794477,
+  "rae_bob_median": 0.5038292505156936,
+  "nb1812_ref": 0.5072,
+  "decision_margin": 0.003,
+  "delta_per_outer_mean_vs_ref": 0.0011515707704335965,
+  "delta_bob_mean_vs_ref": -0.0026464555205523155,
+  "delta_bob_median_vs_ref": -0.003370749484306379,
+  "verdict": "NB1812_REPRODUCES",
+  "wall_sec": 14.97
+}

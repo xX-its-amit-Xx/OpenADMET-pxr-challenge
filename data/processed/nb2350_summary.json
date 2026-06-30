@@ -1,0 +1,96 @@
+{
+  "tag": "nb2350",
+  "method": "slsqp_simplex_blend_nb2240_plus_nb2330",
+  "anchors": [
+    "nb2240_pyramid",
+    "nb2330_pyramid"
+  ],
+  "indiv_oof_rae_unb": {
+    "nb2240_reconstruct": 0.4598030174953471,
+    "nb2330_reconstruct": 0.4661671032403035,
+    "nb2240_ref": 0.4601,
+    "nb2330_ref": 0.4662
+  },
+  "pearson_oof_2240_2330_unb": 0.9952062673713483,
+  "pearson_te_2240_2330_513": 0.9939858879581308,
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "n_folds": 5,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "per_seed_results": [
+    {
+      "kf_seed": 1001,
+      "pooled_rae": 0.46595959711235513,
+      "fold_w_mean": [
+        0.32152916148624733,
+        0.6784708385137527
+      ]
+    },
+    {
+      "kf_seed": 1002,
+      "pooled_rae": 0.4642152660322532,
+      "fold_w_mean": [
+        0.2893449127323275,
+        0.7106550872676725
+      ]
+    },
+    {
+      "kf_seed": 1003,
+      "pooled_rae": 0.46540151903067123,
+      "fold_w_mean": [
+        0.29997871121575587,
+        0.7000212887842443
+      ]
+    },
+    {
+      "kf_seed": 1004,
+      "pooled_rae": 0.4645166110927137,
+      "fold_w_mean": [
+        0.31775623213397874,
+        0.6822437678660211
+      ]
+    },
+    {
+      "kf_seed": 1005,
+      "pooled_rae": 0.46347456984891605,
+      "fold_w_mean": [
+        0.2830076134507099,
+        0.7169923865492901
+      ]
+    }
+  ],
+  "pooled_rae_mean_seeds": 0.46471351262338184,
+  "pooled_rae_std_seeds": 0.0008772774301078096,
+  "rae_of_mean_of_seed_oofs": 0.464607151939435,
+  "deploy_weights": {
+    "nb2240": 0.28712874497932606,
+    "nb2330": 0.7128712550206739
+  },
+  "in_sample_rae_overfit_bound": 0.4625679994997495,
+  "te_unb_rae_in_sample": 0.15018005638892062,
+  "lb_band_estimate": 0.3105921190684958,
+  "lb_band_low": 0.26059211906849583,
+  "lb_band_high": 0.3605921190684958,
+  "lb_band_w_oof": 0.51,
+  "lb_band_w_te": 0.49,
+  "compare_nb2240_oof": 0.4601,
+  "compare_nb2330_oof": 0.4662,
+  "delta_vs_nb2240": 0.0046135126233818324,
+  "delta_vs_nb2330": -0.0014864873766181619,
+  "gate_margin": 0.003,
+  "gate_beat_nb2240": false,
+  "gate_flat_vs_nb2240": false,
+  "verdict_vs_nb2240": "HURTS_NB2240",
+  "deploy_te_mean": 4.711517810821533,
+  "deploy_te_std": 0.8500204086303711,
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2350.npy",
+  "submission_csv": null,
+  "wall_sec": 0.32
+}

@@ -1,0 +1,92 @@
+{
+  "tag": "nb1322",
+  "anchor": "nb1290",
+  "anchor_recipe": {
+    "w_nb1190": 0.35,
+    "w_nb1242": 0.65,
+    "nb1190_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb1190_bob_mean_oof.npy",
+    "nb1242_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb1242_mean_bag_oof.npy"
+  },
+  "feature_source": "maccs_cached_167",
+  "maccs_cache_train": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\tr_maccs.npy",
+  "maccs_cache_test": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_maccs.npy",
+  "n_unb": 253,
+  "resid_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "resid_folds": 5,
+  "feature_dim": 167,
+  "lgbm_objective": "quantile",
+  "lgbm_alpha": 0.5,
+  "lgbm_max_depth": 2,
+  "lgbm_num_leaves": 3,
+  "lgbm_n_estimators": 40,
+  "lgbm_learning_rate": 0.03,
+  "lgbm_min_child_samples": 20,
+  "rae_anchor_nb1290": 0.5389994102823439,
+  "residual_mean": -0.023213817686902595,
+  "residual_std": 0.6223392704275519,
+  "per_seed_rae": [
+    0.548117537634742,
+    0.5480557830347323,
+    0.5534310087251274,
+    0.5464062739986938,
+    0.5455722738263493
+  ],
+  "per_seed_records": [
+    {
+      "seed": 0,
+      "rae_corrected": 0.548117537634742,
+      "delta_vs_nb1290": 0.009118127352398142,
+      "resid_oof_std": 0.040809457088079065,
+      "resid_oof_mean": 0.02797063421762624
+    },
+    {
+      "seed": 1,
+      "rae_corrected": 0.5480557830347323,
+      "delta_vs_nb1290": 0.009056372752388464,
+      "resid_oof_std": 0.039486558195557304,
+      "resid_oof_mean": 0.02971620510942528
+    },
+    {
+      "seed": 7,
+      "rae_corrected": 0.5534310087251274,
+      "delta_vs_nb1290": 0.014431598442783522,
+      "resid_oof_std": 0.04575626839390702,
+      "resid_oof_mean": 0.02943609841524139
+    },
+    {
+      "seed": 42,
+      "rae_corrected": 0.5464062739986938,
+      "delta_vs_nb1290": 0.00740686371634991,
+      "resid_oof_std": 0.041020440859813725,
+      "resid_oof_mean": 0.0304876682734325
+    },
+    {
+      "seed": 137,
+      "rae_corrected": 0.5455722738263493,
+      "delta_vs_nb1290": 0.006572863544005436,
+      "resid_oof_std": 0.03799742279928467,
+      "resid_oof_mean": 0.029241596975564693
+    }
+  ],
+  "rae_per_seed_mean": 0.548316575443929,
+  "rae_per_seed_median": 0.5480557830347323,
+  "rae_per_seed_std": 0.0027366219869733054,
+  "rae_per_seed_min": 0.5455722738263493,
+  "rae_per_seed_max": 0.5534310087251274,
+  "rae_mean_bag": 0.5474076047594262,
+  "rae_median_bag": 0.5471057476074286,
+  "delta_mean_bag_vs_nb1290": 0.008408194477082298,
+  "delta_median_bag_vs_nb1290": 0.0081063373250847,
+  "beats_nb1290": false,
+  "flat_vs_nb1290": false,
+  "verdict": "QUANTILE_q05_RESIDUAL_HURTS_NB1290 (mean_bag @ 0.5474)",
+  "nb1290_ref_pooled": 0.539,
+  "decision_margin": 0.003,
+  "wall_sec": 0.22
+}

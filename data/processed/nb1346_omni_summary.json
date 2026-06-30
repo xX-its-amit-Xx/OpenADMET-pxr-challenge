@@ -1,0 +1,19 @@
+{
+  "approach": "OMNI-P2x_excited_state_12scalars_on_deployed_config",
+  "ctrl_rae": 0.423843191108,
+  "treat_rae": 0.4258677857565996,
+  "delta": 0.002024594648599609,
+  "ctrl_raes": [
+    0.42565740285514175,
+    0.44347193722815337,
+    0.40240023324070484
+  ],
+  "treat_raes": [
+    0.4269597647743675,
+    0.44501382057946554,
+    0.4056297719159659
+  ],
+  "n_neg": 0,
+  "deployed_best": 0.4149,
+  "gate_pass": false
+}

@@ -1,0 +1,69 @@
+{
+  "tag": "nb2801",
+  "method": "nn_meta_stack_v2_preclean_raw_scale",
+  "architecture": "Linear(3,32)->ReLU->Linear(32,16)->ReLU->Linear(16,1)",
+  "fix_vs_nb2792": "deeper(3->32->16->1) + no_zscore + no_dropout + lr5e-3 + 1000ep",
+  "anchor_pool": [
+    "nb2240_K20",
+    "chemprop_aux",
+    "counter_clean"
+  ],
+  "anchor_provenance": {
+    "nb2240_K20": "PRE-clean (K=20 residual stack on chemprop_aux)",
+    "chemprop_aux": "PRE-clean (4139 PRE-unblind only)",
+    "counter_clean": "PRE-clean counter-assay residual on chemprop_aux (nb730-free)"
+  },
+  "anchor_skipped": {},
+  "anchor_in_rae": {
+    "nb2240_K20": 0.46301757335429367,
+    "chemprop_aux": 0.5878769556905485,
+    "counter_clean": 0.5382385733206709
+  },
+  "nn_hidden1": 32,
+  "nn_hidden2": 16,
+  "nn_dropout": 0.0,
+  "nn_zscore": false,
+  "nn_lr": 0.005,
+  "nn_epochs": 1000,
+  "nn_n_params": 673,
+  "n_folds": 5,
+  "kf_seeds": [
+    42,
+    1,
+    7,
+    137,
+    1009
+  ],
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "K_anchors": 3,
+  "per_seed_pooled_rae": [
+    0.4762191425985105,
+    0.4714527942560245,
+    0.47433152313992727,
+    0.48410511920643784,
+    0.4829660950579868
+  ],
+  "per_seed_mean_fold_rae": [
+    0.47908760266591477,
+    0.48364666085524355,
+    0.5004524920397104,
+    0.49785127997961054,
+    0.48618935366613664
+  ],
+  "mean_pooled_rae": 0.4778149348517774,
+  "std_pooled_rae": 0.0049245997546119216,
+  "pooled_on_seed_mean_oof": 0.47470416361927703,
+  "mean_rae": 0.4778149348517774,
+  "gate_promote": 0.457,
+  "gate_marginal": 0.4598,
+  "verdict": "FAIL",
+  "te_unb_in_sample_rae": 0.18273989020066264,
+  "te_mean": 4.755476951599121,
+  "te_std": 0.7911111116409302,
+  "oof_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2801_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2801.npy",
+  "submission_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb2801_nn_meta_v2.csv",
+  "wall_sec": 18.1
+}

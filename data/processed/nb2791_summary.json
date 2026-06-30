@@ -1,0 +1,116 @@
+{
+  "tag": "nb2791",
+  "method": "per_row_inverse_residual_reweight",
+  "paradigm_note": "UP-weight hard rows where anchor is wrong (vs nb2784 entropy which DOWN-weighted high-disagreement rows).",
+  "anchor": "chemprop_aux",
+  "anchor_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb1133_chemprop_aux_pred_oof.npy",
+  "anchor_te_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_chemprop_aux.npy",
+  "rae_anchor_chemprop_aux": 0.5878769556905485,
+  "eps": 0.5,
+  "weight_recipe": "w_raw = 1 / (|y - anchor_pred| + eps); w = w_raw / mean(w_raw)",
+  "weight_stats": {
+    "eps": 0.5,
+    "weight_mean": 1.0,
+    "weight_min": 0.2819373757698952,
+    "weight_max": 1.6388588133229367,
+    "weight_std": 0.35173167609003664,
+    "abs_resid_mean": 0.4695154815229032,
+    "abs_resid_median": 0.31593887329101555,
+    "abs_resid_max": 2.41654712677002,
+    "n_top_decile_resid": 26,
+    "weight_top_decile_resid_mean": 0.40213281573149484,
+    "weight_bottom_decile_resid_mean": 1.553614925129526
+  },
+  "kf_seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "resid_seeds": [
+    0,
+    1,
+    7,
+    13,
+    23,
+    42,
+    53,
+    67,
+    89,
+    101,
+    137,
+    199,
+    211,
+    251,
+    313,
+    401,
+    503,
+    617,
+    727,
+    911
+  ],
+  "n_resid_seeds": 20,
+  "n_folds": 5,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "k20_surviving_idx_in_117": [
+    45,
+    67,
+    66,
+    68,
+    65,
+    92,
+    27,
+    77,
+    81,
+    56,
+    1,
+    7,
+    115,
+    93,
+    80,
+    11,
+    70,
+    54,
+    8,
+    57
+  ],
+  "per_seed_results": [
+    {
+      "kf_seed": 1001,
+      "pooled_rae": 0.5792359577873086,
+      "wall_sec": 4.8
+    },
+    {
+      "kf_seed": 1002,
+      "pooled_rae": 0.589332328375845,
+      "wall_sec": 4.7
+    },
+    {
+      "kf_seed": 1003,
+      "pooled_rae": 0.5927406841508895,
+      "wall_sec": 4.5
+    },
+    {
+      "kf_seed": 1004,
+      "pooled_rae": 0.5749921564612468,
+      "wall_sec": 4.6
+    },
+    {
+      "kf_seed": 1005,
+      "pooled_rae": 0.589267478278194,
+      "wall_sec": 4.9
+    }
+  ],
+  "mean_rae": 0.5851137210106968,
+  "std_rae": 0.006785500478510415,
+  "te_unb_rae_in_sample": 0.33983002511773014,
+  "gate_promote": 0.457,
+  "gate_marginal": 0.4598,
+  "verdict": "FAIL",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2791.npy",
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2791_pred_oof.npy",
+  "wall_sec": 28.33
+}

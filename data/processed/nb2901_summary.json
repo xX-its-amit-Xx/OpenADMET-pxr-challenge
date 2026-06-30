@@ -1,0 +1,76 @@
+{
+  "tag": "nb2901",
+  "method": "per_fold_slsqp_simplex_4anchor_no_rank_stretch",
+  "paradigm": "pure_per_fold_simplex_no_post_hoc_calibration",
+  "anchor_spec": [
+    "nb2240_K20",
+    "chemprop_aux",
+    "counter_clean",
+    "nb1191"
+  ],
+  "anchor_pool": [
+    "nb2240_K20",
+    "chemprop_aux",
+    "counter_clean",
+    "nb1191"
+  ],
+  "anchor_provenance": {
+    "nb2240_K20": "PRE-clean K=20 RFE residual stack on chemprop_aux",
+    "chemprop_aux": "PRE-clean (4139 PRE-unblind only; verified frozen anchor)",
+    "counter_clean": "PRE-clean counter-assay K=20 residual joint anchor (nb730-free)",
+    "nb1191": "PRE-clean wide-seed verified pyramid (mean 0.4718 +/- 0.0025 n=15)"
+  },
+  "anchor_in_rae": {
+    "nb2240_K20": 0.46301757335429367,
+    "chemprop_aux": 0.5878769556905485,
+    "counter_clean": 0.5382385733206709,
+    "nb1191": 0.469729103713806
+  },
+  "anchor_pre_unblind": true,
+  "truth_std": 1.0320053675542649,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "K_anchors": 4,
+  "n_folds": 5,
+  "kf_seeds": [
+    42,
+    1,
+    7,
+    137,
+    1009
+  ],
+  "n_starts_slsqp": 5,
+  "per_seed_pooled_rae": [
+    0.4629569467803319,
+    0.463707390315292,
+    0.4628497366497853,
+    0.46080267104079164,
+    0.4608566349798909
+  ],
+  "mean_rae": 0.46223467595321843,
+  "std_rae": 0.0011847782403304227,
+  "rae_of_mean_oof": 0.46199566280145293,
+  "mean_fold_weights": {
+    "nb2240_K20": 0.6548970900783495,
+    "chemprop_aux": 7.694435921414668e-17,
+    "counter_clean": 4.860651598272587e-17,
+    "nb1191": 0.3451029099216504
+  },
+  "gate_promote": 0.457,
+  "gate_marginal": 0.4598,
+  "verdict": "FAIL",
+  "deploy_weights": {
+    "nb2240_K20": 0.7433969032098037,
+    "chemprop_aux": 7.677115097122838e-18,
+    "counter_clean": 1.5143716130062658e-17,
+    "nb1191": 0.25660309679019644
+  },
+  "te_unb_in_sample_rae": 0.15167875370848033,
+  "te_mean": 4.7124433517456055,
+  "te_std": 0.8241376876831055,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2901_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2901.npy",
+  "submission_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb2901_per_fold_simplex_4anchor.csv",
+  "wall_sec": 0.97
+}

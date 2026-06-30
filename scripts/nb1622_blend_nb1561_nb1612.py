@@ -1,0 +1,182 @@
+"""nb1622 — Blend nb1561 CatBoost BoB + nb1612 ChemBERTa 6-way SLSQP.
+
+HYPOTHESIS: nb1612 has 17.7% ChemBERTa weight — may add row-level diversity to
+the CatBoost BoB anchor (nb1561, 0.5155). nb1612 itself is 0.5218 and fails
+vs nb1554 but may carry orthogonal ChemBERTa signal worth blending.
+
+Protocol:
+1. Load nb1561 (CatBoost BoB, OOF 0.5155) + nb1612 (ChemBERTa 6-way SLSQP, OOF 0.5218).
+2. Pearson correlation.
+3. Grid w in {0.0..1.0 step 0.05} where pred = w * nb1561 + (1 - w) * nb1612.
+4. 5-fold cross-fit SLSQP for honest blend weight.
+5. Verdict at 0.003 margin vs nb1561 (0.5155).
+
+Outputs:
+- data/processed/nb1622_summary.json
+- data/processed/nb1622_best_oof.npy
+"""
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+from scipy.optimize import minimize
+from scipy.stats import pearsonr
+
+ROOT = Path("d:/Users/ashenoy00000/.windsurf/OpenADMET-pxr-challenge")
+PROC = ROOT / "data" / "processed"
+
+
+def rae(y_true: np.ndarray, y_pred: np.ndarray) -> float:
+    mean_y = float(np.mean(y_true))
+    num = float(np.sum(np.abs(y_true - y_pred)))
+    den = float(np.sum(np.abs(y_true - mean_y)))
+    return num / den if den > 0 else float("inf")
+
+
+def load_truth_253() -> np.ndarray:
+    """Find the 253 unblind truth vector used by the nb15xx/nb16xx ladder."""
+    candidates = [
+        PROC / "_audit_unblind_y.npy",
+        PROC / "unblind_253_truth.npy",
+        PROC / "unblind_truth_253.npy",
+        PROC / "truth_253.npy",
+        PROC / "y_unblind_253.npy",
+    ]
+    for p in candidates:
+        if p.exists():
+            arr = np.load(p)
+            if arr.shape[0] == 253:
+                return arr.astype(float)
+    for csv_name in ["postmortem/unblind_253.csv", "unblind_253.csv", "postmortem/analog_set1_unblind.csv"]:
+        p = PROC / csv_name
+        if p.exists():
+            df = pd.read_csv(p)
+            for col in ["pEC50", "pec50", "y", "truth", "true_pec50"]:
+                if col in df.columns and len(df) == 253:
+                    return df[col].to_numpy(dtype=float)
+    raise FileNotFoundError("Could not locate 253-row unblind truth file")
+
+
+def slsqp_blend(p1: np.ndarray, p2: np.ndarray, y: np.ndarray) -> tuple[float, float]:
+    """Solve min RAE over w*p1 + (1-w)*p2, 0<=w<=1."""
+
+    def obj(w):
+        ww = float(w[0])
+        return rae(y, ww * p1 + (1.0 - ww) * p2)
+
+    best = None
+    for w0 in np.linspace(0.0, 1.0, 11):
+        res = minimize(obj, x0=[w0], method="SLSQP", bounds=[(0.0, 1.0)],
+                       options={"ftol": 1e-9, "maxiter": 200})
+        if best is None or res.fun < best.fun:
+            best = res
+    return float(best.x[0]), float(best.fun)
+
+
+def crossfit_slsqp(p1: np.ndarray, p2: np.ndarray, y: np.ndarray, n_splits: int = 5,
+                   seed: int = 17) -> tuple[float, np.ndarray, list[float]]:
+    """5-fold cross-fit SLSQP: weight fit on 4 folds, applied to held-out fold."""
+    rng = np.random.default_rng(seed)
+    idx = np.arange(len(y))
+    rng.shuffle(idx)
+    folds = np.array_split(idx, n_splits)
+    blended = np.zeros_like(y, dtype=float)
+    weights = []
+    for k in range(n_splits):
+        val = folds[k]
+        trn = np.concatenate([folds[j] for j in range(n_splits) if j != k])
+        w, _ = slsqp_blend(p1[trn], p2[trn], y[trn])
+        blended[val] = w * p1[val] + (1.0 - w) * p2[val]
+        weights.append(w)
+    return rae(y, blended), blended, weights
+
+
+def main() -> None:
+    p_cat = np.load(PROC / "nb1561_bob_mean_oof.npy").astype(float)
+    p_chb = np.load(PROC / "nb1612_best_oof.npy").astype(float)
+    y = load_truth_253()
+
+    assert p_cat.shape == p_chb.shape == y.shape, (p_cat.shape, p_chb.shape, y.shape)
+    n = len(y)
+
+    rae_cat = rae(y, p_cat)
+    rae_chb = rae(y, p_chb)
+    pear = float(pearsonr(p_cat, p_chb).statistic)
+
+    # Grid sweep w = weight on nb1561 (CatBoost)
+    grid_rows = []
+    best_grid = None
+    for w in np.round(np.arange(0.0, 1.0001, 0.05), 4):
+        pred = w * p_cat + (1.0 - w) * p_chb
+        r = rae(y, pred)
+        grid_rows.append({"w_nb1561": float(w), "rae": r})
+        if best_grid is None or r < best_grid["rae"]:
+            best_grid = {"w_nb1561": float(w), "rae": r}
+
+    # In-sample SLSQP
+    w_is, rae_is = slsqp_blend(p_cat, p_chb, y)
+
+    # Honest 5-fold cross-fit SLSQP
+    rae_cf, blend_cf, w_folds = crossfit_slsqp(p_cat, p_chb, y)
+
+    # Verdict
+    margin = 0.003
+    beats_nb1561 = bool(rae_cf < (rae_cat - margin))
+    if rae_cf < rae_cat - margin:
+        verdict = "ADOPT - cross-fit blend beats nb1561 by >=0.003"
+    elif rae_cf < rae_cat:
+        verdict = "MARGINAL - improves but under 0.003 threshold; HOLD nb1561"
+    else:
+        verdict = "REJECT - blend does not beat nb1561 standalone"
+
+    np.save(PROC / "nb1622_best_oof.npy", blend_cf)
+
+    summary = {
+        "tag": "nb1622",
+        "n": int(n),
+        "rae_nb1561_catboost_bob": rae_cat,
+        "rae_nb1612_chemberta_6way_slsqp": rae_chb,
+        "pearson_p1561_p1612": pear,
+        "grid": grid_rows,
+        "best_grid_w_nb1561": best_grid["w_nb1561"],
+        "best_grid_rae": best_grid["rae"],
+        "slsqp_in_sample_w_nb1561": w_is,
+        "slsqp_in_sample_rae": rae_is,
+        "slsqp_crossfit_rae": rae_cf,
+        "slsqp_crossfit_fold_w_nb1561": [float(w) for w in w_folds],
+        "slsqp_crossfit_mean_w_nb1561": float(np.mean(w_folds)),
+        "margin_vs_nb1561": margin,
+        "rae_nb1561_minus_crossfit": rae_cat - rae_cf,
+        "beats_nb1561": beats_nb1561,
+        "verdict": verdict,
+        "nb1561_ref": 0.5155,
+        "nb1612_ref": 0.5218,
+    }
+    out_path = PROC / "nb1622_summary.json"
+    out_path.write_text(json.dumps(summary, indent=2))
+
+    # Human-readable report
+    print(f"n = {n}")
+    print(f"Pearson(nb1561_cat, nb1612_chemberta_6way) = {pear:.4f}")
+    print(f"RAE nb1561 (CatBoost BoB)            = {rae_cat:.4f}")
+    print(f"RAE nb1612 (ChemBERTa 6-way SLSQP)   = {rae_chb:.4f}")
+    print("\nGrid sweep (w = weight on nb1561 CatBoost):")
+    print(f"{'w_nb1561':>10}  {'RAE':>10}")
+    for row in grid_rows:
+        marker = "  <- best" if row["w_nb1561"] == best_grid["w_nb1561"] else ""
+        print(f"{row['w_nb1561']:>10.2f}  {row['rae']:>10.4f}{marker}")
+    print(f"\nBest grid: w_nb1561={best_grid['w_nb1561']:.2f} -> RAE {best_grid['rae']:.4f}")
+    print(f"SLSQP in-sample:   w_nb1561={w_is:.4f} -> RAE {rae_is:.4f}")
+    print(f"SLSQP 5-fold xfit: RAE {rae_cf:.4f} (mean w_nb1561 across folds = {np.mean(w_folds):.4f})")
+    print(f"Per-fold w_nb1561: {[round(w, 4) for w in w_folds]}")
+    print(f"\nBeats nb1561 by >=0.003 margin: {beats_nb1561}")
+    print(f"Verdict: {verdict}")
+    print(f"\nSaved: {out_path}")
+    print(f"Saved: {PROC / 'nb1622_best_oof.npy'}")
+
+
+if __name__ == "__main__":
+    main()

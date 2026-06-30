@@ -1,0 +1,96 @@
+{
+  "tag": "nb2430",
+  "method": "pseudo_label_test_soft_labels_weighted_residual",
+  "anchor": "chemprop_aux",
+  "anchor_in_rae": 0.6215728863514471,
+  "n_unb": 253,
+  "n_te": 513,
+  "k20_feature_dim": 20,
+  "resid_folds": 5,
+  "resid_seeds": [
+    0,
+    1,
+    7,
+    42,
+    137
+  ],
+  "std_gate": 0.05,
+  "n_high_conf_test": 513,
+  "frac_high_conf_test": 1.0,
+  "bag_std_resid_summary": {
+    "min": 0.0,
+    "median": 0.0,
+    "max": 2.220446049250313e-16,
+    "mean": 4.774716467990744e-18
+  },
+  "pseudo_weights": [
+    0.1,
+    0.3,
+    0.5
+  ],
+  "per_weight_results": [
+    {
+      "pseudo_w": 0.1,
+      "per_seed_rae": [
+        0.3560106207735077,
+        0.3529893821594139,
+        0.3534343895405784,
+        0.3588072974823188,
+        0.3560143229128433
+      ],
+      "per_seed_mean_rae": 0.3554512025737324,
+      "mean_bag_rae": 0.344758694474115,
+      "delta_vs_nb2240": -0.11534130552588501,
+      "gate_beat_nb2240": true,
+      "oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2430_oof_w0.1.npy"
+    },
+    {
+      "pseudo_w": 0.3,
+      "per_seed_rae": [
+        0.2951656241145566,
+        0.291393592503572,
+        0.29471098925118105,
+        0.29774832712968013,
+        0.2967152669408879
+      ],
+      "per_seed_mean_rae": 0.2951467599879755,
+      "mean_bag_rae": 0.2899862091486982,
+      "delta_vs_nb2240": -0.1701137908513018,
+      "gate_beat_nb2240": true,
+      "oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2430_oof_w0.3.npy"
+    },
+    {
+      "pseudo_w": 0.5,
+      "per_seed_rae": [
+        0.26261165511946427,
+        0.26223485144700454,
+        0.2598758695281501,
+        0.26660190174929554,
+        0.26230422048869956
+      ],
+      "per_seed_mean_rae": 0.2627256996665228,
+      "mean_bag_rae": 0.25981930848514256,
+      "delta_vs_nb2240": -0.20028069151485745,
+      "gate_beat_nb2240": true,
+      "oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2430_oof_w0.5.npy"
+    }
+  ],
+  "leak_audit_verdict": "PSEUDO_LABEL_LEAKAGE",
+  "leak_audit_reason": "bag_std identical to fp-noise across 5 seeds (max 2.2e-16); pseudo labels are deploy-refit residuals fitted on ALL 253 unblind, then re-injected into each fold's training matrix; fold's validation rows are predicted by a model trained on labels indirectly derived from those same rows; RAE 0.26 is in-sample, not honest cross-fit. DO NOT PROMOTE TO LADDER. Use only as ablation evidence.",
+  "lb_band_estimate_disabled": true,
+  "best_pseudo_w": 0.5,
+  "best_mean_bag_rae": 0.25981930848514256,
+  "best_delta_vs_nb2240": -0.20028069151485745,
+  "best_gate_beat_nb2240": true,
+  "nb2240_ref_oof": 0.4601,
+  "gate_margin": 0.003,
+  "verdict_vs_nb2240": "BEATS_NB2240",
+  "oof_paths_by_weight": {
+    "0.1": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2430_oof_w0.1.npy",
+    "0.3": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2430_oof_w0.3.npy",
+    "0.5": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb2430_oof_w0.5.npy"
+  },
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb2430.npy",
+  "submission_csv": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\submissions\\nb2430_pseudo_label.csv",
+  "wall_sec": 13.01
+}

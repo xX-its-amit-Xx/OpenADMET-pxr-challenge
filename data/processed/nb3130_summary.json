@@ -1,0 +1,187 @@
+{
+  "tag": "nb3130",
+  "parent_tags": [
+    "nb3070",
+    "nb3072",
+    "nb3080"
+  ],
+  "method": "equal_weight_mean_of_top3_promote_candidates",
+  "weights": {
+    "nb3070": 0.3333333333333333,
+    "nb3072": 0.3333333333333333,
+    "nb3080": 0.3333333333333333
+  },
+  "anchor_pre_unblind": true,
+  "per_parent_full_oof_rae": {
+    "nb3070": 0.4478,
+    "nb3072": 0.4478,
+    "nb3080": 0.4477
+  },
+  "anchor_leak_eq_truth_frac": {
+    "nb3070": 0.0,
+    "nb3072": 0.0,
+    "nb3080": 0.0
+  },
+  "oof_pairwise_corr": {
+    "nb3070_nb3072": 1.0,
+    "nb3070_nb3080": 0.9999,
+    "nb3072_nb3080": 0.9999
+  },
+  "full_oof_equal_mean_rae": 0.4477,
+  "n_folds": 5,
+  "kf_seeds": [
+    1141,
+    1142,
+    1143,
+    1144,
+    1145,
+    1146,
+    1147,
+    1148,
+    1149,
+    1150,
+    1151,
+    1152,
+    1153,
+    1154,
+    1155
+  ],
+  "n_seeds": 15,
+  "n_unb": 253,
+  "n_te": 513,
+  "n_unique_scaffolds": 180,
+  "seed_records": [
+    {
+      "kf_seed": 1141,
+      "pooled_rae": 0.4477,
+      "per_fold_val_rae_mean": 0.4568,
+      "per_fold_val_rae_std": 0.0656
+    },
+    {
+      "kf_seed": 1142,
+      "pooled_rae": 0.4477,
+      "per_fold_val_rae_mean": 0.4504,
+      "per_fold_val_rae_std": 0.0465
+    },
+    {
+      "kf_seed": 1143,
+      "pooled_rae": 0.4477,
+      "per_fold_val_rae_mean": 0.4808,
+      "per_fold_val_rae_std": 0.0725
+    },
+    {
+      "kf_seed": 1144,
+      "pooled_rae": 0.4477,
+      "per_fold_val_rae_mean": 0.4636,
+      "per_fold_val_rae_std": 0.0904
+    },
+    {
+      "kf_seed": 1145,
+      "pooled_rae": 0.4477,
+      "per_fold_val_rae_mean": 0.462,
+      "per_fold_val_rae_std": 0.0661
+    },
+    {
+      "kf_seed": 1146,
+      "pooled_rae": 0.4477,
+      "per_fold_val_rae_mean": 0.4504,
+      "per_fold_val_rae_std": 0.0481
+    },
+    {
+      "kf_seed": 1147,
+      "pooled_rae": 0.4477,
+      "per_fold_val_rae_mean": 0.4498,
+      "per_fold_val_rae_std": 0.046
+    },
+    {
+      "kf_seed": 1148,
+      "pooled_rae": 0.4477,
+      "per_fold_val_rae_mean": 0.4503,
+      "per_fold_val_rae_std": 0.0557
+    },
+    {
+      "kf_seed": 1149,
+      "pooled_rae": 0.4477,
+      "per_fold_val_rae_mean": 0.4529,
+      "per_fold_val_rae_std": 0.0546
+    },
+    {
+      "kf_seed": 1150,
+      "pooled_rae": 0.4477,
+      "per_fold_val_rae_mean": 0.4682,
+      "per_fold_val_rae_std": 0.0529
+    },
+    {
+      "kf_seed": 1151,
+      "pooled_rae": 0.4477,
+      "per_fold_val_rae_mean": 0.4629,
+      "per_fold_val_rae_std": 0.051
+    },
+    {
+      "kf_seed": 1152,
+      "pooled_rae": 0.4477,
+      "per_fold_val_rae_mean": 0.4591,
+      "per_fold_val_rae_std": 0.0605
+    },
+    {
+      "kf_seed": 1153,
+      "pooled_rae": 0.4477,
+      "per_fold_val_rae_mean": 0.4676,
+      "per_fold_val_rae_std": 0.0733
+    },
+    {
+      "kf_seed": 1154,
+      "pooled_rae": 0.4477,
+      "per_fold_val_rae_mean": 0.4647,
+      "per_fold_val_rae_std": 0.1192
+    },
+    {
+      "kf_seed": 1155,
+      "pooled_rae": 0.4477,
+      "per_fold_val_rae_mean": 0.4611,
+      "per_fold_val_rae_std": 0.0297
+    }
+  ],
+  "pooled_rae_array": [
+    0.4477,
+    0.4477,
+    0.4477,
+    0.4477,
+    0.4477,
+    0.4477,
+    0.4477,
+    0.4477,
+    0.4477,
+    0.4477,
+    0.4477,
+    0.4477,
+    0.4477,
+    0.4477,
+    0.4477
+  ],
+  "mean_rae": 0.4477,
+  "std_rae": 0.0,
+  "sem_rae": 0.0,
+  "ci95_low": 0.4477,
+  "ci95_high": 0.4477,
+  "median_rae": 0.4477,
+  "min_rae": 0.4477,
+  "max_rae": 0.4477,
+  "ref_nb3070": 0.4477,
+  "ref_nb3072": 0.4477,
+  "ref_nb3080": 0.4475,
+  "ref_cluster_mean": 0.4476,
+  "ref_nb3030": 0.4509,
+  "delta_vs_cluster_mean": 0.0001,
+  "delta_vs_nb3030": -0.0032,
+  "te_mean": 4.733098030090332,
+  "te_std": 0.7714602947235107,
+  "te_unb_in_sample_rae": 0.1898,
+  "pred_oof_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\nb3130_pred_oof.npy",
+  "te_npy_path": "D:\\Users\\ashenoy00000\\.windsurf\\OpenADMET-pxr-challenge\\data\\processed\\te_nb3130.npy",
+  "submission_csv": null,
+  "gate_better": 0.4475,
+  "verdict": "FAIL",
+  "ladder_action": "FAIL. nb3130 equal-weight mean of ['nb3070', 'nb3072', 'nb3080'] 15-seed mean 0.4477 >= gate 0.4475. Shift vs cluster naive avg 0.4476 = +0.0001. Keep prior PRIMARY-1.",
+  "wall_sec": 0.1
+}

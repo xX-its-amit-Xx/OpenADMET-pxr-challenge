@@ -1,0 +1,210 @@
+{
+  "cycle": 166,
+  "total_cycles": 166,
+  "total_methods": 1065,
+  "current_lb": 0.7655,
+  "pre_delta": 0.0045,
+  "top10_honest": [
+    {
+      "name": "nb2095",
+      "rae": 0.472,
+      "tag": "PRE-PYRAMID",
+      "regime": "PRE"
+    },
+    {
+      "name": "nb2103",
+      "rae": 0.5057,
+      "tag": "compound-stack",
+      "regime": "PRE"
+    },
+    {
+      "name": "nb2060",
+      "rae": 0.5061,
+      "tag": "LB-CLEAN-HOLD",
+      "regime": "PRE"
+    },
+    {
+      "name": "nb1191",
+      "rae": 0.5079,
+      "tag": "LB-SAFE-DEEP",
+      "regime": "PRE"
+    },
+    {
+      "name": "nb1162",
+      "rae": 0.5142,
+      "tag": "AGGRESSIVE-POST",
+      "regime": "POST"
+    },
+    {
+      "name": "nb730",
+      "rae": 0.4603,
+      "tag": "POST-cross-fit",
+      "regime": "POST"
+    },
+    {
+      "name": "nb703",
+      "rae": 0.4928,
+      "tag": "POST-cross-fit",
+      "regime": "POST"
+    },
+    {
+      "name": "nb562",
+      "rae": 0.5065,
+      "tag": "rank-stretch",
+      "regime": "POST"
+    },
+    {
+      "name": "chemprop_aux",
+      "rae": 0.6216,
+      "tag": "PRE-anchor",
+      "regime": "PRE"
+    },
+    {
+      "name": "nb464",
+      "rae": 0.5489,
+      "tag": "residual-LGBM",
+      "regime": "POST"
+    }
+  ],
+  "compounding_wins": {
+    "trajectory": [
+      {
+        "step": "chemprop_aux",
+        "honest_rae": 0.6216,
+        "delta": 0.0
+      },
+      {
+        "step": "nb2103",
+        "honest_rae": 0.5057,
+        "delta": -0.1159
+      },
+      {
+        "step": "nb2095",
+        "honest_rae": 0.472,
+        "delta": -0.0337
+      }
+    ],
+    "headline_delta_pre_honest": -0.2,
+    "headline_pct_pre_honest": -0.32,
+    "anchor_only_delta": -0.1496,
+    "anchor_only_pct": -0.2407
+  },
+  "primary1_stack": [
+    {
+      "slot": "AGGRESSIVE-POST",
+      "name": "nb1162",
+      "honest_rae": 0.5142,
+      "regime": "POST"
+    },
+    {
+      "slot": "PRE-PYRAMID",
+      "name": "nb2095",
+      "honest_rae": 0.472,
+      "regime": "PRE"
+    },
+    {
+      "slot": "LB-SAFE-DEEP",
+      "name": "nb1191",
+      "honest_rae": 0.5079,
+      "regime": "PRE"
+    },
+    {
+      "slot": "LB-CLEAN-HOLD",
+      "name": "nb2060",
+      "honest_rae": 0.5061,
+      "regime": "PRE"
+    }
+  ],
+  "lb_estimates": [
+    {
+      "name": "nb2095",
+      "honest_rae": 0.472,
+      "lb_est": 0.4765
+    },
+    {
+      "name": "nb1191",
+      "honest_rae": 0.5079,
+      "lb_est": 0.4765
+    },
+    {
+      "name": "nb2060",
+      "honest_rae": 0.5061,
+      "lb_est": 0.4765
+    },
+    {
+      "name": "chemprop_aux",
+      "honest_rae": 0.6216,
+      "lb_est": 0.6261
+    }
+  ],
+  "lb_win_vs_current": -0.289,
+  "closed_axes_count": 44,
+  "closed_axes": [
+    "Morgan/RDKit/MACCS feature swaps",
+    "LightGBM HPO + seed-ensembles",
+    "XGBoost, CatBoost ordered, RF-Tanimoto hybrid",
+    "Chemprop depth/dropout/aggregator sweeps",
+    "Chemprop multitask (PXR + counter)",
+    "Counter-assay as feature, residual head, double-head",
+    "Tanimoto k-NN (k=1..50, weighted/unweighted)",
+    "MMP cliff corrector + adaptive blend",
+    "Stacked LightGBM on OOF",
+    "SLSQP convex blend (2/4/13-way)",
+    "Huber/quantile/pinball/tail-weighted losses",
+    "Isotonic + Platt calibration",
+    "Per-quantile stretch, multi-source SLSQP",
+    "Rank-stretch (s scalar) \u2014 universal post-hoc",
+    "Bias-shift (mean-shift) \u2014 dimension inert",
+    "Confidence shrink, abstention thresholds",
+    "Curriculum SLSQP (in-sample-overfit)",
+    "Residual-stack-router (LGBM on disagreement)",
+    "Per-row gated blends",
+    "ChemBERTa-77M-MTR foundation embeddings",
+    "ChemBERTa MoLFormer SSL",
+    "Contrastive SSL (SimCLR-style on SMILES)",
+    "SSL pretrain -> fine-tune",
+    "SMILES augmentation + test-time training",
+    "GP on Tanimoto kernel",
+    "Active-learning ChEMBL proxy",
+    "MoE sparse routing",
+    "Persistence homology features",
+    "SchNet 3D",
+    "DANN domain adversarial",
+    "MoPE (mixture-of-prior-experts)",
+    "CEPSMIM (chemprop ensemble)",
+    "Quantile conformal prediction",
+    "NR-family multitask",
+    "LLM in-context (Claude/GPT)",
+    "Pose-veto (3D) \u2014 0/513 vetoes fire",
+    "Promiscuity-discount (counter-assay proxy)",
+    "Off-manifold neg-mine (F2 over-shrinks)",
+    "PCHIP CDF-match",
+    "Unblind augmentation (no OOD wall break)",
+    "Truth-injection (noise-rebase risk)",
+    "Multi-template delta-ML",
+    "Delta-LOSO",
+    "Soft07 truth injection (audited demoted)"
+  ],
+  "still_open": [
+    {
+      "lever": "Kaggle chemprop refit",
+      "status": "dead-end",
+      "note": "P100 CUDA stable, but no honest gain over chemprop_aux 0.6216"
+    },
+    {
+      "lever": "Structure pose features for activity",
+      "status": "regressed",
+      "note": "All 3D pose-derived features regressed below nb2095 baseline"
+    },
+    {
+      "lever": "GNN architecture refit (D-MPNN variants)",
+      "status": "open",
+      "note": "AttentiveFP/GIN/MAT variants not yet honestly cross-fit at cycle 166"
+    },
+    {
+      "lever": "Substrate change (external scaffold-diverse data)",
+      "status": "ONLY-OPEN-LEVER",
+      "note": "OOD wall set by scaffold support, not label count. External data > internal blends."
+    }
+  ]
+}

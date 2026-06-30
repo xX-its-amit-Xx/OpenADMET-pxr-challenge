@@ -1,0 +1,9 @@
+{
+  "PXR_4139_LGBM_comb": 0.5986,
+  "FXR_n500_LGBM_comb": 0.7084,
+  "PPARg_n500_LGBM_comb": 0.8062,
+  "RXRa_n500_LGBM_comb": 0.8474,
+  "LXRa_n500_LGBM_comb": 0.8208,
+  "VDR_n491_LGBM_comb": 0.6251,
+  "PXR_ChEMBL_n500_LGBM_comb": 0.755
+}

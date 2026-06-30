@@ -1,4 +1,13 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash(rm -rf __TRACKED_VAR__/subagents/workflows/* __TRACKED_VAR__/tool-results/mcp-*)",
+      "Bash(python -c \"import shutil; print\\(f'D: FREE now {shutil.disk_usage\\(\\\\\"D:/\\\\\"\\)[2]/1e6:.0f}MB'\\)\")"
+    ],
+    "additionalDirectories": [
+      "C:\\"
+    ]
+  },
   "hooks": {
     "Stop": [
       {
