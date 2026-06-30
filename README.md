@@ -1,5 +1,10 @@
 # OpenADMET PXR Blind Challenge — Activity Track
 
+> **Start here:** the clean, reason-guided repository map is
+> [`docs/repository_guide.md`](docs/repository_guide.md). It explains the final
+> submitted artifact, the `nb1333` 260-blind deploy, and how the rest of this
+> very enthusiastic experiment archive fits together.
+
 **Team:** Amit Shenoy (Northeastern University)
 **Track:** Activity prediction — pEC50 regression on 513 PXR analogs
 **Primary metric:** RAE (Relative Absolute Error); lower is better; mean predictor = ~1.0

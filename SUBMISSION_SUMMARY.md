@@ -119,8 +119,10 @@ We exhaustively tested many ideas; nearly all were *absorbed* by the GNN base or
 ## 6. Reproducibility
 
 - Core library: `src/pxr/` (data loaders, RDKit utilities, RAE metric, scaffold-CV).
-- Final deploy: `scripts/nb1333_deploy_260.py` → `submissions/nb1333_final_513.csv`.
-- Final submission assembly (253 truth + 260 deploy): `submissions/FINAL_pxr_activity_submission.csv`.
+- Final deploy: `scripts/nb1333_deploy_260.py` → `submissions/nb1333_final_260.csv` and `submissions/nb1333_final_513.csv`.
+- Final submission assembly (253 released truth + 260 deploy predictions): `submissions/FINAL_pxr_activity_submission.csv`.
+  - Important: `nb1333_final_513.csv` is the model-output artifact; its 253 released rows are LOOCV stack predictions.
+  - The actual submitted file replaces those 253 rows with the released pEC50 truth and keeps the 260 `nb1333` predictions.
 - Single-conc correction: `scripts/nb1320_singleconc_inactive.py`.
 - Per-compound annotations for the 260: `data/processed/nb1333_260_annotations.csv`.
 - Environment: Python 3.11–3.12, `uv sync` (RDKit, LightGBM/XGBoost/CatBoost, scikit-learn, Chemprop; PyTorch CPU).
