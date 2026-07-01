@@ -97,6 +97,123 @@ the same biological axis. That is why it earned a seat at the desk.
 
 ---
 
+## The Actual Project Flow
+
+The repo looks chaotic because the strategy was intentionally broad before it
+became intentionally narrow. The arc went like this:
+
+### Act I: Try basically everything
+
+The first pass was a full-spectrum model bakeoff:
+
+- 2D fingerprints and RDKit/Mordred-style descriptors.
+- LightGBM, XGBoost, CatBoost, Random Forests, ExtraTrees, Ridge, ElasticNet,
+  LAD, Huber, quantile, and other robust objectives.
+- Chemprop and other graph/message-passing models.
+- kNN, matched molecular pairs, delta-ML, scaffold priors, routers, and
+  residual correction.
+- ChemBERTa, MolFormer, UniMol, GROVER, SELFormer, CheMeleon, TabPFN, and
+  protein-aware embeddings.
+- External PXR and nuclear receptor data from ChEMBL, PubChem, Tox21/NCATS,
+  BindingDB-style sources, and literature/patent sweeps.
+- 3D and physics descriptors: xTB, AIMNet2, ANI, DFT-D4, DBSTEP, MACE, SOAP,
+  PMapper, OrbMol, strain, surface electrostatics, protonation, and friends.
+
+The point was not elegance. The point was coverage. If there was a reasonable
+architecture, data wrangling trick, representation, calibration, or ensemble
+strategy, it probably got a tuxedo, a microphone, and at least one chance to
+sing.
+
+Scientific readout: most approaches were either weaker than the strong baseline,
+absorbed by the existing ensemble, or too fragile under the 253-row honest
+Analog Set 1 validation.
+
+### Act II: Stop only making better stacks; find more information
+
+Once the pure model-search surface started saturating, the strategy shifted from
+"try a different learner" to "bake in more data." That meant:
+
+- mining public PXR and nuclear receptor activity sources;
+- using the 21k single-concentration screen as functional biology;
+- testing pseudo-labels, weak labels, synthetic labels, and oracle-like
+  auxiliary models;
+- checking whether generated or test-adjacent analogs could provide useful
+  training signal;
+- looking for external assays that measured a different but relevant observable.
+
+The key distinction was this:
+
+> More rows only help if they add the right axis. Noisy pEC50 impostors hurt.
+> A noisy but orthogonal functional activity prior helped.
+
+That is why single-conc eventually entered as `P(active)` instead of as fake
+dose-response truth.
+
+### Act III: Bake in target structure
+
+After the data-expansion path narrowed, the next useful axis was structural:
+Boltz-derived protein-ligand interaction information. Ligand-only 3D descriptors
+were often redundant, but Boltz rich-z represented a target-aware interaction
+view of PXR activation.
+
+This is the biological reason the final model gives Boltz a real role:
+
+- fingerprints describe the ligand;
+- Chemprop/GNN-style models learn ligand patterns;
+- single-conc gives functional response evidence;
+- Boltz rich-z adds target-context interaction evidence.
+
+The late `nb1400` rich-z corrector win reinforces the same point: structure
+helps when it is used as an orthogonal residual axis, not as decorative 3D
+confetti.
+
+### Act IV: What I would do next
+
+If there were more time, the next phase would be less "one more blend" and more
+"create or find new supervised structure/activity signal":
+
+- Train structure-to-activity predictors from Boltz/Chai/docking interaction
+  panels, not just ligand descriptors.
+- Generate more protein-ligand structural hypotheses for known active and
+  inactive chemotypes, then learn which interaction patterns separate them.
+- Use peptide, antibody, or protein-fragment examples with similar functional
+  groups as auxiliary structural priors, especially where they expose recurring
+  hydrogen-bond, hydrophobic, charge, or aromatic interaction motifs.
+- Train on fragment or substructure activity when available, so the model learns
+  transferable "this local group tends to activate/silence PXR in this context"
+  priors instead of only whole-molecule labels.
+- Add more target-family structural contrast: PXR versus CAR, FXR, VDR, PPARs,
+  and other nuclear receptors, but only when the endpoint can be tied back to
+  activation rather than generic binding.
+
+In late-night terms: once the orchestra has played every arrangement of the same
+song, book a new guest. In science terms: the remaining headroom is information,
+not another optimizer pass.
+
+---
+
+## Compute Used
+
+This was not one laptop valiantly wheezing under a pile of molecules. The work
+used a mixed compute stack:
+
+| Compute venue | Main role |
+|---|---|
+| Northeastern Explorer cluster | Batch experimentation, larger sweeps, and long-running scientific jobs when local compute was the bottleneck |
+| Modal | Cloud execution for heavier model/feature jobs and experiments that benefited from managed remote workers |
+| Kaggle / Google Colab | GPU-heavy notebooks, especially Boltz/cofolding, molecular foundation models, and free-GPU exploratory runs |
+| GitHub Codespaces | Remote development, repo editing, and reproducible cloud dev sessions |
+| AWS WorkSpaces | Persistent remote workstation environment for development, monitoring, and CPU-bound workflow glue |
+| Local Windows workstation | File orchestration, RDKit/GBM jobs, submission scripts, and the `C:/pxr_work` sidecar artifact workspace |
+
+The exact final deploy still depends on local/sidecar arrays under
+`C:/pxr_work/meta_stacking/`, but the experiment campaign itself was distributed
+across those compute venues. The repo is therefore both a codebase and a lab
+log: source files here, generated artifacts there, and a great deal of compute
+spent asking "does this new signal actually transfer?"
+
+---
+
 ## Final Submission, Step By Step
 
 ### 1. Define the two test partitions
