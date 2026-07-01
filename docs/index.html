@@ -20,7 +20,9 @@
           <span>PXR After Dark</span>
         </a>
         <div class="nav-links">
+          <a href="#decoder">Decoder</a>
           <a href="#final">Final</a>
+          <a href="#prep">Data</a>
           <a href="#method">Method</a>
           <a href="#validation">Validation</a>
           <a href="#flow">Flow</a>
@@ -49,9 +51,9 @@
 
         <aside class="scoreboard" aria-label="Final submission scoreboard">
           <div class="score-card big">
-            <span class="score-label">Honest 253 LOOCV RAE</span>
+            <span class="score-label">253 LOOCV RAE (validation)</span>
             <strong>0.5799</strong>
-            <span class="score-source">source: nb1333_deploy.json</span>
+            <span class="score-source">not a full-513 hidden score</span>
           </div>
           <div class="score-card">
             <span class="score-label">Rows submitted</span>
@@ -73,14 +75,74 @@
     </header>
 
     <main id="main">
+      <section id="decoder" class="section">
+        <div class="section-head">
+          <p class="eyebrow">Reviewer decoder</p>
+          <h2>What is easy to misread on first pass</h2>
+          <p>
+            Technical readers should not have to guess which numbers are
+            validation, which are deploy summaries, and which files were
+            actually submitted. This is the cheat code menu before the methods.
+          </p>
+        </div>
+
+        <div class="decoder-grid">
+          <article class="decoder-card">
+            <h3>0.5799 is not the final hidden-260 score</h3>
+            <p>
+              It is the honest leave-one-out RAE on the 253 released Analog Set
+              1 compounds. The 260 rows were still blind at submission time.
+            </p>
+          </article>
+          <article class="decoder-card">
+            <h3>The final 513 file is truth-hybrid</h3>
+            <p>
+              After Analog Set 1 labels were public, the submitted CSV used
+              those 253 released pEC50 values directly and used model
+              predictions only for the remaining 260 blind rows.
+            </p>
+          </article>
+          <article class="decoder-card">
+            <h3>RAE is the primary score</h3>
+            <p>
+              <code>RAE = sum(|y - yhat|) / sum(|y - mean(y)|)</code>. Lower is
+              better. A mean-only predictor scores 1.0 in the evaluated set.
+            </p>
+          </article>
+          <article class="decoder-card">
+            <h3>pEC50 direction matters</h3>
+            <p>
+              pEC50 is <code>-log10(EC50 in M)</code>. Higher pEC50 means
+              stronger functional activation potency.
+            </p>
+          </article>
+          <article class="decoder-card">
+            <h3>"Clean base models" means leakage-filtered</h3>
+            <p>
+              The late prediction pool was screened against the released 253;
+              vectors with near-perfect 253 behavior, including MAE below 0.05
+              on the released rows, were excluded before the final deploy blend.
+            </p>
+          </article>
+          <article class="decoder-card">
+            <h3>Validation regimes are not interchangeable</h3>
+            <p>
+              Scaffold CV, clean holdouts, 253 LOOCV, distance-weighted 253
+              clusters, and deploy-mode in-sample checks answer different
+              questions. The page labels them separately on purpose.
+            </p>
+          </article>
+        </div>
+      </section>
+
       <section id="final" class="section band">
         <div class="section-head">
           <p class="eyebrow">The final artifact</p>
           <h2>What actually went to the challenge server</h2>
           <p>
-            The final file is not a raw 513-row model dump. It is a legal
-            truth-hybrid final: released Analog Set 1 labels for the 253 known
-            rows, plus <code>nb1333</code> deploy predictions for the 260
+            The final file is not a raw 513-row model dump. It is a
+            phase-aware truth-hybrid final: released Analog Set 1 labels for
+            the 253 known rows, plus <code>nb1333</code> deploy predictions for the 260
             still-blind rows.
           </p>
         </div>
@@ -126,6 +188,122 @@
             <p class="source-line">
               Evidence:
               <a href="https://github.com/xX-its-amit-Xx/OpenADMET-pxr-challenge/blob/main/SUBMISSION_SUMMARY.md">submission summary</a>
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="prep" class="section">
+        <div class="section-head">
+          <p class="eyebrow">Data and metric prep</p>
+          <h2>Exactly what entered the model</h2>
+          <p>
+            The page's claims are all anchored to explicit data partitions and
+            metric regimes. This is the boring-but-vital part where the lab
+            coat gets buttoned correctly.
+          </p>
+        </div>
+
+        <div class="data-grid">
+          <article class="pixel-panel">
+            <h3>Raw data roles</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Dataset</th>
+                  <th>Size</th>
+                  <th>Role</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>CRC dose-response train</td>
+                  <td>4,139 compounds</td>
+                  <td>Primary pEC50 regression labels for base training.</td>
+                </tr>
+                <tr>
+                  <td>Counter-assay train</td>
+                  <td>2,859 compounds</td>
+                  <td>PXR-null/selectivity signal for auxiliary heads and artifact checks.</td>
+                </tr>
+                <tr>
+                  <td>Single-concentration screen</td>
+                  <td>21,003 rows / 10,870 compounds</td>
+                  <td>Functional activity prior converted into <code>P(active)</code>.</td>
+                </tr>
+                <tr>
+                  <td>Analog Set 1 unblind</td>
+                  <td>253 compounds</td>
+                  <td>Final correction validation; later included in deploy training for the 260.</td>
+                </tr>
+                <tr>
+                  <td>Still-blind test partition</td>
+                  <td>260 compounds</td>
+                  <td>Rows that actually needed predictions in the final submission.</td>
+                </tr>
+                <tr>
+                  <td>Boltz rich-z embeddings</td>
+                  <td>4,139 train + 513 test</td>
+                  <td>Target-aware protein-ligand structural signal.</td>
+                </tr>
+              </tbody>
+            </table>
+          </article>
+
+          <article class="pixel-panel">
+            <h3>Standard featurization</h3>
+            <ol class="step-list">
+              <li>Load challenge CSVs through <code>src/pxr/data.py</code> and normalize column names.</li>
+              <li>Parse/standardize SMILES with RDKit utilities in <code>src/pxr/chem.py</code>.</li>
+              <li>Build Morgan ECFP4 fingerprints: radius 2, 2048 bits.</li>
+              <li>Add RDKit 2D descriptors, then median-impute descriptor missing values.</li>
+              <li>Compute Bemis-Murcko scaffolds for scaffold-aware splits.</li>
+              <li>Project Boltz rich-z interaction embeddings with PCA-24 for the final structural component.</li>
+            </ol>
+          </article>
+        </div>
+
+        <div class="data-grid">
+          <article class="pixel-panel">
+            <h3>Single-conc label prep</h3>
+            <p>
+              The single-dose screen was not treated as fake pEC50. It was
+              converted into a binary activity prior per SMILES:
+            </p>
+            <pre><code>active =
+  max(log2_fc_estimate) &gt; 0.5
+  and min(fdr_bh) &lt; 0.1</code></pre>
+            <p>
+              An LGBMClassifier on Morgan + RDKit features produced
+              <code>P(active)</code>. That probability only nudged or gated the
+              final pEC50 prediction; it did not replace dose-response labels.
+            </p>
+            <p class="source-line">
+              Evidence:
+              <a href="https://github.com/xX-its-amit-Xx/OpenADMET-pxr-challenge/blob/main/scripts/nb1320_singleconc_inactive.py">nb1320_singleconc_inactive.py</a>
+            </p>
+          </article>
+
+          <article class="pixel-panel">
+            <h3>Test partitioning and metric</h3>
+            <p>
+              The 513 challenge test rows were split by molecule name:
+              <code>ub_idx</code> for the 253 rows present in the Phase-1
+              unblind file, and <code>bl_idx</code> for the remaining 260 rows.
+              Final submission assembly used truth for <code>ub_idx</code> and
+              model predictions for <code>bl_idx</code>.
+            </p>
+            <pre><code>RAE = sum(abs(y_true - y_pred))
+    / sum(abs(y_true - mean(y_true)))</code></pre>
+            <p>
+              RAE is set-relative: the denominator changes with the validation
+              set. That is why a 253 LOOCV RAE, a clean-train-holdout RAE, and
+              a public leaderboard RAE should not be mixed as if they were the
+              same scoreboard.
+            </p>
+            <p class="source-line">
+              Evidence:
+              <a href="https://github.com/xX-its-amit-Xx/OpenADMET-pxr-challenge/blob/main/src/pxr/eval.py">src/pxr/eval.py</a>
             </p>
           </article>
         </div>
@@ -179,6 +357,52 @@ if P_active &lt; 0.15
           </article>
         </div>
 
+        <div class="table-wrap pixel-panel">
+          <h3>Component-by-component method</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Component</th>
+                <th>Training / deploy input</th>
+                <th>Why it exists</th>
+                <th>Validation note</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Meta-stacker</td>
+                <td>29 prediction streams after dropping obvious leakers, including vectors with 253 MAE below 0.05.</td>
+                <td>Combines diverse GBM/GNN/embedding models without trusting any single model.</td>
+                <td>253 LOOCV stream used for honest validation; 260 stream used for deploy.</td>
+              </tr>
+              <tr>
+                <td>Tanimoto kNN residual</td>
+                <td>Nearest measured analogs in Morgan fingerprint space.</td>
+                <td>Corrects local analog neighborhoods where the global stack smooths cliffs.</td>
+                <td>Kept as a component, not a standalone predictor, because novel scaffolds weaken kNN.</td>
+              </tr>
+              <tr>
+                <td>Combined 2D correction</td>
+                <td>Morgan ECFP4 + RDKit descriptor prediction stream.</td>
+                <td>Stable low-variance ligand-only QSAR signal.</td>
+                <td>Receives only 10 percent final weight because much of its signal is redundant.</td>
+              </tr>
+              <tr>
+                <td>Boltz rich-z</td>
+                <td>PCA-24 of Boltz protein-ligand interaction embeddings plus base predictions.</td>
+                <td>Adds target-aware structural context missing from pure ligand descriptors.</td>
+                <td>Weighted at 30 percent in the final blend after 253 validation.</td>
+              </tr>
+              <tr>
+                <td>Single-conc <code>P(active)</code></td>
+                <td>Classifier trained on aggregated single-dose screen labels.</td>
+                <td>Provides orthogonal functional biology: active/inactive evidence from an assay axis.</td>
+                <td>Improved 253 RAE from 0.5977 to 0.5799 after shift plus inactive gate.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
         <div class="figure-grid">
           <figure class="pixel-panel">
             <figcaption>Figure 2. Final blend weights.</figcaption>
@@ -197,7 +421,7 @@ if P_active &lt; 0.15
           </figure>
 
           <figure class="pixel-panel">
-            <figcaption>Figure 3. Single-conc correction improved the 253 check.</figcaption>
+            <figcaption>Figure 3. Single-conc correction improved the 253 LOOCV check.</figcaption>
             <div class="bar-chart">
               <div class="bar-row">
                 <span>Base</span>
@@ -215,7 +439,7 @@ if P_active &lt; 0.15
                 <b>0.5799</b>
               </div>
             </div>
-            <p class="note">Metric is RAE; lower is better.</p>
+            <p class="note">Metric is RAE on the 253 released analogs; lower is better. "Base" means the final weighted blend before the single-conc shift/gate.</p>
             <p class="source-line">
               Evidence:
               <a href="https://github.com/xX-its-amit-Xx/OpenADMET-pxr-challenge/blob/main/data/processed/nb1320_final.json">nb1320_final.json</a>
@@ -236,12 +460,65 @@ if P_active &lt; 0.15
           </p>
         </div>
 
+        <div class="table-wrap pixel-panel">
+          <h3>Validation dictionary</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Regime</th>
+                <th>Rows scored</th>
+                <th>What it was allowed to decide</th>
+                <th>Key number shown here</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Scaffold CV</td>
+                <td>4,139 CRC train rows split by scaffold</td>
+                <td>Early model viability and leakage-resistant baseline screening.</td>
+                <td>Random splits were roughly 0.1 RAE too optimistic.</td>
+              </tr>
+              <tr>
+                <td>Clean analog holdouts</td>
+                <td>Train-derived, scaffold-disjoint holdouts</td>
+                <td>Whether a late feature/data axis transferred beyond the visible 253.</td>
+                <td>Clean holdout RAE 0.4746; use only within this regime.</td>
+              </tr>
+              <tr>
+                <td>253 LOOCV</td>
+                <td>Released Analog Set 1, one compound held out at a time</td>
+                <td>Final correction selection and honest Analog Set 1 validation.</td>
+                <td>Final stack RAE 0.5799.</td>
+              </tr>
+              <tr>
+                <td>Deploy-mode 253</td>
+                <td>Released 253 scored after fitting deploy components with those labels available</td>
+                <td>Sanity check for deploy behavior, not an honest validation metric.</td>
+                <td>In-sample RAE 0.5636.</td>
+              </tr>
+              <tr>
+                <td>Distance-weighted 253</td>
+                <td>253 clustered by Tanimoto distance</td>
+                <td>Pessimistic check for chemical interpolation optimism.</td>
+                <td>Random 0.5431 versus distance-weighted 0.6406.</td>
+              </tr>
+              <tr>
+                <td>Final 513 submitted file</td>
+                <td>253 released truth rows + 260 model-predicted rows</td>
+                <td>Actual challenge submission artifact.</td>
+                <td>No hidden-260 RAE was available at submission time.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
         <div class="validation-grid">
           <article class="claim-card">
             <h3>Clean analog holdouts</h3>
             <p>
               Five train-derived, scaffold-disjoint holdouts checked whether a
-              candidate transferred outside the visible 253 answer key.
+              candidate transferred outside the visible 253 answer key. These
+              are not directly comparable to the 253 LOOCV score.
             </p>
             <dl class="mini-metrics">
               <div><dt>253 combined RAE</dt><dd>0.6987</dd></div>
@@ -258,7 +535,8 @@ if P_active &lt; 0.15
             <h3>Distance-weighted 253 clusters</h3>
             <p>
               Tanimoto clusters made a harsher 253 split where validation rows
-              were chemically farther from training rows.
+              were chemically farther from training rows. This estimated how
+              much easier ordinary KFold looked when analogs were too close.
             </p>
             <dl class="mini-metrics">
               <div><dt>Random KFold RAE</dt><dd>0.5431</dd></div>
@@ -319,7 +597,7 @@ if P_active &lt; 0.15
                 <b>0.0116</b>
               </div>
             </div>
-            <p class="note">Coverage gap = poor-training RAE minus rich-training RAE.</p>
+            <p class="note">Coverage gap = poor-training RAE minus rich-training RAE. Larger bars mean richer public data helped more on that receptor simulation.</p>
             <p class="source-line">
               Evidence:
               <a href="https://github.com/xX-its-amit-Xx/OpenADMET-pxr-challenge/blob/main/data/processed/nb1090_mirror.json">nb1090_mirror.json</a>
@@ -360,6 +638,7 @@ if P_active &lt; 0.15
                 </div>
               </div>
             </div>
+            <p class="note">Bars in each mini-panel are scaled within that panel; the printed values are the authoritative metric.</p>
           </figure>
         </div>
 
