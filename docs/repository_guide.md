@@ -409,22 +409,163 @@ That is the final curtain call. Cue house band, fade to molecule names.
 
 ---
 
-## Validation Regimes: Do Not Mix These Numbers
+## Validation Sets: The Iteration Engine
 
-This repo contains many good numbers, suspicious numbers, and numbers wearing a
-little fake mustache. Compare only within a regime.
+The validation sets were not a scoreboard stapled onto the end of the project.
+They were the engine. Every new idea had to answer a specific scientific
+question, and each validation surface was built to catch a different way a model
+could fool us while wearing a very convincing lab coat.
 
-| Regime | What it means | Use it for |
+Golden rule: compare numbers only inside the same validation regime. A score
+from train scaffold CV, a score from the 253 released analogs, and a score from
+a matched feature gate are measuring different claims.
+
+### The validation ladder
+
+| Validation surface | Built from | Main artifacts | Question it answered | How it changed decisions |
+|---|---|---|---|---|
+| Scaffold CV | 4,139 CRC dose-response rows, grouped by Murcko scaffold | `src/pxr/eval.py` | Does a basic model generalize beyond close scaffold neighbors? | Early filter for GBMs, GNNs, fingerprints, descriptors, and multitask heads |
+| Tanimoto-OOD train holdout | 10 percent of train rows most dissimilar to the rest | `scripts/b318_tanimoto_holdout.py`, `data/processed/tanimoto_holdout_idx.npy` | Does the method survive low-neighbor-similarity chemistry? | Exposed methods that only worked when a close analog was available |
+| Clean analog-expansion holdouts | Five scaffold-disjoint train holdouts chosen to mimic the test similarity profile | `scripts/nb1127_robust_validation.py`, `data/processed/nb1127_robust_validation.json` | Is the 253 score selection-biased or does the idea transfer to never-tuned train chemistry? | Became the honest gate for late feature axes and external-data claims |
+| Matched 3-seed holdout gates | Same holdout indices reused across control and treatment models | `C:/pxr_work/mtl/ho_idx_seed*.npy`, `scripts/nb1163_gate.py`, `scripts/nb1166_gate.py`, `scripts/nb1168_gate.py` | Did the new auxiliary head or feature axis beat its exact control? | Promoted only effects that repeated across seeds instead of one lucky split |
+| Mirror datasets | FXR, PPARg, RXRa, LXRa, and PXR public analog-expansion simulations | `scripts/nb1090_mirror_datasets.py`, `data/processed/nb1090_mirror.json` | If we had richer public data for a related receptor, would coverage close the gap? | Shifted emphasis from "new architecture" to "new information axis" |
+| PRE-unblind cross-fit | Models trained before Analog Set 1 labels were released | `final_lb_report.md`, `data/processed/final_lb_candidates.json` | What would have transferred before seeing the 253 truth? | Anchored LB-faithful estimates and avoided rewriting history after unblinding |
+| 253 unblind LOOCV | Released Analog Set 1 labels, one held out at a time | `data/raw/pxr-challenge_TEST_PHASE_1_UNBLINDED.csv`, `scripts/nb1320_singleconc_inactive.py`, `scripts/nb1333_deploy_260.py` | Does the final correction work on the real analog-expansion distribution? | Selected the final single-conc shift/gate and reported the honest 0.5799 RAE |
+| Distance-weighted 253 clusters | Five clusters on the 253 by Tanimoto distance | `scripts/nb1283_distance_weighted_kfold.py`, `data/processed/nb1283_summary.json` | How optimistic is ordinary KFold when chemical neighborhoods are too similar? | Added a pessimistic LB-faithful check; random KFold looked about 0.10 RAE too friendly |
+| Leave-series-out checks | Butina-style chemical series held out together | Summarized in `SUBMISSION_SUMMARY.md` and late candidate notes | Do corrections survive whole chemical series being absent? | Kept scaffold and series transfer separate from row-level interpolation |
+| Best-of-Bag repeats | Repeated outer and inner folds, then mean/median bagging | `data/processed/nb1191_oof_summary.json`, `final_lb_report.md` | Is a candidate robust or just the funniest split in the room? | Demoted lucky seeds and promoted reproducible families |
+| Integrity audit | Prediction files checked against released truth and OOF provenance | `scripts/integrity_audit.py`, `data/processed/integrity_audit.csv`, `scripts/audit_ladder_integrity.py` | Did any `te_*.npy` silently leak the 253 truth or use in-sample predictions? | Removed contaminated anchors and forced deploy artifacts to prove their ancestry |
+| Submission and LB ladder | Submitted CSVs, public LB logs, and final submission records | `data/processed/submission_log.csv`, `data/processed/leaderboard_log.csv`, `data/processed/lb_history.csv` | How did internal estimates map onto actual challenge scoring? | Calibrated pre-unblind expectations, then became secondary once the LB froze |
+
+Tiny monologue translation: each validation set was a different heckler in the
+audience. If a model could answer all of them without sweating through the suit,
+it got to stay in the act.
+
+### Clean holdouts: the no-glamour truth serum
+
+The clean analog-expansion holdouts were built from the training set, not from
+the released 253. They were scaffold-disjoint, never tuned against, and chosen
+to resemble the test set's train-similarity profile. This mattered because once
+the 253 existed, it was very easy to accidentally create a model that learned
+the taste of the validation set instead of the chemistry.
+
+`nb1127` quantified that risk:
+
+| Quantity | Value |
+|---|---:|
+| 253 combined RAE | 0.6987 |
+| Clean holdout RAE | 0.4746 |
+| Clean holdout std | 0.0206 |
+| Gap | 0.2241 |
+
+The interpretation is not "the 253 is bad." The interpretation is that the 253
+and the clean train holdouts ask different questions. The 253 is the real
+analog-expansion distribution; the clean holdouts are a sanity check against
+over-selecting on that real distribution after it becomes visible.
+
+This is why late-stage ideas such as external-data augmentation, multitask GNN
+heads, structural features, MACE/physics descriptors, and rich-z correctors were
+often routed through matched holdout gates before they were allowed anywhere
+near deploy.
+
+### Mirror datasets: rehearsal stages in related biology
+
+The mirror datasets asked a bigger question: if the problem is data coverage,
+can we see that effect on related nuclear receptors where richer public data
+exists? `nb1090` built small analog-expansion games for FXR, PPARg, RXRa, LXRa,
+and PXR, then compared a poor 400-compound training set against a richer public
+training pool.
+
+| Target | n compounds | Test size | Poor RAE | Rich RAE | Coverage gap |
+|---|---:|---:|---:|---:|---:|
+| FXR | 2,816 | 250 | 0.7925 | 0.6324 | 0.1601 |
+| PPARg | 2,516 | 250 | 0.8339 | 0.5997 | 0.2342 |
+| RXRa | 432 | 216 | 0.7267 | 0.7267 | 0.0000 |
+| LXRa | 447 | 224 | 0.8714 | 0.8714 | 0.0000 |
+| PXR | 737 | 246 | 0.7831 | 0.7715 | 0.0116 |
+
+The readout was wonderfully annoying, which is how you know it is probably
+useful. FXR and PPARg showed that richer coverage can matter a lot. Public PXR
+did not show the same rescue, which suggested that more rows were not enough
+unless they measured the right activity axis or covered the right chemical
+neighborhoods. That helped justify the later pivot toward single-concentration
+functional biology and Boltz target-structure information.
+
+### The 253: gold standard, dangerous candy
+
+The 253 unblinded analogs were the best available proxy for the hidden 260:
+same challenge design, same analog-expansion pressure, same weird little
+activity cliffs. They were also dangerous, because once visible, they could be
+overfit by enthusiasm.
+
+So the project used them in three distinct ways:
+
+| Use | Meaning | Guardrail |
 |---|---|---|
-| Scaffold CV on train | Splits 4,139 CRC rows by scaffold | Early model development |
-| PRE-unblind cross-fit | Models trained before Analog Set 1 labels were released | LB-faithful pre-release estimates |
-| 253 LOOCV | Leave-one-out validation on released Analog Set 1 | Final correction selection |
-| Truth-hybrid final | 253 released truth + 260 blind predictions | Actual final submitted file |
-| Late gate validation | Matched holdouts over internal train rows | Deciding whether a new feature axis deserves deploy |
+| LOOCV validation | Fit on 252 released analogs, score the held-out one | Used for final correction selection |
+| Deploy-mode sanity check | Fit components with the 253 included, inspect 253 in-sample behavior | Reported separately as deploy-mode, not honest LOOCV |
+| Final submitted 513 file | Replace the 253 predictions with released truth | Legal because those labels were public at final submission time |
 
-Golden rule: if a score was tuned on the 253 and then scored on the same 253,
-the number is a rehearsal, not opening night. The postmortem notebooks exist
-largely because the repo learned this lesson the dramatic way.
+That distinction is the reason `submissions/nb1333_final_513.csv` and
+`submissions/FINAL_pxr_activity_submission.csv` are not the same object. The
+first is a model-output artifact with LOOCV predictions on the 253. The second
+is the actual submitted truth-hybrid file: 253 released labels plus 260 blind
+predictions.
+
+### Distance-weighted 253 clusters
+
+Ordinary random KFold on 253 analogs can place very similar compounds on both
+sides of the split. `nb1283` made a harsher five-cluster split by Tanimoto
+distance:
+
+| Check | Value |
+|---|---:|
+| Random KFold mean holdout-to-train similarity | 0.1478 |
+| Distance-weighted mean holdout-to-train similarity | 0.1144 |
+| Similarity delta | -0.0335 |
+| Random-KFold RAE reference | 0.5431 |
+| Distance-weighted mean-bag RAE | 0.6406 |
+| Estimated optimism gap | 0.0975 |
+
+This was the "dim the stage lights and see who can still sing" validation. It
+helped separate interpolation wins from true chemical transfer.
+
+### Integrity audits: because one perfect score is a crime scene
+
+The postmortem audited 343 models across 177 notebooks against the 253 truth.
+It found the main failure modes:
+
+| Failure mode | Observed pattern |
+|---|---|
+| Variance compression | Median prediction std 0.62 versus truth std 1.03 |
+| Novel-scaffold inactive miss | Low-activity compounds overpredicted by about +1.23 pEC50 |
+| Rare-active under-recovery | High-activity compounds underpredicted by about -0.54 pEC50 |
+| CV/stacking overfit | Train-OOF correlation with unblind 0.505, Spearman about 0.03 |
+
+After that, every serious ladder candidate needed a provenance check. The audit
+logic looked for suspicious `te_*.npy` files whose 253 subset was much better
+than matching OOF predictions, suspiciously close to truth, or otherwise
+inconsistent with how the artifact claimed to be trained. Several impressive
+anchors were downgraded after this check. The repo did not enjoy that episode,
+but it did get healthier.
+
+### The actual iteration loop
+
+This was the practical loop that drove the model search:
+
+1. Propose a new axis: architecture, descriptor, external data source,
+   synthetic label, structural feature, or post-hoc correction.
+2. Choose the validation surface that matches the claim.
+3. Compare against a matched control whenever possible.
+4. Require robustness across folds, seeds, or chemical series before promotion.
+5. Write the summary JSON or CSV so the result can be audited later.
+6. Run integrity checks before treating any deploy prediction as trustworthy.
+7. Promote only if the gain survives in the regime it claims to improve.
+
+That is why the final model is not simply "the best score we saw." It is the
+survivor of a validation gauntlet: broad architecture search, clean holdouts,
+mirror-dataset lessons, postmortem failure analysis, 253 LOOCV, single-conc
+biology, Boltz structural signal, and one last provenance check at the door.
 
 ---
 
