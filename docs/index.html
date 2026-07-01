@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PXR After Dark - Final Methods Guide</title>
+    <meta
+      name="description"
+      content="Pixel-styled, evidence-first methods page for the OpenADMET PXR activity submission."
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to methods</a>
+
+    <header class="hero">
+      <nav class="topbar" aria-label="Primary navigation">
+        <a class="brand" href="#top" aria-label="PXR After Dark home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>PXR After Dark</span>
+        </a>
+        <div class="nav-links">
+          <a href="#final">Final</a>
+          <a href="#method">Method</a>
+          <a href="#validation">Validation</a>
+          <a href="#flow">Flow</a>
+          <a href="#receipts">Receipts</a>
+        </div>
+      </nav>
+
+      <section id="top" class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">OpenADMET PXR Activity Track</p>
+          <h1>Final submission, pixel suit, lab notebook brain.</h1>
+          <p class="lede">
+            A skimmable methods page for the final PXR pEC50 submission:
+            what was submitted, why the final model made sense, and which
+            validation gates kept the model from doing fake victory laps.
+          </p>
+          <div class="hero-actions" aria-label="Documentation links">
+            <a class="button primary" href="https://github.com/xX-its-amit-Xx/OpenADMET-pxr-challenge/blob/main/docs/repository_guide.md">
+              Full repository guide
+            </a>
+            <a class="button" href="https://github.com/xX-its-amit-Xx/OpenADMET-pxr-challenge">
+              Source repository
+            </a>
+          </div>
+        </div>
+
+        <aside class="scoreboard" aria-label="Final submission scoreboard">
+          <div class="score-card big">
+            <span class="score-label">Honest 253 LOOCV RAE</span>
+            <strong>0.5799</strong>
+            <span class="score-source">source: nb1333_deploy.json</span>
+          </div>
+          <div class="score-card">
+            <span class="score-label">Rows submitted</span>
+            <strong>513</strong>
+            <span>253 truth + 260 blind preds</span>
+          </div>
+          <div class="score-card">
+            <span class="score-label">Clean base models</span>
+            <strong>29</strong>
+            <span>after leakage filter</span>
+          </div>
+          <div class="score-card">
+            <span class="score-label">Blind gate fires</span>
+            <strong>4</strong>
+            <span>inactive rescue rule</span>
+          </div>
+        </aside>
+      </section>
+    </header>
+
+    <main id="main">
+      <section id="final" class="section band">
+        <div class="section-head">
+          <p class="eyebrow">The final artifact</p>
+          <h2>What actually went to the challenge server</h2>
+          <p>
+            The final file is not a raw 513-row model dump. It is a legal
+            truth-hybrid final: released Analog Set 1 labels for the 253 known
+            rows, plus <code>nb1333</code> deploy predictions for the 260
+            still-blind rows.
+          </p>
+        </div>
+
+        <div class="artifact-grid">
+          <article class="claim-card">
+            <h3>Submitted CSV</h3>
+            <p class="claim"><code>submissions/FINAL_pxr_activity_submission.csv</code></p>
+            <dl class="mini-metrics">
+              <div><dt>Total rows</dt><dd>513</dd></div>
+              <div><dt>Released truth rows</dt><dd>253</dd></div>
+              <div><dt>Blind prediction rows</dt><dd>260</dd></div>
+            </dl>
+            <p class="source-line">
+              Evidence:
+              <a href="https://github.com/xX-its-amit-Xx/OpenADMET-pxr-challenge/blob/main/submissions/FINAL_pxr_activity_submission.csv">final CSV</a>,
+              <a href="https://github.com/xX-its-amit-Xx/OpenADMET-pxr-challenge/blob/main/data/processed/submission_log.csv">submission log</a>
+            </p>
+          </article>
+
+          <article class="claim-card">
+            <h3>260-blind deploy stream</h3>
+            <p class="claim"><code>submissions/nb1333_final_260.csv</code></p>
+            <dl class="mini-metrics">
+              <div><dt>Pred mean</dt><dd>4.873</dd></div>
+              <div><dt>Pred std</dt><dd>0.715</dd></div>
+              <div><dt>Gate flags</dt><dd>4</dd></div>
+            </dl>
+            <p class="source-line">
+              Evidence:
+              <a href="https://github.com/xX-its-amit-Xx/OpenADMET-pxr-challenge/blob/main/data/processed/nb1333_deploy.json">nb1333_deploy.json</a>
+            </p>
+          </article>
+
+          <article class="claim-card">
+            <h3>Model-output 513 file</h3>
+            <p class="claim"><code>submissions/nb1333_final_513.csv</code> is diagnostic.</p>
+            <p>
+              Its 253 released rows are LOOCV stack predictions. The final
+              submitted file replaces those 253 predictions with the released
+              labels.
+            </p>
+            <p class="source-line">
+              Evidence:
+              <a href="https://github.com/xX-its-amit-Xx/OpenADMET-pxr-challenge/blob/main/SUBMISSION_SUMMARY.md">submission summary</a>
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="method" class="section">
+        <div class="section-head">
+          <p class="eyebrow">Method, with receipts</p>
+          <h2>The final model is a small band of orthogonal signals</h2>
+          <p>
+            The final predictor kept the pieces that addressed distinct failure
+            modes: base ensemble shrinkage, local analog cliffs, target-aware
+            structure, and functional activity evidence from the single-dose
+            screen.
+          </p>
+        </div>
+
+        <div class="method-layout">
+          <figure class="pixel-panel pipeline-figure">
+            <figcaption>Figure 1. Final 260-blind inference flow.</figcaption>
+            <div class="pipeline">
+              <div class="pipe-node">29 clean<br>base models</div>
+              <div class="pipe-node">Tanimoto<br>kNN residual</div>
+              <div class="pipe-node">Combined<br>2D correction</div>
+              <div class="pipe-node">Boltz rich-z<br>interaction</div>
+              <div class="pipe-join">Weighted blend</div>
+              <div class="pipe-node accent">Single-conc<br>P(active)</div>
+              <div class="pipe-out">Final pEC50<br>for 260 blind rows</div>
+            </div>
+          </figure>
+
+          <article class="pixel-panel formula-panel">
+            <h3>Blend formula</h3>
+            <pre><code>base_blend =
+  0.40 * meta_stacker
++ 0.20 * tanimoto_knn
++ 0.10 * combined_2d
++ 0.30 * boltz_richz
+
+shifted = base_blend
+        + 0.10 * (P_active - 0.5) * 2
+
+if P_active &lt; 0.15
+   and boltz &lt; 3.2
+   and shifted &lt; 3.5:
+       pEC50 = 3.0</code></pre>
+            <p class="source-line">
+              Evidence:
+              <a href="https://github.com/xX-its-amit-Xx/OpenADMET-pxr-challenge/blob/main/scripts/nb1333_deploy_260.py">nb1333_deploy_260.py</a>
+            </p>
+          </article>
+        </div>
+
+        <div class="figure-grid">
+          <figure class="pixel-panel">
+            <figcaption>Figure 2. Final blend weights.</figcaption>
+            <div class="stacked-bar" aria-label="Blend weights">
+              <span class="seg cyan" style="--w: 40"></span>
+              <span class="seg lime" style="--w: 20"></span>
+              <span class="seg yellow" style="--w: 10"></span>
+              <span class="seg magenta" style="--w: 30"></span>
+            </div>
+            <ul class="legend-list">
+              <li><span class="dot cyan"></span>Meta-stacker: 40%</li>
+              <li><span class="dot lime"></span>Tanimoto kNN residual: 20%</li>
+              <li><span class="dot yellow"></span>Combined 2D correction: 10%</li>
+              <li><span class="dot magenta"></span>Boltz rich-z: 30%</li>
+            </ul>
+          </figure>
+
+          <figure class="pixel-panel">
+            <figcaption>Figure 3. Single-conc correction improved the 253 check.</figcaption>
+            <div class="bar-chart">
+              <div class="bar-row">
+                <span>Base</span>
+                <div class="bar-track"><i class="bar orange" style="--v: 59.77"></i></div>
+                <b>0.5977</b>
+              </div>
+              <div class="bar-row">
+                <span>Shift</span>
+                <div class="bar-track"><i class="bar cyan" style="--v: 58.83"></i></div>
+                <b>0.5883</b>
+              </div>
+              <div class="bar-row">
+                <span>Final gate</span>
+                <div class="bar-track"><i class="bar lime" style="--v: 57.99"></i></div>
+                <b>0.5799</b>
+              </div>
+            </div>
+            <p class="note">Metric is RAE; lower is better.</p>
+            <p class="source-line">
+              Evidence:
+              <a href="https://github.com/xX-its-amit-Xx/OpenADMET-pxr-challenge/blob/main/data/processed/nb1320_final.json">nb1320_final.json</a>
+            </p>
+          </figure>
+        </div>
+      </section>
+
+      <section id="validation" class="section band">
+        <div class="section-head">
+          <p class="eyebrow">Validation gauntlet</p>
+          <h2>The model iterated by passing the right test for each claim</h2>
+          <p>
+            Validation was the steering wheel. Architecture claims went through
+            scaffold or clean holdout checks. External-data claims went through
+            mirror datasets. Final correction claims went through 253 LOOCV and
+            integrity audits.
+          </p>
+        </div>
+
+        <div class="validation-grid">
+          <article class="claim-card">
+            <h3>Clean analog holdouts</h3>
+            <p>
+              Five train-derived, scaffold-disjoint holdouts checked whether a
+              candidate transferred outside the visible 253 answer key.
+            </p>
+            <dl class="mini-metrics">
+              <div><dt>253 combined RAE</dt><dd>0.6987</dd></div>
+              <div><dt>Clean holdout RAE</dt><dd>0.4746</dd></div>
+              <div><dt>Gap</dt><dd>0.2241</dd></div>
+            </dl>
+            <p class="source-line">
+              Evidence:
+              <a href="https://github.com/xX-its-amit-Xx/OpenADMET-pxr-challenge/blob/main/data/processed/nb1127_robust_validation.json">nb1127_robust_validation.json</a>
+            </p>
+          </article>
+
+          <article class="claim-card">
+            <h3>Distance-weighted 253 clusters</h3>
+            <p>
+              Tanimoto clusters made a harsher 253 split where validation rows
+              were chemically farther from training rows.
+            </p>
+            <dl class="mini-metrics">
+              <div><dt>Random KFold RAE</dt><dd>0.5431</dd></div>
+              <div><dt>DW mean-bag RAE</dt><dd>0.6406</dd></div>
+              <div><dt>Optimism gap</dt><dd>0.0975</dd></div>
+            </dl>
+            <p class="source-line">
+              Evidence:
+              <a href="https://github.com/xX-its-amit-Xx/OpenADMET-pxr-challenge/blob/main/data/processed/nb1283_summary.json">nb1283_summary.json</a>
+            </p>
+          </article>
+
+          <article class="claim-card">
+            <h3>Integrity audits</h3>
+            <p>
+              Prediction arrays were checked for suspicious 253 performance,
+              OOF/provenance mismatches, and silent leakage.
+            </p>
+            <dl class="mini-metrics">
+              <div><dt>Models audited</dt><dd>343</dd></div>
+              <div><dt>Notebooks audited</dt><dd>177</dd></div>
+              <div><dt>Median pred std</dt><dd>0.62</dd></div>
+            </dl>
+            <p class="source-line">
+              Evidence:
+              <a href="https://github.com/xX-its-amit-Xx/OpenADMET-pxr-challenge/blob/main/analysis/postmortem/README.md">postmortem README</a>
+            </p>
+          </article>
+        </div>
+
+        <div class="figure-grid">
+          <figure class="pixel-panel">
+            <figcaption>Figure 4. Mirror datasets showed when more coverage helps.</figcaption>
+            <div class="bar-chart">
+              <div class="bar-row">
+                <span>FXR</span>
+                <div class="bar-track"><i class="bar cyan" style="--v: 64"></i></div>
+                <b>0.1601</b>
+              </div>
+              <div class="bar-row">
+                <span>PPARg</span>
+                <div class="bar-track"><i class="bar magenta" style="--v: 94"></i></div>
+                <b>0.2342</b>
+              </div>
+              <div class="bar-row">
+                <span>RXRa</span>
+                <div class="bar-track"><i class="bar yellow" style="--v: 0"></i></div>
+                <b>0.0000</b>
+              </div>
+              <div class="bar-row">
+                <span>LXRa</span>
+                <div class="bar-track"><i class="bar yellow" style="--v: 0"></i></div>
+                <b>0.0000</b>
+              </div>
+              <div class="bar-row">
+                <span>PXR</span>
+                <div class="bar-track"><i class="bar lime" style="--v: 5"></i></div>
+                <b>0.0116</b>
+              </div>
+            </div>
+            <p class="note">Coverage gap = poor-training RAE minus rich-training RAE.</p>
+            <p class="source-line">
+              Evidence:
+              <a href="https://github.com/xX-its-amit-Xx/OpenADMET-pxr-challenge/blob/main/data/processed/nb1090_mirror.json">nb1090_mirror.json</a>
+            </p>
+          </figure>
+
+          <figure class="pixel-panel">
+            <figcaption>Figure 5. Harsher 253 clusters exposed random-KFold optimism.</figcaption>
+            <div class="split-figure">
+              <div>
+                <h4>RAE</h4>
+                <div class="bar-chart">
+                  <div class="bar-row">
+                    <span>Random</span>
+                    <div class="bar-track"><i class="bar orange" style="--v: 54.31"></i></div>
+                    <b>0.5431</b>
+                  </div>
+                  <div class="bar-row">
+                    <span>DW</span>
+                    <div class="bar-track"><i class="bar magenta" style="--v: 64.06"></i></div>
+                    <b>0.6406</b>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h4>Mean holdout-to-train similarity</h4>
+                <div class="bar-chart">
+                  <div class="bar-row">
+                    <span>Random</span>
+                    <div class="bar-track"><i class="bar cyan" style="--v: 74"></i></div>
+                    <b>0.1478</b>
+                  </div>
+                  <div class="bar-row">
+                    <span>DW</span>
+                    <div class="bar-track"><i class="bar lime" style="--v: 57"></i></div>
+                    <b>0.1144</b>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </figure>
+        </div>
+
+        <div class="table-wrap pixel-panel">
+          <h3>Validation surfaces by claim type</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Claim</th>
+                <th>Validation surface</th>
+                <th>Decision rule</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>New learner or representation</td>
+                <td>Scaffold CV, Tanimoto-OOD, clean train holdout</td>
+                <td>Promote only if it survives chemistry shift, not just random split comfort.</td>
+              </tr>
+              <tr>
+                <td>External or synthetic data</td>
+                <td>Mirror datasets, matched clean holdouts</td>
+                <td>Keep only data that adds the right axis, not noisy pEC50 cosplay.</td>
+              </tr>
+              <tr>
+                <td>Final 253 correction</td>
+                <td>253 LOOCV, distance-weighted 253 clusters</td>
+                <td>Require an honest held-out score and a pessimistic transfer check.</td>
+              </tr>
+              <tr>
+                <td>Deploy prediction array</td>
+                <td>Integrity audit and OOF/provenance checks</td>
+                <td>Reject suspicious <code>te_*.npy</code> files before they reach the submission ladder.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="flow" class="section">
+        <div class="section-head">
+          <p class="eyebrow">Project arc</p>
+          <h2>From "try every architecture" to "find better information"</h2>
+          <p>
+            The repository is big because the search was intentionally broad.
+            The final model is narrow because the validation gates made the
+            signal hierarchy clear.
+          </p>
+        </div>
+
+        <div class="quest-line">
+          <article class="quest-card">
+            <span class="level">Level 1</span>
+            <h3>Try basically everything</h3>
+            <p>
+              GBMs, GNNs, Chemprop, kNN, foundation embeddings, physics
+              descriptors, external data, calibration, routers, and many
+              ensembles got a turn under the lights.
+            </p>
+          </article>
+          <article class="quest-card">
+            <span class="level">Level 2</span>
+            <h3>Stop only stacking</h3>
+            <p>
+              Once molecule-only features saturated, the campaign shifted to
+              synthetic labels, weak labels, external assays, and public data.
+            </p>
+          </article>
+          <article class="quest-card">
+            <span class="level">Level 3</span>
+            <h3>Bake in biology</h3>
+            <p>
+              Single-concentration PXR response became a functional activity
+              prior instead of fake dose-response truth.
+            </p>
+          </article>
+          <article class="quest-card">
+            <span class="level">Level 4</span>
+            <h3>Add target structure</h3>
+            <p>
+              Boltz rich-z gave the final model target-aware interaction signal
+              that ligand-only descriptors did not fully contain.
+            </p>
+          </article>
+        </div>
+
+        <div class="compute pixel-panel">
+          <h3>Compute used</h3>
+          <ul class="chip-list">
+            <li>Northeastern Explorer cluster</li>
+            <li>Modal</li>
+            <li>Kaggle / Google Colab</li>
+            <li>GitHub Codespaces</li>
+            <li>AWS WorkSpaces</li>
+            <li>Local Windows workstation</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="receipts" class="section band">
+        <div class="section-head">
+          <p class="eyebrow">Fast audit trail</p>
+          <h2>Sources worth opening first</h2>
+        </div>
+        <div class="receipt-grid">
+          <a class="receipt" href="https://github.com/xX-its-amit-Xx/OpenADMET-pxr-challenge/blob/main/docs/repository_guide.md">
+            <strong>repository_guide.md</strong>
+            <span>Full reason-guided repo map and final submission walkthrough.</span>
+          </a>
+          <a class="receipt" href="https://github.com/xX-its-amit-Xx/OpenADMET-pxr-challenge/blob/main/SUBMISSION_SUMMARY.md">
+            <strong>SUBMISSION_SUMMARY.md</strong>
+            <span>Concise final submission summary.</span>
+          </a>
+          <a class="receipt" href="https://github.com/xX-its-amit-Xx/OpenADMET-pxr-challenge/blob/main/scripts/nb1333_deploy_260.py">
+            <strong>nb1333_deploy_260.py</strong>
+            <span>Final 260-blind deploy logic.</span>
+          </a>
+          <a class="receipt" href="https://github.com/xX-its-amit-Xx/OpenADMET-pxr-challenge/blob/main/scripts/nb1320_singleconc_inactive.py">
+            <strong>nb1320_singleconc_inactive.py</strong>
+            <span>Single-conc classifier, shift, and inactive gate.</span>
+          </a>
+          <a class="receipt" href="https://github.com/xX-its-amit-Xx/OpenADMET-pxr-challenge/blob/main/analysis/postmortem/README.md">
+            <strong>postmortem README</strong>
+            <span>Why CV lied and what failed on the 253.</span>
+          </a>
+          <a class="receipt" href="https://github.com/xX-its-amit-Xx/OpenADMET-pxr-challenge/blob/main/data/processed/nb1333_deploy.json">
+            <strong>nb1333_deploy.json</strong>
+            <span>Final deploy metrics used on this page.</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        Built for scientists skimming methods and for the part of the lab that
+        still wants the scoreboard to blink.
+      </p>
+      <a href="#top">Back to top</a>
+    </footer>
+  </body>
+</html>

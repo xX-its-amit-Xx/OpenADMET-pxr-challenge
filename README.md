@@ -1,9 +1,10 @@
 # OpenADMET PXR Blind Challenge — Activity Track
 
-> **Start here:** the clean, reason-guided repository map is
-> [`docs/repository_guide.md`](docs/repository_guide.md). It explains the final
-> submitted artifact, the `nb1333` 260-blind deploy, and how the rest of this
-> very enthusiastic experiment archive fits together.
+> **GitHub Pages methods page:** https://xx-its-amit-xx.github.io/OpenADMET-pxr-challenge/
+>
+> Start there for the pixel-styled, scientist-skimmable final methods guide with
+> metrics and figures embedded next to the claims. The full reason-guided repo
+> map is still in [`docs/repository_guide.md`](docs/repository_guide.md).
 
 **Team:** Amit Shenoy (Northeastern University)
 **Track:** Activity prediction — pEC50 regression on 513 PXR analogs
