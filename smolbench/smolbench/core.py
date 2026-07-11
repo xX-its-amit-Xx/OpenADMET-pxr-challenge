@@ -203,7 +203,7 @@ def _insights(results, n, cv):
     if len(results):
         worst_gap = results["random_cv_optimism"].min()  # most negative = scaffold much harder
         if worst_gap < -0.05:
-            out.append(f"[!] random-CV is ~{-worst_gap:.2f} RAE optimistic vs scaffold-CV — the test likely "
+            out.append(f"[!] random-CV is ~{-worst_gap:.2f} RAE optimistic vs scaffold-CV - the test likely "
                        "contains novel chemistry. Trust the scaffold-CV numbers only.")
         spread = results.groupby("model")["RAE"].min()
         out.append(f"Best model family: {spread.idxmin()} (RAE {spread.min():.3f}). "

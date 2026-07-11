@@ -1,0 +1,31 @@
+featurizer,prep,model,RAE,MAE,RMSE,R2,Spearman,Kendall,random_cv_optimism,params
+rdkit_desc,standard,histgbm,0.6185,0.5321,0.7354,0.5684,0.7087,0.52,0.01,"{'learning_rate': 0.03, 'max_iter': 400, 'l2_regularization': 1.0}"
+rdkit_desc,standard,svr,0.619,0.5325,0.7454,0.5565,0.7172,0.5266,0.0112,"{'C': 1, 'gamma': 'scale'}"
+rdkit_desc,standard,lgbm,0.6199,0.5332,0.7369,0.5666,0.7057,0.5171,0.0109,"{'n_estimators': 500, 'num_leaves': 31, 'learning_rate': 0.03}"
+rdkit_desc,standard,rf,0.6403,0.5508,0.7541,0.5461,0.694,0.5055,0.005,"{'n_estimators': 400, 'max_features': 0.3}"
+atompair,pca200,svr,0.6682,0.5748,0.7885,0.5038,0.668,0.482,0.0017,"{'C': 1, 'gamma': 'scale'}"
+morgan,standard,histgbm,0.6826,0.5871,0.7815,0.5126,0.669,0.4817,0.0066,"{'learning_rate': 0.03, 'max_iter': 400, 'l2_regularization': 1.0}"
+morgan,standard,lgbm,0.6832,0.5877,0.7811,0.5131,0.6684,0.4812,0.0066,"{'n_estimators': 500, 'num_leaves': 63, 'learning_rate': 0.03}"
+atompair,standard,lgbm,0.6857,0.5899,0.7912,0.5003,0.6608,0.4757,0.0112,"{'n_estimators': 500, 'num_leaves': 31, 'learning_rate': 0.03}"
+atompair,standard,histgbm,0.6863,0.5904,0.7925,0.4987,0.6597,0.4744,0.0072,"{'learning_rate': 0.03, 'max_iter': 400, 'l2_regularization': 1.0}"
+rdkit_desc,standard,knn,0.7098,0.6106,0.8318,0.4478,0.6058,0.4303,0.0134,"{'n_neighbors': 9, 'weights': 'distance'}"
+maccs,standard,svr,0.7172,0.617,0.8448,0.4304,0.6203,0.4441,0.0067,"{'C': 1, 'gamma': 'scale'}"
+atompair,pca200,ridge,0.7196,0.619,0.8216,0.4612,0.639,0.4587,0.0014,{'alpha': 100}
+maccs,standard,lgbm,0.7292,0.6273,0.841,0.4356,0.6136,0.438,0.011,"{'n_estimators': 500, 'num_leaves': 31, 'learning_rate': 0.03}"
+morgan,pca200,svr,0.7302,0.6281,0.842,0.4342,0.6251,0.446,0.0099,"{'C': 1, 'gamma': 'scale'}"
+maccs,standard,histgbm,0.7307,0.6285,0.8429,0.4329,0.6131,0.4373,0.0142,"{'learning_rate': 0.03, 'max_iter': 400, 'l2_regularization': 0.0}"
+erg,standard,histgbm,0.7384,0.6352,0.843,0.4328,0.601,0.4246,0.006,"{'learning_rate': 0.03, 'max_iter': 400, 'l2_regularization': 0.0}"
+erg,standard,lgbm,0.7418,0.6381,0.8458,0.429,0.5992,0.4233,0.0082,"{'n_estimators': 500, 'num_leaves': 31, 'learning_rate': 0.03}"
+morgan,standard,rf,0.744,0.64,0.8459,0.429,0.6128,0.4351,0.0157,"{'n_estimators': 400, 'max_features': 0.3}"
+maccs,standard,ridge,0.7589,0.6528,0.864,0.4043,0.5981,0.4249,0.0051,{'alpha': 100}
+atompair,standard,rf,0.7618,0.6553,0.8588,0.4113,0.6117,0.4346,0.006,"{'n_estimators': 400, 'max_features': 0.3}"
+maccs,standard,rf,0.7647,0.6578,0.8635,0.405,0.5906,0.4194,0.0123,"{'n_estimators': 400, 'max_features': 0.3}"
+erg,standard,rf,0.7657,0.6586,0.8641,0.4041,0.5749,0.4041,0.0059,"{'n_estimators': 400, 'max_features': 0.3}"
+erg,pca200,svr,0.7741,0.6659,0.8876,0.3712,0.5757,0.4041,0.0109,"{'C': 1, 'gamma': 'scale'}"
+morgan,pca200,ridge,0.7887,0.6785,0.8864,0.373,0.5886,0.4156,0.0119,{'alpha': 0.1}
+atompair,pca200,knn,0.8106,0.6973,0.8982,0.3561,0.5492,0.3845,-0.0011,"{'n_neighbors': 9, 'weights': 'distance'}"
+maccs,standard,knn,0.828,0.7122,0.9296,0.3103,0.5058,0.3527,0.0152,"{'n_neighbors': 9, 'weights': 'distance'}"
+erg,pca200,knn,0.8283,0.7125,0.9386,0.2969,0.4948,0.3436,0.0095,"{'n_neighbors': 9, 'weights': 'distance'}"
+erg,pca200,ridge,0.8286,0.7128,0.9309,0.3084,0.551,0.3852,0.0023,{'alpha': 1000}
+rdkit_desc,standard,ridge,0.9661,0.8311,17.2318,-235.9765,0.692,0.5076,0.0304,{'alpha': 1000}
+morgan,pca200,knn,1.6299,1.4021,1.6919,-1.2845,0.1896,0.129,-0.0054,"{'n_neighbors': 3, 'weights': 'distance'}"

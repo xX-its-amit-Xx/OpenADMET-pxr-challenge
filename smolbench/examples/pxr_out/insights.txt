@@ -1,0 +1,3 @@
+Best model family: histgbm (RAE 0.619). Model choice spans 0.101 RAE.
+Best featurizer: rdkit_desc (RAE 0.619).
+Recommended config: rdkit_desc + standard + histgbm (scaffold-CV RAE 0.619, MAE 0.532).

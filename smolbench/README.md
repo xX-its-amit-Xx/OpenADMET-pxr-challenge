@@ -80,12 +80,25 @@ sb.register_model("my_model", lambda **k: MyRegressor(**k), grid=[{"alpha": 1}])
   novel chemistry and the random number is a lie. It reports the exact gap.
 - Best model family / best featurizer / recommended config, with the honest scaffold-CV RAE.
 
-## Worked example
+## Worked example (real, reproducible)
 
 `examples/run_pxr.py` runs the full pipeline on the OpenADMET PXR activity data (4,392
-train → 260 truly-blind test) and reproduces the finding that a **disciplined
-scaffold-CV-selected model beats a hand-tuned stack** on the blind set. See
-`examples/pxr_out/` for the generated figures and results.
+train → 260 truly-blind test). 30 configurations, ~50 min on CPU. It auto-selected
+`rdkit_desc + histgbm` by honest scaffold-CV and, on the **truly-blind** 260 held out until
+the challenge ended, scored:
+
+| smolbench auto-baseline (drop-in features only) | RAE | MAE | R² | Spearman |
+|---|---|---|---|---|
+| best single config (`rdkit_desc + histgbm`) — scaffold-CV | 0.619 | 0.532 | 0.57 | 0.71 |
+| **top-5 ensemble + isotonic — on the blind 260** | **0.747** | **0.528** | 0.40 | 0.73 |
+
+That MAE 0.53 comes from **nothing but RDKit fingerprints + sklearn**, fully automated.
+(Our full challenge pipeline — adding Boltz cofolding, a single-concentration functional
+screen, and a Chemprop GNN — reached MAE 0.47, but that took ~1,800 experiments; smolbench
+gets you 90% of the way in one function call.) Generated figures live in `examples/pxr_out/`:
+
+![featurizer x model heatmap](examples/pxr_out/heatmap_featurizer_model.png)
+![blind-set predictions](examples/pxr_out/test_pred_vs_truth.png)
 
 ## Drop into DeepChem
 
