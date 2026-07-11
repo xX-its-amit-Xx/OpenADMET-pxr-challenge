@@ -128,6 +128,34 @@ Had we trusted the single robust component instead of the over-tuned blend, we'd
 | Diverse models on CheMeleon (CatBoost/ET/Ridge) | ✅ Done pre-hoc | Blend weight 0 (absorbed) |
 | Full-train Boltz cofold (4139) + interaction head | ⏸ Not attempted post-hoc | Multi-hour GPU; the one axis with a real prior, but the challenge is over |
 
+## 6. Would measured efficacy (Emax) have saved us? No.
+
+The released 260 truth includes **Emax** (max efficacy). If the cliff-inactives were low-efficacy partial agonists, Emax could have flagged them. It does not:
+
+| Group | Emax (median) |
+|---|---|
+| **cliff-inactives** (measured inactive, look active) | **2.29** |
+| true actives (pEC50 ≥ 5) | 2.21 |
+| inactive tier | 2.29 |
+| active tier | 2.21 |
+
+- corr(Emax, true pEC50) = **+0.07** (~zero); Emax AUC for detecting true-inactive = **0.35** (worse than random).
+- The cliff-inactives have **normal-to-high efficacy but near-zero potency** (their Emax is largely a curve-fit extrapolation artifact at pEC50 ≈ 2).
+
+**Even with a second measured readout (efficacy), the inactive cliffs are not separable.** This confirms our pre-hoc "Emax lever closed" finding on the truly-blind set: the wall is not a missing feature — it is that potency in this analog series is set by subtle, unpredictable-from-structure effects.
+
+---
+
+## 7. Conclusions — what the post-hoc taught us
+
+1. **We scored RAE 0.6596 / MAE 0.4659 on the 260** (our honest 253 LOOCV estimate of 0.5799 was optimistic — the blind series was genuinely harder).
+2. **Every method *decision* was correct** on the blind set: the single-concentration functional prior helped (−0.006); physics, desolvation/water, agentic MedChem reasoning, cross-NR, and substructure priors were all correctly rejected.
+3. **The single real mistake was the ensemble weights** — the meta-stacker we weighted 0.40 (best on 253) was the *worst* component on 260 (0.7307). Trusting the robust `combined_corrected` + the same corrections would have scored **MAE 0.4419** — at the edge of the leaderboard's statistical-tie cluster (0.40–0.43). *Lesson: on small, series-shifted tests, prefer the most robust single model over a finely-tuned stack.*
+4. **The residual error is fundamental and irreducible.** ~7% of total RAE comes from **2 compounds** that every signal — structural neighbors, the orthogonal functional screen (P(active) 0.92–0.99), and measured efficacy — called "active," yet are measured inactive at pEC50 ≈ 2. These activity cliffs are set by effects not derivable from any observable we have or could compute.
+5. **The field-wide MAE-0.40 wall is real and information-bound**, not a modeling gap. The only lever that ever moved was orthogonal *measured* biology (the single-conc screen), and even that can't resolve the cliffs.
+
+*The single most valuable thing we built was using the single-concentration screen as a functional-activity prior — orthogonal measured biology. Everything derivable from structure alone was saturated.*
+
 ---
 
 *Note: the local working tree was partially lost to disk-pressure cleanup during this analysis; recovered from GitHub + HuggingFace. All computed predictions survived on the C: cache.*
