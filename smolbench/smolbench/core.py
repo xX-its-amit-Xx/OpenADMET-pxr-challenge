@@ -199,7 +199,7 @@ def _insights(results, n, cv):
     out = []
     if n < 500:
         out.append(f"[!] SMALL-N ({n} train). Prefer the single most ROBUST model over a finely-tuned "
-                   "stack — tuned ensembles overfit and lose on series-shifted test sets.")
+                   "stack - tuned ensembles overfit and lose on series-shifted test sets.")
     if len(results):
         worst_gap = results["random_cv_optimism"].min()  # most negative = scaffold much harder
         if worst_gap < -0.05:

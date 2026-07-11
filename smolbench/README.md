@@ -70,6 +70,29 @@ def my_fp(smiles): ...            # -> np.ndarray (n, d)
 sb.register_model("my_model", lambda **k: MyRegressor(**k), grid=[{"alpha": 1}])
 ```
 
+## Command line
+
+```bash
+smolbench train.csv test.csv --smiles SMILES --target pEC50 --cv scaffold --out out/
+smolbench train.csv test.csv --target pEC50 --truth measured_pEC50   # add metrics+figures
+smolbench --list                                                     # show featurizers/models
+smolbench train.csv --featurizers all --models all --target y        # kitchen sink
+```
+
+## Don't get fooled by seed luck: `stability_check`
+
+A single CV split's RAE has real variance. Before you declare a "winner", check it clears
+the noise band over many seeds (the deep-N lesson):
+
+```python
+best = res.results.iloc[0].to_dict()
+st = sb.stability_check("train.csv", best, target_col="pEC50", n_seeds=15)
+# -> {'rae_mean': 0.619, 'rae_std': 0.004, 'rae_ci95': [...], ...}
+
+cmp = sb.compare_top("train.csv", res, target_col="pEC50", k=3, n_seeds=15)
+# adds a 'distinguishable_from_best' column: configs within 1 std of #1 are NOT really better
+```
+
 ## The small-data guardrails (why this exists)
 
 `res.insights` auto-flags, e.g.:

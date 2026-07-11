@@ -27,6 +27,9 @@ all = ["lightgbm", "xgboost", "catboost"]
 [project.urls]
 Homepage = "https://github.com/xX-its-amit-Xx/OpenADMET-pxr-challenge"
 
+[project.scripts]
+smolbench = "smolbench.__main__:main"
+
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["smolbench*"]

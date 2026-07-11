@@ -25,8 +25,10 @@ from .featurizers import featurize, available_featurizers, register_featurizer, 
 from .models import available_models, register_model, MODELS
 from .cv import make_folds
 from .metrics import all_metrics, rae, mae, r2
+from .stability import stability_check, compare_top
 
 __version__ = "0.1.0"
 __all__ = ["benchmark", "BenchmarkResult", "make_figures", "text_report", "featurize",
            "available_featurizers", "register_featurizer", "available_models",
-           "register_model", "make_folds", "all_metrics", "rae", "mae", "r2", "PREPS"]
+           "register_model", "make_folds", "all_metrics", "rae", "mae", "r2", "PREPS",
+           "stability_check", "compare_top"]
