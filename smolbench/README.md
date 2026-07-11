@@ -129,5 +129,19 @@ gets you 90% of the way in one function call.) Generated figures live in `exampl
 numpy/pandas — so it slots into a DeepChem pipeline as a model/featurizer selection step,
 or runs standalone. The featurizer and model registries mirror DeepChem's plug-in style.
 
+A **DeepChem-native** version (using DeepChem's own featurizers/splitters, no external
+dep) has been contributed upstream:
+**[deepchem/deepchem#5054](https://github.com/deepchem/deepchem/pull/5054)** — see
+[`deepchem_integration/`](deepchem_integration/).
+
+## PyPI
+
+Package builds cleanly (`python -m build`; `twine check` passes). Publish with:
+
+```bash
+python -m build
+twine upload dist/*        # requires a PyPI API token
+```
+
 ## License
 MIT.
