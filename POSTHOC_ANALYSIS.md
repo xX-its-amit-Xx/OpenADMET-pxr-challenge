@@ -128,6 +128,35 @@ Had we trusted the single robust component instead of the over-tuned blend, we'd
 | Diverse models on CheMeleon (CatBoost/ET/Ridge) | ✅ Done pre-hoc | Blend weight 0 (absorbed) |
 | Full-train Boltz cofold (4139) + interaction head | ⏸ Not attempted post-hoc | Multi-hour GPU; the one axis with a real prior, but the challenge is over |
 
+## 5b. Post-hoc method exploration — what would actually have worked
+
+With the 260 truth known, we exhaustively tested unexplored levers (all **trained on the 253, applied to the 260** — honest series-transfer, not oracle):
+
+### The cliffs are ~80% detectable — abstention was a real lever we missed
+| Cliff-detector signal | AUC (detect over-predicted inactives) |
+|---|---|
+| **Boltz cofold prediction** | **0.841** |
+| single-conc P(active) | 0.835 |
+| learned GBM (all features) | 0.790 in-sample / **0.712 transferred 253→260** |
+| structural similarity / neighbor pEC50 | ~0.50 (useless) |
+
+The Boltz cofold embedding *knows* which structurally-active-looking compounds are actually inactive — because it models the binding pose, not just 2D structure. A **learned cliff-abstention** (floor detected cliffs) honestly improved the blind score.
+
+### The best model we *could* have deployed (all honest, series-transferred)
+| Model | 260 RAE | 260 MAE |
+|---|---|---|
+| **What we actually submitted** | 0.6596 | 0.4659 |
+| robust component (`combined_corrected`) | 0.6318 | 0.4463 |
+| + single-conc shift | 0.6241 | — |
+| **+ honest isotonic calibration (fit on 253)** | **0.6167** | ~0.44 |
+| + cliff-abstention floor | 0.6206 | **0.4384** |
+| *oracle: optimal blend* | 0.6286 | 0.4440 |
+| *oracle: perfect inactives* | 0.4930 | — |
+
+**We left ~0.043 RAE / ~0.02 MAE on the table.** Three levers we had but underused: (1) trust the robust single component over the 253-overfit stack; (2) honest isotonic calibration transfers across series (−0.010); (3) cliff-abstention using Boltz+single-conc (−0.010). None are exotic — they're disciplined post-hoc calibration + the abstention lever the logs flagged but never fully deployed.
+
+**But the ceiling is still the inactive tail:** even the oracle-optimal blend is only 0.6286; the only way below ~0.60 is resolving the inactive cliffs (oracle 0.4930), and detection caps at AUC ~0.71 on transfer — so realistically ~0.60 is the achievable floor with everything we have.
+
 ## 6. Would measured efficacy (Emax) have saved us? No.
 
 The released 260 truth includes **Emax** (max efficacy). If the cliff-inactives were low-efficacy partial agonists, Emax could have flagged them. It does not:
