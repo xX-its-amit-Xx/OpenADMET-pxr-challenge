@@ -126,7 +126,10 @@ Had we trusted the single robust component instead of the over-tuned blend, we'd
 | **TabPFN-on-CheMeleon** | ✅ **Built & scored** (API key provided) | **RAE 0.7329 / MAE 0.5177 — worse than a plain component; blend weight 0 (fully absorbed).** The much-cited "winner technique," run correctly, does not transfer to PXR. |
 | **CheMeleon deep-ensemble** (fresh D-MPNN fine-tune) | 🔬 On Kaggle GPU | *(memory + the two results above: CheMeleon-based models are already absorbed on this task; low prior)* |
 | Diverse models on CheMeleon (CatBoost/ET/Ridge) | ✅ Done pre-hoc | Blend weight 0 (absorbed) |
-| Full-train Boltz cofold (4139) + interaction head | ⏸ Not attempted post-hoc | Multi-hour GPU; the one axis with a real prior, but the challenge is over |
+| Full-train Boltz cofold (4139) + interaction head | ✅ Built & scored | −0.006 on `comb` (0.6318 → 0.6255); one real orthogonal axis (see §5b) |
+| **3-head model** (PXR + assay-noise + activity-cliff heads) | ✅ **Built & scored** (§5c) | Multitask regularizes the rep (−0.055 vs 1-head) but cliff/noise gating of the base = 0; MLP < GBM base |
+| **Hierarchical gated curriculum** (broad→NR→PXR finetune) | ✅ **Built & scored** (§5c) | Genuine ordered transfer: **−0.048 vs scratch MLP on real 260**; still below GBM base |
+| **Biological read-across fingerprint** (NR panel) | ✅ **Built & scored** (§5c) | Fully absorbed (Δ 0.000); donor Tanimoto 0.28 = coverage wall |
 
 ## 5b. Post-hoc method exploration — what would actually have worked
 
@@ -168,6 +171,9 @@ The Boltz cofold embedding *knows* which structurally-active-looking compounds a
 | Multitask MLP (pEC50+counter+single-conc heads) | 0.7041 | +0.07 | ❌ absorbed (RyeCatcher's edge was calibration, not the net) |
 | TabPFN-on-CheMeleon (API key) | 0.7329 | +0.10 | ❌ absorbed (w=0) |
 | Tanimoto kernel-ridge | 0.8354 | +0.20 | ❌ absorbed (w=0) |
+| **Curriculum finetune** broad→NR→PXR (§5c) | 0.7552 | +0.12 vs base, **−0.048 vs scratch MLP** | ⚠️ transfer real & ordered, but MLP < GBM base |
+| **3-head** PXR+noise+cliff (§5c) | 0.7563 | +0.12 vs base, **−0.055 vs 1-head** | ⚠️ multitask regularizes; cliff/noise gate = 0 |
+| Biological read-across fingerprint (§5c) | base+0.000 | 0.000 (gate picks scale 0) | ❌ absorbed — donor Tanimoto 0.28 (coverage) |
 | MolFormer-XL embeddings | — | — | ⚠️ transformers-5.x incompatible (skipped) |
 | chemprop D-MPNN (CheMeleon / multitask) on Kaggle | — | — | ⚠️ blocked: chemprop pins numpy<2, conflicts with Kaggle numpy 2.x (documented dead-end) |
 
@@ -177,6 +183,78 @@ The Boltz cofold embedding *knows* which structurally-active-looking compounds a
 We already had all 4,139 training cofold embeddings (`boltz_z_rich_train.npy`), so the "full-train cofold" was done. A **deep interaction head on the full 512-dim z** (vs our PCA-24) added a genuine −0.006 to `comb` (0.6318 → 0.6255) — Boltz remains the one signal with real orthogonal value (it detects cliffs at AUC 0.84).
 
 **But the "ultimate ensemble" — stacking *every* validated lever with 253-set weights — regressed back to 0.648.** Setting the Boltz-head weight to its 253-optimum (0.40) then adding isotonic + cliff-floor *re-introduced the exact overfitting that cost us originally.* This is the deepest lesson, now proven twice: **on a small series-shifted test, each additional tuned lever is a liability. The robust base + ONE disciplined calibration (0.6167) beats the kitchen sink (0.648).**
+
+## 5c. The creative "representation" moonshots, built out and scored on the real 260
+
+Three ideas we had scoped but never built *as framed* during the campaign — a true
+multi-head model with a dedicated **activity-cliff head**, a staged **broad→NR→PXR
+curriculum finetune**, and a **biological read-across fingerprint** — were implemented
+from scratch post-hoc and scored honestly against the real 260 (base to beat =
+`combined_corrected`, RAE 0.6318). Scripts: `scripts/nb1361_three_head.py`,
+`nb1362_curriculum.py`, `nb1363_bio_readacross.py`. All use honest scaffold 5-fold OOF
+on the 4,139-compound train set to *gate* (pick configs / thresholds), then report the
+truly-blind 260.
+
+**① 3-head gated model — PXR pEC50 + assay-noise head + activity-cliff head.** A shared
+MLP trunk with three heads: pEC50 (L1), predicted assay noise (regress the measured
+`pEC50_std.error`), and a continuous **cliff-hazard** target (local SAR roughness — strict
+binary cliffs are only 20 compounds, too sparse to learn). Two questions:
+
+| Test | Result on real 260 |
+|---|---|
+| Does the multi-task rep help pEC50? (`3-head` vs single-head MLP, same trunk) | ✅ **yes: 0.756 vs 0.812 standalone (−0.055)** — the noise+cliff heads genuinely regularize |
+| Do the cliff / noise heads let us *gate* the base? (shrink high-hazard base preds → median) | ❌ **no** — calibration on train picks "no gate"; 260 Δ = 0.000 |
+
+The representation idea has real merit (the auxiliary heads regularize a weak learner), but
+the MLP never beats the GBM base, and — the key finding — **a dedicated cliff head still
+cannot tell you *which way* to correct a prediction.** It fails for the same reason the
+agentic MedChem tweaker failed: predicted-cliff-hazard is high-variance and unsigned.
+Fresh mechanistic confirmation the cliff wall is irreducible.
+
+**② Hierarchical gated curriculum finetune — broad → promiscuous NR → PXR.** One trunk,
+transferred through three stages: Tox21 12-assay NR/SR panel (broad xeno-sensing, BCE) →
+ChEMBL nuclear-receptor pEC50 (FXR/PPARγ/RXRα/CAR/VDR…, regression) → PXR pEC50. Four
+variants trained; the gate picks by honest scaffold-OOF:
+
+| Variant | scaffold-OOF RAE | **real 260 RAE** |
+|---|---|---|
+| scratch (PXR only) | 0.686 | 0.803 |
+| broad → PXR (skip NR) | 0.695 | 0.813 |
+| NR → PXR | 0.680 | 0.772 |
+| **broad → NR → PXR (full)** ← gate picks this | **0.673** | **0.755** |
+
+**This one is a genuine, correctly-signed positive: the full curriculum is −0.048 RAE on
+the blind 260 vs the scratch MLP, and the *ordering matters*** — skipping the NR-family
+middle stage actively hurts (0.813). Cross-target biological structure is real,
+transferable signal, and the sensible hierarchy (broad → family → target) is the right way
+to inject it. But like the 3-head, it lifts a weak neural learner *toward* — not past — the
+GBM base (0.632), so it can't add to the deployed ensemble. This is the end-to-end,
+real-260 demonstration of cycle-300's mirror-dataset finding (transfer helps, but PXR is a
+poor recipient — donor correlation ≈ 0.28).
+
+**③ Biological fingerprint — NR-panel read-across + cross-target transfer.** For each
+compound, a bio-descriptor built from the ChEMBL NR panel: Tanimoto-weighted **read-across**
+of the 5 nearest *measured* donor pEC50s per target, plus a **learned-transfer** prediction
+per target (21-dim block). Tested both as an added LGBM feature and as a residual on the base:
+
+| Test | real 260 |
+|---|---|
+| combined-LGBM vs combined + bioFP | 0.716 → 0.728 (no gain) |
+| base + bioFP-residual (scale gated on train) | 0.6318 → **0.6318 (Δ 0.000, gate picks scale 0)** |
+
+**Fully absorbed on the real 260** — exactly as nb1123 found on the 253, now confirmed on
+the true blind set. The reason is quantitative: the 260 compounds' **mean Tanimoto to the
+entire public NR panel is only 0.28.** PXR's chemistry sits too far from any measured
+neighbor to borrow — the wall is *coverage*, not representation.
+
+**What the three moonshots together prove.** Every creative representation lever produces a
+*real, correctly-signed* effect on a neural learner — multi-task regularization (−0.055),
+hierarchical transfer (−0.048), and the mirror/read-across machinery all *work* in the
+direction their theory predicts. **Yet none beats or adds to the gradient-boosted base on
+the truly-blind set.** The two that lean on cross-target biology are capped by the 0.28
+donor similarity (coverage); the cliff head fails because cliffs are unsigned from
+structure. This is the same wall, reached from three new directions — and it is
+consistently a *coverage/information* wall, not a *modeling* one.
 
 ## 6. Would measured efficacy (Emax) have saved us? No.
 
