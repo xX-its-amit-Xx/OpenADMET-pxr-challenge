@@ -173,6 +173,11 @@ The Boltz cofold embedding *knows* which structurally-active-looking compounds a
 
 **Conclusion of the exhaustive sweep:** *no new base model or foundation embedding beats our existing ensemble* — every one is absorbed, confirming the pre-hoc "representation is saturated" finding on the truly-blind set. **The only real headroom we missed was disciplined post-hoc calibration + cliff-abstention** (−0.043 RAE), not a better model.
 
+### The full-train Boltz interaction head + the over-stacking lesson
+We already had all 4,139 training cofold embeddings (`boltz_z_rich_train.npy`), so the "full-train cofold" was done. A **deep interaction head on the full 512-dim z** (vs our PCA-24) added a genuine −0.006 to `comb` (0.6318 → 0.6255) — Boltz remains the one signal with real orthogonal value (it detects cliffs at AUC 0.84).
+
+**But the "ultimate ensemble" — stacking *every* validated lever with 253-set weights — regressed back to 0.648.** Setting the Boltz-head weight to its 253-optimum (0.40) then adding isotonic + cliff-floor *re-introduced the exact overfitting that cost us originally.* This is the deepest lesson, now proven twice: **on a small series-shifted test, each additional tuned lever is a liability. The robust base + ONE disciplined calibration (0.6167) beats the kitchen sink (0.648).**
+
 ## 6. Would measured efficacy (Emax) have saved us? No.
 
 The released 260 truth includes **Emax** (max efficacy). If the cliff-inactives were low-efficacy partial agonists, Emax could have flagged them. It does not:
