@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "smolbench"
+version = "0.1.0"
+description = "Automated model + data optimization for small small-molecule datasets, with honest (scaffold) CV baked in."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Amit Shenoy" }]
+keywords = ["cheminformatics", "qsar", "automl", "rdkit", "deepchem", "molecular-property-prediction"]
+dependencies = [
+    "numpy",
+    "pandas",
+    "scipy",
+    "scikit-learn>=1.1",
+    "rdkit",
+    "matplotlib",
+]
+
+[project.optional-dependencies]
+boosters = ["lightgbm", "xgboost", "catboost"]
+all = ["lightgbm", "xgboost", "catboost"]
+
+[project.urls]
+Homepage = "https://github.com/xX-its-amit-Xx/OpenADMET-pxr-challenge"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["smolbench*"]
