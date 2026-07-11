@@ -123,8 +123,8 @@ Had we trusted the single robust component instead of the over-tuned blend, we'd
 
 | Approach | Status | Result |
 |---|---|---|
-| **TabPFN-on-CheMeleon** | ❌ Blocked | TabPFN v8 is hard-gated behind a PriorLabs API key + browser license flow (unusable headless). TabPFN alone was weak anyway (0.79 in our blend). |
-| **CheMeleon deep-ensemble** (fresh D-MPNN fine-tune) | 🔬 On Kaggle GPU | Kept dying on Colab pre-challenge; re-launched on Kaggle. *(memory prior: CheMeleon embeddings already absorbed by the blend)* |
+| **TabPFN-on-CheMeleon** | ✅ **Built & scored** (API key provided) | **RAE 0.7329 / MAE 0.5177 — worse than a plain component; blend weight 0 (fully absorbed).** The much-cited "winner technique," run correctly, does not transfer to PXR. |
+| **CheMeleon deep-ensemble** (fresh D-MPNN fine-tune) | 🔬 On Kaggle GPU | *(memory + the two results above: CheMeleon-based models are already absorbed on this task; low prior)* |
 | Diverse models on CheMeleon (CatBoost/ET/Ridge) | ✅ Done pre-hoc | Blend weight 0 (absorbed) |
 | Full-train Boltz cofold (4139) + interaction head | ⏸ Not attempted post-hoc | Multi-hour GPU; the one axis with a real prior, but the challenge is over |
 

@@ -40,7 +40,7 @@ import torch
 dev="cuda" if torch.cuda.is_available() else "cpu"
 print("device", dev, flush=True)
 # TabPFN caps train at ~10k; 4392 is fine
-reg=TabPFNRegressor(device=dev, n_estimators=8)
+reg=TabPFNRegressor(device=dev, n_estimators=4, ignore_pretraining_limits=True)
 reg.fit(Ztr, yall)
 pred260=reg.predict(Zte)
 np.save(f"{OUT}/tabpfn_cheml_260.npy", pred260)
