@@ -54,6 +54,12 @@ We scored **every method variant** on the now-known 260 truth. Result:
 
 The **28 inactive compounds carry MAE 1.09 with +1.08 bias** — we systematically over-predicted them by a full log unit. This is the **activity-cliff wall** confirmed on the blind set: inactive compounds that look structurally like actives. Actives are mildly under-predicted (−0.26, range compression).
 
+![Prediction vs truth on the 260 blind set](docs/posthoc_figs/pred_vs_truth_260.png)
+
+*Left: every one of the 260 blind compounds — the inactives (red) sit far above the diagonal (over-predicted); ringed points are the 26 activity cliffs. Right: error distribution by tier — the inactive over-prediction is the whole story.*
+
+![Worst compound families](docs/posthoc_figs/family_mae.png)
+
 ---
 
 ## 3. Per-compound & per-family analysis
