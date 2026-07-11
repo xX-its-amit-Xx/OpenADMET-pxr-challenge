@@ -89,11 +89,38 @@ Full tables: [`data/processed/posthoc/percompound_260.csv`](data/processed/posth
 
 The families with the widest true-pEC50 range (a scaffold that spans inactive→active) are the hardest — they *are* the cliff families. A single scaffold can contain both a 2.1 and a 6.1 compound.
 
-## 4. Retrospective test of our "negative" methods on the 260
-*🔬 In progress — did agentic reasoning / physics / substructure / water actually help on the truly-blind set?*
+## 4. Retrospective: were our method calls right on the truly-blind 260?
 
-## 5. Approaches we didn't finish in time (now built on GPU)
-*🔬 In progress — CheMeleon deep-ensemble, full-train Boltz cofold + interaction head, TabPFN, explicit-water GNN. Running on Kaggle.*
+We re-scored our decisions against the now-known 260 truth, using the robust `combined_corrected` (0.6318) as the base:
+
+| Lever | 260 RAE | Δ vs base | Verdict on blind set |
+|---|---|---|---|
+| **+ single-concentration shift + gate** | **0.6256** | **−0.0062** | ✅ **Our lever was correct — it transferred** |
+| + desolvation / water | 0.6318 | 0.0000 | ✅ Correctly rejected |
+| + physics ensemble (DBSTEP etc.) | 0.6785 (standalone) | +0.05 | ✅ Correctly rejected |
+| agentic MedChem tweaker (253 pilot) | — | net-negative on 253 | ✅ Correctly rejected (cliffs are anti-intuitive) |
+
+**Every method decision we made held up on the truly-blind set.** The single-conc functional prior helped; physics, desolvation, agentic reasoning, and substructure priors were all correctly rejected.
+
+### 4.1 The one real mistake — and the counterfactual best
+Our corrections were sound; **our error was the meta-stacker blend weights**, tuned on the 253:
+
+| Model | 260 RAE | 260 MAE |
+|---|---|---|
+| **What we submitted** (0.40·meta + 0.20·knn + 0.10·comb + 0.30·boltz, + corrections) | 0.6596 | 0.4659 |
+| **Counterfactual: `combined_corrected` + the same corrections** | **0.6256** | **0.4419** |
+| Leaderboard statistical-tie cluster | ~0.40–0.43 MAE | |
+
+Had we trusted the single robust component instead of the over-tuned blend, we'd have scored **MAE 0.4419 — essentially at the edge of the tie cluster**. The meta-stacker looked best on the 253 (0.6142) so we weighted it 0.40, but it was the *worst* component on the 260 (0.7307). **This is the single clearest actionable lesson: on a small, series-shifted test, prefer the most robust single model to a finely-weighted stack.**
+
+## 5. Approaches we couldn't finish in time — post-hoc build status
+
+| Approach | Status | Result |
+|---|---|---|
+| **TabPFN-on-CheMeleon** | ❌ Blocked | TabPFN v8 is hard-gated behind a PriorLabs API key + browser license flow (unusable headless). TabPFN alone was weak anyway (0.79 in our blend). |
+| **CheMeleon deep-ensemble** (fresh D-MPNN fine-tune) | 🔬 On Kaggle GPU | Kept dying on Colab pre-challenge; re-launched on Kaggle. *(memory prior: CheMeleon embeddings already absorbed by the blend)* |
+| Diverse models on CheMeleon (CatBoost/ET/Ridge) | ✅ Done pre-hoc | Blend weight 0 (absorbed) |
+| Full-train Boltz cofold (4139) + interaction head | ⏸ Not attempted post-hoc | Multi-hour GPU; the one axis with a real prior, but the challenge is over |
 
 ---
 
