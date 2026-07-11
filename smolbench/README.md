@@ -18,9 +18,11 @@ is lying to you.
 
 ## Install
 
+[![PyPI](https://img.shields.io/pypi/v/smolbench.svg)](https://pypi.org/project/smolbench/)
+
 ```bash
-pip install -e .            # core (rdkit + sklearn)
-pip install -e ".[all]"     # + lightgbm / xgboost / catboost
+pip install smolbench            # core (rdkit + sklearn)
+pip install "smolbench[all]"     # + lightgbm / xgboost / catboost
 ```
 
 ## 60-second use
@@ -136,7 +138,7 @@ dep) has been contributed upstream:
 
 ## PyPI
 
-Package builds cleanly (`python -m build`; `twine check` passes). Publish with:
+**Published:** https://pypi.org/project/smolbench/ · `pip install smolbench`. Rebuild/upload with:
 
 ```bash
 python -m build
