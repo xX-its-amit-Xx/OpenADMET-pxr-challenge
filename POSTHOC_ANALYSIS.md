@@ -157,6 +157,22 @@ The Boltz cofold embedding *knows* which structurally-active-looking compounds a
 
 **But the ceiling is still the inactive tail:** even the oracle-optimal blend is only 0.6286; the only way below ~0.60 is resolving the inactive cliffs (oracle 0.4930), and detection caps at AUC ~0.71 on transfer — so realistically ~0.60 is the achievable floor with everything we have.
 
+### Full method scoreboard (everything tried post-hoc on the blind 260)
+| Method | 260 RAE | vs `comb` (0.6318) | Verdict |
+|---|---|---|---|
+| **comb + sc-shift + honest isotonic** | **0.6167** | **−0.015** | ✅ best honest deployable |
+| + cliff-abstention floor | 0.6206 (MAE **0.4384**) | −0.011 | ✅ best MAE |
+| *oracle: optimal convex blend* | 0.6286 | −0.003 | (blending is nearly maxed) |
+| `combined_corrected` (robust base) | 0.6318 | — | our best single component |
+| **What we submitted** | 0.6596 | +0.028 | overfit blend weights |
+| Multitask MLP (pEC50+counter+single-conc heads) | 0.7041 | +0.07 | ❌ absorbed (RyeCatcher's edge was calibration, not the net) |
+| TabPFN-on-CheMeleon (API key) | 0.7329 | +0.10 | ❌ absorbed (w=0) |
+| Tanimoto kernel-ridge | 0.8354 | +0.20 | ❌ absorbed (w=0) |
+| MolFormer-XL embeddings | — | — | ⚠️ transformers-5.x incompatible (skipped) |
+| chemprop D-MPNN (CheMeleon / multitask) on Kaggle | — | — | ⚠️ blocked: chemprop pins numpy<2, conflicts with Kaggle numpy 2.x (documented dead-end) |
+
+**Conclusion of the exhaustive sweep:** *no new base model or foundation embedding beats our existing ensemble* — every one is absorbed, confirming the pre-hoc "representation is saturated" finding on the truly-blind set. **The only real headroom we missed was disciplined post-hoc calibration + cliff-abstention** (−0.043 RAE), not a better model.
+
 ## 6. Would measured efficacy (Emax) have saved us? No.
 
 The released 260 truth includes **Emax** (max efficacy). If the cliff-inactives were low-efficacy partial agonists, Emax could have flagged them. It does not:
